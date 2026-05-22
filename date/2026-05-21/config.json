@@ -1,0 +1,321 @@
+{
+  "base_info": {
+    "2605.17916": {
+      "title": "PanoWorld: A Generative Spatial World Model for Consistent Whole-House Panorama Synthesis",
+      "abstract": "Generating a consistent whole-house VR tour from a floorplan and style reference requires both photorealistic panoramas and cross-view spatial coherence. Pure 2D generators produce appealing single panoramas but re-imagine geometry and materials when the viewpoint changes, whereas monolithic 3D generation becomes expensive and loses fine texture at multi-room scale. We introduce PanoWorld, a generative spatial world model that treats whole-house synthesis as autoregressive generation of node-based 360-degree panoramas, matching the discrete navigation used by real VR tour products. PanoWorld uses a floorplan-derived 3D shell as a global geometric proxy and a dynamic 3D Gaussian Splatting cache as renderable spatial memory. A feed-forward panoramic LRM designed for metric-scale multi-room 360-degree inputs lifts generated panoramas into local 3DGS updates, while Room-aware Group Attention suppresses cross-room feature interference. A topology-aware progressive caching strategy fuses these local updates without repeatedly reconstructing the full history. By decoupling shell-based geometry guidance from cache-rendered visual memory, PanoWorld preserves high-frequency 2D synthesis quality while improving cross-node layout and material consistency. The project link isthis https URL",
+      "hf_link": "https://huggingface.co/papers/2605.17916"
+    },
+    "2605.21431": {
+      "title": "iTryOn: Mastering Interactive Video Virtual Try-On with Spatial-Semantic Guidance",
+      "abstract": "Video Virtual Try-On (VVT) aims to seamlessly replace a garment on a person in a video with a new one. While existing methods have made significant strides in maintaining temporal consistency, they are predominantly confined to non-interactive scenarios where models merely showcase garments. This limitation overlooks a crucial aspect of real-world apparel presentation: active human-garment interaction. To bridge this gap, we introduce and formalize a new challenging task: Interactive Video Virtual Try-On (Interactive VVT), where subjects in the video actively engage with their clothing. This task introduces unique challenges beyond simple texture preservation, including: (1) resolving the semantic ambiguity of interactions from standard pose information, and (2) learning complex garment deformations from video where interactive moments are sparse and brief. To address these challenges, we propose iTryOn, a novel framework built upon a large-scale video diffusion Transformer. iTryOn pioneers a multi-level interaction injection mechanism to guide the generation of complex dynamics. At the spatial level, we introduce a garment-agnostic 3D hand prior to provide fine-grained guidance for precise hand-garment contact, effectively resolving spatial ambiguity. At the semantic level, iTryOn leverages global captions for overall context and time-stamped action captions for localized interactions, synchronized via our novel Action-aware Rotational Position Embedding (A-RoPE). Extensive experiments demonstrate that iTryOn not only achieves state-of-the-art performance on traditional VVT benchmarks but also establishes a commanding lead in the new interactive setting, marking a significant step towards more dynamic and controllable virtual try-on experiences.",
+      "hf_link": "https://huggingface.co/papers/2605.21431"
+    },
+    "2605.21131": {
+      "title": "UniT: Unified Geometry Learning with Group Autoregressive Transformer",
+      "abstract": "Recent feed-forward models have significantly advanced geometry perception for inferring dense 3D structure from sensor observations. However, its essential capabilities remain fragmented across multiple incompatible paradigms, including online perception, offline reconstruction, multi-modal integration, long-horizon scalability, and metric-scale estimation. We present UniT, a unified model built upon a novel Group Autoregressive Transformer, which reformulates these seemingly disparate capabilities within a single framework. The key idea is to treat groups of sensor observations as the basic autoregressive units and predict the corresponding point maps in an anchor-free and scale-adaptive manner. More specifically, diverse view configurations in both online and offline settings are naturally unified within a single group autoregression process. By varying the group size, online mode operates over multiple autoregressive steps with single-frame groups, whereas offline mode aggregates a multi-frame group in a single forward pass. Meanwhile, a queue-style KV caching mechanism ensures bounded autoregressive memory over long horizons. This is enabled by reducing long-range dependencies on early frames through anchor-free relational modeling, thereby allowing outdated memory to be discarded on the fly. To improve metric-scale generalization across scenes, a scale-adaptive geometry loss is further introduced within this framework. It couples relative geometric constraints with a partial absolute scale term, implicitly regularizing global scale and inducing a progressive transition from scale-invariant geometry to metric-scale solutions. Together with a dedicated modal attention module for integrating auxiliary modalities, UniT achieves state-of-the-art performance in unified geometry perception, as validated on ten benchmarks spanning seven representative tasks.",
+      "hf_link": "https://huggingface.co/papers/2605.21131"
+    },
+    "2605.20955": {
+      "title": "DrawMotion: Generating 3D Human Motions by Freehand Drawing",
+      "abstract": "Text-to-motion generation, which translates textual descriptions into human motions, faces the challenge that users often struggle to precisely convey their intended motions through text alone. To address this issue, this paper introduces DrawMotion, an efficient diffusion-based framework designed for multi-condition scenarios. DrawMotion generates motions based on both a conventional text condition and a novel hand-drawing condition, which provide semantic and spatial control over the generated motions, respectively. Specifically, we tackle the fine-grained motion generation task from three perspectives: 1) freehand drawing condition. To accurately capture users' intended motions without requiring tedious textual input, we develop an algorithm to automatically generate hand-drawn stickman sketches across different dataset formats; 2) multi-condition fusion. We propose a Multi-Condition Module (MCM) that is integrated into the diffusion process, enabling the model to exploit all possible condition combinations while reducing computational complexity compared to conventional approaches; and 3) training-free guidance. Notably, the MCM in DrawMotion ensures that its intermediate features lie in a continuous space, allowing classifier-guidance gradients to update the features and thereby aligning the generated motions with user intentions while preserving fidelity. Quantitative experiments and user studies demonstrate that the freehand drawing approach reduces user time by approximately 46.7% when generating motions aligned with their imagination. The code, demos, and relevant data are publicly available atthis https URL.",
+      "hf_link": "https://huggingface.co/papers/2605.20955"
+    },
+    "2605.21487": {
+      "title": "Uni-Edit: Intelligent Editing Is A General Task For Unified Model Tuning",
+      "abstract": "Currently, enhancing Unified Multimodal Models (UMMs) with image understanding, generation, and editing capabilities mainly relies on mixed multi-task training. Due to inherent task conflicts, such strategy requires complex multi-stage pipelines, massive data mixing, and balancing tricks, merely resulting in a performance trade-off rather than true mutual reinforcement. To break this paradigm, we propose Uni-Edit, an intelligent image editing task that serves as the first general task for UMM tuning. Unlike complex mixed pipelines, Uni-Edit improves performance across all three abilities at once using only one task, one training stage, and one dataset. Specifically, we first identify image editing as an inherently ideal general task, as it naturally demands both visual understanding and generation. However, existing editing data relies on simplistic instructions that severely underutilize a model's understanding capacity. To address this, we introduce the first automated and scalable data synthesis pipeline for intelligent editing, transforming diverse VQA data into complex and effective editing instructions with embedded questions and nested logic. This yields Uni-Edit-148k, pairing diverse reasoning-intensive instructions with high-quality edited images. Extensive experiments on BAGEL and Janus-Pro demonstrate that tuning solely on Uni-Edit achieves comprehensive enhancements across all three capabilities without any auxiliary operations.",
+      "hf_link": "https://huggingface.co/papers/2605.21487"
+    },
+    "2605.18233": {
+      "title": "Enhancing Train-Free Infinite-Frame Generation for Consistent Long Videos",
+      "abstract": "Without incurring significant computational overhead, train-free long video generation aims to enable foundation video generation models to produce longer videos. Frame-level autoregressive frameworks, e.g., FIFO-diffusion, offer the advantage of generating infinitely long videos with constant memory consumption. However, the mismatch between training and inference, coupled with the challenge of maintaining long-term consistency, limits the effective utilization of foundation models. To mitigate these concerns, we propose \\textbf{MIGA}, a novel infinite-frame long video generation method. Firstly, we propose an effective two-stage alignment mechanism that mitigates the training-inference gap by reducing the excessive noise span fed to the model. We then introduce an innovative dual consistency enhancement mechanism, where the self-reflection approach corrects early high-noise frames and the long-range frame guidance approach leverages later low-noise frames with broad coverage to steer generation, jointly improving temporal consistency. Extensive experiments on VBench and NarrLV demonstrate the state-of-the-art performance of MIGA. Our project page is available atthis https URL.",
+      "hf_link": "https://huggingface.co/papers/2605.18233"
+    },
+    "2605.21343": {
+      "title": "OcclusionFormer: Arranging Z-Order for Layout-Grounded Image Generation",
+      "abstract": "Recent layout-to-image models have achieved remarkable progress in spatial controllability. However, they still struggle with inter-object occlusion. When bounding boxes overlap, most existing methods lack explicit occlusion information, which makes the generation in intersection regions inherently ambiguous and hinders the determination of complex occlusion relationships. As a result, they often produce entangled textures or physically inconsistent layering in the overlapped areas. To address this issue, we first construct SA-Z, a large-scale dataset enriched with explicit occlusion ordering and pixel-level annotations. Building upon our proposed dataset, we introduce OcclusionFormer, a novel occlusion-aware Diffusion Transformer framework that explicitly models Z-order priority by decoupling instances and compositing them via volume rendering. Furthermore, to ensure fine-grained spatial precision, we introduce a queried alignment loss that explicitly supervises individual instances and enhances semantic consistency. The proposed method effectively reduces ambiguity in overlapping regions, enforces correct occlusion dependencies, and preserves structural integrity, leading to substantial accuracy gains across diverse scenes.",
+      "hf_link": "https://huggingface.co/papers/2605.21343"
+    },
+    "2605.19804": {
+      "title": "Stitched Value Model for Diffusion Alignment",
+      "abstract": "For practical use, diffusion- or flow-based generative models must be aligned with task-specific rewards, such as prompt fidelity or aesthetic preference. That alignment is challenging because the reward is defined for clean output images, but the alignment procedure requires value function estimates at noisy intermediate latents. Existing methods resort to Tweedie-style or Monte Carlo approximations, trading off estimator bias against computational cost: Tweedie estimates are efficient but biased, while Monte Carlo estimates are more accurate but require expensive rollouts. A natural alternative would be a learned value function, but it remains an open question how to effectively train a strong and general value model specifically for noisy latents. Here, we propose StitchVM, a model stitching framework that efficiently transfers reward models pretrained for clean images to the noisy latent regime. StitchVM starts from an existing, truncated pixel-space reward model and attaches a frozen diffusion backbone to it as its head. From the pixel-space model, the resulting hybrid retains a carefully pretrained, robust reward capability; from the diffusion backbone, it inherits its native ability to handle noisy latents. The stitching procedure is exceptionally lightweight, e.g., stitching and finetuning CLIP ViT-L and SD 3.5 Medium takes only 10 GPU-hours. By lifting powerful pixel-space reward models to latent space, StitchVM opens up a new style of diffusion alignment: instead of rough, yet costly per-sample approximation of the value function, the correct function for the actual, noisy latents is constructed once and then amortized over many samples and iterations. We show that this approach yields improvements across a broad range of downstream steering and post-training methods: DPS becomes $3.2\\times$ faster while halving peak GPU memory, and DiffusionNFT becomes $2.3\\times$ faster.",
+      "hf_link": "https://huggingface.co/papers/2605.19804"
+    },
+    "2605.21981": {
+      "title": "RiT: Vanilla Diffusion Transformers Suffice in Representation Space",
+      "abstract": "Flow matching with $x$-prediction -- regressing the clean data point rather than the ambient velocity -- is known to exploit low-dimensional manifold structure effectively in pixel space \\cite{li2025back}. We ask whether a pretrained representation space, while containing a low-dimensional data manifold of comparable intrinsic dimensionality, offers a distribution more favorable for flow-matching learning. Comparing pixel, SD-VAE, and DINOv2 features along four geometric axes, we find that pixel and DINOv2 share nearly identical intrinsic dimensionalities (both $\\hat{d}\\!\\approx\\!33$) yet DINOv2 exhibits $7.3\\times$ higher effective rank, $35\\times$ better covariance conditioning, $11.5\\times$ lower excess kurtosis, and $1.7\\times$ lower on-manifold interpolation error; SD-VAE latents are consistently intermediate, indicating that the advantage stems from representation-learning objectives rather than mere compression. These statistical properties render the flow-matching regression well-conditioned and remove the need for the specialized prediction heads or Riemannian transport used by prior DINOv2 diffusion methods. We propose the \\emph{Representation Image Transformer} (RiT): a vanilla Diffusion Transformer trained by $x$-prediction on frozen DINOv2 features, augmented only by a dimension-aware noise schedule and joint \\texttt{[CLS]}-patch modeling. On ImageNet $256{\\times}256$, RiT attains FID 1.45 without guidance and 1.14 with classifier-free guidance, outperforming DiT$^\\text{DH}$-XL with $19\\%$ fewer parameters (676M vs.\\ 839M). The resulting ODE is efficiently solvable at coarse discretizations: with classifier-free guidance, $5$ Heun steps already reach FID 2.0 and $10$ steps reach 1.25, without distillation or consistency training. Code atthis https URL.",
+      "hf_link": "https://huggingface.co/papers/2605.21981"
+    }
+  },
+  "hf_votes": {
+    "2605.14747": 0,
+    "2605.19833": 0,
+    "2605.18233": 0,
+    "2605.21468": 0,
+    "2605.20682": 0,
+    "2605.19660": 0,
+    "2605.20266": 0,
+    "2605.20258": 0,
+    "2605.20119": 0,
+    "2605.20315": 0,
+    "2605.19376": 0,
+    "2605.21487": 0,
+    "2605.19484": 0,
+    "2605.19597": 0,
+    "2605.20613": 0,
+    "2605.20630": 0,
+    "2605.20668": 0,
+    "2605.21343": 0,
+    "2605.15113": 0,
+    "2605.19804": 0,
+    "2605.17991": 0,
+    "2605.21226": 0,
+    "2605.19330": 0,
+    "2605.21981": 0,
+    "2605.21131": 0,
+    "2605.17916": 0,
+    "2605.17526": 0,
+    "2605.16787": 0,
+    "2605.20834": 0,
+    "2605.21384": 0,
+    "2605.21463": 0,
+    "2605.18565": 0,
+    "2605.20955": 0,
+    "2605.20873": 0,
+    "2605.19008": 0,
+    "2604.27263": 0,
+    "2602.07892": 0,
+    "2605.21431": 0,
+    "2605.20158": 0,
+    "2605.20179": 0,
+    "2605.18329": 0,
+    "2605.17110": 0,
+    "2605.17109": 0
+  },
+  "focus_sections": {
+    "3D生成与重建": [
+      "2605.21131",
+      "2605.17916",
+      "2605.20955"
+    ],
+    "视频生成": [
+      "2605.18233",
+      "2605.21431"
+    ],
+    "图像生成": [
+      "2605.21487",
+      "2605.21343",
+      "2605.19804",
+      "2605.21981"
+    ]
+  },
+  "summaries": {
+    "2605.17916": {
+      "short_zh": "生成空间一致的全屋全景图",
+      "tags": "计算机图形学；三维重建与生成；全景空间生成",
+      "body_summary": "从平面图和风格参考生成空间一致的全屋VR漫游是一项挑战。\n提出PanoWorld模型，通过解耦几何引导与视觉记忆，自回归生成节点式全景图，兼顾单图质量与跨视图一致性。"
+    },
+    "2605.21431": {
+      "short_zh": "交互式视频虚拟试衣新方法",
+      "tags": "计算机视觉;图像与视频生成;视频虚拟试衣",
+      "body_summary": "现有视频虚拟试衣方法局限于非交互场景，无法处理人物主动与服装互动的真实情形，本文提出并定义交互式视频虚拟试衣新任务。\n提出iTryOn框架，通过空间级手势先验和语义级动作描述引导，利用视频扩散Transformer生成具有复杂动态的逼真交互试衣效果。"
+    },
+    "2605.21131": {
+      "short_zh": "统一模型处理几何感知任务",
+      "tags": "计算机视觉；三维视觉；密集三维重建",
+      "body_summary": "当前几何感知模型在多种场景下能力割裂，存在范式不统一的问题。\n提出UniT模型，通过组自回归变换器统一处理在线、离线等多种感知任务，并引入尺度自适应损失提升泛化能力。"
+    },
+    "2605.20955": {
+      "short_zh": "手绘草图生成人体三维动作",
+      "tags": "计算机图形学；人体动画生成；文本与草图驱动动作生成",
+      "body_summary": "文本生成人体动作时，用户难以用文字精确描述意图\n提出DrawMotion框架，融合文本和手绘草图条件，通过多条件模块和免训练引导实现意图对齐的动作生成"
+    },
+    "2605.21487": {
+      "short_zh": "统一多模态模型智能编辑任务",
+      "tags": "多模态学习;图像理解与生成;智能图像编辑",
+      "body_summary": "当前统一多模态模型需通过复杂多任务混合训练来提升图像理解、生成和编辑能力。\n提出一个智能编辑通用任务及数据合成方法，仅用单一任务即可同时增强模型三项能力。"
+    },
+    "2605.18233": {
+      "short_zh": "免训练无限帧长视频生成",
+      "tags": "计算机视觉;视频生成;长视频一致性",
+      "body_summary": "无需额外训练，如何让基础视频生成模型生成更长、更连贯的视频是当前挑战。\n提出MIGA方法，通过两阶段对齐缓解训练推理差距，并利用自反思和长程引导双机制提升时间一致性，在多个评测集上取得领先性能。"
+    },
+    "2605.21343": {
+      "short_zh": "重叠图像生成排序模型",
+      "tags": "计算机视觉;图像生成;遮挡关系建模",
+      "body_summary": "现有布局生成图像模型在物体重叠区域存在遮挡关系不明确的问题，导致生成结果混乱或不真实。\n我们构建了带遮挡标注的数据集，并提出了一个显式建模物体前后顺序的扩散Transformer模型，通过解耦实例和体渲染合成来解决遮挡问题。"
+    },
+    "2605.19804": {
+      "short_zh": "缝合扩散模型与奖励函数指导生成",
+      "tags": "生成模型;扩散模型对齐;价值模型构建",
+      "body_summary": "扩散模型需与图像奖励对齐，但奖励定义于干净图像而价值估计需在含噪潜空间进行。\n提出缝合框架，以轻量方式将预训练奖励模型迁移至含噪潜空间，提升多种下游对齐方法的效率。"
+    },
+    "2605.21981": {
+      "short_zh": "基于表征空间的扩散模型训练",
+      "tags": "计算机视觉;生成模型;图像扩散模型",
+      "body_summary": "本研究探讨在预训练表征空间进行流匹配学习是否比像素空间更具优势。\n发现DINOv2特征具有更优统计特性，据此设计了简化的扩散Transformer，在图像生成任务上取得了更好效果。"
+    }
+  },
+  "deep_analysis": {},
+  "figures": {
+    "2605.17916": [
+      {
+        "path": "https://arxiv.org/html/2605.17916v2/LRM.png",
+        "caption": "Figure 2:Room-aware panoramic LRM.Grouped attention allows dense intra-room interaction and restricted cross-room communication only through topological boundaries.",
+        "role": "pipeline_1",
+        "caption_zh": "图2：房间感知全景LRM。分组注意力机制实现了密集的房间内交互，且跨房间通信仅限于通过拓扑边界进行。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.17916v2/3dgs-caching.jpg",
+        "caption": "Figure 3:Progressive 3DGS caching.PanoWorld updates spatial memory through local topology-aware increments instead of full-history reconstruction.",
+        "role": "pipeline_2",
+        "caption_zh": "图3：渐进式3D高斯泼溅缓存。PanoWorld通过局部拓扑感知增量而非全历史重建来更新空间记忆。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.17916v2/cross-room.jpg",
+        "caption": "Figure 4:Cross-room memory filtering.Shell depth removes cache pixels that lie behind the first visible room surface and would otherwise introduce large erroneous textures.",
+        "role": "pipeline_3",
+        "caption_zh": "图4：跨房间记忆滤波。外壳深度会移除位于首个可见房间表面后方的缓存像素，否则这些像素会引入明显的错误纹理。"
+      }
+    ],
+    "2605.21431": [
+      {
+        "path": "https://arxiv.org/html/2605.21431v1/x2.png",
+        "caption": "Figure 2:The iTryOn architecture. (a) A DiT backbone with parallel injection of general context and 3D-hand guidance from our Interaction Guider. An action-aware constraint loss focuses training on interaction frames. (b) The Interaction Guider module fuses spatial features with global and action-specific text prompts. (c) Our A-RoPE mechanism aligns action captions to their corresponding video segments via unique rotational position encodings in temporal cross-attention.",
+        "role": "pipeline_1",
+        "caption_zh": "图 2：iTryOn 架构。(a) 采用 DiT 骨干网络，并行注入通用上下文及来自交互引导模块的 3D 手部引导；动作感知约束损失使训练聚焦于交互帧。(b) 交互引导模块将空间特征与全局及动作特定文本提示相融合。(c) 我们的 A-RoPE 机制通过时域交叉注意力中独特的旋转位置编码，将动作描述与其对应的视频片段对齐。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.21431v1/x3.png",
+        "caption": "Figure 3:Visual justification for our garment-agnostic 3D hand prior. Deriving a ”Hand Depth” prior from human parsing(Liet al.,2022)and video depth(Chenet al.,2025)suffers from critical information leakage. This flawed prior improperly retains source garment geometry, such as the sleeve cuff, leading directly to visible artifacts in the generated output. In contrast, our fully garment-agnostic 3D hand prior provides a clean signal, enabling the generation of plausible and artifact-free hand-garment contact. SeeAppendixA.3for more details.",
+        "role": "pipeline_2",
+        "caption_zh": "图3：本文所提出的服装无关3D手部先验的视觉依据。从人体解析（Li等，2022）和视频深度（Chen等，2025）中推导出的“手部深度”先验存在严重的信息泄露问题。这一有缺陷的先验不适当地保留了源服装的几何结构（例如袖口），直接导致生成结果中出现可见的伪影。相比之下，我们完全服装无关的3D手部先验提供了干净的信号，从而能够生成合理且无伪影的手部-服装接触效果。更多细节见附录A.3。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.21431v1/x6.png",
+        "caption": "Figure 6:Visual motivation for our Action-aware Semantic Guidance. These examples from our VVT-Interact dataset highlight the semantic ambiguity of VLM-generated global captions. Although the ground-truth interactions are distinct (rolling sleeves vs. adjusting the hem), both are imprecisely described with the generic verb ”adjusts”. Our categorical action captions resolve this ambiguity, providing the model with a clear and actionable signal required for high-fidelity interaction synthesis.",
+        "role": "pipeline_3",
+        "caption_zh": "图6：我们提出的动作感知语义引导机制的直观动机。这些来自VVT-Interact数据集的示例凸显了视觉语言模型生成的全局描述存在语义模糊性。尽管真实交互动作截然不同（卷起袖子 vs. 调整下摆边缘），两者均被笼统地描述为通用动词“调整”。我们的分类化动作描述则解决了这种模糊性，为模型提供了实现高保真交互合成所需的清晰且可操作信号。"
+      }
+    ],
+    "2605.21131": [
+      {
+        "path": "https://arxiv.org/html/2605.21131v1/img/framework.png",
+        "caption": "Figure 3:Architecture Overview.Image groups are first patchified into tokens using DINO[39]. These tokens are then fused with tokens encoded from optional modalities through a modal attention layer, followed by frame attention and global attention layers. In global attention, bidirectional attention operates within each group, while causal attention is applied across groups. The fused tokens are finally decoded into global point maps, represented by a local point map using DPT head[43]and camera extrinsics with our anchor-free (AF) camera head. To control model complexity, modal attention is applied four times.",
+        "role": "pipeline_1",
+        "caption_zh": "图 3：架构概览。图像组首先通过 DINO[39] 划分为补丁并转换为标记。随后，这些标记通过模态注意力层与可选模态编码得到的标记进行融合，再经过帧注意力层和全局注意力层处理。在全局注意力中，双向注意力作用于各组内部，而因果注意力则应用于组间。融合后的标记最终通过 DPT 解码头[43]解码为全局点图，并利用我们的无锚点相机头结合相机外参表示为局部点图。为控制模型复杂度，模态注意力层共应用四次。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.21131v1/img/crossattn.png",
+        "caption": "Figure 5:Illustration of two types of attention layers, including (a) standard cross attention and (b) the proposed modal attention.",
+        "role": "pipeline_2",
+        "caption_zh": "图 5：两种注意力层的示意图，包括（a）标准交叉注意力与（b）所提出的模态注意力。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.21131v1/img/mask.png",
+        "caption": "Figure 4:Illustration of three types of attention mask, including (a) null mask, (b) standard causal mask, and (c) our group causal mask with a group size of 2. Entries marked as “-inf” indicate masked tokens. For simplicity, each token denotes one frame in this illustration.",
+        "role": "pipeline_3",
+        "caption_zh": "图4：三种注意力掩码示意图，包括（a）无掩码，（b）标准因果掩码，以及（c）本文提出的组因果掩码（组大小为2）。标记为“-inf”的条目表示被掩蔽的词元。为简化示意，此处每个词元代表一帧。"
+      }
+    ],
+    "2605.20955": [
+      {
+        "path": "https://arxiv.org/html/2605.20955v1/x4.png",
+        "caption": "Figure 3:The DrawMotion framework consists of the diffusion process (left) and the network structure (right).\n1) The diffusion process includes a forward and a reverse process. In the forward process, original motions are augmented with Gaussian noise and fed into DrawMotion, which learns to predict the added noise based on textual descriptions and hand-drawn sketches. In the reverse process, user-provided textual descriptions and hand-drawn sketches are input into DrawMotion, enabling the gradual generation of motion sequences using the predicted noise.\n2) In the DrawMotion architecture, both the stickman encoder and the text encoder are frozen, while the remaining modules are trainable. Encoded inputs are processed by multiple Multi-Condition Modules (MCMs) to get the final output.",
+        "role": "pipeline_1",
+        "caption_zh": "图3：DrawMotion框架由扩散过程（左）与网络结构（右）组成。1) 扩散过程包含前向过程与逆向过程。在前向过程中，原始动作数据通过添加高斯噪声进行增强，并输入DrawMotion，该模型学习基于文本描述和手绘草图来预测所添加的噪声。在逆向过程中，用户提供的文本描述和手绘草图被输入DrawMotion，使其能够利用预测的噪声逐步生成动作序列。2) 在DrawMotion架构中，骨架编码器与文本编码器均被冻结，其余模块可训练。编码后的输入经多个多条件模块（MCM）处理，以得到最终输出。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.20955v1/x2.png",
+        "caption": "Figure 1:Pipeline of DrawMotion inference. In addition to the training-based guidance, a training-free guidance updates the intermediate feature of the model within the MD boundary to ensure that the generations meet the conditions while maintaining its fidelity.",
+        "role": "pipeline_2",
+        "caption_zh": "图1：DrawMotion推理流程。除基于训练的引导外，一种免训练的引导方法在MD边界内更新模型的中间特征，以确保生成结果在满足条件的同时保持其保真度。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.20955v1/x5.png",
+        "caption": "Figure 4:Conceptual illustration of intermediate feature distributions. The dashed lines correspond to level sets of the probability density function. (a) Ordinary models yield discrete clusters, (b) MCM forms a relatively continuous space, and (c) VAE enforces full latent coverage. This schematic is supported by TableI.",
+        "role": "pipeline_3",
+        "caption_zh": "图4：中间特征分布的概念示意图。虚线对应于概率密度函数的等高线。(a) 普通模型产生离散的簇，(b) MCM 形成相对连续的空间，(c) VAE 强制实现完全的隐空间覆盖。此示意图由表I提供支持。"
+      }
+    ],
+    "2605.18233": [
+      {
+        "path": "https://arxiv.org/html/2605.18233v1/x2.png",
+        "caption": "Figure 2:Inference framework comparison between FIFO-Diffusion and our Two-Stage Training-Inference Alignment (TTA) mechanism.(a)FIFO-Diffusion achieves frame-level autoregressive generation by maintaining a queue of latents with progressively increasing noise levels, resulting in an excessive noise span among the local latents fed to the model.(b)Our TTA effectively reduces the noise span: Stage 1 performs zigzag denoising by slowing down the rate of noise changes, and Stage 2 applies unified denoising once the output latents reach the same noise level.",
+        "role": "pipeline_1",
+        "caption_zh": "图 2：FIFO-Diffusion 与我们的两阶段训练-推断对齐（TTA）机制的推断框架对比。(a) FIFO-Diffusion 通过维护一个噪声水平逐次递增的潜变量队列来实现帧级自回归生成，这导致输入模型的局部潜变量间存在过大的噪声跨度。(b) 我们的 TTA 有效减小了噪声跨度：阶段 1 通过减缓噪声变化速率进行“之字形”去噪，阶段 2 则在输出潜变量达到相同噪声水平后执行统一去噪。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.18233v1/x7.png",
+        "caption": "Figure A1:Framework of our Dual Consistency Enhancement (DCE) mechanism, which consists of Long-Range Frame Guidance (a) and Self-Reflection (b) approaches.(a)Long-Range Frame Guidance enables the foundation model to process long-range sparse latents and local dense latents simultaneously as input when handling local segments in a sliding manner.(b)The Self-Reflection approach starts from high-noise latents at the end of the queue and first performs consistency anomaly evaluation. When anomalies are detected (e.g., the car’s color changes to white whereas it was black in previous frames), expanded search for correction is conducted on these tail latents. After correction, the updated latents achieve higher consistency.",
+        "role": "pipeline_2",
+        "caption_zh": "图 A1：我们的双重一致性增强（DCE）机制框架，该机制由长程帧引导（a）与自我反思（b）两种方法组成。（a）长程帧引导使得基础模型在以滑动方式处理局部片段时，能够同时将长程稀疏潜在变量与局部稠密潜在变量作为输入进行处理。（b）自我反思方法从队列末端的高噪声潜在变量开始，首先执行一致性异常评估。当检测到异常时（例如，汽车颜色从之前的黑色变为白色），会在这些尾部潜在变量上进行扩展搜索以进行校正。校正后，更新后的潜在变量实现了更高的一致性。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.18233v1/x1.png",
+        "caption": "Figure 1:MIGA enables temporally consistent, infinite-frame (∞\\infty) video generation in a training-free manner.We present three long videos (1000+ frames) generated by MIGA, while the foundation model used by MIGA, Wan2.1-1.3B(Wanet al.,2025), supports only 81 frames by default.",
+        "role": "pipeline_3",
+        "caption_zh": "图1：MIGA 能够以无需训练的方式实现时间一致、无限帧数（∞）的视频生成。我们展示了由 MIGA 生成的三个长视频（1000+ 帧），而 MIGA 使用的基础模型 Wan2.1-1.3B（Wan 等人，2025）默认仅支持 81 帧。"
+      }
+    ],
+    "2605.21343": [
+      {
+        "path": "https://arxiv.org/html/2605.21343v1/x3.png",
+        "caption": "Figure 3:The training pipeline of OcclusionFormer.The framework decouples instances and recomposes them using volumetric rendering to resolve occlusions. Simultaneously, a queried alignment mechanism enforce strict spatial consistency via mask supervision.",
+        "role": "pipeline_1",
+        "caption_zh": "图 3：OcclusionFormer 的训练流程。该框架通过解耦实例并利用体积渲染进行重组以解决遮挡问题；同时，查询对齐机制借助掩码监督强制保持严格的空间一致性。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.21343v1/x2.png",
+        "caption": "Figure 2:Curation pipeline.(a) Z-order and captions are annotated via InstaOrder and DescribeAnything. (b) Amodal BBoxes are derived by re-projecting 3D assets reconstructed by SAM-3D.",
+        "role": "pipeline_2",
+        "caption_zh": "图 2：数据构建流程。(a) 通过 InstaOrder 与 DescribeAnything 标注 Z 顺序与图注。(b) 通过将 SAM-3D 重建的 3D 资产重新投影，推导出非模态边界框。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.21343v1/x10.png",
+        "caption": "Figure 10:The visual comparison of different methods on the OverLayBench(Liet al.,2025a).Figure 11:The visual comparison of different methods on our constructed SA-Z Eval.",
+        "role": "pipeline_3",
+        "caption_zh": "图10：不同方法在OverLayBench上的视觉对比（Li等人，2025a）。图11：不同方法在我们构建的SA-Z Eval上的视觉对比。"
+      }
+    ],
+    "2605.19804": [
+      {
+        "path": "https://arxiv.org/html/2605.19804v1/x1.png",
+        "caption": "Figure 1:StitchVM overview.Left:Unlike Tweedie (a), which requires a denoiser and VAE decoder evaluations, and is biased in high noise, and MC (b), which requiresNN-denoising rollouts, StitchVM (c) directly evaluates the value function on noisy latent.Right:StitchVM stitches a diffusion backbone head to a reward model tail, turning the reward model into a value model.",
+        "role": "pipeline_1",
+        "caption_zh": "图 1：StitchVM 概览。左图：与需要去噪器和 VAE 解码器评估且在噪声较高时存在偏差的 Tweedie 方法（a），以及需要神经网络去噪展开的蒙特卡洛方法（b）不同，StitchVM（c）直接在噪声隐空间上评估价值函数。右图：StitchVM 将扩散主干头部与奖励模型尾部拼接，从而将奖励模型转化为价值模型。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.19804v1/x6.png",
+        "caption": "Figure 3:HPSv2 reward (target) vs. GPU-hours over 200 prompts on FK steering.Table 3:Training-time alignment results, with joint DFN-CLIP + HPSv2 as the training reward.MethodGPU-h↓\\downarrowHPSv2DFNImgRwdPickGenEvalFlow-GRPO-fast122.20.3480.4081.4422.770.65DRaFT-1128.10.3080.3790.8922.650.53DRaFT-3128.00.3290.3921.3621.360.66DRaFT-1 + StitchVM94.80.3480.4181.4723.060.69DRaFT-3 + StitchVM100.30.3470.4201.4723.130.71DiffusionNFT191.50.3470.4131.5022.980.67DiffusionNFT + StitchVM84.70.3470.4141.5023.060.68",
+        "role": "pipeline_2",
+        "caption_zh": "图3：基于200条提示在FK引导下的HPSv2奖励（目标）与GPU小时数关系。表3：训练阶段对齐结果，采用联合DFN-CLIP + HPSv2作为训练奖励。方法 GPU-h↓ HPSv2 DFN ImgRwd PickGen EvalFlow-GRPO-fast 122.2 0.348 0.408 1.44 22.77 0.65 DRaFT-1 128.1 0.308 0.379 0.89 22.65 0.53 DRaFT-3 128.0 0.329 0.392 1.36 21.36 0.66 DRaFT-1 + StitchVM 94.8 0.348 0.418 1.47 23.06 0.69 DRaFT-3 + StitchVM 100.3 0.347 0.420 1.47 23.13 0.71 DiffusionNFT 191.5 0.347 0.413 1.50 22.98 0.67 DiffusionNFT + StitchVM 84.7 0.347 0.414 1.50 23.06 0.68"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.19804v1/x7.png",
+        "caption": "Figure 4:StitchVM improves the quality–efficiency trade-off of DRaFT.GenEval, HPSv2, DFN-CLIP, ImageReward, and PickScore plotted against GPU-hours for DRaFT and DRaFT with StitchVM during finetuning on the joint DFN-CLIP and HPSv2 reward.",
+        "role": "pipeline_3",
+        "caption_zh": "图 4：在联合 DFN-CLIP 与 HPSv2 奖励的微调过程中，StitchVM 改善了 DRaFT 的质量-效率权衡。图中绘制了 DRaFT 以及结合 StitchVM 的 DRaFT 在 GenEval、HPSv2、DFN-CLIP、ImageReward 和 PickScore 指标上相对于 GPU 小时数的变化。"
+      }
+    ],
+    "2605.21981": [
+      {
+        "path": "https://arxiv.org/html/2605.21981v1/x6.png",
+        "caption": "Figure 4:RiT Arch.Frozen RAE encoder/decoder (gray) bracket a vanilla DiT trained byxx-prediction; [CLS] and patch tokens share self-attention, with separate heads for𝐳^0\\hat{\\mathbf{z}}_{0}and𝐳^cls,0\\hat{\\mathbf{z}}_{\\text{cls},0}.",
+        "role": "pipeline_1",
+        "caption_zh": "Figure 4:RiT Arch.Frozen RAE encoder/decoder (gray) bracket a vanilla DiT trained byxx-prediction; [CLS] and patch tokens share self-attention, with separate heads for𝐳^0\\hat{\\mathbf{z}}_{0}and𝐳^cls,0\\hat{\\mathbf{z}}_{\\text{cls},0}."
+      },
+      {
+        "path": "https://arxiv.org/html/2605.21981v1/x4.png",
+        "caption": "MetricPixelSD-VAEDINOv2Mean|κ||\\kappa|0.9230.4670.114Median|κ||\\kappa|0.9580.2280.083|κ|<0.5|\\kappa|<0.50.0%74.2%98.7%|κ|<1.0|\\kappa|<1.070.6%86.7%99.7%Table 1:Marginal Gaussianity.Excess kurtosis across three representation spaces.Figure 2:Kurtosis distribution.DINOv2 marginals concentrate tightly aroundκ=0\\kappa{=}0(Gaussian); SD-VAE is intermediate; pixels deviate strongly.Figure 3:Cross-class interpolation.Top row of each pair: pixel-space blending𝐱t=(1−t)​𝐱a+t​𝐱b\\mathbf{x}_{t}{=}(1{-}t)\\mathbf{x}_{a}{+}t\\mathbf{x}_{b}(ghosting artifacts). Bottom row: interpolation in DINOv2 representation space𝐳t=(1−t)​𝐳a+t​𝐳b\\mathbf{z}_{t}{=}(1{-}t)\\mathbf{z}_{a}{+}t\\mathbf{z}_{b}, then decoded back to pixels via the RAE decoder (smooth semantic transitions).",
+        "role": "pipeline_2",
+        "caption_zh": "图 2：峰度分布。DINOv2 表示的边际分布紧密集中在 κ=0（高斯分布）附近；SD-VAE 处于中间状态；像素表示则显著偏离高斯分布。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.21981v1/x1.png",
+        "caption": "(a) PCA spectrum(b) Optimization conditioning(c) On-manifold interpolationFigure 1:Manifold analysis across Pixel, SD-VAE, and DINOv2.(a) PCA spectrum: cumulative variance (top) and per-component variance on log scale (bottom); flatter decay indicates more uniform spread. (b) Condition numberκ​(Σt)\\kappa(\\Sigma_{t})along the transport path; DINOv2 stays35×35\\timesbetter conditioned than Pixel att=0.9t{=}0.9. (c) Interpolation reconstruction MSE; Pixel stays off-manifold while DINOv2 remains close throughout.",
+        "role": "pipeline_3",
+        "caption_zh": "图1：在Pixel、SD-VAE和DINOv2上进行流形分析。(a) PCA谱：累积方差（上图）及对数尺度下的各组分方差（下图）；衰减越平缓表示分布越均匀。(b) 沿传输路径的条件数κ(Σ_t)；在t=0.9时，DINOv2的条件数仍比Pixel优35倍。(c) 插值重建均方误差；Pixel始终偏离流形，而DINOv2在整个过程中保持接近。"
+      }
+    ]
+  }
+}

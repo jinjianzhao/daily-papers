@@ -1,0 +1,285 @@
+{
+  "base_info": {
+    "2605.18719": {
+      "title": "SafeDiffusion-R1: Online Reward Steering for Safe Diffusion Post-Training",
+      "abstract": "Diffusion models have been widely studied for removing unsafe content learned during pre-training. Existing methods require expensive supervised data, either unsafe-text paired with safe-image groundtruth or negative/positive image pairs, making them impractical to scale. Furthermore, offline reinforcement learning and supervised fine-tuning approaches that generate synthetic data offline suffer from catastrophic forgetting, degrading generation quality. We propose a novel online reinforcement learning framework that addresses both data scarcity and model degradation through post-training with Group Relative Policy Optimization (GRPO) on both negative and positive text prompts. To eliminate the need for fine-tuning specialized safe/unsafe reward models, we introduce a \\textit{steering reward mechanism} that exploits an inherent property of CLIP embeddings: steering text representations toward positive safety directions and away from negative ones in the embedding space. Our online-policy approach enables the model to learn from diverse prompts, including explicit unsafe content, without catastrophic forgetting. Extensive experiments demonstrate that our method reduces inappropriate content to 18.07\\% (vs. 48.9\\% for SD v1.4) and nudity detections to 15 (vs. 646 baseline) while improving compositional generation quality from 42.08\\% to 47.83\\% on GenEval. Remarkably, these safety gains generalize to out-of-domain unsafe prompts across seven harm categories, achieving state-of-the-art performance without supervised paired data or reward tuning. Github:this https URL.",
+      "hf_link": "https://huggingface.co/papers/2605.18719"
+    },
+    "2605.18743": {
+      "title": "Actionable World Representation",
+      "abstract": "Inspired by the emergent behaviors in large language models that generalized human intelligence, the research community is pursuing similar emergent capabilities within world models, with a emphasis on modeling the physical world. Within the scope of physical world model, objects are the fundamental primitives that constitute physical reality. From humans to computers, nearly everything we interact with is an object. These objects are rarely static; they are actionable entities with varying states determined by their intrinsic properties. While current methods approach object action states either via video generation or dynamic scene reconstruction, none explicitly model this basic element in a unified, principled way to build an actionable object representation. We propose WorldString, a neural architecture capable of modeling the state manifold of real-world objects by learning directly from point clouds or RGB-D video streams. Serving as a versatile digital twin, it acts as a foundational building block for physical world models; thus, we name it WorldString. Sweetly, its fully differentiable structure seamlessly enables future integration with policy learning and neural dynamics.",
+      "hf_link": "https://huggingface.co/papers/2605.18743"
+    },
+    "2605.18678": {
+      "title": "Lance: Unified Multimodal Modeling by Multi-Task Synergy",
+      "abstract": "We present Lance, a lightweight native unified model supporting multimodal understanding, generation, and editing for both images and videos. Rather than relying on model capacity scaling or text-image-dominant designs, Lance explores a practical paradigm for unified multimodal modeling via collaborative multi-task training. It is grounded in two core principles: unified context modeling and decoupled capability pathways. Specifically, Lance is trained from scratch and employs a dual-stream mixture-of-experts architecture on shared interleaved multimodal sequences, enabling joint context learning while decoupling the pathways for understanding and generation. We further introduce modality-aware rotary positional encoding to mitigate interference among heterogeneous visual tokens and boost cross-task alignment. During training, Lance adopts a staged multi-task training paradigm with capability-oriented objectives and adaptive data scheduling to strengthen both semantic comprehension and visual generation performance. Experimental results demonstrate that Lance substantially outperforms existing open-source unified models in image and video generation, while retaining strong multimodal understanding capabilities. The homepage is available atthis https URL.",
+      "hf_link": "https://huggingface.co/papers/2605.18678"
+    },
+    "2605.18451": {
+      "title": "Code-as-Room: Generating 3D Rooms from Top-Down View Images via Agentic Code Synthesis",
+      "abstract": "Designing realistic and functional 3D indoor rooms is essential for a wide range of applications, including interior design, virtual reality, gaming, and embodied AI. While recent MLLM-based approaches have shown great potential for 3D room synthesis from textual descriptions or reference images, text-based methods struggle to capture precise spatial information, and existing image-conditioned agents suffer from instability and infinite looping when tasked with holistic room generation from top-down views. To address these limitations, we propose Code-as-Room, an MLLM-based agentic framework equipped with a structured execution harness, which represents 3D rooms with Blender codes. Given a top-down room image, the framework parses the reference image to extract scene elements and their spatial relationships, and synthesizes executable Blender code for geometry, materials, and lighting in a principled, multi-stage pipeline. A cross-stage memory module is maintained throughout to mitigate context forgetting inherent to existing agent-based frameworks. We further introduce a dedicated benchmark for code-based 3D room synthesis, encompassing various evaluation protocols. Based on our benchmark, comprehensive comparisons against existing agent-based methods are conducted to validate the effectiveness of our proposed execution harness.",
+      "hf_link": "https://huggingface.co/papers/2605.18451"
+    },
+    "2605.18601": {
+      "title": "Incantation: Natural Language as the Action Interface for Multi-Entity Video World Models",
+      "abstract": "Modern interactive video world models have achieved impressive visual fidelity, yet lack fine-grained multi-entity control and cross-entity, cross-world generalization. We trace this gap to the action interface: standard control protocols (e.g. animation IDs, device inputs, scene-level captions) bind action semantics to specific entities or engines at design time. We propose natural language as the interface to unlock expressiveness that no prior interface can achieve, and we present Incantation, the first interactive video world model with per-latent-frame (0.25 s) natural-language conditioning that supports simultaneous multi-entity control and concept-level cross-entity transfer beyond any fixed rendering pipeline. We pair a pretrained bidirectional video backbone with frame-local text cross-attention, and enable real-time long-horizon streaming through ODE-initialized Self-Forcing distillation with a RoPE-decoupled sliding KV-cache. We surpass the Action-Index baseline on cross-entity transfer (89% vs. 43%) and out-of-vocabulary prompts (90% vs. 0%), and our 2-step student sustains 19.7 FPS at 480p with stable FVD over 2-hour rollouts. We further apply the same architecture and training recipe to The King of Fighters, changing only the per-entity action vocabulary slots. We have released a preview subset of the Incantation dataset atthis https URL, containing manually collected Elden Ring player-boss combat clips with structured action-oriented metadata. Larger-scale Elden Ring and KOF data will be released with the full project.",
+      "hf_link": "https://huggingface.co/papers/2605.18601"
+    },
+    "2605.14278": {
+      "title": "KVPO: ODE-Native GRPO for Autoregressive Video Alignment via KV Semantic Exploration",
+      "abstract": "Aligning streaming autoregressive (AR) video generators with human preferences is challenging. Existing reinforcement learning methods predominantly rely on noise-based exploration and SDE-based surrogate policies that are mismatched to the deterministic ODE dynamics of distilled AR models, and tend to perturb low-level appearance rather than the high-level semantic storyline progression critical for long-horizon coherence. To address these limitations, we present KVPO, an ODE-native online Group Relative Policy Optimization (GRPO) framework for aligning streaming video generators. For diversity exploration, KVPO introduces a causal-semantic exploration paradigm that relocates the source of variation from stochastic noise to the historical KV cache. By stochastically routing historical KV entries, it constructs semantically diverse generation branches that remain strictly on the data manifold. For policy modeling, KVPO introduces a velocity-field surrogate policy based on Trajectory Velocity Energy (TVE), which quantifies branch likelihood in flow-matching velocity space and yields a reward-weighted contrastive objective fully consistent with the native ODE formulation. Experiments on multiple distilled AR video generators demonstrate consistent gains in visual quality, motion quality, and text-video alignment across both single-prompt short-video and multi-prompt long-video settings.",
+      "hf_link": "https://huggingface.co/papers/2605.14278"
+    },
+    "2605.18739": {
+      "title": "LongLive-2.0: An NVFP4 Parallel Infrastructure for Long Video Generation",
+      "abstract": "We present LongLive-2.0, an NVFP4-based parallel infrastructure throughout the full training and inference workflow of long video generation, addressing speed and memory bottlenecks. For training, we introduce sequence-parallel autoregressive (AR) training, instantiated as Balanced SP, which co-designs the efficient teacher-forcing layout with SP execution by pairing clean-history and noisy-target temporal chunks on each rank, enabling a natural teacher-forcing mask with SP-aware chunked VAE encoding. Combined with NVFP4 precision, it reduces GPU memory cost and accelerates GEMM computation during training, the proportion of which increases as video length grows. Moreover, we show that a high-quality infrastructure and dataset enable a remarkably clean training pipeline. Unlike existing Self-Forcing series methods that rely on ODE initialization and subsequent distribution matching distillation (DMD), LongLive-2.0 directly tunes a diffusion model into a long, multi-shot, interactive auto-regressive (AR) diffusion model. It can be further converted to real-time generation (4 to 2 denoising steps) with standalone LoRA weights. For inference on Blackwell GPUs, we enable W4A4 NVFP4 inference, quantize KV cache into NVFP4 for memory savings, and boost end-to-end throughput with asynchronous streaming VAE decoding. On non-Blackwell GPU architectures, we deploy SP inference to match the speed on Blackwell GPUs, while the quantized KV cache can lower inter-GPU communication of SP. Experiments show up to 2.15x speedup in training, and 1.84x in inference. LongLive-2.0-5B achieves 45.7 FPS inference while attaining strong performance on benchmarks. To our knowledge, LongLive-2.0 is the first NVFP4 training and inference system for long video generation.",
+      "hf_link": "https://huggingface.co/papers/2605.18739"
+    }
+  },
+  "hf_votes": {
+    "2605.18747": 0,
+    "2605.18401": 0,
+    "2605.18739": 0,
+    "2605.18678": 0,
+    "2605.18661": 0,
+    "2605.16679": 0,
+    "2605.18451": 0,
+    "2605.14278": 0,
+    "2605.17283": 0,
+    "2605.18643": 0,
+    "2605.16079": 0,
+    "2605.17260": 0,
+    "2605.17672": 0,
+    "2605.15572": 0,
+    "2605.15565": 0,
+    "2605.18287": 0,
+    "2605.14589": 0,
+    "2605.14368": 0,
+    "2605.14038": 0,
+    "2605.12290": 0,
+    "2605.17242": 0,
+    "2605.16839": 0,
+    "2605.18749": 0,
+    "2605.16893": 0,
+    "2605.18652": 0,
+    "2605.16909": 0,
+    "2605.15482": 0,
+    "2605.18727": 0,
+    "2605.17933": 0,
+    "2605.17757": 0,
+    "2605.17698": 0,
+    "2605.16865": 0,
+    "2605.18601": 0,
+    "2605.17894": 0,
+    "2605.18743": 0,
+    "2605.18719": 0,
+    "2605.17278": 0,
+    "2605.18106": 0,
+    "2605.17842": 0,
+    "2605.16819": 0,
+    "2605.17199": 0,
+    "2605.16386": 0,
+    "2605.18549": 0,
+    "2605.16882": 0,
+    "2605.15035": 0,
+    "2603.10126": 0,
+    "2605.18630": 0,
+    "2605.15764": 0
+  },
+  "focus_sections": {
+    "3D生成与重建": [
+      "2605.18451",
+      "2605.18743"
+    ],
+    "视频生成": [
+      "2605.18678",
+      "2605.14278",
+      "2605.18739",
+      "2605.18601"
+    ],
+    "图像生成": [
+      "2605.18678",
+      "2605.18719"
+    ]
+  },
+  "summaries": {
+    "2605.18719": {
+      "short_zh": "在线强化学习提升扩散模型安全性",
+      "tags": "计算机图形学;图像生成;扩散模型安全对齐",
+      "body_summary": "现有方法依赖昂贵监督数据且易导致灾难性遗忘，难以安全扩展扩散模型。\n提出在线强化学习框架，利用CLIP嵌入特性设计引导奖励，无需微调专用奖励模型即可有效过滤不安全内容并提升生成质量。"
+    },
+    "2605.18743": {
+      "short_zh": "学习物体状态动态的神经架构",
+      "tags": "计算机视觉;三维视觉;可操作物体表征",
+      "body_summary": "当前世界模型研究追求类似大语言模型的涌现能力，但缺少对构成物理世界基本元素——可操作物体的统一建模。\n提出WorldString，一种能从点云或RGB-D视频流直接学习、建模真实物体状态流形的神经架构，为物理世界模型提供可微构建模块。"
+    },
+    "2605.18678": {
+      "short_zh": "多模态统一模型设计新范式",
+      "tags": "计算机视觉;多模态学习;图像视频统一建模",
+      "body_summary": "当前多模态模型通常依赖增大规模或文本主导，难以高效统一处理图像视频的理解和生成任务。\n提出轻量级原生统一模型Lance，通过多任务协同训练、统一上下文建模与解耦能力路径，在图像视频生成和理解上均取得优异性能。"
+    },
+    "2605.18451": {
+      "short_zh": "从俯视图生成三维房间代码",
+      "tags": "计算机图形学;三维场景生成;图像到三维代码合成",
+      "body_summary": "背景/任务：设计真实且功能性的三维室内房间对于室内设计、虚拟现实、游戏和具身智能至关重要，但现有基于文本或图像的生成方法存在空间信息不精确、过程不稳定等问题。\n做了什么：提出了Code-as-Room框架，通过解析俯视图提取场景元素及关系，并借助带结构化执行约束的MLLM智能体合成可执行的Blender代码来生成三维房间，引入跨阶段记忆模块和专用基准测试进行验证。"
+    },
+    "2605.18601": {
+      "short_zh": "用自然语言控制视频世界模型",
+      "tags": "计算机视觉；视频生成；交互式视频世界模型",
+      "body_summary": "现有交互式视频世界模型缺乏对多实体的细粒度控制和泛化能力。\n我们提出了Incantation模型，通过自然语言接口实现每帧级别的多实体控制和跨实体概念迁移，并验证了其在游戏场景中的有效性。"
+    },
+    "2605.14278": {
+      "short_zh": "用KV语义探索优化自回归视频生成对齐",
+      "tags": "计算机视觉;视频生成;自回归视频对齐",
+      "body_summary": "对齐流式自回归视频生成器与人类偏好具有挑战性。\n提出KVPO框架，通过KV缓存语义探索和速度场代理策略实现高效对齐。"
+    },
+    "2605.18739": {
+      "short_zh": "长视频生成并行训练推理系统",
+      "tags": "计算机视觉;视频生成;长视频生成并行优化",
+      "body_summary": "长视频生成面临训练和推理的速度与内存瓶颈\n提出NVFP4并行框架LongLive-2.0，通过序列并行训练、量化KV缓存和异步解码，提升训练推理速度并降低内存"
+    }
+  },
+  "deep_analysis": {},
+  "figures": {
+    "2605.18719": [
+      {
+        "path": "https://arxiv.org/html/2605.18719v1/figures/SafeDiff_main_img2.png",
+        "caption": "Figure 2:GRPO-based reward steering framework. Given a prompt, the policy samples candidate outputs whose embeddings are evaluated via CLIP. Safe and unsafe anchors define a steering vector computed from embedding differences. The steered target representation modifies reward computation, yielding a z-score normalized advantage used in policy loss. Example outputs illustrate how steering shifts rewards toward safer semantic attributes.\nThe safety direction𝐯safe=𝐳¯safe−𝐳¯unsafe‖𝐳¯safe−𝐳¯unsafe‖\\mathbf{v}_{\\text{safe}}=\\frac{\\bar{\\mathbf{z}}_{\\text{safe}}-\\bar{\\mathbf{z}}_{\\text{unsafe}}}{\\|\\bar{\\mathbf{z}}_{\\text{safe}}-\\bar{\\mathbf{z}}_{\\text{unsafe}}\\|}is the normalized difference between mean safe and unsafe embeddings, defining a unit vector that steers representations toward the safe region (angleθ\\theta).",
+        "role": "pipeline_1",
+        "caption_zh": "Figure 2:GRPO-based reward steering framework. Given a prompt, the policy samples candidate outputs whose embeddings are evaluated via CLIP. Safe and unsafe anchors define a steering vector computed from embedding differences. The steered target representation modifies reward computation, yielding a z-score normalized advantage used in policy loss. Example outputs illustrate how steering shifts rewards toward safer semantic attributes.\nThe safety direction𝐯safe=𝐳¯safe−𝐳¯unsafe‖𝐳¯safe−𝐳¯unsafe‖\\mathbf{v}_{\\text{safe}}=\\frac{\\bar{\\mathbf{z}}_{\\text{safe}}-\\bar{\\mathbf{z}}_{\\text{unsafe}}}{\\|\\bar{\\mathbf{z}}_{\\text{safe}}-\\bar{\\mathbf{z}}_{\\text{unsafe}}\\|}is the normalized difference between mean safe and unsafe embeddings, defining a unit vector that steers representations toward the safe region (angleθ\\theta)."
+      },
+      {
+        "path": "https://arxiv.org/html/2605.18719v1/figures/Steering_img6.png",
+        "caption": "Figure 6:Safety steering in embedding space.(A) Safe (blue) and unsafe (red) text embeddings form distinct clusters; their mean difference defines a normalized safety direction𝐯safe\\mathbf{v}_{\\text{safe}}pointing from unsafe to safe concepts.\n(B) For an unsafe prompt embedding𝐳T\\mathbf{z}_{T}, addingα​𝐯safe\\alpha\\mathbf{v}_{\\text{safe}}and renormalizing rotates the representation toward the safety direction on the unit hypersphere. The steered embedding𝐳T′\\mathbf{z}^{\\prime}_{T}is used exclusively for reward computation, not as model input.",
+        "role": "pipeline_2",
+        "caption_zh": "图 6：嵌入空间中的安全导向。（A）安全（蓝色）与不安全（红色）的文本嵌入形成不同的簇；其均值差定义了一个归一化的安全方向 𝐯_safe，该方向从不安全概念指向安全概念。（B）对于不安全的提示嵌入 𝐳_T，添加 α𝐯_safe 并重新归一化，可在单位超球面上将表示朝向安全方向旋转。经过导向的嵌入 𝐳_T′ 仅用于奖励计算，不作为模型输入。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.18719v1/x4.png",
+        "caption": "Figure 5:UMAP visualizations and safety score analysis under varying steering strengths (α\\alpha) and prompt perturbation strategies (synonyms, keyword-minimal, negation). Each row shows: (a) the embedding space before steering, with safe (blue) and unsafe (red) prompt clusters and their respective anchors (μsafe\\mu_{\\text{safe}},μunsafe\\mu_{\\text{unsafe}},vsafev_{\\text{safe}},pmixp_{\\text{mix}}); (b) the post-steering UMAP at the indicatedα\\alpha, showing cluster displacement toward the safe region; and (c) safety scores=𝐳⋅𝐯safes=\\mathbf{z}\\cdot\\mathbf{v}_{\\text{safe}}as a function of steering strengthα\\alphafor safe (blue) and unsafe (red) prompts. Across all perturbation types, safety scores increase monotonically withα\\alphawhile the relative gap between safe and unsafe prompts is preserved, validating the effectiveness and consistency of prompt-level safety steering.",
+        "role": "pipeline_3",
+        "caption_zh": "图5：不同引导强度（α）与提示扰动策略（同义词替换、关键词最小化、否定改写）下的UMAP可视化及安全性得分分析。每行展示：（a）引导前的嵌入空间，包含安全（蓝色）与不安全（红色）提示簇及其对应锚点（μₛₐₑₑ、μᵤₙₛₐₑₑ、vₛₐₑₑ、pₘᵢₓ）；（b）指定α值下引导后的UMAP，显示提示簇向安全区域的位移；（c）安全性得分s=𝐳·vₛₐₑₑ随引导强度α的变化曲线（安全提示为蓝色，不安全提示为红色）。在所有扰动类型中，安全性得分均随α单调上升，且安全与不安全提示间的相对差距保持稳定，验证了提示级安全引导的有效性与一致性。"
+      }
+    ],
+    "2605.18743": [
+      {
+        "path": "https://arxiv.org/html/2605.18743v1/imgs/teaser.png",
+        "caption": "Figure 1:Our methodWorldStringis aNeural based Interactive Digital Twinof Skinning, Articulable, and Soft objects with state as the prompt input and 3D point cloud as output.",
+        "role": "pipeline_1",
+        "caption_zh": "图1：我们的方法WorldString是一种基于神经网络的交互式数字孪生系统，可处理蒙皮、可关节及软体对象，以状态作为提示输入并以三维点云作为输出。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.18743v1/x3.png",
+        "caption": "Figure 5:WorldString model pipeline.Our fully differentiable architecture learns an actionable world representation by optimizing canonical embeddings and cascaded transformers to reconstruct the target object state.",
+        "role": "pipeline_2",
+        "caption_zh": "图 5：WorldString 模型流程。我们的全可微架构通过优化规范嵌入与级联变换器来重建目标物体状态，从而学习可行动的世界表示。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.18743v1/x4.png",
+        "caption": "Figure 6:WorldString model learning from RGB-D video data.The figure shows the processed data from PhysTwin[24], including the raw video frames, depth maps, and masked object correspondences.",
+        "role": "pipeline_3",
+        "caption_zh": "图 6：从 RGB-D 视频数据中学习 WorldString 模型。本图展示了来自 PhysTwin[24] 的处理后数据，包括原始视频帧、深度图以及带掩码的物体对应关系。"
+      }
+    ],
+    "2605.18678": [
+      {
+        "path": "https://arxiv.org/html/2605.18678v1/x5.png",
+        "caption": "Figure 6:Overview of Lance.Given multi-task inputs spanning X2T, X2I, and X2V, Lance encodes all input tokens into a unified MaPE-enhanced multimodal context sequence. The dual-expert backbone performs generalized 3D causal attention over the shared context and produces task-specific hidden states, which are further decoded by an LM head for autoregressive next-token prediction and by a flow head for velocity prediction in the visual latent space.",
+        "role": "pipeline_1",
+        "caption_zh": "图6：Lance 模型概览。给定涵盖 X2T、X2I 与 X2V 的多任务输入，Lance 将所有输入词元编码为统一的 MaPE 增强多模态上下文序列。其双专家骨干网络在此共享上下文上执行广义 3D 因果注意力，并生成任务特定的隐藏状态；这些状态随后由语言模型头解码以进行自回归下一词元预测，同时由流头解码以在视觉潜在空间中进行速度预测。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.18678v1/x1.png",
+        "caption": "Figure 2:Text-to-image generation (T2I) with Lance.",
+        "role": "pipeline_2",
+        "caption_zh": "图 2：基于 Lance 的文本到图像生成（T2I）"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.18678v1/x2.png",
+        "caption": "Figure 3:Any-to-image generation (X2I) and image understanding (I2T) with Lance.",
+        "role": "pipeline_3",
+        "caption_zh": "图3：使用Lance实现任意模态到图像的生成（X2I）与图像理解（I2T）。"
+      }
+    ],
+    "2605.18451": [
+      {
+        "path": "https://arxiv.org/html/2605.18451v1/x2.png",
+        "caption": "Figure 2:Overview of theCode-as-Roompipeline. A single top-down view image is progressively transformed into a fully renderable 3D scene through a sequence of specialized MLLM agent stages, organized into five phases: image-based scene structuring, layout code generation, layout-grounded object profiling, object-level code generation, and interior decoration code generation. Arrows denote data flow through the cross-stage memory system, wherein each stage reads upstream outputs and writes its own results as typed memory entries.",
+        "role": "pipeline_1",
+        "caption_zh": "图 2：Code-as-Room 流程总览。通过一系列专用多模态大语言模型（MLLM）智能体阶段，单张俯视图被逐步转化为可完全渲染的 3D 场景。整个过程组织为五个阶段：基于图像的场景结构构建、布局代码生成、布局锚定的物体属性描述、物体级代码生成以及室内装饰代码生成。箭头表示数据通过跨阶段记忆系统的流动，其中每个阶段读取上游输出并将其自身结果作为类型化记忆条目写入。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.18451v1/x1.png",
+        "caption": "Figure 1:Code-as-Roombrings diverse interactive 3D scenes from a single top-down view image. We design an agentic system with a structured execution harness and activate the MLLMs’ ability to understand, design, and code the 3D rooms in Blender.",
+        "role": "pipeline_2",
+        "caption_zh": "图1：Code-as-Room 能够从单张俯视图像生成多样化的交互式3D场景。我们设计了一个具备结构化执行框架的智能体系统，并激活了多模态大语言模型在Blender中理解、设计和编码3D房间的能力。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.18451v1/x3.png",
+        "caption": "Figure 3:Qualitative comparisons corresponding to the benchmark results in Table1.\nWith our harness in Code-as-Room, Gemini3-Flash, Gemini3.1-Pro, and GPT-5.5 can all generate executable 3D room code from top-down image inputs.\nThe Gemini models achieve more stable results and demonstrate stronger spatial understanding than GPT-5.5, especially in object placement, layout consistency, and spatial relation preservation.",
+        "role": "pipeline_3",
+        "caption_zh": "图 3：与表 1 基准测试结果对应的定性比较。借助我们在 Code-as-Room 中的工具，Gemini3-Flash、Gemini3.1-Pro 和 GPT-5.5 均能根据俯视图输入生成可执行的 3D 房间代码。Gemini 模型比 GPT-5.5 取得了更稳定的结果，并展现出更强的空间理解能力，尤其在物体摆放、布局一致性和空间关系保持方面。"
+      }
+    ],
+    "2605.18601": [
+      {
+        "path": "https://arxiv.org/html/2605.18601v1/x2.png",
+        "caption": "Figure 2:Workflow of Incantation.Left:Incantationtranslates combatant keyboard inputs into natural language prompts and autoregressively generates video frames in a causal streaming manner.Right:Training proceeds in two stages: (11) Language-Conditioned Pretraining adapts the base model for per-frame text-driven generation; (22) ODE-Initialized Self-Forcing Distillation enables real-time streaming via ODE-based flow matching initialization followed by Self-Forcing distillation.",
+        "role": "pipeline_1",
+        "caption_zh": "图2：Incantation 的工作流程。左图：Incantation 将操作者的键盘输入转换为自然语言提示，并以因果流式方式自回归生成视频帧。右图：训练分为两个阶段：（11）语言条件预训练，使基础模型适应于基于文本的逐帧生成；（22）ODE 初始化的自强制蒸馏，通过基于 ODE 的流匹配初始化及随后的自强制蒸馏实现实时流式生成。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.18601v1/x4.png",
+        "caption": "Figure 4:Attention design.Bidirectional self-attention is retained over history frames to preserve the spatio-temporal priors of the pretrained base model. Action cross-attention is restricted exclusively to the noisy target frame, preventing temporal cross-contamination. Together, these two constraints improve per-frame controllability without degrading generation quality.",
+        "role": "pipeline_2",
+        "caption_zh": "图 4：注意力机制设计。在历史帧上保留双向自注意力，以维持预训练基础模型的时空先验；动作交叉注意力则严格限制于含噪声的目标帧，避免时序交叉污染。二者共同作用，在保持生成质量的同时提升了逐帧可控性。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.18601v1/x5.png",
+        "caption": "Figure 5:Qualitative comparison of Incantation against leading video generation models onElden Ring.Seedance2.0\\mathbf{2.0}[33]andKling3.0\\mathbf{3.0}[24]achieve high visual fidelity yet fail on fine-grained player–boss interactions;LongLive[45]partially captures multi-entity dynamics but loses action fidelity and visual coherence.\nOnlyIncantationdelivers precise per-frame multi-entity action control with genuine interactive modeling\n(prompts in AppendixA.5).Existing world models are excluded as baselines, as none supports\nmulti-entity modeling within a single holistic scene.",
+        "role": "pipeline_3",
+        "caption_zh": "图5：在《艾尔登法环》场景中，Incantation 与主流视频生成模型的定性对比。Seedance2.0 [33] 和 Kling3.0 [24] 实现了较高的视觉保真度，但在细粒度的玩家-头目交互方面存在不足；LongLive [45] 部分捕捉了多实体动态，但丧失了动作保真度与视觉连贯性。唯有 Incantation 通过真正的交互式建模，实现了精确的逐帧多实体动作控制（提示词见附录A.5）。现有世界模型均未作为基线纳入，因其均不支持在单一整体场景中进行多实体建模。"
+      }
+    ],
+    "2605.14278": [
+      {
+        "path": "https://arxiv.org/html/2605.14278v1/x3.png",
+        "caption": "Figure 2:Overview of theKVPOtraining pipeline.Starting from a shared initial noise, the model first performs causal-semantic exploration via stochastic KV routing within a perturbed window to produce diverse candidate branches (a). These branches are then replayed under the unperturbed deployment-time context, where the Trajectory Velocity Energy of each branch is computed and converted into Gibbs-form surrogate branch probabilities to measure their generation likelihood under the current policy (b). Finally, the branches are scored by the reward model, and PPO updates the AR generator toward higher-reward behaviors via a contrastive flow-matching objective (c)",
+        "role": "pipeline_1",
+        "caption_zh": "图2：KVPO训练流程概览。从共享的初始噪声出发，模型首先通过扰动窗口内的随机KV路由进行因果-语义探索，以生成多样化的候选分支（a）。随后，这些分支在未扰动的部署时上下文环境中被重放，计算每个分支的轨迹速度能量，并将其转化为吉布斯形式的代理分支概率，以衡量它们在当前策略下的生成可能性（b）。最后，分支由奖励模型进行评分，PPO通过对比流匹配目标更新自回归生成器，使其趋向更高奖励的行为（c）。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.14278v1/x2.png",
+        "caption": "Figure 1:Comparison of semantic-space and noise-space exploration.",
+        "role": "pipeline_2",
+        "caption_zh": "图1：语义空间与噪声空间探索的对比。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.14278v1/x9.png",
+        "caption": "Figure 8:GPU memory usage and compute utilization ofKVPOduring LongLive training.",
+        "role": "pipeline_3",
+        "caption_zh": "图 8：LongLive 训练期间 KVPO 的 GPU 内存使用量与计算利用率。"
+      }
+    ],
+    "2605.18739": [
+      {
+        "path": "https://arxiv.org/html/2605.18739v1/x1.png",
+        "caption": "Figure 1:Overview of the LongLive-2.0 Framework.Training Infra (Left):The diffusion model is fine-tuned via AR training on long videos, where Balanced SP and NVFP4 quantization improve training efficiency. In parallel, we derive standalone LoRA weights via DMD training.Inference Infra (Right):Full NVFP4 enables low-precision inference (W4A4) and KV-cache compression. Furthermore, asynchronous decoding eliminates idle time to maximize generation throughput.",
+        "role": "pipeline_1",
+        "caption_zh": "图 1：LongLive-2.0 框架概览。训练基础设施（左）：扩散模型通过对长视频进行 AR 训练进行微调，其中平衡 SP 与 NVFP4 量化提升了训练效率。同时，我们通过 DMD 训练导出独立的 LoRA 权重。推理基础设施（右）：全 NVFP4 支持低精度推理（W4A4）与 KV 缓存压缩。此外，异步解码消除了空闲时间，以最大化生成吞吐量。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.18739v1/x4.png",
+        "caption": "Figure 4:NVFP4 DMD training infrastructure.The generator, real-score model, and fake-score model are colocated under a low-precision NVFP4 setup.",
+        "role": "pipeline_2",
+        "caption_zh": "图 4：NVFP4 DMD 训练基础设施。生成器、真实评分模型与虚假评分模型在低精度 NVFP4 设置下共置部署。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.18739v1/x2.png",
+        "caption": "Figure 2:Overview of the Training Infrastructure.Traditional SP (Left):In the efficient teacher-forcing layout, clean history tokens and noisy target tokens are concatenated into one sequence. Naive SP treats this as a general sequence, causing loss computation workload imbalance and leaving VAE encoding replicated across sequence-parallel ranks.Balanced SP (Middle):The same temporal chunk ownership is reused across clean/noisy latent streams, SP attention, VAE encoding, and loss computation. This chunk-aligned layout balances loss-bearing tokens across GPUs while avoiding replicated VAE preparation.NVFP4 (Right):NVFP4 training orthogonally accelerates GEMMs and reduces memory footprint.",
+        "role": "pipeline_3",
+        "caption_zh": "图2：训练基础设施概览。传统序列并行（左）：在高效的教师强制布局中，干净历史标记和含噪目标标记被拼接成一个序列。朴素序列并行将其视为一般序列处理，导致损失计算工作量不均衡，并使VAE编码在序列并行秩间重复。均衡序列并行（中）：相同的时序块所有权在干净/含噪潜在流、序列并行注意力、VAE编码和损失计算中复用。这种块对齐布局在GPU间平衡了承载损失的标记，同时避免了重复的VAE准备。NVFP4（右）：NVFP4训练正交加速GEMM并减少内存占用。"
+      }
+    ]
+  }
+}

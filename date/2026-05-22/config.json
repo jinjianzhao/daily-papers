@@ -1,0 +1,126 @@
+{
+  "base_info": {
+    "2605.22344": {
+      "title": "Bernini: Latent Semantic Planning for Video Diffusion",
+      "hf_link": "https://huggingface.co/papers/2605.22344"
+    },
+    "2605.22718": {
+      "title": "WorldKV: Efficient World Memory with World Retrieval and Compression",
+      "hf_link": "https://huggingface.co/papers/2605.22718"
+    },
+    "2605.22809": {
+      "title": "Sensor2Sensor: Cross-Embodiment Sensor Conversion for Autonomous Driving",
+      "hf_link": "https://huggingface.co/papers/2605.22809"
+    }
+  },
+  "hf_votes": {
+    "2605.21850": 0,
+    "2605.22718": 0,
+    "2605.14678": 0,
+    "2605.22642": 0,
+    "2605.22809": 0,
+    "2605.22678": 0,
+    "2605.22766": 0,
+    "2605.22109": 0,
+    "2605.22791": 0,
+    "2605.13734": 0,
+    "2605.22177": 0,
+    "2605.22074": 0,
+    "2605.22344": 0,
+    "2605.22535": 0,
+    "2605.21803": 0
+  },
+  "focus_sections": {
+    "3D生成与重建": [
+      "2605.22809"
+    ],
+    "视频生成": [
+      "2605.22718",
+      "2605.22344"
+    ],
+    "图像生成": [
+      "2605.22809",
+      "2605.22344"
+    ]
+  },
+  "summaries": {
+    "2605.22344": {
+      "short_zh": "多模态大模型规划视频扩散",
+      "tags": "计算机视觉;视频生成与编辑;语义规划与像素渲染",
+      "body_summary": "多模态大语言模型擅长语义推理，扩散模型擅长高保真生成，论文致力于将两者优势结合用于视频生成与编辑。\n提出了Bernini框架：用大模型进行高层语义规划，用扩散模型依据规划合成像素，两者通过语义接口协同，实现了高性能的视频生成与编辑。"
+    },
+    "2605.22718": {
+      "short_zh": "世界生成中的长期一致性保持",
+      "tags": "计算机图形学；视频生成；世界一致性保持",
+      "body_summary": "视频自回归扩散模型能实时生成动作条件世界，但难以维持已生成场景的长期一致性。\n提出无需训练的WorldKV框架，通过检索和压缩历史信息，高效维持世界一致性并提升吞吐量。"
+    },
+    "2605.22809": {
+      "short_zh": "转换行车视频为自动驾驶传感器数据",
+      "tags": "计算机视觉;自动驾驶感知;传感器数据生成",
+      "body_summary": "自动驾驶系统训练验证需要海量多样数据，但真实车队数据有限，而海量行车记录仪视频无法直接使用。\n提出Sensor2Sensor方法，利用扩散模型将单目行车视频转换成多视角相机图像和激光雷达点云的多模态传感器数据。"
+    }
+  },
+  "deep_analysis": {},
+  "figures": {
+    "2605.22344": [
+      {
+        "path": "https://arxiv.org/html/2605.22344v1/x3.png",
+        "caption": "Figure 3:Overview of Bernini. (A) Visual and text inputs are serialized into a unified 1D sequence. (B) The MLLM planner predicts target semantic embeddings from masked targets and conditions the renderer. (C) The DiT-based renderer performs flow matching in the VAE latent space conditioned on semantic embeddings and source VAE features. (D) Bernini uses a segment-wise hybrid attention mask in MLLM. (E) Segment-aware 3D RoPE disambiguates visual tokens from different segments.",
+        "role": "pipeline_1",
+        "caption_zh": "图 3：Bernini 模型概览。（A）视觉与文本输入被序列化为统一的一维序列。（B）多模态大语言模型（MLLM）规划器根据掩码目标预测目标语义嵌入，并作为渲染器的条件。（C）基于 DiT 的渲染器在 VAE 潜在空间中，以语义嵌入和源 VAE 特征为条件，进行流匹配。（D）Bernini 在 MLLM 中使用分段混合注意力掩码。（E）分段感知的 3D RoPE 对不同分段的视觉 token 进行区分。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.22344v1/x2.png",
+        "caption": "Figure 2:Bernini supports diverse video generation tasks within a unified framework, including text-to-video (T2V), subject-to-video (R2V), video editing (V2V), and reference-guided video editing (RV2V).",
+        "role": "pipeline_2",
+        "caption_zh": "图2：Bernini在统一框架下支持多种视频生成任务，包括文本生成视频（T2V）、主体生成视频（R2V）、视频编辑（V2V）以及参考引导的视频编辑（RV2V）。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.22344v1/x1.png",
+        "caption": "Figure 1:Video editing leaderboard.Pairwise human preferences on open-ended video editing (no restriction on instruction type).(A) Leaderboard.BT scores[bradley1952rank]with95%95\\%bootstrap CIs;Win %=1/(1+10−(s−1000)/400)=1/(1+10^{-(s-1000)/400})vs. avg. opponent;W-L-Traw record.(B) Win-rate matrix.W/(W+L)W/(W{+}L);\nBernini: 480p/24 fps; baselines: 720p/24 fps.",
+        "role": "pipeline_3",
+        "caption_zh": "图1：视频编辑排行榜。针对开放式视频编辑（指令类型无限制）的成对人类偏好对比。（A）排行榜。采用Bradley-Terry分数（Bradley & Terry, 1952）及95%自助置信区间；胜率%=W/(W+L)（相对于平均对手）；原始胜负平记录。（B）胜率矩阵。Bernini模型：480p/24 fps；基线模型：720p/24 fps。"
+      }
+    ],
+    "2605.22718": [
+      {
+        "path": "https://arxiv.org/html/2605.22718v1/x3.png",
+        "caption": "Figure 4:Overview of WorldKV.(a) World Retrieval stores KV-cache chunks after compression and retrieves view-relevant chunks back into the attention window at revisit time. (b) World Compression designates first frame of each chunk as the anchor, computes key similarity against the remaining frames, and prunes tokens redundant with the anchor.",
+        "role": "pipeline_1",
+        "caption_zh": "图 4：WorldKV 概览。（a）世界检索模块在压缩后存储 KV 缓存块，并在重新访问时将视图相关的块检索回注意力窗口。（b）世界压缩模块将每个块的首帧指定为锚点，计算其与剩余帧的键相似度，并剪枝与锚点冗余的令牌。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.22718v1/x2.png",
+        "caption": "Figure 3:Attention maps for the action sequence “Right (chunks C0–C3)→\\rightarrowStop (C4)→\\rightarrowLeft (C5–C8)→\\rightarrowStop (C9)→\\rightarrowRight (C10)”. The model assigns high attention to KV-caches whose viewpoint overlaps with the current action. This pattern motivates using camera/action as the retrieval criterion for selecting relevant past KV caches.",
+        "role": "pipeline_2",
+        "caption_zh": "图3：动作序列“右转（片段C0–C3）→停止（C4）→左转（C5–C8）→停止（C9）→右转（C10）”的注意力分布图。该模型对视角与当前动作重叠的KV缓存分配了高注意力。这一模式启发了使用相机/动作作为检索标准来选择相关历史KV缓存的方法。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.22718v1/figs/introduction/kv_cache_vram_short_labels_large_font.png",
+        "caption": "(a)KV cache size (LingBot-World-Fast 14B)(b)FPS over rollout lengthFigure 2:Cost of full-history KV-cache attention.(a) Full KV grows rapidly into the OOM region, while WorldKV grows gradually via compression and stays nearly flat with CPU offloading. (b) Full KV throughput degrades continuously on both backbones (14B on 4×B200, 1.3B on 4×H200), while WorldKV maintains stable throughput.",
+        "role": "pipeline_3",
+        "caption_zh": "图2：全历史KV缓存注意力的成本。(a)完整KV缓存随着长度增加迅速进入内存溢出（OOM）区域，而WorldKV通过压缩逐渐增长，并在CPU卸载后保持近乎平稳。(b)完整KV缓存在两种骨干模型上（14B模型在4×B200，1.3B模型在4×H200）的吞吐量持续下降，而WorldKV则保持稳定的吞吐量。"
+      }
+    ],
+    "2605.22809": [
+      {
+        "path": "https://arxiv.org/html/2605.22809v1/x1.png",
+        "caption": "Figure 2:Synthetic paired-data curation pipeline.We reconstruct 4DGS from 8-view cameras and render a diverse set of synthetic third-party cameras (e.g. popular dashcam models).",
+        "role": "pipeline_1",
+        "caption_zh": "图 2：合成配对数据构建流程。我们基于 8 视图相机重建出 4DGS，并渲染一组多样化的合成第三方相机视角（例如常见的行车记录仪模型）。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.22809v1/x2.png",
+        "caption": "Figure 3:Our multi-modal, multi-view sensor generation model architecture.Based on Latent Diffusion, the model simultaneously generates multi-view images (CC) and LiDAR point clouds (LL) using modality-specific VAEs and U-Net towers.Multi-sensor consistencyis enforced via cross-sensor attention, andmulti-view consistencyis maintained with 3D attention blocks.",
+        "role": "pipeline_2",
+        "caption_zh": "图3：我们的多模态多视角传感器生成模型架构。该模型基于隐扩散模型，通过各模态专用的变分自编码器和U-Net塔，同步生成多视角图像（CC）与激光雷达点云（LL）。模型通过跨传感器注意力机制保证多传感器一致性，并利用三维注意力模块维持多视角一致性。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.22809v1/x8.png",
+        "caption": "Figure 9:LiDAR detection.We tested a vehicle detection model using real and generated LiDAR. Comparable results confirm the fidelity of our generation.",
+        "role": "pipeline_3",
+        "caption_zh": "图9：激光雷达检测。我们使用真实与生成的激光雷达数据测试了车辆检测模型，可比的结果证实了生成数据的高保真度。"
+      }
+    ]
+  }
+}
