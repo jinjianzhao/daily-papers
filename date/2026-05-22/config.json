@@ -1,9 +1,19 @@
 {
   "base_info": {
+    "2605.22809": {
+      "title": "Sensor2Sensor: Cross-Embodiment Sensor Conversion for Autonomous Driving",
+      "abstract": "Robust training and validation of Autonomous Driving Systems (ADS) require massive, diverse datasets. Proprietary data collected by Autonomous Vehicle (AV) fleets, while high-fidelity, are limited in scale, diversity of sensor configurations, as well as geographic and long-tail-behavioral coverage. In contrast, in-the-wild data from sources like dashcams offers immense scale and diversity, capturing critical long-tail scenarios and novel environments. However, this unstructured, in-the-wild video data is incompatible with ADS expecting structured, multi-modal sensor inputs for validation and training. To bridge this data gap, we propose Sensor2Sensor, a novel generative modeling paradigm that translates in-the-wild monocular dashcam videos into a high-fidelity, multi-modal sensor suite (AV logs) comprising multi-view camera images and LiDAR point clouds. A core challenge is the lack of paired training data. We address this by converting real AV logs into dashcam-style videos via 4D Gaussian Splatting (4DGS) reconstruction and novel-view rendering. Sensor2Sensor then utilizes a diffusion architecture to perform the generative conversion. We perform comprehensive quantitative evaluations on the fidelity and realism of the generated sensor data. We demonstrate Sensor2Sensor's practical utility by converting challenging in-the-wild internet and dashcam footage into realistic, multi-modal data formats, further unlocking vast external data sources for AV development.",
+      "hf_link": "https://huggingface.co/papers/2605.22809"
+    },
     "2605.22344": {
       "title": "Bernini: Latent Semantic Planning for Video Diffusion",
       "abstract": "Multimodal large language models (MLLMs) and diffusion models have each reached remarkable maturity: MLLMs excel at reasoning over heterogeneous multimodal inputs with strong semantic grounding, while diffusion models synthesize images and videos with photorealistic fidelity. We argue that these two families can be unified through a simple division of labor: MLLMs perform semantic planning, while diffusion models render pixels from high-level semantic guidance and low-level visual features. Building on this idea, we propose Bernini, a unified framework for video generation and editing. An MLLM-based planner predicts the target semantic representation directly in the ViT embedding space, and a DiT-based renderer synthesizes pixels conditioned on this plan, augmented by text features and, for editing, source VAE features for detail preservation. Because semantics serve as the interface, the planner and renderer can be trained separately and only lightly co-trained, preserving the pretrained strengths of both components while keeping training efficient. To better handle multiple visual inputs, we introduce Segment-Aware 3D Rotary Positional Embedding (SA-3D RoPE), and further incorporate chain-of-thought reasoning in the planner to better transfer understanding into generation. Bernini achieves state-of-the-art performance across a wide range of video generation and editing benchmarks, with the MLLM's pretrained understanding translating into strong generalization on challenging editing tasks.",
       "hf_link": "https://huggingface.co/papers/2605.22344"
+    },
+    "2605.20910": {
+      "title": "FlowLong: Inference-time Long Video Generation via Manifold-constrained Tweedie Matching",
+      "abstract": "Extending the generation horizon of video diffusion models to long sequences remains a long-standing and important challenge. Existing training-free approaches fall into two categories: extensions of bidirectional models, which are tightly coupled to specific architectures and suffer from quality degradation over long horizons, and autoregressive models, which accumulate drift errors due to exposure bias and tend to produce repetitive motion patterns. To address these issues, we propose a novel but simple inference-time approach for long video generation that is architecture-agnostic and requires no additional training. Our method generates long videos via overlapping sliding windows, where predicted clean samples from adjacent windows are blended via \\emph{Tweedie matching} to enforce both \\textbf{manifold constraint and temporal consistency} across overlap regions. \\emph{Stochastic early-phase sampling} then synchronizes per-window trajectories by injecting fresh noise after each Tweedie matching correction in the high-noise phase, before transitioning to deterministic ODE sampling to preserve fine-grained visual fidelity. Applied to various video generation models, our method generates videos several times longer than the native window length while outperforming both training-free and autoregressive baselines in temporal consistency and visual quality, and further extends to audio-video joint generation and text-to-3DGS without any fine-tuning.",
+      "hf_link": "https://huggingface.co/papers/2605.20910"
     },
     "2605.22718": {
       "title": "WorldKV: Efficient World Memory with World Retrieval and Compression",
@@ -15,25 +25,15 @@
       "abstract": "Many public buildings provide floorplans with a \"you are here\" indicator to help visitors orient themselves. Floorplan localization seeks to computationally replicate this capability by determining where visual observations were captured within a floorplan. However, existing methods typically assume controlled small-scale environments and precise vectorized floorplans, limiting their ability to operate in large-scale buildings and rasterized floorplans. In this work, we present an approach for performing floorplan localization in the wild by grounding the task in a reconstructed 3D representation of the scene. Given an unconstrained image collection, our method reconstructs a gravity-aligned 3D scene and projects it into a 2D density map that serves as a floorplan proxy. Floorplan localization is then formulated as aligning this proxy with the input floorplan via a 2D similarity transform. To bridge the appearance gap between density maps and architectural floorplans, we adapt a 2D foundation model to learn cross-modal correspondences, introducing a fine-tuning scheme that encourages semantically aligned matches while preserving structural consistency. Extensive experiments demonstrate substantial improvements over prior methods, including in extremely sparse settings with as little as a single input image. Our code and data will be publicly available.",
       "hf_link": "https://huggingface.co/papers/2605.22581"
     },
-    "2605.21572": {
-      "title": "PhysX-Omni: Unified Simulation-Ready Physical 3D Generation for Rigid, Deformable, and Articulated Objects",
-      "abstract": "Simulation-ready physical 3D assets have emerged as a promising direction owing to their broad applicability in downstream tasks. However, most existing 3D generation methods either neglect physical properties or are limited to a single asset category, e.g., rigid, deformable, or articulated objects. To address these limitations, we introduce PhysX-Omni, a unified framework for simulation-ready physical 3D generation across diverse asset types. Specifically, we develop a novel and efficient geometry representation tailored for Vision-Language Models, which directly encodes high-resolution 3D structures without compression, significantly improving generation performance. In addition, we construct the first general simulation-ready 3D dataset, PhysXVerse, covering diverse indoor and outdoor categories. Furthermore, to comprehensively and flexibly evaluate both generative and understanding capabilities in the wild, we propose PhysX-Bench, which encompasses six key attributes: geometry, absolute scale, material, affordance, kinematics, and function description. Extensive experiments with conventional metrics and PhysX-Bench show that PhysX-Omni performs strongly in both generation and understanding. Moreover, additional studies further validate the potential of PhysX-Omni for applications in simulation-ready scene generation and robotic policy learning. We believe PhysX-Omni can significantly advance a wide range of downstream applications, particularly in embodied AI and physics-based simulation.",
-      "hf_link": "https://huggingface.co/papers/2605.21572"
-    },
-    "2605.20910": {
-      "title": "FlowLong: Inference-time Long Video Generation via Manifold-constrained Tweedie Matching",
-      "abstract": "Extending the generation horizon of video diffusion models to long sequences remains a long-standing and important challenge. Existing training-free approaches fall into two categories: extensions of bidirectional models, which are tightly coupled to specific architectures and suffer from quality degradation over long horizons, and autoregressive models, which accumulate drift errors due to exposure bias and tend to produce repetitive motion patterns. To address these issues, we propose a novel but simple inference-time approach for long video generation that is architecture-agnostic and requires no additional training. Our method generates long videos via overlapping sliding windows, where predicted clean samples from adjacent windows are blended via \\emph{Tweedie matching} to enforce both \\textbf{manifold constraint and temporal consistency} across overlap regions. \\emph{Stochastic early-phase sampling} then synchronizes per-window trajectories by injecting fresh noise after each Tweedie matching correction in the high-noise phase, before transitioning to deterministic ODE sampling to preserve fine-grained visual fidelity. Applied to various video generation models, our method generates videos several times longer than the native window length while outperforming both training-free and autoregressive baselines in temporal consistency and visual quality, and further extends to audio-video joint generation and text-to-3DGS without any fine-tuning.",
-      "hf_link": "https://huggingface.co/papers/2605.20910"
-    },
-    "2605.22809": {
-      "title": "Sensor2Sensor: Cross-Embodiment Sensor Conversion for Autonomous Driving",
-      "abstract": "Robust training and validation of Autonomous Driving Systems (ADS) require massive, diverse datasets. Proprietary data collected by Autonomous Vehicle (AV) fleets, while high-fidelity, are limited in scale, diversity of sensor configurations, as well as geographic and long-tail-behavioral coverage. In contrast, in-the-wild data from sources like dashcams offers immense scale and diversity, capturing critical long-tail scenarios and novel environments. However, this unstructured, in-the-wild video data is incompatible with ADS expecting structured, multi-modal sensor inputs for validation and training. To bridge this data gap, we propose Sensor2Sensor, a novel generative modeling paradigm that translates in-the-wild monocular dashcam videos into a high-fidelity, multi-modal sensor suite (AV logs) comprising multi-view camera images and LiDAR point clouds. A core challenge is the lack of paired training data. We address this by converting real AV logs into dashcam-style videos via 4D Gaussian Splatting (4DGS) reconstruction and novel-view rendering. Sensor2Sensor then utilizes a diffusion architecture to perform the generative conversion. We perform comprehensive quantitative evaluations on the fidelity and realism of the generated sensor data. We demonstrate Sensor2Sensor's practical utility by converting challenging in-the-wild internet and dashcam footage into realistic, multi-modal data formats, further unlocking vast external data sources for AV development.",
-      "hf_link": "https://huggingface.co/papers/2605.22809"
-    },
     "2605.22144": {
       "title": "One Sentence, One Drama: Personalized Short-Form Drama Generation via Multi-Agent Systems",
       "abstract": "Existing approaches for digital short-drama production typically rely on one-shot LLM generated scripts and loosely coupled pipelines, which fail to satisfy three key requirements of short-drama generation: (1) narrative pacing, resulting in weak hooks, insufficient escalation, and unattractive endings; (2) spatial consistency, leading to drifting scene layouts and inconsistent character positions across clips; and (3) production-level quality control, requiring extensive manual review and correction across script and visual stages. We present One Sentence, One Drama, a hierarchical multi-agent framework that transforms a user's single-sentence idea into a fully produced short drama through structured intermediate modules and iterative refinement. Our approach is built upon three key components: (1) a multi-agent debate-based story generation module that enforces short-drama pacing and narrative coherence; (2) a 3D-grounded first-frame generation mechanism that establishes a shared spatial reference for consistent character positioning and scene layout across clips; and (3) multi-stage reviewer loops that perform comprehensive error detection and targeted revision across script, visual, and video generation stages. We also introduce scene-level BGM matching and scene transition planning to improve the audience's immersive experience. To systematically evaluate this task, we introduce Short-Drama-Bench, a benchmark that extends standard video quality metrics with short-drama-specific criteria. Experimental results demonstrate that our method significantly outperforms existing pipelines in narrative quality, cross-clip consistency, and overall viewing experience.",
       "hf_link": "https://huggingface.co/papers/2605.22144"
+    },
+    "2605.21572": {
+      "title": "PhysX-Omni: Unified Simulation-Ready Physical 3D Generation for Rigid, Deformable, and Articulated Objects",
+      "abstract": "Simulation-ready physical 3D assets have emerged as a promising direction owing to their broad applicability in downstream tasks. However, most existing 3D generation methods either neglect physical properties or are limited to a single asset category, e.g., rigid, deformable, or articulated objects. To address these limitations, we introduce PhysX-Omni, a unified framework for simulation-ready physical 3D generation across diverse asset types. Specifically, we develop a novel and efficient geometry representation tailored for Vision-Language Models, which directly encodes high-resolution 3D structures without compression, significantly improving generation performance. In addition, we construct the first general simulation-ready 3D dataset, PhysXVerse, covering diverse indoor and outdoor categories. Furthermore, to comprehensively and flexibly evaluate both generative and understanding capabilities in the wild, we propose PhysX-Bench, which encompasses six key attributes: geometry, absolute scale, material, affordance, kinematics, and function description. Extensive experiments with conventional metrics and PhysX-Bench show that PhysX-Omni performs strongly in both generation and understanding. Moreover, additional studies further validate the potential of PhysX-Omni for applications in simulation-ready scene generation and robotic policy learning. We believe PhysX-Omni can significantly advance a wide range of downstream applications, particularly in embodied AI and physics-based simulation.",
+      "hf_link": "https://huggingface.co/papers/2605.21572"
     },
     "2605.14678": {
       "title": "$π$-Bench: Evaluating Proactive Personal Assistant Agents in Long-Horizon Workflows",
@@ -85,6 +85,11 @@
       "abstract": "Model cards describe model behavior through a mixture of textual descriptions and structured artifacts, including performance, configuration, and dataset tables. Existing model search systems rely predominantly on semantic similarity over text, which can produce homogeneous result sets and limit exploration of alternatives. We argue that model search is inherently comparative: users want models that are task-aligned yet differentiated in measurable ways. We hypothesize that this balance requires retrieval over condensed, high-quality evidence rather than verbose descriptions, and much of that evidence is concentrated in structured tables. We present StructuredSemanticSearch, a table-driven model search framework built on the ModelTables benchmark. Given a query, StructuredSemanticSearch combines a semantic baseline for task alignment with a structure-aware pipeline that discovers query-related model-card tables using table discovery operators such as unionability, joinability, and keyword search. Retrieved tables are mapped back to model cards under a controlled top-k budget, enabling fair comparison between text-based and table-based retrieval. Beyond retrieval, StructuredSemanticSearch adapts table integration to the model-table domain through orientation-aware integration, producing compact integrated views of tables from partially overlapping and sometimes transposed evidence tables. For evaluation, we introduce a nugget-based, auditable protocol that extracts compact evidence items from model cards, matches queries to condition- or intent-specific nuggets, and measures evidence coverage and diversity over retrieved model-card candidate sets. This protocol also provides a scalable path toward approximate, evidence-based labeling in dynamic model lakes. Experiments on 597 model-recommendation queries show improved nugget coverage for the structure-aware pipeline than semantic baseline",
       "hf_link": "https://huggingface.co/papers/2605.22766"
     },
+    "2605.12817": {
+      "title": "Training Large Language Models to Predict Clinical Events",
+      "abstract": "Longitudinal clinical notes contain rich evidence of how patients evolve over time, but converting this signal into training supervision for clinical prediction remains challenging. We extend Foresight Learning to clinical prediction by converting time-ordered MIMIC-III notes into examples consisting of past patient context, a natural-language question about a possible future event, and a label resolved from later documentation. This process yields 6,900 prediction examples from 702 admissions across medications, procedures, organ support, microbiology, and mortality. A small LoRA adapter trained on these examples improves over the prompted base model, reducing expected calibration error from 0.1269 to 0.0398 and Brier score from 0.199 to 0.145, while slightly outperforming GPT-5 point estimates on held-out questions. The approach enables reusable clinical prediction supervision from longitudinal notes without hand-engineered structured features or endpoint-specific classifiers.",
+      "hf_link": "https://huggingface.co/papers/2605.12817"
+    },
     "2605.22538": {
       "title": "Segment Anything with Motion, Geometry, and Semantic Adaptation for Complex Nonlinear Visual Object Tracking",
       "abstract": "Traditional visual object tracking (VOT) methods typically rely on task-specific supervised training, limiting their generalization to unseen objects and challenging scenarios with distractors, occlusion, and nonlinear motion. Recent vision foundation models, exemplified by SAM 2, learn strong video understanding priors from large-scale pretraining and offer a promising foundation for building more robust and generalizable trackers. However, directly applying SAM 2 to VOT remains suboptimal, as it does not explicitly model target motion dynamics or enforce geometric and semantic consistency across frames, both of which are essential for reliable tracking. To address this issue, we propose SAMOSA, a new tracking framework that adapts SAM 2 to complex VOT scenarios by explicitly leveraging motion, geometry, and semantic cues. Specifically, we introduce a lightweight nonlinear motion predictor to model target dynamics and guide mask selection as well as memory filtering. We further exploit semantic cues to detect target shifts and recover from tracking failures, while geometric cues are incorporated as structural constraints to improve tracking stability. In this way, SAMOSA bridges the gap between the implicit video understanding prior of SAM 2 and explicit tracking-oriented modeling. Extensive experiments show that SAMOSA consistently outperforms state-of-the-art SAM 2--based approaches on general benchmarks, demonstrates stronger generalization than supervised VOT methods, and achieves substantial gains on anti-UAV datasets, which typify complex nonlinear motion scenarios. Our code is available atthis https URL.",
@@ -94,11 +99,6 @@
       "title": "From Reasoning Chains to Verifiable Subproblems: Curriculum Reinforcement Learning Enables Credit Assignment for LLM Reasoning",
       "abstract": "Reinforcement learning from verifiable rewards (RLVR) has shown strong promise for LLM reasoning, but outcome-based RLVR remains inefficient on hard problems because correct final-answer rollouts are rare and sample-level credit assignment cannot use partial progress in failed attempts. We introduce SCRL (Subproblem Curriculum Reinforcement Learning), a curriculum RL framework that derives verifiable subproblems from reference reasoning chains and fixes the final subproblem as the original problem. This turns partial progress on hard problems into verifiable learning signals. Algorithmically, SCRL uses subproblem-level normalization, which normalizes rewards independently at each subproblem position and assigns the resulting advantages to the corresponding answer spans, enabling finer-grained credit assignment without external rubrics or reward models. Our analysis shows that subproblem curricula lift hard problems out of gradient dead zones, with larger relative gains as the original problem becomes harder. Across seven mathematical reasoning benchmarks, SCRL outperforms strong curriculum-learning baselines, improving average accuracy over GRPO by +4.1 points on Qwen3-4B-Base and +1.9 points on Qwen3-14B-Base. On AIME24, AIME25, and IMO-Bench, SCRL further improves pass@1 by +3.7 points and pass@64 by +4.6 points on Qwen3-4B-Base, indicating better exploration on hard reasoning problems.",
       "hf_link": "https://huggingface.co/papers/2605.22074"
-    },
-    "2605.12817": {
-      "title": "Training Large Language Models to Predict Clinical Events",
-      "abstract": "Longitudinal clinical notes contain rich evidence of how patients evolve over time, but converting this signal into training supervision for clinical prediction remains challenging. We extend Foresight Learning to clinical prediction by converting time-ordered MIMIC-III notes into examples consisting of past patient context, a natural-language question about a possible future event, and a label resolved from later documentation. This process yields 6,900 prediction examples from 702 admissions across medications, procedures, organ support, microbiology, and mortality. A small LoRA adapter trained on these examples improves over the prompted base model, reducing expected calibration error from 0.1269 to 0.0398 and Brier score from 0.199 to 0.145, while slightly outperforming GPT-5 point estimates on held-out questions. The approach enables reusable clinical prediction supervision from longitudinal notes without hand-engineered structured features or endpoint-specific classifiers.",
-      "hf_link": "https://huggingface.co/papers/2605.12817"
     },
     "2605.22536": {
       "title": "SpaceDG: Benchmarking Spatial Intelligence under Visual Degradation",
@@ -132,10 +132,10 @@
     "2605.22678": 0,
     "2605.22344": 0,
     "2605.22766": 0,
+    "2605.12817": 0,
     "2605.22538": 0,
     "2605.22581": 0,
     "2605.22074": 0,
-    "2605.12817": 0,
     "2605.22536": 0,
     "2605.22144": 0,
     "2605.22535": 0,
@@ -149,8 +149,8 @@
     ],
     "视频生成": [
       "2605.22718",
-      "2605.22344",
       "2605.20910",
+      "2605.22344",
       "2605.22144"
     ],
     "图像生成": [
@@ -159,10 +159,20 @@
     ]
   },
   "summaries": {
+    "2605.22809": {
+      "short_zh": "转换行车视频为自动驾驶传感器数据",
+      "tags": "计算机视觉;自动驾驶感知;传感器数据生成",
+      "body_summary": "自动驾驶系统训练验证需要海量多样数据，但真实车队数据有限，而海量行车记录仪视频无法直接使用。\n提出Sensor2Sensor方法，利用扩散模型将单目行车视频转换成多视角相机图像和激光雷达点云的多模态传感器数据。"
+    },
     "2605.22344": {
       "short_zh": "多模态大模型规划视频扩散",
       "tags": "计算机视觉;视频生成与编辑;语义规划与像素渲染",
       "body_summary": "多模态大语言模型擅长语义推理，扩散模型擅长高保真生成，论文致力于将两者优势结合用于视频生成与编辑。\n提出了Bernini框架：用大模型进行高层语义规划，用扩散模型依据规划合成像素，两者通过语义接口协同，实现了高性能的视频生成与编辑。"
+    },
+    "2605.20910": {
+      "short_zh": "无需训练的长视频生成方法",
+      "tags": "生成式人工智能；视频生成；长视频合成",
+      "body_summary": "扩展视频扩散模型的生成时长面临架构依赖和误差累积的挑战。\n提出一种基于重叠滑动窗口的推理时方法，通过Tweedie匹配和随机早期采样生成更长、更一致的视频。"
     },
     "2605.22718": {
       "short_zh": "世界生成中的长期一致性保持",
@@ -174,25 +184,15 @@
       "tags": "计算机视觉；三维视觉；楼层平面图定位",
       "body_summary": "现有方法受限于小规模精确矢量图，难以处理大规模建筑与栅格化平面图。\n提出基于三维重建生成密度图作为平面图代理，并微调二维基础模型学习跨模态对应进行对齐的方法。"
     },
-    "2605.21572": {
-      "short_zh": "物理三维生成框架",
-      "tags": "计算机图形学;三维内容生成;仿真就绪三维资产",
-      "body_summary": "现有三维生成方法常忽视物理属性或局限于单一类别，而仿真就绪的三维资产对下游应用至关重要\n提出统一框架PhysX-Omni，通过新的几何表示和数据集，实现了对刚性、可变形和铰接物体的高质量仿真就绪三维生成与理解"
-    },
-    "2605.20910": {
-      "short_zh": "无需训练的长视频生成方法",
-      "tags": "生成式人工智能；视频生成；长视频合成",
-      "body_summary": "扩展视频扩散模型的生成时长面临架构依赖和误差累积的挑战。\n提出一种基于重叠滑动窗口的推理时方法，通过Tweedie匹配和随机早期采样生成更长、更一致的视频。"
-    },
-    "2605.22809": {
-      "short_zh": "转换行车视频为自动驾驶传感器数据",
-      "tags": "计算机视觉;自动驾驶感知;传感器数据生成",
-      "body_summary": "自动驾驶系统训练验证需要海量多样数据，但真实车队数据有限，而海量行车记录仪视频无法直接使用。\n提出Sensor2Sensor方法，利用扩散模型将单目行车视频转换成多视角相机图像和激光雷达点云的多模态传感器数据。"
-    },
     "2605.22144": {
       "short_zh": "一句话主题：一句话生成个性化短剧",
       "tags": "多智能体系统;数字内容生成;短剧自动生成",
       "body_summary": "现有短剧生成方法叙事节奏差、空间不一致、质量难控制\n提出多智能体框架，通过故事生成、空间一致和审查循环提升短剧质量"
+    },
+    "2605.21572": {
+      "short_zh": "物理三维生成框架",
+      "tags": "计算机图形学;三维内容生成;仿真就绪三维资产",
+      "body_summary": "现有三维生成方法常忽视物理属性或局限于单一类别，而仿真就绪的三维资产对下游应用至关重要\n提出统一框架PhysX-Omni，通过新的几何表示和数据集，实现了对刚性、可变形和铰接物体的高质量仿真就绪三维生成与理解"
     },
     "2605.14678": {
       "short_zh": "评估智能助手主动规划能力",
@@ -244,6 +244,11 @@
       "tags": "机器学习;模型搜索与推荐;结构化模型卡片检索",
       "body_summary": "现有模型搜索系统主要依赖文本语义相似度,可能产生同质化结果且难以探索差异化模型。\n本文提出结合语义检索与结构化表格检索的框架,通过表格操作符发现相关模型卡片,并引入基于证据块的评估方法以提高检索覆盖率和多样性。"
     },
+    "2605.12817": {
+      "short_zh": "用病历训练大模型预测临床事件",
+      "tags": "自然语言处理；医疗文本分析；临床事件预测",
+      "body_summary": "纵向病历包含患者随时间演变的信息，但将其用于临床预测训练很困难。\n将时序病历转为问答对训练模型，能提升预测准确度且无需人工标注。"
+    },
     "2605.22538": {
       "short_zh": "运动几何语义自适应的视觉目标跟踪",
       "tags": "计算机视觉;视觉目标跟踪;复杂非线性运动跟踪",
@@ -253,11 +258,6 @@
       "short_zh": "从推理链划分可验证子问题的强化学习",
       "tags": "强化学习;大语言模型;数学推理",
       "body_summary": "背景/任务是：基于可验证奖励的强化学习用于提升大语言模型的推理能力，但在难题上因正确轨迹稀少且无法利用失败尝试中的部分进展而效率低下。\n核心是提出了一个名为SCRL的课程强化学习框架，它从参考推理链中派生出可验证的子问题，并利用子问题级别的标准化进行更细粒度的奖励分配，从而将难题上的部分进展转化为有效的学习信号，在多个数学推理基准上取得了显著提升。"
-    },
-    "2605.12817": {
-      "short_zh": "用病历训练大模型预测临床事件",
-      "tags": "自然语言处理；医疗文本分析；临床事件预测",
-      "body_summary": "纵向病历包含患者随时间演变的信息，但将其用于临床预测训练很困难。\n将时序病历转为问答对训练模型，能提升预测准确度且无需人工标注。"
     },
     "2605.22536": {
       "short_zh": "测试视觉退化下多模态模型空间智能",
@@ -277,6 +277,26 @@
   },
   "deep_analysis": {},
   "figures": {
+    "2605.22809": [
+      {
+        "path": "https://arxiv.org/html/2605.22809v1/x1.png",
+        "caption": "Figure 2:Synthetic paired-data curation pipeline.We reconstruct 4DGS from 8-view cameras and render a diverse set of synthetic third-party cameras (e.g. popular dashcam models).",
+        "role": "pipeline_1",
+        "caption_zh": "图 2：合成配对数据构建流程。我们基于 8 视图相机重建出 4DGS，并渲染一组多样化的合成第三方相机视角（例如常见的行车记录仪模型）。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.22809v1/x2.png",
+        "caption": "Figure 3:Our multi-modal, multi-view sensor generation model architecture.Based on Latent Diffusion, the model simultaneously generates multi-view images (CC) and LiDAR point clouds (LL) using modality-specific VAEs and U-Net towers.Multi-sensor consistencyis enforced via cross-sensor attention, andmulti-view consistencyis maintained with 3D attention blocks.",
+        "role": "pipeline_2",
+        "caption_zh": "图3：我们的多模态多视角传感器生成模型架构。该模型基于隐扩散模型，通过各模态专用的变分自编码器和U-Net塔，同步生成多视角图像（CC）与激光雷达点云（LL）。模型通过跨传感器注意力机制保证多传感器一致性，并利用三维注意力模块维持多视角一致性。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.22809v1/x8.png",
+        "caption": "Figure 9:LiDAR detection.We tested a vehicle detection model using real and generated LiDAR. Comparable results confirm the fidelity of our generation.",
+        "role": "pipeline_3",
+        "caption_zh": "图9：激光雷达检测。我们使用真实与生成的激光雷达数据测试了车辆检测模型，可比的结果证实了生成数据的高保真度。"
+      }
+    ],
     "2605.22344": [
       {
         "path": "https://arxiv.org/html/2605.22344v1/x3.png",
@@ -295,6 +315,26 @@
         "caption": "Figure 1:Video editing leaderboard.Pairwise human preferences on open-ended video editing (no restriction on instruction type).(A) Leaderboard.BT scores[bradley1952rank]with95%95\\%bootstrap CIs;Win %=1/(1+10−(s−1000)/400)=1/(1+10^{-(s-1000)/400})vs. avg. opponent;W-L-Traw record.(B) Win-rate matrix.W/(W+L)W/(W{+}L);\nBernini: 480p/24 fps; baselines: 720p/24 fps.",
         "role": "pipeline_3",
         "caption_zh": "图1：视频编辑排行榜。针对开放式视频编辑（指令类型无限制）的成对人类偏好对比。（A）排行榜。采用Bradley-Terry分数（Bradley & Terry, 1952）及95%自助置信区间；胜率%=W/(W+L)（相对于平均对手）；原始胜负平记录。（B）胜率矩阵。Bernini模型：480p/24 fps；基线模型：720p/24 fps。"
+      }
+    ],
+    "2605.20910": [
+      {
+        "path": "https://arxiv.org/html/2605.20910v1/x1.png",
+        "caption": "Figure 1:Qualitative results.FlowLongextends pretrained video diffusion models beyond their native context window without any additional training. Being model-agnostic and training-free, it readily applies across diverse tasks: text-to-video generation, joint audio-video generation, and text-to-3DGS. This points toward a versatile, plug-and-play framework for extrapolating the generative horizon of any flow-based model. Please refer to the supplementary video.",
+        "role": "pipeline_1",
+        "caption_zh": "图1：定性结果。FlowLong 可将预训练的视频扩散模型拓展至其原始上下文窗口之外，且无需任何额外训练。该方法兼具模型无关性和免训练特性，可轻松应用于多种任务：文本到视频生成、音视频联合生成以及文本到3D高斯泼溅生成。这为构建通用即插即用框架提供了方向，能够基于任意流模型外推生成范围。详见补充视频。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.20910v1/x2.png",
+        "caption": "Figure 2:Main pipeline.We generate long videos in inference-time by harmonizing multiple short video chunk sampling trajectories.(a)Each chunk starts from independent noise and follows its own ODE, producing divergent denoised estimates.(b)We interpolate the denoised estimates on overlapping frames to align adjacent chunks (Sec4.1).(c)In early sampling phase, we inject stochastic noise to prevent trajectories from reverting to their original divergent ODE paths (Sec4.2).(d)Repeating (b)–(c) progressively synchronizes all chunks into a coherent long video.",
+        "role": "pipeline_2",
+        "caption_zh": "图2：主流程。我们在推理阶段通过协调多个短视频片段采样轨迹来生成长视频。(a)每个片段从独立噪声开始，遵循各自的常微分方程（ODE）进行去噪，产生不同的去噪估计结果；(b)我们对重叠帧的去噪估计结果进行插值，以对齐相邻片段（见第4.1节）；(c)在早期采样阶段，我们注入随机噪声以防止轨迹回归到原本发散的ODE路径（见第4.2节）；(d)重复步骤(b)–(c)逐步将所有片段同步为连贯的长视频。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.20910v1/x3.png",
+        "caption": "Figure 3:Qualitative comparison of 30-second video generation.Baselines suffer from repetitive motion patterns and drift errors caused by accumulated exposure bias. In contrast, our method produces videos with diverse motion dynamics and is robust to exposure bias. Please refer to the supplementary video.",
+        "role": "pipeline_3",
+        "caption_zh": "图 3：30 秒视频生成的定性对比。基线方法因累积曝光偏差而出现重复运动模式与漂移误差。相比之下，本方法生成的视频具有多样化的运动动态，并对曝光偏差具有鲁棒性。详见补充视频。"
       }
     ],
     "2605.22718": [
@@ -337,66 +377,6 @@
         "caption_zh": "图1：给定一组真实场景图像与一份栅格化平面图，SceneAligner 从图像中重建出重力方向对齐的3D点云，并将此重建结果全局对齐至2D平面图，从而实现图像在平面图中的定位。如上图所示，我们的方法成功实现了对大规模三维环境（包括外部场景（左：Doddabasappa 寺）与内部空间（右：Église Saint-Martin d’Agonac 教堂））所拍摄图像的对齐。"
       }
     ],
-    "2605.21572": [
-      {
-        "path": "https://arxiv.org/html/2605.21572v1/x2.png",
-        "caption": "Figure 2:Given a single complete or partially occluded image, PhysX-Omni first infers high-level overall information. It then employs a multi-turn generation process to produce detailed part-level geometry. Owing to the inherent alignment between global and local representations, these outputs can be directly integrated into simulation-ready physical 3D assets.",
-        "role": "pipeline_1",
-        "caption_zh": "图 2：给定一张完整或部分遮挡的单张图像，PhysX-Omni 首先推断高层次的整体信息，随后通过多轮生成过程来产出细化的部件级几何结构。得益于全局与局部表示之间固有的对齐性，这些输出可直接整合为可用于仿真的物理 3D 资产。"
-      },
-      {
-        "path": "https://arxiv.org/html/2605.21572v1/x3.png",
-        "caption": "(a)(b)Figure 3:(a). Comparison of different geometry representations for 3D modeling.Leveraging the proposed geometry representation, PhysX-Omni effectively captures fine-grained 3D structures and enhances kinematic accuracy. (b).Detailed geometry representation of our PhysX-Omni.To directly model high-resolution 3D structures, we first slice part-level voxel grids along the z-axis. For each resulting 2D mask, we apply classical run-length encoding (RLE) to convert the binary image into a compact textual representation. To further improve compression efficiency, we introduce template layers, enabling other layers to be expressed as variations relative to templates.",
-        "role": "pipeline_2",
-        "caption_zh": "(a)(b)图3：(a). 不同几何表示方法在三维建模中的对比。利用所提出的几何表示方法，PhysX-Omni 有效捕获了细粒度的三维结构并提升了运动学精度。(b). 我们的 PhysX-Omni 详细几何表示。为直接建模高分辨率三维结构，我们首先沿 z 轴对部件级体素网格进行切片。对每个生成的二维掩码，我们应用经典的游程编码（RLE）将二值图像转换为紧凑的文本表示。为进一步提升压缩效率，我们引入了模板层，使其他层能够表达为相对于模板的变体。"
-      },
-      {
-        "path": "https://arxiv.org/html/2605.21572v1/x7.png",
-        "caption": "Figure 6:Qualitative results.Compared with existing generative methods, our PhysX-Omni demonstrates impressive performance in generating complex geometries and rich physical attributes.",
-        "role": "pipeline_3",
-        "caption_zh": "图6：定性结果对比。与现有生成方法相比，我们的PhysX-Omni在生成复杂几何结构与丰富物理属性方面展现出卓越性能。"
-      }
-    ],
-    "2605.20910": [
-      {
-        "path": "https://arxiv.org/html/2605.20910v1/x1.png",
-        "caption": "Figure 1:Qualitative results.FlowLongextends pretrained video diffusion models beyond their native context window without any additional training. Being model-agnostic and training-free, it readily applies across diverse tasks: text-to-video generation, joint audio-video generation, and text-to-3DGS. This points toward a versatile, plug-and-play framework for extrapolating the generative horizon of any flow-based model. Please refer to the supplementary video.",
-        "role": "pipeline_1",
-        "caption_zh": "图1：定性结果。FlowLong 可将预训练的视频扩散模型拓展至其原始上下文窗口之外，且无需任何额外训练。该方法兼具模型无关性和免训练特性，可轻松应用于多种任务：文本到视频生成、音视频联合生成以及文本到3D高斯泼溅生成。这为构建通用即插即用框架提供了方向，能够基于任意流模型外推生成范围。详见补充视频。"
-      },
-      {
-        "path": "https://arxiv.org/html/2605.20910v1/x2.png",
-        "caption": "Figure 2:Main pipeline.We generate long videos in inference-time by harmonizing multiple short video chunk sampling trajectories.(a)Each chunk starts from independent noise and follows its own ODE, producing divergent denoised estimates.(b)We interpolate the denoised estimates on overlapping frames to align adjacent chunks (Sec4.1).(c)In early sampling phase, we inject stochastic noise to prevent trajectories from reverting to their original divergent ODE paths (Sec4.2).(d)Repeating (b)–(c) progressively synchronizes all chunks into a coherent long video.",
-        "role": "pipeline_2",
-        "caption_zh": "图2：主流程。我们在推理阶段通过协调多个短视频片段采样轨迹来生成长视频。(a)每个片段从独立噪声开始，遵循各自的常微分方程（ODE）进行去噪，产生不同的去噪估计结果；(b)我们对重叠帧的去噪估计结果进行插值，以对齐相邻片段（见第4.1节）；(c)在早期采样阶段，我们注入随机噪声以防止轨迹回归到原本发散的ODE路径（见第4.2节）；(d)重复步骤(b)–(c)逐步将所有片段同步为连贯的长视频。"
-      },
-      {
-        "path": "https://arxiv.org/html/2605.20910v1/x3.png",
-        "caption": "Figure 3:Qualitative comparison of 30-second video generation.Baselines suffer from repetitive motion patterns and drift errors caused by accumulated exposure bias. In contrast, our method produces videos with diverse motion dynamics and is robust to exposure bias. Please refer to the supplementary video.",
-        "role": "pipeline_3",
-        "caption_zh": "图 3：30 秒视频生成的定性对比。基线方法因累积曝光偏差而出现重复运动模式与漂移误差。相比之下，本方法生成的视频具有多样化的运动动态，并对曝光偏差具有鲁棒性。详见补充视频。"
-      }
-    ],
-    "2605.22809": [
-      {
-        "path": "https://arxiv.org/html/2605.22809v1/x1.png",
-        "caption": "Figure 2:Synthetic paired-data curation pipeline.We reconstruct 4DGS from 8-view cameras and render a diverse set of synthetic third-party cameras (e.g. popular dashcam models).",
-        "role": "pipeline_1",
-        "caption_zh": "图 2：合成配对数据构建流程。我们基于 8 视图相机重建出 4DGS，并渲染一组多样化的合成第三方相机视角（例如常见的行车记录仪模型）。"
-      },
-      {
-        "path": "https://arxiv.org/html/2605.22809v1/x2.png",
-        "caption": "Figure 3:Our multi-modal, multi-view sensor generation model architecture.Based on Latent Diffusion, the model simultaneously generates multi-view images (CC) and LiDAR point clouds (LL) using modality-specific VAEs and U-Net towers.Multi-sensor consistencyis enforced via cross-sensor attention, andmulti-view consistencyis maintained with 3D attention blocks.",
-        "role": "pipeline_2",
-        "caption_zh": "图3：我们的多模态多视角传感器生成模型架构。该模型基于隐扩散模型，通过各模态专用的变分自编码器和U-Net塔，同步生成多视角图像（CC）与激光雷达点云（LL）。模型通过跨传感器注意力机制保证多传感器一致性，并利用三维注意力模块维持多视角一致性。"
-      },
-      {
-        "path": "https://arxiv.org/html/2605.22809v1/x8.png",
-        "caption": "Figure 9:LiDAR detection.We tested a vehicle detection model using real and generated LiDAR. Comparable results confirm the fidelity of our generation.",
-        "role": "pipeline_3",
-        "caption_zh": "图9：激光雷达检测。我们使用真实与生成的激光雷达数据测试了车辆检测模型，可比的结果证实了生成数据的高保真度。"
-      }
-    ],
     "2605.22144": [
       {
         "path": "https://arxiv.org/html/2605.22144v1/figures_paper/pipeline_final_light.png",
@@ -415,6 +395,26 @@
         "caption": "Figure 6:Our Diverse Transition Clips and BGM Planning & Mixing",
         "role": "pipeline_3",
         "caption_zh": "图6：多样化的转场片段与背景音乐规划及混音"
+      }
+    ],
+    "2605.21572": [
+      {
+        "path": "https://arxiv.org/html/2605.21572v1/x2.png",
+        "caption": "Figure 2:Given a single complete or partially occluded image, PhysX-Omni first infers high-level overall information. It then employs a multi-turn generation process to produce detailed part-level geometry. Owing to the inherent alignment between global and local representations, these outputs can be directly integrated into simulation-ready physical 3D assets.",
+        "role": "pipeline_1",
+        "caption_zh": "图 2：给定一张完整或部分遮挡的单张图像，PhysX-Omni 首先推断高层次的整体信息，随后通过多轮生成过程来产出细化的部件级几何结构。得益于全局与局部表示之间固有的对齐性，这些输出可直接整合为可用于仿真的物理 3D 资产。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.21572v1/x3.png",
+        "caption": "(a)(b)Figure 3:(a). Comparison of different geometry representations for 3D modeling.Leveraging the proposed geometry representation, PhysX-Omni effectively captures fine-grained 3D structures and enhances kinematic accuracy. (b).Detailed geometry representation of our PhysX-Omni.To directly model high-resolution 3D structures, we first slice part-level voxel grids along the z-axis. For each resulting 2D mask, we apply classical run-length encoding (RLE) to convert the binary image into a compact textual representation. To further improve compression efficiency, we introduce template layers, enabling other layers to be expressed as variations relative to templates.",
+        "role": "pipeline_2",
+        "caption_zh": "(a)(b)图3：(a). 不同几何表示方法在三维建模中的对比。利用所提出的几何表示方法，PhysX-Omni 有效捕获了细粒度的三维结构并提升了运动学精度。(b). 我们的 PhysX-Omni 详细几何表示。为直接建模高分辨率三维结构，我们首先沿 z 轴对部件级体素网格进行切片。对每个生成的二维掩码，我们应用经典的游程编码（RLE）将二值图像转换为紧凑的文本表示。为进一步提升压缩效率，我们引入了模板层，使其他层能够表达为相对于模板的变体。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.21572v1/x7.png",
+        "caption": "Figure 6:Qualitative results.Compared with existing generative methods, our PhysX-Omni demonstrates impressive performance in generating complex geometries and rich physical attributes.",
+        "role": "pipeline_3",
+        "caption_zh": "图6：定性结果对比。与现有生成方法相比，我们的PhysX-Omni在生成复杂几何结构与丰富物理属性方面展现出卓越性能。"
       }
     ]
   }
