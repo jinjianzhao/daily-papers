@@ -511,7 +511,7 @@
 
                             <details class="mb-6 rounded-xl border border-indigo-100 bg-indigo-50/40" ontoggle="if(this.open){var f=this.querySelector('iframe');if(!f.src)f.src=f.dataset.src;}">
                                 <summary class="px-4 py-2 text-xs font-bold text-indigo-500 cursor-pointer select-none">AlphaXiv 解读</summary>
-                                <iframe data-src="https://www.alphaxiv.org/zh/overview/${aid}" style="width:100%;height:700px;border:none;border-radius:0 0 12px 12px;"></iframe>
+                                <div style="overflow:hidden;height:500px;border-radius:0 0 12px 12px;"><iframe data-src="https://www.alphaxiv.org/zh/overview/${aid}" style="width:125%;height:625px;border:none;transform:scale(0.8);transform-origin:0 0;"></iframe></div>
                             </details>
 
                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-6">
@@ -586,7 +586,7 @@
                                 <div class="text-sm text-slate-600 whitespace-pre-line">${summaryHtml}</div>
                                 <details class="mt-3 rounded-xl border border-indigo-100 bg-indigo-50/40" ontoggle="if(this.open){var f=this.querySelector('iframe');if(!f.src)f.src=f.dataset.src;}">
                                     <summary class="px-4 py-2 text-xs font-bold text-indigo-500 cursor-pointer select-none">AlphaXiv 解读</summary>
-                                    <iframe data-src="https://www.alphaxiv.org/zh/overview/${aid}" style="width:100%;height:700px;border:none;border-radius:0 0 12px 12px;"></iframe>
+                                    <div style="overflow:hidden;height:500px;border-radius:0 0 12px 12px;"><iframe data-src="https://www.alphaxiv.org/zh/overview/${aid}" style="width:125%;height:625px;border:none;transform:scale(0.8);transform-origin:0 0;"></iframe></div>
                                 </details>
                             </div>
                         </div>`;
