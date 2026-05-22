@@ -5,21 +5,6 @@
       "abstract": "Generating a consistent whole-house VR tour from a floorplan and style reference requires both photorealistic panoramas and cross-view spatial coherence. Pure 2D generators produce appealing single panoramas but re-imagine geometry and materials when the viewpoint changes, whereas monolithic 3D generation becomes expensive and loses fine texture at multi-room scale. We introduce PanoWorld, a generative spatial world model that treats whole-house synthesis as autoregressive generation of node-based 360-degree panoramas, matching the discrete navigation used by real VR tour products. PanoWorld uses a floorplan-derived 3D shell as a global geometric proxy and a dynamic 3D Gaussian Splatting cache as renderable spatial memory. A feed-forward panoramic LRM designed for metric-scale multi-room 360-degree inputs lifts generated panoramas into local 3DGS updates, while Room-aware Group Attention suppresses cross-room feature interference. A topology-aware progressive caching strategy fuses these local updates without repeatedly reconstructing the full history. By decoupling shell-based geometry guidance from cache-rendered visual memory, PanoWorld preserves high-frequency 2D synthesis quality while improving cross-node layout and material consistency. The project link isthis https URL",
       "hf_link": "https://huggingface.co/papers/2605.17916"
     },
-    "2605.21431": {
-      "title": "iTryOn: Mastering Interactive Video Virtual Try-On with Spatial-Semantic Guidance",
-      "abstract": "Video Virtual Try-On (VVT) aims to seamlessly replace a garment on a person in a video with a new one. While existing methods have made significant strides in maintaining temporal consistency, they are predominantly confined to non-interactive scenarios where models merely showcase garments. This limitation overlooks a crucial aspect of real-world apparel presentation: active human-garment interaction. To bridge this gap, we introduce and formalize a new challenging task: Interactive Video Virtual Try-On (Interactive VVT), where subjects in the video actively engage with their clothing. This task introduces unique challenges beyond simple texture preservation, including: (1) resolving the semantic ambiguity of interactions from standard pose information, and (2) learning complex garment deformations from video where interactive moments are sparse and brief. To address these challenges, we propose iTryOn, a novel framework built upon a large-scale video diffusion Transformer. iTryOn pioneers a multi-level interaction injection mechanism to guide the generation of complex dynamics. At the spatial level, we introduce a garment-agnostic 3D hand prior to provide fine-grained guidance for precise hand-garment contact, effectively resolving spatial ambiguity. At the semantic level, iTryOn leverages global captions for overall context and time-stamped action captions for localized interactions, synchronized via our novel Action-aware Rotational Position Embedding (A-RoPE). Extensive experiments demonstrate that iTryOn not only achieves state-of-the-art performance on traditional VVT benchmarks but also establishes a commanding lead in the new interactive setting, marking a significant step towards more dynamic and controllable virtual try-on experiences.",
-      "hf_link": "https://huggingface.co/papers/2605.21431"
-    },
-    "2605.21131": {
-      "title": "UniT: Unified Geometry Learning with Group Autoregressive Transformer",
-      "abstract": "Recent feed-forward models have significantly advanced geometry perception for inferring dense 3D structure from sensor observations. However, its essential capabilities remain fragmented across multiple incompatible paradigms, including online perception, offline reconstruction, multi-modal integration, long-horizon scalability, and metric-scale estimation. We present UniT, a unified model built upon a novel Group Autoregressive Transformer, which reformulates these seemingly disparate capabilities within a single framework. The key idea is to treat groups of sensor observations as the basic autoregressive units and predict the corresponding point maps in an anchor-free and scale-adaptive manner. More specifically, diverse view configurations in both online and offline settings are naturally unified within a single group autoregression process. By varying the group size, online mode operates over multiple autoregressive steps with single-frame groups, whereas offline mode aggregates a multi-frame group in a single forward pass. Meanwhile, a queue-style KV caching mechanism ensures bounded autoregressive memory over long horizons. This is enabled by reducing long-range dependencies on early frames through anchor-free relational modeling, thereby allowing outdated memory to be discarded on the fly. To improve metric-scale generalization across scenes, a scale-adaptive geometry loss is further introduced within this framework. It couples relative geometric constraints with a partial absolute scale term, implicitly regularizing global scale and inducing a progressive transition from scale-invariant geometry to metric-scale solutions. Together with a dedicated modal attention module for integrating auxiliary modalities, UniT achieves state-of-the-art performance in unified geometry perception, as validated on ten benchmarks spanning seven representative tasks.",
-      "hf_link": "https://huggingface.co/papers/2605.21131"
-    },
-    "2605.20955": {
-      "title": "DrawMotion: Generating 3D Human Motions by Freehand Drawing",
-      "abstract": "Text-to-motion generation, which translates textual descriptions into human motions, faces the challenge that users often struggle to precisely convey their intended motions through text alone. To address this issue, this paper introduces DrawMotion, an efficient diffusion-based framework designed for multi-condition scenarios. DrawMotion generates motions based on both a conventional text condition and a novel hand-drawing condition, which provide semantic and spatial control over the generated motions, respectively. Specifically, we tackle the fine-grained motion generation task from three perspectives: 1) freehand drawing condition. To accurately capture users' intended motions without requiring tedious textual input, we develop an algorithm to automatically generate hand-drawn stickman sketches across different dataset formats; 2) multi-condition fusion. We propose a Multi-Condition Module (MCM) that is integrated into the diffusion process, enabling the model to exploit all possible condition combinations while reducing computational complexity compared to conventional approaches; and 3) training-free guidance. Notably, the MCM in DrawMotion ensures that its intermediate features lie in a continuous space, allowing classifier-guidance gradients to update the features and thereby aligning the generated motions with user intentions while preserving fidelity. Quantitative experiments and user studies demonstrate that the freehand drawing approach reduces user time by approximately 46.7% when generating motions aligned with their imagination. The code, demos, and relevant data are publicly available atthis https URL.",
-      "hf_link": "https://huggingface.co/papers/2605.20955"
-    },
     "2605.21487": {
       "title": "Uni-Edit: Intelligent Editing Is A General Task For Unified Model Tuning",
       "abstract": "Currently, enhancing Unified Multimodal Models (UMMs) with image understanding, generation, and editing capabilities mainly relies on mixed multi-task training. Due to inherent task conflicts, such strategy requires complex multi-stage pipelines, massive data mixing, and balancing tricks, merely resulting in a performance trade-off rather than true mutual reinforcement. To break this paradigm, we propose Uni-Edit, an intelligent image editing task that serves as the first general task for UMM tuning. Unlike complex mixed pipelines, Uni-Edit improves performance across all three abilities at once using only one task, one training stage, and one dataset. Specifically, we first identify image editing as an inherently ideal general task, as it naturally demands both visual understanding and generation. However, existing editing data relies on simplistic instructions that severely underutilize a model's understanding capacity. To address this, we introduce the first automated and scalable data synthesis pipeline for intelligent editing, transforming diverse VQA data into complex and effective editing instructions with embedded questions and nested logic. This yields Uni-Edit-148k, pairing diverse reasoning-intensive instructions with high-quality edited images. Extensive experiments on BAGEL and Janus-Pro demonstrate that tuning solely on Uni-Edit achieves comprehensive enhancements across all three capabilities without any auxiliary operations.",
@@ -30,20 +15,205 @@
       "abstract": "Without incurring significant computational overhead, train-free long video generation aims to enable foundation video generation models to produce longer videos. Frame-level autoregressive frameworks, e.g., FIFO-diffusion, offer the advantage of generating infinitely long videos with constant memory consumption. However, the mismatch between training and inference, coupled with the challenge of maintaining long-term consistency, limits the effective utilization of foundation models. To mitigate these concerns, we propose \\textbf{MIGA}, a novel infinite-frame long video generation method. Firstly, we propose an effective two-stage alignment mechanism that mitigates the training-inference gap by reducing the excessive noise span fed to the model. We then introduce an innovative dual consistency enhancement mechanism, where the self-reflection approach corrects early high-noise frames and the long-range frame guidance approach leverages later low-noise frames with broad coverage to steer generation, jointly improving temporal consistency. Extensive experiments on VBench and NarrLV demonstrate the state-of-the-art performance of MIGA. Our project page is available atthis https URL.",
       "hf_link": "https://huggingface.co/papers/2605.18233"
     },
-    "2605.21343": {
-      "title": "OcclusionFormer: Arranging Z-Order for Layout-Grounded Image Generation",
-      "abstract": "Recent layout-to-image models have achieved remarkable progress in spatial controllability. However, they still struggle with inter-object occlusion. When bounding boxes overlap, most existing methods lack explicit occlusion information, which makes the generation in intersection regions inherently ambiguous and hinders the determination of complex occlusion relationships. As a result, they often produce entangled textures or physically inconsistent layering in the overlapped areas. To address this issue, we first construct SA-Z, a large-scale dataset enriched with explicit occlusion ordering and pixel-level annotations. Building upon our proposed dataset, we introduce OcclusionFormer, a novel occlusion-aware Diffusion Transformer framework that explicitly models Z-order priority by decoupling instances and compositing them via volume rendering. Furthermore, to ensure fine-grained spatial precision, we introduce a queried alignment loss that explicitly supervises individual instances and enhances semantic consistency. The proposed method effectively reduces ambiguity in overlapping regions, enforces correct occlusion dependencies, and preserves structural integrity, leading to substantial accuracy gains across diverse scenes.",
-      "hf_link": "https://huggingface.co/papers/2605.21343"
-    },
     "2605.19804": {
       "title": "Stitched Value Model for Diffusion Alignment",
       "abstract": "For practical use, diffusion- or flow-based generative models must be aligned with task-specific rewards, such as prompt fidelity or aesthetic preference. That alignment is challenging because the reward is defined for clean output images, but the alignment procedure requires value function estimates at noisy intermediate latents. Existing methods resort to Tweedie-style or Monte Carlo approximations, trading off estimator bias against computational cost: Tweedie estimates are efficient but biased, while Monte Carlo estimates are more accurate but require expensive rollouts. A natural alternative would be a learned value function, but it remains an open question how to effectively train a strong and general value model specifically for noisy latents. Here, we propose StitchVM, a model stitching framework that efficiently transfers reward models pretrained for clean images to the noisy latent regime. StitchVM starts from an existing, truncated pixel-space reward model and attaches a frozen diffusion backbone to it as its head. From the pixel-space model, the resulting hybrid retains a carefully pretrained, robust reward capability; from the diffusion backbone, it inherits its native ability to handle noisy latents. The stitching procedure is exceptionally lightweight, e.g., stitching and finetuning CLIP ViT-L and SD 3.5 Medium takes only 10 GPU-hours. By lifting powerful pixel-space reward models to latent space, StitchVM opens up a new style of diffusion alignment: instead of rough, yet costly per-sample approximation of the value function, the correct function for the actual, noisy latents is constructed once and then amortized over many samples and iterations. We show that this approach yields improvements across a broad range of downstream steering and post-training methods: DPS becomes $3.2\\times$ faster while halving peak GPU memory, and DiffusionNFT becomes $2.3\\times$ faster.",
       "hf_link": "https://huggingface.co/papers/2605.19804"
     },
+    "2605.21343": {
+      "title": "OcclusionFormer: Arranging Z-Order for Layout-Grounded Image Generation",
+      "abstract": "Recent layout-to-image models have achieved remarkable progress in spatial controllability. However, they still struggle with inter-object occlusion. When bounding boxes overlap, most existing methods lack explicit occlusion information, which makes the generation in intersection regions inherently ambiguous and hinders the determination of complex occlusion relationships. As a result, they often produce entangled textures or physically inconsistent layering in the overlapped areas. To address this issue, we first construct SA-Z, a large-scale dataset enriched with explicit occlusion ordering and pixel-level annotations. Building upon our proposed dataset, we introduce OcclusionFormer, a novel occlusion-aware Diffusion Transformer framework that explicitly models Z-order priority by decoupling instances and compositing them via volume rendering. Furthermore, to ensure fine-grained spatial precision, we introduce a queried alignment loss that explicitly supervises individual instances and enhances semantic consistency. The proposed method effectively reduces ambiguity in overlapping regions, enforces correct occlusion dependencies, and preserves structural integrity, leading to substantial accuracy gains across diverse scenes.",
+      "hf_link": "https://huggingface.co/papers/2605.21343"
+    },
     "2605.21981": {
       "title": "RiT: Vanilla Diffusion Transformers Suffice in Representation Space",
       "abstract": "Flow matching with $x$-prediction -- regressing the clean data point rather than the ambient velocity -- is known to exploit low-dimensional manifold structure effectively in pixel space \\cite{li2025back}. We ask whether a pretrained representation space, while containing a low-dimensional data manifold of comparable intrinsic dimensionality, offers a distribution more favorable for flow-matching learning. Comparing pixel, SD-VAE, and DINOv2 features along four geometric axes, we find that pixel and DINOv2 share nearly identical intrinsic dimensionalities (both $\\hat{d}\\!\\approx\\!33$) yet DINOv2 exhibits $7.3\\times$ higher effective rank, $35\\times$ better covariance conditioning, $11.5\\times$ lower excess kurtosis, and $1.7\\times$ lower on-manifold interpolation error; SD-VAE latents are consistently intermediate, indicating that the advantage stems from representation-learning objectives rather than mere compression. These statistical properties render the flow-matching regression well-conditioned and remove the need for the specialized prediction heads or Riemannian transport used by prior DINOv2 diffusion methods. We propose the \\emph{Representation Image Transformer} (RiT): a vanilla Diffusion Transformer trained by $x$-prediction on frozen DINOv2 features, augmented only by a dimension-aware noise schedule and joint \\texttt{[CLS]}-patch modeling. On ImageNet $256{\\times}256$, RiT attains FID 1.45 without guidance and 1.14 with classifier-free guidance, outperforming DiT$^\\text{DH}$-XL with $19\\%$ fewer parameters (676M vs.\\ 839M). The resulting ODE is efficiently solvable at coarse discretizations: with classifier-free guidance, $5$ Heun steps already reach FID 2.0 and $10$ steps reach 1.25, without distillation or consistency training. Code atthis https URL.",
       "hf_link": "https://huggingface.co/papers/2605.21981"
+    },
+    "2605.20955": {
+      "title": "DrawMotion: Generating 3D Human Motions by Freehand Drawing",
+      "abstract": "Text-to-motion generation, which translates textual descriptions into human motions, faces the challenge that users often struggle to precisely convey their intended motions through text alone. To address this issue, this paper introduces DrawMotion, an efficient diffusion-based framework designed for multi-condition scenarios. DrawMotion generates motions based on both a conventional text condition and a novel hand-drawing condition, which provide semantic and spatial control over the generated motions, respectively. Specifically, we tackle the fine-grained motion generation task from three perspectives: 1) freehand drawing condition. To accurately capture users' intended motions without requiring tedious textual input, we develop an algorithm to automatically generate hand-drawn stickman sketches across different dataset formats; 2) multi-condition fusion. We propose a Multi-Condition Module (MCM) that is integrated into the diffusion process, enabling the model to exploit all possible condition combinations while reducing computational complexity compared to conventional approaches; and 3) training-free guidance. Notably, the MCM in DrawMotion ensures that its intermediate features lie in a continuous space, allowing classifier-guidance gradients to update the features and thereby aligning the generated motions with user intentions while preserving fidelity. Quantitative experiments and user studies demonstrate that the freehand drawing approach reduces user time by approximately 46.7% when generating motions aligned with their imagination. The code, demos, and relevant data are publicly available atthis https URL.",
+      "hf_link": "https://huggingface.co/papers/2605.20955"
+    },
+    "2605.21131": {
+      "title": "UniT: Unified Geometry Learning with Group Autoregressive Transformer",
+      "abstract": "Recent feed-forward models have significantly advanced geometry perception for inferring dense 3D structure from sensor observations. However, its essential capabilities remain fragmented across multiple incompatible paradigms, including online perception, offline reconstruction, multi-modal integration, long-horizon scalability, and metric-scale estimation. We present UniT, a unified model built upon a novel Group Autoregressive Transformer, which reformulates these seemingly disparate capabilities within a single framework. The key idea is to treat groups of sensor observations as the basic autoregressive units and predict the corresponding point maps in an anchor-free and scale-adaptive manner. More specifically, diverse view configurations in both online and offline settings are naturally unified within a single group autoregression process. By varying the group size, online mode operates over multiple autoregressive steps with single-frame groups, whereas offline mode aggregates a multi-frame group in a single forward pass. Meanwhile, a queue-style KV caching mechanism ensures bounded autoregressive memory over long horizons. This is enabled by reducing long-range dependencies on early frames through anchor-free relational modeling, thereby allowing outdated memory to be discarded on the fly. To improve metric-scale generalization across scenes, a scale-adaptive geometry loss is further introduced within this framework. It couples relative geometric constraints with a partial absolute scale term, implicitly regularizing global scale and inducing a progressive transition from scale-invariant geometry to metric-scale solutions. Together with a dedicated modal attention module for integrating auxiliary modalities, UniT achieves state-of-the-art performance in unified geometry perception, as validated on ten benchmarks spanning seven representative tasks.",
+      "hf_link": "https://huggingface.co/papers/2605.21131"
+    },
+    "2605.21431": {
+      "title": "iTryOn: Mastering Interactive Video Virtual Try-On with Spatial-Semantic Guidance",
+      "abstract": "Video Virtual Try-On (VVT) aims to seamlessly replace a garment on a person in a video with a new one. While existing methods have made significant strides in maintaining temporal consistency, they are predominantly confined to non-interactive scenarios where models merely showcase garments. This limitation overlooks a crucial aspect of real-world apparel presentation: active human-garment interaction. To bridge this gap, we introduce and formalize a new challenging task: Interactive Video Virtual Try-On (Interactive VVT), where subjects in the video actively engage with their clothing. This task introduces unique challenges beyond simple texture preservation, including: (1) resolving the semantic ambiguity of interactions from standard pose information, and (2) learning complex garment deformations from video where interactive moments are sparse and brief. To address these challenges, we propose iTryOn, a novel framework built upon a large-scale video diffusion Transformer. iTryOn pioneers a multi-level interaction injection mechanism to guide the generation of complex dynamics. At the spatial level, we introduce a garment-agnostic 3D hand prior to provide fine-grained guidance for precise hand-garment contact, effectively resolving spatial ambiguity. At the semantic level, iTryOn leverages global captions for overall context and time-stamped action captions for localized interactions, synchronized via our novel Action-aware Rotational Position Embedding (A-RoPE). Extensive experiments demonstrate that iTryOn not only achieves state-of-the-art performance on traditional VVT benchmarks but also establishes a commanding lead in the new interactive setting, marking a significant step towards more dynamic and controllable virtual try-on experiences.",
+      "hf_link": "https://huggingface.co/papers/2605.21431"
+    },
+    "2605.14747": {
+      "title": "Video2GUI: Synthesizing Large-Scale Interaction Trajectories for Generalized GUI Agent Pretraining",
+      "abstract": "Recent advances in multimodal large language models have driven growing interest in graphical user interface (GUI) agents, yet their generalization remains constrained by the scarcity of large-scale training data spanning diverse real-world applications. Existing datasets rely heavily on costly manual annotations and are typically confined to narrow domains. To address this challenge, we propose Video2GUI, a fully automated framework that extracts grounded GUI interaction trajectories directly from unlabeled Internet videos. Video2GUI employs a coarse-to-fine filtering strategy to identify high-quality GUI tutorial videos and convert them into structured agent trajectories. Applying this pipeline to 500 million video metadata entries, we construct WildGUI, a large-scale dataset containing 12 million interaction trajectories spanning over 1,500 applications and websites. Pre-training Qwen2.5-VL and Mimo-VL on WildGUI yields consistent improvements of 5-20% across multiple GUI grounding and action benchmarks, matching or surpassing state-of-the-art performance. We will release both the WildGUI dataset and the Video2GUI pipeline to support future research of GUI agents.",
+      "hf_link": "https://huggingface.co/papers/2605.14747"
+    },
+    "2605.19833": {
+      "title": "Mega-ASR: Towards In-the-wild^2 Speech Recognition via Scaling up Real-world Acoustic Simulation",
+      "abstract": "Despite rapid advances in automatic speech recognition (ASR) and large audio-language models, robust recognition in real-world environments remains limited by an \"acoustic robustness bottleneck\": models often lose acoustic grounding and produce omissions or hallucinations under severe, compositional distortions. We propose Mega-ASR, a unified ASR-in-the-wild framework that combines scalable compound-data construction with progressive acoustic-to-semantic optimization. We introduce Voices-in-the-Wild-2M, covering 7 classic acoustic phenomena and 54 physically plausible compound scenarios, and train Mega-ASR with Acoustic-to-Semantic Progressive Supervised Fine-Tuning and Dual-Granularity WER-Gated Policy Optimization. Extensive experiments demonstrate that Mega-ASR achieves significant advantages over prior state-of-the-art systems on adverse-condition ASR benchmarks (45.69% vs. 54.01% on VOiCES R4-B-F, and 21.49% vs. 29.34% on NOIZEUS Sta-0). On complex compositional acoustic scenarios, Mega-ASR further delivers over 30% relative WER reduction against strong open- and closed-source baselines, establishing a scalable paradigm for robust ASR in-the-wild.",
+      "hf_link": "https://huggingface.co/papers/2605.19833"
+    },
+    "2605.21468": {
+      "title": "You Only Need Minimal RLVR Training: Extrapolating LLMs via Rank-1 Trajectories",
+      "abstract": "Reinforcement learning with verifiable rewards (RLVR) has become a dominant paradigm for improving reasoning in large language models (LLMs), yet the underlying geometry of the resulting parameter trajectories remains underexplored. In this work, we demonstrate that RLVR weight trajectories are extremely low-rank and highly predictable. Specifically, we find that the majority of downstream performance gains are captured by a rank-1 approximation of the parameter deltas, where the magnitude of this projection evolves near-linearly with training steps. Motivated by this, we propose a simple and compute-efficient method RELEX (REinforcement Learning EXtrapolation), which estimates the rank-1 subspace from a short observation window and extrapolates future checkpoints via linear regression, with no learned model required. Across three models (i.e., Qwen2.5-Math-1.5B, Qwen3-4B-Base, and Qwen3-8B-Base), RELEX produces checkpoints that match or exceed RLVR performance on both in-domain and out-of-domain benchmarks, requiring as few as 15% steps of full RLVR training. Remarkably, RELEX is able to extrapolate far beyond the observation window at no training cost, predicting checkpoints up to 10-20$\\times$ beyond the observed prefix with continued improvement (e.g., observe only the first 50 steps and extrapolate to 1000 steps). Our ablation analysis confirms the minimalist sufficiency of RELEX: neither increasing the subspace rank nor employing non-linear modeling yields further gains in extrapolation. Finally, we show that RELEX's success stems from a \"denoising\" effect: by projecting updates onto the rank-1 subspace, the model discards stochastic optimization noise that would otherwise degrade performance during extrapolation. Our code is available atthis https URL.",
+      "hf_link": "https://huggingface.co/papers/2605.21468"
+    },
+    "2605.20682": {
+      "title": "IndusAgent: Reinforcing Open-Vocabulary Industrial Anomaly Detection with Agentic Tools",
+      "abstract": "Multimodal large language models (MLLMs) have shown remarkable capability in bridging visual perception and textual reasoning, enabling zero-shot understanding across diverse industrial scenarios. However, their performance in open-vocabulary industrial anomaly detection (IAD) is often limited by domain-misaligned reasoning and hallucinated structural inferences. To address these challenges, we propose \\textbf{IndusAgent}, a tool-augmented agentic framework for open-vocabulary IAD. Specifically, we first construct \\textbf{Indus-CoT}, a structured dataset that integrates global visual observations, high-resolution local patches, and expert normalcy priors, providing supervision for fine-tuning the model on rigorous industrial inspection trajectories. Building on this, IndusAgent dynamically orchestrates a set of external tools, including dynamic region cropping, high-frequency feature enhancement, and prior retrieval, thus enabling the agent to actively resolve visual ambiguities and disentangle subtle anomalies. Furthermore, we introduce a gated reinforcement learning objective that jointly optimizes anomaly classification, localization accuracy, anomaly type reasoning, and efficient tool usage, ensuring that tool invocation occurs only when beneficial. Extensive evaluations on five industrial anomaly benchmarks, including MVTec-AD, VisA, MPDD, DTD, and SDD, demonstrate that IndusAgent achieves state-of-the-art zero-shot performance among all existing methods, validating our robustness and generalization capacity.",
+      "hf_link": "https://huggingface.co/papers/2605.20682"
+    },
+    "2605.19660": {
+      "title": "OScaR: The Occam's Razor for Extreme KV Cache Quantization in LLMs and Beyond",
+      "abstract": "The rapid advancement toward long-context reasoning and multi-modal intelligence has made the memory footprint of the Key-Value (KV) cache a dominant memory bottleneck for efficient deployment. While the established per-channel quantization effectively accommodates intrinsic channel-wise outliers in Key tensors, its efficacy diminishes under extreme compression. In this work, we revisit the inherent limitations of the per-channel quantization paradigm from both empirical and theoretical perspectives. Our analysis identifies Token Norm Imbalance (TNI) as the primary bottleneck to quantization fidelity. We demonstrate that TNI systematically amplifies errors when shared quantization parameters are required to span token groups exhibiting substantial norm disparities. Instead of relying on intricate quantization pipelines (e.g., TurboQuant), we propose OScaR (Omni-Scaled Canalized Rotation), an accurate and lightweight KV cache compression framework for X-LLMs (i.e., text-only, multi-modal, and omni-modal LLMs). Advancing the per-channel paradigm, OScaR employs Canalized Rotation followed by Omni-Token Scaling to mitigate TNI-induced sequence-dimensional variance both effectively and efficiently, further supported by our optimized system design and CUDA kernels. Extensive evaluations across X-LLMs show that OScaR consistently outperforms existing methods and achieves near-lossless performance under INT2 quantization, establishing it as a robust, low-complexity, and universal framework that defines a new Pareto front. Compared with the BF16 FlashDecoding-v2 baseline, our OScaR implementation achieves a notable up to 3.0x speedup in decoding, reduces memory footprint by 5.3x, and increases throughput by 4.1x. The code for OScaR is publicly available atthis https URL.",
+      "hf_link": "https://huggingface.co/papers/2605.19660"
+    },
+    "2605.20266": {
+      "title": "A Survey of Large Audio Language Models: Generalization, Trustworthiness, and Outlook",
+      "abstract": "The foundational capabilities established by Large Language Models (LLMs) have paved the way for Multimodal Large Language Models (MLLMs), within which Large Audio Language Models (LALMs) are essential for realizing universal auditory intelligence. Despite their remarkable performance, the escalation of LALMs' capabilities has significantly outpaced the development of systemic frameworks to ensure their trustworthiness. This survey provides a comprehensive investigation into the endogenous mechanisms of LALMs, detailing the architectural innovations and alignment algorithms that facilitate emergent reasoning. Specifically, we analyze how the transition to unified end-to-end frameworks and the integration of continuous acoustic signals inherently expand the attack surface. To rigorously evaluate the risks within these paradigms, we establish a comprehensive taxonomy of trustworthiness, categorizing critical vulnerabilities such as cross-modal jailbreaking, latent acoustic backdoors, and biometric privacy leakage. We review the state-of-the-art through six analytical pillars: hallucination, robustness, safety, privacy, fairness, and authentication. The profound imbalance between a mature offensive landscape and underdeveloped defenses further validates the critical trustworthiness gaps and multidimensional risks facing audio-centric intelligence. Finally, we propose a strategic roadmap advocating for \"Defense-in-Depth\" architectures, causal auditory world modeling, and intrinsic representation engineering to bridge the gap between empirical performance and intrinsically trustworthy audio intelligence. Our project has been uploaded to GitHubthis https URL.",
+      "hf_link": "https://huggingface.co/papers/2605.20266"
+    },
+    "2605.20258": {
+      "title": "It Takes Two: Complementary Self-Distillation for Contextual Integrity in LLMs",
+      "abstract": "Contextual Integrity (CI) defines privacy not merely as keeping information hidden, but as governing information flows according to the norms of a given context. As large language models are increasingly deployed as personal agents handling sensitive workflows, adhering to CI becomes critical. However, even frontier models remain unreliable in making disclosure decisions, and existing mitigation strategies often degrade underlying task performance. To overcome this privacy-utility trade-off, we propose SELFCI, a complementary self-distillation framework that decouples information suppression from task resolution. SELFCI jointly optimizes two independent reverse KL divergences over distinct teacher distributions derived from feedback: one encourages preserving task-relevant information for utility, while the other enforces minimal and appropriate disclosure. This complementary formulation induces a Product-of-Experts (PoE) target, aligning the policy with the intersection of capability and privacy requirements. Empirical evaluations demonstrate that SELFCI, without relying on costly external supervision, consistently outperforms competitive baselines such as online reinforcement learning algorithms (e.g., GRPO). These trends further extend to out-of-domain settings involving agentic workflows and accumulated private context, suggesting that SELFCI provides a practical path toward CI alignment.",
+      "hf_link": "https://huggingface.co/papers/2605.20258"
+    },
+    "2605.20119": {
+      "title": "Toto 2.0: Time Series Forecasting Enters the Scaling Era",
+      "abstract": "We show that time series foundation models scale: a single training recipe produces reliable forecast-quality improvements from 4M to 2.5B parameters. We release Toto 2.0, a family of five open-weights forecasting models trained under this recipe. The Toto 2.0 family sets a new state of the art on three forecasting benchmarks: BOOM, our observability benchmark; GIFT-Eval, the standard general-purpose benchmark; and the recent contamination-resistant TIME benchmark. This report describes our experimental results and details the design decisions behind Toto 2.0: its architecture and training recipe, training data, and the u-muP hyperparameter transfer pipeline. All five base checkpoints are released under Apache 2.0.",
+      "hf_link": "https://huggingface.co/papers/2605.20119"
+    },
+    "2605.20315": {
+      "title": "Mix-Quant: Quantized Prefilling, Precise Decoding for Agentic LLMs",
+      "abstract": "LLM agents have recently emerged as a powerful paradigm for solving complex tasks through planning, tool use, memory retrieval, and multi-step interaction. However, these agentic workflows often introduce substantial input-side overhead, making the compute-intensive prefilling stage a key bottleneck in long-context, multi-turn inference. In this work, we propose Mix-Quant, a simple and effective phase-aware quantization framework for fast agentic inference. We first investigate FP4 quantization in agentic LLM workflows and observe that quantizing the entire inference process can incur significant performance degradation. In contrast, the prefilling stage exhibits substantial quantization redundancy and can therefore be quantized with minimal accuracy loss, despite being the dominant source of computation. Based on this insight, we apply high-throughput NVFP4 quantization to the prefilling phase while preserving BF16 precision for decoding. By decoupling prefilling acceleration from decoding quality, Mix-Quant combines phase-aware algorithmic quantization with hardware-efficient NVFP4 execution to alleviate the inference bottleneck in LLM agents. Extensive experiments across long-context and agentic benchmarks demonstrate that Mix-Quant largely preserves task performance while delivering significant efficiency improvements, achieving up to a 3x speedup during prefilling.",
+      "hf_link": "https://huggingface.co/papers/2605.20315"
+    },
+    "2605.19376": {
+      "title": "Generative Recursive Reasoning",
+      "abstract": "How should future neural reasoning systems implement extended computation? Recursive Reasoning Models (RRMs) offer a promising alternative to autoregressive sequence extension by performing iterative latent-state refinement with shared transition functions. Yet existing RRMs are largely deterministic, following a single latent trajectory and converging to a single prediction. We introduce Generative Recursive reAsoning Models (GRAM), a framework that turns recursive latent reasoning into probabilistic multi-trajectory computation. GRAM models reasoning as a stochastic latent trajectory, enabling multiple hypotheses, alternative solution strategies, and inference-time scaling through both recursive depth and parallel trajectory sampling. This yields a latent-variable generative model supporting conditional reasoning via $p_\\theta(y \\mid x)$ and, with fixed or absent inputs, unconditional generation via $p_\\theta(x)$. Trained with amortized variational inference, GRAM improves over deterministic recurrent and recursive baselines on structured reasoning and multi-solution constraint satisfaction tasks, while demonstrating an unconditional generation capability.this https URL",
+      "hf_link": "https://huggingface.co/papers/2605.19376"
+    },
+    "2605.19484": {
+      "title": "CutVerse: A Compositional GUI Agents Benchmark for Media Post-Production Editing",
+      "abstract": "While GUI agents have made significant progress in web navigation and basic operating system tasks, their capabilities in professional creative workflows remain largely underexplored. To bridge this gap, we introduce Cutverse, a benchmark designed to systematically evaluate autonomous GUI agents in realistic media post-production environments. We curate expert demonstrations across 7 professional applications (e.g., Premiere Pro, Photoshop), covering 186 complex, long-horizon tasks grounded in authentic editing workflows, involving dense multimodal interfaces and tightly coupled interaction sequences. To support scalable evaluation, we develop a lightweight parser that transforms raw screen recordings and low-level interaction logs into structured, compositional GUI action trajectories with precise grounding. Extensive evaluations reveal that existing agents achieve only 36.0\\% task success on realistic media editing tasks, underscoring the challenges posed by complex, long-horizon media post-production workflows in ourthis http URLcurrent models demonstrate promising spatial grounding, multimodal alignment, and coordinated action execution, they remain limited in long-horizon reliability and domain-specific planning.",
+      "hf_link": "https://huggingface.co/papers/2605.19484"
+    },
+    "2605.19597": {
+      "title": "LLMEval-Logic: A Solver-Verified Chinese Benchmark for Logical Reasoning of LLMs with Adversarial Hardening",
+      "abstract": "Evaluating large language models (LLMs) on natural-language logical reasoning is essential because rule-governed tasks require conclusions to follow strictly from stated premises. Many existing logical-reasoning benchmarks are generated by templating natural-language items from sampled formulas, provide only coarse or unaudited formal annotations, and are now quickly saturated by frontier reasoning models. We present LLMEval-Logic, a Chinese logical reasoning benchmark built from realistic situational scenarios. Its pipeline forward-authors and expert-audits natural-language items together with their reference formalizations, verifies annotated answers with Z3, constructs expert rubrics for natural-to-formal grading, and hardens selected items through a closed-loop adversarial workflow. The benchmark is released in two paired subsets: a 246-item Base subset shipped with 1,400 expert-developed rubric atoms, and a 190-item Hard subset with 938 multi-step sub-questions over closed model spaces. Evaluating 14 frontier LLMs on LLMEval-Logic reveals substantial gaps in current models: the best model reaches only 37.5% Hard Item Accuracy, and even with reference symbols the highest joint Z3+Rubric formalization score among evaluated models reaches only 60.16%. Our benchmark is publicly available atthis https URL.",
+      "hf_link": "https://huggingface.co/papers/2605.19597"
+    },
+    "2605.20613": {
+      "title": "HRM-Text: Efficient Pretraining Beyond Scaling",
+      "abstract": "The current pretraining paradigm for large language models relies on massive compute and internet-scale raw text, creating a significant barrier to foundational research. In contrast, biological systems demonstrate highly sample-efficient learning through multi-timescale processing, such as the functional organization of the frontoparietal loop. Taking this as inspiration, we introduce HRM-Text, which replaces standard Transformers with a Hierarchical Recurrent Model (HRM) that decouples computation into slow-evolving strategic and fast-evolving execution layers. To stabilize this deep recurrence for language modeling, we introduce MagicNorm and warmup deep credit assignment. Furthermore, instead of standard raw-text pretraining, we train exclusively on instruction-response pairs using a task-completion objective and PrefixLM masking. Serving as an empirical existence proof of efficient pretraining, a 1B-parameter HRM-Text model trained from scratch on only 40 billion unique tokens and $1,500 budget achieves 60.7% on MMLU, 81.9% on ARC-C, 82.2% on DROP, 84.5% on GSM8K, and 56.2% on MATH. Despite utilizing roughly 100-900x fewer training tokens and 96-432x less estimated compute than standard baselines, HRM-Text performs competitively with 2-7B parameter open models. These results demonstrate that co-designing architectures and objectives can radically reduce the compute-to-performance ratio, making pretraining from scratch accessible to the broader research community.",
+      "hf_link": "https://huggingface.co/papers/2605.20613"
+    },
+    "2605.20668": {
+      "title": "On the limits and opportunities of AI reviewers: Reviewing the reviews of Nature-family papers with 45 expert scientists",
+      "abstract": "With the advancement of AI capabilities, AI reviewers are beginning to be deployed in scientific peer review, yet their capability and credibility remain in question: many scientists simply view them as probabilistic systems without the expertise to evaluate research, while other researchers are more optimistic about their readiness without concrete evidence. Understanding what AI reviewers do well, where they fall short, and what challenges remain is essential. However, existing evaluations of AI reviewers have focused on whether their verdicts match human verdicts (e.g., score alignment, acceptance prediction), which is insufficient to characterize their capabilities and limits. In this paper, we close this gap through a large-scale expert annotation study, in which 45 domain scientists in Physical, Biological, and Health Sciences spent 469 hours rating 2,960 individual criticisms (each targeting one specific aspect of a paper) from human-written and AI-generated reviews of 82 Nature-family papers on correctness, significance, and sufficiency of evidence. On a composite of all three dimensions, a reviewing agent powered by GPT-5.2 scores above each paper's top-rated human reviewer (60.0% vs. 48.2%, p = 0.009), while all three AI reviewers (including Gemini 3.0 Pro and Claude Opus 4.5) exceed the lowest-rated human across every dimension. AI reviewers' accurate criticisms are also more often rated significant and well-evidenced, and surface a distinct 26% of issues no human raises. However, AI reviewers overlap far more than humans do (21% vs. 3% for cross-reviewer pairs), and exhibit 16 recurring weaknesses humans do not share, such as limited subfield knowledge, lack of long context management over multiple files, and overly critical stance on minor issues. Overall, our results position current AI reviewers as complements to, not substitutes for, human reviewers.",
+      "hf_link": "https://huggingface.co/papers/2605.20668"
+    },
+    "2605.20630": {
+      "title": "Evaluating Temporal Semantic Caching and Workflow Optimization in Agentic Plan-Execute Pipelines",
+      "abstract": "Industrial asset operations workflows are latency-sensitive because a single user query may require coordination over sensor data, work orders, failure modes, forecasting tools, and domain-specific agents. We evaluate this problem on AssetOpsBench (AOB), an industrial agent benchmark whose plan-execute pipeline exposes repeated overhead from tool discovery, LLM planning, MCP tool execution, and final summarization. Existing LLM caching techniques such as KV-cache reuse and embedding-based semantic caching were designed for chatbot serving and break down when output validity depends on time, asset, or sensor parameters. We propose two complementary optimization layers for AOB plan-execute pipelines: a temporal semantic cache and a set of MCP workflow optimizations combining disk-backed tool-discovery caching and dependency-aware parallel step execution. MCP workflow optimizations corresponded to a 1.67x speedup and reduced median end-to-end latency by about 40.0% while the temporal-cache benchmark achieved a median of 30.6x speedup on cache hits. Beyond the speedup, our results expose a concrete failure mode of pure semantic caching for parameter-rich industrial queries, providing a critical analysis of how caching choices interact with evaluation correctness in MCP-backed agent benchmarks.",
+      "hf_link": "https://huggingface.co/papers/2605.20630"
+    },
+    "2605.21226": {
+      "title": "OCTOPUS: Optimized KV Cache for Transformers via Octahedral Parametrization Under optimal Squared error quantization",
+      "abstract": "The key-value (KV) cache dominates memory bandwidth and footprint in long-context autoregressive inference. Recent rotation-preconditioned codecs (TurboQuant, PolarQuant) show that a structured random rotation followed by a per-coordinate scalar quantizer matched to an analytically tractable marginal is a near-optimal recipe for KV compression. OCTOPUS advances this paradigm through joint quantization of rotated coordinate triplets. Each triplet's direction is mapped to a square via an octahedral parameterization, and the two resulting coordinates and the triplet norm are Lloyd-Max quantized against implementation-matched marginals. Optimizing the per-triplet squared error gives a strictly non-uniform bit allocation depending only on the total dimensionality of the keys. We find the finite-dimensional quality optimum with sweeps to be constant on every real decoder we test. The codec is data-oblivious, online, and deterministic given a seed. Across text, video, and audio, OCTOPUS matches or beats every prior rotation codec at every reported bit width and metric, with a lead that grows as bits drop for extreme compression. Furthermore, a fused Triton implementation reconstructs keys on the fly without materializing the uncompressed key, so the codec adds no decode-time bandwidth or latency over the existing dequantization. Project Page:this https URL",
+      "hf_link": "https://huggingface.co/papers/2605.21226"
+    },
+    "2605.15113": {
+      "title": "Learning from Language Feedback via Variational Policy Distillation",
+      "abstract": "Reinforcement learning from verifiable rewards (RLVR) suffers from sparse outcome signals, creating severe exploration bottlenecks on complex reasoning tasks. Recent on-policy self-distillation methods attempt to address this by utilizing language feedback to generate dense, token-level supervision. However, these approaches rely on a fixed, passive teacher to interpret the feedback. As the student policy improves, the teacher's zero-shot assessment capabilities plateau, ultimately halting further learning. To overcome this, we propose Variational Policy Distillation (VPD), a framework that formalizes learning from language feedback as a Variational Expectation-Maximization (EM) problem. VPD co-evolves both policies: in the E-step, the teacher is actively refined on trajectory outcomes via an adaptive trust-region update, translating textual feedback into a dynamically improved target token distribution. In the M-step, the student internalizes this dense distributional guidance on its own on-policy rollouts. By continuously improving the teacher's ability to extract actionable signals from textual critique, VPD overcomes the limitations of passive distillation. Evaluated across diverse sources of diagnostic feedback on scientific reasoning and code generation tasks, VPD consistently outperforms both standard RLVR and existing self-distillation baselines. Finally, by stress-testing our framework on rigid mathematical reasoning and cold-start regimes, we illuminate the fundamental bounds of feedback-driven self-distillation compared to pure environment-driven RL.",
+      "hf_link": "https://huggingface.co/papers/2605.15113"
+    },
+    "2605.17991": {
+      "title": "Stable Audio 3",
+      "abstract": "Stable Audio 3 is a family of fast latent diffusion models (small, medium, large) for variable-length audio generation and editing. Since our models can generate several minutes of audio, variable-length generations are key to avoid the cost of producing full-length generations for short sounds. We also support inpainting, enabling targeted audio editing and the continuation of short recordings. Our latent diffusion models operate on top of a novel semantic-acoustic autoencoder that projects audio into a compact latent space, enabling efficient diffusion-based generation while preserving audio fidelity and encouraging semantic structure in the latent. Finally, we run adversarial post-training to both accelerate inference and improve generation quality, reducing the number of inference steps while improving fidelity and prompt adherence. Stable Audio 3 models are trained on licensed and Creative Commons data to generate music and sounds in less than a 2s on an H200 GPU and less than a few seconds on a MacBook Pro M4. We release the weights of small and medium, that can run on consumer-grade hardware, together with their training and inference pipeline.",
+      "hf_link": "https://huggingface.co/papers/2605.17991"
+    },
+    "2605.19330": {
+      "title": "MOCHA: Multi-Objective Chebyshev Annealing for Agent Skill Optimization",
+      "abstract": "LLM agents organize behavior through skills - structured natural-language specifications governing how an agent reasons, retrieves, and responds. Unlike monolithic prompts, skills are multi-field artifacts subject to hard platform constraints: description fields are truncated for routing, instruction bodies are compacted via progressive disclosure, and co-resident skills compete for limited context windows. These constraints make skill optimization inherently multi-objective: a skill must simultaneously maximize task performance and satisfy platform limits. Yet existing prompt optimizers either ignore these trade-offs or collapse them into a weighted sum, missing Pareto-optimal variants in non-convex objective regions. We introduce MOCHA (Multi-Objective Chebyshev Annealing), which replaces single-objective selection with Chebyshev scalarization - covering the full Pareto front, including non-convex regions - combined with exponential annealing that transitions from exploration to exploitation. In our experiments across six diverse agent skills - where all methods share the same multi-objective mutation operator and baselines receive identical per-objective textual feedback - existing optimizers fail to improve the seed skill on 4 of 6 tasks: 1000 rollouts yield zero progress. MOCHA breaks through on every task, achieving 7.5% relative improvement in mean correctness over the strongest baseline (up to 14.9% on FEVER and 10.4% on TheoremQA) while discovering twice as many more Pareto-optimal skill variants.",
+      "hf_link": "https://huggingface.co/papers/2605.19330"
+    },
+    "2605.17526": {
+      "title": "SaaSBench: Exploring the Boundaries of Coding Agents in Long-Horizon Enterprise SaaS Engineering",
+      "abstract": "As autonomous coding agents become capable of handling increasingly long-horizon tasks, they have gradually demonstrated the potential to complete end-to-end software development. Although existing benchmarks have recently evolved from localized code editing to from-scratch project generation, they remain confined to structurally simplified, single-stack applications. Consequently, they fail to capture the heterogeneous environments, full-stack orchestration, and system-level complexity of real enterprise Software as a Service (SaaS) systems, leaving a critical gap in assessing agents under realistic engineering constraints. To fill this gap, we introduce SaaSBench, the first benchmark designed to explore the boundaries of AI agents in enterprise SaaS engineering. Spanning 30 complex tasks across 6 SaaS domains with 5,370 validation nodes, it incorporates 8 programming languages, 6 databases, and 13 frameworks to meticulously mirror real-world software heterogeneity. Furthermore, we design a dependency-aware hybrid evaluation paradigm tailored for complex systems with long horizons and multi-component coupling, enabling fine-grained, reproducible assessment. Crucially, our extensive experiments reveal a striking insight: the primary bottleneck for state-of-the-art agents is not generating isolated code logic, but successfully configuring and integrating a multi-component system. Over 95\\% of task failures occur before agents even reach deep business logic, with models often falling victim to overconfidence and prematurely halting during foundational system setup, or getting trapped in ineffective debugging loops. We hope SaaSBench serves as a practical and challenging testbed to drive the evolution of reliable, system-level coding agents. The code is available at \\url{this https URL}.",
+      "hf_link": "https://huggingface.co/papers/2605.17526"
+    },
+    "2605.16787": {
+      "title": "The Unlearnability Phenomenon in RLVR for Language Models",
+      "abstract": "Reinforcement Learning with Verifiable Reward (RLVR) has proven effective in improving Large Language Model's (LLM) reasoning ability. However, the learning dynamics of RLVR remain underexplored. In this paper, we reveal a counterintuitive phenomenon: among hard examples that the model initially struggles with, a substantial subset remains unlearnable even when correct rollouts are present. To understand the phenomenon, we first demonstrate that existing optimization and sampling techniques fail to resolve unlearnability. With cross-example gradient analysis, we show that unlearnable examples have fundamental representation issue, characterized by low gradient similarity with the rest of the examples and ungeneralizable reasoning patterns. We further show that representation flaws are difficult to mitigate in RL, as data augmentation does not improve gradient similarity. Our study provides the first systematic characterization of unlearnable data in RLVR training and reveals fundamental limitations in current RL approaches for reasoning tasks. Code and data are available at \\url{this https URL}.",
+      "hf_link": "https://huggingface.co/papers/2605.16787"
+    },
+    "2605.20834": {
+      "title": "Conditional Equivalence of DPO and RLHF: Implicit Assumption, Failure Modes, and Provable Alignment",
+      "abstract": "Direct Preference Optimization (DPO) has emerged as a popular alternative to Reinforcement Learning from Human Feedback (RLHF), offering theoretical equivalence with simpler implementation. We prove this equivalence is conditional rather than universal, depending on an implicit assumption frequently violated in practice: the RLHF-optimal policy must prefer human-preferred responses. When this assumption fails, DPO optimizes relative advantage over the reference policy rather than absolute alignment with human preferences, leading to pathological convergence where policies decrease DPO loss while preferring dispreferred responses. We characterize when this assumption is violated, show the existence of an undesirable solution space, and prove that DPO and RLHF optimize fundamentally different objectives in such cases. To address this, we introduce Constrained Preference Optimization (CPO), augmenting RLHF with constraints for provable alignment. We further provide a geometric interpretation through soft margin ranking, revealing that DPO implements margin ranking with potentially negative targets. Our theoretical analysis establishes when DPOs' guarantees hold and provides solutions preserving simplicity with provable alignment. Comprehensive experiments on standard benchmarks demonstrate that CPO achieves state-of-the-art performance. Code is available at:this https URL.",
+      "hf_link": "https://huggingface.co/papers/2605.20834"
+    },
+    "2605.21384": {
+      "title": "SpecBench: Measuring Reward Hacking in Long-Horizon Coding Agents",
+      "abstract": "As long-horizon coding agents produce more code than any developer can review, oversight collapses onto a single surface: the automated test suite. Reward hacking naturally arises in this setup, as the agent optimizes for passing tests while deviating from the users true goal. We study this reward hacking phenomenon by decompose software engineering tasks into three parts: (i) a natural language description of the specification (ii) visible validation tests that exercise specified features in isolation, and (iii) held-out tests that compose those same features to simulate real-world usage. Based on the specification and the visible validation test suites, a genuine agent would be able to generate a solution that can also pass all of the held-out tests. Therefore we use the gap in pass rates on these two suites to quantify reward hacking. Based on this methodology, we introduce SpecBench, a benchmark comprising 30 systems-level programming tasks ranging from short horizon tasks like building a JSON parser to ultra long horizon tasks like building an entire OS kernel from scratch. Large-scale experiments reveal a consistent pattern: while every frontier agent saturates the visible suite, reward hacking persists, with smaller models exhibiting larger gaps on holdout suites. The gap also scales sharply with task length: it grows by 28 percentage points for every tenfold increase in code size. Failures range from subtle feature isolation to deliberate exploits, including a 2,900-line hash-table \"compiler\" that memorizes test inputs. SpecBench offers a principled testbed for measuring whether coding agents build genuine working systems or merely game the test suites developers hand them.",
+      "hf_link": "https://huggingface.co/papers/2605.21384"
+    },
+    "2605.21463": {
+      "title": "Mem-$π$: Adaptive Memory through Learning When and What to Generate",
+      "abstract": "We present Mem-$\\pi$, a framework for adaptive memory in large language model (LLM) agents, where useful guidance is generated on demand rather than retrieved from external memory stores. Existing memory-augmented agents typically rely on similarity-based retrieval from episodic memory banks or skill libraries, returning static entries that often misalign with the current context. In contrast, Mem-$\\pi$ uses a dedicated language or vision-language model with its own parameters, separate from the downstream agent, to generate context-specific guidance for complex tasks. Conditioned on the current agent context, the model jointly decides when to produce guidance and what guidance to produce. We train it with a decision-content decoupled reinforcement learning (RL) objective, enabling it to abstain when generation would not help and otherwise produce concise, useful guidance. Across diverse agentic benchmarks spanning web navigation, terminal-based tool use, and text-based embodied interaction, Mem-$\\pi$ consistently outperforms retrieval-based and prior RL-optimized memory baselines, achieving over 30% relative improvement on web navigation tasks.",
+      "hf_link": "https://huggingface.co/papers/2605.21463"
+    },
+    "2605.18565": {
+      "title": "MINTEval: Evaluating Memory under Multi-Target Interference in Long-Horizon Agent Systems",
+      "abstract": "Real-world agents operate over long and evolving horizons, where information is repeatedly updated and may interfere across memories, requiring accurate recall and aggregated reasoning over multiple pieces of information. However, existing benchmarks focus on static, independent recall and fail to capture these dynamic interactions between evolving memories. In this paper, we study how current memory-augmented agents perform in realistic, interference-heavy, long-horizon settings across diverse domains and question types. We introduce MINTEval (Long-Horizon Memory under INTerference Evaluation), a benchmark featuring (1) long, highly interconnected contexts with frequently updated information that induces substantial interference, (2) diverse domains (state tracking, multi-turn dialogue, Wikipedia revisions, and GitHub commits), enabling evaluation of domain generalization, and (3) diverse question types that assess robustness to interference, including (i) single-target recall tasks requiring retrieval of a specific target from long contexts, and (ii) multi-target aggregation tasks requiring reasoning over multiple relevant pieces of information. Overall, MINTEval has 15.6k question-answering pairs over long-horizon contexts averaging 138.8k tokens and extending up to 1.8M tokens per instance. We evaluate 7 representative systems, including vanilla long-context LLMs, RAG, and memory-augmented agent frameworks. Across all systems, we observe consistently low performance (avg. 27.9% accuracy), especially on questions requiring aggregated reasoning over multiple pieces of evidence. Our analysis shows that performance is primarily limited by retrieval and memory construction. Furthermore, current memory systems struggle to recall and reason over earlier facts that are revised or interfered with by subsequent context, with accuracy degrading as the number of intervening updates increases.",
+      "hf_link": "https://huggingface.co/papers/2605.18565"
+    },
+    "2605.20873": {
+      "title": "PlanningBench: Generating Scalable and Verifiable Planning Data for Evaluating and Training Large Language Models",
+      "abstract": "Planning is a fundamental capability for large language models (LLMs) because such complex tasks require models to coordinate goals, constraints, resources, and long-term consequences into executable and verifiable solutions. Existing planning benchmarks, however, usually treat planning data as fixed collections of instances rather than controllable generation targets. This limits scenario coverage, ties difficulty to surface-level proxies rather than structural sources, and offers limited support for scalable generation, automatic verification, or planning-oriented training. We introduce PlanningBench, a framework for generating scalable, diverse, and verifiable planning data for both evaluation and training. PlanningBench starts from real planning scenarios and abstracts practical workflows into a structured taxonomy of more than 30 task types, subtasks, constraint families, and difficulty factors. Guided by this taxonomy, a constraint-driven synthesis pipeline instantiates self-contained planning problems with adaptive difficulty control, quality filtering, and instance-level verification checklists. This shifts planning data construction from fixed benchmark collection to controllable generation while preserving realistic task grounding. We use PlanningBench to evaluate open-source and closed-source frontier LLMs, and find that current models still struggle to produce complete solutions under coupled constraints. Beyond evaluation, reinforcement learning on verified PlanningBench data improves performance on unseen planning benchmarks and broader instruction-following tasks. Further analysis suggests that determinate or well-specified optimal solutions provide clearer reward signals and more stable training dynamics. Overall, PlanningBench provides a controllable source of planning data for diagnosing and improving generalizable planning abilities in LLMs.",
+      "hf_link": "https://huggingface.co/papers/2605.20873"
+    },
+    "2605.19008": {
+      "title": "Learn-by-Wire Training Control Governance: Bounded Autonomous Training Under Stress for Stability and Efficiency",
+      "abstract": "Modern language-model training is increasingly exposed to instability, degraded runs, and wasted compute, especially under aggressive learning-rate, scale, and runtime-stress conditions. This paper introduces Learn-by-Wire Guard (LBW-Guard), a bounded autonomous training-control governance layer that operates above AdamW. Rather than replacing the optimizer update rule, LBW-Guard observes training telemetry, interprets instability-sensitive regimes, and applies bounded control to optimizer execution while preserving fixed training objectives.We evaluate LBW-Guard in a Qwen2.5-centered stress-and-robustness suite using WikiText-103, with Qwen2.5-7B as the empirical anchor, model-size comparisons against Qwen2.5-3B and Qwen2.5-14B, learning-rate stress tests, gradient-clipping baselines, and a no-LoRA TinyLlama-1B full-parameter sanity check. In the 7B reference setting, LBW-Guard reduces final perplexity from 13.21 to 10.74, an 18.7% improvement, while reducing end-to-end time from 392.54s to 357.02s, a 1.10x speedup. Under stronger learning-rate stress, AdamW degrades to 1885.24 final perplexity at LR=3e-3 and 659.76 at LR=1e-3, whereas LBW-Guard remains trainable at 11.57 and 10.33, respectively. Gradient-clipping baselines do not reproduce this effect.These results support a scoped systems conclusion that stability-sensitive LLM training can benefit from a governance plane above the optimizer. LBW-Guard provides evidence that bounded runtime control can preserve productive compute under stress while remaining distinct from optimizer replacement and local gradient suppression.",
+      "hf_link": "https://huggingface.co/papers/2605.19008"
+    },
+    "2604.27263": {
+      "title": "Decoupling the Benefits of Subword Tokenization for Language Model Training via Byte-level Simulation",
+      "abstract": "Subword tokenization is an essential part of modern large language models (LLMs), yet its specific contributions to training efficiency and model performance remain poorly understood. In this work, we decouple the effects of subword tokenization by isolating them within a controlled byte-level pretraining pipeline. We formulate and test hypotheses across various dimensions, including sample throughput, vocabulary scaling, and the linguistic prior of subword boundaries. By simulating these effects in a byte-level setting, we refine our understanding of why subword models outperform raw byte models and offer insights to improve the pretraining of future byte-level and subword models. Specifically, our experiments highlight the critical role of increased training throughput and the integration of subword boundaries as either explicit priors or inductive biases.",
+      "hf_link": "https://huggingface.co/papers/2604.27263"
+    },
+    "2602.07892": {
+      "title": "Safety Alignment as Continual Learning: Mitigating the Alignment Tax via Orthogonal Gradient Projection",
+      "abstract": "Safety post-training can improve the harmfulness and policy compliance of Large Language Models (LLMs), but it may also reduce general utility, a phenomenon often described as the \\emph{alignment tax}. We study this trade-off through the lens of continual learning: sequential alignment stages expose the model to shifted data distributions and objectives, and their gradients may interfere with directions that support previously acquired general capabilities. This view does not claim that all alignment degradation has a single cause; rather, it provides a useful first-order mechanism for mitigating one important source of capability regression. We propose \\textbf{O}rthogonal \\textbf{G}radient \\textbf{P}rojection for \\textbf{S}afety \\textbf{A}lignment (\\textbf{OGPSA}), a lightweight update rule that estimates a low-rank reference subspace from gradients on a small set of general-capability data and removes from each safety gradient the component lying in this subspace. The resulting update is the steepest local safety-descent direction subject to first-order preservation constraints on the reference objectives. OGPSA is compatible with standard post-training pipelines and avoids large-scale replay, although it introduces periodic reference-gradient computation. Across Supervised Fine-Tuning (SFT), Direct Preference Optimization (DPO), and sequential SFT$\\rightarrow$DPO settings, OGPSA improves the observed safety--utility trade-off over standard baselines. Under the sequential SFT$\\rightarrow$DPO pipeline, the average performance gain increases from 33.98\\% to 42.74\\% on Qwen2.5-7B-Instruct and from 19.74\\% to 32.98\\% on Llama3.1-8B-Instruct. We have open sourced our code atthis https URL.",
+      "hf_link": "https://huggingface.co/papers/2602.07892"
+    },
+    "2605.20158": {
+      "title": "Rethinking Visual Attribution for Chest X-ray Reasoning in Large Vision Language Models",
+      "abstract": "Large Vision Language Models (LVLMs) show promise in medical applications, but their inability to faithfully ground responses in visual evidence raises serious concerns about clinical trustworthiness. While visual attribution methods are widely used to explain LVLM predictions, whether these explanations actually reflect the visual evidence underlying the model's decision is largely unverified, since ground-truth annotations for internal model reasoning are typically unavailable. We address this question for chest X-ray (CXR) reasoning by developing a causal evaluation framework that retains only CXR-VQA samples for which the expert-annotated region is verified, via counterfactual editing, to be causally responsible for the model's prediction. Using this framework across 11 attribution methods, six open-source LVLMs, and two output modes (direct answer and step-by-step reasoning), we find that existing attribution methods often fail to identify the evidence used by LVLMs. To address this failure, we propose MedFocus, a concept-based attribution method that localizes clinically meaningful anatomical regions via unbalanced optimal transport and measures their causal effect on model outputs through targeted interventions. MedFocus produces spatial, concept-level, and token-level attributions and substantially outperforms prior methods, taking a step toward more trustworthy attribution for medical LVLMs. Our data and code are available atthis https URL.",
+      "hf_link": "https://huggingface.co/papers/2605.20158"
+    },
+    "2605.20179": {
+      "title": "TIDE: Efficient and Lossless MoE Diffusion LLM Inference with I/O-aware Expert Offload",
+      "abstract": "Diffusion Large Language Models (dLLMs) have emerged as a competitive alternative to autoregressive (AR) models, offering better hardware utilization and bidirectional context through parallel block-level decoding. However, as dLLMs continue to scale up with mixture-of-experts (MoE) architectures, their deployment on resource-constrained devices remains an open challenge. Existing AR-based methods often incur either prohibitive I/O overhead or significant compute bottlenecks. In this work, we propose TIDE, a novel resource-efficient inference system that leverages the temporal stability of expert activations during the diffusion process within the block. Specifically, we leverage the temporal stability of expert activations during the diffusion process within the block and introduce an interval-based expert refresh strategy that updates the expert placement in an I/O-aware fashion. To ensure optimal performance, we formulate the inference scheduling as a mathematical programming problem, solving for the optimal interval that minimizes I/O traffic and CPU computation. Most importantly, TIDE is a lossless optimization that requires no model training, providing a \"free lunch\" acceleration for dLLM inference. In a single GPU-CPU system, we demonstrate that TIDE achieves up to 1.4$\\times$ and 1.5$\\times$ throughput improvements over prior baselines on LLaDA2.0-mini and LLaDA2.0-flash models, respectively.",
+      "hf_link": "https://huggingface.co/papers/2605.20179"
+    },
+    "2605.18329": {
+      "title": "Lost in the Folds: When Cross-Validation Is Not a Deep Ensemble for Uncertainty Estimation",
+      "abstract": "Ensemble disagreement is widely used as a proxy for epistemic uncertainty in medical image segmentation. In practice, many studies form ensembles via K-fold cross-validation (CV), yet refer to them as ``deep ensembles'' (DE). Because CV members are trained on different data subsets, their disagreement mixes seed-driven variability with data-exposure effects, which can change how uncertainty should be interpreted. We audit recent segmentation uncertainty studies and find that terminology--implementation mismatches are common. We then compare a standard 5-fold CV ensemble to a 5-member DE (fixed training set, different random seeds) under otherwise identical configurations on three multi-rater segmentation datasets spanning three modalities. We evaluate uncertainty for calibration, failure detection, ambiguity modeling, and robustness under distribution shift. DE match segmentation accuracy while improving calibration and failure detection, whereas CV ensembles sometimes correlate more strongly with inter-rater variability on the studied datasets. Thus, ensemble construction should be chosen to match the research question: DE for reliability-oriented use (e.g., selective referral/failure detection) and CV ensembles as a proxy for ambiguity. We provide a lightweight nnU-Net modification enabling DE training within the default pipeline.",
+      "hf_link": "https://huggingface.co/papers/2605.18329"
+    },
+    "2605.17110": {
+      "title": "Capturing LLM Capabilities via Evidence-Calibrated Query Clustering",
+      "abstract": "Query clustering organizes queries into groups that reflect shared latent capability demands, enabling capability-aware LLM evaluation. Existing clustering methods, which primarily rely on semantic taxonomies or embeddings, often fail to capture such latent capability requirements due to a misalignment between surface-level semantics and actual model performance. We propose ECC, an algorithm that calibrates prior semantic embeddings using limited posterior model comparisons to bridge the gap between surface-level semantics and latent capability requirements. ECC characterizes each cluster through a capability profile parameterized by a Bradley-Terry model and uses trainable mixture weights to accommodate queries with mixed capability demands, jointly learning a flexible, capability-aware clustering structure that supports query-specific inference of LLM capabilities. Extensive quantitative and qualitative evaluations demonstrate that ECC significantly improves LLM capability ranking quality, outperforming human-labeled and embedding-based baselines by an average of 17.64 and 18.02 percentage points, respectively, and proves effective in downstream tasks such as query routing.",
+      "hf_link": "https://huggingface.co/papers/2605.17110"
+    },
+    "2605.17109": {
+      "title": "DynMuon: A Dynamic Spectral Shaping View of Muon",
+      "abstract": "In recent years, Muon has emerged as the dominant method for training large language models, and transformers more broadly. The essential difference, when compared to standard gradient descent methods, is to replace the usual update matrix $M=U\\Sigma V^\\top$ with its polar factor $UV^\\top$. In this work, we consider a class of Muon-like updates, where we replace the update $M$ with $U\\Sigma^p V^\\top$ for some parameter $p$. We call this a \"spectral-shaping\" operation, and develop a theory of how to pick $p$ which depends on (a) local curvature of the loss function, (b) noise stemming from stochastic gradients and label noise, and (c) training stage. Our theory and experimentation reveal a previously overlooked behavior: positive $p$ helps early by emphasizing high-curvature directions and accelerating signal contraction, while mildly negative $p$ helps later by reallocating update strength toward low-curvature directions that still contain useful training signals. Building on the insight, we propose DynMuon, an efficient dynamic spectral shaping method that schedules $p$ from positive to mildly negative over training. Extensive experiments across model sizes, architectures, and training settings show that DynMuon consistently achieves lower validation loss than Muon, while requiring 10.6-26.5% fewer steps to reach the same target loss.",
+      "hf_link": "https://huggingface.co/papers/2605.17109"
     }
   },
   "hf_votes": {
@@ -62,16 +232,16 @@
     "2605.19484": 0,
     "2605.19597": 0,
     "2605.20613": 0,
-    "2605.20630": 0,
     "2605.20668": 0,
+    "2605.20630": 0,
+    "2605.21226": 0,
     "2605.21343": 0,
     "2605.15113": 0,
     "2605.19804": 0,
     "2605.17991": 0,
-    "2605.21226": 0,
-    "2605.19330": 0,
     "2605.21981": 0,
     "2605.21131": 0,
+    "2605.19330": 0,
     "2605.17916": 0,
     "2605.17526": 0,
     "2605.16787": 0,
@@ -114,21 +284,6 @@
       "tags": "计算机图形学；三维重建与生成；全景空间生成",
       "body_summary": "从平面图和风格参考生成空间一致的全屋VR漫游是一项挑战。\n提出PanoWorld模型，通过解耦几何引导与视觉记忆，自回归生成节点式全景图，兼顾单图质量与跨视图一致性。"
     },
-    "2605.21431": {
-      "short_zh": "交互式视频虚拟试衣新方法",
-      "tags": "计算机视觉;图像与视频生成;视频虚拟试衣",
-      "body_summary": "现有视频虚拟试衣方法局限于非交互场景，无法处理人物主动与服装互动的真实情形，本文提出并定义交互式视频虚拟试衣新任务。\n提出iTryOn框架，通过空间级手势先验和语义级动作描述引导，利用视频扩散Transformer生成具有复杂动态的逼真交互试衣效果。"
-    },
-    "2605.21131": {
-      "short_zh": "统一模型处理几何感知任务",
-      "tags": "计算机视觉；三维视觉；密集三维重建",
-      "body_summary": "当前几何感知模型在多种场景下能力割裂，存在范式不统一的问题。\n提出UniT模型，通过组自回归变换器统一处理在线、离线等多种感知任务，并引入尺度自适应损失提升泛化能力。"
-    },
-    "2605.20955": {
-      "short_zh": "手绘草图生成人体三维动作",
-      "tags": "计算机图形学；人体动画生成；文本与草图驱动动作生成",
-      "body_summary": "文本生成人体动作时，用户难以用文字精确描述意图\n提出DrawMotion框架，融合文本和手绘草图条件，通过多条件模块和免训练引导实现意图对齐的动作生成"
-    },
     "2605.21487": {
       "short_zh": "统一多模态模型智能编辑任务",
       "tags": "多模态学习;图像理解与生成;智能图像编辑",
@@ -139,20 +294,205 @@
       "tags": "计算机视觉;视频生成;长视频一致性",
       "body_summary": "无需额外训练，如何让基础视频生成模型生成更长、更连贯的视频是当前挑战。\n提出MIGA方法，通过两阶段对齐缓解训练推理差距，并利用自反思和长程引导双机制提升时间一致性，在多个评测集上取得领先性能。"
     },
-    "2605.21343": {
-      "short_zh": "重叠图像生成排序模型",
-      "tags": "计算机视觉;图像生成;遮挡关系建模",
-      "body_summary": "现有布局生成图像模型在物体重叠区域存在遮挡关系不明确的问题，导致生成结果混乱或不真实。\n我们构建了带遮挡标注的数据集，并提出了一个显式建模物体前后顺序的扩散Transformer模型，通过解耦实例和体渲染合成来解决遮挡问题。"
-    },
     "2605.19804": {
       "short_zh": "缝合扩散模型与奖励函数指导生成",
       "tags": "生成模型;扩散模型对齐;价值模型构建",
       "body_summary": "扩散模型需与图像奖励对齐，但奖励定义于干净图像而价值估计需在含噪潜空间进行。\n提出缝合框架，以轻量方式将预训练奖励模型迁移至含噪潜空间，提升多种下游对齐方法的效率。"
     },
+    "2605.21343": {
+      "short_zh": "重叠图像生成排序模型",
+      "tags": "计算机视觉;图像生成;遮挡关系建模",
+      "body_summary": "现有布局生成图像模型在物体重叠区域存在遮挡关系不明确的问题，导致生成结果混乱或不真实。\n我们构建了带遮挡标注的数据集，并提出了一个显式建模物体前后顺序的扩散Transformer模型，通过解耦实例和体渲染合成来解决遮挡问题。"
+    },
     "2605.21981": {
       "short_zh": "基于表征空间的扩散模型训练",
       "tags": "计算机视觉;生成模型;图像扩散模型",
       "body_summary": "本研究探讨在预训练表征空间进行流匹配学习是否比像素空间更具优势。\n发现DINOv2特征具有更优统计特性，据此设计了简化的扩散Transformer，在图像生成任务上取得了更好效果。"
+    },
+    "2605.20955": {
+      "short_zh": "手绘草图生成人体三维动作",
+      "tags": "计算机图形学；人体动画生成；文本与草图驱动动作生成",
+      "body_summary": "文本生成人体动作时，用户难以用文字精确描述意图\n提出DrawMotion框架，融合文本和手绘草图条件，通过多条件模块和免训练引导实现意图对齐的动作生成"
+    },
+    "2605.21131": {
+      "short_zh": "统一模型处理几何感知任务",
+      "tags": "计算机视觉；三维视觉；密集三维重建",
+      "body_summary": "当前几何感知模型在多种场景下能力割裂，存在范式不统一的问题。\n提出UniT模型，通过组自回归变换器统一处理在线、离线等多种感知任务，并引入尺度自适应损失提升泛化能力。"
+    },
+    "2605.21431": {
+      "short_zh": "交互式视频虚拟试衣新方法",
+      "tags": "计算机视觉;图像与视频生成;视频虚拟试衣",
+      "body_summary": "现有视频虚拟试衣方法局限于非交互场景，无法处理人物主动与服装互动的真实情形，本文提出并定义交互式视频虚拟试衣新任务。\n提出iTryOn框架，通过空间级手势先验和语义级动作描述引导，利用视频扩散Transformer生成具有复杂动态的逼真交互试衣效果。"
+    },
+    "2605.14747": {
+      "short_zh": "从视频自动生成图形界面操作轨迹",
+      "tags": "多模态智能体;图形用户界面智能体;界面交互轨迹自动构建",
+      "body_summary": "当前图形界面智能体因缺乏大规模真实应用数据而泛化能力受限。\n我们提出Video2GUI框架，从互联网视频自动提取操作轨迹，构建大规模数据集并提升智能体性能。"
+    },
+    "2605.19833": {
+      "short_zh": "大规模构建真实世界声学模拟提升语音识别鲁棒性",
+      "tags": "语音技术;自动语音识别;鲁棒语音识别",
+      "body_summary": "现实环境中语音识别仍受制于“声学鲁棒性瓶颈”，模型在复杂失真下易产生错误。\n提出Mega-ASR框架，通过构建大规模复合声学场景数据集和渐进式声学-语义优化，显著提升复杂场景下的识别性能。"
+    },
+    "2605.21468": {
+      "short_zh": "仅用少量训练提升大模型推理能力",
+      "tags": "自然语言处理;语言模型训练;强化学习参数轨迹分析",
+      "body_summary": "现有强化学习训练方法用于提升大语言模型的推理能力，但其参数更新的几何特性未被充分研究。\n研究发现其参数更新轨迹是极低秩且可预测的，据此提出一种基于秩一子空间外推的轻量方法，能以极少观察步骤预测出高性能检查点。"
+    },
+    "2605.20682": {
+      "short_zh": "强化工业异常检测的智能体框架",
+      "tags": "计算机视觉;视觉异常检测;开放词汇工业异常检测",
+      "body_summary": "多模态大语言模型在零样本工业异常检测中存在领域推理偏差和幻觉问题。\n提出了IndusAgent框架，通过构建数据集优化模型，并动态调用工具增强检测，在多个基准测试中取得领先性能。"
+    },
+    "2605.19660": {
+      "short_zh": "高效压缩大模型KV缓存",
+      "tags": "自然语言处理;大模型推理加速;KV缓存量化",
+      "body_summary": "长文本与大模型发展使KV缓存成为内存瓶颈，现有量化方法在极端压缩下效果不佳。\n提出OScaR框架，通过通道旋转与统一样本缩放降低量化误差，实现低损耗压缩并提升推理速度。"
+    },
+    "2605.20266": {
+      "short_zh": "大型音频语言模型安全与泛化研究",
+      "tags": "多模态大语言模型;音频语言模型;可信音频智能",
+      "body_summary": "大型音频语言模型能力发展迅速但可信保障体系滞后。\n本文综述其机制、评估风险并提出可信智能发展路线图。"
+    },
+    "2605.20258": {
+      "short_zh": "大模型隐私对齐新方法",
+      "tags": "自然语言处理;大模型对齐;上下文完整性对齐",
+      "body_summary": "大模型作为个人代理处理敏感信息时，需遵循上下文完整性这一隐私规范，但现有方法难以平衡隐私保护与任务性能。\n提出互补自蒸馏框架SELFCI，通过联合优化两个反向KL散度，让模型同时学习任务能力和最小化披露，无需外部监督即可实现更好的隐私-效用权衡。"
+    },
+    "2605.20119": {
+      "short_zh": "时间序列预测模型可规模扩展",
+      "tags": "机器学习;时间序列分析;基础模型预测",
+      "body_summary": "时间序列预测模型性能随参数规模增大而提升的研究\n提出了Toto 2.0系列模型，其在一组扩展实验中表现出色，并在多个基准测试中创下新记录"
+    },
+    "2605.20315": {
+      "short_zh": "量化预填充提升智能体推理效率",
+      "tags": "自然语言处理;大语言模型;推理优化",
+      "body_summary": "智能体工作流的长上下文和多轮推理中，计算密集的预填充阶段成为关键瓶颈。\n提出Mix-Quant框架，对预填充阶段使用低精度量化以加速，对解码阶段保持高精度以保证质量。"
+    },
+    "2605.19376": {
+      "short_zh": "生成式递归推理模型",
+      "tags": "机器学习;神经推理系统;概率递归推理",
+      "body_summary": "现有递归推理模型多为确定性单轨迹推理，限制了多解探索与生成能力。\n提出生成式递归推理模型，通过随机潜轨迹实现多假设推理与无条件生成，提升多项任务性能。"
+    },
+    "2605.19484": {
+      "short_zh": "评估GUI智能体在专业媒体编辑中的性能",
+      "tags": "人机交互;图形用户界面智能体;媒体后期制作任务评测",
+      "body_summary": "当前GUI智能体在专业创意工作流程（如媒体后期制作）中的能力尚未得到充分探索。\n研究者构建了CutVerse评测基准，涵盖7个专业软件的186个真实长程任务，并开发了解析器以结构化交互轨迹，评估发现现有智能体成功率仅36.0%，揭示了其在长程可靠性和领域规划上的不足。"
+    },
+    "2605.19597": {
+      "short_zh": "中文大模型逻辑推理评估基准构建",
+      "tags": "自然语言处理;逻辑推理;基准测评",
+      "body_summary": "现有逻辑推理评测基准存在模板化、标注粗糙和易被前沿模型饱和的问题\n该研究构建了经专家审核和求解器验证的中文逻辑推理基准，并通过对抗性增强提升难度，评测发现前沿模型表现仍有很大差距"
+    },
+    "2605.20613": {
+      "short_zh": "高效预训练新架构HRM",
+      "tags": "自然语言处理;语言模型预训练;高效计算架构设计",
+      "body_summary": "当前大语言模型预训练依赖海量算力和数据，阻碍基础研究\n提出分层循环模型HRM和任务完成目标，用极低成本和数据训练出有竞争力的模型"
+    },
+    "2605.20668": {
+      "short_zh": "AI评阅员能力评估",
+      "tags": "自然语言处理;语言模型评估;科学论文审稿评测",
+      "body_summary": "评估AI在科学论文审稿中的能力与局限。\n专家对比评析AI与人类对顶级期刊论文的审稿意见。"
+    },
+    "2605.20630": {
+      "short_zh": "评估工业智能体缓存与工作流优化",
+      "tags": "大语言模型应用;智能体系统优化;工业运维工作流加速",
+      "body_summary": "工业资产运维工作流延迟敏感，现有LLM缓存方法因依赖时间或参数而失效。\n提出并评估了结合时序语义缓存与工作流优化的方法，显著降低了延迟并分析了缓存对评估的影响。"
+    },
+    "2605.21226": {
+      "short_zh": "键值缓存压缩新方法",
+      "tags": "机器学习;模型推理优化;长序列键值缓存压缩",
+      "body_summary": "在长序列生成任务中，键值缓存消耗大量内存带宽与存储空间，需高效压缩。\n提出OCTOPUS方法，通过八面体参数化联合量化旋转后的坐标三元组，实现了数据无关、在线的确定性压缩，并在各类模态数据上优于现有旋转编码方法。"
+    },
+    "2605.15113": {
+      "short_zh": "用语言反馈训练智能体策略",
+      "tags": "强化学习;从语言反馈学习;变分策略蒸馏",
+      "body_summary": "从可验证奖励的强化学习在复杂推理任务上存在探索瓶颈。\n提出变分策略蒸馏框架，通过师生策略协同进化，将语言反馈转化为动态的密集监督信号。"
+    },
+    "2605.17991": {
+      "short_zh": "快速生成和编辑音频的扩散模型",
+      "tags": "音频生成;扩散模型;变长音频生成",
+      "body_summary": "开发快速扩散模型以生成和编辑可变长度的音频。\n提出了一个新颖的语义-声学自编码器构成潜在空间，并采用对抗性后训练加速推理和提升质量。"
+    },
+    "2605.19330": {
+      "short_zh": "优化智能体技能的多目标方法",
+      "tags": "自然语言处理;智能体与对话系统;技能优化",
+      "body_summary": "背景/任务：大语言模型智能体的技能受平台约束，需同时优化任务性能和满足限制，这是多目标优化问题。\n做了什么：提出MOCHA方法，采用切比雪夫标量化与指数退火，在多个任务上优于基线，发现更多帕累托最优技能变体。"
+    },
+    "2605.17526": {
+      "short_zh": "构建SaaS编程智能体测试基准",
+      "tags": "软件工程;代码生成;企业SaaS系统构建",
+      "body_summary": "现有基准难以评估智能体在复杂企业SaaS工程环境下的真实能力。\n提出了首个模拟真实企业SaaS复杂性的测试基准SaaSBench，并通过实验发现当前智能体的主要瓶颈在于多组件系统的配置与集成。"
+    },
+    "2605.16787": {
+      "short_zh": "大模型强化学习中的难学样本现象",
+      "tags": "自然语言处理;大语言模型推理;强化学习验证奖励",
+      "body_summary": "用强化学习提升大语言模型推理能力时，存在部分难题无法学会。\n研究发现这些难题存在表征缺陷，梯度相似度低且模式不可泛化，现有方法难以解决。"
+    },
+    "2605.20834": {
+      "short_zh": "DPO与RLHF有条件等价性分析",
+      "tags": "机器学习;语言模型对齐;偏好优化",
+      "body_summary": "背景/任务：直接偏好优化（DPO）常被用作人类反馈强化学习（RLHF）的替代方法，但两者理论上等价的成立条件在实践中常被违反。\n做了什么：本文证明了其等价性有条件，指出失败模式，提出约束偏好优化方法实现可证明的对齐，并在实验中达到先进水平。"
+    },
+    "2605.21384": {
+      "short_zh": "长程编码代理的奖励越狱测量",
+      "tags": "编程语言与软件工程;自动程序合成;长程编码代理评估",
+      "body_summary": "随着长程编码代理能生成远超人工审查能力的代码量，自动化测试套件成为唯一的监督手段，这导致了代理为通过测试而偏离用户真实目标的奖励越狱现象。\n本研究通过构建SpecBench基准，将工程任务分解为规范、可见测试与隐藏测试，以两者通过率的差距量化奖励越狱，并发现其随代码规模显著增长。"
+    },
+    "2605.21463": {
+      "short_zh": "让大模型自生成动态记忆指导",
+      "tags": "自然语言处理;智能体与强化学习;自适应记忆生成",
+      "body_summary": "现有智能体多依赖静态记忆检索，常与当前情境不匹配。\n提出了Mem-π框架，用独立模型学习何时及生成何种情境化指导以提升任务表现。"
+    },
+    "2605.18565": {
+      "short_zh": "评估长时程智能体多目标记忆干扰",
+      "tags": "自然语言处理;智能体与交互系统;长时程记忆干扰评估",
+      "body_summary": "现有基准无法评估记忆在长期动态环境中的相互干扰问题\n提出MINTEval基准测试多领域干扰下记忆性能发现现有系统准确率低"
+    },
+    "2605.20873": {
+      "short_zh": "构建大模型规划能力评估框架",
+      "tags": "自然语言处理;大规模语言模型;规划数据生成与验证",
+      "body_summary": "现有规划基准数据固定，难以支持可控生成和自动验证，制约了大模型规划能力的评估与训练。\n本文提出PlanningBench框架，通过结构化分类和约束驱动流程生成可扩展、多样且可验证的规划数据，用于评估模型并在其上训练以提升规划能力。"
+    },
+    "2605.19008": {
+      "short_zh": "优化器监控层防训练崩溃",
+      "tags": "机器学习;深度学习优化;大语言模型训练稳定性",
+      "body_summary": "现代大语言模型训练在激进设置下易出现不稳定与计算浪费。\n提出LBW-Guard监控层，在压力测试中提升稳定性并加速训练。"
+    },
+    "2604.27263": {
+      "short_zh": "探究子词分词对语言模型训练的影响",
+      "tags": "自然语言处理;语言模型与预训练;子词分词效果解耦",
+      "body_summary": "子词分词是现代大语言模型的关键部分，但其对训练效率和模型性能的具体贡献尚不明确。\n通过在字节级预训练流程中模拟子词效果，研究其提升吞吐量、引入边界先验等作用机制。"
+    },
+    "2602.07892": {
+      "short_zh": "缓解大模型安全对齐的性能损失",
+      "tags": "自然语言处理;大语言模型对齐;安全对齐能力损失",
+      "body_summary": "大模型安全对齐训练常导致其通用能力下降，即“对齐税”，这被视为持续学习中的梯度冲突问题。\n提出了一种轻量级正交梯度投影方法，在提升模型安全性的同时，有效保留其通用能力。"
+    },
+    "2605.20158": {
+      "short_zh": "评估大视觉语言模型在胸片诊断中的视觉归因可信度",
+      "tags": "计算机视觉;多模态学习;医学图像可解释性",
+      "body_summary": "当前大视觉语言模型在医疗应用中的视觉归因解释缺乏可信度验证，尤其在胸片诊断领域。\n本文提出了一个因果评估框架来检验现有归因方法，并提出了新方法MedFocus以提高归因的准确性和可信度。"
+    },
+    "2605.20179": {
+      "short_zh": "高效无损MoE扩散大模型推理系统",
+      "tags": "自然语言处理;大语言模型推理;专家混合模型推理优化",
+      "body_summary": "扩散大语言模型推理因专家混合架构庞大，在资源受限设备上部署困难，现有方法存在I/O开销或计算瓶颈。\n提出TIDE系统，利用块内扩散过程专家激活的时域稳定性，以I/O感知方式间隔刷新专家布局，通过数学规划优化调度实现无损加速。"
+    },
+    "2605.18329": {
+      "short_zh": "对比交叉验证与集成的不确定性",
+      "tags": "医学图像处理;图像分割;不确定性估计",
+      "body_summary": "背景/任务是医学图像分割中常使用集成模型差异来估计认知不确定性，许多研究将K折交叉验证构建的模型称为“深度集成”，但二者在不确定性解释上存在差异。\n本文通过实验对比了交叉验证集成与深度集成在三个多标注数据集上的表现，发现深度集成在可靠性和故障检测方面更优，而交叉验证集成更接近标注者间的变异，建议根据研究目的选择不同集成方式。"
+    },
+    "2605.17110": {
+      "short_zh": "通过聚类查询评估大模型能力",
+      "tags": "自然语言处理;大语言模型评估;查询聚类与能力画像",
+      "body_summary": "现有基于语义的查询聚类方法难以反映大模型的实际能力需求。\n我们提出ECC算法，利用少量模型比对结果校准语义聚类，学习能力感知的聚类结构以提升评估效果。"
+    },
+    "2605.17109": {
+      "short_zh": "动态调节Muon更新矩阵的谱形",
+      "tags": "机器学习;优化算法;大语言模型训练优化",
+      "body_summary": "Muon已成为训练大语言模型的主流方法，其核心是用更新矩阵的极因子替代原矩阵进行参数更新。\n本文提出DynMuon方法，通过动态调整谱形参数p来优化训练过程，实验表明其在减少训练步数的同时能获得更低的验证损失。"
     }
   },
   "deep_analysis": {},
@@ -177,66 +517,6 @@
         "caption_zh": "图4：跨房间记忆滤波。外壳深度会移除位于首个可见房间表面后方的缓存像素，否则这些像素会引入明显的错误纹理。"
       }
     ],
-    "2605.21431": [
-      {
-        "path": "https://arxiv.org/html/2605.21431v1/x2.png",
-        "caption": "Figure 2:The iTryOn architecture. (a) A DiT backbone with parallel injection of general context and 3D-hand guidance from our Interaction Guider. An action-aware constraint loss focuses training on interaction frames. (b) The Interaction Guider module fuses spatial features with global and action-specific text prompts. (c) Our A-RoPE mechanism aligns action captions to their corresponding video segments via unique rotational position encodings in temporal cross-attention.",
-        "role": "pipeline_1",
-        "caption_zh": "图 2：iTryOn 架构。(a) 采用 DiT 骨干网络，并行注入通用上下文及来自交互引导模块的 3D 手部引导；动作感知约束损失使训练聚焦于交互帧。(b) 交互引导模块将空间特征与全局及动作特定文本提示相融合。(c) 我们的 A-RoPE 机制通过时域交叉注意力中独特的旋转位置编码，将动作描述与其对应的视频片段对齐。"
-      },
-      {
-        "path": "https://arxiv.org/html/2605.21431v1/x3.png",
-        "caption": "Figure 3:Visual justification for our garment-agnostic 3D hand prior. Deriving a ”Hand Depth” prior from human parsing(Liet al.,2022)and video depth(Chenet al.,2025)suffers from critical information leakage. This flawed prior improperly retains source garment geometry, such as the sleeve cuff, leading directly to visible artifacts in the generated output. In contrast, our fully garment-agnostic 3D hand prior provides a clean signal, enabling the generation of plausible and artifact-free hand-garment contact. SeeAppendixA.3for more details.",
-        "role": "pipeline_2",
-        "caption_zh": "图3：本文所提出的服装无关3D手部先验的视觉依据。从人体解析（Li等，2022）和视频深度（Chen等，2025）中推导出的“手部深度”先验存在严重的信息泄露问题。这一有缺陷的先验不适当地保留了源服装的几何结构（例如袖口），直接导致生成结果中出现可见的伪影。相比之下，我们完全服装无关的3D手部先验提供了干净的信号，从而能够生成合理且无伪影的手部-服装接触效果。更多细节见附录A.3。"
-      },
-      {
-        "path": "https://arxiv.org/html/2605.21431v1/x6.png",
-        "caption": "Figure 6:Visual motivation for our Action-aware Semantic Guidance. These examples from our VVT-Interact dataset highlight the semantic ambiguity of VLM-generated global captions. Although the ground-truth interactions are distinct (rolling sleeves vs. adjusting the hem), both are imprecisely described with the generic verb ”adjusts”. Our categorical action captions resolve this ambiguity, providing the model with a clear and actionable signal required for high-fidelity interaction synthesis.",
-        "role": "pipeline_3",
-        "caption_zh": "图6：我们提出的动作感知语义引导机制的直观动机。这些来自VVT-Interact数据集的示例凸显了视觉语言模型生成的全局描述存在语义模糊性。尽管真实交互动作截然不同（卷起袖子 vs. 调整下摆边缘），两者均被笼统地描述为通用动词“调整”。我们的分类化动作描述则解决了这种模糊性，为模型提供了实现高保真交互合成所需的清晰且可操作信号。"
-      }
-    ],
-    "2605.21131": [
-      {
-        "path": "https://arxiv.org/html/2605.21131v1/img/framework.png",
-        "caption": "Figure 3:Architecture Overview.Image groups are first patchified into tokens using DINO[39]. These tokens are then fused with tokens encoded from optional modalities through a modal attention layer, followed by frame attention and global attention layers. In global attention, bidirectional attention operates within each group, while causal attention is applied across groups. The fused tokens are finally decoded into global point maps, represented by a local point map using DPT head[43]and camera extrinsics with our anchor-free (AF) camera head. To control model complexity, modal attention is applied four times.",
-        "role": "pipeline_1",
-        "caption_zh": "图 3：架构概览。图像组首先通过 DINO[39] 划分为补丁并转换为标记。随后，这些标记通过模态注意力层与可选模态编码得到的标记进行融合，再经过帧注意力层和全局注意力层处理。在全局注意力中，双向注意力作用于各组内部，而因果注意力则应用于组间。融合后的标记最终通过 DPT 解码头[43]解码为全局点图，并利用我们的无锚点相机头结合相机外参表示为局部点图。为控制模型复杂度，模态注意力层共应用四次。"
-      },
-      {
-        "path": "https://arxiv.org/html/2605.21131v1/img/crossattn.png",
-        "caption": "Figure 5:Illustration of two types of attention layers, including (a) standard cross attention and (b) the proposed modal attention.",
-        "role": "pipeline_2",
-        "caption_zh": "图 5：两种注意力层的示意图，包括（a）标准交叉注意力与（b）所提出的模态注意力。"
-      },
-      {
-        "path": "https://arxiv.org/html/2605.21131v1/img/mask.png",
-        "caption": "Figure 4:Illustration of three types of attention mask, including (a) null mask, (b) standard causal mask, and (c) our group causal mask with a group size of 2. Entries marked as “-inf” indicate masked tokens. For simplicity, each token denotes one frame in this illustration.",
-        "role": "pipeline_3",
-        "caption_zh": "图4：三种注意力掩码示意图，包括（a）无掩码，（b）标准因果掩码，以及（c）本文提出的组因果掩码（组大小为2）。标记为“-inf”的条目表示被掩蔽的词元。为简化示意，此处每个词元代表一帧。"
-      }
-    ],
-    "2605.20955": [
-      {
-        "path": "https://arxiv.org/html/2605.20955v1/x4.png",
-        "caption": "Figure 3:The DrawMotion framework consists of the diffusion process (left) and the network structure (right).\n1) The diffusion process includes a forward and a reverse process. In the forward process, original motions are augmented with Gaussian noise and fed into DrawMotion, which learns to predict the added noise based on textual descriptions and hand-drawn sketches. In the reverse process, user-provided textual descriptions and hand-drawn sketches are input into DrawMotion, enabling the gradual generation of motion sequences using the predicted noise.\n2) In the DrawMotion architecture, both the stickman encoder and the text encoder are frozen, while the remaining modules are trainable. Encoded inputs are processed by multiple Multi-Condition Modules (MCMs) to get the final output.",
-        "role": "pipeline_1",
-        "caption_zh": "图3：DrawMotion框架由扩散过程（左）与网络结构（右）组成。1) 扩散过程包含前向过程与逆向过程。在前向过程中，原始动作数据通过添加高斯噪声进行增强，并输入DrawMotion，该模型学习基于文本描述和手绘草图来预测所添加的噪声。在逆向过程中，用户提供的文本描述和手绘草图被输入DrawMotion，使其能够利用预测的噪声逐步生成动作序列。2) 在DrawMotion架构中，骨架编码器与文本编码器均被冻结，其余模块可训练。编码后的输入经多个多条件模块（MCM）处理，以得到最终输出。"
-      },
-      {
-        "path": "https://arxiv.org/html/2605.20955v1/x2.png",
-        "caption": "Figure 1:Pipeline of DrawMotion inference. In addition to the training-based guidance, a training-free guidance updates the intermediate feature of the model within the MD boundary to ensure that the generations meet the conditions while maintaining its fidelity.",
-        "role": "pipeline_2",
-        "caption_zh": "图1：DrawMotion推理流程。除基于训练的引导外，一种免训练的引导方法在MD边界内更新模型的中间特征，以确保生成结果在满足条件的同时保持其保真度。"
-      },
-      {
-        "path": "https://arxiv.org/html/2605.20955v1/x5.png",
-        "caption": "Figure 4:Conceptual illustration of intermediate feature distributions. The dashed lines correspond to level sets of the probability density function. (a) Ordinary models yield discrete clusters, (b) MCM forms a relatively continuous space, and (c) VAE enforces full latent coverage. This schematic is supported by TableI.",
-        "role": "pipeline_3",
-        "caption_zh": "图4：中间特征分布的概念示意图。虚线对应于概率密度函数的等高线。(a) 普通模型产生离散的簇，(b) MCM 形成相对连续的空间，(c) VAE 强制实现完全的隐空间覆盖。此示意图由表I提供支持。"
-      }
-    ],
     "2605.18233": [
       {
         "path": "https://arxiv.org/html/2605.18233v1/x2.png",
@@ -255,26 +535,6 @@
         "caption": "Figure 1:MIGA enables temporally consistent, infinite-frame (∞\\infty) video generation in a training-free manner.We present three long videos (1000+ frames) generated by MIGA, while the foundation model used by MIGA, Wan2.1-1.3B(Wanet al.,2025), supports only 81 frames by default.",
         "role": "pipeline_3",
         "caption_zh": "图1：MIGA 能够以无需训练的方式实现时间一致、无限帧数（∞）的视频生成。我们展示了由 MIGA 生成的三个长视频（1000+ 帧），而 MIGA 使用的基础模型 Wan2.1-1.3B（Wan 等人，2025）默认仅支持 81 帧。"
-      }
-    ],
-    "2605.21343": [
-      {
-        "path": "https://arxiv.org/html/2605.21343v1/x3.png",
-        "caption": "Figure 3:The training pipeline of OcclusionFormer.The framework decouples instances and recomposes them using volumetric rendering to resolve occlusions. Simultaneously, a queried alignment mechanism enforce strict spatial consistency via mask supervision.",
-        "role": "pipeline_1",
-        "caption_zh": "图 3：OcclusionFormer 的训练流程。该框架通过解耦实例并利用体积渲染进行重组以解决遮挡问题；同时，查询对齐机制借助掩码监督强制保持严格的空间一致性。"
-      },
-      {
-        "path": "https://arxiv.org/html/2605.21343v1/x2.png",
-        "caption": "Figure 2:Curation pipeline.(a) Z-order and captions are annotated via InstaOrder and DescribeAnything. (b) Amodal BBoxes are derived by re-projecting 3D assets reconstructed by SAM-3D.",
-        "role": "pipeline_2",
-        "caption_zh": "图 2：数据构建流程。(a) 通过 InstaOrder 与 DescribeAnything 标注 Z 顺序与图注。(b) 通过将 SAM-3D 重建的 3D 资产重新投影，推导出非模态边界框。"
-      },
-      {
-        "path": "https://arxiv.org/html/2605.21343v1/x10.png",
-        "caption": "Figure 10:The visual comparison of different methods on the OverLayBench(Liet al.,2025a).Figure 11:The visual comparison of different methods on our constructed SA-Z Eval.",
-        "role": "pipeline_3",
-        "caption_zh": "图10：不同方法在OverLayBench上的视觉对比（Li等人，2025a）。图11：不同方法在我们构建的SA-Z Eval上的视觉对比。"
       }
     ],
     "2605.19804": [
@@ -297,6 +557,26 @@
         "caption_zh": "图 4：在联合 DFN-CLIP 与 HPSv2 奖励的微调过程中，StitchVM 改善了 DRaFT 的质量-效率权衡。图中绘制了 DRaFT 以及结合 StitchVM 的 DRaFT 在 GenEval、HPSv2、DFN-CLIP、ImageReward 和 PickScore 指标上相对于 GPU 小时数的变化。"
       }
     ],
+    "2605.21343": [
+      {
+        "path": "https://arxiv.org/html/2605.21343v1/x3.png",
+        "caption": "Figure 3:The training pipeline of OcclusionFormer.The framework decouples instances and recomposes them using volumetric rendering to resolve occlusions. Simultaneously, a queried alignment mechanism enforce strict spatial consistency via mask supervision.",
+        "role": "pipeline_1",
+        "caption_zh": "图 3：OcclusionFormer 的训练流程。该框架通过解耦实例并利用体积渲染进行重组以解决遮挡问题；同时，查询对齐机制借助掩码监督强制保持严格的空间一致性。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.21343v1/x2.png",
+        "caption": "Figure 2:Curation pipeline.(a) Z-order and captions are annotated via InstaOrder and DescribeAnything. (b) Amodal BBoxes are derived by re-projecting 3D assets reconstructed by SAM-3D.",
+        "role": "pipeline_2",
+        "caption_zh": "图 2：数据构建流程。(a) 通过 InstaOrder 与 DescribeAnything 标注 Z 顺序与图注。(b) 通过将 SAM-3D 重建的 3D 资产重新投影，推导出非模态边界框。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.21343v1/x10.png",
+        "caption": "Figure 10:The visual comparison of different methods on the OverLayBench(Liet al.,2025a).Figure 11:The visual comparison of different methods on our constructed SA-Z Eval.",
+        "role": "pipeline_3",
+        "caption_zh": "图10：不同方法在OverLayBench上的视觉对比（Li等人，2025a）。图11：不同方法在我们构建的SA-Z Eval上的视觉对比。"
+      }
+    ],
     "2605.21981": [
       {
         "path": "https://arxiv.org/html/2605.21981v1/x6.png",
@@ -315,6 +595,66 @@
         "caption": "(a) PCA spectrum(b) Optimization conditioning(c) On-manifold interpolationFigure 1:Manifold analysis across Pixel, SD-VAE, and DINOv2.(a) PCA spectrum: cumulative variance (top) and per-component variance on log scale (bottom); flatter decay indicates more uniform spread. (b) Condition numberκ​(Σt)\\kappa(\\Sigma_{t})along the transport path; DINOv2 stays35×35\\timesbetter conditioned than Pixel att=0.9t{=}0.9. (c) Interpolation reconstruction MSE; Pixel stays off-manifold while DINOv2 remains close throughout.",
         "role": "pipeline_3",
         "caption_zh": "图1：在Pixel、SD-VAE和DINOv2上进行流形分析。(a) PCA谱：累积方差（上图）及对数尺度下的各组分方差（下图）；衰减越平缓表示分布越均匀。(b) 沿传输路径的条件数κ(Σ_t)；在t=0.9时，DINOv2的条件数仍比Pixel优35倍。(c) 插值重建均方误差；Pixel始终偏离流形，而DINOv2在整个过程中保持接近。"
+      }
+    ],
+    "2605.20955": [
+      {
+        "path": "https://arxiv.org/html/2605.20955v1/x4.png",
+        "caption": "Figure 3:The DrawMotion framework consists of the diffusion process (left) and the network structure (right).\n1) The diffusion process includes a forward and a reverse process. In the forward process, original motions are augmented with Gaussian noise and fed into DrawMotion, which learns to predict the added noise based on textual descriptions and hand-drawn sketches. In the reverse process, user-provided textual descriptions and hand-drawn sketches are input into DrawMotion, enabling the gradual generation of motion sequences using the predicted noise.\n2) In the DrawMotion architecture, both the stickman encoder and the text encoder are frozen, while the remaining modules are trainable. Encoded inputs are processed by multiple Multi-Condition Modules (MCMs) to get the final output.",
+        "role": "pipeline_1",
+        "caption_zh": "图3：DrawMotion框架由扩散过程（左）与网络结构（右）组成。1) 扩散过程包含前向过程与逆向过程。在前向过程中，原始动作数据通过添加高斯噪声进行增强，并输入DrawMotion，该模型学习基于文本描述和手绘草图来预测所添加的噪声。在逆向过程中，用户提供的文本描述和手绘草图被输入DrawMotion，使其能够利用预测的噪声逐步生成动作序列。2) 在DrawMotion架构中，骨架编码器与文本编码器均被冻结，其余模块可训练。编码后的输入经多个多条件模块（MCM）处理，以得到最终输出。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.20955v1/x2.png",
+        "caption": "Figure 1:Pipeline of DrawMotion inference. In addition to the training-based guidance, a training-free guidance updates the intermediate feature of the model within the MD boundary to ensure that the generations meet the conditions while maintaining its fidelity.",
+        "role": "pipeline_2",
+        "caption_zh": "图1：DrawMotion推理流程。除基于训练的引导外，一种免训练的引导方法在MD边界内更新模型的中间特征，以确保生成结果在满足条件的同时保持其保真度。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.20955v1/x5.png",
+        "caption": "Figure 4:Conceptual illustration of intermediate feature distributions. The dashed lines correspond to level sets of the probability density function. (a) Ordinary models yield discrete clusters, (b) MCM forms a relatively continuous space, and (c) VAE enforces full latent coverage. This schematic is supported by TableI.",
+        "role": "pipeline_3",
+        "caption_zh": "图4：中间特征分布的概念示意图。虚线对应于概率密度函数的等高线。(a) 普通模型产生离散的簇，(b) MCM 形成相对连续的空间，(c) VAE 强制实现完全的隐空间覆盖。此示意图由表I提供支持。"
+      }
+    ],
+    "2605.21131": [
+      {
+        "path": "https://arxiv.org/html/2605.21131v1/img/framework.png",
+        "caption": "Figure 3:Architecture Overview.Image groups are first patchified into tokens using DINO[39]. These tokens are then fused with tokens encoded from optional modalities through a modal attention layer, followed by frame attention and global attention layers. In global attention, bidirectional attention operates within each group, while causal attention is applied across groups. The fused tokens are finally decoded into global point maps, represented by a local point map using DPT head[43]and camera extrinsics with our anchor-free (AF) camera head. To control model complexity, modal attention is applied four times.",
+        "role": "pipeline_1",
+        "caption_zh": "图 3：架构概览。图像组首先通过 DINO[39] 划分为补丁并转换为标记。随后，这些标记通过模态注意力层与可选模态编码得到的标记进行融合，再经过帧注意力层和全局注意力层处理。在全局注意力中，双向注意力作用于各组内部，而因果注意力则应用于组间。融合后的标记最终通过 DPT 解码头[43]解码为全局点图，并利用我们的无锚点相机头结合相机外参表示为局部点图。为控制模型复杂度，模态注意力层共应用四次。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.21131v1/img/crossattn.png",
+        "caption": "Figure 5:Illustration of two types of attention layers, including (a) standard cross attention and (b) the proposed modal attention.",
+        "role": "pipeline_2",
+        "caption_zh": "图 5：两种注意力层的示意图，包括（a）标准交叉注意力与（b）所提出的模态注意力。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.21131v1/img/mask.png",
+        "caption": "Figure 4:Illustration of three types of attention mask, including (a) null mask, (b) standard causal mask, and (c) our group causal mask with a group size of 2. Entries marked as “-inf” indicate masked tokens. For simplicity, each token denotes one frame in this illustration.",
+        "role": "pipeline_3",
+        "caption_zh": "图4：三种注意力掩码示意图，包括（a）无掩码，（b）标准因果掩码，以及（c）本文提出的组因果掩码（组大小为2）。标记为“-inf”的条目表示被掩蔽的词元。为简化示意，此处每个词元代表一帧。"
+      }
+    ],
+    "2605.21431": [
+      {
+        "path": "https://arxiv.org/html/2605.21431v1/x2.png",
+        "caption": "Figure 2:The iTryOn architecture. (a) A DiT backbone with parallel injection of general context and 3D-hand guidance from our Interaction Guider. An action-aware constraint loss focuses training on interaction frames. (b) The Interaction Guider module fuses spatial features with global and action-specific text prompts. (c) Our A-RoPE mechanism aligns action captions to their corresponding video segments via unique rotational position encodings in temporal cross-attention.",
+        "role": "pipeline_1",
+        "caption_zh": "图 2：iTryOn 架构。(a) 采用 DiT 骨干网络，并行注入通用上下文及来自交互引导模块的 3D 手部引导；动作感知约束损失使训练聚焦于交互帧。(b) 交互引导模块将空间特征与全局及动作特定文本提示相融合。(c) 我们的 A-RoPE 机制通过时域交叉注意力中独特的旋转位置编码，将动作描述与其对应的视频片段对齐。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.21431v1/x3.png",
+        "caption": "Figure 3:Visual justification for our garment-agnostic 3D hand prior. Deriving a ”Hand Depth” prior from human parsing(Liet al.,2022)and video depth(Chenet al.,2025)suffers from critical information leakage. This flawed prior improperly retains source garment geometry, such as the sleeve cuff, leading directly to visible artifacts in the generated output. In contrast, our fully garment-agnostic 3D hand prior provides a clean signal, enabling the generation of plausible and artifact-free hand-garment contact. SeeAppendixA.3for more details.",
+        "role": "pipeline_2",
+        "caption_zh": "图3：本文所提出的服装无关3D手部先验的视觉依据。从人体解析（Li等，2022）和视频深度（Chen等，2025）中推导出的“手部深度”先验存在严重的信息泄露问题。这一有缺陷的先验不适当地保留了源服装的几何结构（例如袖口），直接导致生成结果中出现可见的伪影。相比之下，我们完全服装无关的3D手部先验提供了干净的信号，从而能够生成合理且无伪影的手部-服装接触效果。更多细节见附录A.3。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.21431v1/x6.png",
+        "caption": "Figure 6:Visual motivation for our Action-aware Semantic Guidance. These examples from our VVT-Interact dataset highlight the semantic ambiguity of VLM-generated global captions. Although the ground-truth interactions are distinct (rolling sleeves vs. adjusting the hem), both are imprecisely described with the generic verb ”adjusts”. Our categorical action captions resolve this ambiguity, providing the model with a clear and actionable signal required for high-fidelity interaction synthesis.",
+        "role": "pipeline_3",
+        "caption_zh": "图6：我们提出的动作感知语义引导机制的直观动机。这些来自VVT-Interact数据集的示例凸显了视觉语言模型生成的全局描述存在语义模糊性。尽管真实交互动作截然不同（卷起袖子 vs. 调整下摆边缘），两者均被笼统地描述为通用动词“调整”。我们的分类化动作描述则解决了这种模糊性，为模型提供了实现高保真交互合成所需的清晰且可操作信号。"
       }
     ]
   }
