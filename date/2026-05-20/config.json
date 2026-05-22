@@ -1,0 +1,793 @@
+{
+  "base_info": {
+    "2605.19786": {
+      "title": "Fast 4D Mesh Generation by Spatio-Temporal Attention Chains",
+      "abstract": "4D mesh generation has recently emerged as a powerful paradigm for recovering dynamic 3D structure from videos, but existing methods remain slow, computationally expensive, and difficult to scale to longer sequences. We introduce a training-free approach that accelerates 4D mesh generation while improving temporal correspondence quality. Our key observation is that temporal correspondences emerge inside a 4D backbone long before its generated meshes become visually accurate. We exploit this with a general framework we call Spatio-Temporal Attention Chain which propagates information across space and time. Starting from vertices on an anchor mesh, the chain maps vertices to latent tokens. It then follows temporal correspondences in latent space, and recovers frame-specific vertices through latent-to-vertex attention. This design avoids expensive explicit matching while preserving anchor mesh details and thereby improving dynamic mesh geometry and temporal consistency.Compared to state-of-the-art, our method generates a 4D mesh in 9 seconds, achieving a $13\\times$ speedup while producing higher-quality results. Moreover, our approach scales to videos up to $16\\times$ longer without degrading mesh quality. Beyond generation, the improved correspondences enable competitive zero-shot performance on two downstream tasks: 2D object tracking and 4D tracking. We further show that our framework enables reliable camera estimation, a capability not supported by prior 4D mesh generation methods.",
+      "hf_link": "https://huggingface.co/papers/2605.19786"
+    },
+    "2605.19305": {
+      "title": "Matérn Noise for Triangulation-Agnostic Flow Matching on Meshes",
+      "abstract": "This paper tackles the task of learning to generate signals over triangle meshes in a triangulation-agnostic manner, meaning the trained model can be applied to different meshes and triangulations effectively. Practically, the paper adapts the flow matching (FM) paradigm to a mesh-based, triangulation-agnostic setting. Theoretically, it proposes a specific noise distribution which is triangulation agnostic, to be used inside the FM model's denoising process. While noise distributions are usually trivial to devise for, e.g., images, devising a triangulation-agnostic distribution proves to be a much more difficult task. We formulate a mathematical definition of triangulation agnosticism of distributions, via their spectrum. We then show that a discretization of a specific Gaussian random field called a Matérn process holds these desired properties, and provides a simple and efficient sampling algorithm. We use it as our noise model, and adapt FM to the triangulation-agnostic setting by using a state-of-the-art approach for learning signals on meshes in the gradient domain -- PoissonNet -- as the denoiser. We conduct experiments on elaborate tasks such as sampling elastic rest states, and generating poses of humanoids. Our method is shown to be capable of producing highly realistic results for meshes of over one million triangles, significantly exceeding the state-of-the-art in quality and diversity.",
+      "hf_link": "https://huggingface.co/papers/2605.19305"
+    },
+    "2605.20150": {
+      "title": "TideGS: Scalable Training of Over One Billion 3D Gaussian Splatting Primitives via Out-of-Core Optimization",
+      "abstract": "Training 3D Gaussian Splatting (3DGS) at billion-primitive scale is fundamentally memory-bound: each Gaussian primitive carries a large attribute vector, and the aggregate parameter table quickly exceeds GPU capacity, limiting prior systems to tens of millions of Gaussians on commodity single-GPU hardware. We observe that 3DGS training is inherently sparse and trajectory-conditioned: each iteration activates only the Gaussians visible from the current camera batch, so GPU memory can serve as a working-set cache rather than a persistent parameter store. Building on this insight, we introduce TideGS, an out-of-core training framework that manages parameters across an SSD-CPU-GPU hierarchy via three synergistic techniques: block-virtualized geometry for SSD-aligned spatial locality, a hierarchical asynchronous pipeline to overlap I/O with computation, and trajectory-adaptive differential streaming that transfers only incremental working-set deltas between iterations. Experiments show that TideGS enables training with over one billion Gaussians on a single 24 GB GPU while achieving the best reconstruction quality among evaluated single-GPU baselines on large-scale scenes, scaling beyond prior out-of-core baselines (e.g., approximately 100M Gaussians) and standard in-memory training (e.g., approximately 11M Gaussians).",
+      "hf_link": "https://huggingface.co/papers/2605.20150"
+    },
+    "2605.15458": {
+      "title": "Video Models Can Reason with Verifiable Rewards",
+      "abstract": "Video diffusion models have made rapid progress in perceptual realism and temporal coherence, but they remain primarily optimized for plausible generation rather than verifiable reasoning. This limitation is especially pronounced in tasks where generated videos must satisfy explicit spatial, temporal, or logical constraints. Inspired by the role of reinforcement learning with verifiable rewards (RLVR) in reasoning-oriented language models, we introduce VideoRLVR, a practical recipe for optimizing video diffusion models with rule-based feedback. VideoRLVR formulates video reasoning as the generation of verifiable visual trajectories and consists of an SDE-GRPO optimization backbone, dense decomposed rewards, and an Early-Step Focus strategy for efficient training. The Early-Step Focus strategy restricts policy optimization to the early denoising phase, reducing training latency by about 40% while preserving performance. We evaluate VideoRLVR on Maze, FlowFree, and Sokoban, three procedurally generated domains with objective success criteria. Across these tasks, VideoRLVR consistently improves over supervised fine-tuning baselines, with dense decomposed rewards proving especially important in low-success-rate settings. Our RL-optimized model also outperforms the evaluated proprietary and open-source video generation models on these verifiable reasoning benchmarks and out-of-domain benchmarks. These results suggest that verifiable RL can move video models beyond perceptual imitation toward more reliable rule-consistent visual reasoning.",
+      "hf_link": "https://huggingface.co/papers/2605.15458"
+    },
+    "2605.14842": {
+      "title": "Editor's Choice: Evaluating Abstract Intent in Image Editing through Atomic Entity Analysis",
+      "abstract": "Humans naturally communicate through abstract concepts like \"mood\". However, current image editing benchmarks focus primarily on explicit, literal commands, leaving abstract instructions largely underexplored. In this work, we first formalize the definition and taxonomy of abstract image editing. To measure instruction-following in this challenging domain, we introduce Entity-Rubrics, a framework that breaks down abstract edits into individual, entity-level assessments and achieves strong correlation with human judgment. Alongside this framework, we contribute AbstractEdit, the first benchmark dedicated to abstract image editing across diverse real-world scenes. Evaluating 11 leading models on this dataset reveals a fundamental challenge: standard architectures struggle to balance intent and preservation, commonly defaulting to under-editing or over-editing. Our analysis demonstrates that driving meaningful improvements relies heavily on integrating advanced LLM text encoders and iterative thinking. Looking forward, our entity-based paradigm can generalize beyond assessment to serve as a reward model, enable models to correctly interpret abstract communication, or highlight specific failures in test-time critique loops. Ultimately, we hope this work serves as a stepping stone toward seamless multimodal interaction, closing the gap between rigid machine execution and the natural, open-ended way humans communicate.",
+      "hf_link": "https://huggingface.co/papers/2605.14842"
+    },
+    "2605.19995": {
+      "title": "CogOmniControl: Reasoning-Driven Controllable Video Generation via Creative Intent Cognition",
+      "abstract": "Recent diffusion models achieve strong photorealism and fluency in video generation, yet remain fragile under abstract, sparse or complex conditions, leading to poor performance in professional production workflows such as storyboard sketches and clay render conditions. Existing video generation models, either inject conditions through adapters or couple a generic vision-language model (VLM) within a diffusion backbone, leaving a capability gap and failing to produce the videos that align with the user's creative intent. We present CogOmniControl, a reasoning-driven framework that factorizes controllable video generation into creative intent cognition and generation. Specifically, we train a specialized CogVLM using authentic anime production data. Compared to generic VLMs, it generates more professional and clear outputs, accurately cognizing user creative intent from sparse and abstract conditions and tuning these cues into dense reasoning output. Besides, CogOmniDiT unifies the controls from various conditions through in-context generation and is aligned to the CogVLM reasoning outputs via reinforcement learning. Furthermore, leveraging CogVLM's robust capability in guiding video generation, we release its potential in planning specific evaluators and enable a Best-of-N selection for the generated videos. This integration transforms the entire framework into a closed-loop \"harness-like\" architecture. We further introduce CogReasonBench and CogControlBench, built from professional workflows data that carry genuine creative intent rather than simulated ones. Experiments on two benchmarks show that CogOmniControl surpassed the existing open-source models. The project website:this https URL",
+      "hf_link": "https://huggingface.co/papers/2605.19995"
+    },
+    "2605.20183": {
+      "title": "MSAVBench: Towards Comprehensive and Reliable Evaluation of Multi-Shot Audio-Video Generation",
+      "abstract": "Video generation is rapidly evolving from single-shot synthesis to complex multi-shot audio-video (MSAV) narratives to meet real-world demands. However, evaluating such frontier models remains a fundamental challenge. Existing benchmarks are limited in scope and data diversity, and rely on rigid evaluation pipelines, preventing systematic and reliable assessment of modern MSAV models. To bridge these gaps, we introduce MSAVBench, the first comprehensive benchmark and adaptive hybrid evaluation framework for multi-shot audio-video generation. Our benchmark spans four key dimensions, video, audio, shot, and reference, covering diverse task settings, varying shot counts of up to 15, and challenging non-realistic scenarios. Our evaluation framework improves robustness through an adaptive self-correction mechanism for shot segmentation, instance-wise rubrics for subjective metrics, and tool-grounded evidence extraction for complex judgments. Furthermore, MSAVBench achieves high alignment with human judgments, reaching a Spearman rank correlation of 91.5%. Our systematic evaluation of 19 state-of-the-art closed- and open-source models shows that current systems still struggle with director-level control and fine-grained audio-visual synchronization, while modular or agentic generation pipelines offer a promising path toward narrowing the gap between open- and closed-source models. We will release the benchmark data and evaluation code to facilitate future research.",
+      "hf_link": "https://huggingface.co/papers/2605.20183"
+    },
+    "2605.16003": {
+      "title": "Echo-Forcing: A Scene Memory Framework for Interactive Long Video Generation",
+      "abstract": "Autoregressive video diffusion models enable open-ended generation through local attention and KV caching. However, existing training-free long-video optimization methods mainly focus on stable extension under a single prompt, making them difficult to handle interactive scenarios involving prompt switching, old scene forgetting, and historical scene recall. We identify the core bottleneck as the functional entanglement of historical KV states: stable anchors and recent dynamics are handled by the same cache policy, leading to outdated background contamination, delayed response to new prompts, and loss of long-range memory. To address this issue, we propose Echo-Forcing, a training-free scene memory framework specifically designed for interactive long video generation with three core mechanisms: (1) Hierarchical Temporal Memory, which decouples stable anchors, compressed history, and recent windows under relative RoPE; (2) Scene Recall Frames, which compresses historical scenes into spatially structured KV representations to support long-term recall; and (3) Difference-aware Memory Decay, which adaptively forgets conflicting tokens according to the discrepancy between old and new scenes. Based on these designs, Echo-Forcing uniformly supports smooth transitions, hard cuts, and long-range scene recall under a bounded cache budget. Extensive evaluations on VBench-Long further demonstrate that Echo-Forcing achieves the best overall performance in both long-video generation and interactive video generation settings. Our code is released inthis https URL",
+      "hf_link": "https://huggingface.co/papers/2605.16003"
+    },
+    "2605.20147": {
+      "title": "PixVerve: Advancing Native UHR Image Generation to 100MP with a Large-Scale High-Quality Dataset",
+      "abstract": "Text-to-Image (T2I) models have recently seen notable progress around 1K and 2K resolution. With the extreme desire for better visual experience and the rapid development of imaging technology, the demand for Ultra-High-Resolution (UHR) image generation has grown significantly. However, UHR image generation poses great challenges due to the scarcity and complexity of high-resolution content. In this paper, we first introduce PixVerve-95K, a high-quality, open-source UHR T2I dataset curated with a carefully designed data pipeline, which contains 95K images across diverse scenarios (each image has a minimum pixel-count of 100M) and seven-dimensional annotations. Based on our large-scale image-text dataset, we take a pioneering step to extend various T2I foundation models to native 100MP generation with three training schemes. Finally, leveraging both conventional metrics and multimodal large language model-based assessments, our proposed PixVerve-Bench benchmark establishes a comprehensive evaluation protocol for UHR images encompassing visual quality and semantic alignment. Extensive experimental results on our benchmark and the constructive exploration of training strategies collaboratively provide valuable insights for future breakthroughs.",
+      "hf_link": "https://huggingface.co/papers/2605.20147"
+    },
+    "2605.18101": {
+      "title": "SENSE: Satellite-based ENergy Synthesis for Sustainable Environment",
+      "abstract": "Urban Building Energy Modeling plays a critical role in achieving the United Nations' Sustainable Development Goals 7 and 11. Although existing studies based on satellite imagery and deep learning have achieved remarkable progress, many challenges exist: most existing studies are inherently predictive, failing to reflect the generative nature of urban planning; although generative AI and diffusion models have seen explosive growth in satellite imagery, they lack the urban functional generation (e.g., energy layer); third, aligned high-quality high-resolution building energy data with satellite imagery is limited and scarce. Here we propose SENSE (Satellite-based ENergy Synthesis for Sustainable Environment), a unified generative UBEM framework that jointly synthesizes realistic urban satellite imagery and aligned high-quality building energy consumption and height maps. By conditioning on road networks and urban density metrics, SENSE, based on a controllable diffusion model, leverages the knowledge learned by large vision models to generate urban building energy consumption and height information (annotations) in the latent space. Experiments across four cities (New York City, Boston, Lyon, Busan) demonstrate that SENSE achieves high visual fidelity and strong physical consistency, satisfying the ASHRAE standard metric. Experiments demonstrate that SENSE can generate enough annotated synthetic data using less than 20% labeled energy data, boosting downstream prediction performance by 10% IoU. Compared to SOTA urban energy prediction methods, SENSE significantly reduced prediction error (reduced 3%-11% NMBE and 1%-9% CVRMSE). This study offers an energy-efficiency urban planning and physical generation solution for urban science, energy science and building science. The dataset and code:this https URLandthis https URL.",
+      "hf_link": "https://huggingface.co/papers/2605.18101"
+    },
+    "2605.18263": {
+      "title": "RT-Splatting: Joint Reflection-Transmission Modeling with Gaussian Splatting",
+      "abstract": "3D Gaussian Splatting (3DGS) enables real-time novel view synthesis with high visual quality. However, existing methods struggle with semi-transparent specular surfaces that exhibit both complex reflections and clear transmission, often producing blurry reflections or overly occluded transmission. To address this, we present RT-Splatting, a framework that disentangles each Gaussian's geometric occupancy from its optical opacity. This factorization yields a unified surface-volume scene representation with a single set of Gaussian primitives. Our hybrid renderer interprets this representation both as a surface to capture high-frequency reflections and as a volume to preserve clear transmission. To mitigate the ambiguity in jointly optimizing reflection and transmission, we introduce Specular-Aware Gradient Gating, which suppresses misleading gradients from highly specular regions into the transmission branch, effectively reducing distracting floaters. Experiments on challenging semi-transparent scenes show that RT-Splatting achieves state-of-the-art performance, delivering high-fidelity reflections and clear transmission with real-time rendering. Moreover, our factorization naturally enables flexible scene editing. The project page is available atthis https URL.",
+      "hf_link": "https://huggingface.co/papers/2605.18263"
+    },
+    "2605.11609": {
+      "title": "Anti-Self-Distillation for Reasoning RL via Pointwise Mutual Information",
+      "abstract": "On-policy self-distillation, where a student is pulled toward a copy of itself conditioned on privileged context (e.g., a verified solution or feedback), offers a promising direction for advancing reasoning capability without a stronger external teacher. Yet in math reasoning the gains are inconsistent, even when the same approach succeeds elsewhere. A pointwise mutual information analysis traces the failure to the privileged context itself: it inflates the teacher's confidence on tokens already implied by the solution (structural connectives, verifiable claims) and deflates it on deliberation tokens (\"Wait\", \"Let\", \"Maybe\") that drive multi-step search. We propose Anti-Self-Distillation (AntiSD), which ascends a divergence between student and teacher rather than descending it: this reverses the per-token sign and yields a naturally bounded advantage in one step. An entropy-triggered gate disables the term once the teacher entropy collapses, completing a drop-in replacement for default self-distillation. Across five models from 4B to 30B parameters on math reasoning benchmarks, AntiSD reaches the GRPO baseline's accuracy in 2 to 10x fewer training steps and improves final accuracy by up to 11.5 points. AntiSD opens a path to scalable self-improvement, where a language model bootstraps its own reasoning through its training signal.",
+      "hf_link": "https://huggingface.co/papers/2605.11609"
+    },
+    "2605.16403": {
+      "title": "When Vision Speaks for Sound",
+      "abstract": "Despite rapid progress in video-capable MLLMs, we find that their apparent audio understanding in videos is often vision-driven: models rely on visual cues to infer or hallucinate acoustic information, rather than verifying the audio stream. This issue appears across both state-of-the-art open-source omni models and leading closed-source models from providers such as Google and OpenAI. We characterize this failure mode as an audio-visual Clever Hans effect, in which models appear (falsely) audio-grounded, but actually exploit visual-acoustic correlations without verifying whether the audio and visual streams are truly aligned. To systematically study this behavior, we introduce Thud, an intervention-driven probing framework based on three counterfactual audio edits: Shift, which tests temporal synchronization; Mute, which tests sound existence; and Swap, which tests audio-visual consistency. Beyond diagnosis, we further study a two-stage alignment recipe: intervention-derived preference pairs teach audio verification, while event-level general video preferences regularize the model against over-specialization. Our best 10K-sample recipe improves average performance across the three intervention dimensions by 28 percentage points, while slightly improving performance on general video and audio-visual QA benchmarks.",
+      "hf_link": "https://huggingface.co/papers/2605.16403"
+    },
+    "2605.14236": {
+      "title": "Active Learners as Efficient PRP Rerankers",
+      "abstract": "Pairwise Ranking Prompting (PRP) elicits pairwise preference judgments from an LLM, which are then aggregated into a ranking, usually via classical sorting algorithms. However, judgments are noisy, order-sensitive, and sometimes intransitive, so sorting assumptions do not match the setting. Because sorting aims to recover a full permutation, truncating it to meet a call budget does not produce a dependable top-K. We thus reframe PRP reranking as active learning from noisy pairwise comparisons and show that active rankers are drop-in replacements that improve NDCG@10 per call in the call-constrained regime. Our noise-robust framework also introduces a randomized-direction oracle that uses a single LLM call per pair. This approach converts systematic position bias into zero-mean noise, enabling unbiased aggregate ranking without the cost of bidirectional calls.",
+      "hf_link": "https://huggingface.co/papers/2605.14236"
+    },
+    "2605.20025": {
+      "title": "AutoResearchClaw: Self-Reinforcing Autonomous Research with Human-AI Collaboration",
+      "abstract": "Automating scientific discovery requires more than generating papers from ideas. Real research is iterative: hypotheses are challenged from multiple perspectives, experiments fail and inform the next attempt, and lessons accumulate across cycles. Existing autonomous research systems often model this process as a linear pipeline: they rely on single-agent reasoning, stop when execution fails, and do not carry experience across runs. We present AutoResearchClaw, a multi-agent autonomous research pipeline built on five mechanisms: structured multi-agent debate for hypothesis generation and result analysis, a self-healing executor with a \\textsc{Pivot}/\\textsc{Refine} decision loop that transforms failures into information, verifiable result reporting that prevents fabricated numbers and hallucinated citations, human-in-the-loop collaboration with seven intervention modes spanning full autonomy to step-by-step oversight, and cross-run evolution that converts past mistakes into future safeguards. On ARC-Bench, a 25-topic experiment-stage benchmark, AutoResearchClaw outperforms AI Scientist v2 by 54.7%. A human-in-the-loop ablation across seven intervention modes reveals that precise, targeted collaboration at high-leverage decision points consistently outperforms both full autonomy and exhaustive step-by-step oversight. We position AutoResearchClaw as a research amplifier that augments rather than replaces human scientific judgment. Code is available atthis https URL.",
+      "hf_link": "https://huggingface.co/papers/2605.20025"
+    },
+    "2605.19769": {
+      "title": "OpenComputer: Verifiable Software Worlds for Computer-Use Agents",
+      "abstract": "We present OpenComputer, a verifier-grounded framework for constructing verifiable software worlds for computer-use agents. OpenComputer integrates four components: (1) app-specific state verifiers that expose structured inspection endpoints over real applications, (2) a self-evolving verification layer that improves verifier reliability using execution-grounded feedback, (3) a task-generation pipeline that synthesizes realistic and machine-checkable desktop tasks, and (4) an evaluation harness that records full trajectories and computes auditable partial-credit rewards. In its current form, OpenComputer covers 33 desktop applications and 1,000 finalized tasks spanning browsers, office tools, creative software, development environments, file managers, and communication applications. Experiments show that OpenComputer's hard-coded verifiers align more closely with human adjudication than LLM-as-judge evaluation, especially when success depends on fine-grained application state. Frontier agents struggle with end-to-end completion despite partial progress, and open-source models exhibit sharp drops from their OSWorld-Verified scores, exposing a persistent gap in robust computer automation.",
+      "hf_link": "https://huggingface.co/papers/2605.19769"
+    },
+    "2605.19577": {
+      "title": "GoLongRL: Capability-Oriented Long Context Reinforcement Learning with Multitask Alignment",
+      "abstract": "We present GoLongRL, a fully open-source, capability-oriented post-training recipe for long-context reinforcement learning with verifiable rewards (RLVR). Existing long-context RL methods often treat data construction as a matter of designing increasingly complex retrieval paths, leading to homogeneous task coverage and reward formulations that inadequately reflect practical long-context requirements. Our work offers two contributions. (1) Capability-oriented data construction with full open release. We openly release a dataset of 23K RLVR samples, the complete construction pipeline, and all training code. Guided by a taxonomy of long-context capabilities, the dataset spans 9 task types, each paired with its natural evaluation metric. It comprises curated open-source samples from established corpora and synthetic samples whose QA pairs are generated from real source documents such as books, academic papers, and multi-turn dialogues. Under the same vanilla GRPO setup, our dataset alone outperforms the closed-source QwenLong-L1.5 dataset. Moreover, our Qwen3-30B-A3B model trained on this data delivers long-context performance comparable to DeepSeek-R1-0528 and Qwen3-235B-A22B-Thinking-2507, suggesting that broader coverage and greater reward diversity substantially benefit long-context capability improvement. (2) TMN-Reweight for heterogeneous multitask optimization. To address optimization challenges from heterogeneous rewards, we propose TMN-Reweight, which combines task-level mean normalization for cross-task reward scale alignment with difficulty-adaptive weighting for more reliable advantage estimation. TMN-Reweight further improves average performance over vanilla GRPO, with general capabilities preserved or improved across reported evaluations.",
+      "hf_link": "https://huggingface.co/papers/2605.19577"
+    },
+    "2605.15529": {
+      "title": "Process Rewards with Learned Reliability",
+      "abstract": "Process Reward Models (PRMs) provide step-level feedback for reasoning, but current PRMs usually output only a single reward score for each step. Downstream methods must therefore treat imperfect step-level reward predictions as reliable decision signals, with no indication of when these predictions should be trusted. We propose BetaPRM, a distributional PRM that predicts both a step-level success probability and the reliability of that prediction. Given step-success supervision from Monte Carlo continuations, BetaPRM learns a Beta belief that explains the observed number of successful continuations through a Beta-Binomial likelihood, rather than regressing to the finite-sample success ratio as a point target. This learned reliability signal indicates when a step reward should be trusted, enabling downstream applications to distinguish reliable rewards from uncertain ones. As one application, we introduce Adaptive Computation Allocation (ACA) for PRM-guided Best-of-N reasoning. ACA uses the learned reliability signal to stop when a high-reward solution is reliable and to spend additional computation on uncertain candidate prefixes. Experiments across four backbones and four reasoning benchmarks show that BetaPRM improves PRM-guided Best-of-N selection while preserving standard step-level error detection. Built on this signal, ACA improves the accuracy--token tradeoff over fixed-budget Best-of-16, reducing token usage by up to 33.57% while improving final-answer accuracy.",
+      "hf_link": "https://huggingface.co/papers/2605.15529"
+    },
+    "2605.18703": {
+      "title": "EnvFactory: Scaling Tool-Use Agents via Executable Environments Synthesis and Robust RL",
+      "abstract": "Equipping LLMs with tool-use capabilities via Agentic Reinforcement Learning (Agentic RL) is bottlenecked by two challenges: the lack of scalable, robust execution environments and the scarcity of realistic training data that captures implicit human reasoning. Existing approaches depend on costly real-world APIs, hallucination-prone LLM simulators, or synthetic environments that are often single-turn or depend on pre-collected documents. Moreover, synthetic trajectories are frequently over-specified, resembling instruction sequences rather than natural human intents, reducing their effectiveness for RL training. We introduce EnvFactory, a fully automated framework that addresses both challenges. EnvFactory autonomously explores and verifies stateful, executable tool environments from authentic resources, and synthesizes natural multi-turn trajectories through topology-aware sampling and calibrated refinement, producing grounded queries with implicit intents. Using only 85 verified environments across 7 domains, EnvFactory generates 2,575 SFT and RL trajectories. Despite using significantly fewer environments than prior work, which are often 5 times more, EnvFactory achieves superior training efficiency and downstream performance, improving Qwen3-series models by up to +15% on BFCLv3, +8.6% on MCP-Atlas, and +6% on conversational benchmarks including $\\tau^2$-Bench and VitaBench. By fully automating both environment construction and trajectory synthesis, EnvFactory provides a scalable, extensible, and robust foundation for Agentic RL.",
+      "hf_link": "https://huggingface.co/papers/2605.18703"
+    },
+    "2605.17734": {
+      "title": "Harnessing LLM Agents with Skill Programs",
+      "abstract": "Equipping LLM agents with reusable skills derived from past experience has become a popular and successful approach for tackling complex and long-horizon tasks. However, such lessons are often encoded as textual guidance that remains largely advisory, lacking explicit mechanisms for when and how to intervene in the agent loop. To bridge the gap, we introduce HASP(Harnessing LLM Agents with Skill Programs), a new framework that upgrades skills into executable Program Functions (PFs). Rather than offering passive advice, PFs act as executable guardrails that activate on failure-prone states and modify the next action or inject corrective context. HASP is highly modular: it can be applied at inference time for direct agent-loop intervention, during post-training to provide structured supervision, or for self-improvement by evolving validated, teacher-reviewed PFs. Empirically, HASP drives substantial gains compared to both training-free and training-based methods on web-search, math reasoning, and coding tasks. For example, on web-search reasoning, inference-time PFs alone improve the average performance by 25% compared to (multi-loop) ReAct Agent, while post-training and controlled evolution achieve a 30.4% gain over Search-R1. To provide deeper insights into HASP, our mechanism analysis reveals how PFs trigger and intervene, how skills are internalized, and the requirement for stable skill library evolution.",
+      "hf_link": "https://huggingface.co/papers/2605.17734"
+    },
+    "2605.18748": {
+      "title": "Aurora: Unified Video Editing with a Tool-Using Agent",
+      "abstract": "Recent video editing models have converged on a unified conditioning design: a single diffusion transformer jointly consumes text, source video, and reference images, and one set of weights covers replacement, removal, style transfer, and reference-driven insertion. The design is flexible, but it assumes that the user already provides model-ready text, reference images, and spatial grounding for local edits, which real requests often omit. We present Aurora, an agentic video editing framework that pairs a tool-augmented vision-language model (VLM) agent with a unified video diffusion transformer. The VLM agent maps a raw user request to a structured edit plan aligned with the transformer's conditioning channels, thereby resolving textual and visual underspecification before generation. We train the VLM agent with supervised data for complete edit planning and reference-image selection, together with preference pairs for robust tool use and instruction refinement. We introduce AgentEdit-Bench to evaluate agent-enhanced video editing under textual and visual underspecification. Experiments on AgentEdit-Bench and two existing video editing benchmarks show that Aurora improves over instruction-only baselines and that the VLM agent transfers to compatible frozen video editing models. Project page:this https URL",
+      "hf_link": "https://huggingface.co/papers/2605.18748"
+    },
+    "2605.18984": {
+      "title": "Artifact-Bench: Evaluating MLLMs on Detecting and Assessing the Artifacts of AI-Generated Videos",
+      "abstract": "Recent video generative models have greatly improved the realism of AI-generated videos, yet their outputs still exhibit artifacts such as temporal inconsistencies, structural distortions, and semantic incoherence. While Multimodal Large Language Models (MLLMs) show strong visual understanding capabilities, their ability to perceive and reason about such artifacts remains unclear. Existing benchmarks often lack systematic evaluation of artifact-aware perception and fine-grained diagnostic reasoning, especially across diverse AI-generated video domains beyond photorealistic content. To address this gap, we introduce Artifact-Bench, a comprehensive benchmark for evaluating MLLMs on AI-generated video artifact detection and analysis. We first establish a three-level hierarchical taxonomy of realism artifacts, covering photorealistic, animated, and CG-style videos. Based on this taxonomy, Artifact-Bench defines three complementary tasks: real vs. AI-generated video classification, pairwise realism comparison, and fine-grained artifact identification. Experiments on 19 leading MLLMs reveal substantial limitations in artifact perception and reasoning, with many models approaching random or even below-random performance in challenging settings. We further observe significant misalignment between MLLM judgments and human perceptual preferences, highlighting their limited reliability as general evaluators for AI-generated video realism.",
+      "hf_link": "https://huggingface.co/papers/2605.18984"
+    },
+    "2605.19436": {
+      "title": "CEPO: RLVR Self-Distillation using Contrastive Evidence Policy Optimization",
+      "abstract": "When a model produces a correct solution under reinforcement learning with verifiable rewards (RLVR), every token receives the same reward signal regardless of whether it was a decisive reasoning step or a grammatical filler. A natural fix is to condition the model on the correct answer as a teacher, identifying tokens it would have generated differently had it known the answer. Prior work shows this either corrupts training by leaking the answer into the gradient, or produces a weak signal that cannot distinguish decisive steps from filler, since both look equally surprising relative to the model's baseline. We propose Contrastive Evidence Policy Optimization (CEPO), which asks a sharper question at every token: not just \"does the correct answer favor this token?\" but \"does the correct answer favor it while the wrong answer disfavors it?\" A token satisfying both is a genuine reasoning step; one satisfying neither is filler. The wrong-answer teacher is constructed from rejected rollouts already in the training batch, incurring no additional sampling cost. We prove CEPO inherits all structural safety guarantees of the prior state of the art while strictly sharpening credit at decisive tokens, with the improvement vanishing exactly at filler positions. Empirically, CEPO achieves 43.43% and 60.56% average accuracy across five multimodal mathematical reasoning benchmarks at 2B and 4B scale, respectively, versus 41.17% and 57.43% for GRPO under identical training budgets. Distribution-matching self-distillation methods (OPSD, SDPO) fall below the untrained baseline, empirically confirming the information leakage our theory predicts. Our code is available atthis https URL.",
+      "hf_link": "https://huggingface.co/papers/2605.19436"
+    },
+    "2605.17829": {
+      "title": "Interactive Evaluation Requires a Design Science",
+      "abstract": "AI evaluation is undergoing a structural change. Large language models (LLMs) are increasingly deployed as systems that act over time through tools, environments, users, and other agents, while many evaluation practices still inherit assumptions from response-centered benchmarks (e.g., fixed inputs, isolated outputs, and outcome judgments that can be made from a single response). The field has begun to build interactive benchmarks, but the resulting landscape is fragmented: benchmarks differ in what interaction artifacts they admit, how trajectories are scored, and what claims their results support. This position paper argues that interactive evaluation should be treated as a principled evaluation paradigm, not merely a new family of agent benchmarks. Simply adopting previous evaluation paradigms does not suffice. We define evaluation as an autonomous mapping from evidence to judgments, and show that interactive evaluation changes both sides of this mapping: the evidence becomes interaction-generated trajectories, while the evaluation procedure must assess process, recoverability, coordination, robustness, and system-level performance. Building on this definition, we propose a two-axis taxonomy, derive design principles and reporting standards, examine representative scenarios, and analyze how longstanding evaluation challenges reappear at the trajectory level.",
+      "hf_link": "https://huggingface.co/papers/2605.17829"
+    },
+    "2605.18758": {
+      "title": "OmniGUI: Benchmarking GUI Agents in Omni-Modal Smartphone Environments",
+      "abstract": "Current benchmarks for graphical user interface (GUI) agents predominantly rely on static screenshots. However, real-world smartphone interaction routinely requires agents to process transient audio cues and temporal video dynamics that are tightly coupled with the moment of action. To bridge this gap, we introduce OmniGUI, the first step-level benchmark designed to evaluate GUI agents in omni-modal smartphone environments. OmniGUI provides continuous, interleaved multimodal inputs comprising static images, synchronous audio, and video clips at every action step. The dataset encompasses 709 expert-demonstrated episodes (2,579 action steps) across 29 applications, systematically annotated with objective multimodal dependency levels. Because dedicated omni-modal GUI agent frameworks are currently in their nascent stage, we select foundational omni-modal models capable of natively processing interleaved inputs to serve as agent proxies for our initial baselines. Our empirical evaluation reveals that while current models exhibit competency on visually static tasks, their action prediction performance degrades significantly in environments requiring synchronous temporal and auditory signals. Furthermore, ablation studies isolate specific operational bottlenecks, notably cross-modal interference when processing task-irrelevant environmental noise. The complete dataset, evaluation pipeline, and baseline prompts are provided in the supplementary material. Project page:this https URL.",
+      "hf_link": "https://huggingface.co/papers/2605.18758"
+    },
+    "2605.20087": {
+      "title": "ThoughtTrace: Understanding User Thoughts in Real-World LLM Interactions",
+      "abstract": "Conversational AI has now reached billions of users, yet existing datasets capture only what people say, not what they think. We introduce ThoughtTrace, the first large-scale dataset that pairs real-world multi-turn human--AI conversations with users' self-reported thoughts: their reasons for sending prompts and reactions to assistant responses. ThoughtTrace comprises 1,058 users, 2,155 conversations, 17,058 turns, and 10,174 thought annotations collected across 20 language models. Our analysis shows that ThoughtTrace captures long-horizon, topically diverse interactions, and that thoughts are semantically distinct from messages, difficult for frontier LLMs to infer from context, diverse in content, and tied to conversation stages. We further demonstrate the utility of thoughts for downstream modeling. First, thoughts improve user-behavior prediction as inference-time context. Second, thought-guided rewrites provide fine-grained alignment signals for training personalized assistants. Together, ThoughtTrace establishes user thoughts as a new data modality for studying the cognitive dynamics behind human--AI interaction and provides a foundation for building assistants that better understand and adapt to users' latent goals, preferences, and needs.",
+      "hf_link": "https://huggingface.co/papers/2605.20087"
+    },
+    "2605.18714": {
+      "title": "Semantic Generative Tuning for Unified Multimodal Models",
+      "abstract": "Unified multimodal models (UMMs) strive to consolidate visual understanding and visual generation within a single architecture. However, prevailing training paradigms independently optimize understanding via sparse text signals and generation through dense pixel objectives. Such a decoupled strategy yields misaligned representation spaces, isolating visual understanding from generation and hindering their mutual reinforcement. This work presents the first systematic investigation into generative post-training, where we formulate hierarchical visual tasks as generative proxies to bridge the isolation in UMMs. Our empirical investigation reveals that high-level semantic tasks, particularly image segmentation, serve as optimal proxies. Unlike low-level tasks that distract models with texture details, segmentation provides structural semantics that significantly enhance both vision-centric perception and generative layout fidelity. Building upon these insights, we introduce Semantic Generative Tuning (SGT), a novel paradigm that leverages segmentation as a generative proxy to align and synergize multimodal capabilities. Mechanistic analyses further demonstrate that SGT fundamentally improves feature linear separability and optimizes visual-textual attention allocation pattern. Extensive evaluations show that SGT consistently improves both multimodal comprehension and generative fidelity across mainstream benchmarks. Our code is available on thethis https URL.",
+      "hf_link": "https://huggingface.co/papers/2605.18714"
+    },
+    "2605.18855": {
+      "title": "Delta Attention Residuals",
+      "abstract": "Attention Residuals replace standard additive residual connections with learned softmax attention over previous layer outputs, enabling selective cross-layer routing. However, standard Attention Residuals still attend over cumulative hidden states in previous layers, which are highly redundant. We show that this redundancy leads to routing collapse in deeper layers: attention weights become low-contrast and closer to uniform (max weight ${\\approx}$0.2), limiting the model's ability to select informative states in previous layers. This raises a key but underexplored design question: what layer-wise representations should be routed in Attention Residuals? To answer this question, we propose Delta Attention Residuals, which attend over deltas -- the change introduced by each sublayer ($\\mathbf{v}_i = \\mathbf{h}_{i+1} - \\mathbf{h}_i$) -- instead of cumulative states. Delta representations are structurally diverse and yield higher-contrast attention distributions (max weight ${\\approx}$0.6), enabling more selective and effective routing across layers. This principle applies at both per-sublayer and block granularity. Across all tested scales (220M--7.6B), Delta Attention Residuals consistently outperform both standard residuals and Attention Residuals, with 1.7--8.2\\% validation perplexity gains. Delta Attention Residuals also enables converting pretrained checkpoints into Delta Attention Residuals via standard fine-tuning. Code is available atthis https URL.",
+      "hf_link": "https://huggingface.co/papers/2605.18855"
+    },
+    "2605.18827": {
+      "title": "Code-Guided Reasoning for Small Language Models: Evaluating Executable MCQA Scaffolds",
+      "abstract": "Multiple-choice QA benchmarks usually evaluate small language models (SLMs) as direct answerers, but deployed language-model systems increasingly rely on external scaffolds such as tools, code, and repeated model calls. We introduce Code-Guided Reasoning (CGR), an evaluation protocol and generated-program resource for measuring when executable reasoning scaffolds improve SLM performance on MCQA tasks. CGR standardizes six components: a normalized item interface, a direct solver prompt, a generator prompt, a Python scaffold, solver-call and extraction helpers, and a three-channel result record. On 20,498 retained result rows from a locally prepared MCQA bundle and six metadata-registered solver models, the observed non-zero-baseline partition shows 66.21% macro assisted accuracy versus 38.11% direct accuracy, a +28.10 percentage-point difference with a pair-bootstrap interval of [20.32, 36.43]. Under a stricter Ab > 30% direct-signal gate, the macro difference is +14.11 points. These estimates are descriptive. Assisted inference uses a larger solver-call budget, answer extraction is brittle, Time-MQA contains the observed regressions, and some generated programs violate the no-hard-coding instruction. CGR provides the trace package needed to interpret these results, including direct, assisted, and generator-side answers, partition definitions, generated programs, response metadata, and audits.",
+      "hf_link": "https://huggingface.co/papers/2605.18827"
+    },
+    "2605.09640": {
+      "title": "Overcoming Catastrophic Forgetting in Visual Continual Learning with Reinforcement Fine-Tuning",
+      "abstract": "Recent studies suggest that Reinforcement Fine-Tuning (RFT) is inherently more resilient to catastrophic forgetting than Supervised Fine-Tuning (SFT). However, whether RFT (e.g., GRPO) can effectively overcome forgetting in challenging visual continual learning settings, such as class-incremental learning (CIL) and domain-incremental learning (DIL), remains an open problem. Through a pilot study, we confirm that while RFT consistently outperforms SFT, it still suffers from non-negligible forgetting. We empirically trace this bottleneck to Trajectory-level Drift Agnosticism: among candidate rollouts achieving identical task rewards, the KL divergence from the preceding-task policy varies substantially, which strongly correlates with catastrophic forgetting across sequential tasks. Motivated by this insight, we propose Retention-aware Policy Optimization (RaPO), a simple yet effective RFT method that explicitly mitigates forgetting through trajectory-level reward shaping. Specifically, RaPO comprises two core components: (1) Retention Reward that converts trajectory-level distribution drift into a continuous reward signal, preferentially reinforcing knowledge-preserving rollouts within each group; (2) Cross-Task Advantage Normalization (CTAN), which maintains a persistent exponential moving average of reward statistics across task boundaries to stabilize the optimization progress during continual learning. Leveraging the free-form textual generalization of MLLMs, we comprehensively evaluate RaPO across five visual continual learning settings. Extensive experiments demonstrate that RaPO achieves leading performance, substantially reducing catastrophic forgetting while preserving strong plasticity. To the best of our knowledge, this work represents the first systematic exploration of RFT in visual continual learning, offering insights that we hope will inspire future research.",
+      "hf_link": "https://huggingface.co/papers/2605.09640"
+    },
+    "2605.19633": {
+      "title": "optimize_anything: A Universal API for Optimizing any Text Parameter",
+      "abstract": "Can a single LLM-based optimization system match specialized tools across fundamentally different domains? We show that when optimization problems are formulated as improving a text artifact evaluated by a scoring function, a single AI-based optimization system-supporting single-task search, multi-task search with cross-problem transfer, and generalization to unseen inputs-achieves state-of-the-art results across six diverse tasks. Our system discovers agent architectures that nearly triple Gemini Flash's ARC-AGI accuracy (32.5% to 89.5%), finds scheduling algorithms that cut cloud costs by 40%, generates CUDA kernels where 87% match or beat PyTorch, and outperforms AlphaEvolve's reported circle packing solution (n=26). Ablations across three domains reveal that actionable side information yields faster convergence and substantially higher final scores than score-only feedback, and that multi-task search outperforms independent optimization given equivalent per-problem budget through cross-task transfer, with benefits scaling with the number of related tasks. Together, we show for the first time that text optimization with LLM-based search is a general-purpose problem-solving paradigm, unifying tasks traditionally requiring domain-specific algorithms under a single framework. We open-source optimize\\_anything with support for multiple backends as part of the GEPA project atthis https URL.",
+      "hf_link": "https://huggingface.co/papers/2605.19633"
+    },
+    "2605.19932": {
+      "title": "PEEK: Context Map as an Orientation Cache for Long-Context LLM Agents",
+      "abstract": "Large language model (LLM) agents increasingly operate over long and recurring external contexts, like document corpora and code repositories. Across invocations, existing approaches preserve either the agent's trajectory, passive access to raw material, or task-level strategies. None of them preserves what we argue is most needed for repeated same-context workloads: reusable orientation knowledge (e.g., what the context contains, how it is organized, and which entities, constants, and schemas have historically been useful) about the recurring context itself. We introduce PEEK, a system that caches and maintains this orientation knowledge as a context map: a small, constant-sized artifact in the agent's prompt that gives it a persistent peek into the external context. The map is maintained by a programmable cache policy with three modules: a Distiller that extracts transferable knowledge from inference-time signals, a Cartographer that translates it into structured edits, and a priority-based Evictor that enforces a fixed token budget. On long-context reasoning and information aggregation, PEEK improves over strong baselines by 6.3-34.0% while using 93-145 fewer iterations and incurring 1.7-5.8x lower cost than the state-of-the-art prompt-learning framework, ACE. On context learning, PEEK improves solving rate and rubric accuracy by 6.0-14.0% and 7.8-12.1%, respectively, at 1.4x lower cost than ACE. These gains generalize across LMs and agent architectures, including OpenAI Codex, a production-grade coding agent. Together, these results show that a context map helps long-context LLM agents interact with recurring external contexts more accurately and efficiently.",
+      "hf_link": "https://huggingface.co/papers/2605.19932"
+    },
+    "2605.20104": {
+      "title": "Draft Less, Retrieve More: Hybrid Tree Construction for Speculative Decoding",
+      "abstract": "Speculative decoding (SD) accelerates large language model inference by leveraging a draft-then-verify paradigm. To maximize the acceptance rate, recent methods construct expansive draft trees, which unfortunately incur severe VRAM bandwidth and computational overheads that bottleneck end-to-end speedups. While dynamic-depth pruning can reduce this latency by removing marginal branches, it also discards potentially valid candidates, preventing the acceptance rate from reaching the upper bound of dense trees. In this paper, we identify a critical opportunity in resource allocation: the transition from dense to pruned drafting frees up significant computational budget. To break this Pareto tradeoff, we introduce Graft, a compensation framework that couples pruning and retrieval as mutually reinforcing operations. Pruning supplies sufficient budget for retrieval, while retrieval compensates for pruning-induced coverage loss and recovers accepted length. By employing a sequential `prune-then-graft' mechanism, Graft attaches highly predictive retrieved tokens into positions opened by pruning, filling the topological gaps with near-zero overhead. Graft is entirely training-free and lossless. Comprehensive evaluations show that Graft establishes a new Pareto frontier across practical deployment settings, including short-context generation, long-context generation, and large-scale models. On short-context benchmarks, it achieves up to 5.41$\\times$ speedup and improves average speedup over EAGLE-3 by up to 21.8% on the large-scale Qwen3-235B. We also provide a preliminary exploration of applying Graft to the DFlash-style block drafting paradigm, offering initial evidence and insights for extending grafting beyond autoregressive draft trees.",
+      "hf_link": "https://huggingface.co/papers/2605.20104"
+    },
+    "2605.18226": {
+      "title": "Context Memorization for Efficient Long Context Generation",
+      "abstract": "Modern large language model (LLM) applications increasingly rely on long conditioning prefixes to control model behavior at inference time. While prefix-augmented inference is effective, it incurs two structural limitations: i) the prefix's influence fades as generation proceeds, and ii) attention computation over the prefix scales linearly with its length. Existing approaches either keep the prefix in attention while compressing it, or internalize it into model parameters through gradient-based training. The former still attends to the prefix at inference, while the latter is training-intensive and ill-suited to prefix updates. To address these issues, we propose attention-state memory, a training-free approach that externalizes the prefix into a lightweight, lookup-based memory of precomputed attention states between prefix and query tokens. On ManyICLBench with LLaMA-3.1-8B, our method improves accuracy over in-context learning at 1K-8K memory budgets while reducing attention latency by 1.36x at 8K, and surpasses full-attention RAG performance on NBA benchmark using only 20% of its memory footprint.",
+      "hf_link": "https://huggingface.co/papers/2605.18226"
+    },
+    "2605.20164": {
+      "title": "Not Every Rubric Teaches Equally: Policy-Aware Rubric Rewards for RLVR",
+      "abstract": "Reinforcement learning with verifiable rewards has made post-training highly effective when correctness can be checked automatically. However, many important model behaviors require satisfying several qualitative criteria at once. Rubric-based rewards address this setting by grading prompt-specific criteria and aggregating them into a scalar reward. Yet standard static aggregations conflate a criterion's human-assigned importance with its current usefulness as an optimization signal. We show that this assumption breaks down in rubric RL: many important criteria are already saturated or currently unreachable, while criteria that distinguish rollouts are not necessarily those with the largest human weights. We introduce POW3R, a policy-aware rubric reward framework that preserves human weights and category balance as the rubric objective while adapting criterion-level reward weights during training. POW3R uses rollout-level contrast to emphasize criteria that currently separate the policy's outputs, making the GRPO reward more informative without changing the underlying evaluation target. Across three base policies on two datasets spanning multimodal and text-only settings, POW3R wins $24$ of $30$ base-policy/metric comparisons, improving both mean rubric reward and strict completion (the fraction of prompts whose response satisfies every required rubric criterion) over vanilla GRPO with rubric rewards, and reaches the same plateau in $2.5$--$4\\times$ fewer training steps. Rubric rewards should therefore distinguish what should matter in the final answer from what can teach the current policy.",
+      "hf_link": "https://huggingface.co/papers/2605.20164"
+    },
+    "2605.19908": {
+      "title": "Where Does Authorship Signal Emerge in Encoder-Based Language Models?",
+      "abstract": "Authorship attribution models fine-tuned with the same pretrained encoder, data, and loss can differ four-fold in performance depending only on their scoring mechanism. We use mechanistic interpretability tools to explain this gap. Stylistic features such as word length, punctuation density, and function-word frequency are equally available at every layer in every model, including in an off-the-shelf control encoder, hence the gap not coming from representation quality. Instead, causal intervention shows that the scorer determines where the encoder consolidates authorship signal. Mean pooling forces consolidation by early to mid layers, while late interaction defers it to later layers. We further derive this difference from the gradient structure of each scorer, and training dynamics reveal distinct learning trajectories that follow from that difference.",
+      "hf_link": "https://huggingface.co/papers/2605.19908"
+    },
+    "2605.18746": {
+      "title": "ESI-Bench: Towards Embodied Spatial Intelligence that Closes the Perception-Action Loop",
+      "abstract": "Spatial intelligence unfolds through a perception-action loop: agents act to acquire observations, and reason about how observations vary as a function of action. Rather than passively processing what is seen, they actively uncover what is unseen - occluded structure, dynamics, containment, and functionality that cannot be resolved from passive sensing alone. We move beyond prior formulations of spatial intelligence that assume oracle observations by recasting the observer as an actor. We introduce ESI-BENCH, a comprehensive benchmark for embodied spatial intelligence spanning 10 task categories and 29 subcategories built on OmniGibson, grounded in Spelke's core knowledge systems. Agents must decide what abilities to deploy - perception, locomotion, and manipulation - and how to sequence them to actively accumulate task-relevant evidence. We conduct extensive experiments on state-of-the-art MLLMs and find that active exploration substantially outperforms passive counterparts, with agents spontaneously discovering emergent spatial strategies without explicit instructions, while random multi-view often adds noise rather than signal despite consuming far more images. Most failures stem not from weak perception but from action blindness: poor action choices lead to poor observations, which in turn drive cascading errors. While explicit 3D grounding stabilizes reasoning on depth-sensitive tasks, imperfect 3D representation proves more harmful than 2D baselines by distorting spatial relations. Human studies further reveal that unlike humans who seek falsifying viewpoints and revise beliefs under contradiction, models commit prematurely with high confidence regardless of evidence quality, exposing a metacognitive gap that neither better perception nor more embodied interaction alone can close.",
+      "hf_link": "https://huggingface.co/papers/2605.18746"
+    },
+    "2605.20075": {
+      "title": "CopT: Contrastive On-Policy Thinking with Continuous Spaces for General and Agentic Reasoning",
+      "abstract": "Chain-of-thought (CoT) is a standard approach for eliciting reasoning capabilities from large language models (LLMs). However, the common CoT paradigm treats thinking as a prerequisite for answering, which can delay access to plausible answers and incur unnecessary token costs even when the model is able to identify an answer before extended thinking, a behavior known as performative reasoning. In this paper, we introduce CopT, a reformulated reasoning pipeline that reverses the usual order of thinking and answering. Instead of thinking before answering, CopT first elicits a draft answer and then invokes subsequent on-policy thinking conditioned on its own draft answer for reflection and correction. To assess whether the draft answer should be trusted, CopT recasts continuous embeddings as inference-time contrastive verifiers. Specifically, it contrasts the model's support for the same generated tokens under discrete-token inputs and continuous-embedding inputs, yielding a sequence-level reverse KL estimator for answer reliability. Our analysis shows that under certain assumptions, the expected estimate equals the mutual information between the unresolved latent state and the emitted answer token, explaining why it captures answer-relevant uncertainty rather than arbitrary uncertainty in the latent state. When the answer is deemed insufficiently reliable, CopT performs further on-policy thinking, where a second KL estimator dynamically controls draft-answer visibility, preserving useful partial information while reducing the risk of being misled by unreliable content. Across mathematics, coding, and agentic reasoning tasks, CopT improves peak accuracy by up to 23% and reduces token usage by up to 57% at comparable or higher accuracy, without any additional training. The code is available atthis https URL.",
+      "hf_link": "https://huggingface.co/papers/2605.20075"
+    },
+    "2605.20035": {
+      "title": "Stage-adaptive Token Selection for Efficient Omni-modal LLMs",
+      "abstract": "Omni-modal large language models (om-LLMs) achieve unified audio-visual understanding by encoding video and audio into temporally aligned token sequences interleaved at the window level. However, processing these dense non-textual tokens throughout the LLM incurs substantial computational overhead. Although training-free token selection can reduce this cost, existing methods either focus on visual-only inputs or prune om-LLM tokens only before the LLM with fixed per-modality ratios, failing to capture how cross-modal token importance evolves across layers. To address this limitation, we first analyze the layer-wise token dependency of om-LLMs. We find that visual and audio dependencies follow a block-wise pattern and gradually weaken with depth, indicating that many late-layer non-textual tokens become redundant after cross-modal fusion. Motivated by this observation, we propose SEATS, a training-free, stage-adaptive token selection method for efficient om-LLM inference. Before the LLM, SEATS removes spatiotemporal redundancy via attention-weighted diversity selection. Inside the LLM, it progressively prunes tokens across blocks and dynamically allocates the retention budget from temporal windows to modalities using query relevance scores. In late layers, it removes all remaining non-textual tokens once cross-modal fusion is complete. Experiments on Qwen2.5-Omni and Qwen3-Omni demonstrate that SEATS effectively improves inference efficiency. Retaining only 10% of visual and audio tokens, it achieves a 9.3x FLOPs reduction and a 4.8x prefill speedup while preserving 96.3% of the original performance.",
+      "hf_link": "https://huggingface.co/papers/2605.20035"
+    },
+    "2605.18646": {
+      "title": "Language-Switching Triggers Take a Latent Detour Through Language Models",
+      "abstract": "Backdoor attacks on language models pose a growing security concern, yet the internal mechanisms by which a trigger sequence hijacks model computations remain poorly understood. We identify a circuit underlying a language-switching backdoor in an 8B-parameter autoregressive language model, where a three-word Latin trigger (nine tokens) redirects English output to French. We decompose the circuit into three phases: (1) distributed attention heads at early layers compose the trigger tokens into the last sequence position; (2) the resulting signal propagates through mid-layers in a subspace orthogonal to the model's natural language-identity direction; (3) the MLP at the final layer converts this latent signal into French logits. The entire circuit flows through a serial bottleneck at a single position: corrupting that position at any layer entirely mitigate the trigger but also hinder the model's capabilities. The orthogonal latent encoding suggests that defenses that search for language-like signals in intermediate representations would miss this trigger entirely.",
+      "hf_link": "https://huggingface.co/papers/2605.18646"
+    },
+    "2605.17026": {
+      "title": "Why Do Reasoning Models Lose Coverage? The Role of Data and Forks in the Road",
+      "abstract": "Recent progress in large language models has led to the emergence of reasoning models, which have shown strong performance on complex tasks through specialized fine-tuning procedures. While these methods reliably improve pass@1 accuracy, prior works have observed that they show a coverage shrinkage behavior, where pass@k degrades relative to the base model. In this paper, we investigate the reasoning shrinkage arise under SFT-based post-training. We hypothesize that this behavior is driven by properties of the fine-tuning data, specifically related to decision points or \"forks in the road\" scenarios where model faces indecipherable patterns with multiple valid reasoning paths. To test this hypothesis, we design controlled case studies that simulate such decision-point settings, spanning indecipherable nodes in graph branching, and reasoning modes. By tracking post-training dynamics in these settings, we find that the shrinkage phenomenon is tightly correlated with the prevalence of decision-point scenarios in the training data. We also demonstrate that this shrinkage behavior can be partially mitigated through targeted data synthesis design of decision-points, and a more systematic diversity-encouraging decoding mechanism. Our findings identify data-centric factors as a key driver of shrinkage in reasoning models and highlight diversity-aware designs as an effective lever for controlling it.",
+      "hf_link": "https://huggingface.co/papers/2605.17026"
+    },
+    "2605.12623": {
+      "title": "DocAtlas: Multilingual Document Understanding Across 80+ Languages",
+      "abstract": "Multilingual document understanding remains limited for low-resource languages due to scarce training data and model-based annotation pipelines that perpetuate existing biases. We introduce DocAtlas, a framework that constructs high-fidelity OCR datasets and benchmarks covering 82 languages and 9 evaluation tasks. Our dual pipelines, differential rendering of native DOCX documents and synthetic LaTeX-based generation for right-to-left scripts produce precise structural annotations in a unified DocTag format encoding layout, text, and component types, without learned models for core annotation. Evaluating 16 state-of-the-art models reveals persistent gaps in low-resource scripts. We show that Direct Preference Optimization (DPO) using rendering-derived ground truth as positive signal achieves stable multilingual adaptation, improving both in-domain (+1.9%) and out-of-domain (+1.8%) accuracy without measurable base-language degradation, where supervised fine-tuning degrades out-of-domain performance by up to 21%. Our best variant, DocAtlas-DeepSeek, improves +1.7% over the strongest baseline. Code is available atthis https URL.",
+      "hf_link": "https://huggingface.co/papers/2605.12623"
+    },
+    "2605.08472": {
+      "title": "Mid-Training with Self-Generated Data Improves Reinforcement Learning in Language Models",
+      "abstract": "The effectiveness of Reinforcement Learning (RL) in Large Language Models (LLMs) depends on the nature and diversity of the data used before and during RL. In particular, reasoning problems can often be approached in multiple ways that rely on different forms of reasoning, and exposure to only a limited range of such approaches in the training data may limit the effectiveness of RL. Motivated by this, we investigate using diverse self-generated data during mid-training as an intermediate step before RL training. Specifically, we adopt a bootstrapped data-generation framework guided by George Polya's problem-solving approaches for generating multiple variants of correct answers for each question in the training data, and then perform fine-tuning. We first provide a theoretical perspective on how mid-training on such data improves RL and explain how policy-gradient updates can incentivize combining multiple approaches. We then empirically demonstrate that RL-trained models initialized with our mid-training data achieve consistent improvements across various mathematical reasoning benchmarks and other OOD tasks like code generation and narrative reasoning. Overall, our investigative study shows that a language model learning multiple problem-solving approaches, through self-generated data helps subsequent RL.",
+      "hf_link": "https://huggingface.co/papers/2605.08472"
+    },
+    "2605.17909": {
+      "title": "Ethical Hyper-Velocity (EHV): A Provably Deterministic Governance-Aware JIT Compiler Architecture for Agentic Systems",
+      "abstract": "As autonomous agentic systems scale across regulated critical infrastructures, the lack of mechanistic, hardware-rooted enforcement for high-frequency policy updates presents a fundamental safety gap. We introduce Ethical Hyper-Velocity (EHV), a novel architectural framework for the formal verification of AI governance policies at runtime. Unlike retrospective auditing frameworks (ISO/IEC 42001, NIST AI RMF) which introduce 14-30 day latencies, EHV relocates the Policy Enforcement Point (PEP) into the inference pipeline via a Governance-Aware Just-In-Time (JIT) Compiler. By integrating Conflict-free Replicated Data Types (CRDTs) for policy synchronization and Epoch-based Attestation Caching within Trusted Execution Environments (TEEs), EHV achieves Sub-millisecond Formal Determinism (SMFD). We demonstrate via TLA+ formal verification that non-compliant agentic actions are computationally unreachable within the system's bounded operating state space. We prove that O(1) runtime enforcement can eliminate the traditional trade-off between deployment velocity and governance integrity, reducing Governance Latency from O(days) to O(1).",
+      "hf_link": "https://huggingface.co/papers/2605.17909"
+    },
+    "2605.19147": {
+      "title": "Be Kind, Rewrite: Benign Projections via Rewriting Defend Against LLM Data Poisoning Attacks",
+      "abstract": "Large language models (LLMs) are highly susceptible to backdoor attacks (BAs), wherein training samples are poisoned using trigger-based harmful content. Furthermore, existing defenses have proven ineffective when extensively tested across BA patterns. To better combat BAs, we explore the use of LLM rewriting as a proactive defense against data poisoning. First, we theoretically show that when LLM rewriting utilizes open-book benign samples--termed open-book benign rewriting (OBBR)--the probability of a rewritten output being benign is strictly greater than that of closed-book rewriting. Thus, OBBR neutralizes harmful content by projecting training samples to the space of benign prompts. We then show that, in contrast to previous defenses, OBBR effectively mitigates a large number of existing BAs: across five known BAs and four widely used LLMs, OBBR increases safety performance by an average 51% compared to state-of-the-art BA defenses and 25.7% compared to closed-book rewriting methods. Finally, we show that OBBR is computationally efficient relative to other BA defenses, does not degrade model performance on natural language tasks after fine-tuning, and is capable of defending against non-trigger based data poisoning attacks.",
+      "hf_link": "https://huggingface.co/papers/2605.19147"
+    },
+    "2605.17659": {
+      "title": "Bug or Feature$^2$: Weight Drift, Activation Sparsity and Spikes",
+      "abstract": "The design of modern neural architectures has converged through incremental empirical choices, yet the mechanisms governing their training dynamics remain only partially understood. We identify and analyze a negative weight drift induced by the interaction between standard losses and positively biased activation functions. We prove that under MSE or cross-entropy loss, the gradient with respect to positive pre-activations is non-negative in expectation at initialization, driving downstream weights toward negative values during early training. The drift is intrinsic to optimization rather than data, and persists across architectures (MLP, ResNet, ViT, GPT-nano, MP-SENe) and asymmetric activation functions (ReLU, GELU, SiLU). Coupled with ReLU, weight drift produces activation sparsity reaching up to 90\\% in GPT-nano. We characterize the sparsity-accuracy tradeoff across 79 configurations and identify a sharp accuracy cliff above $\\sim$70\\% activation sparsity. While ReLU$^2$ achieves a good sparsity--accuracy ratio in GPT-nano, it pathologically amplifies identified activation spikes in intermediate transformer layers. Clipping resolves this while preserving the representational benefits of squaring: clipped ReLU$^2$ outperforms its unclipped version, and GELU$^2$ achieves the lowest validation loss on GPT-nano. Code is available atthis https URL.",
+      "hf_link": "https://huggingface.co/papers/2605.17659"
+    },
+    "2605.17360": {
+      "title": "Omni-DuplexEval: Evaluating Real-time Duplex Omni-modal Interaction",
+      "abstract": "Real-time duplex interaction is essential for multimodal AI systems operating in real-world scenarios, where models must continuously process streaming inputs and respond at appropriate moments. However, most existing multimodal large language models (MLLMs) are evaluated in offline settings, where the entire video input is processed before any response is generated. While recent work has started to explore real-time duplex MLLMs, there is still no comprehensive benchmark or automatic evaluation method for this setting. To address this gap, we propose Omni-DuplexEval, a benchmark for systematically evaluating real-time duplex interaction. The benchmark consists of two complementary scenarios: (1) Real-Time Description, which evaluates the ability to generate continuous, time-aligned responses that track evolving multimodal inputs, and (2) Proactive Reminder, which evaluates the ability to identify salient events and respond at appropriate moments. Omni-DuplexEval contains 660 videos with fine-grained, human-annotated labels and precise temporal metadata, spanning 9 tasks grounded in real-world scenarios, where all questions are formulated as open-ended queries. We further introduce an automatic evaluation framework based on LLM-as-a-Judge, which enables systematic assessment by jointly evaluating response-content alignment and response timing through timestamp-aware and sequential reasoning, achieving strong alignment with human judgments. Experiments on state-of-the-art duplex MLLMs reveal substantial limitations. The best-performing model achieves only 39.6% overall, while scoring only 20.0% on Proactive Reminder. Our analysis identifies two key challenges: models struggle to balance timely responses with coherent, holistic content generation, and they often fail to determine both when to respond and what to produce. We hope our work facilitates further progress in MLLMs.",
+      "hf_link": "https://huggingface.co/papers/2605.17360"
+    },
+    "2605.09789": {
+      "title": "Zero-Shot Sim-to-Real Robot Learning: A Dexterous Manipulation Study on Reactive Catching",
+      "abstract": "Dexterous manipulation is physics-intensive and highly sensitive to modeling errors and perception noise, making sim-to-real transfer prohibitively challenging. Domain randomization (DR) is commonly used to improve the robustness of learned policies for such tasks, but conventional DR randomizes one instance per episode, offering very limited exposure to the variability of real-world dynamics. To this end, we propose Domain-Randomized Instance Set (DRIS), which represents and propagates a set of randomized instances simultaneously, providing richer approximation of uncertain dynamics and enabling policies to learn actions that account for multiple possible outcomes. Supported by theoretical analysis, we show that DRIS yields more robust policies and alleviates the need for real-world fine-tuning, even with a modest number of instances (e.g., 10). We demonstrate this on a challenging reactive catching task. Unlike traditional catching setups that use end-effectors designed to mechanically stabilize the object (e.g., curved or enclosing surfaces), our system uses a flat plate that offers no passive stabilization, making the task highly sensitive to noise and requiring rapid reactive motions. The learned policies exhibit strong robustness to uncertainties and achieve reliable zero-shot sim-to-real transfer.",
+      "hf_link": "https://huggingface.co/papers/2605.09789"
+    },
+    "2605.08586": {
+      "title": "Computer Science Conferences Should Require Nonrepudiable Experimental Results",
+      "abstract": "This position paper argues that computer science conferences should require tamper-evident, nonrepudiable attestations of experimental results. We name the underlying problem experiment nonrepudiation: a compliant protocol must bind the numbers in a paper to an actual executed computation in a way the author cannot later alter or deny. The current system relies on self-reported checklists, optional code sharing, and author-controlled logging. None of these mechanisms answer the question a reviewer cannot check: did the code the paper describes produce the numbers the paper reports? We define the problem formally, state the security properties any compliant protocol must satisfy, and describe a threat model that includes attacks current approaches do not prevent. To show that the problem is solvable, we built K-Veritas, a reference implementation in Go that produces signed reports without accessing training data. K-Veritas is a testbed, not a finished answer. We call on conferences and the community to treat nonrepudiation as a first-class requirement and to help build an open, independent standard for it.",
+      "hf_link": "https://huggingface.co/papers/2605.08586"
+    },
+    "2605.19516": {
+      "title": "Base Models Look Human To AI Detectors",
+      "abstract": "As AI-generated text enters the real-world at scale, institutions increasingly use commercial AI-text detectors, especially in education and academic-integrity workflows. We report a surprising empirical finding about such systems: when evaluated by GPTZero and Pangram, generated text from base models is often judged overwhelmingly human, whereas text generated by their instruction-tuned counterparts is not. Building on this observation, we propose Humanization by Iterative Paraphrasing (HIP), a detector-agnostic pipeline that minimally fine-tunes a base model into a paraphraser and applies it iteratively. Compared with the baselines we test, HIP yields a stronger trade-off between semantic preservation and detector evasion on commercial detectors. Across Llama-3 and Qwen-3 families, spanning model sizes from 0.6B to 70B, HIP consistently improves detector human-likeness. Our findings suggest that current detectors are tracking artifacts of instruction tuning and local context more than any invariant notion of machine-generated text. This, in turn, calls for detector designs that model these factors more explicitly.",
+      "hf_link": "https://huggingface.co/papers/2605.19516"
+    },
+    "2605.19014": {
+      "title": "SAGA: A Sequence-Adaptive Generative Architecture for Multi-Horizon Probabilistic Forecasting with Adaptive Temporal Conformal Prediction",
+      "abstract": "Microsimulation models used by ministries of finance and central banks rely on parametric processes for lifetime earnings that capture only first and second moments of the conditional distribution and miss long-range nonlinear structure. We propose SAGA, a decoder-only transformer for irregular tabular panel sequences, paired with a split conformal calibration wrapper that delivers individual-level prediction intervals with finite-sample marginal coverage guarantees. Trained on the longitudinal Swedish LISA register over 1990 to 2022, comprising 2,143,817 individuals and 61,284,903 person-years, the model forecasts annual labor earnings at horizons of one to thirty years and aggregates them by Monte Carlo into present-discounted lifetime earnings distributions. Against the canonical Guvenen, Karahan, Ozkan, and Song parametric process and tabular and recurrent baselines, SAGA reduces continuous ranked probability score by 31.9 percent at the ten-year horizon and mean absolute error by 37.7 percent at the twenty-year horizon. Conformal intervals achieve nominal coverage to within 0.4 percentage points marginally and within 2.4 percentage points on the worst-case demographic subgroup. The reconstructed lifetime earnings Gini coefficient is 0.327 against the partially observed truth of 0.341 and the GKOS estimate of 0.378. Model weights, calibration tables, and a synthetic equivalent dataset are released for replication outside the protected SCB MONA environment.",
+      "hf_link": "https://huggingface.co/papers/2605.19014"
+    },
+    "2605.17076": {
+      "title": "S-Bus: Automatic Read-Set Reconstruction for Multi-Agent LLM State Coordination",
+      "abstract": "Concurrent LLM agents sharing mutable natural-language state produce Structural Race Conditions (SRCs): write-write and cross-shard stale-read conflicts that silently corrupt agent output. Existing multi-agent frameworks (LangGraph, CrewAI, AutoGen) provide no write-ownership semantics over shared state.We present S-Bus, an HTTP middleware whose central mechanism is a server-side DeliveryLog: a per-agent log of HTTP GET operations that automatically reconstructs each agent's read set at commit time without agent SDK changes under HTTP/1.1. The consistency property the DeliveryLog provides -- Observable-Read Isolation (ORI), a partial causal consistency over the HTTP-observable projection of the read set -- prevents structural race conditions when agents collaborate via shared shards.Three contributions: (C1) The DeliveryLog mechanism for automatic HTTP-traffic-based read-set reconstruction, with three-tier mechanised evidence: ReadSetSoundness and ORICommitSafety machine-checked in TLAPS (modulo one retained typing axiom); exhaustive TLC at N=3 (20,763,484 distinct states, zero violations); Dafny discharges 9 inductive soundness lemmas. (C2) Empirical structural-conflict prevention parity against PostgreSQL 17 SERIALIZABLE and Redis 7 WATCH/MULTI on shared-shard contention sweeps with 427,308 active HTTP-409 conflicts: zero Type-I corruptions across all three backends. (C3) ORI's operating envelope is topology-conditional: semantically neutral in dedicated-shard workloads; harmful in single-shard collaborative writing because preservation propagates concurrent contradictions.Source code:this https URL",
+      "hf_link": "https://huggingface.co/papers/2605.17076"
+    },
+    "2605.15514": {
+      "title": "RoPE Distinguishes Neither Positions Nor Tokens in Long Contexts, Provably",
+      "abstract": "We identify intrinsic limitations of Rotary Positional Embeddings (RoPE) in Transformer-based long-context language models. Our theoretical analysis abstracts away from the specific content of the context and depends only on its length. We prove that as context length increases, RoPE-based attention becomes unpredictable and loses two properties that are central to its effectiveness. First, it loses its locality bias: RoPE is no more likely to favor nearer positions than substantially farther ones. Second, it loses consistency in token relevance: a key vector that receives a higher attention score than an alternative at one position may receive a lower score at another. In both cases, the probability of failure approaches 0.5, no better than random guessing. We further prove that the attention score can remain unchanged when a key token is moved to a different position, or even replaced by a different token, indicating a failure to distinguish positions or tokens. Adjusting the RoPE base trades off distinguishing positions against distinguishing tokens but cannot preserve both at the same time. Increasing the RoPE base hyperparameter, a common practice in today's long-context models, helps distinguish different tokens, but inevitably sacrifices the ability to distinguish positions. Our empirical analysis shows that multi-head, multi-layer architectures are insufficient to overcome these limitations. Our findings suggest that fundamentally new mechanisms for encoding position and token order may be needed in future Transformer long-context language models.",
+      "hf_link": "https://huggingface.co/papers/2605.15514"
+    }
+  },
+  "hf_votes": {
+    "2605.11609": 0,
+    "2605.16403": 0,
+    "2605.14236": 0,
+    "2605.20025": 0,
+    "2605.19769": 0,
+    "2605.19577": 0,
+    "2605.15529": 0,
+    "2605.18703": 0,
+    "2605.17734": 0,
+    "2605.19995": 0,
+    "2605.18748": 0,
+    "2605.18984": 0,
+    "2605.19436": 0,
+    "2605.17829": 0,
+    "2605.18758": 0,
+    "2605.20183": 0,
+    "2605.20087": 0,
+    "2605.20147": 0,
+    "2605.18714": 0,
+    "2605.15458": 0,
+    "2605.19786": 0,
+    "2605.18263": 0,
+    "2605.20150": 0,
+    "2605.18855": 0,
+    "2605.18827": 0,
+    "2605.09640": 0,
+    "2605.19633": 0,
+    "2605.19932": 0,
+    "2605.20104": 0,
+    "2605.18226": 0,
+    "2605.20164": 0,
+    "2605.19305": 0,
+    "2605.19908": 0,
+    "2605.18746": 0,
+    "2605.16003": 0,
+    "2605.20075": 0,
+    "2605.20035": 0,
+    "2605.18646": 0,
+    "2605.17026": 0,
+    "2605.14842": 0,
+    "2605.12623": 0,
+    "2605.08472": 0,
+    "2605.17909": 0,
+    "2605.18101": 0,
+    "2605.19147": 0,
+    "2605.17659": 0,
+    "2605.17360": 0,
+    "2605.09789": 0,
+    "2605.08586": 0,
+    "2605.19516": 0,
+    "2605.19014": 0,
+    "2605.17076": 0,
+    "2605.15514": 0
+  },
+  "focus_sections": {
+    "3D生成与重建": [
+      "2605.19786",
+      "2605.18263",
+      "2605.20150",
+      "2605.19305"
+    ],
+    "视频生成": [
+      "2605.19995",
+      "2605.20183",
+      "2605.15458",
+      "2605.16003"
+    ],
+    "图像生成": [
+      "2605.20147",
+      "2605.14842",
+      "2605.18101"
+    ]
+  },
+  "summaries": {
+    "2605.19786": {
+      "short_zh": "快速生成动态三维网格模型",
+      "tags": "计算机图形学;三维重建;动态网格生成",
+      "body_summary": "现有方法从视频生成动态三维网格慢且计算开销大，难以处理长序列。\n提出免训练时空注意力链框架，通过隐空间传播对应关系实现快速高质量生成，提速13倍且支持长视频。"
+    },
+    "2605.19305": {
+      "short_zh": "三角网格信号生成",
+      "tags": "计算机图形学;几何处理;三角网格流形匹配",
+      "body_summary": "本文旨在实现三角网格上信号的生成，并使训练好的模型能有效应用于不同网格和三角剖分。\n提出了使用谱定义保证剖分无关性的Matérn噪声分布，并基于PoissonNet设计去噪器，在超百万面片上实现了高质量多样性的信号生成。"
+    },
+    "2605.20150": {
+      "short_zh": "十亿高斯训练的单GPU外存优化方法",
+      "tags": "计算机图形学;三维重建;高斯溅射外存训练",
+      "body_summary": "传统3D高斯溅射训练因参数内存过大而受限于千万级规模，难以处理十亿级场景。\n提出TideGS框架，通过外存管理、异步流水线与差分流技术，在单张24GB GPU上实现了十亿高斯的高质量训练。"
+    },
+    "2605.15458": {
+      "short_zh": "视频扩散模型的奖励优化推理",
+      "tags": "计算机视觉;视频生成;可验证推理任务",
+      "body_summary": "视频扩散模型在感知真实性和时序连贯性上进步显著，但主要优化目标是生成合理性而非可验证的推理，这使其在需满足明确约束的任务中存在局限。\n本文提出VideoRLVR框架，通过基于规则的反馈优化视频扩散模型，其核心包括SDE-GRPO优化主干、密集分解奖励和旨在降低训练延迟的早步聚焦策略，并在多个可验证推理任务上超越基准。"
+    },
+    "2605.14842": {
+      "short_zh": "评估图像编辑中的抽象意图",
+      "tags": "计算机视觉;图像编辑;抽象指令评估",
+      "body_summary": "当前图像编辑基准主要关注显式指令，对抽象指令的遵循能力评价不足。\n本文提出了评估框架和首个抽象编辑基准，发现现有模型的不足并提出了改进方向。"
+    },
+    "2605.19995": {
+      "short_zh": "推理驱动可控视频生成",
+      "tags": "计算机视觉；视频生成；创意意图可控视频生成",
+      "body_summary": "现有扩散模型在抽象、稀疏或复杂条件下难以生成符合用户创意意图的视频，存在能力空白。\n提出了CogOmniControl框架，通过专用CogVLM准确认知创意意图并转化为密集推理，再通过CogOmniDiT统一控制生成视频，并引入最佳选择闭环机制。"
+    },
+    "2605.20183": {
+      "short_zh": "多镜头音视频生成评测基准",
+      "tags": "生成式人工智能；视频生成；多镜头音视频生成评测",
+      "body_summary": "现有方法难以系统可靠地评估前沿的多镜头音视频生成模型。\n提出了首个综合性基准与自适应评估框架，并评估了19个先进模型。"
+    },
+    "2605.16003": {
+      "short_zh": "交互式长视频生成记忆框架",
+      "tags": "计算机视觉;视频生成;长视频记忆管理",
+      "body_summary": "现有方法难以处理交互式长视频生成中的提示词切换和场景记忆问题。\n提出了一个无需训练的记忆框架，通过解耦历史信息、压缩场景和自适应遗忘来统一支持平滑过渡、硬切和长程场景回忆。"
+    },
+    "2605.20147": {
+      "short_zh": "构建超高清文生图数据集与模型",
+      "tags": "计算机视觉;图像生成;超高清文生图",
+      "body_summary": "文本到图像模型在超高分辨率生成上面临数据稀缺等挑战。\n本文构建了高质量超大分辨率数据集，并基于此训练了原生100MP生成模型，同时建立了综合评估基准。"
+    },
+    "2605.18101": {
+      "short_zh": "卫星生成城市建筑能耗与影像",
+      "tags": "计算机视觉;遥感图像生成;城市建筑能耗建模",
+      "body_summary": "城市建筑能耗建模是实现可持续发展目标的关键，但现有方法存在预测性、缺乏生成能力、数据稀缺等挑战。\n提出SENSE框架，基于可控扩散模型，联合生成卫星影像与对齐的建筑能耗及高度图，提升数据生成质量和下游预测精度。"
+    },
+    "2605.18263": {
+      "short_zh": "高斯建模反射透射新视角",
+      "tags": "计算机图形学；三维重建；半透明表面渲染",
+      "body_summary": "三维高斯泼溅技术在复杂半透明镜面表面的反射与透射建模上存在模糊与遮挡问题。\n提出了RT-Splatting框架，通过分解几何占用与光学不透明度，结合表面与体渲染，实现高保真反射与清晰透射的实时绘制。"
+    },
+    "2605.11609": {
+      "short_zh": "反自蒸馏改进数学推理",
+      "tags": "强化学习；大语言模型推理；数学推理优化",
+      "body_summary": "传统自蒸馏在数学推理中效果不稳定，特权上下文会扭曲教师模型的置信度\n提出反自蒸馏方法，通过提升师生模型差异，加速训练并显著提高最终准确率"
+    },
+    "2605.16403": {
+      "short_zh": "研究多模态模型在视频中理解声音的虚假能力",
+      "tags": "多模态学习;视听问答;音频虚假接地",
+      "body_summary": "当前视频理解大模型常依赖视觉线索推断声音而非真正理解音频，存在“视听聪明的汉斯”效应。\n我们提出干预测试框架诊断该问题，并设计对齐训练方法提升模型的真实音频验证能力。"
+    },
+    "2605.14236": {
+      "short_zh": "主动学习优化大模型排序",
+      "tags": "自然语言处理;信息检索;大模型排序优化",
+      "body_summary": "现有大模型排序方法存在噪声大、成本高、排序不稳定等问题。\n我们将排序重构为主动学习问题并引入噪声鲁棒框架，用更少调用量提升排序质量。"
+    },
+    "2605.20025": {
+      "short_zh": "多智能体自主科研协作系统",
+      "tags": "自主智能系统；科学发现自动化；多代理研究管道",
+      "body_summary": "现有自主科研系统常将研究建模为线性流程，存在单智能体推理、失败即停止、经验不传承等问题。\n我们提出了AutoResearchClaw，它通过多智能体辩论、自修复执行、可验证报告、人机协作和跨轮次演化五项机制，将失败转化为信息，在基准测试中性能提升显著。"
+    },
+    "2605.19769": {
+      "short_zh": "构建可验证的软件世界用于计算机使用智能体",
+      "tags": "人机交互;智能体基础环境;可验证软件世界构建",
+      "body_summary": "背景/任务是：为计算机使用智能体（如AI助手）创建可靠、可验证的操作环境。\n我们提出了OpenComputer框架，它通过应用状态验证器、自进化验证层等组件，构建了一个覆盖33款桌面应用和1000项任务的验证系统，用于评估智能体在真实软件环境中的操作能力。"
+    },
+    "2605.19577": {
+      "short_zh": "长上下文强化学习新方法",
+      "tags": "强化学习;长上下文处理;能力导向数据与优化",
+      "body_summary": "现有长上下文强化学习方法的数据构造和奖励设计存在任务覆盖单一、脱离实际需求的问题\n提出了能力导向的公开数据集和异构多任务优化方法TMN-Reweight，有效提升了长上下文性能"
+    },
+    "2605.15529": {
+      "short_zh": "学习可靠性指导推理过程奖励",
+      "tags": "自然语言处理;语言模型推理;过程奖励模型",
+      "body_summary": "当前过程奖励模型仅为推理步骤输出单一奖励分数，无法提供预测可靠性信息。\n提出BetaPRM模型，预测步骤成功概率及其可靠性，并基于此信号改进推理选择与计算分配。"
+    },
+    "2605.18703": {
+      "short_zh": "EnvFactory自动合成环境生成数据训练工具使用智能体",
+      "tags": "强化学习;智能体工具学习;可执行环境合成与轨迹生成",
+      "body_summary": "现有方法依赖不稳定的真实API或LLM模拟器，难以规模化获取稳健环境与高质量训练数据。\nEnvFactory框架自动探索验证真实工具环境，合成多轮自然轨迹，以更少环境实现更优训练效率与性能。"
+    },
+    "2605.17734": {
+      "short_zh": "用技能程序升级大语言模型智能体",
+      "tags": "自然语言处理;大语言模型;智能体技能复用",
+      "body_summary": "现有智能体技能多为文本指导，缺乏在失败时主动干预的机制\n提出HASP框架，将技能转为可执行程序，能在推理、训练和自进化中主动干预并提升性能"
+    },
+    "2605.18748": {
+      "short_zh": "智能体辅助视频编辑模型",
+      "tags": "视频编辑;视频生成;智能体驱动视频编辑",
+      "body_summary": "现有统一视频编辑模型要求用户提供完整输入，但实际请求常存在信息缺失。\n我们提出了Aurora框架，用工具增强的视觉语言模型智能体解析用户请求并规划编辑，再输入统一视频扩散模型生成，提升了处理不完整请求的能力。"
+    },
+    "2605.18984": {
+      "short_zh": "评估多模态大模型识别AI生成视频缺陷",
+      "tags": "多模态大模型;视频内容理解;生成视频缺陷评估",
+      "body_summary": "当前AI生成视频普遍存在伪影，但多模态大模型感知这类缺陷的能力尚不明确。\n提出了Artifact-Bench基准，用以系统评估多模态大模型在伪影检测与分析上的能力，并发现其性能存在显著不足。"
+    },
+    "2605.19436": {
+      "short_zh": "强化学习中优化奖励分配",
+      "tags": "强化学习;奖励建模;推理步骤识别",
+      "body_summary": "传统强化学习对所有正确解给予相同奖励，无法区分关键推理步骤和无关填充。\n提出对比证据策略优化，通过对比正确与错误答案的偏好来精确分配奖励，提升模型推理能力。"
+    },
+    "2605.17829": {
+      "short_zh": "为互动式AI评估建立设计科学",
+      "tags": "自然语言处理;语言模型评估;互动评估范式",
+      "body_summary": "AI评估正经历结构性变化，大模型作为系统与环境、用户及工具交互，但现有评估方法仍基于静态基准假设。\n本文提出应将互动评估视为独立范式，定义了其证据到评判的映射，构建分类体系与设计原则，并分析了轨迹层面的评估挑战。"
+    },
+    "2605.18758": {
+      "short_zh": "提出多模态智能手机GUI智能体评测基准",
+      "tags": "人机交互;图形用户界面智能体;多模态智能手机环境评测",
+      "body_summary": "现有GUI智能体基准主要依赖静态截图，而真实手机交互需要处理瞬态音频和时序视频动态。\n我们构建了首个步进式多模态基准OmniGUI，并评估了基础模型在同步视听信号场景中的能力退化与瓶颈。"
+    },
+    "2605.20087": {
+      "short_zh": "构建理解用户心思的AI助手",
+      "tags": "自然语言处理;人机交互;用户思维建模",
+      "body_summary": "现有对话数据集只记录用户说了什么，无法捕捉其真实想法。\n我们收集真实对话与用户心理注释数据集，证明其用于行为预测和模型训练的价值。"
+    },
+    "2605.18714": {
+      "short_zh": "统一多模态模型生成对齐新方法",
+      "tags": "计算机视觉;多模态学习;视觉理解与生成协同",
+      "body_summary": "当前统一多模态模型在视觉理解和生成任务上的训练策略是分离的，导致两者表征空间不对齐，无法相互促进。\n本文提出语义生成调优（SGT）新范式，利用图像分割作为生成代理任务，有效协同了模型的多模态理解与生成能力。"
+    },
+    "2605.18855": {
+      "short_zh": "改进注意力残差连接",
+      "tags": "自然语言处理；深度学习模型架构；残差连接注意力机制",
+      "body_summary": "注意力残差连接通过学习对先前层输出的软注意力来替代标准加性残差连接，但其注意力对象是高度冗余的累积隐藏状态，导致深层出现路由崩溃问题。\n本文提出Delta注意力残差连接，改为关注每层输出的变化量（增量），这能产生更聚焦的注意力分布，从而在多个模型规模上实现更有效的跨层路由和更好的性能。"
+    },
+    "2605.18827": {
+      "short_zh": "小语言模型代码引导推理评估",
+      "tags": "自然语言处理;问答系统;代码引导推理",
+      "body_summary": "现有基准通常将小语言模型直接作为选择题答案生成器评估，但实际部署的系统越来越多地依赖外部工具和代码等脚手架。\n提出了代码引导推理评估协议和配套资源，通过生成可执行程序来量化脚手架对小模型在选择题任务上的提升效果，并分析了其优势与局限性。"
+    },
+    "2605.09640": {
+      "short_zh": "强化学习微调克服视觉持续学习遗忘",
+      "tags": "机器学习;持续学习;视觉类增量与域增量学习",
+      "body_summary": "研究强化学习微调在视觉持续学习中克服灾难性遗忘的能力。\n提出了RaPO方法，通过保留奖励和跨任务优势归一化，有效减轻遗忘并提升性能。"
+    },
+    "2605.19633": {
+      "short_zh": "统一文本参数优化新方法",
+      "tags": "机器学习;自动机器学习;文本参数优化",
+      "body_summary": "背景/任务：现有优化系统通常针对特定领域，能否用一个基于大语言模型的通用系统来优化各种文本参数，以匹敌各领域的专用工具？\n做了什么：提出了一个基于大语言模型的通用优化系统，通过将问题转化为优化文本目标，在多个不同任务上取得了领先效果，并开源了相关工具。"
+    },
+    "2605.19932": {
+      "short_zh": "长上下文大型语言模型代理定向缓存系统",
+      "tags": "自然语言处理;大型语言模型;长上下文代理",
+      "body_summary": "大型语言模型代理需反复处理冗长且重复的外部上下文，但现有方法缺乏对上下文本身可重用定向知识的有效维护。\n提出PEEK系统，通过维护一个固定大小的上下文地图，缓存上下文的结构、组织和关键实体等定向知识，从而显著提升代理的准确性和效率。"
+    },
+    "2605.20104": {
+      "short_zh": "用修剪加强检索的推测解码加速",
+      "tags": "自然语言处理;语言模型推理加速;推测解码",
+      "body_summary": "推测解码通过构建草案树来加速大模型推理，但大树会带来计算和带宽开销，而动态剪枝虽能降低延迟却会损失有效候选，限制接受率。\n本文提出Graft框架，将剪枝与检索耦合：剪枝腾出计算预算用于检索，检索则补偿剪枝丢失的覆盖范围，通过“先剪后接”机制无损填补空缺，在多种场景下提升加速效果。"
+    },
+    "2605.18226": {
+      "short_zh": "长上下文生成中的前缀高效利用",
+      "tags": "自然语言处理;大语言模型推理加速;长前缀注意力优化",
+      "body_summary": "现代大语言模型应用依赖长前缀控制生成，但存在前缀影响衰减和计算开销大的问题。\n将前缀预计算为注意力状态外存，无需训练即可提升长上下文生成效果并降低延迟。"
+    },
+    "2605.20164": {
+      "short_zh": "自适应准则权重的强化学习训练",
+      "tags": "强化学习;基于人类反馈的强化学习;准则奖励优化",
+      "body_summary": "在需要同时满足多个定性准则的任务中，静态的准则奖励聚合方法效果不佳。\n提出POW3R框架，在训练中动态调整准则权重以关注当前能区分策略输出的准则，从而提升训练效率和最终性能。"
+    },
+    "2605.19908": {
+      "short_zh": "编码模型作者信号位置研究",
+      "tags": "自然语言处理;语言模型可解释性;作者身份归属",
+      "body_summary": "作者身份归属模型的性能差异巨大，即使它们使用相同的预训练编码器、数据和损失函数。\n研究发现，性能差异源于评分机制影响编码器对作者身份信号的整合位置。"
+    },
+    "2605.18746": {
+      "short_zh": "具身空间智能体感知行动闭环基准",
+      "tags": "具身人工智能;具身空间智能;闭环感知行动基准",
+      "body_summary": "空间智能通过感知行动闭环实现：智能体通过行动获取观察，并推理观察如何随行动变化。\n我们构建了全面基准ESI-BENCH，通过实验发现主动探索优于被动感知，并揭示了当前模型存在行动盲目性和元认知差距。"
+    },
+    "2605.20075": {
+      "short_zh": "先回答后反思降低推理成本",
+      "tags": "自然语言处理;语言模型推理;推理过程优化",
+      "body_summary": "现有思维链方法让模型先思考后回答，可能导致不必要的思考开销和延迟。\n提出CopT方法，先产生草稿答案，再基于答案进行反思和修正，通过对比验证判断答案可信度，从而在保持或提高准确率的同时大幅减少计算开销。"
+    },
+    "2605.20035": {
+      "short_zh": "高效全模态大模型推理优化",
+      "tags": "多模态学习;大语言模型高效化;全模态令牌剪枝",
+      "body_summary": "全模态大语言模型处理密集音视频令牌计算成本高。\n提出阶段自适应令牌选择方法，显著降低计算量且性能损失小。"
+    },
+    "2605.18646": {
+      "short_zh": "语言模型后门触发机制内部解析",
+      "tags": "自然语言处理;语言模型安全;后门攻击内部机制",
+      "body_summary": "大语言模型中的后门攻击日益成为安全威胁，但其内部触发机制尚不明确。\n我们完整剖析了一个语言切换后门电路，揭示其通过正交潜空间传播信号的独特路径。"
+    },
+    "2605.17026": {
+      "short_zh": "推理模型覆盖度下降原因探究",
+      "tags": "自然语言处理;语言模型推理;推理覆盖度下降",
+      "body_summary": "研究推理模型在指令微调后覆盖度下降的现象，推测与数据中决策点场景有关。\n通过设计决策点仿真实验验证假设，并提出数据合成和解码机制来缓解该问题。"
+    },
+    "2605.12623": {
+      "short_zh": "构建多语言文档理解数据集与基准评估",
+      "tags": "自然语言处理;文档智能;多语言文档理解",
+      "body_summary": "多语言文档理解受限于低资源语言的数据稀缺和模型标注偏差\n提出DocAtlas框架构建82语种高保真OCR数据集，并通过DPO优化实现稳定多语言适配"
+    },
+    "2605.08472": {
+      "short_zh": "强化学习前自生成数据提升模型效果",
+      "tags": "自然语言处理;大语言模型训练;策略强化学习优化",
+      "body_summary": "强化学习在大语言模型中的效果受训练数据多样性的制约。\n采用自生成多样答案进行中期训练，能提升模型后续强化学习性能。"
+    },
+    "2605.17909": {
+      "short_zh": "为AI系统即时执行治理规则",
+      "tags": "计算机系统;运行时验证;治理感知编译",
+      "body_summary": "现有AI治理审计框架存在延迟，无法满足关键基础设施中自主系统对实时性政策执行的需求。\n提出了一种将政策执行点嵌入推理管道的编译器架构，通过形式化方法确保不合规行为不可达，实现毫秒级确定性的政策执行。"
+    },
+    "2605.19147": {
+      "short_zh": "用良性改写防御大模型后门攻击",
+      "tags": "自然语言处理;大模型安全;后门攻击防御",
+      "body_summary": "大语言模型容易遭受基于触发词的后门攻击，现有防御方法效果不佳\n提出利用良性样本进行开卷式文本改写，理论证明其优于闭卷改写，实验表明能有效提升安全性且不影响模型性能"
+    },
+    "2605.17659": {
+      "short_zh": "负权重漂移与激活稀疏性分析",
+      "tags": "深度学习;神经网络训练;权重漂移与激活稀疏性",
+      "body_summary": "研究现代神经网络训练中由损失函数与激活函数交互引发的权重漂移现象。\n分析了负权重漂移的成因、对激活稀疏性的影响，并在多种架构和激活函数上验证了此现象，提出了改进方案。"
+    },
+    "2605.17360": {
+      "short_zh": "实时多模态交互评估新基准",
+      "tags": "多模态人工智能;实时交互评估;全双工多模态大模型",
+      "body_summary": "现有离线评测无法满足现实场景中模型需实时处理流式输入并择机响应的需求。\n提出了包含两个场景的评测基准与自动评估框架，揭示了当前模型在响应时机与内容连贯性上的不足。"
+    },
+    "2605.09789": {
+      "short_zh": "强化机器人零样本仿真迁移",
+      "tags": "机器人;灵巧操控;仿真到现实迁移",
+      "body_summary": "灵巧操控对物理模型误差和感知噪声敏感，仿真到现实的迁移极具挑战性。\n提出域随机化实例集方法，通过同时传播多个随机实例来近似不确定性，使策略更鲁棒，并在无真实调优的平板上实现了反应式抓取。"
+    },
+    "2605.08586": {
+      "short_zh": "要求实验可验证不可抵赖",
+      "tags": "计算机科学;学术研究规范;实验可复现性验证",
+      "body_summary": "当前计算机科学会议依赖作者自述和选择性公开代码，无法确保论文数据来自实际运行。\n本文定义问题并提出安全要求，开发了原型系统K-Veritas来生成签名报告。"
+    },
+    "2605.19516": {
+      "short_zh": "基础模型文本对人更逼真",
+      "tags": "自然语言处理;文本生成与检测;AI生成文本检测",
+      "body_summary": "随着AI生成文本大规模进入现实，尤其是在教育和学术诚信领域，商业AI文本检测器被广泛使用。\n研究发现基础模型生成的文本常被检测器判为人类所写，并提出了HIP方法，通过迭代改写使文本更易通过检测器。"
+    },
+    "2605.19014": {
+      "short_zh": "长时收入预测新方法",
+      "tags": "机器学习;概率时间序列预测;面板数据多步预测",
+      "body_summary": "传统宏观仿真模型难以刻画个体收入的长期非线性动态。\n提出SAGA模型，利用Transformer提升预测精度，并通过自适应校准确保预测区间覆盖。"
+    },
+    "2605.17076": {
+      "short_zh": "自动重建多智能体读写集避免冲突",
+      "tags": "自然语言处理;多智能体系统;共享状态一致性",
+      "body_summary": "现有大语言模型多智能体框架在共享可变自然语言状态时会导致结构性竞态条件，造成输出静默损坏\n我们提出S-Bus中间件，通过服务端传递日志自动重建各智能体读集，提供可观测读隔离一致性，防止协作时的结构性竞态条件"
+    },
+    "2605.15514": {
+      "short_zh": "揭示RoPE在长上下文中的失效机制",
+      "tags": "自然语言处理;预训练语言模型;长上下文注意力",
+      "body_summary": "Transformer长上下文语言模型使用的Rotary位置编码存在内在局限\n理论证明RoPE在长上下文会失去位置偏倚与一致性，实验表明调整基参数无法同时区分位置与词元"
+    }
+  },
+  "deep_analysis": {},
+  "figures": {
+    "2605.19786": [
+      {
+        "path": "https://arxiv.org/html/2605.19786v1/x1.png",
+        "caption": "Figure 1:Method overview.Our attention chain follows a point through the frozen 4D generator: from an anchor mesh vertex to latent tokens, across time to target-frame tokens, and back to a target mesh vertex. Image-patch endpoints give analogous chains for 2D tracking, camera pose estimation, and 4D tracking, without additional training.",
+        "role": "pipeline_1",
+        "caption_zh": "图 1：方法总览。我们的注意力链追踪冻结 4D 生成器中的一个点：从锚定网格顶点到潜在标记，跨时间至目标帧标记，再回到目标网格顶点。图像块端点可为二维跟踪、相机姿态估计与四维跟踪提供类似链式过程，且无需额外训练。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.19786v1/x2.png",
+        "caption": "Figure 2:Long-sequence rollout.(a) Naive autoregressive 4D generation accumulates errors over time, degrading mesh quality. We find that this drift is driven by weakening latent correspondences across windows. (b) Our correspondence reinforcement preserves these correlations, stabilizing the rollout and maintaining high-quality generation.",
+        "role": "pipeline_2",
+        "caption_zh": "图2：长序列推演。(a) 朴素的自回归4D生成方法会随时间累积误差，导致网格质量下降。我们发现这种漂移是由跨窗口的潜在对应关系弱化所驱动的。(b) 我们的对应关系强化方法保持了这些相关性，从而稳定了推演过程并维持了高质量生成。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.19786v1/x3.png",
+        "caption": "Figure 3:4D Mesh Generation.Our method produces sharp, temporally consistent meshes, aligns them to the input camera, and runs inonly99sec, compared to120120–900900sec for prior methods. Unlike SG4D and ActionMesh, which generate object-centric meshes, our spatial attention-chain correspondences enable camera recovery and world placement, yielding high foreground overlap (yellow) and fewer mismatch regions (red/green).",
+        "role": "pipeline_3",
+        "caption_zh": "图 3：四维网格生成。相较于先前方法所需的 120–900 秒，我们的方法仅用 99 秒即可生成清晰且时间一致的网格，并将其对齐至输入相机位姿。与 SG4D 和 ActionMesh 生成以物体为中心的网格不同，我们的空间注意力链对应关系能够恢复相机参数并进行世界坐标放置，从而获得更高的前景重叠区域（黄色）和更少的不匹配区域（红色/绿色）。"
+      }
+    ],
+    "2605.20150": [
+      {
+        "path": "https://arxiv.org/html/2605.20150v1/x2.png",
+        "caption": "Figure 2:TideGS pipeline.(a) Out-of-core hierarchy.The full scene is stored as SSD-resident blocks; CPU RAM maintains a warm cache and schedules prefetch; GPU VRAM acts as a working-set cache for rendering and backpropagation.(b) Trajectory-adaptive differential streaming.Consecutive block working sets𝒦t\\mathcal{K}_{t}and𝒦t+1\\mathcal{K}_{t+1}guide reuse, while TideGS selects capacity-bounded resident setsℛt\\mathcal{R}_{t}andℛt+1\\mathcal{R}_{t+1}, retains their overlap, streams only𝒮t+=ℛt+1∖ℛt\\mathcal{S}_{t}^{+}=\\mathcal{R}_{t+1}\\setminus\\mathcal{R}_{t}, and evicts𝒮t−=ℛt∖ℛt+1\\mathcal{S}_{t}^{-}=\\mathcal{R}_{t}\\setminus\\mathcal{R}_{t+1}while overlapping SSD/PCIe transfers with GPU compute.\n①–⑤ indicate the corresponding cross-tier dataflow steps.",
+        "role": "pipeline_1",
+        "caption_zh": "图2：TideGS 流水线。(a) 外存层次结构。完整场景以SSD驻留块形式存储；CPU RAM维护热缓存并调度预取；GPU VRAM充当用于渲染和反向传播的工作集缓存。(b) 轨迹自适应差分流式传输。连续的块工作集𝒦ₜ与𝒦ₜ₊₁指导重用，同时TideGS选择容量受限的驻留集ℛₜ与ℛₜ₊₁，保留其重叠部分，仅流式传输𝒮ₜ⁺=ℛₜ₊₁∖ℛₜ，并在SSD/PCIe传输与GPU计算重叠期间逐出𝒮ₜ⁻=ℛₜ∖ℛₜ₊₁。①–⑤标示了相应的跨层级数据流步骤。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.20150v1/x3.png",
+        "caption": "Figure 3:Block virtualization and two-stage visibility filtering.We (top-left) Morton-sort Gaussians and partition them into SSD-aligned blocks to preserve spatial locality,\n(top-right) summarize each block with a bounding sphere,\nand (bottom) perform CPU-side 6-plane frustum tests to select visible blocks for H2D staging.\nFine-grained Gaussian-level filtering is then executed on GPU within the retained blocks.",
+        "role": "pipeline_2",
+        "caption_zh": "图 3：块虚拟化与两阶段可见性过滤。（左上）我们对高斯体进行莫顿排序并将其划分为 SSD 对齐的块以保持空间局部性，（右上）使用包围球概括每个块，（底部）在 CPU 端执行 6-平面视锥体测试以选择可见块用于主机到设备（H2D）暂存。随后在 GPU 上对保留块内的体素执行细粒度的高斯体级过滤。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.20150v1/x1.png",
+        "caption": "Figure 1:TideGS enables city-scale 3DGS training on a single GPU by virtualizing the Gaussian parameter table across the SSD–CPU–GPU hierarchy and materializing only the trajectory-activated working set in VRAM.",
+        "role": "pipeline_3",
+        "caption_zh": "图 1：TideGS 通过将高斯参数表在 SSD–CPU–GPU 层次结构中进行虚拟化，并仅在显存中实例化轨迹激活的工作集，从而实现了在单个 GPU 上进行城市级规模的 3D 高斯泼溅训练。"
+      }
+    ],
+    "2605.15458": [
+      {
+        "path": "https://arxiv.org/html/2605.15458v1/x1.png",
+        "caption": "Figure 1:Evolution towards verifiable video reasoning.Top:Comparison between perception-focused generation and reasoning-intensive tasks.Bottom:We introduceVideoRLVR, the missing puzzle in the training paradigm for video reasoning models.",
+        "role": "pipeline_1",
+        "caption_zh": "图 1：迈向可验证的视频推理。上图：感知导向的生成与推理密集型任务之比较。下图：我们引入 VideoRLVR，填补视频推理模型训练范式中缺失的关键环节。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.15458v1/x5.png",
+        "caption": "Figure 5:Qualitative example of reward hacking in the absence of KL-divergence regularization. It preserves the wall constraint, and saturates all paths to connect two endpoints, thereby achieving a maximal reward.",
+        "role": "pipeline_2",
+        "caption_zh": "图 5：未使用 KL 散度正则化时奖励作弊的定性示例。模型保留了墙体约束，并将所有路径饱和以连接两个端点，从而获得最大奖励。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.15458v1/x2.png",
+        "caption": "Figure 2:Success rate of different grid size for maze.nnrepresents the number of samples falling into this range",
+        "role": "pipeline_3",
+        "caption_zh": "图 2：不同网格尺寸下的迷宫求解成功率。nn 表示落入该范围的样本数量"
+      }
+    ],
+    "2605.19995": [
+      {
+        "path": "https://arxiv.org/html/2605.19995v1/x2.png",
+        "caption": "Figure 2:The overall framework of the proposed CogOmniControl. During inference, CogVLM outputs reasoning results based on the given conditions, along with optional evaluator tools. Subsequently, the features from the last layer of CogVLM are concatenated with other latents as the inputs of CogOmniDiT to generate the final result. This process can be repeated multiple times, employing Best-of-N filtering using the evaluator selected by CogVLM. The bottom-left and bottom-right sections illustrate the training processes for CogVLM and CogOmniDiT, respectively.",
+        "role": "pipeline_1",
+        "caption_zh": "图 2：所提出的 CogOmniControl 整体框架。在推理阶段，CogVLM 根据给定条件及可选评估器工具输出推理结果；随后，将 CogVLM 最后一层的特征与其他潜在变量拼接，作为 CogOmniDiT 的输入以生成最终结果。该过程可重复多次，并采用由 CogVLM 选择的评估器进行 N 选最佳过滤。左下与右下部分分别展示了 CogVLM 与 CogOmniDiT 的训练流程。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.19995v1/x3.png",
+        "caption": "Figure 3:The construction pipeline of CogControlBench and CogReasonBench. We include the professional workflows data and general video generation data in the training set and benchmark.",
+        "role": "pipeline_2",
+        "caption_zh": "图 3：CogControlBench 与 CogReasonBench 的构建流程。我们在训练集与基准测试中纳入了专业工作流数据与通用视频生成数据。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.19995v1/x1.png",
+        "caption": "Figure 1:The motivation of our CogOmniControl. The adapter-based methods and video generation models with generic VLM fail to generate the final video from the given condition.",
+        "role": "pipeline_3",
+        "caption_zh": "图 1：我们 CogOmniControl 方法的动机。基于适配器的方法以及使用通用 VLM 的视频生成模型，未能从给定条件生成最终视频。"
+      }
+    ],
+    "2605.20183": [
+      {
+        "path": "https://arxiv.org/html/2605.20183v1/x1.png",
+        "caption": "Figure 1:Overview of MSAVBench.Left: the benchmark spans four data dimensions, namely video, audio, shot, and reference, covering diverse prompts, shot counts, and realistic and non-realistic scenarios. Right: the evaluation suite assesses generated MSAV content at four levels, including global, cross-shot, intra-shot, and reference levels, using a hybrid strategy that combines specialized expert models, rubric-based scoring, and tool-grounded assessment.",
+        "role": "pipeline_1",
+        "caption_zh": "图 1：MSAVBench 概览。左：基准涵盖视频、音频、镜头和参考四个数据维度，覆盖多样化的提示、镜头数量以及真实与非真实场景。右：评估套件采用结合专用专家模型、基于量规的评分和工具化评估的混合策略，在全局、跨镜头、镜头内部和参考四个层面对生成的 MSAV 内容进行评估。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.20183v1/x3.png",
+        "caption": "Figure 3:Overview of the MSAVBench evaluation framework.We first perform agentic pre-processing with iterative shot self-correction to improve boundary quality. Metrics are then evaluated with stratified scoring paradigms, including expert models for well-defined tasks, rubric-based VLM scoring for subjective dimensions, and tool-grounded agentic scoring for complex properties.",
+        "role": "pipeline_2",
+        "caption_zh": "图 3：MSAVBench 评估框架概览。我们首先通过迭代式少样本自校正进行智能体预处理，以提升边界质量。随后通过分层评分范式进行指标评估，包括：针对定义明确任务使用专家模型评分，针对主观维度使用基于量表的视觉语言模型评分，以及针对复杂属性使用基于工具的智能体评分。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.20183v1/x5.png",
+        "caption": "Figure 5:The data construction pipeline of MSAVBench.(1) Domain experts define an eight-category seed taxonomy with fine-grained sub-categories, with diverse types of subject, scene, and visual style.\n(2) GPT-5.4 first samples(t​h​e​m​e,s​u​b​j​e​c​t,s​c​e​n​e,s​t​y​l​e)(theme,subject,scene,style)quadruples and synthesises an initial multi-shot script with structured per-shot metadata; a Prompt-Enhancement (PE) model then rewrites it into the global-to-shot format with explicit cinematic language.\n(3) Six domain experts review every PE-rewritten script, filter out low-quality / hallucinated cases, and refine ambiguous descriptions.\n(4) Reference media are sampled from public benchmarks, automatically tagged by Gemini 3.1 Pro, and finally curated by experts to obtain a clean reference-conditioned subset.",
+        "role": "pipeline_3",
+        "caption_zh": "图5：MSAVBench的数据构建流程。(1)领域专家定义了一个包含细粒度子类的八类别种子分类体系，涵盖多样化的主体、场景与视觉风格类型。(2)GPT-5.4首先采样（主题、主体、场景、风格）四元组，并合成带有结构化分镜头元数据的初始多镜头脚本；随后提示增强模型将其重写为包含明确影视语言的全局到分镜头格式。(3)六位领域专家审核每个经提示增强模型重写的脚本，过滤低质量/幻觉案例，并优化模糊描述。(4)从公共基准中采样参考媒体，通过Gemini 3.1 Pro自动标注，最终经专家筛选获得干净的参考条件子集。"
+      }
+    ],
+    "2605.16003": [
+      {
+        "path": "https://arxiv.org/html/2605.16003v1/x2.png",
+        "caption": "Figure 2:Overview of the proposed Echo-Forcing framework.Our method integrates three scene-memory modules to preserve temporal continuity, recall historical scenes, and suppress conflicting memories during interactive long-video generation.",
+        "role": "pipeline_1",
+        "caption_zh": "图 2：所提出的 Echo-Forcing 框架概览。该方法整合了三个场景记忆模块，以在交互式长视频生成过程中保持时序连续性、回溯历史场景并抑制冲突记忆。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.16003v1/x4.png",
+        "caption": "(a)(b)Figure 4:Visualization of scene recall and memory decay.Echo-Forcing stores compact scene memories for recall and adaptively decays old memories according to old–new scene discrepancies.",
+        "role": "pipeline_2",
+        "caption_zh": "(a)(b)图4：场景回忆与记忆衰减的可视化。Echo-Forcing 存储紧凑的场景记忆以供回忆，并根据新旧场景差异自适应地衰减旧记忆。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.16003v1/x7.png",
+        "caption": "Figure 6:Additional visualization of long-video generation.Echo-Forcing maintains subject identity, background structure, and visual fidelity over extended autoregressive rollouts.",
+        "role": "pipeline_3",
+        "caption_zh": "图6：长视频生成的补充可视化结果。在长时间的自回归推演中，Echo-Forcing 能够保持主体身份、背景结构及视觉保真度。"
+      }
+    ],
+    "2605.20147": [
+      {
+        "path": "https://arxiv.org/html/2605.20147v1/x3.png",
+        "caption": "Figure 3:Overview of ourPixVerve-95Kcuration pipeline that includes:1)High-quality and diverse raw image data acquisition (Sec.˜3.1.1).2)Preliminary data purification comprising five parallel detection procedures (Sec.˜3.1.2).3)100MP data curation via super-resolution (Sec.˜3.1.3).4)Final data filtering to ensure the quality of our synthetic data (Sec.˜3.1.4).5)Stage-wise data caption pipeline carefully designed for UHR images (Sec.˜3.1.5).",
+        "role": "pipeline_1",
+        "caption_zh": "图3：PixVerve-95K数据构建流程总览，主要包括：1) 高质量多样化原始图像数据采集（第3.1.1节）；2) 包含五个并行检测步骤的初步数据净化（第3.1.2节）；3) 通过超分辨率技术实现的100MP数据构建（第3.1.3节）；4) 确保合成数据质量的最终数据过滤（第3.1.4节）；5) 为超高分辨率图像专门设计的阶段性描述生成流程（第3.1.5节）。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.20147v1/x4.png",
+        "caption": "Figure 4:Representative discarded and qualified examples for each dimension.Green scoresrepresent disqualification, whilered scoresrepresent passing the detection.",
+        "role": "pipeline_2",
+        "caption_zh": "图4：各维度代表性不合格与合格示例。绿色分数表示未通过检测，红色分数表示通过检测。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.20147v1/x1.png",
+        "caption": "Figure 1:PixVerve-95Kis a large-scale, high-quality dataset for Ultra-High-Resolution (UHR) image generation, first advancing Text-to-Image (T2I) generation to the 100MP scale. Featuring high visual fidelity (right) and comprehensive annotations (bottom), it can meet the growing demand for next-generation T2I applications.PixVerve-Benchis a comprehensive benchmark suite comprising 8 metrics for the systematic evaluation of UHR T2I methods (top-right).",
+        "role": "pipeline_3",
+        "caption_zh": "图1：PixVerve-95K 是一个用于超高分辨率图像生成的大规模高质量数据集，首次将文本到图像生成推进至亿像素级别。其具备高视觉保真度（右侧）与全面标注（底部），能满足下一代文本到图像应用日益增长的需求。PixVerve-Bench 是一个综合性基准测试套件，包含8项指标，用于系统性评估超高分辨率文本到图像方法（右上）。"
+      }
+    ],
+    "2605.18101": [
+      {
+        "path": "https://arxiv.org/html/2605.18101v1/x1.png",
+        "caption": "Figure 1.Proposed GenAI framework for generating satellite image, building height and building energy consumption together.",
+        "role": "pipeline_1",
+        "caption_zh": "图 1. 所提出的用于同步生成卫星图像、建筑高度与建筑能耗的生成式人工智能框架。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.18101v1/figure/fig3.png",
+        "caption": "Figure 3.Qualitative visualization of generated results across diverse cities.(a) The generated building energy consumption maps and generated satellite imagery. (b) The generated satellite imagery, building height and energy consumption maps conditioning on road networks and prompts.",
+        "role": "pipeline_2",
+        "caption_zh": "图 3. 不同城市生成结果的定性可视化。(a) 生成的建筑能耗地图与生成的卫星影像。(b) 以道路网络和提示词为条件生成的卫星影像、建筑高度及能耗地图。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.18101v1/x4.png",
+        "caption": "Figure 6.Data filtering. We filtered out samples that clearly lacked building energy labels.",
+        "role": "pipeline_3",
+        "caption_zh": "图6. 数据筛选。我们过滤掉了明显缺乏建筑能耗标签的样本。"
+      }
+    ],
+    "2605.18263": [
+      {
+        "path": "https://arxiv.org/html/2605.18263v1/x2.png",
+        "caption": "Figure 2:Overview of RT-Splatting.(Left) Transparent objects are represented by Gaussians with high geometric occupancy but low optical opacity, yielding strong contributions to surface aggregation while avoiding occlusion during volumetric compositing. (Right) Our hybrid rendering pipeline composites surface-based reflections from a deferred pass with volumetric transmission from a forward pass to produce the final color, and suppresses image-loss gradients flowing into the transmission branch according to the specular complexity of the corresponding pixels.",
+        "role": "pipeline_1",
+        "caption_zh": "图 2：RT-Splatting 方法概览。（左）透明物体通过具有高几何占据度但低光学不透明度的高斯分布来表示，从而在表面聚合中产生显著贡献，同时在体素合成过程中避免遮挡。（右）我们的混合渲染管线将来自延迟渲染通道的基于表面的反射与来自前向渲染通道的体透射进行合成，以生成最终颜色，并根据对应像素的镜面反射复杂度抑制流入透射分支的图像损失梯度。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.18263v1/x6.png",
+        "caption": "Figure 6:Visual decomposition on real-world scenes.We visualize the decomposed components of our method compared to baselines. For our method,Normalcaptures the surface geometry, whileDepthcorresponds to the volumetric accumulation. Since baseline methods do not explicitly model semi-transparent transmission, we visualize their diffuse component in theTransmissionrow. Our method achieves high-fidelity separation of theReflectionandTransmissionlayers.",
+        "role": "pipeline_2",
+        "caption_zh": "图6：真实场景的可视化解构。我们对比基线方法，可视化所提方法分解出的各组分。本方法中，Normal 捕捉表面几何结构，Depth 对应体积累积。由于基线方法未显式建模半透明透射层，我们在 Transmission 行中展示其漫反射分量。本方法实现了 Reflection 层与 Transmission 层的高保真分离。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.18263v1/x5.png",
+        "caption": "Figure 5:Decomposed transmission components across ablation settings.",
+        "role": "pipeline_3",
+        "caption_zh": "图5：不同消融设定下的分解透射分量。"
+      }
+    ]
+  }
+}
