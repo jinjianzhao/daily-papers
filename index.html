@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Paper Daily</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .hero-card {
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hero-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 30px -5px rgb(0 0 0 / 0.08);
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50/30 to-slate-100">
+
+    <div class="min-h-screen flex flex-col items-center justify-center px-4">
+        <!-- Logo & Title -->
+        <div class="text-center mb-12">
+            <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-lg shadow-indigo-500/30">
+                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                </svg>
+            </div>
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-3">AI Paper Daily</h1>
+            <p class="text-lg text-slate-500 max-w-md mx-auto">每日精选 AI 论文速递，聚焦 3D 视觉、视频生成、图像生成</p>
+        </div>
+
+        <!-- Entry Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl w-full mb-12">
+            <a href="./date/" class="hero-card block bg-white rounded-2xl border border-slate-200/70 px-6 py-6 hover:border-indigo-300">
+                <div class="flex items-center gap-4">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-sm">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-bold text-slate-900 text-lg">每日论文</p>
+                        <p class="text-sm text-slate-500">按日期浏览论文列表与分析</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://huggingface.co/papers/" target="_blank" rel="noopener noreferrer" class="hero-card block bg-white rounded-2xl border border-slate-200/70 px-6 py-6 hover:border-yellow-300">
+                <div class="flex items-center gap-4">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center shadow-sm">
+                        <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-bold text-slate-900 text-lg">HuggingFace Papers</p>
+                        <p class="text-sm text-slate-500">官方每日论文精选</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Latest date quick link -->
+        <div id="latest" class="text-center text-sm text-slate-400"></div>
+    </div>
+
+    <script>
+        fetch('./date/config.json', { cache: 'no-store' })
+            .then(r => r.json())
+            .then(data => {
+                if (data.dates && data.dates.length > 0) {
+                    const latest = data.dates.sort((a, b) => b.localeCompare(a))[0];
+                    const count = (data.paper_counts && data.paper_counts[latest]) || '';
+                    document.getElementById('latest').innerHTML =
+                        '<a href="./date/' + latest + '/" class="text-indigo-500 hover:text-indigo-700 font-medium">' +
+                        '最新: ' + latest + (count ? ' (' + count + ' 篇)' : '') + ' &rarr;</a>';
+                }
+            })
+            .catch(() => {});
+    </script>
+</body>
+</html>

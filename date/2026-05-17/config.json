@@ -1,0 +1,859 @@
+{
+  "base_info": {
+    "2605.14876": {
+      "title": "Unlocking Complex Visual Generation via Closed-Loop Verified Reasoning",
+      "abstract": "Despite rapid advancements, current text-to-image (T2I) models predominantly rely on a single-step generation paradigm, which struggles with complex semantics and faces diminishing returns from parameter scaling.While recent multi-step reasoning approaches show promise, they are hindered by ungrounded planning hallucinations lacking verification, monolithic post-hoc reflection, long-context optimization instabilities, and prohibitive inference latency. To overcome these bottlenecks, we propose the Closed-Loop Visual Reasoning (CLVR) framework, a comprehensive system that deeply couples visual-language logical planning with pixel-level diffusion generation. CLVR introduces an automated data engine with step-level visual verification to synthesize reliable reasoning trajectories, and proposes Proxy Prompt Reinforcement Learning (PPRL) to resolve long-context optimization instabilities by distilling interleaved multimodal histories into explicit reward signals for accurate causal attribution. Furthermore, to mitigate the severe latency bottleneck caused by iterative denoising, we propose $\\Delta$-Space Weight Merge (DSWM), a theoretically grounded method that fuses alignment weights with off-the-shelf distillation priors, reducing the per-step inference cost to just 4 NFEs without requiring expensive re-distillation. Extensive experiments demonstrate that CLVR outperforms existing open-source baselines across multiple benchmarks and approaches the performance of proprietary commercial models, unlocking general test-time scaling capabilities for complex visual generation.",
+      "hf_link": "https://huggingface.co/papers/2605.14876"
+    },
+    "2605.14269": {
+      "title": "PhyMotion: Structured 3D Motion Reward for Physics-Grounded Human Video Generation",
+      "abstract": "Generating realistic human motion is a central yet unsolved challenge in video generation. While reinforcement learning (RL)-based post-training has driven recent gains in general video quality, extending it to human motion remains bottlenecked by a reward signal that cannot reliably score motion realism. Existing video rewards primarily rely on 2D perceptual signals, without explicitly modeling the 3D body state, contact, and dynamics underlying articulated human motion, and often assign high scores to videos with floating bodies or physically implausible movements. To address this, we propose PhyMotion, a structured, fine-grained motion reward that grounds recovered 3D human trajectories in a physics simulator and evaluates motion quality along multiple dimensions of physical feasibility. Concretely, we recover SMPL body meshes from generated videos, retarget them onto a humanoid in the MuJoCo physics simulator, and evaluate the resulting motion along three axes: kinematic plausibility, contact and balance consistency, and dynamic feasibility. Each component provides a continuous and interpretable signal tied to a specific aspect of motion quality, allowing the reward to capture which aspects of motion are physically correct or violated. Experiments show that PhyMotion achieves stronger correlation with human judgments than existing reward formulations. These gains carry over to RL-based post-training, where optimizing PhyMotion leads to larger and more consistent improvements than optimizing existing rewards, improving motion realism across both autoregressive and bidirectional video generators under both automatic metrics and blind human evaluation (+68 Elo gain). Ablations show that the three axes provide complementary supervision signals, while the reward preserves overall video generation quality with only modest training overhead.",
+      "hf_link": "https://huggingface.co/papers/2605.14269"
+    },
+    "2605.15193": {
+      "title": "Aligning Latent Geometry for Spherical Flow Matching in Image Generation",
+      "abstract": "Latent flow matching for image generation usually transports Gaussian noise to variational autoencoder latents along linear paths. Both endpoints, however, concentrate in thin spherical shells, and a Euclidean chord leaves those shells even when preprocessing aligns their radii. By decomposing each latent token into radial and angular components, we show through component-swap probes that decoded perceptual and semantic content is carried predominantly by direction, with radius contributing much less. We therefore project data latents onto a fixed token radius, use the radial projection of Gaussian noise as the spherical prior, finetune the decoder with the encoder frozen, and replace linear interpolation with spherical linear interpolation. The resulting geodesic paths stay on the sphere at every timestep, and their velocity targets are purely angular by construction. Under matched training, the method consistently improves class-conditional ImageNet-256 FID across different image tokenizers, leaves the diffusion architecture unchanged, and requires no auxiliary encoder or representation-alignment objective.",
+      "hf_link": "https://huggingface.co/papers/2605.15193"
+    },
+    "2605.09681": {
+      "title": "Forcing-KV: Hybrid KV Cache Compression for Efficient Autoregressive Video Diffusion Models",
+      "abstract": "Autoregressive (AR) video diffusion models adopt a streaming generation framework, enabling long-horizon video generation with real-time responsiveness, as exemplified by the Self Forcing training paradigm. However, existing AR video diffusion models still suffer from significant attention complexity and severe memory overhead due to the redundant key-value (KV) caches across historical frames, which limits scalability. In this paper, we tackle this challenge by introducing KV cache compression into autoregressive video diffusion. We observe that attention heads in mainstream AR diffusion models exhibit markedly distinct attention patterns and functional roles that remain stable across samples and denoising steps. Building on our empirical study of head-wise functional specialization, we divide the attention heads into two categories: static heads, which focus on transitions across autoregressive chunks and intra-frame fidelity, and dynamic heads, which govern inter-frame motion and consistency. We then propose Forcing-KV, a hybrid KV cache compression strategy that performs structured static pruning for static heads and dynamic pruning based on segment-wise similarity for dynamic heads. While maintaining output quality, our method achieves a generation speed of over 29 frames per second on a single NVIDIA H200 GPU along with 30% cache memory reduction, delivering up to 1.35x and 1.50x speedups on LongLive and Self Forcing at 480P resolution, and further scaling to 2.82x speedup at 1080P resolution. Code and demo videos are provided atthis https URL.",
+      "hf_link": "https://huggingface.co/papers/2605.09681"
+    },
+    "2605.13027": {
+      "title": "PRISM: Prior Rectification and Uncertainty-Aware Structure Modeling for Diffusion-Based Text Image Super-Resolution",
+      "abstract": "Text image super-resolution (Text-SR) requires more than visually plausible detail synthesis: slight errors in stroke topology may alter character identity and break readability. Existing methods improve text fidelity with stronger recognition-based or generative priors, yet they still face two unresolved challenges under severe degradation: the text condition extracted from low-quality inputs can itself be unreliable, and a plausible global prior does not fully determine fine-grained stroke boundaries. We present PRISM, a single-step diffusion-based Text-SR framework that addresses these two challenges through Flow-Matching Prior Rectification (FMPR) and a Structure-guided Uncertainty-aware Residual Encoder (SURE). FMPR constructs a privileged training-time prior from paired low-quality/high-quality latents and learns a flow matching that transports degraded embeddings toward this restoration-oriented prior space, yielding more accurate and reliable global text guidance. SURE further predicts uncertainty-aware structural residuals to selectively absorb reliable local boundary evidence while suppressing ambiguous stroke cues. Together, these components enable explicit global prior rectification and local structure refinement within a single diffusion restoration pass. Experiments on both synthetic and real-world benchmarks show that PRISM achieves state-of-the-art performance with millisecond-level inference. Our dataset and code will be available atthis https URL.",
+      "hf_link": "https://huggingface.co/papers/2605.13027"
+    },
+    "2605.15186": {
+      "title": "VGGT-Edit: Feed-forward Native 3D Scene Editing with Residual Field Prediction",
+      "abstract": "High-quality 3D scene reconstruction has recently advanced toward generalizable feed-forward architectures, enabling the generation of complex environments in a single forward pass. However, despite their strong performance in static scene perception, these models remain limited in responding to dynamic human instructions, which restricts their use in interactive applications. Existing editing methods typically rely on a 2D-lifting strategy, where individual views are edited independently and then lifted back into 3D space. This indirect pipeline often leads to blurry textures and inconsistent geometry, as 2D editors lack the spatial awareness required to preserve structure across viewpoints. To address these limitations, we propose VGGT-Edit, a feed-forward framework for text-conditioned native 3D scene editing. VGGT-Edit introduces depth-synchronized text injection to align semantic guidance with the backbone's spatial poses, ensuring stable instruction grounding. This semantic signal is then processed by a residual transformation head, which directly predicts 3D geometric displacements to deform the scene while preserving background stability. To ensure high-fidelity results, we supervise the framework with a multi-term objective function that enforces geometric accuracy and cross-view consistency. We also construct the DeltaScene Dataset, a large-scale dataset generated through an automated pipeline with 3D agreement filtering to ensure ground-truth quality. Experiments show that VGGT-Edit substantially outperforms 2D-lifting baselines, producing sharper object details, stronger multi-view consistency, and near-instant inference speed.",
+      "hf_link": "https://huggingface.co/papers/2605.15186"
+    },
+    "2605.15167": {
+      "title": "Does Synthetic Layered Design Data Benefit Layered Design Decomposition?",
+      "abstract": "Recent advances in image generation have made it easy to produce high-quality images. However, these outputs are inherently flattened, entangling foreground elements, background, and text within a fixed canvas. As a result, flexible post-generation editing remains challenging, revealing a clear last-mile gap toward practical usability. Existing approaches either rely on scarce proprietary layered assets or construct partially synthetic data from limited structural priors. However, both strategies face fundamental challenges in scalability. In this work, we investigate whether pure synthetic layered data can improve graphic design decomposition. We make the assumption that, in graphic design, effective decomposition does not require modeling inter-layer dependencies as precisely as in natural-image composition, since design elements are often intentionally arranged as modular and semantically separable components. Concretely, we conduct a data-centric study based on CLD baseline, which is a state-of-the-art layer decomposition framework. Based on the baseline, we construct our own synthetic dataset, SynLayers, generate textual supervision using vision language models, and automate inference inputs with VLM-predicted bounding boxes. Our study reveals three key findings: (1) even training with purely synthetic data can outperform non-scalable alternatives such as the widely used PrismLayersPro dataset, demonstrating its viability as a scalable and effective substitute; (2) performance consistently improves with increased training data scale, while gains begin to saturate at around 50K samples; and (3) synthetic data enables balanced control over layer-count distributions, avoiding the layer-count imbalance commonly observed in real-world datasets. We hope this data-centric study encourages broader adoption of synthetic data as a practical foundation for layered design editing systems.",
+      "hf_link": "https://huggingface.co/papers/2605.15167"
+    },
+    "2605.14984": {
+      "title": "Sat3DGen: Comprehensive Street-Level 3D Scene Generation from Single Satellite Image",
+      "abstract": "Generating a street-level 3D scene from a single satellite image is a crucial yet challenging task. Current methods present a stark trade-off: geometry-colorization models achieve high geometric fidelity but are typically building-focused and lack semantic diversity. In contrast, proxy-based models use feed-forward image-to-3D frameworks to generate holistic scenes by jointly learning geometry and texture, a process that yields rich content but coarse and unstable geometry. We attribute these geometric failures to the extreme viewpoint gap and sparse, inconsistent supervision inherent in satellite-to-street data. We introduce Sat3DGen to address these fundamental challenges, which embodies a geometry-first methodology. This methodology enhances the feed-forward paradigm by integrating novel geometric constraints with a perspective-view training strategy, explicitly countering the primary sources of geometric error. This geometry-centric strategy yields a dramatic leap in both 3D accuracy and photorealism. For validation, we first constructed a new benchmark by pairing the VIGOR-OOD test set with high-resolution DSM data. On this benchmark, our method improves geometric RMSE from 6.76m to 5.20m. Crucially, this geometric leap also boosts photorealism, reducing the Fréchet Inception Distance (FID) from $\\sim$40 to 19 against the leading method, Sat2Density++, despite using no extra tailored image-quality modules. We demonstrate the versatility of our high-quality 3D assets through diverse downstream applications, including semantic-map-to-3D synthesis, multi-camera video generation, large-scale meshing, and unsupervised single-image Digital Surface Model (DSM) estimation. The code has been released onthis https URL.",
+      "hf_link": "https://huggingface.co/papers/2605.14984"
+    },
+    "2605.15178": {
+      "title": "SANA-WM: Efficient Minute-Scale World Modeling with Hybrid Linear Diffusion Transformer",
+      "abstract": "We introduce SANA-WM, an efficient 2.6B-parameter open-source world model natively trained for one-minute generation, synthesizing high-fidelity, 720p, minute-scale videos with precise camera control. SANA-WM achieves visual quality comparable to large-scale industrial baselines such as LingBot-World and HY-WorldPlay, while significantly improving efficiency. Four core designs drive our architecture: (1) Hybrid Linear Attention combines frame-wise Gated DeltaNet (GDN) with softmax attention for memory-efficient long-context modeling. (2) Dual-Branch Camera Control ensures precise 6-DoF trajectory adherence. (3) Two-Stage Generation Pipeline applies a long-video refiner to stage-1 outputs, improving quality and consistency across sequences. (4) Robust Annotation Pipeline extracts accurate metric-scale 6-DoF camera poses from public videos to yield high-quality, spatiotemporally consistent action labels. Driven by these designs, SANA-WMdemonstrates remarkable efficiency across data, training compute, and inference hardware: it uses only $\\sim$213K public video clips with metric-scale pose supervision, completes training in 15 days on 64 H100s, and generates each 60s clip on a single GPU; its distilled variant can be deployed on a single RTX 5090 with NVFP4 quantization to denoise a 60s 720p clip in 34s. On our one-minute world-model benchmark, SANA-WM demonstrates stronger action-following accuracy than prior open-source baselines and achieves comparable visual quality at $36\\times$ higher throughput for scalable world modeling.",
+      "hf_link": "https://huggingface.co/papers/2605.15178"
+    },
+    "2605.15182": {
+      "title": "Warp-as-History: Generalizable Camera-Controlled Video Generation from One Training Video",
+      "abstract": "Camera-controlled video generation has made substantial progress, enabling generated videos to follow prescribed viewpoint trajectories. However, existing methods usually learn camera-specific conditioning through camera encoders, control branches, or attention and positional-encoding modifications, which often require post-training on large-scale camera-annotated videos. Training-free alternatives avoid such post-training, but often shift the cost to test-time optimization or extra denoising-time guidance. We propose Warp-as-History, a simple interface that turns camera-induced warps into camera-warped pseudo-history with target-frame positional alignment and visible-token selection. Given a target camera trajectory, we construct camera-warped pseudo-history from past observations and feed it through the model's visual-history pathway. Crucially, we align its positional encoding with the target frames being denoised and remove warped-history tokens without valid source observations. Without any training, architectural modification, or test-time optimization, this interface reveals a non-trivial zero-shot capability of a frozen video generation model to follow camera trajectories. Moreover, lightweight offline LoRA finetuning on only one camera-annotated video further improves this capability and generalizes to unseen videos, improving camera adherence, visual quality, and motion dynamics without test-time optimization or target-video adaptation. Extensive experiments on diverse datasets confirm the effectiveness of our method.",
+      "hf_link": "https://huggingface.co/papers/2605.15182"
+    },
+    "2605.15185": {
+      "title": "Quantitative Video World Model Evaluation for Geometric-Consistency",
+      "abstract": "Generative video models are increasingly studied as implicit world models, yet evaluating whether they produce physically plausible 3D structure and motion remains challenging. Most existing video evaluation pipelines rely heavily on human judgment or learned graders, which can be subjective and weakly diagnostic for geometric failures. We introduce PDI-Bench (Perspective Distortion Index), a quantitative framework for auditing geometric coherence in generated videos. Given a generated clip, we obtain object-centric observations via segmentation and point tracking (e.g., SAM 2, MegaSaM, and CoTracker3), lift them to 3D world-space coordinates via monocular reconstruction, and compute a set of projective-geometry residuals capturing three failure dimensions: scale-depth alignment, 3D motion consistency, and 3D structural rigidity. To support systematic evaluation, we build PDI-Dataset, covering diverse scenarios designed to stress these geometric constraints. Across state-of-the-art video generators, PDI reveals consistent geometry-specific failure modes that are not captured by common perceptual metrics, and provides a diagnostic signal for progress toward physically grounded video generation and physical world model. Our code and dataset can be found atthis https URL.",
+      "hf_link": "https://huggingface.co/papers/2605.15185"
+    },
+    "2605.15141": {
+      "title": "Causal Forcing++: Scalable Few-Step Autoregressive Diffusion Distillation for Real-Time Interactive Video Generation",
+      "abstract": "Real-time interactive video generation requires low-latency, streaming, and controllable rollout. Existing autoregressive (AR) diffusion distillation methods have achieved strong results in the chunk-wise 4-step regime by distilling bidirectional base models into few-step AR students, but they remain limited by coarse response granularity and non-negligible sampling latency. In this paper, we study a more aggressive setting: frame-wise autoregression with only 1--2 sampling steps. In this regime, we identify the initialization of a few-step AR student as the key bottleneck: existing strategies are either target-misaligned, incapable of few-step generation, or too costly to scale. We propose \\textbf{Causal Forcing++}, a principled and scalable pipeline that uses \\emph{causal consistency distillation} (causal CD) for few-step AR initialization. The core idea is that causal CD learns the same AR-conditional flow map as causal ODE distillation, but obtains supervision from a single online teacher ODE step between adjacent timesteps, avoiding the need to precompute and store full PF-ODE trajectories. This makes the initialization both more efficient and easier to optimize. The resulting pipeline, \\ours, surpasses the SOTA 4-step chunk-wise Causal Forcing under the \\textit{\\textbf{frame-wise 2-step setting}} by 0.1 in VBench Total, 0.3 in VBench Quality, and 0.335 in VisionReward, while reducing first-frame latency by 50\\% and Stage 2 training cost by $\\sim$$4\\times$. We further extend the pipeline to action-conditioned world model generation in the spirit of Genie3. Project Page:this https URLandthis https URL.",
+      "hf_link": "https://huggingface.co/papers/2605.15141"
+    },
+    "2605.13852": {
+      "title": "Realiz3D: 3D Generation Made Photorealistic via Domain-Aware Learning",
+      "abstract": "We often aim to generate images that are both photorealistic and 3D-consistent, adhering to precise geometry, material, and viewpoint controls. Typically, this is achieved by fine-tuning an image generator, pre-trained on billions of real images, using renders of synthetic 3D assets, where annotations for control signals are available. While this approach can learn the desired controls, it often compromises the realism of the images due to domain gap between photographs and renders. We observe that this issue largely arises from the model learning an unintended association between the presence of control signals and the synthetic appearance of the images. To address this, we introduce Realiz3D, a lightweight framework for training diffusion models, that decouples controls and visual domain. The key idea is to explicitly learn visual domain, real or synthetic, separately from other control signals by introducing a co-variate that, fed into small residual adapters, shifts the domain. Then, the generator can be trained to gain controllability, without fitting to specific visual domain. In this way, the model can be guided to produce realistic images even when controls are applied. We enhance control transferability to the real domain by leveraging insights about roles of different layers and denoising steps in diffusion-based generators, informing new training and inference strategies that further mitigate the gap. We demonstrate the advantages of Realiz3D in tasks as text-to-multiview generation and texturing from 3D inputs, producing outputs that are 3D-consistent and photorealistic.",
+      "hf_link": "https://huggingface.co/papers/2605.13852"
+    },
+    "2605.15055": {
+      "title": "DiffusionOPD: A Unified Perspective of On-Policy Distillation in Diffusion Models",
+      "abstract": "Reinforcement learning has emerged as a powerful tool for improving diffusion-based text-to-image models, but existing methods are largely limited to single-task optimization. Extending RL to multiple tasks is challenging: joint optimization suffers from cross-task interference and imbalance, while cascade RL is cumbersome and prone to catastrophic forgetting. We propose DiffusionOPD, a new multi-task training paradigm for diffusion models based on Online Policy Distillation (OPD). DiffusionOPD first trains task-specific teachers independently, then distills their capabilities into a unified student along the student own rollout trajectories. This decouples single-task exploration from multi-task integration and avoids the optimization burden of solving all tasks jointly from scratch. Theoretically, we lift the OPD framework from discrete tokens to continuous-state Markov processes, deriving a closed-form per-step KL objective that unifies both stochastic SDE and deterministic ODE refinement via mean-matching. We formally and empirically demonstrate that this analytic gradient provides lower variance and better generality compared to conventional PPO-style policy gradients. Extensive experiments show that DiffusionOPD consistently surpasses both multi-reward RL and cascade RL baselines in training efficiency and final performance, while achieving state-of-the-art results on all evaluated benchmarks.",
+      "hf_link": "https://huggingface.co/papers/2605.15055"
+    },
+    "2605.15190": {
+      "title": "RAVEN: Real-time Autoregressive Video Extrapolation with Consistency-model GRPO",
+      "abstract": "Causal autoregressive video diffusion models support real-time streaming generation by extrapolating future chunks from previously generated content. Distilling such generators from high-fidelity bidirectional teachers yields competitive few-step models, yet a persistent gap between the history distributions encountered during training and those arising at inference constrains generation quality over long horizons. We introduce the Real-time Autoregressive Video Extrapolation Network (RAVEN), a training-time test framework that repacks each self rollout into an interleaved sequence of clean historical endpoints and noisy denoising states. This formulation aligns training attention with inference-time extrapolation and allows downstream chunk losses to supervise the history representations on which future predictions depend. We further propose Consistency-model Group Relative Policy Optimization (CM-GRPO), which reformulates a consistency sampling step as a conditional Gaussian transition and applies online Reinforcement Learning (RL) directly to this kernel, avoiding the Euler-Maruyama auxiliary process adopted in prior flow-model RL formulations. Experiments demonstrate that RAVEN surpasses recent causal video distillation baselines across quality, semantic, and dynamic degree evaluations, and that CM-GRPO provides further gains when combined with RAVEN.",
+      "hf_link": "https://huggingface.co/papers/2605.15190"
+    },
+    "2605.13301": {
+      "title": "Achieving Gold-Medal-Level Olympiad Reasoning via Simple and Unified Scaling",
+      "abstract": "Recent progress in reasoning models has substantially advanced long-horizon mathematical and scientific problem solving, with several systems now reaching gold-medal-level performance on International Mathematical Olympiad (IMO) and International Physics Olympiad (IPhO) problems. In this paper, we introduce a simple and unified recipe for converting a post-trained reasoning backbone into a rigorous olympiad-level solver. The recipe first uses a reverse-perplexity curriculum for SFT to instill rigorous proof-search and self-checking behaviors, then scales these behaviors through a two-stage RL pipeline that progresses from RL with verifiable rewards to more delicate proof-level RL, and finally boosts solving performance with test-time scaling. Applying this recipe, we train a 30B-A3B backbone with SFT on around 340K sub-8K-token trajectories followed by 200 RL steps. The resulting model, SU-01, supports stable reasoning on difficult problems with trajectories exceeding 100K tokens, while achieving gold-medal-level performance on mathematical and physical olympiad competitions, including IMO 2025/USAMO 2026 and IPhO 2024/2025. It also demonstrates strong generalization of scientific reasoning to domains beyond mathematics and physics.",
+      "hf_link": "https://huggingface.co/papers/2605.13301"
+    },
+    "2605.15155": {
+      "title": "Self-Distilled Agentic Reinforcement Learning",
+      "abstract": "Reinforcement learning (RL) has emerged as a central paradigm for post-training LLM agents, yet its trajectory-level reward signal provides only coarse supervision for long-horizon interaction. On-Policy Self-Distillation (OPSD) complements RL by introducing dense token-level guidance from a teacher branch augmented with privileged context. However, transferring OPSD to multi-turn agents proves problematic: compounding multi-turn instability destabilizes supervision, while skill-conditioned privileged guidance requires asymmetric treatment for negative teacher rejections may arise from imperfect skills retrieval or utilization. We introduce SDAR (Self-Distilled Agentic Reinforcement Learning), which treats OPSD as a gated auxiliary objective while keeping RL as the primary optimization backbone. SDAR maps detached token-level signals into a sigmoid gate, strengthening distillation on teacher-endorsed positive-gap tokens and softly attenuating negative teacher rejections. Across the Qwen2.5 and Qwen3 families on ALFWorld, WebShop, and Search-QA, SDAR substantially improves over GRPO (+9.4% on ALFWorld, +7.0% on Search-QA, +10.2% on WebShop-Acc), avoids the instability of naive GRPO+OPSD, and consistently outperforms hybrid RL--OPSD baselines across model scales.",
+      "hf_link": "https://huggingface.co/papers/2605.15155"
+    },
+    "2605.14906": {
+      "title": "MemLens: Benchmarking Multimodal Long-Term Memory in Large Vision-Language Models",
+      "abstract": "Memory is essential for large vision-language models (LVLMs) to handle long, multimodal interactions, with two method directions providing this capability: long-context LVLMs and memory-augmented agents. However, no existing benchmark conducts a systematic comparison of the two on questions that genuinely require multimodal evidence. To close this gap, we introduce MEMLENS, a comprehensive benchmark for memory in multimodal multi-session conversations, comprising 789 questions across five memory abilities (information extraction, multi-session reasoning, temporal reasoning, knowledge update, and answer refusal) at four standard context lengths (32K-256K tokens) under a cross-modal token-counting scheme. An image-ablation study confirms that solving MEMLENS requires visual evidence: removing evidence images drops two frontier LVLMs below 2% accuracy on the 80.4% of questions whose evidence includes images. Evaluating 27 LVLMs and 7 memory-augmented agents, we find that long-context LVLMs achieve high short-context accuracy through direct visual grounding but degrade as conversations grow, whereas memory agents are length-stable but lose visual fidelity under storage-time compression. Multi-session reasoning caps most systems below 30%, and neither approach alone solves the task. These results motivate hybrid architectures that combine long-context attention with structured multimodal retrieval. Our code is available atthis https URL.",
+      "hf_link": "https://huggingface.co/papers/2605.14906"
+    },
+    "2605.15128": {
+      "title": "MemEye: A Visual-Centric Evaluation Framework for Multimodal Agent Memory",
+      "abstract": "Long-term agent memory is increasingly multimodal, yet existing evaluations rarely test whether agents preserve the visual evidence needed for later reasoning. In prior work, many visually grounded questions can be answered using only captions or textual traces, allowing answers to be inferred without preserving the fine-grained visual evidence. Meanwhile, harder cases that require reasoning over changing visual states are largely absent. Therefore, we introduce MemEye, a framework that evaluates memory capabilities from two dimensions: one measures the granularity of decisive visual evidence (from scene-level to pixel-level evidence), and the other measures how retrieved evidence must be used (from single evidence to evolutionary synthesis). Under this framework, we construct a new benchmark across 8 life-scenario tasks, with ablation-driven validation gates for assessing answerability, shortcut resistance, visual necessity, and reasoning structure. By evaluating 13 memory methods across 4 VLM backbones, we show that current architectures still struggle to preserve fine-grained visual details and reason about state changes over time. Our findings show that long-term multimodal memory depends on evidence routing, temporal tracking, and detail extraction.",
+      "hf_link": "https://huggingface.co/papers/2605.15128"
+    },
+    "2605.14386": {
+      "title": "Darwin Family: MRI-Trust-Weighted Evolutionary Merging for Training-Free Scaling of Language-Model Reasoning",
+      "abstract": "We present Darwin Family, a framework for training-free evolutionary merging of large language models via gradient-free weight-space recombination. We ask whether frontier-level reasoning performance can be improved without additional training, by reorganizing latent capabilities already encoded in existing checkpoints. Darwin introduces three key ideas: (i) a 14-dimensional adaptive merge genome enabling fine-grained component- and block-level recombination; (ii) MRI-Trust Fusion, which adaptively balances diagnostic layer-importance signals with evolutionary search through a learnable trust parameter; and (iii) an Architecture Mapper that enables cross-architecture breeding between heterogeneous model families. Empirically, the flagship Darwin-27B-Opus achieves 86.9% on GPQA Diamond, ranking #6 among 1,252 evaluated models, and outperforming its fully trained foundation model without any gradient-based training. Across scales from 4B to 35B parameters, Darwin models consistently improve over their parents, support recursive multi-generation evolution, and enable a training-free evolutionary merge that combines Transformer- and Mamba-based components. Together, the Darwin Family demonstrates that diagnostic-guided evolutionary merging is a practical and reproducible alternative to costly post-training pipelines for reasoning-centric language models.",
+      "hf_link": "https://huggingface.co/papers/2605.14386"
+    },
+    "2605.14892": {
+      "title": "Beyond Individual Intelligence: Surveying Collaboration, Failure Attribution, and Self-Evolution in LLM-based Multi-Agent Systems",
+      "abstract": "LLM-based autonomous agents have demonstrated strong capabilities in reasoning, planning, and tool use, yet remain limited when tasks require sustained coordination across roles, tools, and environments. Multi-agent systems address this through structured collaboration among specialized agents, but tighter coordination also amplifies a less explored risk: errors can propagate across agents and interaction rounds, producing failures that are difficult to diagnose and rarely translate into structural self-improvement. Existing surveys cover individual agent capabilities, multi-agent collaboration, or agent self-evolution separately, leaving the causal dependencies among them unexamined. This survey provides a unified review organized around four causally linked stages, which we term the LIFE progression: Lay the capability foundation, Integrate agents through collaboration, Find faults through attribution, and Evolve through autonomous self-improvement. For each stage, we provide systematic taxonomies and formally characterize the dependencies between adjacent stages, revealing how each stage both depends on and constrains the next. Beyond synthesizing existing work, we identify open challenges at stage boundaries and propose a cross-stage research agenda for closed-loop multi-agent systems capable of continuously diagnosing failures, reorganizing structures, and refining agent behaviors, extending current coordination frameworks toward more self-organizing forms of collective intelligence. By bridging these previously fragmented research threads, this survey aims to offer both a systematic reference and a conceptual roadmap toward autonomous, self-improving multi-agent intelligence.",
+      "hf_link": "https://huggingface.co/papers/2605.14892"
+    },
+    "2605.10912": {
+      "title": "WildClawBench: A Benchmark for Real-World, Long-Horizon Agent Evaluation",
+      "abstract": "Large language and vision-language models increasingly power agents that act on a user's behalf through command-line interface (CLI) harnesses. However, most agent benchmarks still rely on synthetic sandboxes, short-horizon tasks, mock-service APIs, and final-answer checks, leaving open whether agents can complete realistic long-horizon work in the runtimes where they are deployed. This work presents WildClawBench, a native-runtime benchmark of 60 human-authored, bilingual, multimodal tasks spanning six thematic categories. Each task averages roughly 8 minutes of wall-clock time and over 20 tool calls, and runs inside a reproducible Docker container hosting an actual CLI agent harness (OpenClaw, Claude Code, Codex, or Hermes Agent) with access to real tools rather than mock services. Grading is hybrid, combining deterministic rule-based checks, environment-state auditing of side effects, and an LLM/VLM judge for semantic verification. Across 19 frontier models, the best, Claude Opus 4.7, reaches only 62.2% overall under OpenClaw, while every other model stays below 60%, and switching harness alone shifts a single model by up to 18 points. These results show that long-horizon, native-runtime agent evaluation remains a far-from-resolved task for current frontier models. We release the tasks, code, and containerized tooling to support reproducible evaluation.",
+      "hf_link": "https://huggingface.co/papers/2605.10912"
+    },
+    "2605.06527": {
+      "title": "STALE: Can LLM Agents Know When Their Memories Are No Longer Valid?",
+      "abstract": "Large Language Model (LLM) agents are increasingly expected to maintain coherent, long-term personalized memory, yet current benchmarks primarily measure static fact retrieval, overlooking the ability to revise stored beliefs when new evidence emerges. We identify a critical and underexplored failure mode, Implicit Conflict: a later observation invalidates an earlier memory without explicit negation, requiring contextual inference and commonsense reasoning to detect. To rigorously evaluate this capability, we introduce STALE, a benchmark of 400 expert-validated conflict scenarios (1,200 evaluation queries across three probing dimensions) spanning over 100 everyday topics with contexts up to 150K tokens. We propose a three-dimensional probing framework that tests State Resolution (detecting that a prior belief is outdated), Premise Resistance (rejecting queries that falsely presuppose a stale state), and Implicit Policy Adaptation (proactively applying updated states in downstream behavior). A systematic evaluation of frontier LLMs and specialized memory frameworks reveals a pervasive gap between retrieving updated evidence and acting on it, with even the best evaluated model achieving only 55.2% overall accuracy. Models often accept outdated assumptions embedded in a user's query, and they struggle to recognize when a change in one aspect of the user's state should invalidate related memories. To establish an initial baseline for state-aware memory, we further present CUPMem, a prototype that strengthens write-time revision through structured state consolidation and propagation-aware search, suggesting that explicit state adjudication is a promising direction for robust agentic memory.",
+      "hf_link": "https://huggingface.co/papers/2605.06527"
+    },
+    "2605.00180": {
+      "title": "RouteProfile: Elucidating the Design Space of LLM Profiles for Routing",
+      "abstract": "As the large language model (LLM) ecosystem expands, individual models exhibit varying capabilities across queries, benchmarks, and domains, motivating the development of LLM routing. While prior work has largely focused on router mechanism design, LLM profiles, which capture model capabilities, remain underexplored. In this work, we ask: How does LLM profile design affect routing performance across different routers? Addressing this question helps clarify the role of profiles in routing, disentangle profile design from router design, and enable fairer comparison and more principled development of routing systems. To this end, we view LLM profiling as a structured information integration problem over heterogeneous interaction histories. We develop a general design space of LLM profiles, named RouteProfile, along four key dimensions: organizational form, representation type, aggregation depth, and learning configuration. Through systematic evaluation across three representative routers under both standard and new-LLM generalization settings, we show that: (1) structured profiles consistently outperform flat ones; (2) query-level signals are more reliable than coarse domain-level signals; and (3) generalization to newly introduced models benefits most from structured profiles under trainable configurations. Overall, our work highlights LLM profile design as an important direction for future routing research.",
+      "hf_link": "https://huggingface.co/papers/2605.00180"
+    },
+    "2605.13880": {
+      "title": "PREPING: Building Agent Memory without Tasks",
+      "abstract": "Agent memory is typically constructed either offline from curated demonstrations or online from post-deployment interactions. However, regardless of how it is built, an agent faces a cold-start gap when first introduced to a new environment without any task-specific experience available. In this paper, we study pre-task memory construction: whether an agent can build procedural memory before observing any target-environment tasks, using only self-generated synthetic practice. Yet, synthetic interaction alone is insufficient, as without controlling what to practice and what to store, synthetic tasks become redundant, infeasible, and ultimately uninformative, and memory further degrades quickly due to unfiltered trajectories. To overcome this, we present Preping, a proposer-guided memory construction framework. At its core is proposer memory, a structured control state that shapes future practice. A Proposer generates synthetic tasks conditioned on this state, a Solver executes them, and a Validator determines which trajectories are eligible for memory insertion while also providing feedback to guide future proposals. Experiments on AppWorld, BFCL v3, and MCP-Universe show that Preping substantially improves over a no-memory baseline and achieves performance competitive with strong playbook-based methods built from offline or online experience, with deployment cost $2.99\\times$ lower on AppWorld and $2.23\\times$ lower on BFCL v3 than online memory construction. Further analyses reveal that the main benefit does not come from synthetic volume alone, but from proposer-side control over feasibility, redundancy, and coverage, combined with selective memory updates.",
+      "hf_link": "https://huggingface.co/papers/2605.13880"
+    },
+    "2605.06554": {
+      "title": "Long Context Pre-Training with Lighthouse Attention",
+      "abstract": "Training causal transformers at extreme sequence lengths is bottlenecked by the quadratic time and memory of scaled dot-product attention (SDPA). In this work, we propose Lighthouse Attention, a training-only symmetrical selection-based hierarchical attention algorithm that wraps around ordinary SDPA and can be easily removed towards the end of the training. Our hierarchical selection is also gradient-free, which exempts us from dealing with a complicated and potentially inefficient backward pass kernel. Our contribution is three-fold: (i) A subquadratic hierarchical pre- and post-processing step that does adaptive compression and decompression of the sequence. (ii) A symmetrical compression strategy that pools queries, keys and values at the same time, while preserving left-to-right causality, which greatly improves parallelism. (iii) A two stage training approach which we pre-train for the majority of the time with Lighthouse Attention and recover a full attention model at the end with a short training. We run preliminary small scale LLM pre-training experiments that show the effectiveness of our method compared to full attention training with all other settings matched, where we achieve a faster total training time and lower final loss after the recovery phase. Full code is available at:this https URL",
+      "hf_link": "https://huggingface.co/papers/2605.06554"
+    },
+    "2605.13941": {
+      "title": "EvolveMem:Self-Evolving Memory Architecture via AutoResearch for LLM Agents",
+      "abstract": "Long-term memory is essential for LLM agents that operate across multiple sessions, yet existing memory systems treat retrieval infrastructure as fixed: stored content evolves while scoring functions, fusion strategies, and answer-generation policies remain frozen at deployment. We argue that truly adaptive memory requires co-evolution at two levels: the stored knowledge and the retrieval mechanism that queries it. We present EvolveMem, a self-evolving memory architecture that exposes its full retrieval configuration as a structured action space optimized by an LLM-powered diagnosis module. In each evolution round, the module reads per-question failure logs, identifies root causes, and proposes targeted configuration adjustments; a guarded meta-analyzer applies them with automatic revert-on-regression and explore-on-stagnation safeguards. This closed-loop self-evolution realizes an AutoResearch process: the system autonomously conducts iterative research cycles on its own architecture, replacing manual configuration tuning. Starting from a minimal baseline, the process converges autonomously, discovering effective retrieval strategies including entirely new configuration dimensions not present in the original action space. On LoCoMo, EvolveMem outperforms the strongest baseline by 25.7% relative and achieves a 78.0% relative improvement over the minimal baseline. On MemBench, EvolveMem exceeds the strongest baseline by 18.9% relative. Evolved configurations transfer across benchmarks with positive rather than catastrophic transfer, indicating that the self-evolution process captures universal retrieval principles rather than benchmark-specific heuristics. Code is available atthis https URL.",
+      "hf_link": "https://huggingface.co/papers/2605.13941"
+    },
+    "2605.13169": {
+      "title": "PanoWorld: Towards Spatial Supersensing in 360$^\\circ$ Panorama World",
+      "abstract": "Multimodal large laboratory models (MLLMs) still struggle with spatial understanding under the dominant perspective-image paradigm, which inherits the narrow field of view of human-like perception. For navigation, robotic search, and 3D scene understanding, 360-degree panoramic sensing offers a form of supersensing by capturing the entire surrounding environment at once. However, existing MLLM pipelines typically decompose panoramas into multiple perspective views, leaving the spherical structure of equirectangular projection (ERP) largely implicit. In this paper, we study pano-native understanding, which requires an MLLM to reason over an ERP panorama as a continuous, observer-centered space. To this end, we first define the key abilities for pano-native understanding, including semantic anchoring, spherical localization, reference-frame transformation, and depth-aware 3D spatial reasoning. We then build a large-scale metadata construction pipeline that converts mixed-source ERP panoramas into geometry-aware, language-grounded, and depth-aware supervision, and instantiate these signals as capability-aligned instruction tuning data. On the model side, we introduce PanoWorld with Spherical Spatial Cross-Attention, which injects spherical geometry into the visual stream. We further construct PanoSpace-Bench, a diagnostic benchmark for evaluating ERP-native spatial reasoning. Experiments show that PanoWorld substantially outperforms both proprietary and open-source baselines on PanoSpace-Bench, H* Bench, and R2R-CE Val-Unseen benchmarks. These results demonstrate that robust panoramic reasoning requires dedicated pano-native supervision and geometry-aware model adaptation. All source code and proposed data will be publicly released.",
+      "hf_link": "https://huggingface.co/papers/2605.13169"
+    },
+    "2605.14445": {
+      "title": "FrontierSmith: Synthesizing Open-Ended Coding Problems at Scale",
+      "abstract": "Many real-world coding challenges are open-ended and admit no known optimal solution. Yet, recent progress in LLM coding has focused on well-defined tasks such as feature implementation, bug fixing, and competitive programming. Open-ended coding remains a weak spot for LLMs, largely because open-ended training problems are scarce and expensive to construct. Our goal is to synthesize open-ended coding problems at scale to train stronger LLM coders. We introduce FrontierSmith, an automated system for iteratively evolving open-ended problems from existing closed-ended coding tasks. Starting from competitive programming problems, FrontierSmith generates candidate open-ended variants by changing the problems'goals, restricting outputs, and generalizing inputs. It then uses a quantitative idea divergence metric to select problems that elicit genuinely diverse approaches from different solvers. Agents then generate test cases and verifiers for the surviving candidates. On two open-ended coding benchmarks, training on our synthesized data yields substantial gains over the base models: Qwen3.5-9B improves by +8.82 score on FrontierCS and +306.36 (Elo-rating-based performance) on ALE-bench; Qwen3.5-27B improves by +12.12 and +309.12, respectively. The synthesized problems also make agents take more turns and use more tokens, similar to human-curated ones, suggesting that closed-ended seeds can be a practical starting point for long-horizon coding data.",
+      "hf_link": "https://huggingface.co/papers/2605.14445"
+    },
+    "2605.15040": {
+      "title": "Orchard: An Open-Source Agentic Modeling Framework",
+      "abstract": "Agentic modeling aims to transform LLMs into autonomous agents capable of solving complex tasks through planning, reasoning, tool use, and multi-turn interaction with environments. Despite major investment, open research remains constrained by infrastructure and training gaps. Many high-performing systems rely on proprietary codebases, models, or services, while most open-source frameworks focus on orchestration and evaluation rather than scalable agent training. We present Orchard, an open-source framework for scalable agentic modeling. At its core is Orchard Env, a lightweight environment service providing reusable primitives for sandbox lifecycle management across task domains, agent harnesses, and pipeline stages. On top of Orchard Env, we build three agentic modeling recipes. Orchard-SWE targets coding agents. We distill 107K trajectories from MiniMax-M2.5 and Qwen3.5-397B, introduce credit-assignment SFT to learn from productive segments of unresolved trajectories, and apply Balanced Adaptive Rollout for RL. Starting from Qwen3-30B-A3B-Thinking, Orchard-SWE achieves 64.3% on SWE-bench Verified after SFT and 67.5% after SFT+RL, setting a new state of the art among open-source models of comparable size. Orchard-GUI trains a 4B vision-language computer-use agent using only 0.4K distilled trajectories and 2.2K open-ended tasks. It achieves 74.1%, 67.0%, and 64.0% success rates on WebVoyager, Online-Mind2Web, and DeepShop, respectively, making it the strongest open-source model while remaining competitive with proprietary systems. Orchard-Claw targets personal assistant agents. Trained with only 0.2K synthetic tasks, it achieves 59.6% pass@3 on Claw-Eval and 73.9% when paired with a stronger ZeroClaw harness. Collectively, these results show that a lightweight, open, harness-agnostic environment layer enables reusable agentic data, training recipes, and evaluations across domains.",
+      "hf_link": "https://huggingface.co/papers/2605.15040"
+    },
+    "2605.15198": {
+      "title": "ATLAS: Agentic or Latent Visual Reasoning? One Word is Enough for Both",
+      "abstract": "Visual reasoning, often interleaved with intermediate visual states, has emerged as a promising direction in the field. A straightforward approach is to directly generate images via unified models during reasoning, but this is computationally expensive and architecturally non-trivial. Recent alternatives include agentic reasoning through code or tool calls, and latent reasoning with learnable hidden embeddings. However, agentic methods incur context-switching latency from external execution, while latent methods lack task generalization and are difficult to train with autoregressive parallelization. To combine their strengths while mitigating their limitations, we propose ATLAS, a framework in which a single discrete 'word', termed as a functional token, serves both as an agentic operation and a latent visual reasoning unit. Each functional token is associated with an internalized visual operation, yet requires no visual supervision and remains a standard token in the tokenizer vocabulary, which can be generated via next-token prediction. This design avoids verbose intermediate visual content generation, while preserving compatibility with the vanilla scalable SFT and RL training, without architectural or methodological modifications. To further address the sparsity of functional tokens during RL, we introduce Latent-Anchored GRPO (LA-GRPO), which stabilizes the training by anchoring functional tokens with a statically weighted auxiliary objective, providing stronger gradient updates. Extensive experiments and analyses demonstrate that ATLAS achieves superior performance on challenging benchmarks while maintaining clear interpretability. We hope ATLAS offers a new paradigm inspiring future visual reasoning research.",
+      "hf_link": "https://huggingface.co/papers/2605.15198"
+    },
+    "2605.07637": {
+      "title": "Learning to Communicate Locally for Large-Scale Multi-Agent Pathfinding",
+      "abstract": "Multi-agent pathfinding (MAPF) is a widely used abstraction for multi-robot trajectory planning problems, where multiple homogeneous agents move simultaneously within a shared environment. Although solving MAPF optimally is NP-hard, scalable and efficient solvers are critical for real-world applications such as logistics and search-and-rescue. To this end, the research community has proposed various decentralized suboptimal MAPF solvers that leverage machine learning. Such methods frame MAPF (from a single agent perspective) as a Dec-POMDP where at each time step an agent has to decide an action based on the local observation and typically solve the problem via reinforcement learning or imitation learning. We follow the same approach but additionally introduce a learnable communication module tailored to enhance cooperation between agents via efficient feature sharing. We present the Local Communication for Multi-agent Pathfinding (LC-MAPF), a generalizable pre-trained model that applies multi-round communication between neighboring agents to exchange information and improve their coordination. Our experiments show that the introduced method outperforms the existing learning-based MAPF solvers, including IL and RL-based approaches, across diverse metrics in a diverse range of (unseen) test scenarios. Remarkably, the introduced communication mechanism does not compromise LC-MAPF's scalability, a common bottleneck for communication-based MAPF solvers.",
+      "hf_link": "https://huggingface.co/papers/2605.07637"
+    },
+    "2605.14712": {
+      "title": "IntentVLA: Short-Horizon Intent Modeling for Aliased Robot Manipulation",
+      "abstract": "Robot imitation data are often multimodal: similar visual-language observations may be followed by different action chunks because human demonstrators act with different short-horizon intents, task phases, or recent context. Existing frame-conditioned VLA policies infer each chunk from the current observation and instruction alone, so under partial observability they may resample different intents across adjacent replanning steps, leading to inter-chunk conflict and unstable execution. We introduce IntentVLA, a history-conditioned VLA framework that encodes recent visual observations into a compact short-horizon intent representation and uses it to condition chunk generation. We further introduce AliasBench, a 12-task ambiguity-aware benchmark on RoboTwin2 with matched training data and evaluation environments that isolate short-horizon observation aliasing. Across AliasBench, SimplerEnv, LIBERO, and RoboCasa, IntentVLA improves rollout stability and outperforms strong VLA baselines",
+      "hf_link": "https://huggingface.co/papers/2605.14712"
+    },
+    "2605.14607": {
+      "title": "ViMU: Benchmarking Video Metaphorical Understanding",
+      "abstract": "Any new medium, once it emerges, is used for more than the transmission of overt content alone. The information it carries typically operates on two levels: one is the content directly presented, while the other is the subtext beneath it-the implicit ideas and intentions the creator seeks to convey through the medium. Likewise, since video technologies became widely adopted, video has served not only as a powerful tool for recording and communicating visual information, but also as a vehicle for emotions, attitudes, and social meanings that are often difficult to articulate explicitly. Thus, the true meaning of many videos does not reside solely in what is shown on screen; it is often embedded in context, style of expression, and the viewer's social experience. Some forms of such video subtext are humorous, while others carry irony, mockery, or criticism. These implicit meanings can also be interpreted very differently across cultural backgrounds and social groups. However, most existing video understanding models still focus primarily on literal visual comprehension, such as recognizing objects, actions, or temporal relations, and lack a systematic ability to understand the metaphorical, ironic, and social meanings embedded in videos. To bridge this gap, we introduce ViMU, the first benchmark designed to systematically evaluate the subtext understanding capabilities of frontier models in videos. ViMU assesses whether video understanding models can go beyond literal perception to infer implicit meaning while grounding their interpretations in multimodal evidence and answering both open-ended and multiple-choice questions. Importantly, all questions are designed to be hint-free, ensuring that no key evidence is disclosed to models before answering.",
+      "hf_link": "https://huggingface.co/papers/2605.14607"
+    },
+    "2605.08703": {
+      "title": "RewardHarness: Self-Evolving Agentic Post-Training",
+      "abstract": "Evaluating instruction-guided image edits requires rewards that reflect subtle human preferences, yet current reward models typically depend on large-scale preference annotation and additional model training. This creates a data-efficiency gap: humans can often infer the target evaluation criteria from only a few examples, while models are usually trained on hundreds of thousands of comparisons. We present RewardHarness, a self-evolving agentic reward framework that reframes reward modeling as context evolution rather than weight optimization. Instead of learning from large-scale annotations, RewardHarness aligns with human preferences by iteratively evolving a library of tools and skills from as few as 100 preference demonstrations. Given a source image, candidate edited images, and an editing instruction, an Orchestrator selects the most relevant subset of tools and skills from the maintained library, and a frozen Sub-Agent uses them to construct a reasoning chain that produces a preference judgment. By comparing predicted judgments with ground-truth preferences and analyzing successes and failures in the reasoning process, the Orchestrator automatically refines its library of tools and skills without additional human annotation. Using only 0.05% of the EditReward preference data, RewardHarness achieves 47.4% average accuracy on image-editing evaluation benchmarks, surpassing GPT-5 by 5.3 points. When used as a reward signal for GRPO fine-tuning, RL-tuned models achieve 3.52 on ImgEdit-Bench. Project page:this https URL.",
+      "hf_link": "https://huggingface.co/papers/2605.08703"
+    },
+    "2605.01018": {
+      "title": "WildTableBench: Benchmarking Multimodal Foundation Models on Table Understanding In the Wild",
+      "abstract": "Using multimodal foundation models to analyze table images is a high-value yet challenging application in consumer and enterprise scenarios. Despite its importance, current evaluations rely largely on structured-text tables or clean rendered images, leaving the visual complexity of in-the-wild table images underexplored. Such images feature varied layouts and diverse domains that demand sophisticated structural perception and numerical reasoning. To bridge this gap, we introduce WildTableBench, the first question-answering benchmark for naturally occurring table images from real-world settings. WildTableBench comprises 402 high-information-density table images collected from online forums and websites across diverse domains, together with 928 manually annotated and verified questions spanning 17 subtypes across five categories. We evaluate 21 frontier proprietary and open-source multimodal foundation models on this benchmark. Only one model exceeds 50% accuracy, while all remaining models range from 4.1% to 49.9%. We further conduct diagnostic analyses to characterize model failures and reveal persistent weaknesses in structural perception and reasoning. These results and analyses provide useful insights into current model capabilities and establish WildTableBench as a valuable diagnostic benchmark for table image understanding.",
+      "hf_link": "https://huggingface.co/papers/2605.01018"
+    },
+    "2605.14392": {
+      "title": "Learning to Build the Environment: Self-Evolving Reasoning RL via Verifiable Environment Synthesis",
+      "abstract": "We pursue a vision for self-improving language models in which the model does not merely generate problems or traces to imitate, but constructs the environments that train it. In zero-data reasoning RL, this reframes self-improvement from a data-generation loop into an environment-construction loop, where each artifact is a reusable executable object that samples instances, computes references, and scores responses. Whether this vision sustains improvement hinges on a single property: the environments must exhibit stable solve--verify asymmetry, the model must be able to write an oracle once that it cannot reliably execute in natural language on fresh instances. This asymmetry takes two complementary forms. Some tasks are algorithmically hard to reason through but trivial as code: a dynamic program or graph traversal, compiled once, yields unboundedly many calibrated instances. Others are intrinsically hard to solve but easy to verify, like planted subset-sum or constraint satisfaction. Both create a durable gap between proposing and solving that the policy cannot close by gaming the verifier, and it is this gap that keeps reward informative as the learner improves. We instantiate this view in EvoEnv, a single-policy generator, solver method that synthesizes Python environments from ten seeds and admits them only after staged validation, semantic self-review, solver-relative difficulty calibration, and novelty checks. The strongest evidence comes from the already-strong regime: on Qwen3-4B-Thinking, fixed public-data RLVR and fixed hand-crafted environment RLVR reduce the average, while EvoEnv improves it from 72.4 to 74.8, a relative gain of 3.3%. Stable self-improvement, we suggest, depends not on producing more synthetic data, but on models learning to construct worlds whose difficulty stays structurally beyond their own reach.",
+      "hf_link": "https://huggingface.co/papers/2605.14392"
+    },
+    "2605.14068": {
+      "title": "CurveBench: A Benchmark for Exact Topological Reasoning over Nested Jordan Curves",
+      "abstract": "We introduce CurveBench, a benchmark for hierarchical topological reasoning from visual input. CurveBench consists of \\textbf{756 images} of pairwise non-intersecting Jordan curves across easy, polygonal, topographic-inspired, maze-like, and dense counting configurations. Each image is annotated with a rooted tree encoding the containment relations between planar regions. We formulate the task as structured prediction: given an image, a model must recover the full rooted containment tree induced by the curves. Despite the visual simplicity of the task, the strongest evaluated model, Gemini 3.1 Pro, achieves only \\textbf{71.1\\%} tree-generation accuracy on CurveBench-Easy and \\textbf{19.1\\%} on CurveBench-Hard. We further demonstrate benchmark utility through RLVR-style fine-tuning of open-weight vision-language models. Our trained Qwen3-VL-8B model improves over \\texttt{Qwen-3-VL-8B-Thinking} from \\textbf{2.8\\%} to \\textbf{33.3\\%} tree-generation accuracy on CurveBench-Easy, exceeding GPT-5.4 and Claude Opus 4.5 under our evaluation protocol. The remaining gap, especially on CurveBench-Hard, shows that exact topology-aware visual reasoning remains far from solved.",
+      "hf_link": "https://huggingface.co/papers/2605.14068"
+    },
+    "2605.14169": {
+      "title": "BOOKMARKS: Efficient Active Storyline Memory for Role-playing",
+      "abstract": "Memory systems are critical for role-playing agents (RPAs) to maintain long-horizon consistency. However, existing RPA memory methods (e.g., profiling) mainly rely on recurrent summarization, whose compression inevitably discards important details. To address this issue, we propose a search-based memory framework called BOOKMARKS, which actively initializes, maintains, and updates task-relevant pieces of bookmarks for the current task (e.g., character acting). A bookmark is structured as the answer to a question at a specific point in the storyline. For each current task, BOOKMARKS selects reusable existing bookmarks or initializes new ones (at storyline beginning) with useful questions. These bookmarks are then synchronized to the current story point, with their answers updated accordingly, so they can be efficiently reused in future grounding rounds. Compared with recurrent summarization, BOOKMARKS offers (1) active grounding for capturing task-specific details and (2) passive updating to avoid unnecessary computation. In implementation, BOOKMARKS supports concept, behavior, and state searches, each powered by an efficient synchronization method. BOOKMARKS significantly outperforms RPA memory baselines on 85 characters from 16 artifacts, demonstrating the effectiveness of search-based memory for RPAs.",
+      "hf_link": "https://huggingface.co/papers/2605.14169"
+    },
+    "2605.15188": {
+      "title": "FutureSim: Replaying World Events to Evaluate Adaptive Agents",
+      "abstract": "AI agents are being increasingly deployed in dynamic, open-ended environments that require adapting to new information as it arrives. To efficiently measure this capability for realistic use-cases, we propose building grounded simulations that replay real-world events in the order they occurred. We build FutureSim, where agents forecast world events beyond their knowledge cutoff while interacting with a chronological replay of the world: real news articles arriving and questions resolving over the simulated period. We evaluate frontier agents in their native harness, testing their ability to predict world events over a three-month period from January to March 2026. FutureSim reveals a clear separation in their capabilities, with the best agent's accuracy being 25%, and many having worse Brier skill score than making no prediction at all. Through careful ablations, we show how FutureSim offers a realistic setting to study emerging research directions like long-horizon test-time adaptation, search, memory, and reasoning about uncertainty. Overall, we hope our benchmark design paves the way to measure AI progress on open-ended adaptation spanning long time-horizons in the real world.",
+      "hf_link": "https://huggingface.co/papers/2605.15188"
+    },
+    "2605.11458": {
+      "title": "Adaptive Teacher Exposure for Self-Distillation in LLM Reasoning",
+      "abstract": "On-policy self-distillation has become a strong recipe for LLM reasoning, where a privileged teacher supervises the student's own rollouts while conditioning on the reference solution. A design choice shared by nearly all such methods, however, has gone unquestioned: the teacher always sees the full reference reasoning. We argue that this default itself is part of the problem and identify a teacher-side exposure mismatch: when the teacher conditions on reasoning far beyond the student's current competence, the resulting token targets become too strong to absorb. A controlled fixed-exposure sweep makes this concrete on two fronts: 1) full exposure is not reliably the best choice, and 2) student-teacher mismatch grows monotonically as the teacher sees more privileged reasoning. This motivates treating teacher exposure not as a fixed hyperparameter but as a learnable training-time control variable. We therefore propose Adaptive Teacher Exposure for Self-Distillation (ATESD). ATESD models the reveal ratio with a lightweight Beta-policy controller conditioned on compact training-state statistics, and uses one sampled exposure for a short hold window of student updates. To make this exposure controller learnable, we optimize it with a discounted learning-progress reward that scores each held decision by its effect on the student's future improvement rather than its immediate loss change, addressing the delayed credit assignment induced by on-policy distillation. Experiments on AIME 24, AIME 25, and HMMT 25 across Qwen3-{1.7B, 4B, 8B} show that ATESD consistently outperforms competitive self-distillation and RL baselines, improving over OPSD by +0.95, +2.05, and +2.33 Average@12 points respectively, and establishing adaptive teacher exposure as an effective new axis for reasoning self-distillation.",
+      "hf_link": "https://huggingface.co/papers/2605.11458"
+    },
+    "2605.14438": {
+      "title": "BEAM: Binary Expert Activation Masking for Dynamic Routing in MoE",
+      "abstract": "Mixture-of-Experts (MoE) architectures enhance the efficiency of large language models by activating only a subset of experts per token. However, standard MoE employs a fixed Top-K routing strategy, leading to redundant computation and suboptimal inference latency. Existing acceleration methods either require costly retraining with architectural changes or suffer from severe performance drop at high sparsity due to train-inference mismatch. To address these limitations, we propose BEAM (Binary Expert Activation Masking), a novel method that learns token-adaptive expert selection via trainable binary masks. With a straight-through estimator and an auxiliary regularization loss, BEAM induces dynamic expert sparsity through end-to-end training while maintaining model capability. We further implement an efficient custom CUDA kernel for BEAM, ensuring seamless integration with the vLLM inference framework. Experiments show that BEAM retains over 98\\% of the original model's performance while reducing MoE layer FLOPs by up to 85\\%, achieving up to 2.5$\\times$ faster decoding and 1.4$\\times$ higher throughput, demonstrating its effectiveness as a practical, plug-and-play solution for efficient MoE inference.",
+      "hf_link": "https://huggingface.co/papers/2605.14438"
+    },
+    "2605.14354": {
+      "title": "LLM-based Detection of Manipulative Political Narratives",
+      "abstract": "We present a new computational framework for detecting and structuring manipulative political narratives. A task that became more important due to the shift of political discussions to social media. One of the primary challenges thereby is differentiating between manipulative political narratives and legitimate critiques. Some posts may also reframe actual events within a manipulative context. To achieve good clustering results, we filter manipulative posts beforehand using a detailed few-shot prompt that combines documented campaign narratives with legitimate criticisms to differentiate them. This prompt enables a reasoning model to assign labels, retaining only manipulative narrative posts for further processing. The remaining posts are subsequently embedded and dimensionality-reduced using UMAP, before HDBSCAN is applied to uncover narrative groups. A key advantage of this unsupervised approach is its independence from a predefined list of target categories, enabling it to uncover new narrative clusters. Finally, a reasoning model is employed to uncover the narrative behind each cluster. This approach, applied to over 1.2 million social media posts, effectively identified 41 distinct manipulative narrative clusters by integrating prompt-based filtering with unsupervised clustering.",
+      "hf_link": "https://huggingface.co/papers/2605.14354"
+    },
+    "2605.14352": {
+      "title": "Ideology Prediction of German Political Texts",
+      "abstract": "Elections represent a crucial milestone in a nation's ongoing development. To better understand the political rhetoric from various movements, ranging from left to right, we propose a transformer-based model capable of projecting the political orientation of a text on a continuous left-to-right spectrum, represented by a normalized scalar d between -1 and 1. This approach enables analysts to focus on specific segments of the political landscape, such as conservatives, while excluding liberal and far-right movements. Such a task can only be achieved with multiclass classifiers, provided that the desired orientation is incorporated within one of their predefined classes. To determine the most suitable foundation model among 13 candidate transformers for this task, we constructed four distinct corpora. One corpus comprised annotated plenary notes from the German Bundestag, while another was based on an official online decision-making tool, Wahl-O-Mat. The third corpus consisted of articles from 33 newspapers, each identified by its political orientation, and the fourth included 535,200 tweets from 597 members of the 20th and 21st German Bundestag. To mitigate overfitting, we used two distinct corpora for training and two for testing, respectively. For in-domain performance, DeBERTa-large achieved the highest F1 score F1=0.844 as well as for the X (Twitter) out-of-domain test ACC=0.864. Regarding the newspaper out-of-domain test, Gemma2-2B excelled (MAE = 0.172). This study demonstrates that transformer models can recognize political framing in German news at the level of public opinion polls. Our findings suggest that both the model architecture and the availability of domain-specific training data can be as influential as model size for estimating political bias. We discuss methodological limitations and outline directions for improving the robustness of bias measurement.",
+      "hf_link": "https://huggingface.co/papers/2605.14352"
+    },
+    "2605.12034": {
+      "title": "Boosting Omni-Modal Language Models: Staged Post-Training with Visually Debiased Evaluation",
+      "abstract": "Omni-modal language models are intended to jointly understand audio, visual inputs, and language, but benchmark gains can be inflated when visual evidence alone is enough to answer a query. We study whether current omni-modal benchmarks separate visual shortcuts from genuine audio-visual-language evidence integration, and how post-training behaves under a visually debiased evaluation setting. We audit nine omni-modal benchmarks with visual-only probing, remove visually solvable queries, and retain full subsets when filtering is undefined or would make comparisons unstable. This yields OmniClean, a cleaned evaluation view with 8,551 retained queries from 16,968 audited queries. On OmniClean, we evaluate OmniBoost, a three-stage post-training recipe based on Qwen2.5-Omni-3B: mixed bi-modal SFT, mixed-modality RLVR, and SFT on self-distilled data. Balanced bi-modal SFT gives limited and uneven gains, RLVR provides the first broad improvement, and self-distillation reshapes the benchmark profile. After SFT on self-distilled data, the 3B model reaches performance comparable to, and in aggregate slightly above, Qwen3-Omni-30B-A3B-Instruct without using a stronger omni-modal teacher. These results show that omni-modal progress is easier to interpret when evaluation controls visual leakage, and that small omni-modal models can benefit from staged post-training with self-distilled omni-query supervision. Project page:this https URL",
+      "hf_link": "https://huggingface.co/papers/2605.12034"
+    },
+    "2605.13834": {
+      "title": "Topology-Preserving Neural Operator Learning via Hodge Decomposition",
+      "abstract": "In this paper, we study solution operators of physical field equations on geometric meshes from a function-space perspective. We reveal that Hodge orthogonality fundamentally resolves spectral interference by isolating unlearnable topological degrees of freedom from learnable geometric dynamics, enabling an additive approximation confined to structure-preserving subspaces. Building on Hodge theory and operator splitting, we derive a principled operator-level decomposition. The result is a Hybrid Eulerian-Lagrangian architecture with an algebraic-level inductive bias we call Hodge Spectral Duality (HSD). In our framework, we use discrete differential forms to capture topology-dominated components and an orthogonal auxiliary ambient space to represent complex local dynamics. Our method achieves superior accuracy and efficiency on geometric graphs with enhanced fidelity to physical invariants. Our code is available atthis https URL",
+      "hf_link": "https://huggingface.co/papers/2605.13834"
+    },
+    "2605.15012": {
+      "title": "Boosting Reinforcement Learning with Verifiable Rewards via Randomly Selected Few-Shot Guidance",
+      "abstract": "Reinforcement Learning with Verifiable Rewards (RLVR) has achieved great success in developing Large Language Models (LLMs) with chain-of-thought rollouts for many tasks such as math and coding. Nevertheless, RLVR struggles with sample efficiency on difficult problems where correct rollouts are hard to generate. Prior works propose to address this issue via demonstration-guided RLVR, i.e., to conduct Supervised FineTuning (SFT) when RL fails; however, SFT often requires a lot of data, which can be expensive to acquire. In this paper, we propose FEST, a FEw-ShoT demonstration-guided RLVR algorithm. It attains compelling results with only 128 demonstrations randomly selected from an SFT dataset. We find that three components are vital for the success: supervised signal, on-policy signal, and decaying weights on the few-shot SFT dataset to prevent overfitting from multiple-epoch training. On several benchmarks, FEST outperforms baselines with magnitudes less SFT data, even matching their performance with full dataset.",
+      "hf_link": "https://huggingface.co/papers/2605.15012"
+    },
+    "2605.14323": {
+      "title": "Dynamic Latent Routing",
+      "abstract": "We investigate the temporal concatenation of sub-policies in Markov Decision Processes (MDP) with time-varying reward functions. We introduce General Dijkstra Search (GDS), and prove that globally optimal goal-reaching policies can be recovered through temporal composition of intermediate optimal sub-policies. Motivated by the \"search, select, update\" principle underlying GDS, we propose Dynamic Latent Routing (DLR), a language-model post-training method that jointly learns discrete latent codes, routing policies, and model parameters through dynamic search in a single training stage. In low-data fine-tuning settings, DLR matches or outperforms supervised fine-tuning across four datasets and six models, achieving a mean gain of +6.6 percentage points, while prior discrete-latent baselines consistently underperform SFT. Mechanistic analyses and targeted code ablations show that DLR learns structured routing behaviors with distinct causal roles.",
+      "hf_link": "https://huggingface.co/papers/2605.14323"
+    },
+    "2605.14389": {
+      "title": "Nexus : An Agentic Framework for Time Series Forecasting",
+      "abstract": "Time series forecasting is not just numerical extrapolation, but often requires reasoning with unstructured contextual data such as news or events. While specialized Time Series Foundation Models (TSFMs) excel at forecasting based on numerical patterns, they remain unaware to real-world textual signals. Conversely, while LLMs are emerging as zero-shot forecasters, their performance remains uneven across domains and contextual grounding. To bridge this gap, we introduce Nexus, a multi-agent forecasting framework that decomposes prediction into specialized stages: isolating macro-level and micro-level temporal fluctuations, and integrating contextual information when available before synthesizing a final forecast. This decomposition enables Nexus to adapt from seasonal signals to volatile, event-driven information without relying on external statistical anchors or monolithic prompting. We show that current-generation LLMs possess substantially stronger intrinsic forecasting ability than previously recognized, depending critically on how numerical and contextual reasoning are organized. Evaluated on data strictly succeeding LLM knowledge cutoffs spanning Zillow real estate metrics and volatile stock market equities, Nexus consistently matches or outperforms state-of-the-art TSFMs and strong LLM baselines. Beyond numerical accuracy, Nexus produces high-quality reasoning traces that explicitly show the fundamental drivers behind each forecast. Our results establish that real-world forecasting is an agentic reasoning problem extending well beyond only sequence modeling.",
+      "hf_link": "https://huggingface.co/papers/2605.14389"
+    },
+    "2605.14454": {
+      "title": "LiSA: Lifelong Safety Adaptation via Conservative Policy Induction",
+      "abstract": "As AI agents move from chat interfaces to systems that read private data, call tools, and execute multi-step workflows, guardrails become a last line of defense against concrete deployment harms. In these settings, guardrail failures are no longer merely answer-quality errors: they can leak secrets, authorize unsafe actions, or block legitimate work. The hardest failures are often contextual: whether an action is acceptable depends on local privacy norms, organizational policies, and user expectations that resist pre-deployment specification. This creates a practical gap: guardrails must adapt to their own operating environments, yet deployment feedback is typically limited to sparse, noisy user-reported failures, and repeated fine-tuning is often impractical. To address this gap, we propose LiSA (Lifelong Safety Adaptation), a conservative policy induction framework that improves a fixed base guardrail through structured memory. LiSA converts occasional failures into reusable policy abstractions so that sparse reports can generalize beyond individual cases, adds conflict-aware local rules to prevent overgeneralization in mixed-label contexts, and applies evidence-aware confidence gating via a posterior lower bound, so that memory reuse scales with accumulated evidence rather than empirical accuracy alone. Across PrivacyLens+, ConFaide+, and AgentHarm, LiSA consistently outperforms strong memory-based baselines under sparse feedback, remains robust under noisy user feedback even at 20% label-flip rates, and pushes the latency--performance frontier beyond backbone model scaling. Ultimately, LiSA offers a practical path to secure AI agents against the unpredictable long tail of real-world edge risks.",
+      "hf_link": "https://huggingface.co/papers/2605.14454"
+    },
+    "2605.12243": {
+      "title": "PreScam: A Benchmark for Predicting Scam Progression from Early Conversations",
+      "abstract": "Conversational scams, such as romance and investment scams, are emerging as a major form of online fraud. Unlike one-shot scam lures such as fake lottery or unpaid toll messages, they unfold through multi-turn conversations in which scammers gradually manipulate victims using evolving psychological techniques. However, existing research mainly focuses on static scam detection or synthetic scams, leaving open whether language models can understand how real-world scams progress over time. We introduce PreScam, a benchmark for modeling scam progression from early conversations. Built from user-submitted scam reports, PreScam filters and structures 177,989 raw reports into 11,573 conversational scam instances spanning 20 scam categories. Each instance is hierarchically structured according to the scam lifecycle defined by the proposed scam kill chain, and further annotated at the turn level with scammer psychological actions and victim responses. We benchmark models on two tasks: real-time termination prediction, which estimates whether a conversation is approaching the termination stage, and scammer action prediction, which forecasts the scammer's subsequent actions. Results show a clear gap between surface-level fluency and progression modeling: supervised encoders substantially outperform zero-shot LLMs on real-time termination prediction, while next-action prediction remains only moderately successful even for strong LLMs. Taken together, these results show that current models can capture some scam-related cues, yet still struggle to track how risk escalates and how manipulation unfolds across turns.",
+      "hf_link": "https://huggingface.co/papers/2605.12243"
+    },
+    "2605.14051": {
+      "title": "SPIN: Structural LLM Planning via Iterative Navigation for Industrial Tasks",
+      "abstract": "Industrial LLM agent systems often separate planning from execution, yet LLM planners frequently produce structurally invalid or unnecessarily long workflows, leading to brittle failures and avoidable tool and API cost. We propose \\texttt{SPIN}, a planning wrapper that combines validated Directed Acyclic Graph (DAG) planning with prefix based execution control. \\texttt{SPIN} enforces a strict DAG contract through \\texttt{\\_validate\\_plan\\_text} and repair prompting, producing executable plans before downstream execution, and then evaluates DAG prefixes incrementally to stop when the current prefix is sufficient to answer the query. On AssetOpsBench, across 261 scenarios, \\texttt{SPIN} reduces executed tasks from 1061 to 623 and improves \\emph{Accomplished} from 0.638 to 0.706, while reducing tool calls from 11.81 to 6.82 per run. On MCP Bench, the same wrapper improves planning, grounding, and dependency related scores for both GPT OSS1 and Llama 4 Maverick.",
+      "hf_link": "https://huggingface.co/papers/2605.14051"
+    },
+    "2605.11459": {
+      "title": "Overcoming Dynamics-Blindness: Training-Free Pace-and-Path Correction for VLA Models",
+      "abstract": "Vision-Language-Action (VLA) models achieve remarkable flexibility and generalization beyond classical control paradigms. However, most prevailing VLAs are trained under a single-frame observation paradigm, which leaves them structurally blind to temporal dynamics. Consequently, these models degrade severely in non-stationary scenarios, even when trained or finetuned on dynamic datasets. Existing approaches either require expensive retraining or suffer from latency bottlenecks and poor temporal consistency across action chunks. We propose Pace-and-Path Correction, a training-free, closed-form inference-time operator that wraps any chunked-action VLA. From a single quadratic cost, joint minimization yields a unified solution that decomposes orthogonally into two distinct channels. The pace channel compresses execution along the planned direction, while the path channel applies an orthogonal spatial offset, jointly absorbing the perceived dynamics within the chunk window. We evaluate our approach on a comprehensive diagnostic benchmark MoveBench designed to isolate motion as the sole controlled variable. Empirical results demonstrate that our framework consistently outperforms state-of-the-art training-free wrappers and dynamic-adaptive methods and improves success rates by up to 28.8% and 25.9% in absolute terms over foundational VLA models in dynamic-only and static-dynamic mixed environments, respectively.",
+      "hf_link": "https://huggingface.co/papers/2605.11459"
+    }
+  },
+  "hf_votes": {
+    "2605.13301": 0,
+    "2605.15155": 0,
+    "2605.15141": 0,
+    "2605.15178": 0,
+    "2605.14906": 0,
+    "2605.15128": 0,
+    "2605.14386": 0,
+    "2605.14892": 0,
+    "2605.10912": 0,
+    "2605.06527": 0,
+    "2605.15182": 0,
+    "2605.00180": 0,
+    "2605.13880": 0,
+    "2605.06554": 0,
+    "2605.15186": 0,
+    "2605.13852": 0,
+    "2605.13941": 0,
+    "2605.13169": 0,
+    "2605.14445": 0,
+    "2605.15055": 0,
+    "2605.15040": 0,
+    "2605.15198": 0,
+    "2605.07637": 0,
+    "2605.14712": 0,
+    "2605.14607": 0,
+    "2605.15190": 0,
+    "2605.09681": 0,
+    "2605.14269": 0,
+    "2605.08703": 0,
+    "2605.01018": 0,
+    "2605.14392": 0,
+    "2605.15167": 0,
+    "2605.14068": 0,
+    "2605.13027": 0,
+    "2605.14169": 0,
+    "2605.15193": 0,
+    "2605.15188": 0,
+    "2605.11458": 0,
+    "2605.14984": 0,
+    "2605.14438": 0,
+    "2605.14354": 0,
+    "2605.14352": 0,
+    "2605.12034": 0,
+    "2605.13834": 0,
+    "2605.15012": 0,
+    "2605.14876": 0,
+    "2605.14323": 0,
+    "2605.14389": 0,
+    "2605.15185": 0,
+    "2605.14454": 0,
+    "2605.12243": 0,
+    "2605.14051": 0,
+    "2605.11459": 0
+  },
+  "focus_sections": {
+    "3D生成与重建": [
+      "2605.15186",
+      "2605.13852",
+      "2605.14984",
+      "2605.15185"
+    ],
+    "视频生成": [
+      "2605.15141",
+      "2605.15178",
+      "2605.15182",
+      "2605.15190",
+      "2605.09681",
+      "2605.14269",
+      "2605.15185"
+    ],
+    "图像生成": [
+      "2605.13852",
+      "2605.15055",
+      "2605.15167",
+      "2605.13027",
+      "2605.15193",
+      "2605.14876"
+    ]
+  },
+  "summaries": {
+    "2605.14876": {
+      "short_zh": "通过闭环规划解决复杂图像生成",
+      "tags": "计算机视觉;图像生成;复杂文本到图像生成",
+      "body_summary": "当前文本到图像模型在复杂语义理解和生成质量上存在瓶颈，多步推理方法面临规划幻觉、优化不稳定和延迟高等问题。\n提出了一个结合视觉语言逻辑规划与扩散生成的闭环框架，通过自动数据引擎、代理提示强化学习和参数融合方法提升性能并降低延迟。"
+    },
+    "2605.14269": {
+      "short_zh": "基于物理模拟的3D运动奖励提升人体视频生成",
+      "tags": "计算机图形学;视频生成;人体运动物理真实性",
+      "body_summary": "现有视频生成奖励依赖2D感知信号，难以可靠评估人体运动的物理真实性。\n提出PhyMotion结构化奖励，通过恢复3D人体网格并在物理模拟器中评估运动可行性，优化后显著提升了生成视频中人体运动的真实感。"
+    },
+    "2605.15193": {
+      "short_zh": "球面流匹配几何对齐图像生成",
+      "tags": "计算机视觉;图像生成;流匹配模型",
+      "body_summary": "当前图像生成的隐空间流匹配方法通常将高斯噪声沿直线路径映射到变分自编码器隐变量，但端点分布和路径几何存在不匹配问题。\n通过将隐变量分解为径向和角向分量，将数据映射到固定半径球面，采用球面线性插值构建纯角向速度场，从而改进生成质量。"
+    },
+    "2605.09681": {
+      "short_zh": "压缩视频扩散模型的KV缓存",
+      "tags": "生成式人工智能;视频生成;自回归视频扩散模型",
+      "body_summary": "自回归视频扩散模型因跨历史帧的冗余键值缓存导致注意力计算复杂和内存开销巨大，限制了其可扩展性。\n提出了一种混合键值缓存压缩策略，将注意力头分类并进行针对性剪枝，在保持输出质量的同时显著提升了生成速度并降低了内存使用。"
+    },
+    "2605.13027": {
+      "short_zh": "基于扩散模型的文本图像超分重建",
+      "tags": "计算机视觉;图像复原;文本图像超分辨率",
+      "body_summary": "现有文本图像超分方法在严重退化时面临文本条件不可靠和笔画边界模糊的挑战。\n提出了PRISM框架，通过流匹配先验校正和结构引导不确定性感知编码，实现单步高保真重建。"
+    },
+    "2605.15186": {
+      "short_zh": "三维场景文本编辑",
+      "tags": "计算机图形学；三维重建；三维场景编辑",
+      "body_summary": "现有高质量三维重建模型难以响应动态人类指令，限制了交互应用。\n提出VGGT-Edit框架，通过深度同步文本注入和残差变换头直接预测三维几何位移，实现快速、高保真的原生三维场景编辑。"
+    },
+    "2605.15167": {
+      "short_zh": "合成分层数据提升设计拆解",
+      "tags": "计算机图形学;图像分解;分层设计编辑",
+      "body_summary": "近期AI生成的图像难以编辑，需要将其拆解为独立图层\n用合成数据训练模型可实现高效设计拆解，数据规模影响性能"
+    },
+    "2605.14984": {
+      "short_zh": "从单张卫星图像生成街景三维场景",
+      "tags": "计算机视觉;三维重建;卫星图像到三维重建",
+      "body_summary": "从单张卫星图像生成街景三维场景是关键且困难的任务，现有方法在几何精度和场景丰富度上存在明显取舍。\n提出Sat3DGen方法，通过引入几何约束和视角训练策略，显著提升了生成的几何精度和真实感，并验证了其在下游任务中的应用潜力。"
+    },
+    "2605.15178": {
+      "short_zh": "高效长视频世界模型生成",
+      "tags": "计算机视觉；视频生成；世界建模与长视频生成",
+      "body_summary": "当前高效生成高质量、分钟级长视频并精确控制相机轨迹是视频世界建模领域的研究难点。\n我们提出了SANA-WM模型，通过混合线性注意力、双分支相机控制等核心设计，仅需少量数据和算力即可高效生成高保真度、动作跟随准确的分钟级长视频。"
+    },
+    "2605.15182": {
+      "short_zh": "无需训练的相机控制视频生成",
+      "tags": "计算机视觉；视频生成；相机控制视频生成",
+      "body_summary": "现有相机控制视频生成方法通常需要大规模相机标注视频的后训练或额外的测试时优化。\n我们提出Warp-as-History方法，通过将相机形变转化为伪历史帧来零样本控制视频生成，并可通过单视频轻量微调提升泛化性。"
+    },
+    "2605.15185": {
+      "short_zh": "量化评估生成视频几何一致性",
+      "tags": "计算机视觉;视频生成;三维几何一致性评估",
+      "body_summary": "现有生成视频模型作为隐式世界模型，其生成内容的物理合理性和几何一致性难以客观评估。\n我们提出了PDI-Bench框架，通过分割与跟踪获取物体观测，经单目重建计算投影几何残差，构建PDI-Dataset，量化评估生成视频的几何一致性。"
+    },
+    "2605.15141": {
+      "short_zh": "实时交互视频生成框架优化",
+      "tags": "计算机图形学;视频生成;自回归扩散蒸馏",
+      "body_summary": "现有视频生成方法存在响应粒度粗、采样延迟高的问题，难以满足实时交互需求。\n本文提出Causal Forcing++框架，通过因果一致性蒸馏高效初始化少步自回归模型，在保证质量的同时显著降低延迟和训练成本。"
+    },
+    "2605.13852": {
+      "short_zh": "实现照片级真实的三维图像生成",
+      "tags": "计算机图形学;三维内容生成;可控扩散模型",
+      "body_summary": "现有方法在通过合成三维渲染数据微调图像生成模型以实现精确控制时，常因合成与真实图像间的领域差异而损害生成结果的真实感。\n本文提出一个轻量框架，通过引入协变量和残差适配器将视觉领域与控制信号解耦，并结合对扩散模型层与去噪步骤的新见解，使得模型在应用控制时仍能生成逼真且三维一致的图像。"
+    },
+    "2605.15055": {
+      "short_zh": "扩散模型多任务在线蒸馏训练",
+      "tags": "机器学习;强化学习;扩散模型多任务优化",
+      "body_summary": "现有强化学习方法难以高效优化扩散模型在多个任务上的性能。\n提出在线策略蒸馏框架，通过独立训练教师模型并沿学生轨迹进行知识蒸馏，统一了随机和确定性采样，提升了训练效率与效果。"
+    },
+    "2605.15190": {
+      "short_zh": "实时自回归视频扩展网络训练",
+      "tags": "计算机视觉;视频生成;实时自回归视频生成",
+      "body_summary": "因果自回归视频扩散模型可实现实时流式生成，但训练与推理时的历史分布差异限制了长序列生成质量。\n本文提出了RAVEN训练框架来对齐训练与推理分布，并提出了CM-GRPO方法将一致性采样重构为条件高斯转移并进行在线强化学习，从而提升了生成质量。"
+    },
+    "2605.13301": {
+      "short_zh": "统一方法提升奥赛推理至金牌水平",
+      "tags": "自然语言处理;推理模型;奥赛级数学物理问题求解",
+      "body_summary": "近期推理模型在数学和物理奥赛级长程问题求解上取得显著进展。\n通过逆向困惑度课程微调、两阶段强化学习和测试时扩展的统一方法，训练出能稳定处理超长推理并在多项奥赛中获得金牌级表现的模型。"
+    },
+    "2605.15155": {
+      "short_zh": "自我蒸馏增强大模型强化学习",
+      "tags": "强化学习；大语言模型；智能体训练",
+      "body_summary": "强化学习训练大模型智能体时存在长程交互监督信号稀疏的问题，现有蒸馏方法在多轮对话场景下不稳定且难以处理教师模型的负向反馈。\n提出了SDAR方法，通过门控机制将教师模型的细粒度知识作为辅助目标融入强化学习主干，在多任务基准上稳定提升了智能体性能。"
+    },
+    "2605.14906": {
+      "short_zh": "评估大视觉语言模型多模态长期记忆能力",
+      "tags": "自然语言处理;视觉语言模型;多模态长期记忆",
+      "body_summary": "现有基准无法系统比较在需要多模态证据问题上提供长期记忆能力的两种主流技术路线（长上下文模型与记忆增强代理）。\n我们提出了MEMLENS基准，系统评估了27个模型与7个代理，发现两者各有优缺点，需结合长上下文注意力与结构化多模态检索。"
+    },
+    "2605.15128": {
+      "short_zh": "视觉记忆评估新框架",
+      "tags": "多模态智能体;记忆评估;视觉证据保真度",
+      "body_summary": "现有评估难以检验智能体能否保存关键的视觉证据以支持后续推理。\n我们提出了MemEye框架，从证据粒度与推理方式两个维度构建新基准，验证了当前方法在保存视觉细节与时序推理上的不足。"
+    },
+    "2605.14386": {
+      "short_zh": "无训练进化融合提升大模型推理",
+      "tags": "自然语言处理；大语言模型；模型融合",
+      "body_summary": "现有大语言模型已编码了潜在能力，研究能否通过重组而非训练来提升其推理性能。\n提出Darwin框架，通过梯度自由权重重组、自适应融合基因组和跨架构映射，实现了无需训练的模型进化融合。"
+    },
+    "2605.14892": {
+      "short_zh": "大型语言模型多智能体系统综述",
+      "tags": "自然语言处理；智能体与多智能体系统；自主协作与自我进化",
+      "body_summary": "背景/任务是现有研究分别关注单个智能体能力、多智能体协作或自我进化，缺乏对它们之间因果关系的整体审视。\n本综述提出了一个统一的LIFE四阶段分析框架，系统梳理了能力奠基、协作整合、故障归因与自我进化的研究，并指出了跨阶段的开放挑战与未来研究方向。"
+    },
+    "2605.10912": {
+      "short_zh": "大语言模型命令行能力评估",
+      "tags": "智能体与多模态系统;大语言模型评估;长时程真实任务评估",
+      "body_summary": "现有评估多基于模拟环境，难以衡量大模型在真实命令行环境中执行长时程任务的能力。\n本文提出了WildClawBench基准，通过60个真实长时程任务和混合评分方法，评估了19个前沿模型，发现其表现远未成熟。"
+    },
+    "2605.06527": {
+      "short_zh": "大模型能否识别记忆失效",
+      "tags": "自然语言处理;智能代理;记忆更新与冲突检测",
+      "body_summary": "现有大模型智能体的记忆测试侧重于静态事实检索，但缺乏对动态情境下记忆失效与更新的评估。\n我们提出了STALE基准来测评模型识别隐性记忆冲突的能力，并开发了原型系统探索解决方案。"
+    },
+    "2605.00180": {
+      "short_zh": "大语言模型路由中能力画像的设计研究",
+      "tags": "自然语言处理;大语言模型应用;模型路由与能力画像",
+      "body_summary": "随着大语言模型生态发展，不同模型在不同任务上能力各异，催生了模型路由技术，但用于描述模型能力的能力画像设计研究不足。\n本文提出了一个名为RouteProfile的能力画像通用设计空间，并通过系统实验评估了不同画像设计对路由性能的影响，发现结构化、查询级的画像在多数情况下表现更优。"
+    },
+    "2605.13880": {
+      "short_zh": "无任务预构智能体记忆",
+      "tags": "智能体与多智能体系统;智能体记忆;无目标任务预训练",
+      "body_summary": "研究智能体在未观察目标环境任务前，如何构建过程记忆。\n提出由提议器引导的Preping框架，通过生成可控合成任务并选择性存储轨迹来有效构建记忆，降低部署成本。"
+    },
+    "2605.06554": {
+      "short_zh": "长上下文预训练中的注意力优化",
+      "tags": "自然语言处理;预训练语言模型;高效注意力机制",
+      "body_summary": "因果Transformer在超长序列训练时受制于注意力机制的二次复杂度。\n提出Lighthouse Attention，一种对称分层压缩方法，在训练时包装普通注意力并最终恢复，实现了更快的训练和更低的损失。"
+    },
+    "2605.13941": {
+      "short_zh": "大模型智能体记忆系统自演进优化",
+      "tags": "大规模预训练模型;智能体与记忆系统;记忆检索架构自调整",
+      "body_summary": "现有大模型智能体的长期记忆系统检索机制固定，难以自适应优化。\n提出EvolveMem架构，通过诊断模块自动分析失败日志并调整检索配置，实现记忆系统的闭环自演进。"
+    },
+    "2605.13169": {
+      "short_zh": "全景空间感知新模型",
+      "tags": "多模态大模型;视觉语言理解;全景图像空间推理",
+      "body_summary": "现有基于透视图的多模态大模型难以理解全景图像中的连续空间结构。\n提出了全景原生理解任务，构建了大规模几何感知训练数据，并开发了注入球形几何的PanoWorld模型。"
+    },
+    "2605.14445": {
+      "short_zh": "自动生成开放式编程问题",
+      "tags": "大语言模型代码生成;开放式编程问题合成;问题演化与数据增强",
+      "body_summary": "当前大语言模型在开放式编程任务上表现不佳，主要因为此类训练数据稀缺且构建成本高。\n我们提出了FrontierSmith系统，它从封闭式编程问题出发，通过改变目标、限制输出和泛化输入来自动演化生成开放式问题变体，并用定量指标筛选出能引发多样解法的问题，以此合成大规模训练数据，显著提升了模型在开放式编程基准上的性能。"
+    },
+    "2605.15040": {
+      "short_zh": "开源智能体建模框架Orchard介绍",
+      "tags": "自然语言处理;智能体建模;开源智能体框架",
+      "body_summary": "当前开源智能体研究受限于基础设施与训练数据的不足，多数高性能系统依赖闭源代码与模型。\n我们提出了开源框架Orchard，内置通用环境服务与多种智能体训练方案，在代码、图形界面操作、个人助理等任务上取得了优异的开源模型性能。"
+    },
+    "2605.15198": {
+      "short_zh": "用单个词统一视觉推理的两种路径",
+      "tags": "视觉推理;多模态推理;视觉推理中间表示",
+      "body_summary": "视觉推理常需生成中间视觉状态，现有方法如代理式或潜在式各有优劣。\n提出ATLAS框架，用一个功能词同时作为代理操作和潜在推理单元，并引入LA-GRPO稳定训练。"
+    },
+    "2605.07637": {
+      "short_zh": "多智能体路径规划的局部通信学习",
+      "tags": "机器人学;多智能体路径规划;基于学习的分散式求解",
+      "body_summary": "多智能体路径规划是高难度问题，现有基于学习的分散式求解器缺乏高效协作。\n我们提出LC-MAPF，通过可学习的局部通信模块，让相邻智能体交换信息以提升协调性，在多项指标上优于现有方法且保持可扩展性。"
+    },
+    "2605.14712": {
+      "short_zh": "机器人模仿学习的意图建模",
+      "tags": "机器人;视觉语言动作策略;短时程意图建模",
+      "body_summary": "机器人模仿数据常具有多模态特性，相似的观感下可能对应不同的动作片段，现有方法因仅基于当前观测生成动作，在部分可观测场景中容易产生意图冲突和执行不稳定。\n本文提出了IntentVLA框架，通过编码近期视觉观察来建模短时程意图，并用它指导连贯的动作片段生成，同时构建了一个包含12个任务的基准测试AliasBench来评估其在模糊观测下的性能。"
+    },
+    "2605.14607": {
+      "short_zh": "评估视频隐含含义理解能力",
+      "tags": "多模态学习;视频理解;隐含义理解基准",
+      "body_summary": "当前视频理解模型主要关注表层视觉内容识别，缺乏对视频中隐喻、讽刺等隐含社会意义的系统性理解能力。\n为此提出了首个系统性评估视频模型隐含含义理解能力的基准ViMU，要求模型基于多模态证据进行推理并回答无提示问题。"
+    },
+    "2605.08703": {
+      "short_zh": "自进化智能奖励框架",
+      "tags": "多模态人工智能;图像编辑评估;指令条件奖励建模",
+      "body_summary": "背景/任务是：当前评估指令驱动的图像编辑效果，依赖于大规模人工标注数据来训练奖励模型，效率低下且成本高昂。\n本文提出了RewardHarness框架，它将奖励建模重构为上下文演化问题，仅需少量演示样例即可自动演化工具和技能库，使冻结的子代理能进行推理并作出偏好判断，极大提升了数据效率与评估性能。"
+    },
+    "2605.01018": {
+      "short_zh": "测试多模态大模型在真实世界表格图像上的理解能力",
+      "tags": "计算机视觉；文档图像分析；表格图像理解",
+      "body_summary": "现有评估多模态大模型处理表格的能力主要依赖结构化的文本表格或干净的渲染图像，对真实场景中视觉复杂的表格图像理解不足。\n为此，我们构建了首个真实世界表格图像问答基准WildTableBench，并评估了21个前沿模型，发现其准确率普遍较低，揭示了模型在结构感知与推理上的持续弱点。"
+    },
+    "2605.14392": {
+      "short_zh": "大型语言模型自建环境训练",
+      "tags": "强化学习;推理任务;环境合成与验证",
+      "body_summary": "在零数据推理强化学习中，如何让模型通过自我改进持续提升推理能力是一个关键问题。\n提出EvoEnv方法，让模型通过合成可执行的验证环境来自我训练，利用解决与验证之间的不对称性来维持学习动力，并在实验中实现了性能提升。"
+    },
+    "2605.14068": {
+      "short_zh": "视觉图像拓扑推理基准构建",
+      "tags": "计算机视觉;几何与拓扑推理;嵌套曲线包容关系解析",
+      "body_summary": "构建一个基于视觉图像的层次化拓扑推理基准。提出包含756张图像的CurveBench，并用根树标注曲线间的包容关系，评估了多个模型在此任务上的表现，通过微调显著提升了开放权重模型的能力。"
+    },
+    "2605.14169": {
+      "short_zh": "角色扮演智能体记忆优化方法",
+      "tags": "自然语言处理;角色扮演智能体;记忆系统",
+      "body_summary": "现有角色扮演智能体记忆方法依赖循环摘要，会丢失重要细节\n提出书签式记忆框架，主动管理任务相关记忆片段并高效同步更新"
+    },
+    "2605.15188": {
+      "short_zh": "未来模拟测评智能体适应能力",
+      "tags": "人工智能代理;开放环境适应;时序事件预测与评估",
+      "body_summary": "为了高效地评估AI智能体在动态开放环境中的持续适应能力。\n构建了FutureSim基准，通过按时间顺序重播真实世界事件来测试前沿智能体的预测表现，并揭示了其能力的差异和不足。"
+    },
+    "2605.11458": {
+      "short_zh": "自适应教师暴露优化大模型推理",
+      "tags": "自然语言处理;大语言模型推理;自蒸馏教师暴露优化",
+      "body_summary": "当前大模型推理自蒸馏中，教师总是查看完整参考答案，但这可能导致其与学生能力不匹配，影响学习效果。\n本文提出自适应教师暴露方法，动态控制教师所见参考答案的比例，通过策略控制器优化暴露程度，提升学生模型推理性能。"
+    },
+    "2605.14438": {
+      "short_zh": "动态路由激活专家子集",
+      "tags": "自然语言处理;高效推理;混合专家模型",
+      "body_summary": "混合专家模型激活专家子集提升效率，但固定路由策略导致冗余计算和延迟。\n提出BEAM方法学习二元掩码动态选择专家，减少计算并保持性能，实现快速推理。"
+    },
+    "2605.14354": {
+      "short_zh": "基于大模型的政治操纵叙事检测",
+      "tags": "自然语言处理；社交媒体文本分析；政治操纵叙事检测",
+      "body_summary": "政治讨论转向社交媒体使得检测操纵性政治叙事愈发重要，区分操纵叙事与合法批评是关键挑战。\n提出结合提示过滤和无监督聚类的新框架，先过滤操纵性帖子，再聚类并识别叙事，在超120万帖中发现41个叙事簇。"
+    },
+    "2605.14352": {
+      "short_zh": "德国政治文本意识形态预测",
+      "tags": "自然语言处理;文本分类;政治立场预测",
+      "body_summary": "背景/任务：理解德国政治文本(从左到右)的意识形态倾向，并将其映射到连续谱系上。\n构建四个文本数据集，测试了13种基础模型，发现DeBERTa-large和Gemma2-2B分别在特定任务中表现最佳，表明模型架构和领域数据对预测政治偏见至关重要。"
+    },
+    "2605.12034": {
+      "short_zh": "提升全模态语言模型的视觉去偏评估",
+      "tags": "多模态学习;语言模型;全模态基准评测",
+      "body_summary": "现有全模态基准评测可能存在视觉泄露问题，难以衡量模型对多模态信息的真实整合能力。\n我们构建了去偏评测集OmniClean，并提出了一个三阶段后训练方法OmniBoost，使得小模型在去偏评测中达到了与大模型相当的性能。"
+    },
+    "2605.13834": {
+      "short_zh": "用霍奇分解保持拓扑的神经算子学习",
+      "tags": "机器学习;科学计算;物理场方程求解",
+      "body_summary": "研究在几何网格上求解物理场方程的算子学习问题。\n提出基于霍奇正交分解的混合架构，分离拓扑与几何分量以提升逼近精度和保物理性。"
+    },
+    "2605.15012": {
+      "short_zh": "用少量演示提升强化学习效果",
+      "tags": "机器学习;强化学习;可验证奖励的强化学习",
+      "body_summary": "在需要链式推理的任务中，可验证奖励的强化学习虽成功但面临样本效率问题，且现有改进方法需要大量标注数据。\n提出一种仅需少量随机演示样本的算法，通过结合监督与在线信号并防止过拟合，在多个基准上超越或比肩使用全量数据的方法。"
+    },
+    "2605.14323": {
+      "short_zh": "动态规划学习子策略组合",
+      "tags": "机器学习;强化学习;语言模型微调",
+      "body_summary": "研究了奖励函数随时间变化的马尔可夫决策过程中的子策略时序组合问题。\n提出了一种名为动态潜在路由的后训练方法，通过单阶段动态搜索联合学习潜在编码和路由策略，在低数据微调中优于传统方法。"
+    },
+    "2605.14389": {
+      "short_zh": "时序预测多智能体框架",
+      "tags": "时序预测；多智能体系统；上下文感知预测",
+      "body_summary": "现有方法难以结合数值模式与文本信息进行精准时序预测。\n提出了Nexus框架，通过分解预测任务并协调智能体，融合了数值与上下文信息进行预测。"
+    },
+    "2605.14454": {
+      "short_zh": "AI安全护栏终身自适应",
+      "tags": "安全AI系统;护栏自适应;稀疏反馈学习",
+      "body_summary": "随着AI代理执行多步工作流等任务，护栏需适应部署环境但只能获得稀疏嘈杂的反馈。\n提出LiSA框架，通过结构化记忆将零星失败转化为可复用策略，实现保守策略归纳与证据感知置信控制。"
+    },
+    "2605.12243": {
+      "short_zh": "预测对话诈骗进展",
+      "tags": "自然语言处理;对话系统;诈骗对话建模",
+      "body_summary": "研究多轮对话诈骗，需理解其随时间演进的模式。\n构建数据集并测试模型预测诈骗终止和骗子行动的能力。"
+    },
+    "2605.14051": {
+      "short_zh": "工业大模型智能体规划方法优化",
+      "tags": "大语言模型智能体;结构化规划;任务流程验证",
+      "body_summary": "工业大模型智能体常将规划与执行分离，但现有规划器常产生无效或冗长流程，导致失败与成本增加。\n提出SPIN框架，通过有向无环图验证与增量评估，先保证规划可执行再运行，减少任务数与工具调用，提升成功率。"
+    },
+    "2605.11459": {
+      "short_zh": "无训练纠正动态盲区视觉语言动作模型",
+      "tags": "机器人;具身智能;动态场景动作规划",
+      "body_summary": "大多数视觉语言动作模型因单帧观测训练而无法处理非平稳动态场景。\n提出一个免训练的推理时算子，通过联合优化步调与路径来即时校正动作块，显著提升动态环境中的任务成功率。"
+    }
+  },
+  "deep_analysis": {},
+  "figures": {
+    "2605.14876": [
+      {
+        "path": "https://arxiv.org/html/2605.14876v1/x1.png",
+        "caption": "Figure 2:Overview of the CLVR framework. The pipeline consists of three main components: (1) Flowchart of SFT and Proxy Prompt Reinforcement Learning; (2) Pipeline of the CLVR inference framework; (3) Schematic of theΔ\\Delta-Space weight merge algorithm. Finally, the merged model from (3) is integrated into the inference framework to achieve efficient CLVR inference.",
+        "role": "pipeline_1",
+        "caption_zh": "图 2：CLVR 框架概览。流程包含三个主要组成部分：(1) SFT 与代理提示强化学习流程图；(2) CLVR 推理框架流程；(3) Δ 空间权重合并算法示意图。最终，将 (3) 中合并的模型集成到推理框架中，以实现高效的 CLVR 推理。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.14876v1/x2.png",
+        "caption": "Figure 3:Architecture of the CLVR data synthesis pipeline, featuring a Perceive-Reason-Act workflow. The system is controlled by Gemini 2.5 Pro[14].",
+        "role": "pipeline_2",
+        "caption_zh": "图 3：CLVR 数据合成流程的架构，采用感知-推理-执行的工作流程。该系统由 Gemini 2.5 Pro 控制[14]。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.14876v1/x4.png",
+        "caption": "Figure 6:A step-by-step CLVR inference case. The trajectory begins with concept initialization (Step 1), followed by environment embedding (Step 2), lighting and atmosphere refinement (Step 3), and final typographic integration (Step 4), resulting in a cohesive image that fulfills all complex prompt requirements.",
+        "role": "pipeline_3",
+        "caption_zh": "图 6：一个分步的 CLVR 推理示例。该流程从概念初始化开始（步骤 1），随后进行环境嵌入（步骤 2）、光照与氛围优化（步骤 3），以及最终的排版整合（步骤 4），最终生成一幅满足所有复杂提示要求且协调一致的图像。"
+      }
+    ],
+    "2605.14269": [
+      {
+        "path": "https://arxiv.org/html/2605.14269v1/x1.png",
+        "caption": "Figure 1:Overview ofPhyMotion.Existing metrics operate in 2D pixel space (VLMs(Liuet al.,2025b), frame-level classifiers(Zhenget al.,2025)), producing misleading scores that are structurally blind to articulated motion. We recover SMPL meshes from generated videos and place them in a physics simulator, yielding decomposed, physically-grounded motion scores. The structured reward drives RL-based post-training (bottom), consistently improving human motion quality.",
+        "role": "pipeline_1",
+        "caption_zh": "图 1：PhyMotion 概述。现有指标在二维像素空间运行（如视觉语言模型（Liu 等人，2025b）、帧级分类器（Zheng 等人，2025）），产生的分数具有误导性，且在结构上对关节运动“视而不见”。我们从生成视频中恢复 SMPL 网格，并将其置于物理模拟器中，从而得到分解的、基于物理的运动评分。这种结构化奖励驱动基于强化学习的后训练（下图），持续提升人体运动质量。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.14269v1/x2.png",
+        "caption": "Figure 2:PhyMotionidentifies distinct physical failure modes overlooked by existing 2D metrics.Each example shows a generated video and its recovered SMPL trajectory. Colored SMPL\nframes highlight the dominant motion errors: kinematic (articulated-body inconsistency), contact\n(unstable body–environment interaction), and dynamic (physically infeasible motion).\nAll reported metric values are quartile-normalized z-scores.",
+        "role": "pipeline_2",
+        "caption_zh": "图 2：PhyMotion 识别出现有 2D 指标所忽略的多种物理失效模式。每个示例展示了生成的视频及其恢复的 SMPL 轨迹。彩色的 SMPL 帧突显了主要的运动误差类型：运动学误差（铰接体不一致）、接触误差（身体-环境交互不稳定）以及动力学误差（物理上不可行的运动）。所有报告的指标值均为四分位数归一化后的 z 分数。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.14269v1/x6.png",
+        "caption": "Figure 6:Qualitative examples selected by individualPhyMotionsubmetrics.Each row shows a generated video that scores poorly on one target submetric\nwhile scoring relatively well on the other two. The examples show\ncomplementary failures captured by kinematic feasibility, contact/balance\nfeasibility, and dynamic feasibility. All scores are reported in z-scores after normalization.",
+        "role": "pipeline_3",
+        "caption_zh": "图6：按不同物理运动子指标筛选的定性示例。每行展示一个在某一目标子指标上得分较低，而在另外两个子指标上相对得分较好的生成视频。这些示例显示了由运动学可行性、接触/平衡可行性以及动力学可行性所捕捉到的互补性缺陷。所有分数均为归一化后报告的z值。"
+      }
+    ],
+    "2605.15193": [
+      {
+        "path": "https://arxiv.org/html/2605.15193v1/x1.png",
+        "caption": "(a)Linear(b)Spherical (Ours)(c)FID, SiT-B/2, FLUX.2 VAEFigure 1:Latent flow matching ignores the geometry of VAE latents.(a) Linear latent flow matching connects Gaussian noise to a VAE latent with a straight line. Although both endpoints concentrate on thin shells, the line passes through interior radii rarely occupied by either endpoint. (b) We project data latents and sample noise on a shared fixed-radius sphere, then train along the spherical arc, or slerp. (c) By aligning the latent geometry to the sphere, our method reaches the vanilla-linear FID=30=30in about2.2×2.2\\timesfewer training steps and continues to improve, without changing the diffusion architecture or adding any auxiliary encoder.",
+        "role": "pipeline_1",
+        "caption_zh": "(a)线性 (b)球形（本文方法）(c)FID, SiT-B/2, FLUX.2 VAE 图1：潜在流匹配忽略了 VAE 潜在空间的几何结构。(a) 线性潜在流匹配用一条直线连接高斯噪声与 VAE 潜在向量。尽管两个端点都集中在薄球壳上，但直线穿过的内部半径区域很少被任一端点占据。(b) 我们将数据潜在向量和采样噪声投影到一个共享的固定半径球面上，然后沿着球面弧（即球面线性插值）进行训练。(c) 通过将潜在几何对齐到球面，我们的方法在约 2.2× 更少的训练步数内达到与原始线性方法相同的 FID=30，并持续改进，且无需改变扩散架构或添加任何辅助编码器。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.15193v1/x4.png",
+        "caption": "(a)Per-token norm along linear, shell, and slerp paths for representative tokenizers. Lines average 2048 pairs; bands show±1​σ\\pm 1\\sigma; the horizontal reference is the fixed spherical radius.(b)Off-shell distance for each path, measured in standard deviations from the nearest endpoint shell. Larger values indicate latent regions rarely occupied by either endpoint; slerp remains at the fixed spherical radius.Figure 2:Linear paths can dip away from the endpoint shells; shell paths interpolate token radii; spherical-slerp stays on the fixed-radius sphere at every timestep.",
+        "role": "pipeline_2",
+        "caption_zh": "(a)代表性分词器在线性路径、壳路径和球面线性插值路径上的逐词元范数。线条为2048个样本对的平均值；阴影带表示±1σ范围；水平参考线为固定球面半径。(b)各路径的离壳距离，以距最近端点壳的标准偏差度量。数值越大表示潜在区域越少被任一端点占据；球面线性插值始终保持在固定球面半径上。图2：线性路径可能偏离端点壳；壳路径插值词元半径；球面线性插值在每个时间步均保持在固定半径球面上。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.15193v1/x6.png",
+        "caption": "Figure 3:Angular/radial decoder sensitivity. Swapping radius with a same-class neighbor preserves the original decode, while swapping direction moves toward the neighbor; markers average 1024 anchors and shape encodes the ablation condition.",
+        "role": "pipeline_3",
+        "caption_zh": "图 3：角度/径向解码器敏感性。将半径与同类相邻样本交换会保留原始解码结果，而交换方向则使解码向相邻样本移动；标记点为 1024 个锚点的平均值，形状编码表示消融实验条件。"
+      }
+    ],
+    "2605.09681": [
+      {
+        "path": "https://arxiv.org/html/2605.09681v1/figs/win_rate.png",
+        "caption": "SettingMethodEfficiency MetricsSpecific MetricsGeneral MetricsFPS↑\\uparrowSpeedup↑\\uparrowChunkDisc.↓\\downarrowDynamicDegree↑\\uparrowTotalScore↑\\uparrowQualityScore↑\\uparrowSemanticScore↑\\uparrowLongLive5-second\\cellcolorgray!10Full KV\\cellcolorgray!1021.85\\cellcolorgray!101.00×\\times\\cellcolorgray!102.1\\cellcolorgray!1040.28\\cellcolorgray!1083.19\\cellcolorgray!1083.63\\cellcolorgray!1081.41StreamingLLM24.561.12×\\times2.143.33▲82.8583.2981.09Dummy Forcing (L=1L=1)29.691.36×\\times2.437.2282.8383.3380.86Dummy Forcing (L=2L=2)28.361.30×\\times2.136.6783.1583.7380.85\\cellcolorORANGEII!20Forcing-KV(Ours)\\cellcolorORANGEII!2029.58\\cellcolorORANGEII!201.35×\\times\\cellcolorORANGEII!202.1\\cellcolorORANGEII!2045.56▲\\cellcolorORANGEII!2083.23▲\\cellcolorORANGEII!2083.84\\cellcolorORANGEII!2080.80Self Forcing5-second\\cellcolorgray!10Full KV\\cellcolorgray!1019.56\\cellcolorgray!101.00×\\times\\cellcolorgray!102.1\\cellcolorgray!1066.39\\cellcolorgray!1083.91\\cellcolorgray!1084.71\\cellcolorgray!1080.70StreamingLLM23.361.19×\\times2.465.0083.8084.5280.89Dummy Forcing (L=1L=1)28.311.45×\\times2.664.4483.8784.6480.81Dummy Forcing (L=6L=6)25.411.30×\\times2.463.3383.7984.5080.96\\cellcolorORANGEII!20Forcing-KV(Ours)\\cellcolorORANGEII!2028.18\\cellcolorORANGEII!201.44×\\times\\cellcolorORANGEII!202.1\\cellcolorORANGEII!2069.17▲\\cellcolorORANGEII!2083.98▲\\cellcolorORANGEII!2084.82\\cellcolorORANGEII!2080.61\\captionoftableQuantitative results onshort video generationwith VBench.\\captionoffigureUser study.",
+        "role": "pipeline_1",
+        "caption_zh": "方法设置效率指标具体指标通用指标FPS↑加速比↑分块差异↓动态程度↑总分↑质量分↑语义分↑LongLive5秒\\cellcolorgray!10完整KV\\cellcolorgray!1021.85\\cellcolorgray!101.00×\\cellcolorgray!102.1\\cellcolorgray!1040.28\\cellcolorgray!1083.19\\cellcolorgray!1083.63\\cellcolorgray!1081.41StreamingLLM24.561.12×2.143.33▲82.8583.2981.09Dummy Forcing (L=1)29.691.36×2.437.2282.8383.3380.86Dummy Forcing (L=2)28.361.30×2.136.6783.1583.7380.85\\cellcolorORANGEII!20Forcing-KV(本文方法)\\cellcolorORANGEII!2029.58\\cellcolorORANGEII!201.35×\\cellcolorORANGEII!202.1\\cellcolorORANGEII!2045.56▲\\cellcolorORANGEII!2083.23▲\\cellcolorORANGEII!2083.84\\cellcolorORANGEII!2080.80Self Forcing5秒\\cellcolorgray!10完整KV\\cellcolorgray!1019.56\\cellcolorgray!101.00×\\cellcolorgray!102.1\\cellcolorgray!1066.39\\cellcolorgray!1083.91\\cellcolorgray!1084.71\\cellcolorgray!1080.70StreamingLLM23.361.19×2.465.0083.8084.5280.89Dummy Forcing (L=1)28.311.45×2.664.4483.8784.6480.81Dummy Forcing (L=6)25.411.30×2.463.3383.7984.5080.96\\cellcolorORANGEII!20Forcing-KV(本文方法)\\cellcolorORANGEII!2028.18\\cellcolorORANGEII!201.44×\\cellcolorORANGEII!202.1\\cellcolorORANGEII!2069.17▲\\cellcolorORANGEII!2083.98▲\\cellcolorORANGEII!2084.82\\cellcolorORANGEII!2080.61\\captionoftable基于VBench的短视频生成定量结果。\\captionoffigure用户研究。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.09681v1/figs/teaser_v10.png",
+        "caption": "Figure 1:Overview ofForcing-KV. We apply static structural pruning and dynamic similarity pruning to different heads, accelerating inference, reducing cache memory while improving quality.",
+        "role": "pipeline_2",
+        "caption_zh": "图1：Forcing-KV 概览。我们对不同注意力头分别应用静态结构剪枝与动态相似性剪枝，在提升质量的同时加速推理并减少缓存内存占用。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.09681v1/figs/observation_ablation_v3.png",
+        "caption": "Figure 3:Left:(a-c) Gradually masking contextual information for dynamic heads leads to a progressive decline in dynamic degree and consistency, while masking the transition frame for static heads causes a sharp rise in chunk discontinuity, revealing different functional emphases. (d) The cosine similarity of key states of adjacent frames across different autoregressive steps and different frame segments.Right:(e) Principal component analysis (PCA) of attention features from a subset of attention heads, evaluated across one hundred prompt samples and four denoising steps. The observed head functioning is highly stable.",
+        "role": "pipeline_3",
+        "caption_zh": "图 3：左图：(a–c) 逐步掩蔽动态头部的上下文信息会导致动态程度与一致性逐渐下降，而掩蔽静态头部的过渡帧则会引起块间不连续性急剧上升，这揭示了不同的功能侧重。(d) 不同自回归步数及不同帧段之间相邻帧关键状态的余弦相似度。右图：(e) 对来自部分注意力头的注意力特征进行主成分分析（PCA），该评估基于一百个提示样本和四个去噪步骤。观察到的头部功能具有高度稳定性。"
+      }
+    ],
+    "2605.13027": [
+      {
+        "path": "https://arxiv.org/html/2605.13027v1/x1.png",
+        "caption": "Figure 2:Overall structure of our PRISM.",
+        "role": "pipeline_1",
+        "caption_zh": "图2：我们的PRISM整体结构。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.13027v1/x2.png",
+        "caption": "Figure 3:FMPR prior recovery trajectory.",
+        "role": "pipeline_2",
+        "caption_zh": "图3：FMPR先验恢复轨迹。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.13027v1/figs/main/visual/sure/1_lq.png",
+        "caption": "LQLQ-derivedBoundary MapUncertaintyMapσ\\sigmaBoundaryMapm^\\hat{m}BoundaryTargetmhm_{h}Figure 4:SURE structural cue visualization.",
+        "role": "pipeline_3",
+        "caption_zh": "图4：SURE结构线索可视化。LQLQ衍生的边界图、不确定性图σ、边界图估计m̂和边界目标m_h。"
+      }
+    ],
+    "2605.15186": [
+      {
+        "path": "https://arxiv.org/html/2605.15186v1/x2.png",
+        "caption": "Figure 2:The DeltaScene Data Pipeline. Our automated framework leverages LLMs and VLMs to generate diverse 3D editing pairs through a multi-stage consensus filtering process.",
+        "role": "pipeline_1",
+        "caption_zh": "图2：DeltaScene数据流水线。我们的自动化框架通过多阶段共识筛选流程，利用大语言模型与视觉语言模型生成多样化的三维编辑配对。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.15186v1/x4.png",
+        "caption": "Figure 4:Overview of the VGGT-Edit Model Architecture. Our model features a synchronized prompt injection mechanism and a residual transformation head, enabling native 3D scene editing through a single forward pass.",
+        "role": "pipeline_2",
+        "caption_zh": "图 4：VGGT-Edit 模型架构总览。本模型采用同步提示注入机制与残差变换头，通过单次前向传播即可实现原生三维场景编辑。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.15186v1/x5.png",
+        "caption": "Figure 5:Qualitative Comparison on Diverse 3D Editing Tasks.We evaluate VGGT-Edit against state-of-the-art baselines across various scene-level operations, including object addition, removal, and transformation. Our method produces sharp, instruction-accurate results while maintaining superior multi-view consistency compared to 2D-lifting approaches.",
+        "role": "pipeline_3",
+        "caption_zh": "图 5：多样化三维编辑任务的定性对比。我们在多种场景级操作（包括物体添加、移除与变换）上，将 VGGT-Edit 与前沿基线方法进行比较。相较于二维提升方法，我们的方法在保持优异多视角一致性的同时，能够生成清晰且与指令精准相符的结果。"
+      }
+    ],
+    "2605.14984": [
+      {
+        "path": "https://arxiv.org/html/2605.14984v1/x2.png",
+        "caption": "Figure 2:Diagram of the proposed Sat3DGen framework.",
+        "role": "pipeline_1",
+        "caption_zh": "图2：所提出的Sat3DGen框架示意图。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.14984v1/x1.png",
+        "caption": "ImageSatelliteMore thanSupervisionSyntheticGeometryRenderableFaithfulBuildingsSignalor RealQualitySat2City✗✗✗3DSynthetic✓Sat2Scene✓✗✗ImgaeReal✓Sat2Density++✓✓✓ImgaeReal✗Ours✓✓✓ImgaeReal✓Figure 1:Comparison of 3D scene generation methods (top: attribute table; bottom: visual results). Given an input satellite image, (a) Sat2Scene and (b) Sat2City generate only shells of buildings and roads and miss non‑building semantics; (c) Sat2Density++ and (d) Ours are faithful to satellite semantics and appearance, but Sat2Density++ is heavily distorted, whereas our Sat3DGen yields a more structured, higher‑quality 3D representation.",
+        "role": "pipeline_2",
+        "caption_zh": "图 1：三维场景生成方法对比（上：属性表；下：可视化结果）。给定输入卫星图像，(a) Sat2Scene 与 (b) Sat2City 仅生成建筑外壳和道路，缺失非建筑语义；(c) Sat2Density++ 与 (d) 本方法在卫星语义与外观上均保持忠实，但 Sat2Density++ 存在严重畸变，而我们的 Sat3DGen 能生成结构更清晰、质量更高的三维表征。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.14984v1/x5.png",
+        "caption": "Figure 5:Qualitative ablation on key modules.",
+        "role": "pipeline_3",
+        "caption_zh": "图5：关键模块的定性消融分析。"
+      }
+    ],
+    "2605.15178": [
+      {
+        "path": "https://arxiv.org/html/2605.15178v1/x2.png",
+        "caption": "Figure 2:SANA-WM Architecture.Text, video, and pose tokens pass through alternating GDN and softmax attention blocks. Geometry-aware components (UCPE attention and Plücker mixing) are integrated to enable pose-conditioned generation, followed by a refiner to improve visual quality.",
+        "role": "pipeline_1",
+        "caption_zh": "图 2：SANA-WM 架构。文本、视频与姿态标记经由交替的 GDN 与 softmax 注意力模块处理。通过集成几何感知组件（UCPE 注意力与 Plücker 混合）实现以姿态为条件的生成，随后经细化模块提升视觉质量。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.15178v1/x3.png",
+        "caption": "Figure 3:Data construction pipeline.We collect open-source video and static 3D sources, annotate metric-scale camera poses, augment DL3DV with 3DGS-rendered trajectories, and filter/caption the resulting clips into a 213K-clip training corpus.",
+        "role": "pipeline_2",
+        "caption_zh": "图3：数据构建流程。我们收集开源视频与静态三维资源，对其标注公制尺度相机位姿，利用3D高斯泼溅渲染轨迹对DL3DV进行增强，并将生成片段经过筛选与描述处理，最终构成包含21.3万片段的训练数据集。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.15178v1/x7.png",
+        "caption": "Figure 7:Efficiency ablation and scaling. (a) 60s single-GPU VAE/DiT latency by stage; bars are scaled for readability. (b) H100 latency and memory scaling: recurrent variants grow compactly, while all-softmax OOMs at 60s.",
+        "role": "pipeline_3",
+        "caption_zh": "图 7：效率消融与扩展性分析。(a) 单 GPU 上 60 秒 VAE/DiT 各阶段延迟分布；柱形图经过缩放以便阅读。(b) H100 延迟与内存扩展：循环变体增长紧凑，而全 softmax 在 60 秒时出现内存溢出。"
+      }
+    ],
+    "2605.15141": [
+      {
+        "path": "https://arxiv.org/html/2605.15141v1/x1.png",
+        "caption": "Figure 1:Overall framework of our Causal Forcing++ and the comparison with existing methods.(a) Causal Forcing (CF) fixes Self Forcing (SF)’s frame-level injectivity flaw but remains costly; our Causal Forcing++ (CF++) is theoretically sound, efficient, and scalable. (b) Our CF++ reduces training cost by 4×\\times, requires no extra data curation, and achieves 50% lower latency and higher VBench scores than SF and CF.",
+        "role": "pipeline_1",
+        "caption_zh": "图 1：我们的 Causal Forcing++ 总体框架以及与现有方法的对比。（a）Causal Forcing（CF）修正了 Self Forcing（SF）的帧级单射缺陷，但仍成本高昂；我们的 Causal Forcing++（CF++）在理论上可靠、高效且可扩展。（b）我们的 CF++ 将训练成本降低 4 倍，无需额外数据整理，并且与 SF 和 CF 相比，延迟降低 50% 且获得更高的 VBench 评分。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.15141v1/x3.png",
+        "caption": "(a)Performance comparison.\nCausal CD achieves higher VBench scores than causal ODE both when directly evaluated at Stage 2 and when used as the initialization for Stage 3, while also producing videos with better visual quality. Init. denotes initialization.(b)Training-efficiency.\nCausal CD dramatically reduces training time and requires no extra storage.Figure 3:Performance and efficiency comparison between causal CD and causal ODE.Causal CD outperforms causal ODE, while subsequently improving training efficiency in time and storage.",
+        "role": "pipeline_2",
+        "caption_zh": "(a) 性能对比。Causal CD 在第二阶段直接评估时以及在作为第三阶段初始化时，均获得比 Causal ODE 更高的 VBench 分数，同时生成的视频具有更好的视觉质量。\"Init.\" 表示初始化。(b) 训练效率。Causal CD 显著减少了训练时间，且无需额外存储。图 3：Causal CD 与 Causal ODE 的性能与效率对比。Causal CD 优于 Causal ODE，同时在时间和存储方面提升了训练效率。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.15141v1/x5.png",
+        "caption": "(a)Action: moving forward continuously.(b)Action: move forward first, then tilt the camera downward.Figure 4:Application of Causal Forcing++ to the action-conditioned world model.Causal Forcing++ enables efficient, high-quality distillation from a bidirectional model to a low-latency AR model, thereby enabling interactive generation toward a Genie3-style world model.",
+        "role": "pipeline_3",
+        "caption_zh": "(a)动作：持续向前移动。(b)动作：先向前移动，然后将摄像机向下倾斜。图4：Causal Forcing++ 在动作条件世界模型中的应用。Causal Forcing++ 能够高效、高质量地将双向模型蒸馏至低延迟自回归模型，从而实现对 Genie3 风格世界模型的交互式生成。"
+      }
+    ],
+    "2605.13852": [
+      {
+        "path": "https://arxiv.org/html/2605.13852v1/x1.png",
+        "caption": "Figure 2:Method overview.Realiz3D introduces Domain Shifters, lightweight residual adapters that learn visual domain identity (real vs. synthetic) independently of control signals, enabling the model to learn controllability without compromising realism.(top left)A Domain Shifter encodes domain identity as a low-rank residual added to latent features (Sec.4.1).(top right)Stage 1: Domain Shifters are trained with mixed real and synthetic data under null control while the base model is frozen, learning domain separation (Sec.4.1).(bottom)Stage 2: The diffusion model is fine-tuned for controllable generation using both domains (Sec.4.2).(bottom left)Synthetic samples teach controllability under the synthetic mode.(bottom right)Real samples (without control) are used forRepresentation Binding—combining (1)Layer-Aware Training, which freezes some early layers to preserve structure while updating later, appearance-related ones, and (2)Domain Reassignment, which occasionally reuses the synthetic mode in early layers to transfer control to the real domain. Throughout all stages of training, we rely solely on the standard diffusion loss",
+        "role": "pipeline_1",
+        "caption_zh": "图2：方法概览。Realiz3D 引入了领域偏移器（Domain Shifters）——一种轻量级残差适配器，能够独立于控制信号学习视觉领域身份（真实 vs. 合成），使模型在不牺牲真实感的前提下学习可控性。（左上）领域偏移器将领域身份编码为添加到潜在特征的低秩残差（第4.1节）。（右上）阶段1：在基础模型冻结的情况下，使用空控制下的混合真实与合成数据训练领域偏移器，以学习领域分离（第4.1节）。（下方）阶段2：使用两个领域的数据对扩散模型进行可控生成微调（第4.2节）。（左下）合成样本在合成模式下教授可控性。（右下）真实样本（无控制）用于表征绑定（Representation Binding）——结合（1）层感知训练（Layer-Aware Training），冻结部分早期层以保持结构，同时更新后期与外观相关的层；以及（2）领域重分配（Domain Reassignment），偶尔在早期层重用合成模式以将控制迁移至真实领域。在整个训练的所有阶段，我们仅依赖于标准扩散损失。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.13852v1/x6.png",
+        "caption": "Figure 6:Layer-Selective Training.Training early blocks on synthetic data and later blocks on real data enables the model to learn controllable properties from synthetic data while maintaining photorealism. See further details in Sec.A.2.",
+        "role": "pipeline_2",
+        "caption_zh": "图 6：分层选择性训练。在合成数据上训练早期模块，在真实数据上训练后期模块，使模型能够从合成数据中学习可控属性，同时保持照片级真实感。详见 A.2 节。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.13852v1/x7.png",
+        "caption": "Figure 7:Ablation Study.We demonstrate the importance of our Representation Binding and Inference-time Domain Shifting on Multiview Texturing. Red circles highlight inconsistent regions with the geometry. Both techniques enhance control adherence, while maintaining realism. The presented prompts: ”A baby stroller with a leather seat and a black plastic container on the bottom”, ”A structure with a flat top, made of natural stone”.",
+        "role": "pipeline_3",
+        "caption_zh": "图 7：消融研究。我们展示了表征绑定与推理时域偏移在多视图纹理生成中的重要性。红色圆圈标出了与几何结构不一致的区域。两种技术均能在保持真实感的同时增强对控制条件的遵循。所用提示词为：“一辆带有皮革座椅、底部配有黑色塑料容器的婴儿车”；“一个平顶结构，由天然石材制成”。"
+      }
+    ],
+    "2605.15055": [
+      {
+        "path": "https://arxiv.org/html/2605.15055v1/x6.png",
+        "caption": "Figure 6:Ablation studies on the loss formulation and sampler noise level. When the noise level is set to0, the SDE sampler reduces to an ODE sampler, and the student is optimized using Eq. (12). As shown, the PPO-style policy gradient underperforms its closed-form KL counterpart. Moreover, lower noise levels lead to faster convergence and higher performance ceiling.",
+        "role": "pipeline_1",
+        "caption_zh": "图 6：损失函数形式与采样器噪声水平的消融研究。当噪声水平设为 0 时，SDE 采样器退化为 ODE 采样器，且学生模型通过公式 (12) 进行优化。如图所示，PPO 风格策略梯度的表现逊于其封闭形式 KL 散度的对应方法。此外，更低的噪声水平会带来更快的收敛速度和更高的性能上限。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.15055v1/x5.png",
+        "caption": "Figure 5:Ablation studies on distillation methods. SFT is trained on images generated from teacher rollouts, while all other baselines use student on-policy rollouts and distill from the same set of teacher models using their respective objectives.",
+        "role": "pipeline_2",
+        "caption_zh": "图5：蒸馏方法的消融研究。SFT在教师模型生成图像上训练，而所有其他基线方法均使用学生模型在线生成数据，并依据各自的目标从同一组教师模型中进行蒸馏。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.15055v1/x2.png",
+        "caption": "Figure 2:Qualitative comparisons against multi-task RL methods and single-task teachers. Each case is presented in two rows. The first row shows, from left to right, DiffusionOPD (ours), Multi-Task GRPO-Guard, Multi-Task NFT, and Cascade NFT. The second row shows the input prompt, our Aes Teacher, our GenEval Teacher, and our OCR Teacher.",
+        "role": "pipeline_3",
+        "caption_zh": "图 2：与多任务强化学习方法及单任务教师模型的定性对比。每个案例以两行呈现：第一行从左至右依次展示 DiffusionOPD（本方法）、多任务 GRPO-Guard、多任务 NFT 以及级联 NFT；第二行展示输入提示、我们的美学教师模型、我们的通用评估教师模型以及我们的光学字符识别教师模型。"
+      }
+    ],
+    "2605.15190": [
+      {
+        "path": "https://arxiv.org/html/2605.15190v1/x2.png",
+        "caption": "Figure 2:Training Pipeline.RAVEN builds on score distillation with a training-time test formulation that aligns the generator’s training context with inference.\nIn the fake-score step, the frozen generator performs autoregressive self rollout with KV cache reuse, producing the clean endpoints and noisy denoising states that are subsequently reused in the generator step.\nRather than discarding these rollout states after critic training, RAVEN repacks them into an interleaved sequence of clean historical endpoints and noisy denoising states, processed under a causal attention mask so that each noisy state attends to the clean history the generator itself produced.\nThis allows later chunk losses, scaled chunk-wise, to supervise the history representations on which future predictions depend.",
+        "role": "pipeline_1",
+        "caption_zh": "图 2：训练流程。RAVEN 基于分数蒸馏方法，采用训练时测试的构建方式，使生成器的训练上下文与推理过程对齐。在伪分数步骤中，冻结的生成器通过复用 KV 缓存进行自回归自展开，生成干净的端点状态和含噪的去噪状态，随后在生成器步骤中复用这些状态。RAVEN 并未在判别器训练后丢弃这些展开状态，而是将它们重新打包成交替排列的干净历史端点与含噪去噪状态序列，并在因果注意力掩码下进行处理，使得每个含噪状态都能关注生成器自身产生的干净历史。这样，后续经过缩放的分块损失便可监督未来预测所依赖的历史表示。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.15190v1/x1.png",
+        "caption": "Figure 1:Attention Mask Configuration.Autoregressive video diffusion training paradigms differ in how historical states enter attention and whether those states receive end-to-end supervision from later chunks.\nTeacher Forcing and Diffusion Forcing rely on data-driven historical states, inducing a training distribution that differs from inference.\nSelf Forcing shifts the history distribution toward inference but reuses the historical cache as detached context.\nRAVEN instead repacks each self rollout into clean historical endpoints and noisy denoising states, allowing later chunks to attend to the same history used during extrapolation while their losses supervise the cached representations.",
+        "role": "pipeline_2",
+        "caption_zh": "图 1：注意力掩码配置。自回归视频扩散训练范式在历史状态如何进入注意力机制以及这些状态是否接受来自后续分块的端到端监督方面存在差异。教师强制与扩散强制依赖于数据驱动的历史状态，导致训练分布与推断阶段存在差异。自强制将历史分布向推断对齐，但将历史缓存作为分离的上下文重复使用。相比之下，RAVEN 将每个自生成序列重新打包为纯净的历史端点与带噪声的去噪状态，使得后续分块能够关注与推演过程中相同的历史信息，同时利用其损失函数对缓存表示进行监督。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.15190v1/x3.png",
+        "caption": "Weighting Functiongηg_{\\eta}TotalScoreQual.ScoreSem.ScoreDyn.Deg.Mode (s=−0.54s=-0.54)82.5882.8681.432.996Mode (s=0.81s=0.81)83.0883.7480.472.971Logit-Normal (μ=0\\mu=0,σ=1\\sigma=1)83.3183.9780.652.963Shift (α=1\\alpha=1)83.7984.8779.463.000Shift (α=0\\alpha=0)83.8284.6780.422.924Shift (α=−𝟏\\boldsymbol{\\alpha=-1}, Ours)85.1586.1881.042.951Figure 5:Ablation on Chunk-wise Loss Scaling.",
+        "role": "pipeline_3",
+        "caption_zh": "Weighting Functiongηg_{\\eta}TotalScoreQual.ScoreSem.ScoreDyn.Deg.Mode (s=−0.54s=-0.54)82.5882.8681.432.996Mode (s=0.81s=0.81)83.0883.7480.472.971Logit-Normal (μ=0\\mu=0,σ=1\\sigma=1)83.3183.9780.652.963Shift (α=1\\alpha=1)83.7984.8779.463.000Shift (α=0\\alpha=0)83.8284.6780.422.924Shift (α=−𝟏\\boldsymbol{\\alpha=-1}, Ours)85.1586.1881.042.951Figure 5:Ablation on Chunk-wise Loss Scaling."
+      }
+    ]
+  }
+}

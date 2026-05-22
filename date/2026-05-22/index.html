@@ -136,8 +136,8 @@
     </nav>
 
     <div class="max-w-[90rem] mx-auto px-4 sm:px-6 py-10 flex flex-col lg:flex-row gap-8 lg:gap-10 lg:items-start">
-        <button id="toc-toggle" onclick="var s=document.getElementById('toc-sidebar');var show=s.style.display!=='block';s.style.display=show?'block':'none';this.textContent=show?'◀ 收起目录':'▶ 展开目录'" class="hidden lg:block fixed left-2 top-28 z-40 bg-white/90 border border-slate-200 rounded-lg px-2 py-1.5 text-xs font-bold text-slate-500 shadow-sm hover:text-indigo-600 hover:border-indigo-300 transition-colors cursor-pointer backdrop-blur-sm">▶ 展开目录</button>
-        <aside id="toc-sidebar" style="display:none" class="shrink-0 sticky top-24 z-30 max-h-[calc(100vh-7rem)] overflow-y-auto no-scrollbar pr-1 w-64 xl:w-72">
+        <button id="toc-toggle" onclick="var s=document.getElementById('toc-sidebar');var show=s.style.display!=='block';s.style.display=show?'block':'none';this.textContent=show?'◀ 收起目录':'▶ 展开目录'" class="hidden lg:block fixed left-2 top-28 z-40 bg-white/90 border border-slate-200 rounded-lg px-2 py-1.5 text-xs font-bold text-slate-500 shadow-sm hover:text-indigo-600 hover:border-indigo-300 transition-colors cursor-pointer backdrop-blur-sm">◀ 收起目录</button>
+        <aside id="toc-sidebar" style="display:block" class="shrink-0 sticky top-24 z-30 max-h-[calc(100vh-7rem)] overflow-y-auto no-scrollbar pr-1 w-64 xl:w-72">
             <div class="rounded-2xl border border-slate-200/80 bg-white/90 shadow-sm p-4 backdrop-blur-sm">
                 <p class="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 mb-3 px-1">目录</p>
                 <nav id="toc-nav-inner" class="space-y-0.5" aria-label="页面目录"></nav>
