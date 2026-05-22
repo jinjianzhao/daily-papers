@@ -223,20 +223,6 @@
 
     <script>
 
-        function renderMarkdown(s) {
-            return String(s)
-                .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-                .replace(/^### (.+)$/gm, '<h4 class="font-bold text-base mt-4 mb-1">$1</h4>')
-                .replace(/^## (.+)$/gm, '<h3 class="font-bold text-lg mt-5 mb-2">$1</h3>')
-                .replace(/^# (.+)$/gm, '<h2 class="font-bold text-xl mt-6 mb-2">$1</h2>')
-                .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-                .replace(/\*(.+?)\*/g, '<em>$1</em>')
-                .replace(/`(.+?)`/g, '<code class="bg-slate-100 px-1 rounded text-xs">$1</code>')
-                .replace(/^- (.+)$/gm, '<li class="ml-4 list-disc">$1</li>')
-                .replace(/\n\n/g, '</p><p class="mb-2">')
-                .replace(/\n/g, '<br>');
-        }
-
         function escapeHtml(s) {
             return String(s)
                 .replace(/&/g, '&amp;')
@@ -520,18 +506,18 @@
 
                             ${summaryBlock}
 
-                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-6">
-                                ${imgHtml || '<div class="col-span-full text-center text-slate-300 text-xs py-4 italic">No key figures extracted</div>'}
-                            </div>
+                            ${info.abstract ? '<details class="mb-6 rounded-xl border border-slate-100 bg-slate-50/60"><summary class="px-4 py-2 text-xs font-bold text-slate-500 cursor-pointer select-none">Abstract' + (info.abstract_zh ? ' / 摘要' : '') + '</summary>' + (info.abstract_zh ? '<p class="px-4 py-3 text-sm text-slate-700 leading-relaxed">' + escapeHtml(info.abstract_zh) + '</p><hr class="mx-4 border-slate-200">' : '') + '<p class="px-4 py-3 text-sm text-slate-600 leading-relaxed">' + escapeHtml(info.abstract) + '</p></details>' : ''}
 
-                            ${info.abstract_zh ? '<details class="mb-6 rounded-xl border border-slate-100 bg-slate-50/60"><summary class="px-4 py-2 text-xs font-bold text-slate-500 cursor-pointer select-none">摘要</summary><p class="px-4 py-3 text-sm text-slate-700 leading-relaxed">' + escapeHtml(info.abstract_zh) + '</p></details>' : ''}
-
-                            ${data.deep_analysis && data.deep_analysis[aid] ? '<details class="mb-6 rounded-xl border border-emerald-100 bg-emerald-50/40"><summary class="px-4 py-2 text-xs font-bold text-emerald-600 cursor-pointer select-none">Deep Analysis / 深度解读</summary><div class="px-4 py-3 text-sm text-slate-700 leading-relaxed prose prose-sm max-w-none">' + renderMarkdown(data.deep_analysis[aid]) + '</div></details>' : ''}
+                            ${data.deep_analysis && data.deep_analysis[aid] ? '<details class="mb-6 rounded-xl border border-emerald-100 bg-emerald-50/40"><summary class="px-4 py-2 text-xs font-bold text-emerald-600 cursor-pointer select-none">Deep Analysis / 深度解读</summary><div class="px-4 py-3 text-sm text-slate-700 leading-relaxed whitespace-pre-wrap">' + escapeHtml(data.deep_analysis[aid]) + '</div></details>' : ''}
 
                             <details class="mb-6 rounded-xl border border-indigo-100 bg-indigo-50/40" ontoggle="if(this.open){var f=this.querySelector('iframe');if(!f.src)f.src=f.dataset.src;}">
                                 <summary class="px-4 py-2 text-xs font-bold text-indigo-500 cursor-pointer select-none">AlphaXiv 解读 <span class="font-normal text-slate-400 ml-2">Ctrl+/ 隐藏工具栏</span></summary>
                                 <iframe data-src="https://www.alphaxiv.org/zh/overview/${aid}" style="width:100%;height:700px;border:none;border-radius:0 0 12px 12px;"></iframe>
                             </details>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-6">
+                                ${imgHtml || '<div class="col-span-full text-center text-slate-300 text-xs py-4 italic">No key figures extracted</div>'}
+                            </div>
                         </article>`;
                     });
                 });

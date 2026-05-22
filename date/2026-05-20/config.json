@@ -6,35 +6,11 @@
       "abstract_zh": "文本到图像（Text-to-Image，T2I）模型近期在约1K和2K分辨率领域取得了显著进展。随着对更佳视觉体验的强烈需求与成像技术的快速发展，超高清（Ultra-High-Resolution，UHR）图像生成的需求大幅增长。然而，由于高分辨率内容的稀缺性与复杂性，UHR图像生成面临着巨大挑战。本文首先介绍了PixVerve-95K数据集——这是一个通过精心设计的数据流程构建的高质量开源UHR T2I数据集，涵盖多样化场景的9.5万张图像（每张图像最小像素数量为1亿），并包含七维度标注。基于我们的大规模图文数据集，我们通过三种训练方案率先将多种T2I基础模型扩展至原生1亿像素生成。最后，结合传统指标与基于多模态大语言模型的评估方法，我们提出的PixVerve-Bench基准测试建立了涵盖视觉质量与语义对齐的UHR图像综合评价体系。在基准测试中的大量实验结果与训练策略的探索性研究，共同为未来突破提供了有价值的见解。",
       "hf_link": "https://huggingface.co/papers/2605.20147"
     },
-    "2605.19786": {
-      "title": "Fast 4D Mesh Generation by Spatio-Temporal Attention Chains",
-      "abstract": "4D mesh generation has recently emerged as a powerful paradigm for recovering dynamic 3D structure from videos, but existing methods remain slow, computationally expensive, and difficult to scale to longer sequences. We introduce a training-free approach that accelerates 4D mesh generation while improving temporal correspondence quality. Our key observation is that temporal correspondences emerge inside a 4D backbone long before its generated meshes become visually accurate. We exploit this with a general framework we call Spatio-Temporal Attention Chain which propagates information across space and time. Starting from vertices on an anchor mesh, the chain maps vertices to latent tokens. It then follows temporal correspondences in latent space, and recovers frame-specific vertices through latent-to-vertex attention. This design avoids expensive explicit matching while preserving anchor mesh details and thereby improving dynamic mesh geometry and temporal consistency.Compared to state-of-the-art, our method generates a 4D mesh in 9 seconds, achieving a $13\\times$ speedup while producing higher-quality results. Moreover, our approach scales to videos up to $16\\times$ longer without degrading mesh quality. Beyond generation, the improved correspondences enable competitive zero-shot performance on two downstream tasks: 2D object tracking and 4D tracking. We further show that our framework enables reliable camera estimation, a capability not supported by prior 4D mesh generation methods.",
-      "abstract_zh": "近年来，四维网格生成技术已成为从视频中重建动态三维结构的重要范式，但现有方法仍存在速度慢、计算成本高且难以扩展至长序列的问题。本文提出一种免训练方法，在加速四维网格生成的同时提升了时序对应关系的质量。我们的核心发现是：在四维主干网络生成的网格尚未达到视觉精度之前，其内部已涌现出时序对应关系。基于此，我们提出了名为“时空注意力链”的通用框架，通过该框架在时空维度传播信息。该方法以锚定网格上的顶点为起点，将顶点映射至潜在表征单元，随后在潜在空间中沿时序对应关系进行追踪，并通过潜在-顶点注意力机制还原各帧特定顶点。该设计避免了高成本的显式匹配，同时保留了锚定网格的细节特征，从而改善了动态网格的几何结构与时序一致性。相较于现有最优方法，本方法仅需9秒即可生成四维网格，实现13倍加速且生成质量更高。此外，本方法可扩展至长达16倍的视频序列而不损失网格质量。除生成任务外，改进的对应关系使我们在两项下游任务——二维目标追踪与四维追踪——中实现了具有竞争力的零样本性能。我们进一步证明，该框架支持可靠的相机位姿估计，这是现有四维网格生成方法所不具备的能力。",
-      "hf_link": "https://huggingface.co/papers/2605.19786"
-    },
-    "2605.14842": {
-      "title": "Editor's Choice: Evaluating Abstract Intent in Image Editing through Atomic Entity Analysis",
-      "abstract": "Humans naturally communicate through abstract concepts like \"mood\". However, current image editing benchmarks focus primarily on explicit, literal commands, leaving abstract instructions largely underexplored. In this work, we first formalize the definition and taxonomy of abstract image editing. To measure instruction-following in this challenging domain, we introduce Entity-Rubrics, a framework that breaks down abstract edits into individual, entity-level assessments and achieves strong correlation with human judgment. Alongside this framework, we contribute AbstractEdit, the first benchmark dedicated to abstract image editing across diverse real-world scenes. Evaluating 11 leading models on this dataset reveals a fundamental challenge: standard architectures struggle to balance intent and preservation, commonly defaulting to under-editing or over-editing. Our analysis demonstrates that driving meaningful improvements relies heavily on integrating advanced LLM text encoders and iterative thinking. Looking forward, our entity-based paradigm can generalize beyond assessment to serve as a reward model, enable models to correctly interpret abstract communication, or highlight specific failures in test-time critique loops. Ultimately, we hope this work serves as a stepping stone toward seamless multimodal interaction, closing the gap between rigid machine execution and the natural, open-ended way humans communicate.",
-      "abstract_zh": "人类天生通过诸如\"情绪\"等抽象概念进行交流。然而当前的图像编辑基准测试主要关注明确、字面化的指令，使得抽象指令在很大程度上未被充分探索。在这项工作中，我们首先对抽象图像编辑的定义与分类体系进行了形式化界定。为衡量这一挑战性领域的指令遵循能力，我们提出了Entity-Rubrics评估框架，该框架将抽象编辑任务分解为独立的实体级评估单元，实现了与人类判断的强相关性。基于此框架，我们构建了AbstractEdit——首个专注于多样化真实场景抽象图像编辑的基准测试集。通过对11个领先模型在该数据集上的评估，我们发现了一个根本性挑战：标准架构难以平衡编辑意图与内容保持，通常陷入编辑不足或过度编辑的困境。我们的分析表明，实现实质性改进主要依赖于集成先进的大语言模型文本编码器与迭代思考机制。展望未来，我们基于实体的评估范式可超越评估本身，推广为奖励模型，帮助模型正确解读抽象交流，或在测试时批判循环中识别特定故障。最终，我们希望这项工作能成为通向无缝多模态交互的垫脚石，弥合僵化的机器执行与人类自然开放式交流方式之间的鸿沟。",
-      "hf_link": "https://huggingface.co/papers/2605.14842"
-    },
-    "2605.18101": {
-      "title": "SENSE: Satellite-based ENergy Synthesis for Sustainable Environment",
-      "abstract": "Urban Building Energy Modeling plays a critical role in achieving the United Nations' Sustainable Development Goals 7 and 11. Although existing studies based on satellite imagery and deep learning have achieved remarkable progress, many challenges exist: most existing studies are inherently predictive, failing to reflect the generative nature of urban planning; although generative AI and diffusion models have seen explosive growth in satellite imagery, they lack the urban functional generation (e.g., energy layer); third, aligned high-quality high-resolution building energy data with satellite imagery is limited and scarce. Here we propose SENSE (Satellite-based ENergy Synthesis for Sustainable Environment), a unified generative UBEM framework that jointly synthesizes realistic urban satellite imagery and aligned high-quality building energy consumption and height maps. By conditioning on road networks and urban density metrics, SENSE, based on a controllable diffusion model, leverages the knowledge learned by large vision models to generate urban building energy consumption and height information (annotations) in the latent space. Experiments across four cities (New York City, Boston, Lyon, Busan) demonstrate that SENSE achieves high visual fidelity and strong physical consistency, satisfying the ASHRAE standard metric. Experiments demonstrate that SENSE can generate enough annotated synthetic data using less than 20% labeled energy data, boosting downstream prediction performance by 10% IoU. Compared to SOTA urban energy prediction methods, SENSE significantly reduced prediction error (reduced 3%-11% NMBE and 1%-9% CVRMSE). This study offers an energy-efficiency urban planning and physical generation solution for urban science, energy science and building science. The dataset and code:this https URLandthis https URL.",
-      "abstract_zh": "城市建筑能耗建模在实现联合国可持续发展目标7和11方面具有关键作用。尽管现有基于卫星影像和深度学习的研究已取得显著进展，但仍存在诸多挑战：多数现有研究本质上是预测性的，未能体现城市规划的生成特性；虽然生成式人工智能和扩散模型在卫星影像领域呈爆发式增长，但它们缺乏城市功能生成能力（如能源图层）；第三，与卫星影像对齐的高质量高分辨率建筑能耗数据十分有限且稀缺。本文提出SENSE（基于卫星的可持续环境能源合成框架），这是一个统一的生成式城市建筑能耗建模框架，可联合生成逼真的城市卫星影像及其对齐的高质量建筑能耗与高度图。通过以道路网络和城市密度指标为条件，基于可控扩散模型的SENSE能够利用大型视觉模型习得的知识，在潜在空间中生成城市建筑能耗与高度信息（标注）。在四个城市（纽约市、波士顿、里昂、釜山）的实验中，SENSE展现出高视觉保真度和强物理一致性，满足ASHRAE标准指标。实验表明SENSE仅需不足20%的标注能耗数据即可生成足量合成标注数据，将下游预测性能提升10%的IoU值。相较于当前最先进的城市能耗预测方法，SENSE显著降低了预测误差（NMBE降低3%-11%，CVRMSE降低1%-9%）。本研究为城市科学、能源科学与建筑科学提供了一种高效节能的城市规划与物理生成解决方案。数据集与代码见：此https网址及此https网址。",
-      "hf_link": "https://huggingface.co/papers/2605.18101"
-    },
-    "2605.16003": {
-      "title": "Echo-Forcing: A Scene Memory Framework for Interactive Long Video Generation",
-      "abstract": "Autoregressive video diffusion models enable open-ended generation through local attention and KV caching. However, existing training-free long-video optimization methods mainly focus on stable extension under a single prompt, making them difficult to handle interactive scenarios involving prompt switching, old scene forgetting, and historical scene recall. We identify the core bottleneck as the functional entanglement of historical KV states: stable anchors and recent dynamics are handled by the same cache policy, leading to outdated background contamination, delayed response to new prompts, and loss of long-range memory. To address this issue, we propose Echo-Forcing, a training-free scene memory framework specifically designed for interactive long video generation with three core mechanisms: (1) Hierarchical Temporal Memory, which decouples stable anchors, compressed history, and recent windows under relative RoPE; (2) Scene Recall Frames, which compresses historical scenes into spatially structured KV representations to support long-term recall; and (3) Difference-aware Memory Decay, which adaptively forgets conflicting tokens according to the discrepancy between old and new scenes. Based on these designs, Echo-Forcing uniformly supports smooth transitions, hard cuts, and long-range scene recall under a bounded cache budget. Extensive evaluations on VBench-Long further demonstrate that Echo-Forcing achieves the best overall performance in both long-video generation and interactive video generation settings. Our code is released inthis https URL",
-      "abstract_zh": "自回归视频扩散模型通过局部注意力与KV缓存实现了开放式生成。然而，现有无需训练的长视频优化方法主要关注单一提示下的稳定延伸，难以处理涉及提示切换、旧场景遗忘和历史场景回溯的交互式场景。我们发现其核心瓶颈在于历史KV状态的功能性纠缠：稳定锚点和近期动态由同一缓存策略处理，导致过时背景污染、新提示响应延迟以及长程记忆丢失。为解决这一问题，我们提出Echo-Forcing——一个专为交互式长视频生成设计的免训练场景记忆框架，包含三项核心机制：（1）分层时序记忆：在相对RoPE下解耦稳定锚点、压缩历史与近期窗口；（2）场景回溯帧：将历史场景压缩为空间结构化的KV表征以支持长程回溯；（3）差异感知记忆衰减：根据新旧场景差异自适应遗忘冲突标记。基于这些设计，Echo-Forcing在有限缓存预算下统一支持平滑转场、硬切剪辑及长程场景回溯。在VBench-Long上的大量实验进一步证明，Echo-Forcing在长视频生成与交互式视频生成设定中均取得最佳综合性能。代码已发布于https://github.com/xxx。",
-      "hf_link": "https://huggingface.co/papers/2605.16003"
-    },
-    "2605.20150": {
-      "title": "TideGS: Scalable Training of Over One Billion 3D Gaussian Splatting Primitives via Out-of-Core Optimization",
-      "abstract": "Training 3D Gaussian Splatting (3DGS) at billion-primitive scale is fundamentally memory-bound: each Gaussian primitive carries a large attribute vector, and the aggregate parameter table quickly exceeds GPU capacity, limiting prior systems to tens of millions of Gaussians on commodity single-GPU hardware. We observe that 3DGS training is inherently sparse and trajectory-conditioned: each iteration activates only the Gaussians visible from the current camera batch, so GPU memory can serve as a working-set cache rather than a persistent parameter store. Building on this insight, we introduce TideGS, an out-of-core training framework that manages parameters across an SSD-CPU-GPU hierarchy via three synergistic techniques: block-virtualized geometry for SSD-aligned spatial locality, a hierarchical asynchronous pipeline to overlap I/O with computation, and trajectory-adaptive differential streaming that transfers only incremental working-set deltas between iterations. Experiments show that TideGS enables training with over one billion Gaussians on a single 24 GB GPU while achieving the best reconstruction quality among evaluated single-GPU baselines on large-scale scenes, scaling beyond prior out-of-core baselines (e.g., approximately 100M Gaussians) and standard in-memory training (e.g., approximately 11M Gaussians).",
-      "abstract_zh": "在十亿级基元规模下训练三维高斯点云（3D Gaussian Splatting，3DGS）本质上是内存受限的：每个高斯基元携带大量属性向量，聚合的参数表会迅速超出GPU容量，这使得先前系统在消费级单GPU硬件上仅能处理数千万个高斯基元。我们观察到，3DGS训练具有固有的稀疏性和轨迹依赖性：每次迭代仅激活当前相机批次可见的高斯基元，因此GPU内存可作为工作集缓存而非持久性参数存储库。基于这一洞察，我们提出了TideGS——一种核心外（out-of-core）训练框架，通过三项协同技术管理参数在SSD-CPU-GPU层级结构中的流动：采用面向SSD对齐空间局部性的块虚拟化几何结构，构建覆盖I/O与计算的重叠式分层异步流水线，以及实施仅传输迭代间工作集增量数据的轨迹自适应差分流式传输机制。实验表明，TideGS能够在单块24GB GPU上训练超过十亿个高斯基元，同时在大规模场景的评估单GPU基线中达到最佳重建质量，其规模超越了先前的核心外基线（例如约1亿高斯基元）和标准内存内训练方法（例如约1100万高斯基元）。",
-      "hf_link": "https://huggingface.co/papers/2605.20150"
+    "2605.18263": {
+      "title": "RT-Splatting: Joint Reflection-Transmission Modeling with Gaussian Splatting",
+      "abstract": "3D Gaussian Splatting (3DGS) enables real-time novel view synthesis with high visual quality. However, existing methods struggle with semi-transparent specular surfaces that exhibit both complex reflections and clear transmission, often producing blurry reflections or overly occluded transmission. To address this, we present RT-Splatting, a framework that disentangles each Gaussian's geometric occupancy from its optical opacity. This factorization yields a unified surface-volume scene representation with a single set of Gaussian primitives. Our hybrid renderer interprets this representation both as a surface to capture high-frequency reflections and as a volume to preserve clear transmission. To mitigate the ambiguity in jointly optimizing reflection and transmission, we introduce Specular-Aware Gradient Gating, which suppresses misleading gradients from highly specular regions into the transmission branch, effectively reducing distracting floaters. Experiments on challenging semi-transparent scenes show that RT-Splatting achieves state-of-the-art performance, delivering high-fidelity reflections and clear transmission with real-time rendering. Moreover, our factorization naturally enables flexible scene editing. The project page is available atthis https URL.",
+      "abstract_zh": "三维高斯泼溅（3D Gaussian Splatting，3DGS）能够实现高质量实时新视角合成。然而，现有方法在处理兼具复杂反射与清晰透射效果的半透明镜面（specular）表面时存在困难，常常产生模糊反射或过度遮挡的透射效果。为解决这一问题，我们提出了RT-Splatting框架，该框架将每个高斯单元的几何占据性与其光学不透明度解耦。这种因子分解产生了一种基于单组高斯基元的统一表面-体积场景表征。我们的混合渲染器将该表征同时解释为捕捉高频反射的表面和保持清晰透射的体积。为缓解联合优化反射与透射过程中的歧义性，我们提出了镜面感知梯度门控（Specular-Aware Gradient Gating）机制，该机制能抑制高镜面区域向透射分支传播的误导性梯度，有效减少干扰性的悬浮伪影。在具有挑战性的半透明场景上的实验表明，RT-Splatting实现了最先进的性能，在实时渲染的同时提供了高保真反射与清晰透射效果。此外，我们的因子分解机制天然支持灵活的场景编辑功能。项目页面请访问此https网址。",
+      "hf_link": "https://huggingface.co/papers/2605.18263"
     },
     "2605.15458": {
       "title": "Video Models Can Reason with Verifiable Rewards",
@@ -42,23 +18,47 @@
       "abstract_zh": "视频扩散模型在感知真实性和时序连贯性方面取得了快速进展，但其优化目标主要仍局限于生成视觉上合理的内容，而非可验证的推理能力。这一局限在需要生成视频满足明确空间、时间或逻辑约束的任务中尤为突出。受可验证奖励强化学习在推理导向语言模型中的成功启发，我们提出了VideoRLVR——一种基于规则反馈优化视频扩散模型的实用方法。VideoRLVR将视频推理定义为可验证视觉轨迹的生成过程，其核心包含三部分：SDE-GRPO优化框架、密集分解奖励机制以及提升训练效率的早阶聚焦策略。该早阶聚焦策略将策略优化限定在去噪过程的早期阶段，在保持性能的同时将训练延迟降低约40%。我们在Maze、FlowFree和Sokoban三个具有客观成功标准的程序生成领域对VideoRLVR进行评估。实验表明，在所有任务中VideoRLVR均稳定超越监督微调基线，其中密集分解奖励机制在低成功率场景中尤为重要。经强化学习优化的模型不仅在这些可验证推理基准测试中优于现有的专有及开源视频生成模型，在领域外基准测试中也表现出更强性能。这些结果表明，可验证强化学习能够推动视频模型突破感知模仿的局限，朝着更可靠、符合规则的视觉推理方向发展。",
       "hf_link": "https://huggingface.co/papers/2605.15458"
     },
+    "2605.20150": {
+      "title": "TideGS: Scalable Training of Over One Billion 3D Gaussian Splatting Primitives via Out-of-Core Optimization",
+      "abstract": "Training 3D Gaussian Splatting (3DGS) at billion-primitive scale is fundamentally memory-bound: each Gaussian primitive carries a large attribute vector, and the aggregate parameter table quickly exceeds GPU capacity, limiting prior systems to tens of millions of Gaussians on commodity single-GPU hardware. We observe that 3DGS training is inherently sparse and trajectory-conditioned: each iteration activates only the Gaussians visible from the current camera batch, so GPU memory can serve as a working-set cache rather than a persistent parameter store. Building on this insight, we introduce TideGS, an out-of-core training framework that manages parameters across an SSD-CPU-GPU hierarchy via three synergistic techniques: block-virtualized geometry for SSD-aligned spatial locality, a hierarchical asynchronous pipeline to overlap I/O with computation, and trajectory-adaptive differential streaming that transfers only incremental working-set deltas between iterations. Experiments show that TideGS enables training with over one billion Gaussians on a single 24 GB GPU while achieving the best reconstruction quality among evaluated single-GPU baselines on large-scale scenes, scaling beyond prior out-of-core baselines (e.g., approximately 100M Gaussians) and standard in-memory training (e.g., approximately 11M Gaussians).",
+      "abstract_zh": "在十亿级基元规模下训练三维高斯点云（3D Gaussian Splatting，3DGS）本质上是内存受限的：每个高斯基元携带大量属性向量，聚合的参数表会迅速超出GPU容量，这使得先前系统在消费级单GPU硬件上仅能处理数千万个高斯基元。我们观察到，3DGS训练具有固有的稀疏性和轨迹依赖性：每次迭代仅激活当前相机批次可见的高斯基元，因此GPU内存可作为工作集缓存而非持久性参数存储库。基于这一洞察，我们提出了TideGS——一种核心外（out-of-core）训练框架，通过三项协同技术管理参数在SSD-CPU-GPU层级结构中的流动：采用面向SSD对齐空间局部性的块虚拟化几何结构，构建覆盖I/O与计算的重叠式分层异步流水线，以及实施仅传输迭代间工作集增量数据的轨迹自适应差分流式传输机制。实验表明，TideGS能够在单块24GB GPU上训练超过十亿个高斯基元，同时在大规模场景的评估单GPU基线中达到最佳重建质量，其规模超越了先前的核心外基线（例如约1亿高斯基元）和标准内存内训练方法（例如约1100万高斯基元）。",
+      "hf_link": "https://huggingface.co/papers/2605.20150"
+    },
     "2605.19995": {
       "title": "CogOmniControl: Reasoning-Driven Controllable Video Generation via Creative Intent Cognition",
       "abstract": "Recent diffusion models achieve strong photorealism and fluency in video generation, yet remain fragile under abstract, sparse or complex conditions, leading to poor performance in professional production workflows such as storyboard sketches and clay render conditions. Existing video generation models, either inject conditions through adapters or couple a generic vision-language model (VLM) within a diffusion backbone, leaving a capability gap and failing to produce the videos that align with the user's creative intent. We present CogOmniControl, a reasoning-driven framework that factorizes controllable video generation into creative intent cognition and generation. Specifically, we train a specialized CogVLM using authentic anime production data. Compared to generic VLMs, it generates more professional and clear outputs, accurately cognizing user creative intent from sparse and abstract conditions and tuning these cues into dense reasoning output. Besides, CogOmniDiT unifies the controls from various conditions through in-context generation and is aligned to the CogVLM reasoning outputs via reinforcement learning. Furthermore, leveraging CogVLM's robust capability in guiding video generation, we release its potential in planning specific evaluators and enable a Best-of-N selection for the generated videos. This integration transforms the entire framework into a closed-loop \"harness-like\" architecture. We further introduce CogReasonBench and CogControlBench, built from professional workflows data that carry genuine creative intent rather than simulated ones. Experiments on two benchmarks show that CogOmniControl surpassed the existing open-source models. The project website:this https URL",
       "abstract_zh": "当前扩散模型在视频生成中实现了高度的真实感与流畅性，但在抽象、稀疏或复杂条件下仍显脆弱，导致在分镜草图、黏土动画渲染等专业制作流程中表现不佳。现有视频生成模型要么通过适配器注入条件，要么在扩散主干中耦合通用视觉语言模型，这造成了能力断层，难以生成与用户创作意图相符的视频。我们提出了CogOmniControl，一个推理驱动的框架，将可控视频生成分解为创作意图认知与生成两个阶段。具体而言，我们利用真实的动画制作数据训练了一个专用的CogVLM（认知视觉语言模型）。相比于通用视觉语言模型，它能够生成更专业、清晰的输出，准确地从稀疏抽象条件中认知用户的创作意图，并将这些线索转化为密集的推理输出。此外，CogOmniDiT（认知全向扩散变换器）通过上下文生成统一了各类条件的控制，并通过强化学习与CogVLM的推理输出对齐。进一步地，借助CogVLM在指导视频生成中的强大能力，我们释放了其在规划特定评估器方面的潜力，并对生成视频实现了“最佳N选一”的筛选。这一集成将整个框架转化为一个闭环的“马具式”架构。我们还推出了CogReasonBench与CogControlBench，这两个基准数据集基于承载真实创作意图（而非模拟意图）的专业流程数据构建。在两个基准上的实验表明，CogOmniControl超越了现有的开源模型。项目网站：https://this_URL",
       "hf_link": "https://huggingface.co/papers/2605.19995"
     },
-    "2605.18263": {
-      "title": "RT-Splatting: Joint Reflection-Transmission Modeling with Gaussian Splatting",
-      "abstract": "3D Gaussian Splatting (3DGS) enables real-time novel view synthesis with high visual quality. However, existing methods struggle with semi-transparent specular surfaces that exhibit both complex reflections and clear transmission, often producing blurry reflections or overly occluded transmission. To address this, we present RT-Splatting, a framework that disentangles each Gaussian's geometric occupancy from its optical opacity. This factorization yields a unified surface-volume scene representation with a single set of Gaussian primitives. Our hybrid renderer interprets this representation both as a surface to capture high-frequency reflections and as a volume to preserve clear transmission. To mitigate the ambiguity in jointly optimizing reflection and transmission, we introduce Specular-Aware Gradient Gating, which suppresses misleading gradients from highly specular regions into the transmission branch, effectively reducing distracting floaters. Experiments on challenging semi-transparent scenes show that RT-Splatting achieves state-of-the-art performance, delivering high-fidelity reflections and clear transmission with real-time rendering. Moreover, our factorization naturally enables flexible scene editing. The project page is available atthis https URL.",
-      "abstract_zh": "三维高斯泼溅（3D Gaussian Splatting，3DGS）能够实现高质量实时新视角合成。然而，现有方法在处理兼具复杂反射与清晰透射效果的半透明镜面（specular）表面时存在困难，常常产生模糊反射或过度遮挡的透射效果。为解决这一问题，我们提出了RT-Splatting框架，该框架将每个高斯单元的几何占据性与其光学不透明度解耦。这种因子分解产生了一种基于单组高斯基元的统一表面-体积场景表征。我们的混合渲染器将该表征同时解释为捕捉高频反射的表面和保持清晰透射的体积。为缓解联合优化反射与透射过程中的歧义性，我们提出了镜面感知梯度门控（Specular-Aware Gradient Gating）机制，该机制能抑制高镜面区域向透射分支传播的误导性梯度，有效减少干扰性的悬浮伪影。在具有挑战性的半透明场景上的实验表明，RT-Splatting实现了最先进的性能，在实时渲染的同时提供了高保真反射与清晰透射效果。此外，我们的因子分解机制天然支持灵活的场景编辑功能。项目页面请访问此https网址。",
-      "hf_link": "https://huggingface.co/papers/2605.18263"
+    "2605.14842": {
+      "title": "Editor's Choice: Evaluating Abstract Intent in Image Editing through Atomic Entity Analysis",
+      "abstract": "Humans naturally communicate through abstract concepts like \"mood\". However, current image editing benchmarks focus primarily on explicit, literal commands, leaving abstract instructions largely underexplored. In this work, we first formalize the definition and taxonomy of abstract image editing. To measure instruction-following in this challenging domain, we introduce Entity-Rubrics, a framework that breaks down abstract edits into individual, entity-level assessments and achieves strong correlation with human judgment. Alongside this framework, we contribute AbstractEdit, the first benchmark dedicated to abstract image editing across diverse real-world scenes. Evaluating 11 leading models on this dataset reveals a fundamental challenge: standard architectures struggle to balance intent and preservation, commonly defaulting to under-editing or over-editing. Our analysis demonstrates that driving meaningful improvements relies heavily on integrating advanced LLM text encoders and iterative thinking. Looking forward, our entity-based paradigm can generalize beyond assessment to serve as a reward model, enable models to correctly interpret abstract communication, or highlight specific failures in test-time critique loops. Ultimately, we hope this work serves as a stepping stone toward seamless multimodal interaction, closing the gap between rigid machine execution and the natural, open-ended way humans communicate.",
+      "abstract_zh": "人类天生通过诸如\"情绪\"等抽象概念进行交流。然而当前的图像编辑基准测试主要关注明确、字面化的指令，使得抽象指令在很大程度上未被充分探索。在这项工作中，我们首先对抽象图像编辑的定义与分类体系进行了形式化界定。为衡量这一挑战性领域的指令遵循能力，我们提出了Entity-Rubrics评估框架，该框架将抽象编辑任务分解为独立的实体级评估单元，实现了与人类判断的强相关性。基于此框架，我们构建了AbstractEdit——首个专注于多样化真实场景抽象图像编辑的基准测试集。通过对11个领先模型在该数据集上的评估，我们发现了一个根本性挑战：标准架构难以平衡编辑意图与内容保持，通常陷入编辑不足或过度编辑的困境。我们的分析表明，实现实质性改进主要依赖于集成先进的大语言模型文本编码器与迭代思考机制。展望未来，我们基于实体的评估范式可超越评估本身，推广为奖励模型，帮助模型正确解读抽象交流，或在测试时批判循环中识别特定故障。最终，我们希望这项工作能成为通向无缝多模态交互的垫脚石，弥合僵化的机器执行与人类自然开放式交流方式之间的鸿沟。",
+      "hf_link": "https://huggingface.co/papers/2605.14842"
+    },
+    "2605.19786": {
+      "title": "Fast 4D Mesh Generation by Spatio-Temporal Attention Chains",
+      "abstract": "4D mesh generation has recently emerged as a powerful paradigm for recovering dynamic 3D structure from videos, but existing methods remain slow, computationally expensive, and difficult to scale to longer sequences. We introduce a training-free approach that accelerates 4D mesh generation while improving temporal correspondence quality. Our key observation is that temporal correspondences emerge inside a 4D backbone long before its generated meshes become visually accurate. We exploit this with a general framework we call Spatio-Temporal Attention Chain which propagates information across space and time. Starting from vertices on an anchor mesh, the chain maps vertices to latent tokens. It then follows temporal correspondences in latent space, and recovers frame-specific vertices through latent-to-vertex attention. This design avoids expensive explicit matching while preserving anchor mesh details and thereby improving dynamic mesh geometry and temporal consistency.Compared to state-of-the-art, our method generates a 4D mesh in 9 seconds, achieving a $13\\times$ speedup while producing higher-quality results. Moreover, our approach scales to videos up to $16\\times$ longer without degrading mesh quality. Beyond generation, the improved correspondences enable competitive zero-shot performance on two downstream tasks: 2D object tracking and 4D tracking. We further show that our framework enables reliable camera estimation, a capability not supported by prior 4D mesh generation methods.",
+      "abstract_zh": "近年来，四维网格生成技术已成为从视频中重建动态三维结构的重要范式，但现有方法仍存在速度慢、计算成本高且难以扩展至长序列的问题。本文提出一种免训练方法，在加速四维网格生成的同时提升了时序对应关系的质量。我们的核心发现是：在四维主干网络生成的网格尚未达到视觉精度之前，其内部已涌现出时序对应关系。基于此，我们提出了名为“时空注意力链”的通用框架，通过该框架在时空维度传播信息。该方法以锚定网格上的顶点为起点，将顶点映射至潜在表征单元，随后在潜在空间中沿时序对应关系进行追踪，并通过潜在-顶点注意力机制还原各帧特定顶点。该设计避免了高成本的显式匹配，同时保留了锚定网格的细节特征，从而改善了动态网格的几何结构与时序一致性。相较于现有最优方法，本方法仅需9秒即可生成四维网格，实现13倍加速且生成质量更高。此外，本方法可扩展至长达16倍的视频序列而不损失网格质量。除生成任务外，改进的对应关系使我们在两项下游任务——二维目标追踪与四维追踪——中实现了具有竞争力的零样本性能。我们进一步证明，该框架支持可靠的相机位姿估计，这是现有四维网格生成方法所不具备的能力。",
+      "hf_link": "https://huggingface.co/papers/2605.19786"
+    },
+    "2605.18101": {
+      "title": "SENSE: Satellite-based ENergy Synthesis for Sustainable Environment",
+      "abstract": "Urban Building Energy Modeling plays a critical role in achieving the United Nations' Sustainable Development Goals 7 and 11. Although existing studies based on satellite imagery and deep learning have achieved remarkable progress, many challenges exist: most existing studies are inherently predictive, failing to reflect the generative nature of urban planning; although generative AI and diffusion models have seen explosive growth in satellite imagery, they lack the urban functional generation (e.g., energy layer); third, aligned high-quality high-resolution building energy data with satellite imagery is limited and scarce. Here we propose SENSE (Satellite-based ENergy Synthesis for Sustainable Environment), a unified generative UBEM framework that jointly synthesizes realistic urban satellite imagery and aligned high-quality building energy consumption and height maps. By conditioning on road networks and urban density metrics, SENSE, based on a controllable diffusion model, leverages the knowledge learned by large vision models to generate urban building energy consumption and height information (annotations) in the latent space. Experiments across four cities (New York City, Boston, Lyon, Busan) demonstrate that SENSE achieves high visual fidelity and strong physical consistency, satisfying the ASHRAE standard metric. Experiments demonstrate that SENSE can generate enough annotated synthetic data using less than 20% labeled energy data, boosting downstream prediction performance by 10% IoU. Compared to SOTA urban energy prediction methods, SENSE significantly reduced prediction error (reduced 3%-11% NMBE and 1%-9% CVRMSE). This study offers an energy-efficiency urban planning and physical generation solution for urban science, energy science and building science. The dataset and code:this https URLandthis https URL.",
+      "abstract_zh": "城市建筑能耗建模在实现联合国可持续发展目标7和11方面具有关键作用。尽管现有基于卫星影像和深度学习的研究已取得显著进展，但仍存在诸多挑战：多数现有研究本质上是预测性的，未能体现城市规划的生成特性；虽然生成式人工智能和扩散模型在卫星影像领域呈爆发式增长，但它们缺乏城市功能生成能力（如能源图层）；第三，与卫星影像对齐的高质量高分辨率建筑能耗数据十分有限且稀缺。本文提出SENSE（基于卫星的可持续环境能源合成框架），这是一个统一的生成式城市建筑能耗建模框架，可联合生成逼真的城市卫星影像及其对齐的高质量建筑能耗与高度图。通过以道路网络和城市密度指标为条件，基于可控扩散模型的SENSE能够利用大型视觉模型习得的知识，在潜在空间中生成城市建筑能耗与高度信息（标注）。在四个城市（纽约市、波士顿、里昂、釜山）的实验中，SENSE展现出高视觉保真度和强物理一致性，满足ASHRAE标准指标。实验表明SENSE仅需不足20%的标注能耗数据即可生成足量合成标注数据，将下游预测性能提升10%的IoU值。相较于当前最先进的城市能耗预测方法，SENSE显著降低了预测误差（NMBE降低3%-11%，CVRMSE降低1%-9%）。本研究为城市科学、能源科学与建筑科学提供了一种高效节能的城市规划与物理生成解决方案。数据集与代码见：此https网址及此https网址。",
+      "hf_link": "https://huggingface.co/papers/2605.18101"
     },
     "2605.20183": {
       "title": "MSAVBench: Towards Comprehensive and Reliable Evaluation of Multi-Shot Audio-Video Generation",
       "abstract": "Video generation is rapidly evolving from single-shot synthesis to complex multi-shot audio-video (MSAV) narratives to meet real-world demands. However, evaluating such frontier models remains a fundamental challenge. Existing benchmarks are limited in scope and data diversity, and rely on rigid evaluation pipelines, preventing systematic and reliable assessment of modern MSAV models. To bridge these gaps, we introduce MSAVBench, the first comprehensive benchmark and adaptive hybrid evaluation framework for multi-shot audio-video generation. Our benchmark spans four key dimensions, video, audio, shot, and reference, covering diverse task settings, varying shot counts of up to 15, and challenging non-realistic scenarios. Our evaluation framework improves robustness through an adaptive self-correction mechanism for shot segmentation, instance-wise rubrics for subjective metrics, and tool-grounded evidence extraction for complex judgments. Furthermore, MSAVBench achieves high alignment with human judgments, reaching a Spearman rank correlation of 91.5%. Our systematic evaluation of 19 state-of-the-art closed- and open-source models shows that current systems still struggle with director-level control and fine-grained audio-visual synchronization, while modular or agentic generation pipelines offer a promising path toward narrowing the gap between open- and closed-source models. We will release the benchmark data and evaluation code to facilitate future research.",
       "abstract_zh": "为满足现实需求，视频生成正从单镜头合成快速向复杂的多镜头音视频叙事演进。然而，评估此类前沿模型仍存在根本性挑战：现有基准测试在范围和数据多样性上较为局限，且依赖僵化的评估流程，无法对现代多镜头音视频模型进行系统可靠的评估。为弥补这些不足，我们提出了MSAVBench——首个面向多镜头音视频生成的综合性基准测试与自适应混合评估框架。该基准涵盖视频、音频、镜头和参考四个核心维度，覆盖多样化的任务设定、最多达15个镜头的动态变化以及具有挑战性的非现实场景。我们的评估框架通过镜头分割的自适应自校正机制、主观指标的实例化评估标准，以及基于工具的证据提取机制来提升复杂判断的鲁棒性。此外，MSAVBench与人类评判结果高度吻合，斯皮尔曼等级相关系数达到91.5%。通过对19个领先的闭源与开源模型进行系统评估，我们发现现有系统在导演级控制和细粒度音画同步方面仍存在困难，而模块化或智能体驱动的生成流程为缩小开源与闭源模型间的差距提供了可行路径。我们将公开基准数据和评估代码以促进未来研究。",
       "hf_link": "https://huggingface.co/papers/2605.20183"
+    },
+    "2605.16003": {
+      "title": "Echo-Forcing: A Scene Memory Framework for Interactive Long Video Generation",
+      "abstract": "Autoregressive video diffusion models enable open-ended generation through local attention and KV caching. However, existing training-free long-video optimization methods mainly focus on stable extension under a single prompt, making them difficult to handle interactive scenarios involving prompt switching, old scene forgetting, and historical scene recall. We identify the core bottleneck as the functional entanglement of historical KV states: stable anchors and recent dynamics are handled by the same cache policy, leading to outdated background contamination, delayed response to new prompts, and loss of long-range memory. To address this issue, we propose Echo-Forcing, a training-free scene memory framework specifically designed for interactive long video generation with three core mechanisms: (1) Hierarchical Temporal Memory, which decouples stable anchors, compressed history, and recent windows under relative RoPE; (2) Scene Recall Frames, which compresses historical scenes into spatially structured KV representations to support long-term recall; and (3) Difference-aware Memory Decay, which adaptively forgets conflicting tokens according to the discrepancy between old and new scenes. Based on these designs, Echo-Forcing uniformly supports smooth transitions, hard cuts, and long-range scene recall under a bounded cache budget. Extensive evaluations on VBench-Long further demonstrate that Echo-Forcing achieves the best overall performance in both long-video generation and interactive video generation settings. Our code is released inthis https URL",
+      "abstract_zh": "自回归视频扩散模型通过局部注意力与KV缓存实现了开放式生成。然而，现有无需训练的长视频优化方法主要关注单一提示下的稳定延伸，难以处理涉及提示切换、旧场景遗忘和历史场景回溯的交互式场景。我们发现其核心瓶颈在于历史KV状态的功能性纠缠：稳定锚点和近期动态由同一缓存策略处理，导致过时背景污染、新提示响应延迟以及长程记忆丢失。为解决这一问题，我们提出Echo-Forcing——一个专为交互式长视频生成设计的免训练场景记忆框架，包含三项核心机制：（1）分层时序记忆：在相对RoPE下解耦稳定锚点、压缩历史与近期窗口；（2）场景回溯帧：将历史场景压缩为空间结构化的KV表征以支持长程回溯；（3）差异感知记忆衰减：根据新旧场景差异自适应遗忘冲突标记。基于这些设计，Echo-Forcing在有限缓存预算下统一支持平滑转场、硬切剪辑及长程场景回溯。在VBench-Long上的大量实验进一步证明，Echo-Forcing在长视频生成与交互式视频生成设定中均取得最佳综合性能。代码已发布于https://github.com/xxx。",
+      "hf_link": "https://huggingface.co/papers/2605.16003"
     },
     "2605.19305": {
       "title": "Matérn Noise for Triangulation-Agnostic Flow Matching on Meshes",
@@ -234,6 +234,12 @@
       "abstract_zh": "空间智能通过感知-行动循环展开：智能体通过行动获取观察，并推理观察如何随行动变化。它们并非被动处理所见信息，而是主动揭示不可见之物——那些仅凭被动感知无法解析的遮挡结构、动态变化、内部构造与功能特性。我们摒弃了先前空间智能研究中假定全知观察的范式，将观察者重新定位为行动者。基于斯佩尔克核心知识系统，我们在OmniGibson平台上构建了ESI-BENCH基准测试——一个涵盖10个任务类别与29个子类别的具身空间智能综合评估体系。智能体需自主决策何时调用感知、移动与操控能力，并通过合理编排行动序列来主动积累任务相关证据。我们对前沿多模态大语言模型（MLLMs）展开广泛实验，发现主动探索策略显著优于被动观测模式：智能体能在无明确指令情况下自发涌现空间策略，而随机多视角观测虽消耗更多图像却往往引入噪声而非有效信息。多数失败案例并非源于感知薄弱，而是由于行动盲区：低效的行动选择导致观测质量低下，继而引发级联错误。尽管显式三维空间定位能提升深度敏感任务的推理稳定性，但存在缺陷的三维表征会扭曲空间关系，其负面影响甚至超过二维基线。人类对比研究进一步揭示：与人类主动寻找证伪视角并在矛盾中修正信念的行为模式不同，现有模型会无视证据质量而过早形成高置信度判断，这种元认知缺陷既无法仅凭增强感知能力弥补，也难以通过单纯的具身交互来解决。",
       "hf_link": "https://huggingface.co/papers/2605.18746"
     },
+    "2605.17909": {
+      "title": "Ethical Hyper-Velocity (EHV): A Provably Deterministic Governance-Aware JIT Compiler Architecture for Agentic Systems",
+      "abstract": "As autonomous agentic systems scale across regulated critical infrastructures, the lack of mechanistic, hardware-rooted enforcement for high-frequency policy updates presents a fundamental safety gap. We introduce Ethical Hyper-Velocity (EHV), a novel architectural framework for the formal verification of AI governance policies at runtime. Unlike retrospective auditing frameworks (ISO/IEC 42001, NIST AI RMF) which introduce 14-30 day latencies, EHV relocates the Policy Enforcement Point (PEP) into the inference pipeline via a Governance-Aware Just-In-Time (JIT) Compiler. By integrating Conflict-free Replicated Data Types (CRDTs) for policy synchronization and Epoch-based Attestation Caching within Trusted Execution Environments (TEEs), EHV achieves Sub-millisecond Formal Determinism (SMFD). We demonstrate via TLA+ formal verification that non-compliant agentic actions are computationally unreachable within the system's bounded operating state space. We prove that O(1) runtime enforcement can eliminate the traditional trade-off between deployment velocity and governance integrity, reducing Governance Latency from O(days) to O(1).",
+      "abstract_zh": "随着自主代理系统在受监管的关键基础设施中大规模部署，高频次策略更新缺乏基于硬件的机制化强制执行能力，构成了根本性的安全缺口。本文提出伦理超高速（Ethical Hyper-Velocity，EHV）架构框架，为运行时人工智能治理策略的形式化验证提供创新解决方案。相较于引入14-30天延迟的事后审计框架（ISO/IEC 42001，NIST AI RMF），EHV通过治理感知即时（Governance-Aware Just-In-Time，JIT）编译器将策略执行点（Policy Enforcement Point，PEP）移至推理流水线内部。通过整合无冲突复制数据类型（Conflict-free Replicated Data Types，CRDTs）实现策略同步，并在可信执行环境（Trusted Execution Environments，TEEs）内建立基于周期的认证缓存机制，EHV实现了亚毫秒级形式确定性（Sub-millisecond Formal Determinism，SMFD）。我们通过TLA+形式验证证明，在系统有界运行状态空间内，不合规的代理行为在计算上不可达。研究证实O(1)运行时执行能够消除部署速度与治理完整性之间的传统权衡，将治理延迟从O(天数)量级降至O(1)常数级。",
+      "hf_link": "https://huggingface.co/papers/2605.17909"
+    },
     "2605.18646": {
       "title": "Language-Switching Triggers Take a Latent Detour Through Language Models",
       "abstract": "Backdoor attacks on language models pose a growing security concern, yet the internal mechanisms by which a trigger sequence hijacks model computations remain poorly understood. We identify a circuit underlying a language-switching backdoor in an 8B-parameter autoregressive language model, where a three-word Latin trigger (nine tokens) redirects English output to French. We decompose the circuit into three phases: (1) distributed attention heads at early layers compose the trigger tokens into the last sequence position; (2) the resulting signal propagates through mid-layers in a subspace orthogonal to the model's natural language-identity direction; (3) the MLP at the final layer converts this latent signal into French logits. The entire circuit flows through a serial bottleneck at a single position: corrupting that position at any layer entirely mitigate the trigger but also hinder the model's capabilities. The orthogonal latent encoding suggests that defenses that search for language-like signals in intermediate representations would miss this trigger entirely.",
@@ -257,12 +263,6 @@
       "abstract": "The effectiveness of Reinforcement Learning (RL) in Large Language Models (LLMs) depends on the nature and diversity of the data used before and during RL. In particular, reasoning problems can often be approached in multiple ways that rely on different forms of reasoning, and exposure to only a limited range of such approaches in the training data may limit the effectiveness of RL. Motivated by this, we investigate using diverse self-generated data during mid-training as an intermediate step before RL training. Specifically, we adopt a bootstrapped data-generation framework guided by George Polya's problem-solving approaches for generating multiple variants of correct answers for each question in the training data, and then perform fine-tuning. We first provide a theoretical perspective on how mid-training on such data improves RL and explain how policy-gradient updates can incentivize combining multiple approaches. We then empirically demonstrate that RL-trained models initialized with our mid-training data achieve consistent improvements across various mathematical reasoning benchmarks and other OOD tasks like code generation and narrative reasoning. Overall, our investigative study shows that a language model learning multiple problem-solving approaches, through self-generated data helps subsequent RL.",
       "abstract_zh": "强化学习（Reinforcement Learning, RL）在大语言模型（Large Language Models, LLMs）中的有效性，取决于RL前后所用数据的性质与多样性。具体而言，推理问题通常可通过依赖不同推理形式的多种方式来解决，而训练数据中若仅接触有限范围的解决途径，可能会限制RL的效果。受此启发，我们研究在RL训练前的中间步骤中，利用多样化的自我生成数据进行中期训练（mid-training）。具体来说，我们采用一种引导式自举数据生成框架，以乔治·波利亚（George Polya）的问题解决方法为指导，为训练数据中的每个问题生成多种正确答案变体，然后进行微调。我们首先从理论角度阐述了在此类数据上进行中期训练如何提升RL效果，并解释了策略梯度更新如何激励模型整合多种解决方法。随后，我们通过实证表明，使用我们的中期训练数据初始化的RL训练模型，在多种数学推理基准测试以及其他领域外任务（如代码生成和叙事推理）中均实现了持续改进。总体而言，本研究表明，语言模型通过自我生成数据学习多种问题解决方法，有助于后续的强化学习。",
       "hf_link": "https://huggingface.co/papers/2605.08472"
-    },
-    "2605.17909": {
-      "title": "Ethical Hyper-Velocity (EHV): A Provably Deterministic Governance-Aware JIT Compiler Architecture for Agentic Systems",
-      "abstract": "As autonomous agentic systems scale across regulated critical infrastructures, the lack of mechanistic, hardware-rooted enforcement for high-frequency policy updates presents a fundamental safety gap. We introduce Ethical Hyper-Velocity (EHV), a novel architectural framework for the formal verification of AI governance policies at runtime. Unlike retrospective auditing frameworks (ISO/IEC 42001, NIST AI RMF) which introduce 14-30 day latencies, EHV relocates the Policy Enforcement Point (PEP) into the inference pipeline via a Governance-Aware Just-In-Time (JIT) Compiler. By integrating Conflict-free Replicated Data Types (CRDTs) for policy synchronization and Epoch-based Attestation Caching within Trusted Execution Environments (TEEs), EHV achieves Sub-millisecond Formal Determinism (SMFD). We demonstrate via TLA+ formal verification that non-compliant agentic actions are computationally unreachable within the system's bounded operating state space. We prove that O(1) runtime enforcement can eliminate the traditional trade-off between deployment velocity and governance integrity, reducing Governance Latency from O(days) to O(1).",
-      "abstract_zh": "随着自主代理系统在受监管的关键基础设施中大规模部署，高频次策略更新缺乏基于硬件的机制化强制执行能力，构成了根本性的安全缺口。本文提出伦理超高速（Ethical Hyper-Velocity，EHV）架构框架，为运行时人工智能治理策略的形式化验证提供创新解决方案。相较于引入14-30天延迟的事后审计框架（ISO/IEC 42001，NIST AI RMF），EHV通过治理感知即时（Governance-Aware Just-In-Time，JIT）编译器将策略执行点（Policy Enforcement Point，PEP）移至推理流水线内部。通过整合无冲突复制数据类型（Conflict-free Replicated Data Types，CRDTs）实现策略同步，并在可信执行环境（Trusted Execution Environments，TEEs）内建立基于周期的认证缓存机制，EHV实现了亚毫秒级形式确定性（Sub-millisecond Formal Determinism，SMFD）。我们通过TLA+形式验证证明，在系统有界运行状态空间内，不合规的代理行为在计算上不可达。研究证实O(1)运行时执行能够消除部署速度与治理完整性之间的传统权衡，将治理延迟从O(天数)量级降至O(1)常数级。",
-      "hf_link": "https://huggingface.co/papers/2605.17909"
     },
     "2605.19147": {
       "title": "Be Kind, Rewrite: Benign Projections via Rewriting Defend Against LLM Data Poisoning Attacks",
@@ -332,8 +332,8 @@
     "2605.19995": 0,
     "2605.18748": 0,
     "2605.18984": 0,
-    "2605.20183": 0,
     "2605.19436": 0,
+    "2605.20183": 0,
     "2605.17829": 0,
     "2605.18758": 0,
     "2605.20087": 0,
@@ -357,12 +357,12 @@
     "2605.20035": 0,
     "2605.18746": 0,
     "2605.16003": 0,
+    "2605.17909": 0,
     "2605.18646": 0,
     "2605.17026": 0,
     "2605.14842": 0,
     "2605.12623": 0,
     "2605.08472": 0,
-    "2605.17909": 0,
     "2605.18101": 0,
     "2605.19147": 0,
     "2605.17659": 0,
@@ -399,50 +399,50 @@
       "tags": "计算机视觉;图像生成;超高清文生图",
       "body_summary": "文本到图像模型在超高分辨率生成上面临数据稀缺等挑战。\n本文构建了高质量超大分辨率数据集，并基于此训练了原生100MP生成模型，同时建立了综合评估基准。"
     },
-    "2605.19786": {
-      "short_zh": "快速生成动态三维网格模型",
-      "tags": "计算机图形学;三维重建;动态网格生成",
-      "body_summary": "现有方法从视频生成动态三维网格慢且计算开销大，难以处理长序列。\n提出免训练时空注意力链框架，通过隐空间传播对应关系实现快速高质量生成，提速13倍且支持长视频。"
-    },
-    "2605.14842": {
-      "short_zh": "评估抽象化图像编辑",
-      "tags": "计算机视觉;图像编辑与生成;抽象图像编辑指令跟随",
-      "body_summary": "目前图像编辑基准主要关注显式指令，缺乏对抽象指令的系统评估。\n本文构建了首个抽象图像编辑基准，提出了基于实体分解的评估框架，并发现现有模型难以平衡意图与保真度。"
-    },
-    "2605.18101": {
-      "short_zh": "卫星生成城市建筑能耗与影像",
-      "tags": "计算机视觉;遥感图像生成;城市建筑能耗建模",
-      "body_summary": "城市建筑能耗建模是实现可持续发展目标的关键，但现有方法存在预测性、缺乏生成能力、数据稀缺等挑战。\n提出SENSE框架，基于可控扩散模型，联合生成卫星影像与对齐的建筑能耗及高度图，提升数据生成质量和下游预测精度。"
-    },
-    "2605.16003": {
-      "short_zh": "交互式长视频生成记忆框架",
-      "tags": "计算机视觉;视频生成;长视频记忆管理",
-      "body_summary": "现有方法难以处理交互式长视频生成中的提示词切换和场景记忆问题。\n提出了一个无需训练的记忆框架，通过解耦历史信息、压缩场景和自适应遗忘来统一支持平滑过渡、硬切和长程场景回忆。"
-    },
-    "2605.20150": {
-      "short_zh": "十亿高斯训练的单GPU外存优化方法",
-      "tags": "计算机图形学;三维重建;高斯溅射外存训练",
-      "body_summary": "传统3D高斯溅射训练因参数内存过大而受限于千万级规模，难以处理十亿级场景。\n提出TideGS框架，通过外存管理、异步流水线与差分流技术，在单张24GB GPU上实现了十亿高斯的高质量训练。"
+    "2605.18263": {
+      "short_zh": "高斯建模反射透射新视角",
+      "tags": "计算机图形学；三维重建；半透明表面渲染",
+      "body_summary": "三维高斯泼溅技术在复杂半透明镜面表面的反射与透射建模上存在模糊与遮挡问题。\n提出了RT-Splatting框架，通过分解几何占用与光学不透明度，结合表面与体渲染，实现高保真反射与清晰透射的实时绘制。"
     },
     "2605.15458": {
       "short_zh": "视频扩散模型的奖励优化推理",
       "tags": "计算机视觉;视频生成;可验证推理任务",
       "body_summary": "视频扩散模型在感知真实性和时序连贯性上进步显著，但主要优化目标是生成合理性而非可验证的推理，这使其在需满足明确约束的任务中存在局限。\n本文提出VideoRLVR框架，通过基于规则的反馈优化视频扩散模型，其核心包括SDE-GRPO优化主干、密集分解奖励和旨在降低训练延迟的早步聚焦策略，并在多个可验证推理任务上超越基准。"
     },
+    "2605.20150": {
+      "short_zh": "十亿高斯训练的单GPU外存优化方法",
+      "tags": "计算机图形学;三维重建;高斯溅射外存训练",
+      "body_summary": "传统3D高斯溅射训练因参数内存过大而受限于千万级规模，难以处理十亿级场景。\n提出TideGS框架，通过外存管理、异步流水线与差分流技术，在单张24GB GPU上实现了十亿高斯的高质量训练。"
+    },
     "2605.19995": {
       "short_zh": "推理驱动可控视频生成",
       "tags": "计算机视觉；视频生成；创意意图可控视频生成",
       "body_summary": "现有扩散模型在抽象、稀疏或复杂条件下难以生成符合用户创意意图的视频，存在能力空白。\n提出了CogOmniControl框架，通过专用CogVLM准确认知创意意图并转化为密集推理，再通过CogOmniDiT统一控制生成视频，并引入最佳选择闭环机制。"
     },
-    "2605.18263": {
-      "short_zh": "高斯建模反射透射新视角",
-      "tags": "计算机图形学；三维重建；半透明表面渲染",
-      "body_summary": "三维高斯泼溅技术在复杂半透明镜面表面的反射与透射建模上存在模糊与遮挡问题。\n提出了RT-Splatting框架，通过分解几何占用与光学不透明度，结合表面与体渲染，实现高保真反射与清晰透射的实时绘制。"
+    "2605.14842": {
+      "short_zh": "评估抽象化图像编辑",
+      "tags": "计算机视觉;图像编辑与生成;抽象图像编辑指令跟随",
+      "body_summary": "目前图像编辑基准主要关注显式指令，缺乏对抽象指令的系统评估。\n本文构建了首个抽象图像编辑基准，提出了基于实体分解的评估框架，并发现现有模型难以平衡意图与保真度。"
+    },
+    "2605.19786": {
+      "short_zh": "快速生成动态三维网格模型",
+      "tags": "计算机图形学;三维重建;动态网格生成",
+      "body_summary": "现有方法从视频生成动态三维网格慢且计算开销大，难以处理长序列。\n提出免训练时空注意力链框架，通过隐空间传播对应关系实现快速高质量生成，提速13倍且支持长视频。"
+    },
+    "2605.18101": {
+      "short_zh": "卫星生成城市建筑能耗与影像",
+      "tags": "计算机视觉;遥感图像生成;城市建筑能耗建模",
+      "body_summary": "城市建筑能耗建模是实现可持续发展目标的关键，但现有方法存在预测性、缺乏生成能力、数据稀缺等挑战。\n提出SENSE框架，基于可控扩散模型，联合生成卫星影像与对齐的建筑能耗及高度图，提升数据生成质量和下游预测精度。"
     },
     "2605.20183": {
       "short_zh": "多镜头音视频生成评测基准",
       "tags": "生成式人工智能；视频生成；多镜头音视频生成评测",
       "body_summary": "现有方法难以系统可靠地评估前沿的多镜头音视频生成模型。\n提出了首个综合性基准与自适应评估框架，并评估了19个先进模型。"
+    },
+    "2605.16003": {
+      "short_zh": "交互式长视频生成记忆框架",
+      "tags": "计算机视觉;视频生成;长视频记忆管理",
+      "body_summary": "现有方法难以处理交互式长视频生成中的提示词切换和场景记忆问题。\n提出了一个无需训练的记忆框架，通过解耦历史信息、压缩场景和自适应遗忘来统一支持平滑过渡、硬切和长程场景回忆。"
     },
     "2605.19305": {
       "short_zh": "三角网格信号生成",
@@ -589,6 +589,11 @@
       "tags": "具身智能;空间感知与推理;主动感知与行动闭环",
       "body_summary": "背景/任务：传统空间智能研究假设智能体拥有全知视角，而现实中智能体需要通过主动行动（如移动和操控）来逐步获取信息，形成“感知-行动”闭环，以解决遮挡、动态、功能理解等被动观察无法解决的问题。\n做了什么：我们构建了ESI-Bench基准，在10大类任务上验证了主动探索策略显著优于被动感知，发现当前模型的失败主要源于“行动盲目性”而非感知能力不足，并揭示了模型在元认知层面与人类的差距。"
     },
+    "2605.17909": {
+      "short_zh": "为智能体系统构建实时合规编译器",
+      "tags": "计算机系统;编译技术;智能体实时策略验证",
+      "body_summary": "当前智能体系统在关键领域部署时，缺乏对高频策略更新的硬件级实时执行机制，存在安全风险。\n我们提出了一个名为EHV的架构，通过将策略验证点集成到JIT编译器中，并采用CRDT和TEE等技术，实现了亚毫秒级的确定性策略执行，确保了不合规行为在计算上不可达。"
+    },
     "2605.18646": {
       "short_zh": "剖析后门攻击语言切换机制",
       "tags": "自然语言处理;语言模型安全;后门攻击机理",
@@ -608,11 +613,6 @@
       "short_zh": "强化学习前自生成数据提升模型效果",
       "tags": "自然语言处理;大语言模型训练;策略强化学习优化",
       "body_summary": "强化学习在大语言模型中的效果受训练数据多样性的制约。\n采用自生成多样答案进行中期训练，能提升模型后续强化学习性能。"
-    },
-    "2605.17909": {
-      "short_zh": "为智能体系统构建实时合规编译器",
-      "tags": "计算机系统;编译技术;智能体实时策略验证",
-      "body_summary": "当前智能体系统在关键领域部署时，缺乏对高频策略更新的硬件级实时执行机制，存在安全风险。\n我们提出了一个名为EHV的架构，通过将策略验证点集成到JIT编译器中，并采用CRDT和TEE等技术，实现了亚毫秒级的确定性策略执行，确保了不合规行为在计算上不可达。"
     },
     "2605.19147": {
       "short_zh": "用良性改写防御大模型数据中毒",
@@ -660,7 +660,19 @@
       "body_summary": "Transformer长上下文语言模型使用的Rotary位置编码存在内在局限\n理论证明RoPE在长上下文会失去位置偏倚与一致性，实验表明调整基参数无法同时区分位置与词元"
     }
   },
-  "deep_analysis": {},
+  "deep_analysis": {
+    "2605.20147": "这篇论文是计算机视觉和AI图像生成领域的研究，我来用简单的语言为你解读。\n\n### (1) 任务是什么\n- **任务名称**：超高清（UHR）文本到图像生成\n- **任务输入**：一段文字描述（例如“一个阳光明媚的海滩，沙滩上有棕榈树，海浪拍打着岸边”）\n- **任务输出**：一张**100兆像素（100MP）**的超高清图片，也就是分辨率非常高的图像\n- **任务功能**：根据文字描述，直接生成超高分辨率、细节丰富的图片，满足影视、游戏、设计等对画质要求极高的应用场景\n\n### (2) 想解决什么问题\n现有的AI图像生成模型（如Stable Diffusion、DALL-E等）通常只能生成1K或2K分辨率的图片。当人们想生成电影级、广告级的超高分辨率图片时，直接把小模型“放大”会导致问题：\n- 图片出现重复的结构和奇怪的**伪影**\n- 丢失**高频细节**（比如毛发、纹理变得模糊）\n- 整体画质下降\n\n论文认为，要生成真正高质量的100MP图片，不能靠“后处理放大”，需要从**数据、模型、评估**三个层面系统解决。核心瓶颈就是**缺乏合适的训练数据**。\n\n### (3) 贡献是什么\n论文有三个主要贡献：\n1. **PixVerve-95K数据集**：**第一个**大规模、高质量的100MP文本-图像配对数据集，包含9.5万张超高清图片，每张都至少有1亿像素，并且给每张图打了7个维度的详细标签（描述更精细）。\n2. **将现有基础模型扩展到100MP**：他们探索了三种不同的训练方案，成功让一些现有的“文本-图像”基础模型（比如SD3、FLUX）能够**原生生成**100MP的图片，而不是先生成小图再放大。\n3. **PixVerve-Bench评估基准**：建立了一套专门评估超高清生成图片的体系，不仅用传统指标，还引入了**多模态大语言模型**来评判图片的视觉质量和语义对齐程度。\n\n### (4) 整体思路与模型结构\n论文没有提出一个全新的、从零开始的模型结构，而是**以现有的强大基础模型为起点**，通过高质量数据和新的训练方法，让它们获得生成100MP图片的能力。\n\n**基模（Base Model）是谁？**\n论文中尝试扩展了多个当时先进的**文本到图像扩散模型**作为基模，例如 **SD3 (Stable Diffusion 3)** 和 **FLUX** 等。你可以把它们理解为“发动机”。\n\n**整体流程：**\n1.  **输入**：用户输入一段文本Prompt。\n2.  **数据处理（核心前置工作）**：\n    - **收集**：从多个开源渠道收集原始的高分辨率图片。\n    - **清洗**：用算法自动过滤掉低质量、有瑕疵、内容简单的图片。\n    - **精炼**：确保最终入选的每张图都达到100MP标准，并且内容多样（风景、人像、物体等）。\n    - **标注**：使用AI模型（如LLaVA）和人工结合的方式，为每张图生成**非常详细、结构化的文字描述**（7个维度），形成高质量的“图-文”对。\n3.  **模型训练（三种方案）**：\n    - **方案A（全量微调）**：用他们新的PixVerve-95K数据集，从头到尾重新训练一个基础模型。效果好但成本极高。\n    - **方案B（部分微调）**：只训练模型的一部分（比如某些关键层），其他部分冻结。在效果和成本间折中。\n    - **方案C（高效微调）**：使用像LoRA这样的参数高效微调技术，只增加和训练一小部分额外的参数。成本最低，旨在验证数据的有效性。\n4.  **推理生成（输出）**：\n    - 训练好的模型直接接收文本Prompt。\n    - 模型在**自身的内部表示空间**里，逐步去噪，直接生成一个100MP的“潜表示”。\n    - 最后通过解码器，将这个潜表示转换输出为最终的**100MP像素图片**。\n\n简单比喻：论文团队**修了一条高质量的高速公路（PixVerve-95K数据集）**，然后测试了**几辆顶级跑车（SD3/FLUX等基模）** 在这条新路上怎么跑得最好（三种训练方案），最后还制定了新的比赛评分标准（PixVerve-Bench）。\n\n### (5) 结果怎么样\n- **定量结果**：在它们提出的PixVerve-Bench上测试，经过PixVerve-95K数据训练后的模型，在**几乎所有评估指标**（如图像质量、细节清晰度、与文本的匹配度）上都显著超过了之前的SOTA方法。特别是**全量微调**的方案效果最好。\n- **定性结果（肉眼观察）**：生成的100MP图片细节极其丰富，没有明显的重复结构或伪影。在放大查看局部时，毛发、树叶、纹理等细节依然清晰自然，远胜于“先生成小图再放大”的方法。\n- **关键结论**：\n    1.  **高质量数据是关键**：PixVerve-95K数据集被证明是推动100MP生成的核心。\n    2.  **原生生成可行**：证明了让扩散模型直接输出100MP图片是可行的，且效果优于后处理放大。\n    3.  **评估体系必要**：他们新的评估基准能更可靠地衡量超高清生成的优劣。\n\n**总结**：这篇论文像是一个“工程突破”，系统性地解决了超高清AI生成的数据瓶颈，并验证了让现有强大模型“更上一层楼”的路径，为未来生成10亿像素甚至更高分辨率的图片奠定了基础。",
+    "2605.18263": "### (1) 这篇论文所在的任务是什么？\n- **任务名称**：半透明镜面场景的新视角合成（Novel View Synthesis for Semi-Transparent Specular Scenes）。\n- **任务输入**：一组从不同视角拍摄的真实场景图像。\n- **任务输出**：\n  1. 高质量的新视角渲染图像（可以实时生成）。\n  2. 将场景分解为**反射层**（Reflection）和**透射层**（Transmission）。\n- **任务功能**：从多视角图像中重建出包含半透明镜面物体（如玻璃窗、光滑塑料）的3D场景，并能同时准确渲染出物体表面的**清晰反射**和**背后物体的清晰透射**，支持实时渲染和场景编辑。\n\n---\n\n### (2) 这篇论文想解决什么问题？\n现有方法（特别是基于3D高斯泼溅（3D Gaussian Splatting, 3DGS）的方法）在处理**半透明镜面表面**时存在两个主要问题：\n1. **反射模糊**：为了模拟高频镜面反射，模型容易在表面后方产生虚假的“漂浮物”（floaters），导致反射效果模糊。\n2. **透射遮挡**：这些虚假的漂浮物会错误地遮挡本应透过表面可见的背景，导致透射效果不清晰。\n\n简单来说，论文想解决**如何用一个统一的模型，同时处理好“反射”和“透射”**，避免两者相互干扰。\n\n---\n\n### (3) 这篇论文的贡献是什么？\n1. **提出统一的表面-体积高斯场景表示**：\n   - 将每个高斯基元的**几何占据**（Geometric Occupancy）和**光学不透明度**（Optical Opacity）**解耦**。\n   - 几何占据决定它作为“表面元素”的参与程度（用于计算反射）。\n   - 光学不透明度控制光线穿过时的衰减程度（用于计算透射）。\n   - 这样，**用同一组高斯就能同时表示表面和体积信息**。\n\n2. **提出“镜面感知梯度门控”机制**：\n   - 在联合优化反射和透射时，镜面反射区域的高频信号会产生误导性梯度，导致透射分支产生漂浮物。\n   - 该机制能识别出被复杂镜面反射主导的像素，并**抑制这些像素的梯度流入透射分支**，从而减少漂浮物，提升透射清晰度。\n\n3. **实现实时渲染与灵活编辑**：\n   - 保持了3DGS的实时渲染速度。\n   - 由于场景表示统一且分解清晰，支持对反射层和透射层进行独立编辑。\n\n---\n\n### (4) 论文的整体思路与模型结构\n**基模（Base Model）**：3D高斯泼溅（3DGS）。\n\n**整体流程**：\n1. **输入**：多视角图像 → 通过SfM（运动恢复结构）或类似方法初始化一组3D高斯。\n   \n2. **核心表示：高斯解耦**：\n   - 每个高斯有两个关键属性：\n     - **几何占据（\\( \\alpha_g \\）**：表示该高斯作为“表面”的强度。\n     - **光学不透明度（\\( \\alpha_o \\）**：表示该高斯作为“介质”对光线的衰减程度。\n   - 这两个属性是相乘关系：最终的不透明度 \\( \\alpha = \\alpha_g \\times \\alpha_o \\)。\n\n3. **混合渲染器（Hybrid Renderer）**：\n   - **反射分支（表面渲染）**：\n     - 使用**几何占据**进行“首次命中”表面检测，生成G-buffer（存储表面法线、材质等属性）。\n     - 对G-buffer进行**延迟着色**（Deferred Shading），计算镜面反射（使用类似物理的渲染方程）。\n   - **透射分支（体积渲染）**：\n     - 使用**光学不透明度**沿视线进行体积渲染，累计算背景的透射光。\n     - 类似传统体渲染，但只考虑透射部分。\n   - **最终像素颜色** = 反射颜色 + 透射颜色。\n\n4. **镜面感知梯度门控**：\n   - 在训练时，实时计算每个像素的“镜面强度”。\n   - 如果镜面强度过高（说明是复杂反射区域），则**降低该像素梯度对透射分支的更新强度**，防止透射分支被误导。\n\n5. **优化**：\n   - 使用重建损失（如L1损失）和可选的正则化项联合优化所有高斯参数（位置、协方差、颜色、\\( \\alpha_g \\)、\\( \\alpha_o \\)等）。\n   - 通过梯度门控机制，平衡反射和透射的学习。\n\n6. **输出**：\n   - 新视角的合成图像（反射+透射）。\n   - 可分离的反射层和透射层图像。\n\n---\n\n### (5) 结果怎么样？\n- **定性结果**：在包含玻璃窗、光滑塑料等半透明镜面物体的真实场景数据集上，RT-Splatting生成的反射更清晰、透射更干净，显著减少了漂浮物。\n- **定量结果**：在PSNR、SSIM、LPIPS等图像质量指标上，RT-Splatting均优于之前的SOTA方法（如Ref-NeRF、TransparentGS、以及各种3DGS变体）。\n- **效率**：保持了3DGS的实时渲染速度（>100 FPS）。\n- **应用**：展示了场景编辑能力，例如单独调整反射强度或替换背景。\n\n**总结**：RT-Splatting通过解耦表示和梯度门控，成功解决了半透明镜面场景中反射与透射的联合建模难题，在质量和速度上均达到SOTA。",
+    "2605.15458": "这篇论文主要是关于**让视频生成模型具备逻辑推理能力**，而不是仅仅生成看起来真实的画面。下面我为你详细拆解一下这篇论文的核心内容。\n\n**(1) 任务是什么？**\n*   **任务输入：** 一个**描述性指令或问题**，比如“在迷宫中从起点走到终点”、“玩一个推箱子游戏解出谜题”或“画一条连接所有彩色点的线（FlowFree游戏）”。\n*   **任务输出：** 一段**视频**，这个视频展示了解决该问题或完成该任务的**完整视觉过程**（例如，角色在迷宫中一步步移动的轨迹）。\n*   **任务功能：** 生成一个**逻辑正确、符合规则**的视觉解决方案，而不仅仅是看起来合理、画面流畅的视频。关键在于**推理过程的正确性**。\n\n**(2) 想解决什么问题？**\n当前主流的视频生成模型（如视频扩散模型）主要关注**画面的真实感、流畅度和美观度**。它们像“模仿大师”，能生成很像“答案”的视频，但无法保证生成的视频在逻辑上是正确的（比如迷宫路径可能撞墙，推箱子可能卡死）。\n这篇论文想解决的核心问题是：**如何让视频模型从“模仿者”变成“思考者”**，使其生成的内容不仅好看，而且能满足明确的**空间、时间和逻辑规则**。\n\n**(3) 贡献是什么？**\n这篇论文的主要贡献是提出了一个名为 **VideoRLVR** 的完整训练“配方”，主要包括：\n1.  **引入“可验证奖励”的强化学习**：首次系统地将强化学习（RL）用于训练视频推理模型。RL能直接优化“答案是否正确”这个目标。\n2.  **高效的“早期步骤聚焦”策略**：视频生成（去噪）过程很长。他们发现，**推理的宏观规划主要在前几步就决定了**。于是他们只在早期步骤应用强化学习，这减少了约40%的训练时间。\n3.  **密集分解的奖励设计**：任务成功（如走出迷宫）是稀疏奖励（只有最终成功才有奖励）。他们设计了一种**密集奖励**，将最终目标分解成多个可验证的小目标（例如，“这一步是否向终点靠近了？”、“这一步是否撞墙了？”），让模型在每一步都能得到更清晰的反馈。\n4.  **构建了可验证的推理数据集**：他们用规则化的程序生成了**Maze（迷宫）、FlowFree（连点成线）、Sokoban（推箱子）** 这三个游戏的大量标准解法视频，并精确对齐了每一步的逻辑状态（如棋子位置）和视频帧，为训练和评估提供了可靠的“标准答案”。\n\n**(4) 整体思路与流程**\n这篇论文的思路可以类比于训练一个会推理的大语言模型（LLM）：\n1.  **基模（Base Model）**：使用一个**基于流匹配（Flow Matching）的通用视频生成模型**作为起点。这相当于LLM的“预训练”阶段，模型学会了生成各种看起来合理的视频。\n2.  **监督微调（SFT）**：用他们生成的**标准解法视频数据集**对基模进行微调。这教会了模型“**一个正确的解法视频应该长什么样**”，就像教LLM“一个正确的推理过程应该怎么写”。这一步得到的模型叫**SFT模型**。\n3.  **VideoRLVR强化学习优化（核心）**：\n    *   **输入**：一个任务指令（如“解这个迷宫”）。\n    *   **过程**：\n        a. 模型开始生成视频（去噪过程）。\n        b. 在**早期去噪步骤**（“早期步骤聚焦”），模型会尝试多种不同的“思路”（通过引入噪声进行探索）。\n        c. 生成完整的视频后，**奖励函数**会对视频进行评估。这个奖励函数结合了**任务是否成功**（稀疏奖励）和**每一步是否符合规则**（密集分解奖励，如是否撞墙、是否更接近目标）。\n        d. 强化学习算法（文中使用SDE-GRPO）根据得到的奖励，反过来调整模型参数，**鼓励模型生成能获得更高奖励（即更正确）的视频**。\n    *   **输出**：经过强化学习优化后的模型，称为**RL模型**。它生成的视频，在逻辑正确性上比SFT模型更好。\n\n简单来说，流程就是：**通用视频模型 -> 用标准答案教格式（SFT） -> 用“对错打分”优化推理能力（VideoRLVR）**。\n\n**(5) 结果怎么样？**\n实验结果证明了VideoRLVR的有效性：\n*   **在三个任务上（迷宫、连点成线、推箱子），RL模型都比SFT模型取得了更高的成功率**，分别提升了6.1%、5.5%和3.2%。任务越难，提升越明显。\n*   **“密集分解奖励”在成功率低的困难任务中尤其重要**，因为它能提供更清晰的指导信号。\n*   **“早期步骤聚焦”策略在保证性能基本不变的情况下，将训练时间减少了约40%**，非常高效。\n*   **泛化能力强**：在未经训练的新颖、更复杂的任务上（OOD测试），VideoRLVR模型的表现也优于其他视频生成模型。\n*   **对比优势**：与一些知名的开源和商业视频生成模型相比，VideoRLVR模型在**逻辑正确性**这个维度上显著领先。\n\n**总结**：这篇论文成功地将强化学习的思路引入视频生成领域，通过设计可验证的奖励和高效的训练策略，让视频模型从“模仿外观”进阶到“执行正确的逻辑推理”，为实现更可靠、更智能的视觉AI迈出了重要一步。",
+    "2605.20150": "这篇论文主要研究**如何用单张显卡训练超大规模的3D高斯泼溅模型**。下面我用通俗易懂的方式为你解读：\n\n### (1) 论文所在的任务是什么？\n*   **任务输入**：多视角的2D图像（比如无人机拍摄的城市街景照片）。\n*   **任务输出**：一个由数十亿乃至上百亿个“3D高斯球”组成的、可以逼真渲染新视角的3D场景模型。\n*   **任务功能**：**3D重建与新型视图合成**。简单说，就是让计算机从一堆2D照片中，学习并构建出一个高精度的3D数字场景，之后你可以从任意没拍过的角度去看这个场景，它都能生成非常逼真的图像。\n\n### (2) 论文想解决什么问题？\n核心问题是 **“内存墙”**。\n*   **背景**：3D高斯泼溅（3DGS）是一种很火的技术，它用很多个带颜色和形状的“小球”（高斯球）来表示一个3D场景。场景越大、越复杂，需要的“小球”就越多，效果越好。\n*   **问题**：每个“小球”有59个参数要学习和存储。当“小球”数量达到上亿规模时，光是存这些参数就需要近百GB内存，这远远超过了普通单张显卡（24GB）的能力。因此，之前的单卡方法最多只能训练几千万个“小球”，限制了在大型场景（如整个城市街区）上的重建质量。\n*   **目标**：让普通单张显卡也能训练包含**超过10亿个“小球”**的巨型3D场景模型。\n\n### (3) 论文的贡献是什么？\n他们提出了一个名为 **TideGS** 的系统，主要贡献有三点：\n1.  **核心洞察**：发现了3DGS训练是**稀疏**且**与相机轨迹相关**的。每一帧图像只会激活和更新场景中**很小一部分**（可见的）“小球”。因此，不需要把所有“小球”的参数都同时放在显卡里。\n2.  **“外存-内存-显存”三级存储管理**：像电脑内存不够用硬盘来补一样，他们设计了一套系统，把海量的“小球”参数主要存在固态硬盘（SSD）上，根据当前训练的视角，动态地把需要用到的“小球”数据搬运到内存和显存中。\n3.  **“差分流式传输”**：在连续的两帧之间，可见的“小球”集合变化很小。他们设计了一种聪明的数据传输方式，每次只搬运**新增的**和**移除的**那部分“小球”数据，而不是全部刷新，大大减少了数据搬运量。\n\n### (4) 整体思路与流程\n**基模**：基础方法是 **3D Gaussian Splatting (3DGS)**。\n\n**整体思路**：既然训练时只用得到一小部分“小球”，那就把整个巨大的“小球”仓库（参数表）放在便宜的、大容量的固态硬盘上。把显卡内存当作一个“工作台”，只把当前视角下需要的“小球”拿上来加工（训练）。加工完的改动再写回仓库。\n\n**模型/系统结构**：TideGS 是一个**系统框架**，而不是一个新神经网络。它围绕着3DGS的优化过程，构建了一套高效的数据调度系统。\n\n**流程（比喻版）**：\n1.  **分区与建库（Block Virtualization）**：把整个3D空间像切豆腐一样分成很多个小方块（Block），每个方块里存放一堆“小球”的参数。按照空间顺序（莫顿码）整理好，存到固态硬盘上。这样要找附近的小球时，硬盘读写效率很高。\n2.  **两级筛选（Two-Stage Visibility Filtering）**：\n    *   **第一级（CPU粗略筛选）**：根据当前相机的位置和朝向，快速判断出**哪些方块**可能被看到。只把这些方块的索引列出来。\n    *   **第二级（GPU精细筛选）**：把候选方块里的“小球”数据加载到显卡，由3DGS的渲染管线进行精确的可见性测试，最终确定**具体是哪些小球**需要参与本次训练。\n3.  **异步流水线与缓存（Out-of-Core Engine）**：\n    *   系统有一个智能的**CPU内存缓存**。它会预先从SSD加载接下来可能用到的方块数据。\n    *   数据搬运（SSD↔CPU↔GPU）和GPU计算（渲染、反向传播）是**同时进行**的。当GPU在训练当前帧时，CPU已经在为下一帧准备数据了，充分隐藏了数据加载的延迟。\n4.  **差分流式更新（Tide: Trajectory-Adaptive Differential Streaming）**：\n    *   系统会记录当前显存里有哪些“小球”（称为驻留集）。\n    *   当切换到下一帧时，系统计算新旧两帧可见“小球”集合的**差异**（哪些是新出现的，哪些是不再需要的）。\n    *   然后，**只将差异部分**（新增的小球从CPU缓存加载到GPU，移除的小球从GPU写回CPU）进行传输，避免了全量数据交换。\n\n### (5) 结果怎么样\n*   **规模突破**：在单张24GB显存的消费级显卡上，成功训练了包含 **约11亿个** 高斯球的场景，突破了之前的显存限制。\n*   **效果领先**：在多个大型场景数据集上，TideGS的重建质量（PSNR, SSIM, LPIPS等指标）超过了其他单卡训练方法，包括那些只能训练更少数量“小球”的基线模型。\n*   **效率可观**：虽然利用了速度较慢的SSD，但通过上述精巧的设计（尤其是异步流水线和差分传输），训练速度的损失在可接受范围内，实现了从“无法训练”到“可以高效训练”的质变。\n\n**总结**：这篇论文就像为3DGS这个“超级工厂”设计了一套智能物流系统。工厂（GPU）的加工台（显存）很小，但通过精准预测物料需求（可见性筛选）、建立中转仓（CPU缓存）、使用大型远程仓库（SSD）、以及采用“只送增量包裹”的物流策略（差分流式传输），使得这个小工厂也能高效处理海量原料（高斯球），最终生产出超大型的精密产品（十亿级场景模型）。",
+    "2605.19995": "好的，没问题。我们一步步来解析这篇论文。你可以把它想象成一个“智能动画导演”系统。\n\n### (1) 任务是什么？\n*   **任务名称**：**可控视频生成**，特别是在复杂的、专业的动画制作流程中。\n*   **任务输入**：\n    *   **多模态条件**：不是简单的文字描述，而是更抽象、更专业的“草图”。\n    *   **具体来说**：比如动画师画的**故事板草图**、**粘土动画预览**等。这些条件信息很“稀疏”（线条简单）、“抽象”（不是真实画面），但包含了导演/动画师的**创作意图**（比如某个角色要做什么表情，场景要怎么布局）。\n*   **任务输出**：一段**高质量的、高度符合输入条件创作意图的视频**（例如最终的动画片段）。\n*   **任务功能**：让AI能像专业动画师一样，理解草图背后的“想法”，并自动生成符合这个想法的完整视频，极大提升动画制作效率。\n\n### (2) 想解决什么问题？\n现有AI做这个任务有两个大问题：\n1.  **认知鸿沟**：现有的通用视觉-语言大模型（VLM，比如GPT-4V）看不懂专业动画师的草图。它可能能识别出“一个人”，但理解不了“这个角色现在应该表现出犹豫不决的情绪”这种创作意图。\n2.  **对齐鸿沟**：即使VLM勉强理解了，它给出的“指令”和视频生成模型（比如Diffusion扩散模型）产出的结果也对不上。VLM的指令可能太模糊或有噪声，导致生成的视频“货不对板”。\n\n**简单说**：现在的模型是“照猫画虎”，但画出来的“虎”不像猫想表达的“凶猛的老虎”；而这篇论文想让模型学会“理解猫的想法，再画出真正凶猛的老虎”。\n\n### (3) 贡献是什么？\n这篇论文提出了一个叫 **CogOmniControl** 的系统，主要贡献有四点：\n1.  **新框架**：提出了一个 **“推理驱动”** 的新框架。把生成视频拆成两步：**先理解创作意图（认知），再根据意图生成视频**。\n2.  **两个核心新模型**：\n    *   **CogVLM**：一个 **“专家级”的视觉-语言模型**。用真实的动画生产数据训练过，专门用来解读专业草图，把抽象的“创作意图”翻译成清晰、具体的“生成指令”。\n    *   **CogOmniDiT**：一个 **“全能型”视频生成模型**。它能统一处理各种输入条件（草图、文字等），并且特别学习了如何听从CogVLM的“专家指令”来生成视频。\n3.  **闭环系统**：让CogVLM不仅下指令，还能**自己当评委**。生成一批候选视频后，CogVLM会调用或指定合适的评估工具来打分，自动选出最好的那个，形成一个“生成-评估-选择”的闭环。\n4.  **新评测基准**：发布了两个基于真实动画生产流程的新测试集（**CogReasonBench**和**CogControlBench**），用来更公平地评估模型理解专业意图和生成视频的能力。\n\n### (4) 整体思路与模型结构\n**基模**：使用了现有的视觉-语言大模型（如LLaVA等）和视频扩散Transformer模型（如DiT等）作为基础。\n\n**整体流程（对照论文图1理解）**：\n\n输入：**专业草图/粘土动画 + 简短的文字提示**\n\n1.  **第一步：创作意图认知**\n    *   输入的草图和文字被送给 **CogVLM**。\n    *   CogVLM（经过专业动画数据训练）像一个“资深动画导演”一样，仔细分析草图。它不只是看画面，更是在**推理**背后的故事、角色情绪、动作逻辑。\n    *   最后，CogVLM输出一份**详细的、稠密的“视频生成指令”**（Reasoning Output）。这份指令比原始输入要具体得多，例如：“主角，一个穿着披风的少年，从画面左侧**缓步走入**，脸上带着**坚定的表情**，背景是**夕阳下的城堡**...”\n\n2.  **第二步：可控视频生成**\n    *   原始的草图条件和CogVLM生成的“详细指令”一起，被输入到 **CogOmniDiT** 中。\n    *   CogOmniDiT是一个扩散模型，它的核心是一个**Transformer**。它同时处理两种信息：\n        *   **低层像素信息**：来自草图，保证生成视频的结构和草图一致。\n        *   **高层语义信息**：来自CogVLM的指令，保证视频的动作、情感、风格符合创作意图。\n    *   模型通过一种叫 **“上下文学习”** 的方式，把这些多模态条件统一起来，一步步去噪，最终**生成出多个候选视频**。\n\n3.  **第三步：闭环验证与选择**\n    *   在生成前或生成后，CogVLM还会根据自己对任务的理解，**规划需要哪些“评估工具”**（例如：评估画面质量的工具、评估动作连贯性的工具、评估是否符合文本的工具等）。\n    *   多个候选视频生成后，这些被选中的评估工具（Evaluator Harness）会对每个视频打分。\n    *   系统自动执行 **Best-of-N Selection**，即**从N个候选视频中，选出综合评分最高的那个**作为最终输出。\n\n**输出**：**一段最符合原始草图创作意图的高质量视频。**\n\n### (5) 结果怎么样\n论文在两个自己提出的新基准（CogReasonBench, CogControlBench）上进行了测试。\n*   **CogVLM vs. 其他通用VLM**：在理解专业草图创作意图的测试中，**CogVLM显著优于其他模型**。这说明针对专业领域训练确实能极大提升模型的“认知”能力。\n*   **CogOmniControl vs. 其他开源视频生成模型**：在根据抽象条件生成视频的任务中，**CogOmniControl全面超越了现有的开源模型**。生成的视频在**遵守输入条件**（草图结构、创作意图）和**视频质量**方面都更好。\n\n**总结一下**：这篇论文就像是给AI视频生成领域培养了一位“动画专业毕业生”。它不再是一个只会执行模糊命令的“外行”，而是能看懂专业分镜稿、理解导演意图，并能高质量完成作品的“专业人才”。这套方法对推动AI进入影视、动画等专业生产流程有重要意义。",
+    "2605.14842": "好的，没问题。作为一名低年级博士生，我们先用最简单的方式理解这篇论文在做什么。\n\n你可以把它想象成：**教AI理解人类的“言外之意”来修改图片**。\n\n---\n\n### (1) 这篇论文所在的任务是什么？\n\n*   **任务名称**：**基于抽象指令的图像编辑**。\n*   **任务输入**：1）一张原始的“上下文”图片；2）一句**抽象的、描述性的**修改指令（例如，“让画面充满对动物的同理心和深厚情感”，而不是“把狗变成棕色”）。\n*   **任务输出**：一张**编辑后的新图片**，它既**遵循**了抽象指令的意图，又**最大程度地保留**了原始图片中与指令无关的内容。\n*   **任务功能**：让AI模型能像人类一样，理解“情绪”、“氛围”、“状态”等抽象概念，并据此对图片进行合理、有创造性的修改，而不是只能执行死板的、具体的命令。\n\n### (2) 这篇论文想解决什么问题？\n\n**核心问题**：现有的图像编辑模型都很擅长执行“把A换成B”这种**具体指令**，但当人类给出“让照片看起来更温馨”、“让这个人显得很疲惫”这种**抽象指令**时，模型就懵了，要么改得不对，要么乱改一通破坏了原图。\n\n**具体挑战**：\n1.  **评估难**：抽象指令的“正确”结果不是唯一的，十个人可能有十种合理的改法。怎么客观地评价模型改得好不好？\n2.  **数据缺**：没有专门针对抽象指令编辑的公开评测数据集。\n3.  **模型差**：主流模型在抽象指令编辑上表现不佳，常犯两种错误：\n    *   **改得太少**：模型没理解深层意图，只做了微小改动（如只调个色）。\n    *   **改得太多**：模型过度解读，添加了大量与指令无关、且破坏原图的内容。\n\n### (3) 这篇论文的贡献是什么？\n\n这篇论文主要有三大贡献：\n\n1.  **提出了一个新问题框架**：首次系统地定义了“抽象图像编辑”这个任务，并分析了它的特点（如意图的**多义性**和**主观性**）。\n2.  **创建了一个新评测基准**：发布了 **ABSTRACTEDIT** 数据集，包含470个经过人工验证的（原图，抽象指令）对，覆盖情感、社交、物理、逻辑等多个抽象维度，用于公平评测模型。\n3.  **提出了一个新评测方法**：发明了 **ENTITY-RUBRICS** 评估框架。这是论文最核心的创新点。它的核心思想是：**把对整张图“好不好”的模糊评判，分解成对图中每一个“实体”（如人、狗、背景、表情）修改得“对不对”的精确检查**。\n    *   **就像批改作文**：不是只给个总分，而是逐段、逐句点评哪里写得好，哪里跑题了。\n    *   **优点**：评估更精准、可解释性强（能明确指出是“人的表情改得好”还是“背景人群改坏了”），并且与人类评判高度一致。\n\n### (4) 论文的整体思路、模型结构与流程\n\n这篇论文**主要是一篇提出评测方法和基准的论文**，而不是提出一个新训练模型。它的“模型”主要是指**如何用现有的视觉语言大模型来构建评估流程**。\n\n**整体思路**：\n既然抽象指令的结果不唯一，我们就不强求模型必须做出“标准答案”。我们转而检查：**模型自己选择做的那些具体修改，是否都能从抽象指令中找到合理的依据？** 同时，要惩罚那些与指令无关的、破坏原图的胡乱修改。\n\n**“模型”结构（ENTITY-RUBRICS 评估流程）**：\n它没有传统意义上的“训练”，而是一个**基于规则和现有VLM的自动分析流程**。你可以理解为它搭建了一个“AI裁判系统”。\n\n**基模**：整个流程依赖于一个强大的**视觉语言大模型**作为“裁判官”（例如 GPT-4V, Gemini等），让它来完成识别、推理、打分等任务。\n\n**整体流程**（结合文中图1理解）：\n\n1.  **输入**：原始图片、抽象指令、模型生成的编辑后图片。\n2.  **步骤一：实体探测与配对**\n    *   VLM“裁判”同时观察原图和编辑后的图，找出所有发生了**视觉变化**的“实体”（物体、人物、背景元素等），比如“男人的表情”、“牛的姿势”、“标牌”、“人群”。\n    *   为每个变化的实体，生成一个简短的描述，如“从微笑变为关切的表情”。\n3.  **步骤二：为每个实体编辑生成“理由”**\n    *   针对上一步找到的每一个具体修改，VLM“裁判”需要回答：**这个修改，是否能从给定的抽象指令中找到支持的理由？**\n    *   例如，对于“男人的表情从微笑变为关切”，理由可以是：“‘注入同理心’的指令要求人物表现出更多的关怀和情感联系，因此将微笑改为关切的表情是合理的。”\n4.  **步骤三：为每个实体编辑打分**\n    *   根据生成的“理由”的质量，给这个实体的修改打一个分数（例如1-5分）。分数高低取决于这个修改**对遵循指令是否有帮助**，以及**是否不必要地破坏了原图**。\n    *   **关键逻辑**：宁可漏判（没发现所有可能的修改），也不错判（把无关修改算作合理）。这确保了评估的**精确性**。\n5.  **步骤四：汇总得分**\n    *   将所有实体的得分进行汇总（例如取平均或加权平均），得到这张编辑后图片的**最终指令遵循分数**。\n6.  **输出**：\n    *   **一个总体分数**（如例子中的9分）。\n    *   **一份详细的评估报告**：明确指出哪些实体改得好（遵循意图），哪些实体改得不好（破坏原图）。这使得评估结果非常**可解释**。\n\n### (5) 结果怎么样？\n\n论文用提出的ENTITY-RUBRICS方法，在ABSTRACTEDIT数据集上评测了11个主流图像编辑模型（如SDXL, IP-Adapter, InstructPix2Pix等）。\n\n**主要结论**：\n\n1.  **所有模型都面临巨大挑战**：在抽象指令编辑任务上，现有模型的性能普遍不高，与处理具体指令时有巨大差距。\n2.  **两大失败模式被证实**：模型确实普遍存在 **“改得太少”** 和 **“改得太多”** 的问题，无法很好地平衡“遵循抽象意图”和“保留原图内容”。\n3.  **成功因素**：分析发现，表现相对较好的模型通常具备两个特点：① 使用了**更强大的文本编码器**（如基于大语言模型的T5-XXL），这有助于理解抽象语义；② 采用了**多步推理/迭代生成**的策略。\n4.  **评估方法有效**：ENTITY-RUBRICS的评分与人类评判者的打分具有**很强的相关性**，证明了这种“原子实体分析”方法是可靠且有效的。\n\n**总结一下**：这篇论文像一位“考官”，它首先定义了一门很难的新“考试”（抽象图像编辑），然后自己出题（ABSTRACTEDIT数据集），并设计了一套新颖、严格的“阅卷标准”（ENTITY-RUBRICS）。用它这套标准一考，发现现有的“考生”（图像编辑模型）成绩都不理想，从而指明了这个领域未来的研究方向：需要让模型更好地理解抽象概念，并在编辑时进行更精细、更可控的推理。",
+    "2605.19786": "当然，我可以帮你用简单的语言梳理这篇论文的核心内容。  \n\n---\n\n## 1. 任务是什么？\n\n**任务名称**：从视频生成动态 3D 网格（4D Mesh Generation）  \n- **输入**：一段普通 RGB 视频（单视角拍摄的物体运动视频）。  \n- **输出**：一系列随时间变化的 3D 网格（mesh），每个网格在每一帧都有对应的 3D 形状，并且不同帧的网格顶点在时间上是连续对应的（即“动态 3D 模型”）。  \n- **任务功能**：从单目视频恢复出物体的 3D 形状和运动，形成可动画的 3D 模型，可用于虚拟现实、物理仿真、游戏等领域。  \n\n---\n\n## 2. 这篇论文想解决什么问题？\n\n现有方法（如 ActionMesh）存在几个问题：  \n1. **速度慢**：生成一个动态 3D 网格需要约 2 分钟。  \n2. **训练复杂**：需要额外的网络来保证不同帧的网格拓扑一致（即顶点对应关系一致），这需要 4D 标注数据，而这类数据稀少。  \n3. **难以处理长视频**：在生成长序列时，模型容易产生形状漂移或崩溃。  \n4. **缺少与 2D 图像的联系**：生成的 3D 网格没有与原始视频的像素对应起来，因此无法直接用于下游任务（如 2D 目标跟踪、相机位姿估计等）。  \n\n---\n\n## 3. 这篇论文的贡献是什么？\n\n1. **发现了“时空注意力链”**：在 4D 生成模型的早期去噪步骤（仅需 4 步）中，注意力机制已经隐含地建立了时间上的对应关系，无需等到 30 步去噪完成才获得准确形状。  \n2. **提出了一种免训练框架**：利用上述注意力链，直接从一个“锚定帧”的 3D 网格出发，通过注意力传递跟踪顶点的运动，从而快速生成整个动态网格，无需额外的动画网络。  \n3. **大幅提升速度与质量**：生成时间从 120 秒降到 9 秒（13 倍加速），且质量更高，还能处理长达 240 帧的视频（16 倍于之前长度）。  \n4. **支持下游任务**：利用注意力链，可零样本（无需额外训练）完成 2D 点跟踪、4D 点跟踪，并恢复相机位姿，这是之前方法做不到的。  \n\n---\n\n## 4. 整体思路与模型结构\n\n### 基模（Backbone）\n使用了已有的 **4D 生成扩散模型**（如类似 ActionMesh 的架构，文中未明确说具体名字，但这类模型通常是一个视频→3D 的扩散模型）。\n\n### 流程图式描述\n\n1. **阶段 0：锚定帧 3D 重建**  \n   - 从视频中选一帧（比如第一帧），用一个 **图像→3D 模型**（如 InstantMesh 或 One-2-3-45）生成一个静态 3D 网格，称为“锚定网格”（Anchor Mesh）。\n\n2. **阶段 I：视频→4D 潜在表示**  \n   - 将整个视频输入 4D 扩散模型，但只运行 **4 步去噪**（而不是通常的 30 步），得到每一帧对应的 3D 潜在编码（latent tokens）。  \n   - 关键发现：在这 4 步去噪中，**自注意力机制**已经建立了不同帧潜在 token 之间的对应关系。\n\n3. **阶段 II：通过“时空注意力链”传递顶点运动**  \n   - 定义一条链：  \n     - 从锚定网格的某个顶点 \\( V_a \\) 出发，用注意力找到它在锚定帧潜在编码中对应的 token \\( Z_a \\)。（空间对应：\\( V_a \\to Z_a \\)）  \n     - 利用时间自注意力，将 \\( Z_a \\) 映射到目标帧的潜在 token \\( Z_f \\)。（时间对应：\\( Z_a \\to Z_f \\)）  \n     - 再用注意力从 \\( Z_f \\) 映射回目标帧的 3D 顶点 \\( V_f \\)。（空间对应：\\( Z_f \\to V_f \\)）  \n   - 这样，就得到了锚定网格顶点在其他帧的位置。\n\n4. **拓扑保持的动画**  \n   - 只对锚定网格的 **稀疏关键顶点** 做上述跟踪，其余顶点通过 **测地刚性蒙皮**（geodesic-rigid skinning）插值得到，从而保持整个网格的拓扑不变。\n\n5. **长序列生成**  \n   - 生成更长视频时，**强化注意力链中最强的对应关系**，减少漂移，从而支持 240 帧生成。\n\n---\n\n## 5. 结果怎么样\n\n- **速度**：生成 16 帧的 4D 网格只需 **9 秒**（对比之前 120 秒）。  \n- **质量**：在视觉效果和几何准确性上优于之前方法（论文中通过用户研究和指标证明）。  \n- **长序列**：可生成 240 帧，质量不下降。  \n- **下游任务**：  \n  - 2D 点跟踪：在 TAP-Vid 数据集上零样本达到接近 SOTA 水平。  \n  - 4D 点跟踪：在 4D 跟踪任务上表现良好。  \n  - 相机位姿估计：首次从 4D 网格生成中恢复出每帧的相机位姿。  \n\n---\n\n简单来说，这篇论文的核心是：  \n**发现扩散模型早期注意力中已经有时空对应关系，利用这个关系直接“搬运”锚定网格的顶点到每一帧，从而快速生成动态 3D 网格，并解锁一系列新功能。**",
+    "2605.18101": "我来为你解读这篇论文。你可以把我当作一个同组的师兄，我们用简单的话来聊聊这篇论文到底在做什么。\n\n### (1) 任务是什么？\n\n*   **任务输入**： 城市的地理空间约束信息，比如**道路网络图**（告诉你路在哪里）和**城市密度指标**（比如这个区域是密集还是稀疏）。\n*   **任务输出**： 1）**逼真的城市卫星图像**，以及2）与这张图像完全对应的、高质量的**建筑高度分布图**和**建筑能耗分布图**。\n*   **任务功能**： 这是一个**城市生成与规划工具**。你可以把它想象成一个“城市设计AI助手”。你告诉它“这里有条路，我想把这个区域设计成中等密度”，它就能帮你生成一套符合要求、看起来真实的城市设计方案（卫星图），并**自动计算出**这个方案下每栋楼大概有多高、能耗大概是多少。这能帮助规划者在设计阶段就评估方案的能源效率。\n\n### (2) 想解决什么问题？\n\n论文指出了当前研究的三个主要痛点：\n\n1.  **从“预测”到“生成”的跨越**： 现有研究大多是在做“预测”——给一张现成的卫星图，预测上面的建筑能耗。但城市规划是“生成性”的，是从无到有设计一个方案。现有的生成模型（比如爆火的扩散模型）能生成很真的卫星图，但生成不了对应的、有物理意义的“能耗图层”。\n2.  **“图像”与“物理属性”脱节**： 现有的卫星图像生成AI，就像个画家，能画一幅很真的城市风景画，但画不出这幅画里每栋楼的“说明书”（高度、能耗）。这篇论文想让AI既会“画画”，又会写“说明书”，并且保证“画”和“说明书”是对得上号的。\n3.  **高质量数据稀缺**： 要训练这样的模型，需要大量“卫星图 + 精确的建筑高度+精确的建筑能耗”的配对数据。这种数据非常难获得，尤其是精确到每栋楼的能耗数据，是极其稀缺的。\n\n简单说，就是**造一个能“凭空”设计出节能城市方案，并自动评估其能耗的AI工具**，同时解决训练数据不足的问题。\n\n### (3) 贡献是什么？\n\n这篇论文主要有四个贡献：\n\n1.  **提出了SENSE框架**： 这是第一个能**联合生成**逼真城市卫星图像、建筑高度图和建筑能耗图的统一框架。把“生成”和“物理属性评估”结合在了一起。\n2.  **引入了“可控生成”**： 模型可以根据道路网络和密度指标这些规划师常用的条件进行生成，让生成结果更可控、更符合规划意图。\n3.  **构建了一个新的多城市数据集（MUSE）**： 为了解决数据稀缺问题，他们整理并公开了覆盖纽约、波士顿等四个城市的“卫星图-高度-能耗”对齐数据集，供后续研究使用。\n4.  **证明了生成数据能有效帮助预测任务**： 他们用自己模型生成的“合成数据”（假数据）去辅助训练能耗预测模型，发现即使只用很少的真实数据（<20%），预测性能也能提升约10%。这说明他们的生成模型质量很高，生成的“假数据”很有用。\n\n### (4) 整体思路与模型结构\n\n**核心思想**： 利用强大的**潜在扩散模型（Latent Diffusion Model, LDM）** 作为“基模”，来学习城市卫星图像的分布规律。然后，在它的“潜在空间”（可以理解为图像被压缩编码后的特征空间）里，额外训练两个“解码器”，分别负责从这些特征中解读出“高度”和“能耗”信息。\n\n**基模**： 使用的是类似 **Stable Diffusion** 这样的潜在扩散模型（LDM）。LDM是当前最强的图像生成模型之一，它先在低维的“潜在空间”里进行去噪扩散，然后再解码回图像，这样效率更高。\n\n**整体流程（结合图3理解会更直观）：**\n\n1.  **输入与编码**：\n    *   输入条件：道路网络图、城市密度指标。这些条件会被处理成模型能理解的格式（如图中的 `C_road` 和 `C_density`）。\n    *   输入卫星图像（训练时用）：卫星图像会通过一个**编码器（Encoder）** 被压缩成一个低维的“潜在表示” `z`。这个过程就像把一张高清图片压缩成一个包含所有关键信息的小文件。\n\n2.  **可控扩散过程（核心生成步骤）**：\n    *   在潜在空间中，扩散模型开始工作。它从一个随机噪声开始，逐步“去噪”。\n    *   在每一步去噪时，模型不仅看当前噪声状态，还会**关注你输入的条件信息**（`C_road`, `C_density`）。这就像画画时，你一边画一边提醒自己：“这里要有一条路，那边建筑密一点”。\n    *   经过多步去噪，最终得到一个干净、有意义的潜在表示 `z`，它蕴含了符合条件的高质量城市特征。\n\n3.  **解码与输出**：\n    *   **图像解码**： 将生成的潜在表示 `z` 通过**图像解码器** 还原成一张高清的、逼真的卫星图像。\n    *   **属性解码（论文创新点）**：\n        *   同一个潜在表示 `z`，还会被送入两个并行的、专门训练的**解码器**。\n        *   **H-Decoder（高度解码器）**： 负责从 `z` 中解读出每个像素位置对应的建筑高度，输出一张**建筑高度分布图**。\n        *   **E-Decoder（能耗解码器）**： 负责从 `z` 中解读出每个像素位置对应的建筑能耗，输出一张**建筑能耗分布图**。\n    *   关键之处在于，**图像、高度图、能耗图都来自于同一个 `z`**，因此它们在空间上是完全对齐、物理一致的。生成的楼在图像里什么样，在高度和能耗图上就对应什么值。\n\n### (5) 结果怎么样？\n\n论文从两个主要方面验证了效果：\n\n1.  **生成质量高**：\n    *   **视觉上**： 生成的卫星图像非常逼真，建筑布局合理。\n    *   **物理上**： 生成的高度和能耗数据具有**物理一致性**，并且符合**ASHRAE**（美国采暖、制冷与空调工程师学会）的能耗标准范围，说明不是乱生成的。\n    *   **可控性**： 通过改变输入条件（如密度），能有效控制生成结果的疏密程度。\n\n2.  **实用价值强**：\n    *   **数据增强**： 用SENSE生成的合成数据去增强能耗预测模型，在**仅使用不到20%真实标注数据**的情况下，能将下游预测模型的性能（用IoU衡量）**提升约10%**。这极大缓解了数据稀缺问题。\n    *   **预测精度**： 与当前最先进的（SOTA）城市建筑能耗预测方法相比，SENSE框架（或其衍生方法）显著降低了预测误差，**NMBE误差降低了3%-11%，CVRMSE误差降低了1%-9%**。这两个都是衡量能耗预测准确度的关键指标，数值降低代表预测更准。\n\n**总结一下**： 这篇论文做了一个很酷的工作，它开发了一个AI城市设计师（SENSE）。这个设计师不仅能根据你的要求（路网、密度）画出未来的城市效果图（卫星图），还能立刻给你一份详细的工程报告（高度图、能耗图），并且报告非常准。同时，它还是个“数据工厂”，能生产高质量的模拟数据，帮助其他研究解决“数据荒”的问题。这对于推动节能城市规划和建设具有重要意义。",
+    "2605.20183": "这篇论文讲的是如何给 **“多镜头音视频生成模型”** 打分，让打分变得更全面、更靠谱。我来用简单的语言给你拆解一下。\n\n### (1) 任务是什么\n*   **任务输入**：一段描述一个复杂故事或场景的文字提示（Prompt）。例如：“一个宇航员在月球上发现了一只猫，猫发出‘喵’的叫声，宇航员惊讶地回头，背景响起神秘的太空音乐。”\n*   **任务输出**：一个**包含多个镜头切换、并且带有同步声音（对话、音效、背景音乐）的视频**。就像电影短片一样。\n*   **任务功能**：**评估**那些能根据文字生成上述复杂音视频的AI模型的好坏。这不仅仅是生成一个固定镜头，而是要能理解“多镜头叙事”、“声音画面同步”这些高级概念。\n\n### (2) 想解决什么问题\n现有的给AI视频模型打分的“考试卷”（Benchmark）有两个大问题：\n1.  **“考试题”太简单、太单一**：以前的“考题”大多只考“生成一个固定镜头、没有声音的短视频”。但现在的顶级模型（如Sora）已经能生成像电影一样的多镜头带声音短片了，老“考题”根本考不出它们的真实水平。\n2.  **“判卷”方式不靠谱**：\n    *   **镜头数不准**：生成的视频里镜头切换可能不清晰，自动切分镜头的工具容易出错。一旦切错，后面所有基于镜头的打分都错了。\n    *   **主观题乱给分**：对于“故事是否连贯”、“画面和文字是否匹配”这种主观题，以前直接让一个大语言模型（VLM）看着视频和文字描述就给个分数，这种方式非常不稳定，容易“胡说八道”（幻觉），分数不可信。\n\n### (3) 贡献是什么\n这篇论文做了两件核心事情：\n1.  **造了一份全面又难的“新考卷”（Benchmark）**：叫做 **MSAVBench**。它包含各种复杂的题目：\n    *   **维度多**：从视频质量、音频质量、镜头运用、与参考视频的相似度等多个角度出题。\n    *   **场景难**：不仅有现实场景，还有“反事实”场景（比如“一只会说话的狗在开车”）。\n    *   **镜头多**：题目要求生成的视频镜头数最多能达到15个，考验模型的叙事能力。\n2.  **设计了一套更聪明、更可靠的“自动判卷系统”（Evaluation Framework）**：\n    *   **自我修正的镜头切分**：不是切一次就完事，而是让AI智能体反复检查切得对不对，不对就调用工具合并或拆分，确保镜头数准确。\n    *   **混合打分策略**：\n        *   **客观题用专家模型**：比如视频画质、声音清晰度，用训练好的专用模型打分。\n        *   **主观题用“选择题”**：把“故事是否连贯”这种题，变成一套有明确选项的选择题（例如：A.非常连贯 B.基本连贯 C.不连贯），让AI来选，这样比直接给分数更稳定。\n        *   **复杂题用“工具辅助”**：对于更难的判断，让AI智能体调用其他工具（比如物体识别、语音转文字）来找到证据，再做出判断。\n\n### (4) 整体思路与流程\n这篇论文的重点是 **“如何评估”**，而不是“如何生成”。所以它没有提出一个新的生成模型，而是**构建了一个评估系统**。这个系统的核心是一个**基于大型语言模型（LLM）的智能体框架**。\n\n你可以把它想象成一个**自动化、智能化的评分老师**，工作流程如下：\n\n1.  **输入**：一个AI模型生成的 **“多镜头带声音视频”** + 原始的 **“文字提示（Prompt）”**。\n2.  **第一步：智能镜头分割（自适应修正）**\n    *   先用一个标准的视频镜头分割工具（基模）进行初切。\n    *   **关键步骤**：让LLM智能体“观看”切分后的片段，判断切得是否合理（比如，一个完整的动作是不是被切断了？）。\n    *   如果LLM觉得不合理，它就**调用工具**：下令“合并第2和第3个片段”或“把第5个片段从中间拆开”。\n    *   这个过程可以重复几次，直到LLM认为镜头分割结果可靠为止。**这解决了“镜头数不准导致后续全错”的问题。**\n3.  **第二步：分层混合评估**\n    *   拿到可靠的镜头列表后，评分系统开始从四个层面打分：\n        *   **故事层面**：整个视频的故事讲得好不好？ → 用 **“选择题”** 方式评估。\n        *   **跨镜头层面**：镜头之间的切换是否流畅？场景是否连贯？ → 用 **“工具辅助”** 评估（比如调用场景识别工具看背景是否跳变）。\n        *   **镜头内部层面**：单个镜头里，画质高吗？声音和画面同步吗？ → 用 **“专家模型”** 评估（如音画同步检测模型）。\n        *   **参考层面**：如果题目提供了参考视频，生成视频和它像不像？ → 用 **“专家模型”** 评估（如视频相似度模型）。\n4.  **输出**：一系列详细的分数报告，涵盖视频、音频、镜头、叙事等各个维度，以及一个综合评分。\n\n**简单总结流程**：输入视频 → 智能体修正镜头分割 → 分层（故事/镜头间/镜头内/参考）→ 对不同层采用不同打分策略（专家模型/选择题/工具辅助）→ 输出多维分数。\n\n### (5) 结果怎么样\n1.  **评分系统很可靠**：他们让人类专家来打分，发现他们这个自动评分系统的结果和人类专家的判断**高度一致**（斯皮尔曼相关系数达91.5%），说明这套系统是可信的。\n2.  **发现了当前模型的短板**：\n    *   评估了19个开源和闭源的先进模型。\n    *   **核心结论**：即使是目前最牛的模型，在**导演级的镜头控制**（比如复杂的运镜、有意义的镜头组接）和**细粒度的音画同步**（比如嘴型对上台词）上仍然比较吃力。\n    *   **一个有趣发现**：采用**模块化**或**智能体流程**（先用LLM规划分镜脚本，再分别生成每个镜头，最后拼接）的开源方法，表现可以更接近顶级闭源模型（如Sora），这为开源社区指明了方向。\n\n**总而言之**：这篇论文为“多镜头音视频生成”这个前沿领域造了一套难度高、覆盖广的“考题”（MSAVBench），同时设计了一个能自我修正、混合判分的“智能阅卷系统”，使得评估结果更全面、更可靠，并利用它诊断出了当前顶级AI模型的不足。",
+    "2605.16003": "好的，同学，没问题。我用通俗易懂的方式给你梳理一下这篇论文。\n\n### (1) 任务是什么？\n这篇论文研究的任务是 **“交互式长视频生成”**。\n*   **任务输入**： **用户的一系列动态指令**。比如：“生成一个宇航员在月球行走的视频。” → 然后用户说：“现在切换到一个海底的场景。” → 过了一会儿又说：“还记得月球上的那个宇航员吗？让他再出现一下。”\n*   **任务输出**： **一个非常长的、连贯的视频**。这个视频需要能根据用户的指令，平滑地转换场景、硬切到新场景，甚至能“回忆”并重现很久以前出现过的场景。\n*   **任务功能**： 让AI模型能够像一个**永不停止的导演**，根据观众的实时要求，不断创作出前后连贯、符合逻辑的长篇视频故事。\n\n### (2) 想解决什么问题？\n现有的长视频生成模型在处理这种“交互式”任务时，有一个**核心瓶颈**：它们把之前生成的所有视频信息都“一锅烩”地存储在记忆（KV缓存）里。\n\n这会导致三个大问题：\n1.  **旧场景污染**：当切换到新场景（如从“月球”切到“海底”）时，旧场景（月球）的记忆会残留，导致新场景（海底）里出现不该有的东西（比如岩石长得像月壤）。\n2.  **响应迟钝**：因为记忆里塞满了旧信息，模型对新指令的反应会变慢，导致场景切换不干脆。\n3.  **长程记忆丢失**：为了节省内存，模型会压缩或丢弃很早的记忆。当用户要求“回忆月球场景”时，模型可能已经忘光了，导致无法重现。\n\n简单说，问题就是：**现有的模型不会“管理记忆”，该记的没记住，该忘的忘不掉。**\n\n### (3) 贡献是什么？\n这篇论文提出了一个名为 **“Echo-Forcing”** 的框架，核心贡献是教会了模型如何**智能地管理它的“场景记忆”**。具体有三个创新点：\n1.  **分层时间记忆**：不再“一锅烩”，而是把记忆分成三部分：**稳定锚点**（保证视频不崩）、**压缩历史**（记住大概）和**近期窗口**（记住细节）。这类似于我们记忆中的“常识”、“故事梗概”和“刚才的情节”。\n2.  **场景回忆帧**：当一个场景结束时（比如“月球”段落），模型会把这个场景**压缩成一张“摘要照片”**（其实是结构化的KV表示）并长期保存。当需要回忆时，就拿出这张“摘要照片”来引导生成，实现了高效的“长程场景回忆”。\n3.  **差异感知记忆衰减**：切换场景时，不是粗暴地清空记忆，而是**让新旧场景差异大的部分记忆快速淡忘，差异小的部分慢点忘**。这样既能快速适应新场景，又能保持一些合理的连续性（比如镜头运动风格）。\n\n### (4) 整体思路与流程（模型结构）\n**基模**：论文基于现有的**自回归视频扩散模型**（如LVD、StreamingT2V等）。这类模型像“看图说话”一样，根据已有视频帧和指令，一帧一帧地预测下一帧。\n\n**核心思路**：在基模的生成过程中，插入一个 **“智能记忆管理器”**（即Echo-Forcing框架），来动态控制哪些记忆该保留、压缩、回忆或遗忘。\n\n**整体流程**（结合论文图1）：\n1.  **输入**：用户的新指令（如“切换到海底”）。\n2.  **记忆检索与组织**：\n    *   **分层记忆调用**：从记忆库中取出“稳定锚点”（很早的关键帧）、“压缩历史”和“近期窗口”的信息。\n    *   **场景回忆**：如果指令要求回忆（如“回忆月球”），就从“场景回忆帧”库中调出对应的“月球摘要照片”，作为强引导注入到当前生成过程中。\n3.  **生成与记忆更新**：\n    *   模型结合**新指令**、**组织好的历史记忆**和**可能的回忆帧**，去生成新的视频帧。\n    *   **动态记忆管理**：\n        *   **更新近期窗口**：新生成的帧会加入“近期窗口”。\n        *   **压缩与归档**：当“近期窗口”满了，就把其中一部分压缩到“压缩历史”中。当一个场景明确结束，就生成“场景回忆帧”存档。\n        *   **差异感知衰减**：在场景切换时，计算新旧内容的差异，并据此降低旧记忆的强度（权重），让它们逐渐“淡出”。\n4.  **输出**：生成的新视频帧，同时更新了模型的内部记忆状态，等待下一条指令。\n5.  **循环**：回到步骤1，处理下一条用户指令，如此循环，生成不断延续的交互式长视频。\n\n### (5) 结果怎么样？\n论文在专门的长视频评测基准 **VBench-Long** 上进行了全面测试。\n\n*   **定量结果**：在“长视频生成”和“交互式视频生成”两种设置下，Echo-Forcing的**综合得分都是最好的**。特别是在衡量**长程一致性**和**提示词跟随**的指标上，优势明显。\n*   **定性对比（看图）**：从论文展示的生成视频样例看，相比其他方法：\n    *   **Echo-Forcing生成的视频更长、更稳定**（画面不崩）。\n    *   **场景切换更干净、更果断**（从室内切到室外时，没有奇怪的混合物体）。\n    *   **真正实现了长程回忆**（能让几十秒前的人物或场景重新出现并保持一致）。\n*   **消融实验**：论文逐一验证了三个核心机制（分层记忆、回忆帧、差异衰减）各自都是有效的，缺一不可。\n*   **用户研究**：让真人用户评判，Echo-Forcing生成的交互式视频在**连贯性、符合指令程度和整体质量**上都更受偏好。\n\n**总结**：这篇论文就像给视频生成模型加了一个“智能外置硬盘和记忆管理软件”，让它在处理超长、交互式的视频生成任务时，既能记住该记的（实现回忆和连贯），又能忘记该忘的（实现干净切换），最终效果显著优于现有方法。这对于未来实现AI辅助的开放式视频创作和交互式叙事具有重要意义。",
+    "2605.19305": "我来为你解释这篇论文的核心内容，用简单易懂的方式来说。\n\n## (1) 论文所在的任务是什么\n\n**任务功能**：在三维模型（三角形网格）上“生成内容”，就像AI在图片上生成新图片一样。\n\n**输入**：\n- 一个三维模型的三角形网格（比如一个章鱼、一个人体模型的表面）\n- 这个网格由很多三角形组成，每个顶点有位置坐标\n\n**输出**：给这个网格生成“信号”\n- 可以是颜色信息（给模型上色）\n- 更常用的是**顶点的新位置**，这样就能让模型变形（比如让章鱼摆出不同姿势）\n\n**打个比方**：\n- 图像生成：给一个空白画布 → 生成一张图片\n- 这篇论文：给一个三维模型（骨架） → 生成这个模型的不同姿态或变形\n\n## (2) 这篇论文想解决什么问题\n\n**核心问题**：如何让生成模型**不受网格细分方式的影响**\n\n**这是什么意思？**\n- 同一个三维模型可以用不同密度的三角形来表示（就像图片可以用不同分辨率）\n- 传统方法训练时用某种细分方式，测试时换一种细分方式就会失败\n- 就像训练时用高清图片，测试时用低清图片，AI就不认识了\n\n**更具体的问题**：\n1. **噪声分布问题**：生成模型（如扩散模型）需要加噪声再去噪学习。在网格上，如果噪声分布受细分方式影响，模型就无法泛化\n2. **效率问题**：训练时用低分辨率网格，测试时想用高分辨率网格，传统方法做不到\n\n## (3) 这篇论文的贡献是什么\n\n1. **提出了“三角剖分无关”的噪声分布**\n   - 设计了Matérn噪声，在不同细分方式下保持一致性\n   - 给出了数学定义和证明\n\n2. **完整的生成流程**\n   - 将“流匹配”（Flow Matching）范式应用到网格生成\n   - 结合了PoissonNet作为去噪网络\n\n3. **高效采样算法**\n   - 只需要解一个“屏蔽泊松方程”就能采样噪声\n   - 计算效率高，适合高分辨率网格\n\n4. **实际效果**\n   - 能在百万级三角形的网格上生成高质量结果\n   - 训练时用9千个面，测试时能用10万个面\n\n## (4) 整体思路和模型结构\n\n**基模（基础模型）**：Flow Matching（流匹配）\n- 这是一种类似扩散模型的生成方法，但更高效\n- 核心思想：学习如何将噪声数据“流”回真实数据\n\n**整体流程**（参考图3的流程图）：\n\n```\n输入网格 → 加Matérn噪声 → 去噪网络学习 → 生成新姿态\n```\n\n**详细步骤**：\n\n1. **准备阶段**：\n   - 收集一组三维模型的数据集（如不同姿态的人体）\n   - 所有模型都用三角形网格表示\n\n2. **训练阶段**：\n   - 对每个训练样本（网格+顶点位置）：\n     a. **加噪声**：使用Matérn噪声（不是普通的独立高斯噪声）\n        - 为什么用Matérn？因为它在不同细分方式下“看起来一样”\n        - 采样方法：解一个简单的线性方程\n     \n     b. **训练去噪网络**：\n        - 使用PoissonNet网络\n        - 这个网络在“梯度域”学习，天生对细分方式不敏感\n        - 网络学习：给定带噪声的网格，预测如何去除噪声恢复原状\n     \n     c. **流匹配训练**：\n        - 不是直接预测最终结果，而是预测“流动方向”\n        - 从全噪声逐步“流动”到干净数据\n\n3. **生成（推理）阶段**：\n   - 输入：一个新的网格（可以是从未见过的细分方式）\n   - 过程：\n     a. 从Matérn分布采样纯噪声\n     b. 用训练好的网络逐步去噪\n     c. 经过多步后，得到顶点的新位置\n   - 输出：变形后的网格\n\n**关键创新点**：\n- 噪声是“智能”的：Matérn噪声在不同细分下结构相似\n- 网络是“盲”的：PoissonNet不关心三角形具体怎么连接\n- 两者结合，实现了真正的“三角剖分无关”\n\n## (5) 结果怎么样\n\n**实验展示**：\n1. **弹性平衡状态生成**（图1的章鱼）：\n   - 训练数据：物理模拟的弹性平衡状态\n   - 结果：能生成各种自然的弹性姿态\n   - 分辨率：训练时9千面 → 测试时10万面，成功泛化\n\n2. **人体姿态生成**：\n   - 能生成多样化、合理的人体姿态\n   - 在高质量数据集上达到SOTA（当前最好水平）\n\n3. **泛化能力**：\n   - 对训练未见过的细分方式有效\n   - 对训练未见过的形状有一定泛化能力\n\n4. **效率**：\n   - 能处理超过100万个三角形的高分辨率网格\n   - 比之前的方法质量更高、多样性更好\n\n**简单总结**：这篇论文让AI在三维模型上“创作”变得像在图片上一样方便，而且不管模型用粗糙还是精细的三角形表示，AI都能处理好。"
+  },
   "figures": {
     "2605.20147": [
       {
@@ -680,6 +692,86 @@
         "caption": "Figure 1:PixVerve-95Kis a large-scale, high-quality dataset for Ultra-High-Resolution (UHR) image generation, first advancing Text-to-Image (T2I) generation to the 100MP scale. Featuring high visual fidelity (right) and comprehensive annotations (bottom), it can meet the growing demand for next-generation T2I applications.PixVerve-Benchis a comprehensive benchmark suite comprising 8 metrics for the systematic evaluation of UHR T2I methods (top-right).",
         "role": "pipeline_3",
         "caption_zh": "图1：PixVerve-95K 是一个用于超高分辨率图像生成的大规模高质量数据集，首次将文本到图像生成推进至亿像素级别。其具备高视觉保真度（右侧）与全面标注（底部），能满足下一代文本到图像应用日益增长的需求。PixVerve-Bench 是一个综合性基准测试套件，包含8项指标，用于系统性评估超高分辨率文本到图像方法（右上）。"
+      }
+    ],
+    "2605.18263": [
+      {
+        "path": "https://arxiv.org/html/2605.18263v1/x2.png",
+        "caption": "Figure 2:Overview of RT-Splatting.(Left) Transparent objects are represented by Gaussians with high geometric occupancy but low optical opacity, yielding strong contributions to surface aggregation while avoiding occlusion during volumetric compositing. (Right) Our hybrid rendering pipeline composites surface-based reflections from a deferred pass with volumetric transmission from a forward pass to produce the final color, and suppresses image-loss gradients flowing into the transmission branch according to the specular complexity of the corresponding pixels.",
+        "role": "pipeline_1",
+        "caption_zh": "图 2：RT-Splatting 方法概览。（左）透明物体通过具有高几何占据度但低光学不透明度的高斯分布来表示，从而在表面聚合中产生显著贡献，同时在体素合成过程中避免遮挡。（右）我们的混合渲染管线将来自延迟渲染通道的基于表面的反射与来自前向渲染通道的体透射进行合成，以生成最终颜色，并根据对应像素的镜面反射复杂度抑制流入透射分支的图像损失梯度。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.18263v1/x6.png",
+        "caption": "Figure 6:Visual decomposition on real-world scenes.We visualize the decomposed components of our method compared to baselines. For our method,Normalcaptures the surface geometry, whileDepthcorresponds to the volumetric accumulation. Since baseline methods do not explicitly model semi-transparent transmission, we visualize their diffuse component in theTransmissionrow. Our method achieves high-fidelity separation of theReflectionandTransmissionlayers.",
+        "role": "pipeline_2",
+        "caption_zh": "图6：真实场景的可视化解构。我们对比基线方法，可视化所提方法分解出的各组分。本方法中，Normal 捕捉表面几何结构，Depth 对应体积累积。由于基线方法未显式建模半透明透射层，我们在 Transmission 行中展示其漫反射分量。本方法实现了 Reflection 层与 Transmission 层的高保真分离。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.18263v1/x5.png",
+        "caption": "Figure 5:Decomposed transmission components across ablation settings.",
+        "role": "pipeline_3",
+        "caption_zh": "图5：不同消融设定下的分解透射分量。"
+      }
+    ],
+    "2605.15458": [
+      {
+        "path": "https://arxiv.org/html/2605.15458v1/x1.png",
+        "caption": "Figure 1:Evolution towards verifiable video reasoning.Top:Comparison between perception-focused generation and reasoning-intensive tasks.Bottom:We introduceVideoRLVR, the missing puzzle in the training paradigm for video reasoning models.",
+        "role": "pipeline_1",
+        "caption_zh": "图 1：迈向可验证的视频推理。上图：感知导向的生成与推理密集型任务之比较。下图：我们引入 VideoRLVR，填补视频推理模型训练范式中缺失的关键环节。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.15458v1/x5.png",
+        "caption": "Figure 5:Qualitative example of reward hacking in the absence of KL-divergence regularization. It preserves the wall constraint, and saturates all paths to connect two endpoints, thereby achieving a maximal reward.",
+        "role": "pipeline_2",
+        "caption_zh": "图 5：未使用 KL 散度正则化时奖励作弊的定性示例。模型保留了墙体约束，并将所有路径饱和以连接两个端点，从而获得最大奖励。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.15458v1/x2.png",
+        "caption": "Figure 2:Success rate of different grid size for maze.nnrepresents the number of samples falling into this range",
+        "role": "pipeline_3",
+        "caption_zh": "图 2：不同网格尺寸下的迷宫求解成功率。nn 表示落入该范围的样本数量"
+      }
+    ],
+    "2605.20150": [
+      {
+        "path": "https://arxiv.org/html/2605.20150v1/x2.png",
+        "caption": "Figure 2:TideGS pipeline.(a) Out-of-core hierarchy.The full scene is stored as SSD-resident blocks; CPU RAM maintains a warm cache and schedules prefetch; GPU VRAM acts as a working-set cache for rendering and backpropagation.(b) Trajectory-adaptive differential streaming.Consecutive block working sets𝒦t\\mathcal{K}_{t}and𝒦t+1\\mathcal{K}_{t+1}guide reuse, while TideGS selects capacity-bounded resident setsℛt\\mathcal{R}_{t}andℛt+1\\mathcal{R}_{t+1}, retains their overlap, streams only𝒮t+=ℛt+1∖ℛt\\mathcal{S}_{t}^{+}=\\mathcal{R}_{t+1}\\setminus\\mathcal{R}_{t}, and evicts𝒮t−=ℛt∖ℛt+1\\mathcal{S}_{t}^{-}=\\mathcal{R}_{t}\\setminus\\mathcal{R}_{t+1}while overlapping SSD/PCIe transfers with GPU compute.\n①–⑤ indicate the corresponding cross-tier dataflow steps.",
+        "role": "pipeline_1",
+        "caption_zh": "图2：TideGS 流水线。(a) 外存层次结构。完整场景以SSD驻留块形式存储；CPU RAM维护热缓存并调度预取；GPU VRAM充当用于渲染和反向传播的工作集缓存。(b) 轨迹自适应差分流式传输。连续的块工作集𝒦ₜ与𝒦ₜ₊₁指导重用，同时TideGS选择容量受限的驻留集ℛₜ与ℛₜ₊₁，保留其重叠部分，仅流式传输𝒮ₜ⁺=ℛₜ₊₁∖ℛₜ，并在SSD/PCIe传输与GPU计算重叠期间逐出𝒮ₜ⁻=ℛₜ∖ℛₜ₊₁。①–⑤标示了相应的跨层级数据流步骤。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.20150v1/x3.png",
+        "caption": "Figure 3:Block virtualization and two-stage visibility filtering.We (top-left) Morton-sort Gaussians and partition them into SSD-aligned blocks to preserve spatial locality,\n(top-right) summarize each block with a bounding sphere,\nand (bottom) perform CPU-side 6-plane frustum tests to select visible blocks for H2D staging.\nFine-grained Gaussian-level filtering is then executed on GPU within the retained blocks.",
+        "role": "pipeline_2",
+        "caption_zh": "图 3：块虚拟化与两阶段可见性过滤。（左上）我们对高斯体进行莫顿排序并将其划分为 SSD 对齐的块以保持空间局部性，（右上）使用包围球概括每个块，（底部）在 CPU 端执行 6-平面视锥体测试以选择可见块用于主机到设备（H2D）暂存。随后在 GPU 上对保留块内的体素执行细粒度的高斯体级过滤。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.20150v1/x1.png",
+        "caption": "Figure 1:TideGS enables city-scale 3DGS training on a single GPU by virtualizing the Gaussian parameter table across the SSD–CPU–GPU hierarchy and materializing only the trajectory-activated working set in VRAM.",
+        "role": "pipeline_3",
+        "caption_zh": "图 1：TideGS 通过将高斯参数表在 SSD–CPU–GPU 层次结构中进行虚拟化，并仅在显存中实例化轨迹激活的工作集，从而实现了在单个 GPU 上进行城市级规模的 3D 高斯泼溅训练。"
+      }
+    ],
+    "2605.19995": [
+      {
+        "path": "https://arxiv.org/html/2605.19995v1/x2.png",
+        "caption": "Figure 2:The overall framework of the proposed CogOmniControl. During inference, CogVLM outputs reasoning results based on the given conditions, along with optional evaluator tools. Subsequently, the features from the last layer of CogVLM are concatenated with other latents as the inputs of CogOmniDiT to generate the final result. This process can be repeated multiple times, employing Best-of-N filtering using the evaluator selected by CogVLM. The bottom-left and bottom-right sections illustrate the training processes for CogVLM and CogOmniDiT, respectively.",
+        "role": "pipeline_1",
+        "caption_zh": "图 2：所提出的 CogOmniControl 整体框架。在推理阶段，CogVLM 根据给定条件及可选评估器工具输出推理结果；随后，将 CogVLM 最后一层的特征与其他潜在变量拼接，作为 CogOmniDiT 的输入以生成最终结果。该过程可重复多次，并采用由 CogVLM 选择的评估器进行 N 选最佳过滤。左下与右下部分分别展示了 CogVLM 与 CogOmniDiT 的训练流程。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.19995v1/x3.png",
+        "caption": "Figure 3:The construction pipeline of CogControlBench and CogReasonBench. We include the professional workflows data and general video generation data in the training set and benchmark.",
+        "role": "pipeline_2",
+        "caption_zh": "图 3：CogControlBench 与 CogReasonBench 的构建流程。我们在训练集与基准测试中纳入了专业工作流数据与通用视频生成数据。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.19995v1/x1.png",
+        "caption": "Figure 1:The motivation of our CogOmniControl. The adapter-based methods and video generation models with generic VLM fail to generate the final video from the given condition.",
+        "role": "pipeline_3",
+        "caption_zh": "图 1：我们 CogOmniControl 方法的动机。基于适配器的方法以及使用通用 VLM 的视频生成模型，未能从给定条件生成最终视频。"
       }
     ],
     "2605.19786": [
@@ -722,106 +814,6 @@
         "caption_zh": "图6. 数据筛选。我们过滤掉了明显缺乏建筑能耗标签的样本。"
       }
     ],
-    "2605.16003": [
-      {
-        "path": "https://arxiv.org/html/2605.16003v1/x2.png",
-        "caption": "Figure 2:Overview of the proposed Echo-Forcing framework.Our method integrates three scene-memory modules to preserve temporal continuity, recall historical scenes, and suppress conflicting memories during interactive long-video generation.",
-        "role": "pipeline_1",
-        "caption_zh": "图 2：所提出的 Echo-Forcing 框架概览。该方法整合了三个场景记忆模块，以在交互式长视频生成过程中保持时序连续性、回溯历史场景并抑制冲突记忆。"
-      },
-      {
-        "path": "https://arxiv.org/html/2605.16003v1/x4.png",
-        "caption": "(a)(b)Figure 4:Visualization of scene recall and memory decay.Echo-Forcing stores compact scene memories for recall and adaptively decays old memories according to old–new scene discrepancies.",
-        "role": "pipeline_2",
-        "caption_zh": "(a)(b)图4：场景回忆与记忆衰减的可视化。Echo-Forcing 存储紧凑的场景记忆以供回忆，并根据新旧场景差异自适应地衰减旧记忆。"
-      },
-      {
-        "path": "https://arxiv.org/html/2605.16003v1/x7.png",
-        "caption": "Figure 6:Additional visualization of long-video generation.Echo-Forcing maintains subject identity, background structure, and visual fidelity over extended autoregressive rollouts.",
-        "role": "pipeline_3",
-        "caption_zh": "图6：长视频生成的补充可视化结果。在长时间的自回归推演中，Echo-Forcing 能够保持主体身份、背景结构及视觉保真度。"
-      }
-    ],
-    "2605.20150": [
-      {
-        "path": "https://arxiv.org/html/2605.20150v1/x2.png",
-        "caption": "Figure 2:TideGS pipeline.(a) Out-of-core hierarchy.The full scene is stored as SSD-resident blocks; CPU RAM maintains a warm cache and schedules prefetch; GPU VRAM acts as a working-set cache for rendering and backpropagation.(b) Trajectory-adaptive differential streaming.Consecutive block working sets𝒦t\\mathcal{K}_{t}and𝒦t+1\\mathcal{K}_{t+1}guide reuse, while TideGS selects capacity-bounded resident setsℛt\\mathcal{R}_{t}andℛt+1\\mathcal{R}_{t+1}, retains their overlap, streams only𝒮t+=ℛt+1∖ℛt\\mathcal{S}_{t}^{+}=\\mathcal{R}_{t+1}\\setminus\\mathcal{R}_{t}, and evicts𝒮t−=ℛt∖ℛt+1\\mathcal{S}_{t}^{-}=\\mathcal{R}_{t}\\setminus\\mathcal{R}_{t+1}while overlapping SSD/PCIe transfers with GPU compute.\n①–⑤ indicate the corresponding cross-tier dataflow steps.",
-        "role": "pipeline_1",
-        "caption_zh": "图2：TideGS 流水线。(a) 外存层次结构。完整场景以SSD驻留块形式存储；CPU RAM维护热缓存并调度预取；GPU VRAM充当用于渲染和反向传播的工作集缓存。(b) 轨迹自适应差分流式传输。连续的块工作集𝒦ₜ与𝒦ₜ₊₁指导重用，同时TideGS选择容量受限的驻留集ℛₜ与ℛₜ₊₁，保留其重叠部分，仅流式传输𝒮ₜ⁺=ℛₜ₊₁∖ℛₜ，并在SSD/PCIe传输与GPU计算重叠期间逐出𝒮ₜ⁻=ℛₜ∖ℛₜ₊₁。①–⑤标示了相应的跨层级数据流步骤。"
-      },
-      {
-        "path": "https://arxiv.org/html/2605.20150v1/x3.png",
-        "caption": "Figure 3:Block virtualization and two-stage visibility filtering.We (top-left) Morton-sort Gaussians and partition them into SSD-aligned blocks to preserve spatial locality,\n(top-right) summarize each block with a bounding sphere,\nand (bottom) perform CPU-side 6-plane frustum tests to select visible blocks for H2D staging.\nFine-grained Gaussian-level filtering is then executed on GPU within the retained blocks.",
-        "role": "pipeline_2",
-        "caption_zh": "图 3：块虚拟化与两阶段可见性过滤。（左上）我们对高斯体进行莫顿排序并将其划分为 SSD 对齐的块以保持空间局部性，（右上）使用包围球概括每个块，（底部）在 CPU 端执行 6-平面视锥体测试以选择可见块用于主机到设备（H2D）暂存。随后在 GPU 上对保留块内的体素执行细粒度的高斯体级过滤。"
-      },
-      {
-        "path": "https://arxiv.org/html/2605.20150v1/x1.png",
-        "caption": "Figure 1:TideGS enables city-scale 3DGS training on a single GPU by virtualizing the Gaussian parameter table across the SSD–CPU–GPU hierarchy and materializing only the trajectory-activated working set in VRAM.",
-        "role": "pipeline_3",
-        "caption_zh": "图 1：TideGS 通过将高斯参数表在 SSD–CPU–GPU 层次结构中进行虚拟化，并仅在显存中实例化轨迹激活的工作集，从而实现了在单个 GPU 上进行城市级规模的 3D 高斯泼溅训练。"
-      }
-    ],
-    "2605.15458": [
-      {
-        "path": "https://arxiv.org/html/2605.15458v1/x1.png",
-        "caption": "Figure 1:Evolution towards verifiable video reasoning.Top:Comparison between perception-focused generation and reasoning-intensive tasks.Bottom:We introduceVideoRLVR, the missing puzzle in the training paradigm for video reasoning models.",
-        "role": "pipeline_1",
-        "caption_zh": "图 1：迈向可验证的视频推理。上图：感知导向的生成与推理密集型任务之比较。下图：我们引入 VideoRLVR，填补视频推理模型训练范式中缺失的关键环节。"
-      },
-      {
-        "path": "https://arxiv.org/html/2605.15458v1/x5.png",
-        "caption": "Figure 5:Qualitative example of reward hacking in the absence of KL-divergence regularization. It preserves the wall constraint, and saturates all paths to connect two endpoints, thereby achieving a maximal reward.",
-        "role": "pipeline_2",
-        "caption_zh": "图 5：未使用 KL 散度正则化时奖励作弊的定性示例。模型保留了墙体约束，并将所有路径饱和以连接两个端点，从而获得最大奖励。"
-      },
-      {
-        "path": "https://arxiv.org/html/2605.15458v1/x2.png",
-        "caption": "Figure 2:Success rate of different grid size for maze.nnrepresents the number of samples falling into this range",
-        "role": "pipeline_3",
-        "caption_zh": "图 2：不同网格尺寸下的迷宫求解成功率。nn 表示落入该范围的样本数量"
-      }
-    ],
-    "2605.19995": [
-      {
-        "path": "https://arxiv.org/html/2605.19995v1/x2.png",
-        "caption": "Figure 2:The overall framework of the proposed CogOmniControl. During inference, CogVLM outputs reasoning results based on the given conditions, along with optional evaluator tools. Subsequently, the features from the last layer of CogVLM are concatenated with other latents as the inputs of CogOmniDiT to generate the final result. This process can be repeated multiple times, employing Best-of-N filtering using the evaluator selected by CogVLM. The bottom-left and bottom-right sections illustrate the training processes for CogVLM and CogOmniDiT, respectively.",
-        "role": "pipeline_1",
-        "caption_zh": "图 2：所提出的 CogOmniControl 整体框架。在推理阶段，CogVLM 根据给定条件及可选评估器工具输出推理结果；随后，将 CogVLM 最后一层的特征与其他潜在变量拼接，作为 CogOmniDiT 的输入以生成最终结果。该过程可重复多次，并采用由 CogVLM 选择的评估器进行 N 选最佳过滤。左下与右下部分分别展示了 CogVLM 与 CogOmniDiT 的训练流程。"
-      },
-      {
-        "path": "https://arxiv.org/html/2605.19995v1/x3.png",
-        "caption": "Figure 3:The construction pipeline of CogControlBench and CogReasonBench. We include the professional workflows data and general video generation data in the training set and benchmark.",
-        "role": "pipeline_2",
-        "caption_zh": "图 3：CogControlBench 与 CogReasonBench 的构建流程。我们在训练集与基准测试中纳入了专业工作流数据与通用视频生成数据。"
-      },
-      {
-        "path": "https://arxiv.org/html/2605.19995v1/x1.png",
-        "caption": "Figure 1:The motivation of our CogOmniControl. The adapter-based methods and video generation models with generic VLM fail to generate the final video from the given condition.",
-        "role": "pipeline_3",
-        "caption_zh": "图 1：我们 CogOmniControl 方法的动机。基于适配器的方法以及使用通用 VLM 的视频生成模型，未能从给定条件生成最终视频。"
-      }
-    ],
-    "2605.18263": [
-      {
-        "path": "https://arxiv.org/html/2605.18263v1/x2.png",
-        "caption": "Figure 2:Overview of RT-Splatting.(Left) Transparent objects are represented by Gaussians with high geometric occupancy but low optical opacity, yielding strong contributions to surface aggregation while avoiding occlusion during volumetric compositing. (Right) Our hybrid rendering pipeline composites surface-based reflections from a deferred pass with volumetric transmission from a forward pass to produce the final color, and suppresses image-loss gradients flowing into the transmission branch according to the specular complexity of the corresponding pixels.",
-        "role": "pipeline_1",
-        "caption_zh": "图 2：RT-Splatting 方法概览。（左）透明物体通过具有高几何占据度但低光学不透明度的高斯分布来表示，从而在表面聚合中产生显著贡献，同时在体素合成过程中避免遮挡。（右）我们的混合渲染管线将来自延迟渲染通道的基于表面的反射与来自前向渲染通道的体透射进行合成，以生成最终颜色，并根据对应像素的镜面反射复杂度抑制流入透射分支的图像损失梯度。"
-      },
-      {
-        "path": "https://arxiv.org/html/2605.18263v1/x6.png",
-        "caption": "Figure 6:Visual decomposition on real-world scenes.We visualize the decomposed components of our method compared to baselines. For our method,Normalcaptures the surface geometry, whileDepthcorresponds to the volumetric accumulation. Since baseline methods do not explicitly model semi-transparent transmission, we visualize their diffuse component in theTransmissionrow. Our method achieves high-fidelity separation of theReflectionandTransmissionlayers.",
-        "role": "pipeline_2",
-        "caption_zh": "图6：真实场景的可视化解构。我们对比基线方法，可视化所提方法分解出的各组分。本方法中，Normal 捕捉表面几何结构，Depth 对应体积累积。由于基线方法未显式建模半透明透射层，我们在 Transmission 行中展示其漫反射分量。本方法实现了 Reflection 层与 Transmission 层的高保真分离。"
-      },
-      {
-        "path": "https://arxiv.org/html/2605.18263v1/x5.png",
-        "caption": "Figure 5:Decomposed transmission components across ablation settings.",
-        "role": "pipeline_3",
-        "caption_zh": "图5：不同消融设定下的分解透射分量。"
-      }
-    ],
     "2605.20183": [
       {
         "path": "https://arxiv.org/html/2605.20183v1/x1.png",
@@ -840,6 +832,26 @@
         "caption": "Figure 5:The data construction pipeline of MSAVBench.(1) Domain experts define an eight-category seed taxonomy with fine-grained sub-categories, with diverse types of subject, scene, and visual style.\n(2) GPT-5.4 first samples(t​h​e​m​e,s​u​b​j​e​c​t,s​c​e​n​e,s​t​y​l​e)(theme,subject,scene,style)quadruples and synthesises an initial multi-shot script with structured per-shot metadata; a Prompt-Enhancement (PE) model then rewrites it into the global-to-shot format with explicit cinematic language.\n(3) Six domain experts review every PE-rewritten script, filter out low-quality / hallucinated cases, and refine ambiguous descriptions.\n(4) Reference media are sampled from public benchmarks, automatically tagged by Gemini 3.1 Pro, and finally curated by experts to obtain a clean reference-conditioned subset.",
         "role": "pipeline_3",
         "caption_zh": "图5：MSAVBench的数据构建流程。(1)领域专家定义了一个包含细粒度子类的八类别种子分类体系，涵盖多样化的主体、场景与视觉风格类型。(2)GPT-5.4首先采样（主题、主体、场景、风格）四元组，并合成带有结构化分镜头元数据的初始多镜头脚本；随后提示增强模型将其重写为包含明确影视语言的全局到分镜头格式。(3)六位领域专家审核每个经提示增强模型重写的脚本，过滤低质量/幻觉案例，并优化模糊描述。(4)从公共基准中采样参考媒体，通过Gemini 3.1 Pro自动标注，最终经专家筛选获得干净的参考条件子集。"
+      }
+    ],
+    "2605.16003": [
+      {
+        "path": "https://arxiv.org/html/2605.16003v1/x2.png",
+        "caption": "Figure 2:Overview of the proposed Echo-Forcing framework.Our method integrates three scene-memory modules to preserve temporal continuity, recall historical scenes, and suppress conflicting memories during interactive long-video generation.",
+        "role": "pipeline_1",
+        "caption_zh": "图 2：所提出的 Echo-Forcing 框架概览。该方法整合了三个场景记忆模块，以在交互式长视频生成过程中保持时序连续性、回溯历史场景并抑制冲突记忆。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.16003v1/x4.png",
+        "caption": "(a)(b)Figure 4:Visualization of scene recall and memory decay.Echo-Forcing stores compact scene memories for recall and adaptively decays old memories according to old–new scene discrepancies.",
+        "role": "pipeline_2",
+        "caption_zh": "(a)(b)图4：场景回忆与记忆衰减的可视化。Echo-Forcing 存储紧凑的场景记忆以供回忆，并根据新旧场景差异自适应地衰减旧记忆。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.16003v1/x7.png",
+        "caption": "Figure 6:Additional visualization of long-video generation.Echo-Forcing maintains subject identity, background structure, and visual fidelity over extended autoregressive rollouts.",
+        "role": "pipeline_3",
+        "caption_zh": "图6：长视频生成的补充可视化结果。在长时间的自回归推演中，Echo-Forcing 能够保持主体身份、背景结构及视觉保真度。"
       }
     ]
   }
