@@ -6,12 +6,6 @@
       "abstract_zh": "我们提出了通道式向量量化（Channel-wise Vector Quantization，CVQ），一种新颖的图像标记化范式，其用通道式标记替代了传统基于图像块的标记。不同于传统向量量化方法为每个图像块特征向量分配离散标记的做法，CVQ对特征图的每个通道进行量化。这种表述方式将图像表示为视觉细节的离散层级，而非空间图像块的网格。基于CVQ，我们引入了一种采用“下一通道预测”机制的新型视觉自回归框架。我们的通道式自回归（Channel-wise Autoregressive，CAR）模型不再以光栅顺序逐块生成图像，而是顺序预测图像通道，逐步丰富视觉细节。具体而言，该模型先勾勒全局结构，再细化细粒度属性，类似于人类艺术家的工作流程。实验表明：(1) CVQ在无需任何复杂技巧的情况下，使用16K+码本规模即可实现100%的码本利用率，并较传统VQ方法显著提升了重建质量；(2) CAR模型在DPG指标上达到86.7分，GenEval指标达到0.79分，证明了其在文本到图像生成任务中的强大效能。",
       "hf_link": "https://huggingface.co/papers/2605.26089"
     },
-    "2605.26108": {
-      "title": "Reinforcing Few-step Generators via Reward-Tilted Distribution Matching",
-      "abstract": "Recent advances in few-step diffusion distillation have enabled efficient image generation, yet aligning these models with human preferences remains challenging. We propose Reward-Tilted Distribution Matching Distillation (RTDMD), a two-stage framework that unifies distribution matching distillation with reward-guided reinforcement learning for few-step flow generators. We show that minimizing the KL divergence to a reward-tilted teacher distribution naturally decomposes into a distribution matching term and a reward maximization term. In the first stage, we introduce Ambient-Consistent Distribution Matching Distillation (AC-DMD), which performs subinterval-wise distribution matching and augments the fake score objective with a consistency regularizer to help the fake score model track the shifting generator distribution under limited updates. In the second stage, we jointly optimize both terms: for the reward maximization term, we derive a hybrid policy gradient that combines a GRPO-style estimator for the stochastic intermediate transitions with direct reward backpropagation through the deterministic final step, and further introduce step-subset GRPO (SubGRPO) to reduce variance. Experiments on SD3, SD3.5, and FLUX.2 demonstrate that RTDMD establishes new state-of-the-art results across preference, aesthetic, and compositional metrics with only 4 inference steps, outperforming previous few-step text-to-image generation methods. Code and models are available atthis https URL.",
-      "abstract_zh": "近期，少步扩散蒸馏技术取得了显著进展，实现了高效的图像生成，然而使这些模型与人类偏好对齐仍然存在挑战。我们提出了奖励倾斜分布匹配蒸馏（Reward-Tilted Distribution Matching Distillation，RTDMD），这是一个两阶段框架，将分布匹配蒸馏与奖励引导的强化学习相结合，用于少步流生成器。我们证明了最小化与奖励倾斜教师分布之间的KL散度可以自然分解为分布匹配项和奖励最大化项。在第一阶段，我们引入了环境一致分布匹配蒸馏（Ambient-Consistent Distribution Matching Distillation，AC-DMD），该方法执行子区间分布匹配，并通过一致性正则化增强伪分数目标，以帮助伪分数模型在有限更新下跟踪变化的生成器分布。在第二阶段，我们联合优化这两项：对于奖励最大化项，我们推导出一种混合策略梯度，它将GRPO风格估计器用于随机中间过渡，并通过确定性最终步骤的直接奖励反向传播相结合，并进一步引入了步骤子集GRPO（SubGRPO）以降低方差。在SD3、SD3.5和FLUX.2上的实验表明，RTDMD仅用4个推理步骤就在偏好、美学和构图指标上取得了新的最先进成果，超越了以往的少步文本到图像生成方法。代码和模型可通过此链接获取：https://。",
-      "hf_link": "https://huggingface.co/papers/2605.26108"
-    },
     "2605.26115": {
       "title": "TriSplat: Simulation-Ready Feed-Forward 3D Scene Reconstruction",
       "abstract": "Sparse-view 3D reconstruction is increasingly addressed with feed-forward splatting networks that predict explicit primitives directly from images. Yet most existing methods remain centered on Gaussian primitives and expose surfaces only indirectly: extracting a usable mesh for downstream simulation, physics reasoning, or embodied interaction still requires expensive post-hoc steps that break the feed-forward promise. This limitation is especially pronounced in pose-free settings, where scene structure and camera parameters must be estimated jointly from sparse observations. We present TriSplat, a feed-forward reconstruction network that represents scenes with oriented triangle primitives and directly exports simulation-ready mesh scenes from a single forward pass. Given input images, the network predicts local 3D point maps, triangle attributes, camera poses, and optional intrinsics. Rather than regressing triangle orientation as an unconstrained latent variable, our approach constructs geometry normals from the predicted point maps, refines them with an image-conditioned normal head, and converts them into stable local frames for triangle parameterization. A mono-normal bootstrap schedule further stabilizes early training, while opacity and blur scheduling progressively sharpens the learned surface representation for direct mesh extraction. Experiments on RealEstate10K and DL3DV show that this representation produces more geometry-faithful reconstructions than Gaussian feed-forward baselines while maintaining competitive novel-view rendering quality. Because the rendering primitives are themselves surface triangles, the output can be directly ingested by physics engines, collision detectors, and standard rendering pipelines without any conversion, making it a practical simulation-ready solution for feed-forward 3D scene reconstruction.",
@@ -23,6 +17,30 @@
       "abstract": "Generating complete digital twins from videos requires precise camera control, global scene coverage, and strict spatial-temporal consistency constraints that remain challenging for perspective video generators due to their limited field of view (FoV). Their narrow FoV forces long or multi-view trajectories, amplifying cross-view inconsistency and temporal drift. We argue that 360° video generation offers a natural solution: panoramic coverage simplifies trajectory design and provides a strong global context for maintaining coherence. We introduce Pantheon360: Taming Digital Twin Generation via 3D-Aware 360° Video Diffusion, a controllable 360° video generation framework that synthesizes high-fidelity videos from sparse 360° inputs. The key idea is an explicit 3D Cache, reconstructed from the input, which serves as a geometric scaffold for any user-defined camera path. This allows the diffusion model to focus on photorealistic texture refinement while the 3D Cache enforces global geometric consistency. Experiments show that Pantheon360 achieves superior visual quality and unmatched geometric coherence, enabling reliable and flexible 360° scene generation for downstream simulation and digital-twin applications.",
       "abstract_zh": "从视频生成完整的数字孪生需要精确的相机控制、全局场景覆盖和严格的时空一致性约束，这对透视视频生成器而言仍然具有挑战性，因为其视场角有限。它们狭窄的视场角迫使采用长轨迹或多视角轨迹，从而加剧了跨视角不一致性和时间漂移问题。我们认为，360°视频生成为此提供了一个自然的解决方案：全景覆盖简化了轨迹设计，并为保持连贯性提供了强大的全局上下文环境。我们提出了Pantheon360：通过三维感知的360°视频扩散模型驯服数字孪生生成，这是一个可控的360°视频生成框架，能够从稀疏的360°输入中合成高保真视频。其核心思想是构建一个从输入中重建的显式三维缓存，该缓存作为任意用户定义相机路径的几何支架。这使得扩散模型能够专注于照片级真实感的纹理细化，而三维缓存则确保了全局几何一致性。实验表明，Pantheon360实现了卓越的视觉质量和无与伦比的几何连贯性，能够为下游仿真和数字孪生应用提供可靠且灵活的360°场景生成。",
       "hf_link": "https://huggingface.co/papers/2605.25449"
+    },
+    "2605.23889": {
+      "title": "HorizonStream: Long-Horizon Attention for Streaming 3D Reconstruction",
+      "abstract": "Online 3D reconstruction requires estimating camera pose and scene geometry under strict causal and bounded-memory constraints. Existing methods often suffer from drift, jitter, or collapse on long sequences. We trace these failures to a fundamental mismatch. Streaming geometry is inherently temporally heterogeneous, with evidence ranging from short-lived correspondences to persistent global scale. However, current architectures impose uniform and pathological influence patterns. For example, sliding windows enforce hard cutoffs, while ungated recurrence and causal attention cause cache saturation and spike-like attention sinks. To resolve this, we formalize geometric propagation as an \\emph{evidence influence kernel} and propose HorizonStream, a long-horizon Transformer that explicitly factorizes this kernel. For the long-range temporal factor, Geometric Linear Attention learns channel-wise decay rates to enable bounded, multi-timescale propagation of geometric evidence. For the short-range spatial factor, Geometric Local Attention with Spatiotemporal RoPE performs reliable 3D matching while suppressing attention sinks. Finally, Metric Readout Tokens recover stable scale and rigid pose directly from the persistent geometric state. Extensive experiments show that HorizonStream, trained on only 48-frame clips, generalizes stably to sequences exceeding 10,000\\ frames with constant memory and linear time, achieving state-of-the-art streaming 3D reconstruction performance. Project Page:this https URL",
+      "abstract_zh": "在线三维重建需要在严格的因果性与有限内存约束下估计相机位姿与场景几何。现有方法在长序列上常出现漂移、抖动或崩溃现象。我们将这些失败归因于一种根本性的不匹配：流式几何本质上是时间异质的，其证据范围从瞬时对应关系到持久的全局尺度跨度。然而，当前架构施加了均匀且病态的影响模式。例如，滑动窗口强制硬性截断，而无门控循环与因果注意力则导致缓存饱和及尖峰状注意力汇聚点。为解决此问题，我们将几何传播形式化为一种*证据影响核*，并提出了HorizonStream——一种显式分解该核的长时域Transformer。针对长程时间因子，几何线性注意力通过学习通道级衰减率，实现了几何证据的有界、多时间尺度传播。针对短程空间因子，具备时空RoPE的几何局部注意力在抑制注意力汇聚点的同时实现了可靠的三维匹配。最后，度量读出令牌可直接从持久几何状态中恢复稳定尺度与刚性位姿。大量实验表明，仅使用48帧片段训练的HorizonStream能够以恒定内存和线性时间稳定泛化至超过10,000帧的序列，实现了最先进的流式三维重建性能。项目页面：this https URL",
+      "hf_link": "https://huggingface.co/papers/2605.23889"
+    },
+    "2605.26105": {
+      "title": "On-Policy Adversarial Flow Distillation for Autoregressive Video Generation",
+      "abstract": "Autoregressive video generators are attractive for streaming, long-horizon, and interactive applications, but distilling strong black-box teachers into causal students remains difficult. The student must learn under its own rollout distribution, whereas practical teachers may expose only prompt-conditioned completed videos and may differ in architecture, capacity, temporal design, and sampling schedule. This interface makes supervised fine-tuning off-policy, score-based distillation inapplicable, and direct adversarial imitation too sparse for denoising-time credit assignment. We propose Adversarial Flow Distillation (AFD), an on-policy framework for heterogeneous black-box video distillation. AFD queries the teacher and rolls out the current student on the same prompts, trains a prompt-paired Bradley-Terry discriminator to estimate clean-sample teacher-student discrepancy, and converts the resulting on-policy advantage into forward-process flow-matching updates on the student's own noised states. Thus, AFD provides dense velocity-field supervision while requiring no teacher scores, latents, denoising trajectories, step alignment, or reverse-chain reinforcement learning. Experiments across two causal AR student families show that AFD consistently improves motion- and physics-sensitive generation while preserving general video quality, and ablations validate the importance of adaptive on-policy feedback and forward-process credit assignment. The method requires only clean teacher videos and student rollouts, providing a practical route for distilling proprietary or heterogeneous video generators into efficient autoregressive students.",
+      "abstract_zh": "自回归视频生成器在流式传输、长时程及交互式应用中颇具吸引力，但将强大的黑盒教师模型蒸馏至因果学生模型仍存在困难。学生模型必须在自身推演分布下学习，而实用教师模型可能仅提供提示条件生成的完整视频，且其架构、容量、时序设计与采样策略可能存在差异。这种接口使得监督微调偏离策略、基于分数的蒸馏方法难以适用，而直接对抗模仿又因去噪过程的信用分配稀疏而效果有限。我们提出对抗流蒸馏（Adversarial Flow Distillation, AFD），这是一种针对异构黑盒视频蒸馏的在线策略框架。AFD通过相同提示同时查询教师模型并推演当前学生模型，训练一个提示配对布拉德利-特里判别器来估计干净样本的师生差异，并将得到的在线策略优势转化为对学生自身加噪状态的前向过程流匹配更新。因此，AFD在无需教师分数、潜变量、去噪轨迹、步骤对齐或反向链强化学习的前提下，提供了密集的速度场监督。在两个因果自回归学生模型族上的实验表明，AFD能在保持通用视频质量的同时持续提升运动与物理敏感型生成效果，消融实验验证了自适应在线策略反馈与前向过程信用分配的重要性。该方法仅需干净教师视频与学生推演结果，为将专有或异构视频生成器蒸馏为高效自回归学生模型提供了实用路径。",
+      "hf_link": "https://huggingface.co/papers/2605.26105"
+    },
+    "2605.23699": {
+      "title": "CRONOS: Benchmarking Counterfactual Physical Consistency in Video Models",
+      "abstract": "Video prediction is increasingly viewed as a path toward generalizable world models, yet it remains unclear whether these systems learn underlying causal structure or merely exploit superficial visual correlations for future prediction. We introduce CRONOS, an intervention-based benchmark designed to evaluate counterfactual physical consistency: whether a model's predictions of physical events respond appropriately to controlled changes in the visual input, such as variations of scene context, viewpoint, object appearance, and object category. Built in a photorealistic Unreal Engine environment, CRONOS enables controlled, high-fidelity generation of videos across diverse scenes and dynamics. In contrast to previous benchmarks, CRONOS systematically intervenes on four key factors - viewpoint, scene, object category, and object appearance - while keeping the underlying physical event type, such as a collision, occlusion, or fall, fixed. Our evaluation of recent open-source video generators reveals substantial failures in counterfactual physical consistency: prediction quality for the same physical event type is affected by appearance, environment, and, particularly by viewpoint changes. CRONOS provides a controlled and reproducible testbed for diagnosing how the quality of generated videos changes for different interventions, establishing a concrete target for developing models that perform consistently across changes of multiple conditions. The dataset and code are available at our project page.",
+      "abstract_zh": "视频预测日益被视为通往可泛化世界模型的一条路径，然而这些系统究竟是在学习潜在的因果结构，还是仅利用表面视觉相关性进行未来预测，目前仍不明确。我们提出了CRONOS——一个基于干预的基准测试平台，旨在评估反事实物理一致性：模型对物理事件的预测是否能对视觉输入中受控变化（如场景上下文、视角、物体外观和物体类别的变化）作出恰当响应。CRONOS构建于逼真的虚幻引擎环境中，能够跨多样化场景与动态生成受控的高保真视频。与先前基准相比，CRONOS系统性地干预四个关键因素——视角、场景、物体类别和物体外观——同时保持底层物理事件类型（如碰撞、遮挡或坠落）固定。通过对近期开源视频生成器的评估，我们发现了其在反事实物理一致性方面的显著缺陷：同一物理事件类型的预测质量会受到外观、环境的影响，尤其易受视角变化的干扰。CRONOS为诊断生成视频质量如何随不同干预措施变化提供了可控且可复现的测试平台，为开发能在多种条件变化下保持稳定表现的模型确立了具体目标。数据集与代码已在项目页面公开。",
+      "hf_link": "https://huggingface.co/papers/2605.23699"
+    },
+    "2605.25294": {
+      "title": "Geometry-Aware Image Flow Matching",
+      "abstract": "Recent advances in generative models highlight the power of geometry-aware modeling in manifold-constrained settings. Yet, for natural images, the field remains confined to Euclidean assumptions, failing to exploit the potential of intrinsic geometric structures within the data. In this work, we investigate the geometry of natural images and observe that semantic information is predominantly encoded in directional components, while norm components can be approximated by the global average. This property holds across both RGB and latent spaces, suggesting that natural images can be effectively modeled on a hypersphere. Building on this finding, we introduce Spherical Optimal Transport Flow Matching (SOT-CFM), which utilizes angular distance, and Spherical Flow Matching (SFM), which constrains dynamics directly on the manifold. Our experiments demonstrate that these geometry-aware methods achieve superior performance against Euclidean baselines. Ultimately, this work provides a novel perspective that bridges the gap between Riemannian manifold-based modeling and natural image generation.",
+      "abstract_zh": "生成模型的最新进展凸显了几何感知建模在流形约束场景下的强大能力。然而，对于自然图像领域，研究仍局限于欧几里得假设，未能充分利用数据内蕴的几何结构潜力。本文研究了自然图像的几何特性，发现语义信息主要编码于方向分量中，而范数分量可由全局平均值近似表征。这一性质在RGB空间与潜在空间中均成立，表明自然图像可被有效建模于超球面上。基于此发现，我们提出了采用角距离的球面最优传输流匹配方法（SOT-CFM），以及直接在流形上约束动态过程的球面流匹配方法（SFM）。实验表明，这些几何感知方法相较于欧几里得基线模型取得了更优的性能。本研究最终为连接基于黎曼流形（Riemannian manifold）的建模方法与自然图像生成领域提供了全新视角。",
+      "hf_link": "https://huggingface.co/papers/2605.25294"
     },
     "2605.25874": {
       "title": "WBench: A Comprehensive Multi-turn Benchmark for Interactive Video World Model Evaluation",
@@ -36,23 +54,17 @@
       "abstract_zh": "当前视频到四维重建方法在处理复杂拓扑变化、透明材质、细薄结构及内表面时面临困难。我们提出Helix4D动态网格生成框架，该框架通过继承Trellis2的表达性表征，将其从图像到三维生成适配为视频条件驱动的四维生成。我们的设计源于两个关键问题：(a)如何使Trellis2的帧局部注意力机制能在跨帧共享信息的同时，保持其在透明物体和内表面等罕见案例上预训练的质量；(b)如何将时序信息注入纯三维位置编码而不破坏其预训练能力。针对问题(a)，我们采用滑动窗口跨帧注意力机制并以首帧为锚点——首帧由基础Trellis2模型生成并注入我们的模型，使其通过跨帧注意力在罕见案例中继承Trellis2的质量优势。针对问题(b)，我们提出四维时序编码方案，将冗余的低频空间RoPE频段重新用于时间维度，在无需额外参数的情况下将编码从三维扩展至四维。大量实验证明Helix4D在ActionBench数据集和我们构建的复杂动态场景集上均能实现高质量动态网格生成。",
       "hf_link": "https://huggingface.co/papers/2605.26109"
     },
-    "2605.25294": {
-      "title": "Geometry-Aware Image Flow Matching",
-      "abstract": "Recent advances in generative models highlight the power of geometry-aware modeling in manifold-constrained settings. Yet, for natural images, the field remains confined to Euclidean assumptions, failing to exploit the potential of intrinsic geometric structures within the data. In this work, we investigate the geometry of natural images and observe that semantic information is predominantly encoded in directional components, while norm components can be approximated by the global average. This property holds across both RGB and latent spaces, suggesting that natural images can be effectively modeled on a hypersphere. Building on this finding, we introduce Spherical Optimal Transport Flow Matching (SOT-CFM), which utilizes angular distance, and Spherical Flow Matching (SFM), which constrains dynamics directly on the manifold. Our experiments demonstrate that these geometry-aware methods achieve superior performance against Euclidean baselines. Ultimately, this work provides a novel perspective that bridges the gap between Riemannian manifold-based modeling and natural image generation.",
-      "abstract_zh": "生成模型的最新进展凸显了几何感知建模在流形约束场景下的强大能力。然而，对于自然图像领域，研究仍局限于欧几里得假设，未能充分利用数据内蕴的几何结构潜力。本文研究了自然图像的几何特性，发现语义信息主要编码于方向分量中，而范数分量可由全局平均值近似表征。这一性质在RGB空间与潜在空间中均成立，表明自然图像可被有效建模于超球面上。基于此发现，我们提出了采用角距离的球面最优传输流匹配方法（SOT-CFM），以及直接在流形上约束动态过程的球面流匹配方法（SFM）。实验表明，这些几何感知方法相较于欧几里得基线模型取得了更优的性能。本研究最终为连接基于黎曼流形（Riemannian manifold）的建模方法与自然图像生成领域提供了全新视角。",
-      "hf_link": "https://huggingface.co/papers/2605.25294"
-    },
-    "2605.26105": {
-      "title": "On-Policy Adversarial Flow Distillation for Autoregressive Video Generation",
-      "abstract": "Autoregressive video generators are attractive for streaming, long-horizon, and interactive applications, but distilling strong black-box teachers into causal students remains difficult. The student must learn under its own rollout distribution, whereas practical teachers may expose only prompt-conditioned completed videos and may differ in architecture, capacity, temporal design, and sampling schedule. This interface makes supervised fine-tuning off-policy, score-based distillation inapplicable, and direct adversarial imitation too sparse for denoising-time credit assignment. We propose Adversarial Flow Distillation (AFD), an on-policy framework for heterogeneous black-box video distillation. AFD queries the teacher and rolls out the current student on the same prompts, trains a prompt-paired Bradley-Terry discriminator to estimate clean-sample teacher-student discrepancy, and converts the resulting on-policy advantage into forward-process flow-matching updates on the student's own noised states. Thus, AFD provides dense velocity-field supervision while requiring no teacher scores, latents, denoising trajectories, step alignment, or reverse-chain reinforcement learning. Experiments across two causal AR student families show that AFD consistently improves motion- and physics-sensitive generation while preserving general video quality, and ablations validate the importance of adaptive on-policy feedback and forward-process credit assignment. The method requires only clean teacher videos and student rollouts, providing a practical route for distilling proprietary or heterogeneous video generators into efficient autoregressive students.",
-      "abstract_zh": "自回归视频生成器在流式传输、长时程及交互式应用中颇具吸引力，但将强大的黑盒教师模型蒸馏至因果学生模型仍存在困难。学生模型必须在自身推演分布下学习，而实用教师模型可能仅提供提示条件生成的完整视频，且其架构、容量、时序设计与采样策略可能存在差异。这种接口使得监督微调偏离策略、基于分数的蒸馏方法难以适用，而直接对抗模仿又因去噪过程的信用分配稀疏而效果有限。我们提出对抗流蒸馏（Adversarial Flow Distillation, AFD），这是一种针对异构黑盒视频蒸馏的在线策略框架。AFD通过相同提示同时查询教师模型并推演当前学生模型，训练一个提示配对布拉德利-特里判别器来估计干净样本的师生差异，并将得到的在线策略优势转化为对学生自身加噪状态的前向过程流匹配更新。因此，AFD在无需教师分数、潜变量、去噪轨迹、步骤对齐或反向链强化学习的前提下，提供了密集的速度场监督。在两个因果自回归学生模型族上的实验表明，AFD能在保持通用视频质量的同时持续提升运动与物理敏感型生成效果，消融实验验证了自适应在线策略反馈与前向过程信用分配的重要性。该方法仅需干净教师视频与学生推演结果，为将专有或异构视频生成器蒸馏为高效自回归学生模型提供了实用路径。",
-      "hf_link": "https://huggingface.co/papers/2605.26105"
-    },
     "2605.23264": {
       "title": "Coloring the Noise: Adversarial Sobolev Alignment for Faithful Image Super Resolution",
       "abstract": "Generative priors in Image Super-Resolution (SR) often compromise faithful restoration, we attribute this limitation to a fundamental spectral misalignment between isotropic objectives and the intrinsic natural image manifold. While Direct Preference Optimization offers a path to alignment, its reliance on spectrally flat Gaussian noise fails to distinguish authentic high-frequency details from hallucinations. To bridge this geometric gap, we propose ASASR, a theoretically grounded framework that recasts the generative flow into a Sobolev-induced Riemannian geometry by explicitly coloring the noise transition kernel to mirror natural spectral decay. Driving this geometric alignment, we integrate a parametric adversary grounded in the Riesz Representation Theorem, which synthesizes targeted negative samples equivalent to worst-case Sobolev gradients to direct optimization along the tangent space of plausible structural failures. Extensive evaluations demonstrate that ASASR outperforms leading generative baselines, particularly in preserving spectral consistency and structural fidelity, offering a robust solution that effectively mitigates artifacts.",
       "abstract_zh": "生成式先验在图像超分辨率(SR)中常常会损害忠实重建效果，我们将这一局限归因于各向同性的优化目标与自然图像流形固有特性之间的根本性光谱错位。虽然直接偏好优化为对齐提供了可能途径，但其依赖的光谱平坦高斯噪声无法区分真实高频细节与伪影。为弥合这一几何鸿沟，我们提出了ASASR——一个具有理论依据的框架，该框架通过显式地对噪声转移核进行着色以匹配自然光谱衰减规律，从而将生成流重新映射到索博列夫(Sobolev)诱导的黎曼(Riemannian)几何空间中。为推动这种几何对齐，我们基于里斯表示定理(Riesz Representation Theorem)引入了参数化对抗机制，该机制合成的定向负样本等价于最坏情况下的索博列夫梯度，能够沿着结构失效可能性的切空间引导优化方向。大量实验评估表明，ASASR在超越主流生成式基准方法的同时，特别在保持光谱一致性与结构保真度方面表现优异，为解决伪影问题提供了能有效抑制失真的稳健方案。",
       "hf_link": "https://huggingface.co/papers/2605.23264"
+    },
+    "2605.26108": {
+      "title": "Reinforcing Few-step Generators via Reward-Tilted Distribution Matching",
+      "abstract": "Recent advances in few-step diffusion distillation have enabled efficient image generation, yet aligning these models with human preferences remains challenging. We propose Reward-Tilted Distribution Matching Distillation (RTDMD), a two-stage framework that unifies distribution matching distillation with reward-guided reinforcement learning for few-step flow generators. We show that minimizing the KL divergence to a reward-tilted teacher distribution naturally decomposes into a distribution matching term and a reward maximization term. In the first stage, we introduce Ambient-Consistent Distribution Matching Distillation (AC-DMD), which performs subinterval-wise distribution matching and augments the fake score objective with a consistency regularizer to help the fake score model track the shifting generator distribution under limited updates. In the second stage, we jointly optimize both terms: for the reward maximization term, we derive a hybrid policy gradient that combines a GRPO-style estimator for the stochastic intermediate transitions with direct reward backpropagation through the deterministic final step, and further introduce step-subset GRPO (SubGRPO) to reduce variance. Experiments on SD3, SD3.5, and FLUX.2 demonstrate that RTDMD establishes new state-of-the-art results across preference, aesthetic, and compositional metrics with only 4 inference steps, outperforming previous few-step text-to-image generation methods. Code and models are available atthis https URL.",
+      "abstract_zh": "近期，少步扩散蒸馏技术取得了显著进展，实现了高效的图像生成，然而使这些模型与人类偏好对齐仍然存在挑战。我们提出了奖励倾斜分布匹配蒸馏（Reward-Tilted Distribution Matching Distillation，RTDMD），这是一个两阶段框架，将分布匹配蒸馏与奖励引导的强化学习相结合，用于少步流生成器。我们证明了最小化与奖励倾斜教师分布之间的KL散度可以自然分解为分布匹配项和奖励最大化项。在第一阶段，我们引入了环境一致分布匹配蒸馏（Ambient-Consistent Distribution Matching Distillation，AC-DMD），该方法执行子区间分布匹配，并通过一致性正则化增强伪分数目标，以帮助伪分数模型在有限更新下跟踪变化的生成器分布。在第二阶段，我们联合优化这两项：对于奖励最大化项，我们推导出一种混合策略梯度，它将GRPO风格估计器用于随机中间过渡，并通过确定性最终步骤的直接奖励反向传播相结合，并进一步引入了步骤子集GRPO（SubGRPO）以降低方差。在SD3、SD3.5和FLUX.2上的实验表明，RTDMD仅用4个推理步骤就在偏好、美学和构图指标上取得了新的最先进成果，超越了以往的少步文本到图像生成方法。代码和模型可通过此链接获取：https://。",
+      "hf_link": "https://huggingface.co/papers/2605.26108"
     },
     "2605.25604": {
       "title": "DVAO: Dynamic Variance-adaptive Advantage Optimization for Multi-reward Reinforcement Learning",
@@ -60,17 +72,17 @@
       "abstract_zh": "强化学习已成为将大型语言模型与人类意图和任务需求对齐的标准范式。尽管组相对策略优化为近端策略优化提供了一种高效且无需价值模型的替代方案，但将其应用于现实世界中的多奖励场景仍面临挑战。标准的标量化方法，如奖励组合与优势组合，均存在显著缺陷：奖励组合频繁产生平方幅值过大的优势信号，导致训练不稳定；而优势组合则依赖静态超参数，且忽略了跨目标间的相关性。为应对这些局限，我们提出动态方差自适应优势优化方法，该方法基于每个目标在采样组内的经验奖励方差动态调整组合权重，有效提升学习信号更强的目标权重，同时抑制噪声目标。我们从数学上证明了DVAO能够保持有界的优势幅值以确保训练稳定性，并引入了自适应跨目标正则化机制。基于Qwen3和Qwen2.5模型在数学推理与工具使用基准上的大量实验表明，DVAO显著优于基线方法，实现了更优的多目标帕累托前沿与鲁棒的训练稳定性。",
       "hf_link": "https://huggingface.co/papers/2605.25604"
     },
-    "2605.23218": {
-      "title": "Foundation Protocol: A Coordination Layer for Agentic Society",
-      "abstract": "Autonomous agents are moving from tools into a layer of social infrastructure: they browse, purchase, deploy software, manage systems, and increasingly interact with one another. As these systems scale, the bottleneck shifts away from raw model capability toward coordination. Agents need to form reliable relationships, organize multi-agent work, exchange value, support an AI economy, and stay safe and accountable under real-world oversight. This paper introduces the Foundation Protocol (FP), a graph-first coordination layer for an emerging human-AI society. FP unifies heterogeneous entities, including agents, tools, resources, humans, institutions, and organizations, and supports native multi-party organization and event-based collaboration. It also provides economic primitives for metering, receipts, and settlement, and treats policy, provenance, and audit as first-class concerns. FP is designed to wrap and bridge existing protocols rather than replace them, enabling incremental adoption while reducing integration and governance overhead. The aim is to keep autonomous agency composable while keeping accountability non-negotiable, so that coordination itself can become shared infrastructure for a human-AI society that is open, pluralistic, and governable.",
-      "abstract_zh": "自主智能体正从工具演变为社会基础设施层：它们浏览信息、进行采购、部署软件、管理系统，并日益加强彼此间的交互。随着这些系统的扩展，瓶颈正从原始模型能力转向协调问题。智能体需要建立可靠的关系、组织多智能体协作、交换价值、支撑AI经济，并在现实世界监管下保持安全与可问责性。本文提出基础协议（Foundation Protocol，FP），这是一种面向新兴人机社会的图优先协调层。FP统一了异构实体，包括智能体、工具、资源、人类、机构与组织，并支持原生多方组织与基于事件的协作。该协议还提供了计量、凭证和结算的经济原语，并将策略、溯源与审计视为核心关切。FP旨在封装和桥接现有协议而非取代它们，在降低集成与治理成本的同时支持渐进式应用。其目标是保持自主智能体的可组合性，同时确保可问责性不容妥协，从而使协调机制本身成为开放、多元且可治理的人机社会的共享基础设施。",
-      "hf_link": "https://huggingface.co/papers/2605.23218"
-    },
     "2605.24830": {
       "title": "Macaron-A2UI: A Model for Generative UI in Personal Agents",
       "abstract": "As personal agents evolve to handle complex, user-centric tasks, static plain-text chat is rapidly becoming a bottleneck. Generative UI emerges as the necessary new interface layer, dynamically synthesizing the right controls, options, and state from the interaction context in real time. We present Macaron-A2UI, a model for Generative UI in personal agents. Our goal is to move beyond text-only interaction by enabling agents to generate natural language together with lightweight, executable UI actions for information collection, preference refinement, confirmation, and multi-goal organization. We build a large-scale Generative UI corpus from heterogeneous dialogue sources, introduce A2UI-Bench for controlled evaluation, and train 30B, 235B and 754B models with parameter-efficient LoRA-based supervised fine-tuning followed by reward-driven reinforcement learning. The best Macaron-A2UI model reaches 75.6 overall on A2UI-Bench without explicit schema hints, surpassing the strongest full-schema frontier baseline. We release the models, benchmark, and evaluation protocol to support future work on Generative UI for personal agents.",
       "abstract_zh": "随着个人智能体逐渐演进以处理复杂、以用户为中心的任务，静态纯文本聊天正迅速成为交互瓶颈。生成式用户界面应运而生，成为必需的新型交互层，能够基于实时交互上下文动态合成恰当的控件、选项及状态。我们提出Macaron-A2UI——一种面向个人智能体的生成式用户界面模型。我们的目标是通过使智能体能够同时生成自然语言与轻量级可执行界面操作，实现信息收集、偏好细化、确认及多目标组织等功能，从而突破纯文本交互的局限。我们基于异构对话源构建了大规模生成式用户界面语料库，引入A2UI-Bench作为受控评估基准，并采用基于参数高效LoRA的监督微调结合奖励驱动的强化学习，训练了参数量分别为300亿、2350亿和7540亿的模型。最优的Macaron-A2UI模型在无显式模式提示的情况下，于A2UI-Bench基准上达到综合得分75.6，超越了现有最强全模式前沿基线。我们公开了模型、基准测试集及评估协议，以支持未来个人智能体生成式用户界面的研究。",
       "hf_link": "https://huggingface.co/papers/2605.24830"
+    },
+    "2605.23218": {
+      "title": "Foundation Protocol: A Coordination Layer for Agentic Society",
+      "abstract": "Autonomous agents are moving from tools into a layer of social infrastructure: they browse, purchase, deploy software, manage systems, and increasingly interact with one another. As these systems scale, the bottleneck shifts away from raw model capability toward coordination. Agents need to form reliable relationships, organize multi-agent work, exchange value, support an AI economy, and stay safe and accountable under real-world oversight. This paper introduces the Foundation Protocol (FP), a graph-first coordination layer for an emerging human-AI society. FP unifies heterogeneous entities, including agents, tools, resources, humans, institutions, and organizations, and supports native multi-party organization and event-based collaboration. It also provides economic primitives for metering, receipts, and settlement, and treats policy, provenance, and audit as first-class concerns. FP is designed to wrap and bridge existing protocols rather than replace them, enabling incremental adoption while reducing integration and governance overhead. The aim is to keep autonomous agency composable while keeping accountability non-negotiable, so that coordination itself can become shared infrastructure for a human-AI society that is open, pluralistic, and governable.",
+      "abstract_zh": "自主智能体正从工具演变为社会基础设施层：它们浏览信息、进行采购、部署软件、管理系统，并日益加强彼此间的交互。随着这些系统的扩展，瓶颈正从原始模型能力转向协调问题。智能体需要建立可靠的关系、组织多智能体协作、交换价值、支撑AI经济，并在现实世界监管下保持安全与可问责性。本文提出基础协议（Foundation Protocol，FP），这是一种面向新兴人机社会的图优先协调层。FP统一了异构实体，包括智能体、工具、资源、人类、机构与组织，并支持原生多方组织与基于事件的协作。该协议还提供了计量、凭证和结算的经济原语，并将策略、溯源与审计视为核心关切。FP旨在封装和桥接现有协议而非取代它们，在降低集成与治理成本的同时支持渐进式应用。其目标是保持自主智能体的可组合性，同时确保可问责性不容妥协，从而使协调机制本身成为开放、多元且可治理的人机社会的共享基础设施。",
+      "hf_link": "https://huggingface.co/papers/2605.23218"
     },
     "2605.20342": {
       "title": "ParaVT: Taming the Tool Prior Paradox for Parallel Tool Use in Agentic Video Reinforcement Learning",
@@ -102,11 +114,11 @@
       "abstract_zh": "多模态检索严重依赖于单向量检索器，这些检索器将丰富的序列化令牌序列压缩为单一的全局表示。虽然效率高，但它们丢弃了对于稠密检索任务至关重要的细粒度局部证据。多向量方法被提出作为解决方案，但它们严格需要训练，且许多方法忽略了全局概括性表示的必要性。为解决这一问题，我们推出了SMART框架，该框架能够释放标准单向量模型的潜在多向量能力。我们首先证明，对池化嵌入的标准对比训练通过梯度流隐式地塑造了先前隐藏状态的检索几何结构。通过在推理过程中对这些冻结的隐藏状态应用直接延迟交互，SMART作为一种即插即用的升级方案，持续提升了跨多种模态的性能，甚至在MMEB-V2基准上进一步改进了当前最先进的模型。我们还揭示了SMART的卓越性能：简单的轻量级后训练不仅节省了时间和计算资源，还在视觉文档检索任务上带来了进一步的提升，使得单向量模型能够超越当前最先进的多向量模型。最终，SMART为多模态检索同时提供了高效的推理增强和强大的微调技术。我们在该HTTPS URL上开源了代码与权重。",
       "hf_link": "https://huggingface.co/papers/2605.24938"
     },
-    "2605.26086": {
-      "title": "Claw-Anything: Benchmarking Always-On Personal Assistants with Broader Access to User's Digital World",
-      "abstract": "Large language model agents are increasingly envisioned as always-on personal assistants with access to anything relevant in the user's digital world. Yet current systems operate over only narrow slices of that world, limiting context-sensitive reasoning and effective assistance. Existing benchmarks similarly provide only partial user state and therefore fail to capture performance in such a broad, always-on setting. To address this gap, we introduce Claw-Anything, a benchmark that expands agent context along three dimensions: long-horizon activity histories, interdependent backend services, and integrated GUI and CLI interaction across multiple devices. To instantiate this setting, we simulate months of user activity through multi-round event injection, producing complex world states and realistic noise, including irrelevant events and conflicting signals. Agents must reason over rich contextual environments while remaining robust to such noise. This expanded scope also enables the evaluation of proactive assistance, requiring agents to anticipate user needs and deliver timely recommendations. Experiments show that GPT-5.5 achieves only 34.5% pass@1, substantially below prior benchmarks, underscoring a gap between current agent capabilities and the demands of always-on personal assistance. Alongside the benchmark, we release an automated data-generation pipeline that yields 2,000 training environments and improves the base model by 23.7%, demonstrating its utility of scalable data infrastructure.",
-      "abstract_zh": "大型语言模型智能体日益被设想为全天候个人助手，能够访问用户数字世界中所有相关信息。然而，当前系统仅能在有限的用户数据范围内运行，这限制了其基于上下文进行推理和提供有效协助的能力。现有基准测试同样仅提供部分用户状态，因而未能全面评估智能体在此类广泛、持续运行场景下的表现。为填补这一空白，我们推出Claw-Anything基准测试，该测试从三个维度拓展了智能体的上下文理解范围：长期活动历史记录、相互依赖的后端服务，以及跨多设备的图形用户界面（GUI）与命令行界面（CLI）集成交互。为实现这一场景的构建，我们通过多轮事件注入模拟了长达数月的用户活动，生成了复杂的世界状态和包含无关事件与冲突信号在内的真实噪声环境。智能体必须在丰富的上下文环境中进行推理，同时保持对此类噪声的鲁棒性。这种扩展的评估范围还使得主动协助能力的评估成为可能，要求智能体能够预判用户需求并提供及时建议。实验表明，GPT-5.5仅获得34.5%的pass@1通过率，显著低于先前基准测试结果，这凸显出现有智能体能力与全天候个人助手需求之间的差距。除基准测试外，我们还发布了自动化数据生成流程，该流程可创建2,000个训练环境，并将基础模型性能提升23.7%，证明了可扩展数据基础设施的实际效用。",
-      "hf_link": "https://huggingface.co/papers/2605.26086"
+    "2605.23081": {
+      "title": "ThriftAttention: Selective Mixed Precision for Long-Context FP4 Attention",
+      "abstract": "Efficient attention algorithms are critical to mitigate the quadratic cost of attention in long-context workloads. Prior work utilises block-scaled quantisation techniques on Blackwell GPUs to move attention computation to 4-bit precision to accelerate inference. However, these techniques result in significant quality degradation in long-context settings. We show that the output impact of quantisation error is highly non-uniform and increases with the importance of each query-key interaction, concentrating functionally relevant error in a small number of attention blocks that contain the most important tokens. We propose ThriftAttention, a low-bit attention variant that delivers near-FP16 long-context quality at FP4 inference efficiency. This approach proceeds in two stages. First, a heuristic rapidly selects a small number of important query-key block pairs for FP16 precision. Second, the selected blocks are computed in FP16 and the remaining blocks in FP4, with both paths merged via online softmax into a single output. We demonstrate across long-context benchmarks and model families that by computing only 5% of query-key blocks in FP16, ThriftAttention recovers on average 89.1% of the FP4-to-FP16 performance gap. We show ThriftAttention's advantage grows with sequence length, mitigating the systematic FP4 quality degradation observed at longer contexts. The code is available atthis https URL.",
+      "abstract_zh": "高效的注意力算法对于降低长上下文任务中注意力机制的二次计算成本至关重要。先前的研究利用Blackwell GPU上的块级量化技术，将注意力计算精度降至4位以加速推理。然而，这些技术在长上下文场景中会导致显著的质量下降。我们发现量化误差对输出的影响具有高度非均匀性，且误差会随着每个查询-键（query-key）交互的重要性而增加，将功能相关的误差集中在包含最重要标记的少数注意力块中。我们提出ThriftAttention，这是一种低比特注意力变体，能够在保持FP4推理效率的同时，实现接近FP16的长上下文质量。该方法分两个阶段进行：首先，通过启发式方法快速选取少量重要的查询-键块对以FP16精度计算；其次，所选块以FP16计算，其余块以FP4计算，两条路径通过在线softmax合并为单一输出。我们在多个长上下文基准测试和模型族中验证，仅需对5%的查询-键块采用FP16计算，ThriftAttention平均可恢复89.1%的FP4与FP16之间的性能差距。研究表明，ThriftAttention的优势随序列长度增加而增强，有效缓解了长上下文场景中观察到的系统性FP4质量下降问题。代码可通过此链接获取：https://xxx。",
+      "hf_link": "https://huggingface.co/papers/2605.23081"
     },
     "2605.25569": {
       "title": "ControlLight: Towards Controllable, Consistent, and Generalizable Low-Light Enhancement",
@@ -114,11 +126,29 @@
       "abstract_zh": "现有的基于深度学习的低光增强方法通常在有限的数据集上进行训练，且仅针对单一增强目标，这限制了其在真实应用中的泛化能力和可控性。为克服这些局限，我们提出了ControlLight——一个可控、一致且可泛化的低光增强框架。我们首先构建了一个大规模真实场景退化图像数据集，并为其提供连续光照强度的监督标注。为了确保在不同控制强度下输出结果的一致性，我们引入了一种错位感知加权流匹配损失，该损失能够在连续增强强度范围内保持图像结构的稳定性。ControlLight允许用户通过灵活调节增强强度，对真实场景中的退化低光图像进行编辑，从而获得满意的增强效果，同时保持视觉一致性与真实感。大量实验表明，ControlLight在现有低光增强方法中实现了最先进的性能，并展现出强大的连续可控性以及对真实场景的优异泛化能力。",
       "hf_link": "https://huggingface.co/papers/2605.25569"
     },
+    "2605.25971": {
+      "title": "Anticipate and Learn: Unleashing Idle-Time Compute in Proactive Agents",
+      "abstract": "While AI agents demonstrate remarkable capabilities in reasoning and tool use, they remain fundamentally reactive: they compute responses only after explicit user prompts. This paradigm ignores a critical opportunity: the idle time between interactions is largely wasted, leaving agents unable to prepare for future user needs. To bridge this gap, we introduce ProAct, a proactive agent architecture that leverages idle-time compute to anticipate and fulfill likely upcoming user needs. By analyzing evolving dialogue history together with persistent memory, ProAct predicts upcoming needs and iteratively acquires information, allowing the agent to resolve knowledge gaps and prepare evidence before the user initiates athis http URLrigorously evaluate proactive capabilities, we also introduce ProActEval, a comprehensive benchmark comprising 200 scenarios across 40 domains, featuring predictable need chains and diverse user cognitive profiles. Empirical results demonstrate significant advantages over reactive baselines. ProAct accelerates task completion by reducing required turns by 14.8%, decreases user effort by 11.7%, and cuts hallucination rates by 28.1% on ProActEval. Furthermore, MemBench evaluations confirm that ProAct achieves state-of-the-art reflective accuracy, underscoring its sustained and robust performance.",
+      "abstract_zh": "尽管人工智能代理在推理与工具使用方面展现出卓越能力，其本质仍是被动响应式的：仅在收到明确用户指令后才进行计算回应。这一范式忽视了一个关键机遇：交互间隙的闲置时间基本被浪费，导致代理无法为用户未来需求做好准备。为弥补这一差距，我们提出ProAct（前瞻性代理架构），该架构利用闲置计算资源预测并满足用户可能出现的后续需求。通过分析动态演进的对话历史与持久性记忆，ProAct能够预测即将出现的需求，并通过迭代获取信息，使代理在用户提出需求前主动填补知识缺口并准备证据链。为系统评估前瞻性能力，我们还构建了ProActEval综合评测基准，涵盖40个领域的200个场景，包含可预测的需求链条与多样化的用户认知画像。实证结果表明，该架构相比被动式基线模型具有显著优势：在ProActEval测试中，ProAct通过减少14.8%的交互轮次加速任务完成，降低11.7%的用户操作负荷，并将幻觉率削减28.1%。此外，MemBench评估证实ProAct实现了最先进的反射准确性，凸显其持续稳健的性能表现。",
+      "hf_link": "https://huggingface.co/papers/2605.25971"
+    },
+    "2605.26086": {
+      "title": "Claw-Anything: Benchmarking Always-On Personal Assistants with Broader Access to User's Digital World",
+      "abstract": "Large language model agents are increasingly envisioned as always-on personal assistants with access to anything relevant in the user's digital world. Yet current systems operate over only narrow slices of that world, limiting context-sensitive reasoning and effective assistance. Existing benchmarks similarly provide only partial user state and therefore fail to capture performance in such a broad, always-on setting. To address this gap, we introduce Claw-Anything, a benchmark that expands agent context along three dimensions: long-horizon activity histories, interdependent backend services, and integrated GUI and CLI interaction across multiple devices. To instantiate this setting, we simulate months of user activity through multi-round event injection, producing complex world states and realistic noise, including irrelevant events and conflicting signals. Agents must reason over rich contextual environments while remaining robust to such noise. This expanded scope also enables the evaluation of proactive assistance, requiring agents to anticipate user needs and deliver timely recommendations. Experiments show that GPT-5.5 achieves only 34.5% pass@1, substantially below prior benchmarks, underscoring a gap between current agent capabilities and the demands of always-on personal assistance. Alongside the benchmark, we release an automated data-generation pipeline that yields 2,000 training environments and improves the base model by 23.7%, demonstrating its utility of scalable data infrastructure.",
+      "abstract_zh": "大型语言模型智能体日益被设想为全天候个人助手，能够访问用户数字世界中所有相关信息。然而，当前系统仅能在有限的用户数据范围内运行，这限制了其基于上下文进行推理和提供有效协助的能力。现有基准测试同样仅提供部分用户状态，因而未能全面评估智能体在此类广泛、持续运行场景下的表现。为填补这一空白，我们推出Claw-Anything基准测试，该测试从三个维度拓展了智能体的上下文理解范围：长期活动历史记录、相互依赖的后端服务，以及跨多设备的图形用户界面（GUI）与命令行界面（CLI）集成交互。为实现这一场景的构建，我们通过多轮事件注入模拟了长达数月的用户活动，生成了复杂的世界状态和包含无关事件与冲突信号在内的真实噪声环境。智能体必须在丰富的上下文环境中进行推理，同时保持对此类噪声的鲁棒性。这种扩展的评估范围还使得主动协助能力的评估成为可能，要求智能体能够预判用户需求并提供及时建议。实验表明，GPT-5.5仅获得34.5%的pass@1通过率，显著低于先前基准测试结果，这凸显出现有智能体能力与全天候个人助手需求之间的差距。除基准测试外，我们还发布了自动化数据生成流程，该流程可创建2,000个训练环境，并将基础模型性能提升23.7%，证明了可扩展数据基础设施的实际效用。",
+      "hf_link": "https://huggingface.co/papers/2605.26086"
+    },
     "2605.24117": {
       "title": "SkillEvolBench: Benchmarking the Evolution from Episodic Experience to Procedural Skills",
       "abstract": "Large language model (LLM) agents accumulate rich episodic trajectories while solving real-world tasks, but it remains unclear whether such experience can be distilled into reusable procedural skills. We introduce SkillEvolBench, a diagnostic benchmark for evaluating this step from experience reuse to skill formation. It contains 180 tasks across six real-world agent environments, organized into role-conditioned task families with shared latent procedures. Agents learn from acquisition tasks, update an external skill library using compacted trajectories and verifier feedback, and then face frozen deployment tasks testing context shift, adversarial shortcuts, and composition. By comparing self-generated and curated-start skill evolution against no-skill and raw-trajectory controls, SkillEvolBench separates procedural abstraction from base capability, curated prior knowledge, and direct reuse of episodic traces. Across ten model configurations and three agent harnesses, we find that current agents often adapt locally but rarely form robust reusable skills. Skill-based conditions can improve acquisition or replay, and individual models sometimes gain on specific deployment axes, but these gains are unstable under frozen deployment. Raw-trajectory reuse frequently outperforms distilled skills, suggesting that current abstraction procedures discard contextual and procedural cues that remain useful for future tasks. Capacity and cost analyses further show that writing more skills or larger Tier-3 resource libraries is not sufficient: additional updates can improve coverage while introducing episode-specific drift and procedural clutter. These findings position SkillEvolBench as a testbed for measuring when one-off experience becomes durable procedural knowledge rather than task-local memory.",
       "abstract_zh": "大型语言模型（LLM）智能体在解决现实世界任务时会积累丰富的片段轨迹，但目前尚不清楚此类经验能否被提炼为可复用的程序性技能。我们引入SkillEvolBench这一诊断性基准，用于评估从经验复用走向技能形成的关键跃迁。该基准涵盖六个现实世界智能体环境中的180项任务，按角色条件任务族进行组织，这些任务族共享潜在的隐式程序流程。智能体首先在习得任务中学习，利用压缩轨迹和验证器反馈更新外部技能库，随后面临冻结部署任务的考验——这些测试聚焦于情境迁移、对抗性捷径与组合能力。通过对比自主演化技能、预设初始技能与无技能控制组、原始轨迹控制组的性能，SkillEvolBench实现了对程序抽象能力与基础性能、预设先验知识及片段轨迹直接复用的分离评估。\n\n在涵盖十种模型配置与三种智能体框架的实验中，我们发现当前智能体通常仅能实现局部适应，却鲜少形成稳健的可复用技能。基于技能的实验条件虽能提升习得效率或回放效果，个别模型在特定部署维度偶有增益，但这些改进在冻结部署场景下均表现不稳定。原始轨迹复用的表现往往优于精炼技能，这表明当前抽象机制丢弃了对未来任务仍具价值的上下文信息与程序线索。容量与成本分析进一步揭示：单纯增加技能数量或扩大三级资源库并不足以解决问题——持续更新虽能提升覆盖范围，却同时引入了片段特异性偏移与程序冗余。这些发现确立了SkillEvolBench作为关键测试场的定位，用于精准衡量一次性经验何时能转化为持久的程序性知识，而非停留于任务局部记忆。",
       "hf_link": "https://huggingface.co/papers/2605.24117"
+    },
+    "2605.23986": {
+      "title": "MemForest: An Efficient Agent Memory System with Hierarchical Temporal Indexing",
+      "abstract": "Memory is a fundamental component for enabling long-context LLM agents, supporting persistent state across interactions through a continuous serve-and-update lifecycle. Despite substantial prior work, existing systems suffer from significant maintenance overhead due to two key limitations: coarse-grained state management and inherently sequential update pipelines. In particular, updates are often tightly coupled with LLM inference and require full-state rewrites, leading to poor scalability and growing latency as memory accumulates. To address these challenges, we present MemForest, a memory framework that reformulates agent memory as a write-efficient temporal data management problem. MemForest breaks the sequential bottleneck via parallel chunk extraction, decoupling memory construction into concurrent, independent operations. To further eliminate coarse-grained maintenance, we introduce MemTree, a hierarchical temporal index that organizes memory as time-ordered trees rather than flat global summaries. This design replaces full-state rewrites with localized per-node updates, reducing maintenance cost to the affected tree paths while naturally preserving temporally evolving states. We evaluate MemForest on two long-context memory benchmarks, LongMemEval-S and LoCoMo. On LongMemEval-S, MemForest achieves the best overall performance among stateful baselines, reaching 79.8% pass@1 accuracy while sustaining a memory construction throughput approximately 6x higher than state-of-the-art approaches including EverMemOS.",
+      "abstract_zh": "记忆是支持长上下文LLM智能体的基本组件，通过持续的服务-更新生命周期实现跨交互的持久状态维护。尽管已有大量前期研究，但现有系统因两个关键限制而承受显著的维护开销：粗粒度状态管理与本质上串行的更新流程。具体而言，更新过程常与LLM推理紧密耦合，且需进行全状态重写，导致可扩展性差，并随记忆积累造成延迟增长。为应对这些挑战，我们提出MemForest——一种将智能体记忆重新定义为高效写入时序数据管理问题的记忆框架。MemForest通过并行块提取打破串行瓶颈，将记忆构建解耦为并发独立操作。为进一步消除粗粒度维护，我们引入MemTree：一种层次化时序索引，将记忆组织为按时间排序的树形结构而非扁平的全局摘要。该设计以局部化的节点更新取代全状态重写，将维护成本限制在受影响的树路径内，同时自然保留时序演化状态。我们在两个长上下文记忆基准测试（LongMemEval-S与LoCoMo）上评估MemForest。在LongMemEval-S测试中，MemForest在有状态基线方法中取得最佳综合性能，达到79.8%的pass@1准确率，同时维持约6倍于EverMemOS等前沿方法记忆构建吞吐量。",
+      "hf_link": "https://huggingface.co/papers/2605.23986"
     },
     "2605.26102": {
       "title": "InstructSAM: Segment Any Instance with Any Instructions",
@@ -131,12 +161,6 @@
       "abstract": "Metaphorical videos are prevalent across various real-world scenarios to convey complex ideas, and understanding them typically requires high-order cognitive capabilities. The lack of systematic studies on metaphorical video understanding not only constrains the real-world applicability of MLLMs but also impedes the thorough assessment of their high-order cognitive capabilities. To bridge this gap, we propose MetaphorVU-Bench, the first systematic and comprehensive benchmark dedicated to metaphorical video understanding. Through experiments, we find current MLLMs struggle with accurate metaphorical video understanding, lagging far behind human level, primarily due to defective cross-domain mapping. Motivated by this finding, we construct a metaphor knowledge graph as mapping augmentation and propose MetaphorBoost, an inference-time enhancement framework achieving consistent performance improvement. Our benchmark, analysis, and method provide useful insights and a foundation for future research on advancing MLLMs.",
       "abstract_zh": "隐喻视频在现实世界的各类场景中广泛存在，用于传达复杂理念，理解此类视频通常需要高阶认知能力。目前对隐喻视频理解的系统性研究仍显不足，这不仅限制了多模态大语言模型（MLLMs）的实际应用，也阻碍了对其高阶认知能力的深入评估。为填补这一空白，我们提出了MetaphorVU-Bench——首个专用于隐喻视频理解的系统性综合评测基准。实验表明，现有MLLMs在准确理解隐喻视频方面存在困难，其表现远低于人类水平，主要归因于跨域映射能力的缺陷。基于这一发现，我们构建了隐喻知识图谱作为映射增强工具，并提出MetaphorBoost——一种在推理阶段实现性能持续提升的增强框架。我们的评测基准、分析及方法为未来推进MLLMs发展的研究提供了有价值的见解和基础。",
       "hf_link": "https://huggingface.co/papers/2605.25461"
-    },
-    "2605.23986": {
-      "title": "MemForest: An Efficient Agent Memory System with Hierarchical Temporal Indexing",
-      "abstract": "Memory is a fundamental component for enabling long-context LLM agents, supporting persistent state across interactions through a continuous serve-and-update lifecycle. Despite substantial prior work, existing systems suffer from significant maintenance overhead due to two key limitations: coarse-grained state management and inherently sequential update pipelines. In particular, updates are often tightly coupled with LLM inference and require full-state rewrites, leading to poor scalability and growing latency as memory accumulates. To address these challenges, we present MemForest, a memory framework that reformulates agent memory as a write-efficient temporal data management problem. MemForest breaks the sequential bottleneck via parallel chunk extraction, decoupling memory construction into concurrent, independent operations. To further eliminate coarse-grained maintenance, we introduce MemTree, a hierarchical temporal index that organizes memory as time-ordered trees rather than flat global summaries. This design replaces full-state rewrites with localized per-node updates, reducing maintenance cost to the affected tree paths while naturally preserving temporally evolving states. We evaluate MemForest on two long-context memory benchmarks, LongMemEval-S and LoCoMo. On LongMemEval-S, MemForest achieves the best overall performance among stateful baselines, reaching 79.8% pass@1 accuracy while sustaining a memory construction throughput approximately 6x higher than state-of-the-art approaches including EverMemOS.",
-      "abstract_zh": "记忆是支持长上下文LLM智能体的基本组件，通过持续的服务-更新生命周期实现跨交互的持久状态维护。尽管已有大量前期研究，但现有系统因两个关键限制而承受显著的维护开销：粗粒度状态管理与本质上串行的更新流程。具体而言，更新过程常与LLM推理紧密耦合，且需进行全状态重写，导致可扩展性差，并随记忆积累造成延迟增长。为应对这些挑战，我们提出MemForest——一种将智能体记忆重新定义为高效写入时序数据管理问题的记忆框架。MemForest通过并行块提取打破串行瓶颈，将记忆构建解耦为并发独立操作。为进一步消除粗粒度维护，我们引入MemTree：一种层次化时序索引，将记忆组织为按时间排序的树形结构而非扁平的全局摘要。该设计以局部化的节点更新取代全状态重写，将维护成本限制在受影响的树路径内，同时自然保留时序演化状态。我们在两个长上下文记忆基准测试（LongMemEval-S与LoCoMo）上评估MemForest。在LongMemEval-S测试中，MemForest在有状态基线方法中取得最佳综合性能，达到79.8%的pass@1准确率，同时维持约6倍于EverMemOS等前沿方法记忆构建吞吐量。",
-      "hf_link": "https://huggingface.co/papers/2605.23986"
     },
     "2605.08129": {
       "title": "Towards Customized Multimodal Role-Play",
@@ -156,17 +180,35 @@
       "abstract_zh": "大语言模型（Large Language Model，LLM）智能体通过交互不断得到改进，然而大多数自我演进方法仅单独调整策略或学习环境。我们将这种结构性差距识别为**智能体-环境错位**：智能体的能力边界在训练过程中发生变化，而提供监督的环境却保持静态，或仅与其暴露的失败弱关联。我们提出SEAL，一种面向交互式工具使用智能体的闭环协同演进框架。SEAL通过可执行验证收集在线轨迹，将失败的执行过程诊断为回合级失败标签，并将这些诊断结果作为环境侧适应与模型侧策略优化的共享信号。环境通过提供更清晰的工具可供性提示、约束信息以及面向恢复的反馈，演进其训练时学习接口；同时，策略通过诊断引导的优势重加权进行更新。在分布内与分布外多轮工具使用评估上的大量实验表明，SEAL显著提升了低资源智能体的学习效果：仅使用400个训练样本，它在三种骨干模型上实现了平均+8.25至+26.25的性能提升，并展现出积极的分布外迁移能力。这些结果证明了联合调整学习器及其训练时学习基底对于构建具有鲁棒性的自我改进大语言模型智能体的重要价值。",
       "hf_link": "https://huggingface.co/papers/2605.24426"
     },
-    "2605.25971": {
-      "title": "Anticipate and Learn: Unleashing Idle-Time Compute in Proactive Agents",
-      "abstract": "While AI agents demonstrate remarkable capabilities in reasoning and tool use, they remain fundamentally reactive: they compute responses only after explicit user prompts. This paradigm ignores a critical opportunity: the idle time between interactions is largely wasted, leaving agents unable to prepare for future user needs. To bridge this gap, we introduce ProAct, a proactive agent architecture that leverages idle-time compute to anticipate and fulfill likely upcoming user needs. By analyzing evolving dialogue history together with persistent memory, ProAct predicts upcoming needs and iteratively acquires information, allowing the agent to resolve knowledge gaps and prepare evidence before the user initiates athis http URLrigorously evaluate proactive capabilities, we also introduce ProActEval, a comprehensive benchmark comprising 200 scenarios across 40 domains, featuring predictable need chains and diverse user cognitive profiles. Empirical results demonstrate significant advantages over reactive baselines. ProAct accelerates task completion by reducing required turns by 14.8%, decreases user effort by 11.7%, and cuts hallucination rates by 28.1% on ProActEval. Furthermore, MemBench evaluations confirm that ProAct achieves state-of-the-art reflective accuracy, underscoring its sustained and robust performance.",
-      "abstract_zh": "尽管人工智能代理在推理与工具使用方面展现出卓越能力，其本质仍是被动响应式的：仅在收到明确用户指令后才进行计算回应。这一范式忽视了一个关键机遇：交互间隙的闲置时间基本被浪费，导致代理无法为用户未来需求做好准备。为弥补这一差距，我们提出ProAct（前瞻性代理架构），该架构利用闲置计算资源预测并满足用户可能出现的后续需求。通过分析动态演进的对话历史与持久性记忆，ProAct能够预测即将出现的需求，并通过迭代获取信息，使代理在用户提出需求前主动填补知识缺口并准备证据链。为系统评估前瞻性能力，我们还构建了ProActEval综合评测基准，涵盖40个领域的200个场景，包含可预测的需求链条与多样化的用户认知画像。实证结果表明，该架构相比被动式基线模型具有显著优势：在ProActEval测试中，ProAct通过减少14.8%的交互轮次加速任务完成，降低11.7%的用户操作负荷，并将幻觉率削减28.1%。此外，MemBench评估证实ProAct实现了最先进的反射准确性，凸显其持续稳健的性能表现。",
-      "hf_link": "https://huggingface.co/papers/2605.25971"
-    },
     "2605.26002": {
       "title": "SemBridge: Language Transfer in Sparse Encoders via Multilingual Semantic Bridges",
       "abstract": "Sparse encoders offer high-precision retrieval by representing term importance within a vocabulary space, yet their English-centric structures pose a critical impediment to language transfer for non-English languages. To overcome this structural limitation, we propose SemBridge, a novel embedding initialization method designed for cross-lingual adaptation in sparse encoders by leveraging multilingual bridge models. SemBridge establishes semantic alignments between source and target vocabularies using multilingual dense embeddings as a bridge. Rather than directly relying on all source tokens, SemBridge selects a small set of semantically related source-language tokens and uses them to initialize each target-language token, effectively filtering out semantic noise and reconstructing target tokens as precise linear combinations of core synonyms. This accelerates convergence during fine-tuning and improves training efficiency. Extensive experiments across five languages and four sparse architectures demonstrate that SemBridge achieves superior zero-shot retrieval performance and consistently improves retrieval performance after fine-tuning compared to existing baselines. These results validate SemBridge as a practical solution for deploying high-performance sparse retrieval systems in diverse linguistic environments.",
       "abstract_zh": "稀疏编码器通过在词汇空间内表征词项重要性，实现了高精度检索，但其以英语为中心的结构对非英语语言的跨语言迁移构成了关键障碍。为克服这一结构限制，我们提出SemBridge——一种创新的嵌入初始化方法，该方法利用多语言桥接模型为稀疏编码器的跨语言适配而设计。SemBridge使用多语言稠密嵌入作为桥梁，在源语言与目标语言词汇之间建立语义对齐。该方法并非直接依赖所有源语言词元，而是选取一小部分语义相关的源语言词元，并以其初始化每个目标语言词元，从而有效滤除语义噪声，并将目标词元重构为核心同义词的精确线性组合。这一机制加速了微调过程中的收敛速度并提升了训练效率。在五种语言和四种稀疏架构上的大量实验表明，与现有基线相比，SemBridge在零样本检索任务中取得了更优性能，且在微调后持续提升检索效果。这些结果验证了SemBridge作为一种实用解决方案，能够在多样化语言环境中部署高性能稀疏检索系统。",
       "hf_link": "https://huggingface.co/papers/2605.26002"
+    },
+    "2605.25160": {
+      "title": "SimuWoB: Simulating Real-World Mobile Apps for Fast and Faithful GUI Agent Benchmarking",
+      "abstract": "Mobile GUI agents powered by large language models have progressed rapidly, creating urgent needs for realistic and comprehensive evaluation. Existing benchmarks prioritize reproducibility but are often limited to open-source apps or file-operation tasks for the difficulty of constructing rewards on real applications, leaving a gap between benchmark settings and real-world usage. Moreover, most benchmarks focus on basic grounding and navigation, with limited coverage of complex, long-horizon interactions. To address these limitations, we introduce SimuWoB, a fully synthetic benchmark for mobile GUI agents with 120 challenging tasks spanning diverse types and difficulty levels. We build a robust virtual environment generation framework that synthesizes high-fidelity tasks and environments, and automatically provides valid rewards for each task. Each environment is deployed as a backend-free webpage accessible via URL, enabling efficient and reproducible evaluation. We conduct comprehensive experiments on several state-of-the-art mobile GUI agents. The average success rate is only 27.92%, dropping to 17.82% on long-horizon tasks, which reveals substantial weaknesses in current agents under complex scenarios. Evaluation result comparison with real-world sample tasks demonstrate that agent assessments based on our synthetic environment generalize well. We further provide diagnostic insights across key capability dimensions and discuss implications for future mobile GUI agent development.",
+      "abstract_zh": "由大语言模型驱动的移动图形用户界面(GUI)智能体发展迅猛，对现实且全面的评估提出了迫切需求。现有基准测试虽注重可复现性，但由于在真实应用程序上构建奖励机制的困难，通常仅限于开源应用或文件操作任务，导致基准测试场景与实际使用之间存在差距。此外，大多数基准测试侧重于基础定位与导航，对复杂、长程交互的覆盖范围有限。为解决这些局限性，我们推出了SimuWoB——一个完全合成的移动GUI智能体基准测试平台，涵盖120项跨类型、跨难度等级的挑战性任务。我们构建了稳健的虚拟环境生成框架，可合成高保真任务与环境，并自动为每项任务提供有效奖励。每个环境均部署为无需后端的网页，可通过URL访问，从而实现高效且可复现的评估。我们在多个前沿移动GUI智能体上开展了全面实验，其平均成功率仅为27.92%，在长程任务中更降至17.82%，这揭示了当前智能体在复杂场景下的显著不足。与真实世界样本任务的评估结果对比表明，基于我们合成环境的智能体评估具有良好泛化性。我们进一步提供了跨关键能力维度的诊断分析，并探讨了对未来移动GUI智能体发展的启示。",
+      "hf_link": "https://huggingface.co/papers/2605.25160"
+    },
+    "2604.13517": {
+      "title": "Representation over Routing: Overcoming Surrogate Hacking in Multi-Timescale PPO",
+      "abstract": "Temporal credit assignment in reinforcement learning has long been a central challenge. Inspired by the multi-timescale encoding of the dopamine system in neurobiology, recent research has sought to introduce multiple discount factors into Actor-Critic architectures, such as Proximal Policy Optimization (PPO), to balance short-term responses with long-term planning. However, this paper reveals that blindly fusing multi-timescale signals in complex delayed-reward tasks can lead to severe algorithmic pathologies. We systematically demonstrate that exposing a temporal attention routing mechanism to policy gradients results in surrogate objective hacking, while adopting gradient-free uncertainty weighting triggers irreversible myopic degeneration, a phenomenon we term the Paradox of Temporal Uncertainty. To address these issues, we propose a Target Decoupling architecture: on the Critic side, we retain multi-timescale predictions to enforce auxiliary representation learning, while on the Actor side, we strictly isolate short-term signals and update the policy based solely on long-term advantages. Rigorous empirical evaluations across multiple independent random seeds in the LunarLander-v2 environment demonstrate that our proposed architecture achieves statistically significant performance improvements. Without relying on hyperparameter hacking, it consistently surpasses the ''Environment Solved'' threshold with minimal variance, completely eliminates policy collapse, and escapes the hovering local optima that trap single-timescale baselines. The source code to reproduce our experiments is publicly available atthis https URL.",
+      "abstract_zh": "强化学习中的时序信用分配长久以来都是一项核心挑战。受神经生物学中多巴胺系统多时间尺度编码机制的启发，近期研究尝试在行动者-评论家架构中引入多个折扣因子（例如近端策略优化算法），以平衡短期响应与长期规划。然而，本文揭示在复杂延迟奖励任务中盲目融合多时间尺度信号会导致严重的算法病态。我们系统论证：将时序注意力路由机制暴露给策略梯度会引发代理目标篡改，而采用无梯度不确定性加权则会触发不可逆的短视退化，这一现象被我们称为**时序不确定性悖论**。为解决这些问题，我们提出一种目标解耦架构：在评论家侧保留多时间尺度预测以增强辅助表征学习，而在行动者侧严格隔离短期信号，仅基于长期优势更新策略。通过在LunarLander-v2环境中对多个独立随机种子进行的严谨实证评估表明，我们提出的架构实现了统计显著的性能提升。在不依赖超参数调优的情况下，该架构能以最小方差持续超越\"环境求解\"阈值，完全消除策略崩溃现象，并成功摆脱困扰单时间尺度基线的悬停局部最优。实验复现代码已公开于此https URL。",
+      "hf_link": "https://huggingface.co/papers/2604.13517"
+    },
+    "2605.21085": {
+      "title": "Decoupling Communication from Policy: Robust MARL under Bandwidth Constraints",
+      "abstract": "Communication enables coordination in multi-agent reinforcement learning (MARL), but many real-world applications, e.g., search-and-rescue with drone swarms, operate under severe bandwidth constraints. Many communication architectures still expose a coupled bottleneck in which a shared latent representation is used for both policy execution and inter-agent communication. Consequently, reducing message size directly limits the policy's latent space, often leading to significant performance degradation. We address this with two contributions. First, we introduce $\\beta$, a normalised per-agent bandwidth budget that unifies sparsity, rounds, and message dimension into a single comparable constraint. Second, we provide SLIM, a minimal architecture that decouples the communication pathway from the policy's latent representation, allowing us to isolate the effect of bandwidth from the effect of policy capacity while benefiting from in-step communication. We evaluate our method on several partially-observable MARL benchmarks, where communication is essential. Our approach achieves state-of-the-art performance and exhibits scalability and robustness under limited communication, with only marginal degradation as bandwidth is reduced.",
+      "abstract_zh": "通信能够促进多智能体强化学习（MARL）中的协作，但许多现实应用（例如使用无人机群进行搜救）在严苛的带宽限制下运行。许多通信架构仍然存在一个耦合瓶颈：共享的潜在表示同时用于策略执行和智能体间通信。因此，减小消息尺寸会直接限制策略的潜在空间，通常导致显著的性能下降。我们通过两项贡献来解决这一问题。首先，我们引入 $\\beta$，这是一种标准化的单智能体带宽预算，它将稀疏性、通信轮次和消息维度统一为单一可比较的约束条件。其次，我们提出了SLIM，这是一种最小化架构，它将通信路径与策略的潜在表示解耦，使我们能够在受益于步内通信的同时，将带宽影响与策略容量影响分离开来。我们在多个部分可观测的MARL基准测试中评估了我们的方法，这些场景中通信至关重要。我们的方法实现了最先进的性能，在有限通信条件下展现出可扩展性和鲁棒性，且随着带宽减少，性能仅出现轻微下降。",
+      "hf_link": "https://huggingface.co/papers/2605.21085"
+    },
+    "2605.26099": {
+      "title": "Language Models Need Sleep",
+      "abstract": "Transformer-based large language models are increasingly used for long-horizon tasks; however, their attention mechanism scales poorly with context length. To handle this, we study a sleep-like consolidation mechanism in which a model periodically converts recent context into persistent fast weights before clearing its key-value cache. During sleep, the model performs $N$ offline recurrent passes over the accumulated context and updates the fast weights in its state-space model (SSM) blocks through a learned local rule. During inference, this shifts extra computation to sleep while preserving the latency of wake-time prediction. We test our method on controlled synthetic tasks, including cellular automata and multi-hop graph retrieval, as well as a realistic math reasoning task, on which a regular transformer as well as SSM-attention hybrid models fail. We then show that increasing sleep duration $N$ for our models improves performance, with the largest gains on examples that require deeper reasoning.",
+      "abstract_zh": "基于Transformer的大型语言模型越来越多地应用于长时程任务，但其注意力机制随着上下文长度的增加而表现出较差的扩展性。为解决这一问题，我们研究了一种类睡眠的巩固机制。在该机制中，模型会周期性地将近期上下文转化为持久的快速权重，随后清空其键值缓存。在睡眠阶段，模型对累积的上下文进行$N$次离线循环处理，并通过学习到的局部规则更新其状态空间模型块中的快速权重。在推理过程中，这种机制将额外计算移至睡眠阶段完成，同时保持了清醒状态下的预测延迟性能。我们在受控的合成任务（包括元胞自动机与多跳图检索）以及一个现实数学推理任务上验证了本方法，常规Transformer模型及SSM-注意力混合模型在这些任务上均告失败。随后我们证明，增加模型的睡眠时长$N$可提升性能，且在对深度推理要求更高的示例中收益最为显著。",
+      "hf_link": "https://huggingface.co/papers/2605.26099"
     },
     "2605.26095": {
       "title": "Pixel-Level Pavement Distress Assessment Using Instance Segmentation",
@@ -185,57 +227,73 @@
       "abstract": "Large Reasoning Models (LRMs) exhibit backtracking and self-verification mechanisms that enable them to revise intermediate steps and reach correct solutions, yielding strong performance on complex logical benchmarks. We hypothesize that such behaviors are beneficial only when the model has sufficiently strong ``critique'' ability to detect its own mistakes. This work systematically investigates how current LRMs recover from errors by inserting arithmetic mistakes in their intermediate reasoning steps. Notably, we discover a peculiar yet important phenomenon: despite the error propagating throughout the entire chain-of-thought (CoT) without any verbalized correction, the model still reaches the correct final answer after the thinking process finishes. This recovery implies the existence of an internal mechanism helping the model to detect errors and trigger self-correction, which we refer to as the \\textit{hidden critique ability}. Building on feature space analysis, we identify a highly interpretable \\textit{critique vector} representing this behavior. Extensive experiments across multiple model scales and families demonstrate that steering latent representations with this vector improves the model's error detection capability and enhances the performance of test-time scaling at no extra training cost. Our findings provide a valuable understanding of LRMs' critique behavior, suggesting a promising direction to control and improve their self-verification mechanism. Our code is available at:this https URL.",
       "abstract_zh": "大型推理模型（Large Reasoning Models，LRMs）展现出回溯与自我验证机制，使其能够修正中间步骤并得出正确解，从而在复杂逻辑基准测试中表现出强大性能。我们假设，此类行为仅在模型具备足够强的“批判”能力以检测自身错误时才有益。本研究通过在其中间推理步骤中植入算术错误，系统性地探究了当前LRMs如何从错误中恢复。值得注意的是，我们发现了一个奇特而重要的现象：尽管错误在整个思维链（CoT）中传播且未出现任何语言层面的修正，模型在完成思考过程后仍能得到正确的最终答案。这种恢复意味着存在一种内部机制帮助模型检测错误并触发自我纠正，我们称之为“隐性批判能力”。基于特征空间分析，我们识别出一个高度可解释的“批判向量”来表征这一行为。跨多个模型规模与系列的大量实验证明，利用该向量引导潜在表征能够提升模型的错误检测能力，并在无需额外训练成本的情况下增强测试时缩放的表现。我们的发现为理解LRMs的批判行为提供了重要视角，为控制和改进其自我验证机制指明了有前景的研究方向。代码发布于：此HTTPS网址。",
       "hf_link": "https://huggingface.co/papers/2603.16331"
+    },
+    "2605.10988": {
+      "title": "Seeing the Needle in the Haystack: Towards Weakly-Supervised Log Instance Anomaly Localization via Counterfactual Perturbation",
+      "abstract": "Log anomaly detection is a critical task for system operations and security assurance. However, in networked systems at scale, log data are generated at massive scale while instance-level annotations are prohibitively expensive, posing great difficulties to fine-grained anomaly localization. To address this challenge, we propose LogMILP (Log anomaly localization based on Multi-Instance Learning enhanced by prototypes and Perturbation), a weakly supervised framework that enables both bag-level anomaly detection and instance-level anomaly localization using only bag-level labels. Our method guides the model to pinpoint the critical log entries using prototype-guided structural modeling with counterfactual perturbation consistency regularization, thereby improving localization reliability and interpretability under coarse-grained supervision. Experimental results on three public datasets demonstrate that LogMILP achieves competitive detection performance while yielding significantly more reliable instance-level localization. Our code is open-sourced atthis https URL.",
+      "abstract_zh": "日志异常检测是系统运维与安全保障的关键任务。然而在大规模网络化系统中，日志数据以海量规模产生，而实例级标注成本极高，这为细粒度异常定位带来了巨大挑战。为解决这一难题，我们提出LogMILP（基于原型增强与扰动机制的多示例学习的日志异常定位方法），这是一种弱监督框架，仅使用包级别标签即可同时实现包级异常检测与实例级异常定位。该方法通过原型引导的结构化建模与反事实扰动一致性正则化，引导模型精确定位关键日志条目，从而提升粗粒度监督下的定位可靠性与可解释性。在三个公开数据集上的实验结果表明，LogMILP在保持优异检测性能的同时，能实现显著更可靠的实例级定位。我们的代码已在https URL开源。",
+      "hf_link": "https://huggingface.co/papers/2605.10988"
     }
   },
   "hf_votes": {
     "2605.25604": 0,
+    "2605.24830": 0,
     "2605.25874": 0,
     "2605.23218": 0,
-    "2605.24830": 0,
-    "2605.20342": 0,
     "2605.26115": 0,
+    "2605.20342": 0,
     "2605.25343": 0,
     "2605.23204": 0,
     "2605.24218": 0,
     "2605.24938": 0,
+    "2605.23081": 0,
     "2605.25449": 0,
-    "2605.26105": 0,
-    "2605.26086": 0,
     "2605.25569": 0,
+    "2605.26105": 0,
+    "2605.25971": 0,
+    "2605.26086": 0,
     "2605.24117": 0,
-    "2605.26102": 0,
     "2605.25294": 0,
-    "2605.26089": 0,
-    "2605.25461": 0,
     "2605.23986": 0,
-    "2605.08129": 0,
+    "2605.26102": 0,
+    "2605.26089": 0,
+    "2605.23699": 0,
     "2605.26109": 0,
+    "2605.25461": 0,
+    "2605.08129": 0,
+    "2605.23264": 0,
     "2605.26108": 0,
     "2605.25052": 0,
     "2605.24426": 0,
-    "2605.25971": 0,
     "2605.26002": 0,
-    "2605.23264": 0,
+    "2605.25160": 0,
+    "2605.23889": 0,
+    "2604.13517": 0,
+    "2605.21085": 0,
+    "2605.26099": 0,
     "2605.26095": 0,
     "2605.20278": 0,
-    "2603.16331": 0
+    "2603.16331": 0,
+    "2605.10988": 0
   },
   "focus_sections": {
     "3D生成与重建": [
       "2605.26115",
       "2605.25449",
-      "2605.26109"
+      "2605.26109",
+      "2605.23889"
     ],
     "视频生成": [
       "2605.25874",
       "2605.25449",
-      "2605.26105"
+      "2605.26105",
+      "2605.23699"
     ],
     "图像生成": [
-      "2605.26089",
       "2605.25294",
-      "2605.26108",
-      "2605.23264"
+      "2605.26089",
+      "2605.23264",
+      "2605.26108"
     ]
   },
   "summaries": {
@@ -243,11 +301,6 @@
       "short_zh": "通道式向量量化图像表征",
       "tags": "计算机视觉;图像生成;图像向量量化",
       "body_summary": "传统图像量化方法以空间块为单元进行表征，限制了码本利用和重建质量。\n提出通道式向量量化方法，按通道离散化特征图，并构建通道自回归模型进行文本到图像生成，显著提升了码本利用率和生成质量。"
-    },
-    "2605.26108": {
-      "short_zh": "奖励引导快速生成模型对齐",
-      "tags": "生成式人工智能;图像生成;快速扩散模型对齐",
-      "body_summary": "快速扩散模型难以对齐人类偏好\n提出两阶段框架统一分布匹配与强化学习以提升模型"
     },
     "2605.26115": {
       "short_zh": "直接预测三角形重建三维场景",
@@ -259,6 +312,26 @@
       "tags": "计算机图形学；三维场景生成；360°视频生成",
       "body_summary": "现有视角视频生成方法因视野狭窄，在构建完整数字孪生时面临相机控制、全局覆盖与时空一致性挑战。\n提出Pantheon360框架，利用显式三维缓存作为几何支架，驱动扩散模型生成高保真、几何一致的可控360°全景视频。"
     },
+    "2605.23889": {
+      "short_zh": "长时间注意力流式三维重建",
+      "tags": "计算机视觉;三维重建;在线三维重建",
+      "body_summary": "在线三维重建需在严格因果与有限内存约束下估计相机姿态与场景几何，现有方法常因时间异质性与不当影响模式导致不稳定。\n提出HorizonStream，通过几何线性注意力与带时空RoPE的局部注意力分别建模长时与短时证据传播，利用度量读出令牌恢复尺度与姿态，实现长序列稳定重建。"
+    },
+    "2605.26105": {
+      "short_zh": "对抗流蒸馏用于视频生成",
+      "tags": "计算机视觉;视频生成;自回归视频模型蒸馏",
+      "body_summary": "自回归视频生成模型在长序列和交互应用中具有优势，但将高性能黑盒教师模型蒸馏到因果学生模型中仍面临挑战。\n提出对抗流蒸馏方法，通过同策略训练和正向过程流匹配，使学生模型能在自身生成分布下获得密集监督，无需依赖教师模型的内部信息或对齐。"
+    },
+    "2605.23699": {
+      "short_zh": "评估视频模型的反事实物理一致性",
+      "tags": "计算机视觉;视频生成;反事实物理一致性",
+      "body_summary": "视频预测模型能否学习潜在因果结构而非仅利用视觉相关性尚不明确。研究者构建了一个基于干预的基准测试CRONOS，用于评估模型在视觉输入受控变化下的反事实物理一致性。在逼真的Unreal Engine环境中，通过系统干预视角、场景、物体类别和外观等因素，测试了开源视频生成器的表现，发现其在反事实物理一致性方面存在显著缺陷。"
+    },
+    "2605.25294": {
+      "short_zh": "几何感知图像流匹配",
+      "tags": "生成式模型;图像生成;流匹配",
+      "body_summary": "已有生成模型在流形约束下利用几何信息，但自然图像生成仍基于欧氏假设。\n我们提出自然图像位于超球面，并设计了两种球面流匹配方法，提升了性能。"
+    },
     "2605.25874": {
       "short_zh": "多轮交互视频世界模型基准测试",
       "tags": "计算机视觉;视频生成;交互世界模型评估",
@@ -269,35 +342,30 @@
       "tags": "计算机图形学;三维重建;动态网格生成",
       "body_summary": "当前视频生成4D方法在复杂拓扑变化、透明材质等场景中效果不佳。\n我们通过改进三维生成框架与设计四维时序编码，实现了高质量动态网格生成。"
     },
-    "2605.25294": {
-      "short_zh": "几何感知图像流匹配",
-      "tags": "生成式模型;图像生成;流匹配",
-      "body_summary": "已有生成模型在流形约束下利用几何信息，但自然图像生成仍基于欧氏假设。\n我们提出自然图像位于超球面，并设计了两种球面流匹配方法，提升了性能。"
-    },
-    "2605.26105": {
-      "short_zh": "对抗流蒸馏用于视频生成",
-      "tags": "计算机视觉;视频生成;自回归视频模型蒸馏",
-      "body_summary": "自回归视频生成模型在长序列和交互应用中具有优势，但将高性能黑盒教师模型蒸馏到因果学生模型中仍面临挑战。\n提出对抗流蒸馏方法，通过同策略训练和正向过程流匹配，使学生模型能在自身生成分布下获得密集监督，无需依赖教师模型的内部信息或对齐。"
-    },
     "2605.23264": {
       "short_zh": "图像超分辨防失真方法",
       "tags": "计算机视觉;图像恢复;图像超分辨",
       "body_summary": "生成式图像超分辨方法常因频谱失准而产生伪影，影响重建忠实性。\n通过噪声谱着色及引入对抗样本，在Sobolev几何中优化生成流，以提升频谱一致性与结构保真度。"
+    },
+    "2605.26108": {
+      "short_zh": "奖励引导快速生成模型对齐",
+      "tags": "生成式人工智能;图像生成;快速扩散模型对齐",
+      "body_summary": "快速扩散模型难以对齐人类偏好\n提出两阶段框架统一分布匹配与强化学习以提升模型"
     },
     "2605.25604": {
       "short_zh": "动态优化多奖励强化学习",
       "tags": "强化学习;策略优化;多目标对齐",
       "body_summary": "强化学习是用大模型对齐人类意图与任务需求的主流方法，但现有方法难以稳定适配多奖励场景。\n提出动态方差自适应优势优化方法，依据目标奖励方差动态调整权重，提升了训练稳定性与模型效果。"
     },
-    "2605.23218": {
-      "short_zh": "为AI社会构建协调层",
-      "tags": "多智能体协调；人机协同系统；智能体协调协议",
-      "body_summary": "自主智能体正向社会基础设施层演进，其大规模协作面临协调瓶颈。\n本文提出基础协议，通过图结构统一异构实体、支持多方组织与事件协作，提供经济原语与监管保障。"
-    },
     "2605.24830": {
       "short_zh": "为个人智能体生成交互界面",
       "tags": "人机交互；对话系统；生成式用户界面",
       "body_summary": "随着个人智能体处理复杂用户任务的演进，静态纯文本交互已成为瓶颈。\n我们提出了Macaron-A2UI模型，通过大规模语料构建、基准测试和训练大参数模型，实现了智能体动态生成轻量可执行界面与自然语言的能力。"
+    },
+    "2605.23218": {
+      "short_zh": "为AI社会构建协调层",
+      "tags": "多智能体协调；人机协同系统；智能体协调协议",
+      "body_summary": "自主智能体正向社会基础设施层演进，其大规模协作面临协调瓶颈。\n本文提出基础协议，通过图结构统一异构实体、支持多方组织与事件协作，提供经济原语与监管保障。"
     },
     "2605.20342": {
       "short_zh": "并行视频工具调用强化学习",
@@ -324,20 +392,35 @@
       "tags": "多模态学习;多模态检索;密集多模态检索",
       "body_summary": "单向量检索器效率高但会丢弃细粒度信息，多向量方法需要训练且缺乏全局表征。\n提出SMART框架，通过隐层状态直接交互，无需训练即可提升现有单向量模型在多模态检索任务上的性能。"
     },
-    "2605.26086": {
-      "short_zh": "智能助手评测基准构建",
-      "tags": "智能系统与人工智能;智能代理与助手;个人数字助理评测",
-      "body_summary": "现有智能助手评测基准无法全面评估助手在真实、长期、多设备、多噪音的数字世界中的表现。本文提出了Claw-Anything基准，通过模拟用户数月活动、融合多设备交互和后台服务，并引入噪音和前瞻性任务，来评估智能助手在复杂环境下的表现，实验揭示了现有模型能力与理想助手的差距，并发布了数据生成工具。"
+    "2605.23081": {
+      "short_zh": "长上下文注意力高效量化方法",
+      "tags": "大语言模型加速;注意力机制优化;混合精度注意力计算",
+      "body_summary": "长上下文任务中，注意力计算成本高昂，现有4位量化方法在长序列上质量下降显著。\n提出ThriftAttention方法，通过少量关键块用FP16、其余块用FP4计算，以FP4的效率实现接近FP16的质量。"
     },
     "2605.25569": {
       "short_zh": "可控低光图像增强",
       "tags": "计算机视觉;图像增强;低光图像增强",
       "body_summary": "现有基于深度学习的低光增强方法受限于训练数据和单一增强目标，导致泛化能力和可控性不足。\n我们提出了ControlLight框架，通过构建大规模带连续光照强度监督的数据集，并引入错位感知加权流匹配损失，实现了对真实世界低光图像的可控、一致且泛化性强的增强。"
     },
+    "2605.25971": {
+      "short_zh": "智能体利用空闲时间主动学习",
+      "tags": "智能体;对话系统;主动推理与规划",
+      "body_summary": "传统智能体只在用户提问后才响应，浪费了交互间隔的空闲时间。\n提出ProAct架构，利用空闲时间预测用户需求并提前准备，在基准测试中显著提升了效率、降低了用户负担和幻觉率。"
+    },
+    "2605.26086": {
+      "short_zh": "智能助手评测基准构建",
+      "tags": "智能系统与人工智能;智能代理与助手;个人数字助理评测",
+      "body_summary": "现有智能助手评测基准无法全面评估助手在真实、长期、多设备、多噪音的数字世界中的表现。本文提出了Claw-Anything基准，通过模拟用户数月活动、融合多设备交互和后台服务，并引入噪音和前瞻性任务，来评估智能助手在复杂环境下的表现，实验揭示了现有模型能力与理想助手的差距，并发布了数据生成工具。"
+    },
     "2605.24117": {
       "short_zh": "评估经验到技能转化能力",
       "tags": "大语言模型智能体;技能学习;经验复用基准",
       "body_summary": "大语言模型智能体在解决任务时积累了丰富的经验，但尚不清楚这些经验能否提炼成可复用的程序性技能。\n作者构建了SkillEvolBench基准来诊断这一转化过程，发现当前智能体难以形成稳健的可复用技能，且提炼过程常丢失对后续任务有用的上下文信息。"
+    },
+    "2605.23986": {
+      "short_zh": "高效长记忆智能体系统",
+      "tags": "自然语言处理;智能体记忆系统;长时记忆维护优化",
+      "body_summary": "现有智能体记忆系统因粗粒度状态管理和顺序更新导致扩展性差、延迟高。\n提出了MemForest框架，通过并行块提取和分层时间索引MemTree，实现高效并发更新和局部维护，显著提升吞吐量和性能。"
     },
     "2605.26102": {
       "short_zh": "指令驱动多实例分割",
@@ -348,11 +431,6 @@
       "short_zh": "隐喻视频理解基准与方法",
       "tags": "多模态学习;视频理解;隐喻理解",
       "body_summary": "隐喻视频广泛存在但缺乏系统研究，阻碍多模态大模型高阶认知能力评估与应用。\n构建首个系统性隐喻视频理解基准，发现模型缺陷并提出知识图谱增强框架提升性能。"
-    },
-    "2605.23986": {
-      "short_zh": "高效长记忆智能体系统",
-      "tags": "自然语言处理;智能体记忆系统;长时记忆维护优化",
-      "body_summary": "现有智能体记忆系统因粗粒度状态管理和顺序更新导致扩展性差、延迟高。\n提出了MemForest框架，通过并行块提取和分层时间索引MemTree，实现高效并发更新和局部维护，显著提升吞吐量和性能。"
     },
     "2605.08129": {
       "short_zh": "定制多模态角色扮演",
@@ -369,15 +447,30 @@
       "tags": "自然语言处理;智能体与交互系统;工具使用智能体自进化",
       "body_summary": "现有大语言模型智能体的自我进化方法通常只单独调整策略或学习环境，导致两者发展不匹配。\n提出SEAL框架，通过收集失败轨迹诊断并联合优化环境接口与智能体策略，显著提升了小样本下的学习效率和泛化能力。"
     },
-    "2605.25971": {
-      "short_zh": "智能体利用空闲时间主动学习",
-      "tags": "智能体;对话系统;主动推理与规划",
-      "body_summary": "传统智能体只在用户提问后才响应，浪费了交互间隔的空闲时间。\n提出ProAct架构，利用空闲时间预测用户需求并提前准备，在基准测试中显著提升了效率、降低了用户负担和幻觉率。"
-    },
     "2605.26002": {
       "short_zh": "稀疏检索跨语言迁移方法",
       "tags": "自然语言处理;信息检索;跨语言稀疏检索",
       "body_summary": "稀疏检索器因英语中心结构阻碍多语言迁移\n用语义桥初始化目标词提升多语言检索性能"
+    },
+    "2605.25160": {
+      "short_zh": "模拟移动应用评测基准",
+      "tags": "人机交互;图形用户界面代理;移动GUI代理评测",
+      "body_summary": "现有移动GUI代理评测基准在真实性和任务复杂度上存在局限，未能有效评估复杂长程交互。\n构建了合成仿真基准SimuWoB，包含多样化任务与自动奖励，并通过实验揭示了当前代理的不足。"
+    },
+    "2604.13517": {
+      "short_zh": "多时距强化学习的策略优化",
+      "tags": "强化学习;时序信用分配;时距信号融合",
+      "body_summary": "强化学习中的时序信用分配是长期挑战，近期研究引入多时距信号到PPO算法中，但在复杂延迟奖励任务中可能导致算法病理问题。\n本文提出目标解耦架构：在Critic侧保留多时距预测以增强表征学习，在Actor侧严格隔离短期信号仅基于长期优势更新策略，在LunarLander-v2环境中取得显著性能提升。"
+    },
+    "2605.21085": {
+      "short_zh": "通信受限多智能体强化学习",
+      "tags": "强化学习;多智能体强化学习;带宽受限通信",
+      "body_summary": "多智能体强化学习依赖通信协作，但实际部署常面临严重带宽限制。\n提出统一带宽预算指标和通信与策略解耦架构，在受限通信下实现高性能。"
+    },
+    "2605.26099": {
+      "short_zh": "大语言模型睡眠学习提效率",
+      "tags": "自然语言处理;高效推理;长上下文处理",
+      "body_summary": "Transformer大模型处理长上下文时注意力效率低\n提出睡眠式巩固机制，将近期上下文转为持久快权重，并在睡眠时通过离线循环更新，提升模型在复杂任务上的推理能力。"
     },
     "2605.26095": {
       "short_zh": "像素级路面病害实例分割评估",
@@ -393,18 +486,25 @@
       "short_zh": "大型推理模型的自评机制探究",
       "tags": "自然语言处理;推理与问题求解;自评与自我纠正机制",
       "body_summary": "大型推理模型在推理中具有回溯和自验证能力，研究者假设其有效性能提升依赖于检测自身错误的“批判”能力。\n本文通过向模型推理链中植入错误，发现其存在无需显式修正即可得出正确答案的隐藏批判能力，识别出相关的批判向量，并通过实验证明利用该向量可提升模型性能。"
+    },
+    "2605.10988": {
+      "short_zh": "用弱监督方法定位日志异常条目",
+      "tags": "自然语言处理;日志分析;弱监督异常定位",
+      "body_summary": "日志异常检测对系统运维和安全至关重要，但大规模网络系统中日志数据海量，细粒度的实例级标注成本极高。\n提出LogMILP框架，仅使用粗粒度的包级标签，通过原型引导和反事实扰动一致性正则化，实现了包级检测和实例级定位。"
     }
   },
   "deep_analysis": {
     "2605.26089": "好的，我们先来看你提供的这篇论文的核心内容。我会用通俗易懂的方式，把它拆解成几个部分来解释。\n\n### (1) 这篇论文所在的任务是什么？\n\n*   **任务名称**：图像的生成与重建。\n    *   **具体一点**：这是关于如何用一种更聪明、更高效的方式，先将一张图片“压缩”成一段计算机能理解和操作的“代码”（这个过程叫**图像标记化**或**离散表示学习**），然后再用这段“代码”去**重建**原图，或者根据文字描述**生成**新的图片。\n*   **任务输入**：\n    *   对于**重建**任务：输入是一张普通的图片（比如一张苹果的照片）。\n    *   对于**生成**任务：输入是一段文字描述（比如“一张苹果的照片”）。\n*   **任务输出**：\n    *   对于**重建**任务：输出是重建后的图片，希望它和输入图片越像越好。\n    *   对于**生成**任务：输出是根据文字描述生成的一张新图片。\n*   **任务功能**：为图像生成模型（特别是基于**Transformer**的自回归模型）提供一个更好的“语言基础”。就像训练大语言模型需要先把单词变成数字（词元），这篇论文研究的是如何把图片变成一串更适合让Transformer模型去“阅读”和“书写”的数字序列。\n\n### (2) 这篇论文想解决什么问题？\n\n作者认为，之前主流的方法（称为**Patch-wise VQ**）存在两个“先天不足”的缺点：\n\n1.  **“字典”利用率低，导致图片信息丢失严重。**\n    *   **比喻**：好比我们有一本包含10万个单词的大字典（称为**码本**）来写文章。但旧方法只用到了其中几百个常用词，其他9万多个词都“死”了，从来不用。这导致能表达的意思非常有限，描述图片时就会丢失很多细节，重建的图片模糊或有错误。\n    *   **原因**：因为图片上有很多相似的小块（比如天空的蓝色块），用旧方法（按空间小块编码）会导致大量重复的编码，让模型只更新和用少数几个码本条目。\n\n2.  **图片的“词序”安排不合理，不适合自回归生成。**\n    *   **比喻**：写文章通常从左到右，顺序自然。但旧方法把图片切成网格（比如16x16的小块），然后按“之”字形（光栅扫描顺序）把这些小块排成一串。这个顺序是**人为强行规定**的，打乱了小块之间的自然空间联系（比如，第5个小块和第6个小块在图片上可能离得很远）。\n    *   **问题**：这导致用Transformer做“下一个词预测”时（自回归生成），模型很难学到合理的图片生成顺序，影响生成质量。\n\n### (3) 这篇论文的贡献是什么？\n\n作者提出了一个全新的思路，主要贡献有两点：\n\n1.  **提出了“通道级向量量化”（Channel-wise Vector Quantization, CVQ）**：\n    *   这是**核心创新**。它不再按“空间小块”来编码图片，而是按“特征通道”来编码。\n    *   **简单理解**：想象一个图像编码器（如VAE的编码器）会输出一个特征图，这个特征图有宽度、高度，还有“深度”（即通道数，比如512）。旧方法在宽度和高度上切小块。新方法（CVQ）认为，**每个通道（深度上的一个切片）本身就代表了一种全局的视觉信息**（比如，一个通道专门负责轮廓，一个通道专门负责红色，一个通道负责纹理细节）。CVQ就是把每个这样的通道特征向量离散化成一个编码。\n\n2.  **基于CVQ，提出了“通道级自回归生成”（Channel-wise Auto-Regressive, CAR）模型**：\n    *   既然图片被表示成**一串通道编码**，那么生成图片就像“画画”一样自然：先预测第一个通道的编码（画出大体轮廓和主色调），再预测第二个（增加一些形状和颜色细节），以此类推，直到预测完所有通道，得到一张细节丰富的完整图片。\n    *   这种“从粗到细”的生成顺序，更符合人类绘画和认知的逻辑。\n\n### (4) 论文的整体思路和模型结构\n\n**基模**：这篇论文的方法建立在两个经典组件之上：**VQ-VAE**（用于图像离散化/重建）和**Transformer**（用于自回归序列建模）。\n\n**整体流程（分两步走）：**\n\n**第一步：训练CVQ-VAE（学习如何“压缩”和“重建”图片）**\n1.  **输入**：一张图片。\n2.  **编码（Encoder）**：用一个卷积神经网络（CNN Encoder）把图片压缩成一个低维的、连续的特征图（比如形状为 `[H, W, C]`， C是通道数）。\n3.  **通道级量化（CVQ）**：这是关键步骤！\n    *   旧方法（Patch-wise VQ）：把这个特征图在 `H` 和 `W` 维度上切成 `H*W` 个 `1x1xC` 的小向量，每个小向量去码本里找最接近的条目，用其索引代替。\n    *   新方法（CVQ）：**沿着通道维度 `C` 来切**。把每个通道（形状为 `[H, W]` 的二维特征图）拉直成一个 `H*W` 维的长向量。然后，**每个这样的通道向量**去一个码本里找最接近的条目，用其索引代替。\n    *   **结果**：一张图片不再被表示为 `H*W` 个空间索引，而是被表示为 `C` 个通道索引。这 `C` 个索引就构成了图片的“离散序列表示”。\n4.  **解码（Decoder）**：根据这 `C` 个索引，从码本中取出对应的 `C` 个通道向量，重新组合成特征图，然后用一个CNN解码器将其上采样、重建回原始大小的图片。\n5.  **训练目标**：让重建的图片和原图尽可能像，同时让编码向量和码本条目尽可能接近。\n\n**第二步：训练CAR-Transformer（学习如何“生成”图片序列）**\n1.  **输入**：对于文本生成图像任务，输入是文本提示（如“一个苹果”）经过一个文本编码器（如T5）得到的文本特征。\n2.  **序列建模**：图片已经被CVQ-VAE表示成了长度为 `C` 的索引序列 `[idx_1, idx_2, ..., idx_C]`。\n3.  **自回归训练**：\n    *   模型（一个Transformer）的任务是：给定文本特征和前面已经生成的所有通道索引 `[idx_1, idx_2, ..., idx_t]`，预测下一个通道的索引 `idx_{t+1}` 是什么。\n    *   这个过程从 `t=0` 开始（只有文本），逐步预测出 `idx_1`, `idx_2`, ... 直到 `idx_C`。\n4.  **生成图片**：当Transformer生成了完整的 `C` 个通道索引后，把这些索引交给**第一步训练好的CVQ-VAE的解码器**，解码器就会把这些索引还原成一张完整的图片。\n\n**核心思路图示（对应你给摘要中的Figure 1右半部分）：**\n```\n文本 -> Transformer -> 通道索引序列 [轮廓, 主色, 细节...] -> CVQ-VAE解码器 -> 生成图片\n          (CAR)           (由粗到细)                         (重建)\n```\n\n### (5) 结果怎么样？\n\n根据摘要中给出的实验数据，作者的方法取得了很好的效果：\n\n1.  **在重建任务上（CVQ-VAE部分）**：\n    *   **解决了码本利用率低的问题**：实现了 **100%的码本利用率**，即使码本很大（超过16K个条目），所有条目都会被用到，没有“死码”。这说明信息保留得更完整。\n    *   **重建质量高**：相比传统的Patch-wise VQ方法，重建图片的质量（保真度）有显著提升。\n\n2.  **在生成任务上（CAR-Transformer部分）**：\n    *   在文本到图像生成任务中，取得了 **DPG分数86.7** 和 **GenEval分数0.79**。这两个都是评估生成图像质量和与文本对齐度的权威指标，分数越高越好。这个结果证明了他们提出的“通道级自回归生成”（CAR）范式是非常有效的。\n\n**总结一下**：\n这篇论文的核心洞察是——**改变图片离散化的“方向”**，从“横着切”（空间块）变为“竖着切”（特征通道）。这个简单的改变，一举两得：既让“字典”（码本）物尽其用，减少了信息损失；又为图片生成找到了一个更自然、更合理的“造句顺序”（从粗到细的通道序列），从而让基于Transformer的图像生成模型效果更好。这是一个非常巧妙且影响可能很深远的想法。",
-    "2605.26108": "这篇论文是关于**文本到图像生成模型加速与优化**的。\n\n**(1) 任务是什么？**\n*   **任务输入**：一段描述性文字（例如“一只戴着礼帽的猫在弹钢琴”）。\n*   **任务输出**：一张与输入文字相匹配的高质量图片。\n*   **任务功能**：将文本语义快速、高质量地转换成图像。\n\n**(2) 想解决什么问题？**\n当前最好的文生图模型（如Stable Diffusion, FLUX）生成一张图需要几十步的计算（迭代去噪），速度很慢。为了加速，一种常见方法是**知识蒸馏**：训练一个步数很少（例如4步）的“学生”模型，让它模仿需要很多步的“老师”模型的效果。但这面临两个难题：\n1.  **蒸馏不精确**：学生模型在中间步骤生成的是带噪的图片，很难稳定地学习老师模型的“想法”。\n2.  **缺乏人类偏好对齐**：蒸馏出来的学生模型可能只模仿了“形”，但生成图片的美观度、符合人类审美的程度可能下降。现有的用人类反馈强化学习（RLHF）来优化模型的方法，又没有很好地适配这种“前几步随机、最后一步确定”的快速生成过程。\n\n**(3) 贡献是什么？**\n*   **理论框架（RTDMD）**：提出了一个统一的公式，将“模仿老师（蒸馏）”和“满足人类偏好（强化学习）”两个目标自然地结合在一个训练目标里。\n*   **改进的蒸馏方法（AC-DMD）**：提出了一种更稳定的初始蒸馏方法，通过增加一个“一致性”约束，帮助学生模型在中间步骤的学习更可靠。\n*   **新的强化学习方法（混合策略梯度）**：针对快速生成模型的特点，设计了一种新的训练方法，能同时优化随机的前几步和确定的最后一步，并减少了训练波动。\n*   **优异的实验结果**：用该方法得到的4步模型，在多个测评基准上超越了之前的快速生成方法，甚至能媲美或超越步数多得多的大模型。\n\n**(4) 整体思路与流程**\n**核心思想**：分两步走，先打好基础（学会模仿），再精雕细琢（满足偏好）。\n\n**模型基础**：基于**流模型（Flow Model）**。你可以简单理解为一种更数学化的扩散模型，它通过一个确定的轨迹（ODE）将噪声变成图片。\n\n**整体流程（RTDMD）：**\n1.  **第一阶段：稳定蒸馏（AC-DMD）**\n    *   **输入**：预训练好的、步数很多的“老师”流模型 + 文本提示。\n    *   **过程**：\n        *   目标是训练一个步数很少（如4步）的“学生”模型。\n        *   关键是要训练一个“伪评分模型”，它用来指导学生模型在每一步应该怎么走，才能最终匹配老师模型的输出分布。\n        *   论文的改进在于：将整个时间轴分成几段，在每一小段内独立进行分布匹配。同时，增加一个“一致性”损失，让伪评分模型在不同步骤间的预测保持连贯，避免学习过程不稳定。\n    *   **输出**：一个已经能较好模仿老师、生成还不错图片的**4步学生模型**。\n\n2.  **第二阶段：偏好对齐（奖励倾斜的联合优化）**\n    *   **输入**：第一阶段得到的4步学生模型 + 人类偏好奖励模型（例如，给图片美观度、文字匹配度打分的模型）。\n    *   **过程**：\n        *   根据论文推导的理论公式，此时的训练目标包含两部分：**A. 继续模仿老师（保持多样性）** + **B. 最大化奖励（提高质量）**。\n        *   对于目标B，论文设计了**混合策略梯度**来优化学生模型：\n            *   对于**前3步（随机步骤）**：采用类似GRPO（一种RL算法）的方法，通过采样不同噪声来估计梯度，并创新性地使用了“子集GRPO”来降低估计的波动。\n            *   对于**最后1步（确定步骤）**：可以直接通过反向传播计算奖励对模型参数的梯度。\n        *   将这两部分梯度结合起来，共同更新学生模型。\n    *   **输出**：一个既保持了强大生成能力，又更符合人类审美的**最终版4步学生模型**。\n\n**(5) 结果怎么样**\n*   **非常出色**。论文在三个强大的基座模型（SD3-Medium, SD3.5-Medium, FLUX.2 4B）上进行了实验。\n*   **主要结论**：使用RTDMD方法得到的**4步模型**，在图像质量、审美偏好、与文本的符合程度等多个评测指标上，都达到了新的**最好水平**。\n*   **一个亮点**：他们蒸馏出的4步FLUX.2 4B模型，其综合表现甚至超过了需要50步的、参数量更大的FLUX.2 9B原版模型。这充分体现了该方法在**大幅提升速度的同时，显著提升质量**的有效性。",
     "2605.26115": "这篇论文《TriSplat：用于仿真的前馈式3D场景重建》是计算机视觉领域关于**3D场景重建**的工作。下面我用简单的语言为你解释核心内容：\n\n---\n\n### 1. 任务是什么？\n*   **任务输入：** 几张稀疏的（几张）、无姿态的（不知道拍摄角度）2D图像。\n*   **任务输出：** 一个由三角形组成的**3D网格模型**。\n*   **任务功能：** 从几张随意拍摄的照片中，直接、快速地预测出整个3D场景的几何结构，并且这个结构要足够好，能直接用于后续的物理仿真、机器人抓取等应用。\n\n### 2. 想解决什么问题？\n当前的主流方法（如基于高斯泼溅的模型）在从稀疏图像重建3D场景时，虽然渲染的图片质量很高，但存在一个核心问题：\n*   它们生成的“3D表示”（一堆高斯球）**不是真正的表面**，而是用于渲染的中间产物。\n*   如果想把这个结果用在游戏引擎（如Unity）、物理仿真软件（如NVIDIA Isaac Sim）或机器人规划中，**必须经过一个昂贵、耗时的后处理步骤**（比如TSDF融合、泊松重建）来提取出三角形网格。这个过程不仅慢，还会损失精度，破坏了“前馈式”（一次前向传播就出结果）的优势。\n\n**简单来说，这篇论文想解决的是：如何从一个稀疏图像的输入，直接、一步到位地生成一个高质量、能直接用于物理仿真的三角形网格，省去麻烦的中间转换步骤。**\n\n### 3. 贡献是什么？\n论文的核心贡献可以概括为三点：\n1.  **提出了“三角形泼溅”作为原生表示：** 直接用**三角形**作为渲染和表示的基本单元。这样，输出的“渲染图元”本身就是一个网格，可以直接导出，无需任何后处理。\n2.  **将三角形方向与几何结构锚定：** 没有让神经网络自由地学习三角形的朝向，而是**从预测的3D点云中计算法向量**，并用一个图像引导的模块进行细化。这为三角形提供了强烈的几何先验，使生成的表面更准确、更稳定。\n3.  **设计了渐进式表面锐化训练策略：** 提出了一套训练方法（包括使用单目深度/法线模型引导、逐步调整不透明度和模糊度等），让模型从一开始学习“软”的三角形表示，逐步锐化成清晰、明确的表面，从而能稳定地训练并最终提取出干净的网格。\n\n### 4. 整体思路与模型结构\n论文没有明确指出使用哪个“基模”，但其主干网络是一个基于Transformer或CNN的**图像编码器**。整体流程可以参照下图（图2）的思路来理解：\n\n**整体流程：**\n1.  **输入与特征提取：** 输入几张无姿态的RGB图像。一个**共享权重的图像编码器**（如ViT或CNN）分别对每张图片进行编码，提取特征。\n2.  **预测核心信息：**\n    *   **3D点图：** 网络预测每个像素在3D空间中的对应点位置。\n    *   **相机姿态与内参：** 同时估计每张输入图片的相机位置、朝向和焦距。\n    *   **外观属性：** 预测每个像素点的颜色、反照率等。\n3.  **构建三角形（关键步骤）：**\n    *   **计算几何法线：** 利用上一步预测的**3D点图**，通过局部点云拟合等方法，为每个点计算一个初始的“几何法线”。\n    *   **法线细化：** 将初始法线和图像特征一起输入一个**法线细化头**，得到一个更准确、与图像内容一致的“细化法线”。这个头在训练初期由一个现成的单目法线预测模型（“教师模型”）引导，以稳定训练。\n    *   **生成三角形：** 以每个像素点为中心，以其细化法线为“上方向”，构建一个**局部坐标系**。在这个坐标系里，放置一个标准化的三角形模板，然后根据预测的**缩放**、**旋转**（围绕法线微调）和**位置**参数，实例化出一个具体的3D三角形。每个三角形还带有预测的**颜色**、**不透明度**和**模糊度**。\n4.  **可微渲染与训练：**\n    *   将所有图片预测出的所有三角形汇集起来，形成一个“三角形云”。\n    *   使用一个**可微分的三角形渲染器**，从任意新视角渲染这个三角形云，得到RGB图像、深度图等。\n    *   通过比较渲染结果与真实图片（在训练时已知），计算损失函数，反向传播更新整个网络参数。训练中会逐步调低三角形的“模糊度”，让它们从软变硬，最终形成清晰的表面。\n5.  **输出：** 训练完成后，进行一次前向传播。将得到的三角形云直接导出为标准网格文件（如.obj或.ply），即可用于物理仿真、游戏引擎等下游任务。\n\n### 5. 结果怎么样？\n论文在RealEstate10K和DL3DV等标准数据集上进行了验证：\n*   **渲染质量：** 在生成新视角图片的任务上，TriSplat达到了与当前最好的前馈式高斯泼溅模型相近甚至更好的视觉质量。\n*   **几何精度：** 在表面重建的准确性（如深度误差、法线误差）上，**显著优于**高斯泼溅基线模型。\n*   **仿真就绪性（核心优势）：** 当把所有方法生成的表示都转换成三角形网格进行渲染对比时，高斯泼溅方法由于需要经过有损的TSDF融合后处理，**质量大幅下降**。而TriSplat**几乎没有损失**，因为它输出的本就是网格。\n*   **效率：** 保持了前馈式模型的高效性，一次前向传播即可得到结果，避免了每场景优化的耗时。\n\n**总结：** 这篇论文通过巧妙地用三角形作为基础表示，并将其方向与预测的几何结构强绑定，成功实现了一个“仿真就绪”的3D场景重建模型。它打通了从稀疏图像到可直接使用的3D网格的快速通道，在保持高质量渲染的同时，显著提升了重建结果的几何保真度和实用性。",
     "2605.25449": "我来为你详细解释一下这篇《Pantheon360》论文。你可以把它理解为“**用AI从几张全景照片生成可控的3D视频**”的技术。\n\n---\n\n### (1) 任务是什么？\n*   **任务输入**：\n    1.  **一个360°全景图像**，或者**几张（稀疏的）360°全景图像**。\n    2.  一个**用户想看的相机运动轨迹**（比如“相机先向左转，然后向前飞”）。\n*   **任务输出**：\n    一段**高分辨率、逼真、且完全按照用户指定轨迹运动的全景视频**。\n*   **任务功能**：\n    相当于从一个真实世界的“快照”（全景图），生成一个你可以**自由探索**的、动态的3D视频世界。这就像为现实场景快速创建一个“数字孪生”。\n\n---\n\n### (2) 想解决什么问题？\n现有的视频生成AI模型在生成3D一致的长视频时，面临几个核心难题：\n1.  **视野狭窄**：普通视频模型（“透视视频生成”）的视野很窄（比如人的视角）。为了看全一个房间，它需要生成很长的视频或很多角度的视频。由于一开始看不到整个场景，模型在生成后面部分时只能“猜”，导致视频前后**不一致、物体变形或消失**（想象一下游戏里穿模）。\n2.  **控制不精确**：现有的360°全景视频生成模型，要么只能进行简单的控制（比如“向前走”），要么只能在简单的合成数据上测试。它们无法精确地**按照用户画出的任意复杂轨迹**来生成视频。\n\n这篇论文的核心观点是：**直接用360°全景视频来生成，是解决上述问题的更优方案**。因为360°图从一开始就看到了整个环境的全貌，信息更完整。但难点在于，如何让AI模型理解全景图的扭曲几何，并实现精确的轨迹控制。\n\n---\n\n### (3) 贡献是什么？\n这篇论文主要有三个核心贡献：\n1.  **提出了Pantheon360框架**：这是一个全新的、可控的360°视频生成框架，能够从极少的全景输入，生成高质量、3D一致的全景视频。\n2.  **引入了“3D缓存”概念**：这是论文的**核心创新**。他们用一个现成的强大3D基础模型（如Luma AI的模型），根据输入的全景图快速重建出一个粗糙的**3D点云**。这个点云就像整个场景的“几何骨架”。\n3.  **“几何”与“纹理”解耦**：他们将复杂的3D几何推理任务（保证视频中物体位置、形状不变）交给了“3D缓存”这个专门的模块，而让视频生成模型（扩散模型）专注于自己最擅长的**生成逼真纹理和细节**。这样分工明确，效果更好。\n\n---\n\n### (4) 整体思路与模型结构\n**核心思路**：**“先搭骨架，再贴皮肤”**。\n\n**基模**：他们使用了一个现成的、强大的**3D重建基础模型**（论文中提到了类似Luma AI、PI3、VGGT的模型）来构建“3D缓存”。视频生成部分则基于一个**扩散模型**（如Stable Video Diffusion）进行微调。\n\n**整体流程**（对照“方法”部分的流程图）：\n1.  **输入与3D缓存重建**：\n    *   用户提供**一张或几张稀疏的360°全景图**作为输入。\n    *   用一个现成的**3D基础模型**，快速将这些全景图重建为一个粗糙的**3D点云场景**。这个点云就是“3D缓存”，它记录了场景的基本几何结构。\n2.  **几何视频渲染**：\n    *   用户提供一个想要的**相机运动轨迹**。\n    *   计算机图形学方法登场：用这个轨迹作为相机路径，去**渲染**上一步得到的3D点云。\n    *   渲染出来的是一段**只有几何形状、没有逼真纹理的“骨架视频”**，论文里叫 `V_geo`。这段视频已经保证了3D一致性（因为是基于同一个3D点云渲染的）。\n3.  **条件生成与融合**：\n    *   将上一步的几何骨架视频 `V_geo` 和输入全景图的**语义特征**一起，作为**条件**，输入给一个**微调过的视频扩散模型**。\n    *   这个扩散模型的工作是：“看着这个几何骨架，还有输入图的风格，生成逼真的皮肤（纹理）贴上去”。\n    *   论文还提到了一个“双锚点潜在融合”技术，用于处理当输入是**两张间隔较远的全景图**时，能更好地在它们之间生成平滑的过渡视频。\n4.  **输出**：\n    *   扩散模型最终输出一段**高保真、纹理逼真、且严格遵循用户轨迹的360°全景视频**。\n\n**简单比喻**：就像做动画。先由3D模型师（3D基础模型）用粘土捏出角色和场景的粗略模型（3D缓存）；然后动画师（渲染）按照剧本（相机轨迹）摆出这个粗略模型的动作（`V_geo`）；最后由渲染师（扩散模型）为这个动画上色、打光，做出电影级的逼真画面。\n\n---\n\n### (5) 结果怎么样？\n根据论文“实验”部分的描述，效果非常出色：\n\n1.  **质量与一致性领先**：\n    *   在**从单张360°图生成视频**的任务上，Pantheon360在视觉质量和3D一致性上**大幅超过**所有现有的视频生成模型（无论是普通视角的还是360°的）。\n    *   在**从稀疏多张360°图生成视频**的任务上，同样表现最佳。\n\n2.  **实现精确控制**：能够完美地跟随用户定义的任意复杂相机轨迹（如旋转、前进、曲线运动），而之前的360°生成模型做不到这么精细的控制。\n\n3.  **强大的应用展示**：\n    *   **街景视频合成**：可以将谷歌街景中几张离散的全景图，无缝地“缝合”成一段流畅的驾驶视频。\n    *   **视频稳定**：可以将手持拍摄的抖动全景视频，处理成非常平滑稳定的专业级视频。\n    *   **新颖视图合成**：给定两个不同角度的全景图，能生成中间所有角度的视图，过渡自然。\n\n4.  **消融实验有效**：论文通过实验证明，拿掉“3D缓存”这个核心组件后，生成视频的3D一致性会急剧下降，验证了其关键作用。\n\n**总结**：这篇论文提出了一种巧妙且有效的方法，通过引入“3D缓存”将几何与生成解耦，首次实现了对真实世界360°视频的**高精度、可控生成**，在质量和应用性上都迈出了一大步，为构建动态数字孪生世界提供了强有力的工具。",
+    "2605.23889": "好的，没问题！我会用尽量简单、清晰的语言为你梳理这篇论文。\n\n### (1) 任务是什么？\n\n这篇论文解决的任务是 **“在线/流式3D重建”**。\n\n*   **任务输入**：一个持续、实时输入的**视频流**（比如机器人或自动驾驶汽车摄像头的连续画面）。\n*   **任务输出**：在观看视频的同时，实时**估计每一帧的相机位姿（位置和朝向）**，并**重建出对应的3D场景几何结构**（比如点云或深度图）。\n*   **任务功能**：就像给一个机器人或汽车装上能“即时”理解周围3D环境的眼睛，它一边走一边就能知道“我在哪”、“我周围是什么样子”，并且**不能看未来的画面，也不能使用无限的内存**。\n\n### (2) 想解决什么问题？\n\n现有的方法在处理**非常长**的视频序列（比如几千上万帧）时，表现会变差。主要问题有：\n*   **漂移 (Drift)**：随着时间推移，估计的相机轨迹会越来越偏离真实位置。\n*   **抖动 (Jitter)**：位姿估计不稳定，前后帧之间乱跳。\n*   **崩溃 (Collapse)**：重建出的3D场景尺寸变得混乱甚至失效。\n\n作者认为，这些问题的根源在于**现有模型处理历史信息的方式不对**。在3D重建中，不同类型的信息“寿命”不同：\n*   **短寿信息**：比如两帧之间看到的某个角点匹配，过几帧可能就看不见了。\n*   **长寿信息**：比如整个场景的尺度、大的结构（一面墙、一条路），这些信息应该被长久记住。\n\n但现有模型要么**一刀切地忘记**（如滑动窗口），要么**不分好坏全记住**（如因果注意力），导致有用的长寿信息被过早丢弃，或者无用的短寿信息污染了长期记忆。\n\n### (3) 贡献是什么？\n\n1.  **提出了一个新视角**：将流式3D重建看作一个“**证据影响力核**”问题。简单说，就是给不同时间、不同类型的几何证据（信息）赋予不同的“影响力权重”。这个视角统一解释了之前方法失败的原因（硬截断、注意力集中在开头几帧等）。\n2.  **提出了新模型 HorizonStream**：一个专门为长序列流式3D重建设计的Transformer模型。它的核心是**分解**了上述的“影响力核”：\n    *   **几何线性注意力**：负责**长期、多时间尺度**的信息传播，学习不同通道（信息类型）的“遗忘率”，让重要信息得以保留。\n    *   **几何局部注意力**：负责**短期、局部**的3D特征匹配，确保当前帧能准确对齐到最近的几帧。\n    *   **度量读出令牌**：从一个稳定的“长期记忆”子空间中，直接读出**稳定的相机位姿和场景尺度**。\n3.  **展示了强大的长序列泛化能力**：模型只用**48帧**的短视频片段训练，但在测试时能稳定处理**超过1万帧**的极长序列，且内存恒定、速度线性增长，性能超越所有现有的流式方法。\n\n### (4) 整体思路与模型结构\n\n**基模 (Base Model)**：本文的模型是基于 **Transformer 架构**构建的，但进行了重大改造以适应流式3D任务。\n\n**整体思路**：将“如何处理历史信息”这个核心问题分解为两个子问题：**“跨窗口的长期传播”** 和 **“窗口内的局部匹配”**。模型相应地由两个核心模块组成。\n\n**流程**（结合论文图示理解）：\n\n1.  **输入**：当前帧图像 `I_t` 以及一个**有界的、固定大小的历史状态**（这是一个循环状态，大小固定，不随序列变长而增长）。\n2.  **第一步：几何局部注意力 (处理“短期”)**：\n    *   将当前帧 `I_t` 和历史状态中最近的一些帧（一个局部窗口）的特征一起输入。\n    *   这个模块像一个“局部匹配器”，在短时间窗口内寻找 `I_t` 和之前几帧之间的3D对应关系（比如同一个3D点在不同画面中的投影）。\n    *   它使用了**时空旋转位置编码**，让模型能理解特征点在3D空间和时间上的相对关系。\n    *   它还包含一个“可靠性门”，能过滤掉不可靠的匹配，避免错误信息进入后续流程。\n3.  **第二步：几何线性注意力 (处理“长期”)**：\n    *   这是模型的关键。它接收上一步处理后的特征。\n    *   它维护一个**循环的几何状态**（可以理解为一个不断更新的长期记忆库）。\n    *   对于这个状态里的每一个“信息通道”（可以想象成存储不同类型几何证据的抽屉），模型都学习了一个**指数衰减率**。\n    *   **新信息进来时，会与旧状态按衰减率融合**：重要的信息（衰减率低）会被长期保留；不重要的信息（衰减率高）会很快被遗忘。\n    *   这样，模型就实现了**有选择、有控制**的长期信息传播，避免了“全记住”的负担和“全忘记”的损失。\n4.  **输出**：\n    *   **更新的循环状态**：作为下一帧的“历史状态”输入，如此循环往复。\n    *   **度量读出**：从那个稳定的、经过长期传播的几何状态中，专门有一些“读出令牌”负责提取信息，直接预测出当前帧**精确的6自由度相机位姿（旋转和平移）** 以及**场景的深度图（3D几何）**。这保证了输出的尺度是稳定、全局一致的。\n\n### (5) 结果怎么样？\n\n论文在多个标准数据集（如KITTI，以及一个更长的合成数据集VBR）上进行了测试，结果非常出色：\n\n*   **长序列稳定性**：如图1所示，随着序列长度增长，其他方法的误差（ATE）会急剧上升（漂移、崩溃），而 **HorizonStream 的误差保持稳定，直到1万帧以上**。\n*   **性能领先**：在相机位姿估计和深度预测的精度上，HorizonStream 均超越了所有现有的**流式（在线）3D重建方法**。\n*   **效率高**：由于使用了循环状态和线性注意力，其内存消耗是恒定的（`O(1)`），计算时间随序列长度线性增长（`O(N)`），非常适合实际部署。\n\n**总结一下**：这篇论文就像是为“在线3D重建”这个任务设计了一个拥有**聪明记忆系统**的模型。它知道哪些信息该记久一点（比如路有多宽），哪些信息看一眼就可以忘（比如刚才飞过去一只鸟），从而在超长的任务中依然能保持稳定、精准的3D感知能力。",
+    "2605.26105": "好的，没问题。我们来用简单的语言梳理一下这篇论文。你可以把它想象成一个“师傅带徒弟”的故事。\n\n### 1. 任务是什么？\n*   **任务功能**：**视频生成**。让AI模型根据一段文字描述（提示词），生成一段对应的短视频。\n*   **任务输入**：一段文本提示词，例如“一只小猫在草地上追蝴蝶”。\n*   **任务输出**：一个符合描述的视频片段。\n\n这篇论文特别关注一种叫 **“自回归”** 的视频生成模型。这类模型的特点是：生成视频时，像人写字一样，从左到右、一帧一帧地生成。先生成第一帧，然后根据第一帧去生成第二帧，再根据前两帧生成第三帧…… 这种模型的好处是效率高、适合生成很长的视频，也容易和用户交互。\n\n### 2. 这篇论文想解决什么问题？\n**核心问题：如何让一个“笨学生”（自回归模型）学会一个“牛师傅”（强大但复杂的黑盒模型）的本领？**\n\n具体来说，有三个难点：\n1.  **黑盒师傅**：“牛师傅”（比如Sora这类顶级视频模型）往往只开放一个“接口”——你给它一个提示词，它给你一个完整的视频。你看不到它内部是怎么思考的（比如中间步骤、分数、网络结构），更没法直接复制它的“大脑”。\n2.  **学习方式不匹配**：传统的“模仿学习”方法是：师傅（在离线数据上）做一堆示范，学生照着练。但问题是，学生自己生成时，会犯一些小错误，这些错误会累积起来，导致它后面的生成越来越偏离师傅的轨道。用论文里的术语说，这叫 **“离策略”** 学习，效果不好。\n3.  **反馈太稀疏**：就算拿师傅生成的视频和学生生成的视频对比，也只能给一个整体的“好/坏”评分。但学生内部是一个复杂的、逐步去噪生成的过程。一个“坏”的最终视频，根本不知道是第几步去噪、对哪一帧的操作出了问题。这就好比老师只告诉你“这次考试不及格”，却不告诉你哪道题做错了，学生很难进步。\n\n### 3. 这篇论文的贡献是什么？\n论文提出了一个叫 **“对抗性流蒸馏”** 的新方法（AFD），核心贡献是：\n*   **解决了“黑盒+自回归”的蒸馏难题**：不需要知道师傅模型内部的任何结构或中间信息，只需要它最终生成的视频。\n*   **实现了“在策略”学习**：让学生在自己“犯错”的路径上（即它自己生成的视频轨迹）获得反馈并改进，避免了错误累积。\n*   **将稀疏的“视频级”反馈，变成了密集的“去噪步级”指导**：通过一个巧妙的机制，把“这个视频好不好”这个整体评价，分解成对学生模型每一步去噪操作的精细指导，让学生知道具体该怎么调整。\n\n### 4. 论文的整体思路和流程\n我们可以把AFD想象成一个 **“自我比赛 + 录像复盘分析”** 的过程。\n\n**模型结构/参与方**：\n*   **学生模型**：一个自回归的视频生成模型（论文中用了两种不同的自回归家族）。它的任务是学习。\n*   **教师模型**：一个强大的黑盒视频生成模型（如Sora）。它的角色是“标准答案”提供者，不参与训练。\n*   **判别器**：一个额外训练的小型神经网络，任务是学会区分“教师生成的视频”和“当前学生生成的视频”。\n\n**整体流程（看图理解）**：\n假设我们有100个不同的提示词（比如“冲浪”、“跳舞”）。\n\n1.  **第1步：生成对比样本**。\n    *   把这100个提示词，**同时**送给教师模型和学生模型。\n    *   教师模型生成100个“优质视频”。\n    *   学生模型（用自回归方式）生成100个“当前水平视频”。\n    *   现在，对于每个提示词，我们都有了一对（教师视频，学生视频）。\n\n2.  **第2步：训练“火眼金睛”的判别器**。\n    *   用这100对视频来训练判别器。训练目标是：给定一个提示词和对应的视频，判别器能准确判断这个视频是“教师出品”还是“学生出品”。\n    *   训练完成后，这个判别器就具备了评估“一个视频有多像教师风格”的能力。它会输出一个分数，分数高代表更像教师。\n\n3.  **第3步：给学生模型“录像复盘”**。\n    *   关键来了！我们不是直接把判别器的分数当奖励发下去，而是用这些分数来**重构训练信号**。\n    *   我们把**学生自己生成的那些视频**拿出来，用学生模型自己的加噪流程，给这些视频的每一帧、在每一个去噪时间步，都人为地加上一些噪声，制造出很多“中间状态”。\n    *   然后，我们问：如果在某个中间状态，学生模型按照它**当前**的方式去噪，会得到最终视频A；如果它换一种方式去噪，会不会得到一个更像教师风格的视频B？\n    *   判别器的分数在这里起作用了：它告诉我们视频A和B哪个更好。**AFD的核心技巧是，利用这个“好/坏”比较，来直接修正学生模型在那些“中间状态”应该预测的去噪方向（即“流场”）**。简单说就是：“你看，在同样的岔路口，往左走（当前做法）得了低分，往右走（更好的做法）得了高分，那你以后在这个路口就学着往右走吧。”\n    *   这个修正是在学生模型**自己的**生成路径（即“在策略”数据）上进行的，并且指导落到了每一个具体的去噪步骤上，因此非常精准。\n\n4.  **第4步：迭代优化**。\n    *   学生模型根据第3步的指导更新参数，变得强了一点。\n    *   回到第1步，用更新后的学生模型生成新的视频，再训练新的判别器（因为学生变了，判别器也得更新才能分辨），然后继续“复盘”。\n    *   如此循环，学生的水平就越来越接近教师。\n\n### 5. 结果怎么样？\n根据论文中的实验：\n*   **主实验**：用AFD方法训练后的自回归学生模型，在多个视频生成评测集（特别是那些关注**物体运动、物理合理性**的数据集，如VideoPhy-2）上，性能得到了**一致且显著的提升**，同时保持了良好的整体视频质量。\n*   **消融实验**：证明了AFD中两个设计至关重要：\n    1.  **“在策略”学习**：比传统的“离策略”模仿学习效果好得多。\n    2.  **“前向过程信用分配”**：即把视频级反馈分解到每一步去噪操作的技术，比直接用视频分数做强化学习更有效。\n\n**总结一下**：这篇论文就像发明了一套高效的“武术教学法”，让一个只知道展示完整招式的宗师（黑盒教师），能教出一个虽然学习方式不同（自回归）、但能得其精髓、且动作扎实（运动物理合理）的徒弟。这套方法实用性强，为将Sora等顶级闭源模型的能力“下放”到更轻量、更易部署的自回归模型上，提供了一条可行的技术路径。",
+    "2605.23699": "好的，我们来用简单的语言拆解一下这篇论文《CRONOS: Benchmarking Counterfactual Physical Consistency in Video Models》。\n\n### (1) 论文所在的任务是什么？\n*   **任务名称**：视频生成/视频预测，更具体地说，是**视频生成模型的评估与评测**。\n*   **任务输入**：一个视频的**开头几帧**（比如1秒的视频片段）。\n*   **任务输出**：模型根据开头几帧，**预测并生成后续发生的视频**。\n*   **任务功能**：测试和理解视频生成模型是否真的“理解”了物理世界，还是只是在模仿数据中的视觉模式。这篇论文的核心是**做一个“测试卷”（基准测试）**来考这些模型，而不是提出一个新模型。\n\n### (2) 论文想解决什么问题？\n研究人员发现，现在的视频生成模型虽然能生成看起来很真实的视频，但这可能只是“表面功夫”——它们可能只是记住了大量视频数据中的**视觉关联**（比如“球”通常出现在“地上”），而没有学到背后的**因果物理规律**（比如“球被撞了会怎么飞”）。\n\n这就引出一个核心问题：如果一个模型的预测是建立在真正的物理理解上，那么即使我们**改变一些不重要的视觉因素**（比如换个角度看，或者把球涂成蓝色），它对同一物理事件的预测结果也应该保持**逻辑一致**。论文把这种能力叫做**反事实物理一致性**。\n\n**简单来说，论文想解决的问题是**：我们没有一个好方法来系统性地测试视频模型是否真的学到了物理规律，还是只是个“视觉模仿秀”。现有的测试方法大多是给一个固定场景，看模型预测得好不好，但这样无法判断模型是否稳定、是否理解了本质。\n\n### (3) 论文的贡献是什么？\n这篇论文的主要贡献是创建了一个**新的、系统化的评测基准**，叫做 **CRONOS**。\n\n1.  **提出了“反事实物理一致性”这个核心评估目标**：明确要测试模型在视觉条件变化下的预测稳定性。\n2.  **构建了一个高质量、可控的数据集**：使用虚幻引擎（Unreal Engine）这个游戏引擎来生成视频。这样做的好处是：\n    *   **完全可控**：可以像做实验一样，精确地只改变一个变量（比如**只换摄像机视角**），而保持物理事件（比如碰撞）完全不变。\n    *   **真实感强**：生成的视频足够逼真，可以用于测试现有的先进视频模型。\n3.  **设计了系统性的干预维度**：论文从四个角度来“改变”输入视频的开头：\n    *   **视角**：从不同角度看同一个事件。\n    *   **场景**：把事件放在不同的背景环境里。\n    *   **物体类别**：用不同种类的物体（比如用方块代替球）进行同样的物理互动。\n    *   **物体外观**：只改变物体的颜色或纹理。\n4.  **对现有主流开源视频模型进行了全面的“体检”**：用CRONOS测试了多个模型，发现了它们普遍存在的弱点（比如模型预测质量受视角影响非常大），为未来改进模型指明了方向。\n\n### (4) 论文的整体思路与流程\n这篇论文是**评测方法论**，不是提出新模型，所以没有“模型结构”。它的核心是一个**评测流程**，可以看作一个“实验装置”。\n\n**整体思路**：\n> 造一个“实验室环境”（虚幻引擎） → 设计多组“对照实验”（系统性的视觉干预） → 把要评测的模型当成“被试”放进去测试 → 用一套客观指标和人工评价来给模型的“物理理解能力”打分。\n\n**评测流程（照着流程图理解）**：\n1.  **步骤一：定义物理事件**。在虚幻引擎中，设定好三种基本的物理互动事件：**碰撞**、**滚动/下落**、**遮挡与重现**。\n2.  **步骤二：生成“原始”视频**。对每个事件，用引擎生成一个视频片段，记录下真实的物理过程。这就是“标准答案”。\n3.  **步骤三：进行系统干预（关键步骤）**。对于同一个物理事件，保持其核心参数（力的大小、方向、初始位置等）不变，只改变以下四方面之一来生成新的“开头视频”：\n    *   **换视角**：从正面、侧面、俯视等角度看。\n    *   **换场景**：把事件搬到沙漠、雪地、室内等不同背景。\n    *   **换物体**：把碰撞的球换成方块或圆柱。\n    *   **换外观**：把红色的球涂成蓝色或绿色。\n4.  **步骤四：模型预测**。将这些经过不同干预的“开头视频”输入到要评测的**视频生成模型**（论文中测试了如 Stable Video Diffusion, Sora 的开源复现版等）中，让模型根据开头预测后续几秒会发生什么。\n5.  **步骤五：评估与比较**。\n    *   **客观指标**：将模型生成的视频与步骤二中的“标准答案”视频进行比较。不是比像素是否一模一样（因为视角都变了），而是比一些**物理一致性指标**，比如：\n        *   **物体运动轨迹**是否合理？\n        *   **物体形状**在运动中有没有不合理地变形？\n        *   **背景**是否稳定（有没有不该动的地方乱动）？\n    *   **人工评价**：请人来判断模型生成的视频在物理上是否合理、连贯。\n    *   **核心分析**：比较同一个物理事件，在不同干预下（比如只是视角变了），模型的预测质量是否发生了不应有的剧烈波动。如果波动很大，说明模型没有抓住物理本质，只是对特定视觉输入敏感。\n\n### (5) 结果怎么样？\n论文对多个先进的开源视频生成模型进行了测试，得到了几个关键且清晰的结论：\n\n1.  **普遍存在反事实物理不一致问题**：所有被测试的模型都未能完全通过CRONOS的考验。它们的预测质量会**显著地受到外观、场景、特别是视角变化的影响**。\n2.  **视角变化是最大挑战**：模型对于**同一个物理事件，仅仅因为观察视角不同，就会生成质量差异很大、甚至物理上不合理的预测**。这说明模型严重依赖从训练数据中学到的特定视角下的模式，而没有建立一个视角不变的3D物理世界理解。\n3.  **模型大小不是万能药**：增大模型参数规模（scale up）并没有从根本上解决这个问题。大模型可能在视觉质量上更好，但在物理一致性这个核心能力上，并没有比小模型表现出质的飞跃。\n4.  **提供了具体的诊断工具**：CRONOS不仅能给出“模型好不好”的总体评价，更能**精确地指出模型在哪一类干预下表现最差**（例如，在“遮挡与重现”事件中换物体类别时表现糟糕），为研究人员改进模型提供了明确的“诊断报告”。\n\n**总结一下**：这篇论文像是一位严厉的物理老师，设计了一套非常严谨的考题（CRONOS），来考一考目前尖子生（视频生成模型）们的“真功夫”。结果发现，这些学生虽然画画（生成画面）很棒，但物理基础并不扎实，换个角度出题（视角干预）就露馅了。这项工作为未来打造真正理解物理世界的AI模型设定了一个清晰的评估目标。",
+    "2605.25294": "好的，没问题。我们来像聊天一样，把这个论文的核心内容捋清楚。\n\n---\n\n### **（1）这篇论文所在的任务是什么？**\n\n*   **任务名称：** 图像生成。\n*   **任务输入：** 随机噪声（比如一个从高斯分布里随机采样的向量）。\n*   **任务输出：** 一张逼真的、有语义内容的自然图像。\n*   **任务功能：** 它属于**生成模型**，目标是学习训练数据（比如猫、狗、风景等图片）的分布规律，然后能够从随机噪声中“变”出符合这个规律的新图片。\n\n### **（2）这篇论文想解决什么问题？**\n\n现有的图像生成模型（如扩散模型、流匹配模型）都默认在一个**欧几里得空间**里工作。简单来说，就是把图片的每个像素（或在潜在空间里的每个特征）当成一个独立的坐标，用我们熟悉的“直线距离”来衡量两张图片的差异。\n\n**论文认为这不够好。** 它提出一个问题：**自然图像本身是不是有更合适的“内在几何结构”** ？比如，我们的大脑看图片时，是不是更关注图片的“方向”或“模式”，而不是每个像素的绝对亮度值？如果能找到并利用这种结构，模型可能会学得更快、生成质量更高、也更“聪明”。\n\n### **（3）这篇论文的贡献是什么？**\n\n论文的主要贡献有两点，一个来自**观察**，一个来自**方法**：\n\n1.  **一个核心观察（发现）：** 作者通过实验发现，自然图像（无论是在原始的RGB像素空间，还是在像Stable Diffusion用的那种经过压缩的“潜在空间”里）的**语义信息主要编码在“方向”上**。\n    *   **什么意思？** 把每张图片数据看成一个高维向量，它的“方向”（即单位向量指向哪里）决定了它是什么内容（猫还是狗）。\n    *   它的“长度”（即向量的模长，可以粗糙地理解为整体亮度/能量）对内容影响很小，而且**所有图片的模长都差不多**，可以用数据集的平均值来近似。\n    *   所以，**可以把所有图片都投影到一个“超球面”上**（想象成一个高维的球面），球的半径就是平均模长。投影后的图片，人眼几乎看不出区别（如上图所示），但模型的数学处理对象就从整个空间变成了一个球面。\n\n2.  **两个新方法：** 基于上述观察，论文提出了两种利用球面几何的流匹配生成模型：\n    *   **SOT-CFM（球形最优传输条件流匹配）：** 在现有的最优传输流匹配方法中，把计算两点间距离的“欧氏距离”换成“角度距离”（球面上两点间的最短弧长）。这更符合数据的几何特性。\n    *   **SFM（球形流匹配）：** 更激进的方法。直接在球面上定义整个生成过程。先把噪声和目标图片都投影到球面上，然后在球面上找最短的路径（测地线）来学习如何把噪声“流”成目标图片。\n\n### **（4）论文的整体思路与模型流程**\n\n**核心思路：** “既然图片的本质信息在方向上，那我们就专门在球面（方向的空间）上学习生成模型。”\n\n**基模（基础模型）是谁？**\n论文的方法是建立在 **Flow Matching（流匹配）** 框架之上的。你可以把流匹配理解成扩散模型的一个更高效的“表亲”，它也是学习一个从噪声到数据的连续变换过程（一个“流”）。\n\n**整体流程（以SFM为例）：**\n\n1.  **输入准备（预处理）：**\n    *   有一堆训练图片。\n    *   用自编码器（比如VAE）把每张图片压缩成一个低维的“潜在向量” `z`。这是现代图像生成模型的常见做法，为了降低计算量。\n    *   **关键一步（几何化）：** 计算所有训练图片潜在向量的平均模长 `R`。然后把每张图片的潜在向量 `z` **投影**到半径为 `R` 的超球面上，得到 `z_proj`。此时，所有训练数据都躺在这个球面上。\n\n2.  **训练阶段（学习球面上的“流”）：**\n    *   从球面上的一个随机点（噪声）`x0` 和 一个球面上的真实数据点 `z_proj` 开始。\n    *   在球面上，连接 `x0` 和 `z_proj` 的最短路径不是直线，而是一段**弧（测地线）**。论文会计算这条弧在起点 `x0` 处的“切线方向” `v`（这就是目标流向量）。\n    *   训练一个神经网络（比如一个U-Net结构的模型），输入是球面上的某个点 `xt` 和时间 `t`，让它去**预测**这个目标切线方向 `v`。\n    *   训练目标就是让神经网络的预测和真实的 `v` 尽可能接近。这样，网络就学会了在球面上如何正确地“推动”一个点走向目标。\n\n3.  **生成阶段（从噪声到图片）：**\n    *   从一个随机噪声向量开始，先把它投影到训练时用的那个半径为 `R` 的球面上，作为起点 `x0`。\n    *   使用训练好的神经网络，从 `x0` 开始，沿着网络预测的方向，在球面上一步一步地“流动”。这个过程由一个ODE求解器控制。\n    *   流动结束后，我们得到了球面上的一个点 `x1`，它就是生成图片的潜在表示。\n    *   最后，用自编码器的解码器把 `x1` 解码回像素空间，得到最终的生成图像。\n\n**简单比喻：** 传统方法是在一个空旷的广场上教机器人直线走到某个点。这篇论文发现，所有目标点其实都在一个巨大的透明球壳上。于是它把训练场改到了这个球壳上，教机器人在球壳表面沿着最短的弧线爬行到目标点，这样路径更直接、更符合规律。\n\n### **（5）结果怎么样？**\n\n论文通过实验证明，他们提出的两种几何感知方法（SOT-CFM和SFM）在**图像生成质量**上超过了不考虑几何结构的欧几里得流匹配基线模型。\n\n*   **定量指标：** 在FID（衡量生成图片与真实图片差异的分数，越低越好）等标准评测指标上，他们的方法取得了更好的分数。\n*   **定性观察：** 生成的图片在细节、清晰度和语义正确性上表现更好。\n*   **关键验证：** 他们还做了“半径消融实验”，发现使用数据集真实的平均半径来构建球面，效果最好。如果半径设得不对，效果会变差，这反过来证明了他们“图像近似分布于一个球面”的观察是有效的。\n\n**总结一下：** 这篇论文像是一个“几何侦探”，它发现了自然图像数据隐藏的球面结构，并利用这个发现，改造了现有的流匹配模型，让它们在更合适的“球场”上训练，从而获得了更好的生成效果。它为理解图像数据的本质和改进生成模型提供了一个新颖的视角。",
     "2605.25874": "这篇论文的核心内容可以这样理解：\n\n**(1) 任务是什么**\n*   **任务输入**：一个**世界设定**（比如“一个卡通风格的海滩，有一只小狗”）和一个**多轮交互指令序列**（比如“向前走”、“小狗跳跃”、“天空中出现彩虹”、“切换到小狗的第一人称视角”）。\n*   **任务输出**：一段符合设定并能正确响应每一轮交互指令的**连续视频**。\n*   **任务功能**：评估**交互式世界模型**的能力。你可以把它想象成一个“视频游戏引擎AI”，给它一个初始场景和一系列操作指令，它需要生成一个连贯、合理且可控的视频世界。\n\n**(2) 想解决什么问题**\n目前，评估这些“视频世界AI”的标准非常混乱。有的只测视频画质好不好，有的只测能不能在3D空间里移动，有的只测能不能记住之前的东西。没有一个**统一、全面**的测试标准来系统性地评估一个模型在所有关键能力上的表现。这就像考学生，有的只考语文，有的只考数学，没法知道谁才是全面发展的优等生。这篇论文就是想建立一套“全科考试”标准。\n\n**(3) 贡献是什么**\n这篇论文的主要贡献是提出了一个名为 **WBench** 的综合性评测基准（Benchmark），它像一份精心设计的考卷：\n1.  **考题全面**：它从**五个维度**出题：视频质量、设定符合度、交互符合度、一致性、物理合理性。这覆盖了“游戏引擎AI”需要具备的渲染、导演、控制、记忆、物理引擎五大功能。\n2.  **题型丰富**：包含了**四种交互类型**：导航（移动视角）、主体动作（如“跳跃”）、事件编辑（如“出现直升机”）、视角切换（第一/第三人称切换）。并且为导航提供了文本、6D位姿、离散动作三种统一的控制接口，让不同“答题习惯”（输入方式）的模型都能参加考试。\n3.  **题库多样**：包含了289个测试用例，1058轮交互，覆盖了各种场景、风格、主体和视角。\n4.  **评分标准客观**：设计了一套包含22个子指标的自动化评分体系，并结合了专家视觉模型和大语言模型的判断，且这些评分标准都经过了人类评判的验证。\n\n**(4) 整体思路与流程**\n这篇论文的重点是**构建评测基准和评测体系本身**，而不是提出一个新的生成模型。所以它没有提出一个全新的“学生”（模型结构），而是设计了一套“考试规则”来考察现有的“学生们”。\n\n其整体流程更像一个**评测流水线**：\n1.  **出题（构建数据集）**：研究者们精心设计了一系列“世界设定+多轮交互指令”作为考题，并确保其多样性和挑战性。\n2.  **学生答题（模型生成）**：他们邀请了20个当前最先进的视频生成或世界模型（如Genie, Stable Video Diffusion, Lumiere等）作为“考生”。这些“考生”就是**基模**。\n3.  **阅卷评分（自动化评估）**：对于每个模型生成的每一段答案视频，他们用设计好的22个自动化指标去打分。例如：\n    *   用专门的图像质量模型打“视频质量”分。\n    *   用大语言模型（如GPT-4V）判断“主体动作”做没做对。\n    *   用跟踪算法检查“主体”在视频里是否保持一致。\n    *   用物理合理性判断模型看动作是否违背常识。\n4.  **成绩分析**：最后，他们汇总所有维度的分数，分析各个模型的强项和弱项，找出当前技术的瓶颈。\n\n**(5) 结果怎么样**\n评测结果发现了一个关键问题：**没有一个模型能在所有五个维度上都表现优异**。\n*   有些模型画质很好但控制力差。\n*   有些模型能很好执行指令但视频闪烁严重。\n*   大多数模型在**保持长期一致性**（如物体不莫名其妙消失）和**遵守物理规律**方面都很薄弱。\n这就像考试结果发现，有偏科严重的“数学天才”，有“作文高手”，但还没有“门门功课全优”的学生。这个结果清晰地揭示了当前交互式世界模型领域的**发展现状和核心挑战**，为未来研究指明了需要重点攻关的方向。",
     "2605.26109": "这篇论文提出了一个名为 **Helix4D** 的模型，用于从视频生成动态的 3D 模型。我来用简单的语言为你解释一下它的核心内容。\n\n### (1) 任务是什么？\n*   **任务输入**：一段普通的 2D 视频。\n*   **任务输出**：一个**动态的 3D 模型序列**（也叫 4D 内容）。这个模型不仅包含几何形状（网格），还带有材质和纹理，并且会像输入视频里一样动起来（比如变形、破碎、熔化）。\n*   **任务功能**：让 AI 能够从视频中“理解”物体或场景的复杂三维结构和动态变化，并生成对应的、可直接用于动画或虚拟现实的高质量 3D 内容。\n\n### (2) 想解决什么问题？\n现有的视频转 4D 方法在处理一些**复杂情况**时效果不好，比如：\n*   **结构复杂**：物体形状发生剧烈变化（如破碎、熔化），或者物体本身很薄（如船帆）。\n*   **材质复杂**：物体是透明或半透明的（如玻璃）。\n*   **内部结构**：需要看到物体内部的东西（如瓶子里的鱼）。\n这篇论文的目标就是让生成的动态 3D 模型能更好地处理这些困难场景。\n\n### (3) 主要贡献是什么？\n1.  **高质量 4D 生成能力**：首次将强大的图像转 3D 模型的能力扩展到视频领域，能生成包含透明、复杂拓扑变化等挑战性内容的动态 3D 模型。\n2.  **高效的跨帧建模方法**：设计了一种结合了“滑动窗口注意力”和“首帧锚定”的机制。这可以让模型在视频的不同帧之间高效地共享信息，同时保持高质量的几何和材质细节。\n3.  **创新的时空位置编码**：提出了一种巧妙的、无需增加参数的方法，将原本只用于 3D 空间的位置编码扩展到了时间维度，让模型能理解物体在时间上的变化。\n\n### (4) 整体思路与模型结构\n**基模是谁？**\n这篇论文的基模是一个叫 **Trellis2** 的强大模型，它非常擅长从单张图片生成复杂的静态 3D 模型（包括透明物体、内部表面等）。Helix4D 的核心思想就是：**“站在巨人的肩膀上”**，把 Trellis2 从处理图片升级为处理视频。\n\n**如何升级？主要解决两个关键问题：**\n\n**问题 A：如何让模型在视频的不同帧之间“交流信息”？**\n*   **挑战**：Trellis2 原本只看一帧图。要处理视频，需要让不同帧的信息互通，但又不能破坏它已经学会的生成复杂 3D 模型的能力。\n*   **解决方案（对应“滑动窗口注意力 + 首帧锚定”）**：\n    1.  先用 Trellis2 根据视频的**第一帧**生成一个高质量的静态 3D 模型，作为“锚”（参考标准）。\n    2.  在处理后续每一帧时，模型不仅看当前帧，还会通过一个“滑动窗口”机制，关注它附近的几帧，以及最重要的——那个由 Trellis2 生成的、高质量的**第一帧锚**。\n    3.  这样，后续帧的生成就能从第一帧那里“继承” Trellis2 的强大能力（比如处理透明物体），并通过局部信息交流保证动作连贯。\n\n**问题 B：如何让模型理解“时间”？**\n*   **挑战**：Trellis2 的位置编码只告诉它一个点在 3D 空间（X, Y, Z）中的位置。我们需要加入时间（T）信息，但不能乱加，以免破坏模型原有的知识。\n*   **解决方案（对应“时空位置编码”）**：\n    1.  模型原来的位置编码（RoPE）像一组不同频率的“信号”来描述 3D 位置。\n    2.  论文发现，其中一些**低频信号**对描述精细的 3D 形状不那么关键。\n    3.  于是，他们**巧妙地“重新利用”了这些低频信号**，让它们来编码时间信息。\n    4.  这样，一个点的位置就变成了 (X, Y, Z, T) 四维编码，且没有增加任何新参数，也最大程度地保留了 Trellis2 原有的能力。\n\n**整体流程：**\n1.  **输入**：一段视频。\n2.  **提取锚帧**：用基模 Trellis2 处理视频的第一帧，生成一个高质量的静态 3D 锚模型。\n3.  **逐帧生成**：对于视频的每一帧（从第一帧开始）：\n    *   模型接收当前帧的图像和上一帧的 3D 状态。\n    *   通过**改进的时空位置编码**，模型理解每个点在当前 3D 空间和当前时间点的位置。\n    *   在模型内部，通过**滑动窗口跨帧注意力**机制，当前帧的生成过程会参考附近帧的信息，并特别关注从 Trellis2 来的**第一帧锚**，以确保质量和一致性。\n    *   输出当前帧对应的动态 3D 网格。\n4.  **输出**：将所有帧的 3D 网格按顺序组合，就得到了一个会动的、高质量的 4D 模型序列。\n\n### (5) 结果怎么样？\n论文在两个测试集上验证了效果：\n1.  **公开数据集（ActionBench）**：Helix4D 在衡量几何准确度的指标（CD-3D）上比之前最好的方法（ActionMesh）提升了 **3.8%**。\n2.  **自建复杂数据集（52个高难度视频）**：Helix4D 在多项指标（如ULIP-2, Uni3D）上全面领先，比之前最好的方法提升了 **5.7%** 到 **7.8%**。\n3.  **用户评价**：在人工对比评测中，**67.9%** 的用户更喜欢 Helix4D 生成的结果。\n\n**总结**：Helix4D 成功地将一个顶尖的静态 3D 生成模型升级为了一个动态 4D 生成模型，通过两个精巧的设计（跨帧注意力+时空编码），在保持原有模型处理复杂物体能力的同时，学会了生成连贯、高质量的动态 3D 序列，尤其在处理透明、破碎、薄结构等难题上表现突出。",
-    "2605.25294": "好的，没问题。我们来像聊天一样，把这个论文的核心内容捋清楚。\n\n---\n\n### **（1）这篇论文所在的任务是什么？**\n\n*   **任务名称：** 图像生成。\n*   **任务输入：** 随机噪声（比如一个从高斯分布里随机采样的向量）。\n*   **任务输出：** 一张逼真的、有语义内容的自然图像。\n*   **任务功能：** 它属于**生成模型**，目标是学习训练数据（比如猫、狗、风景等图片）的分布规律，然后能够从随机噪声中“变”出符合这个规律的新图片。\n\n### **（2）这篇论文想解决什么问题？**\n\n现有的图像生成模型（如扩散模型、流匹配模型）都默认在一个**欧几里得空间**里工作。简单来说，就是把图片的每个像素（或在潜在空间里的每个特征）当成一个独立的坐标，用我们熟悉的“直线距离”来衡量两张图片的差异。\n\n**论文认为这不够好。** 它提出一个问题：**自然图像本身是不是有更合适的“内在几何结构”** ？比如，我们的大脑看图片时，是不是更关注图片的“方向”或“模式”，而不是每个像素的绝对亮度值？如果能找到并利用这种结构，模型可能会学得更快、生成质量更高、也更“聪明”。\n\n### **（3）这篇论文的贡献是什么？**\n\n论文的主要贡献有两点，一个来自**观察**，一个来自**方法**：\n\n1.  **一个核心观察（发现）：** 作者通过实验发现，自然图像（无论是在原始的RGB像素空间，还是在像Stable Diffusion用的那种经过压缩的“潜在空间”里）的**语义信息主要编码在“方向”上**。\n    *   **什么意思？** 把每张图片数据看成一个高维向量，它的“方向”（即单位向量指向哪里）决定了它是什么内容（猫还是狗）。\n    *   它的“长度”（即向量的模长，可以粗糙地理解为整体亮度/能量）对内容影响很小，而且**所有图片的模长都差不多**，可以用数据集的平均值来近似。\n    *   所以，**可以把所有图片都投影到一个“超球面”上**（想象成一个高维的球面），球的半径就是平均模长。投影后的图片，人眼几乎看不出区别（如上图所示），但模型的数学处理对象就从整个空间变成了一个球面。\n\n2.  **两个新方法：** 基于上述观察，论文提出了两种利用球面几何的流匹配生成模型：\n    *   **SOT-CFM（球形最优传输条件流匹配）：** 在现有的最优传输流匹配方法中，把计算两点间距离的“欧氏距离”换成“角度距离”（球面上两点间的最短弧长）。这更符合数据的几何特性。\n    *   **SFM（球形流匹配）：** 更激进的方法。直接在球面上定义整个生成过程。先把噪声和目标图片都投影到球面上，然后在球面上找最短的路径（测地线）来学习如何把噪声“流”成目标图片。\n\n### **（4）论文的整体思路与模型流程**\n\n**核心思路：** “既然图片的本质信息在方向上，那我们就专门在球面（方向的空间）上学习生成模型。”\n\n**基模（基础模型）是谁？**\n论文的方法是建立在 **Flow Matching（流匹配）** 框架之上的。你可以把流匹配理解成扩散模型的一个更高效的“表亲”，它也是学习一个从噪声到数据的连续变换过程（一个“流”）。\n\n**整体流程（以SFM为例）：**\n\n1.  **输入准备（预处理）：**\n    *   有一堆训练图片。\n    *   用自编码器（比如VAE）把每张图片压缩成一个低维的“潜在向量” `z`。这是现代图像生成模型的常见做法，为了降低计算量。\n    *   **关键一步（几何化）：** 计算所有训练图片潜在向量的平均模长 `R`。然后把每张图片的潜在向量 `z` **投影**到半径为 `R` 的超球面上，得到 `z_proj`。此时，所有训练数据都躺在这个球面上。\n\n2.  **训练阶段（学习球面上的“流”）：**\n    *   从球面上的一个随机点（噪声）`x0` 和 一个球面上的真实数据点 `z_proj` 开始。\n    *   在球面上，连接 `x0` 和 `z_proj` 的最短路径不是直线，而是一段**弧（测地线）**。论文会计算这条弧在起点 `x0` 处的“切线方向” `v`（这就是目标流向量）。\n    *   训练一个神经网络（比如一个U-Net结构的模型），输入是球面上的某个点 `xt` 和时间 `t`，让它去**预测**这个目标切线方向 `v`。\n    *   训练目标就是让神经网络的预测和真实的 `v` 尽可能接近。这样，网络就学会了在球面上如何正确地“推动”一个点走向目标。\n\n3.  **生成阶段（从噪声到图片）：**\n    *   从一个随机噪声向量开始，先把它投影到训练时用的那个半径为 `R` 的球面上，作为起点 `x0`。\n    *   使用训练好的神经网络，从 `x0` 开始，沿着网络预测的方向，在球面上一步一步地“流动”。这个过程由一个ODE求解器控制。\n    *   流动结束后，我们得到了球面上的一个点 `x1`，它就是生成图片的潜在表示。\n    *   最后，用自编码器的解码器把 `x1` 解码回像素空间，得到最终的生成图像。\n\n**简单比喻：** 传统方法是在一个空旷的广场上教机器人直线走到某个点。这篇论文发现，所有目标点其实都在一个巨大的透明球壳上。于是它把训练场改到了这个球壳上，教机器人在球壳表面沿着最短的弧线爬行到目标点，这样路径更直接、更符合规律。\n\n### **（5）结果怎么样？**\n\n论文通过实验证明，他们提出的两种几何感知方法（SOT-CFM和SFM）在**图像生成质量**上超过了不考虑几何结构的欧几里得流匹配基线模型。\n\n*   **定量指标：** 在FID（衡量生成图片与真实图片差异的分数，越低越好）等标准评测指标上，他们的方法取得了更好的分数。\n*   **定性观察：** 生成的图片在细节、清晰度和语义正确性上表现更好。\n*   **关键验证：** 他们还做了“半径消融实验”，发现使用数据集真实的平均半径来构建球面，效果最好。如果半径设得不对，效果会变差，这反过来证明了他们“图像近似分布于一个球面”的观察是有效的。\n\n**总结一下：** 这篇论文像是一个“几何侦探”，它发现了自然图像数据隐藏的球面结构，并利用这个发现，改造了现有的流匹配模型，让它们在更合适的“球场”上训练，从而获得了更好的生成效果。它为理解图像数据的本质和改进生成模型提供了一个新颖的视角。",
-    "2605.26105": "好的，没问题。我们来用简单的语言梳理一下这篇论文。你可以把它想象成一个“师傅带徒弟”的故事。\n\n### 1. 任务是什么？\n*   **任务功能**：**视频生成**。让AI模型根据一段文字描述（提示词），生成一段对应的短视频。\n*   **任务输入**：一段文本提示词，例如“一只小猫在草地上追蝴蝶”。\n*   **任务输出**：一个符合描述的视频片段。\n\n这篇论文特别关注一种叫 **“自回归”** 的视频生成模型。这类模型的特点是：生成视频时，像人写字一样，从左到右、一帧一帧地生成。先生成第一帧，然后根据第一帧去生成第二帧，再根据前两帧生成第三帧…… 这种模型的好处是效率高、适合生成很长的视频，也容易和用户交互。\n\n### 2. 这篇论文想解决什么问题？\n**核心问题：如何让一个“笨学生”（自回归模型）学会一个“牛师傅”（强大但复杂的黑盒模型）的本领？**\n\n具体来说，有三个难点：\n1.  **黑盒师傅**：“牛师傅”（比如Sora这类顶级视频模型）往往只开放一个“接口”——你给它一个提示词，它给你一个完整的视频。你看不到它内部是怎么思考的（比如中间步骤、分数、网络结构），更没法直接复制它的“大脑”。\n2.  **学习方式不匹配**：传统的“模仿学习”方法是：师傅（在离线数据上）做一堆示范，学生照着练。但问题是，学生自己生成时，会犯一些小错误，这些错误会累积起来，导致它后面的生成越来越偏离师傅的轨道。用论文里的术语说，这叫 **“离策略”** 学习，效果不好。\n3.  **反馈太稀疏**：就算拿师傅生成的视频和学生生成的视频对比，也只能给一个整体的“好/坏”评分。但学生内部是一个复杂的、逐步去噪生成的过程。一个“坏”的最终视频，根本不知道是第几步去噪、对哪一帧的操作出了问题。这就好比老师只告诉你“这次考试不及格”，却不告诉你哪道题做错了，学生很难进步。\n\n### 3. 这篇论文的贡献是什么？\n论文提出了一个叫 **“对抗性流蒸馏”** 的新方法（AFD），核心贡献是：\n*   **解决了“黑盒+自回归”的蒸馏难题**：不需要知道师傅模型内部的任何结构或中间信息，只需要它最终生成的视频。\n*   **实现了“在策略”学习**：让学生在自己“犯错”的路径上（即它自己生成的视频轨迹）获得反馈并改进，避免了错误累积。\n*   **将稀疏的“视频级”反馈，变成了密集的“去噪步级”指导**：通过一个巧妙的机制，把“这个视频好不好”这个整体评价，分解成对学生模型每一步去噪操作的精细指导，让学生知道具体该怎么调整。\n\n### 4. 论文的整体思路和流程\n我们可以把AFD想象成一个 **“自我比赛 + 录像复盘分析”** 的过程。\n\n**模型结构/参与方**：\n*   **学生模型**：一个自回归的视频生成模型（论文中用了两种不同的自回归家族）。它的任务是学习。\n*   **教师模型**：一个强大的黑盒视频生成模型（如Sora）。它的角色是“标准答案”提供者，不参与训练。\n*   **判别器**：一个额外训练的小型神经网络，任务是学会区分“教师生成的视频”和“当前学生生成的视频”。\n\n**整体流程（看图理解）**：\n假设我们有100个不同的提示词（比如“冲浪”、“跳舞”）。\n\n1.  **第1步：生成对比样本**。\n    *   把这100个提示词，**同时**送给教师模型和学生模型。\n    *   教师模型生成100个“优质视频”。\n    *   学生模型（用自回归方式）生成100个“当前水平视频”。\n    *   现在，对于每个提示词，我们都有了一对（教师视频，学生视频）。\n\n2.  **第2步：训练“火眼金睛”的判别器**。\n    *   用这100对视频来训练判别器。训练目标是：给定一个提示词和对应的视频，判别器能准确判断这个视频是“教师出品”还是“学生出品”。\n    *   训练完成后，这个判别器就具备了评估“一个视频有多像教师风格”的能力。它会输出一个分数，分数高代表更像教师。\n\n3.  **第3步：给学生模型“录像复盘”**。\n    *   关键来了！我们不是直接把判别器的分数当奖励发下去，而是用这些分数来**重构训练信号**。\n    *   我们把**学生自己生成的那些视频**拿出来，用学生模型自己的加噪流程，给这些视频的每一帧、在每一个去噪时间步，都人为地加上一些噪声，制造出很多“中间状态”。\n    *   然后，我们问：如果在某个中间状态，学生模型按照它**当前**的方式去噪，会得到最终视频A；如果它换一种方式去噪，会不会得到一个更像教师风格的视频B？\n    *   判别器的分数在这里起作用了：它告诉我们视频A和B哪个更好。**AFD的核心技巧是，利用这个“好/坏”比较，来直接修正学生模型在那些“中间状态”应该预测的去噪方向（即“流场”）**。简单说就是：“你看，在同样的岔路口，往左走（当前做法）得了低分，往右走（更好的做法）得了高分，那你以后在这个路口就学着往右走吧。”\n    *   这个修正是在学生模型**自己的**生成路径（即“在策略”数据）上进行的，并且指导落到了每一个具体的去噪步骤上，因此非常精准。\n\n4.  **第4步：迭代优化**。\n    *   学生模型根据第3步的指导更新参数，变得强了一点。\n    *   回到第1步，用更新后的学生模型生成新的视频，再训练新的判别器（因为学生变了，判别器也得更新才能分辨），然后继续“复盘”。\n    *   如此循环，学生的水平就越来越接近教师。\n\n### 5. 结果怎么样？\n根据论文中的实验：\n*   **主实验**：用AFD方法训练后的自回归学生模型，在多个视频生成评测集（特别是那些关注**物体运动、物理合理性**的数据集，如VideoPhy-2）上，性能得到了**一致且显著的提升**，同时保持了良好的整体视频质量。\n*   **消融实验**：证明了AFD中两个设计至关重要：\n    1.  **“在策略”学习**：比传统的“离策略”模仿学习效果好得多。\n    2.  **“前向过程信用分配”**：即把视频级反馈分解到每一步去噪操作的技术，比直接用视频分数做强化学习更有效。\n\n**总结一下**：这篇论文就像发明了一套高效的“武术教学法”，让一个只知道展示完整招式的宗师（黑盒教师），能教出一个虽然学习方式不同（自回归）、但能得其精髓、且动作扎实（运动物理合理）的徒弟。这套方法实用性强，为将Sora等顶级闭源模型的能力“下放”到更轻量、更易部署的自回归模型上，提供了一条可行的技术路径。",
-    "2605.23264": "这篇论文是研究**图像超分辨率**任务的。我用简单的语言给你解释一下它的核心内容。\n\n**(1) 任务是什么？**\n*   **任务输入**：一张模糊、有噪点、分辨率低（“低质量”）的图片。\n*   **任务输出**：一张清晰、细节丰富、分辨率高（“高质量”）的图片。\n*   **任务功能**：把一张模糊的小图，变成一张清晰的大图，同时要补上丢失的细节，让图片看起来真实自然。\n\n**(2) 想解决什么问题？**\n现在很多用AI做超分辨率的方法，虽然能让图片看起来很“真实”，但经常**编造出原本没有的虚假细节**（比如给墙加上不存在的纹理，或者改变物体的结构）。这篇论文认为，问题的根源在于：\n*   **频谱不匹配**：AI模型在学习时，默认认为图像中所有频率（可以理解为不同尺度的细节）的重要性是一样的（用“白噪音”模拟）。但实际上，真实的自然图片中，高频细节（如毛发、纹理）的“能量”是逐渐衰减的。这种不匹配导致模型无法区分什么是“真正的高频细节”，什么是“编造出来的噪点/假纹理”。\n*   **缺乏有效的“反面教材”**：为了让AI学会生成更真实的图片，需要给它看“好例子”（清晰真图）和“坏例子”（有瑕疵的假图）。但现有的方法很难找到足够多、足够有针对性的“坏例子”来教AI避免那些**在超分辨率任务中特别容易犯的结构性错误**（比如把窗户的线条弄歪）。\n\n简单说，就是**想让AI在把图片变清晰的同时，能“忠于原图”，不胡乱添加或改变原有的结构细节**。\n\n**(3) 贡献是什么？**\n论文提出了一个叫 **ASASR** 的新框架来解决上述问题，主要有两大创新：\n1.  **Sobolev频谱校正**：他们不再使用“白噪音”，而是改用一种“有色噪音”来引导AI模型。这种噪音的频谱特性和**真实自然图片的频谱衰减规律**一致。这就好比给AI戴上了一副“频谱眼镜”，让它能更准确地感知和理解什么是真实的高频细节，从而减少编造假纹理。\n2.  **对抗性流形引导**：他们设计了一个“对抗网络”（可以理解为一个专门挑错的AI），这个网络能**自动生成高质量的“反面教材”**。它能找出当前模型最容易生成的、看起来合理但实际是错误的**结构性瑕疵**（比如错位的边缘）。用这些针对性的“坏例子”来训练主模型，就能更有效地教会它避免这些特定错误。\n\n**(4) 整体思路与流程（模型结构）**\n这篇论文的**基模（基础模型）是扩散模型**。扩散模型是当前图像生成领域的主流模型，它通过一个“加噪-去噪”的过程来生成图片。\n\n整体流程可以概括为以下几步：\n\n**第一步：准备训练数据**\n- **输入**：大量“低质量-高质量”图片对。\n- **关键准备**：采用“有色噪音”（Sobolev频谱校正）对高质量图片进行加噪，而不是标准的白噪音。这为模型注入了自然图像的频谱先验知识。\n\n**第二步：核心训练 - 对抗性Sobolev偏好优化**\n这是一个动态的、两方博弈的训练过程：\n1.  **主模型（生成器）**：它的目标是学习如何从低质量图片，生成高质量图片。\n2.  **对抗网络（批评家）**：\n    - **它的任务**：观察主模型当前生成的图片，然后**故意制造出一些看起来合理、但存在细微结构错误的“坏版本”**（例如，把砖墙的纹理弄乱一点，但整体看起来还是墙）。\n    - **如何制造**：它利用主模型生成图片过程中的中间状态，施加一个微小的扰动，这个扰动的方向正好是模型最容易犯错的方向（在论文的数学框架里，这对应于Sobolev空间中的“最坏情况梯度”）。\n3.  **训练循环**：\n    - 对于同一张低质量输入，现在有三个候选输出：`高质量真图`（来自数据）、`主模型生成的图`、`对抗网络制造的坏图`。\n    - 训练目标变为：**鼓励主模型生成的图要像“高质量真图”，同时要远离“对抗网络制造的坏图”**。\n    - 这个过程不断迭代，对抗网络变得越来越会找茬，主模型则变得越来越擅长生成既清晰又忠实的图片。\n\n**第三步：推理/使用**\n- **输入**：一张新的低质量图片。\n- **过程**：训练好的主模型（已经内化了频谱先验和抗干扰能力）直接进行去噪生成。\n- **输出**：一张高分辨率、细节清晰且忠于原图结构的高质量图片。\n\n**(5) 结果怎么样？**\n论文在多个标准测试集上进行了实验，结果表明：\n*   **综合性能更好**：在衡量图片清晰度的指标（如PSNR, SSIM）和衡量图片视觉真实感的指标（如LPIPS, FID）上，ASASR都达到了领先水平。\n*   **关键优势**：特别在**保持频谱一致性**和**结构保真度**方面表现突出。这意味着它生成的图片，其频率分布更接近真实图片，并且能更好地保留原始结构，减少了扭曲和虚假纹理。\n*   **视觉对比**：从论文给出的图片例子看，ASASR生成的纹理（如头发、织物）更自然、合理，而其他方法可能会出现模糊、平滑或过度夸张的不真实纹理。\n\n**总结一下**：这篇论文就像给超分辨率AI请了一位“严师”。这位老师做了两件事：一是教AI用符合自然规律的“眼光”（有色噪音）去观察细节；二是不断地给AI出“易错题”（对抗性负样本），专门训练它避开那些隐蔽的结构性错误。最终训练出的AI，在“脑补”细节时就更靠谱、更忠实于原图了。"
+    "2605.23264": "这篇论文是研究**图像超分辨率**任务的。我用简单的语言给你解释一下它的核心内容。\n\n**(1) 任务是什么？**\n*   **任务输入**：一张模糊、有噪点、分辨率低（“低质量”）的图片。\n*   **任务输出**：一张清晰、细节丰富、分辨率高（“高质量”）的图片。\n*   **任务功能**：把一张模糊的小图，变成一张清晰的大图，同时要补上丢失的细节，让图片看起来真实自然。\n\n**(2) 想解决什么问题？**\n现在很多用AI做超分辨率的方法，虽然能让图片看起来很“真实”，但经常**编造出原本没有的虚假细节**（比如给墙加上不存在的纹理，或者改变物体的结构）。这篇论文认为，问题的根源在于：\n*   **频谱不匹配**：AI模型在学习时，默认认为图像中所有频率（可以理解为不同尺度的细节）的重要性是一样的（用“白噪音”模拟）。但实际上，真实的自然图片中，高频细节（如毛发、纹理）的“能量”是逐渐衰减的。这种不匹配导致模型无法区分什么是“真正的高频细节”，什么是“编造出来的噪点/假纹理”。\n*   **缺乏有效的“反面教材”**：为了让AI学会生成更真实的图片，需要给它看“好例子”（清晰真图）和“坏例子”（有瑕疵的假图）。但现有的方法很难找到足够多、足够有针对性的“坏例子”来教AI避免那些**在超分辨率任务中特别容易犯的结构性错误**（比如把窗户的线条弄歪）。\n\n简单说，就是**想让AI在把图片变清晰的同时，能“忠于原图”，不胡乱添加或改变原有的结构细节**。\n\n**(3) 贡献是什么？**\n论文提出了一个叫 **ASASR** 的新框架来解决上述问题，主要有两大创新：\n1.  **Sobolev频谱校正**：他们不再使用“白噪音”，而是改用一种“有色噪音”来引导AI模型。这种噪音的频谱特性和**真实自然图片的频谱衰减规律**一致。这就好比给AI戴上了一副“频谱眼镜”，让它能更准确地感知和理解什么是真实的高频细节，从而减少编造假纹理。\n2.  **对抗性流形引导**：他们设计了一个“对抗网络”（可以理解为一个专门挑错的AI），这个网络能**自动生成高质量的“反面教材”**。它能找出当前模型最容易生成的、看起来合理但实际是错误的**结构性瑕疵**（比如错位的边缘）。用这些针对性的“坏例子”来训练主模型，就能更有效地教会它避免这些特定错误。\n\n**(4) 整体思路与流程（模型结构）**\n这篇论文的**基模（基础模型）是扩散模型**。扩散模型是当前图像生成领域的主流模型，它通过一个“加噪-去噪”的过程来生成图片。\n\n整体流程可以概括为以下几步：\n\n**第一步：准备训练数据**\n- **输入**：大量“低质量-高质量”图片对。\n- **关键准备**：采用“有色噪音”（Sobolev频谱校正）对高质量图片进行加噪，而不是标准的白噪音。这为模型注入了自然图像的频谱先验知识。\n\n**第二步：核心训练 - 对抗性Sobolev偏好优化**\n这是一个动态的、两方博弈的训练过程：\n1.  **主模型（生成器）**：它的目标是学习如何从低质量图片，生成高质量图片。\n2.  **对抗网络（批评家）**：\n    - **它的任务**：观察主模型当前生成的图片，然后**故意制造出一些看起来合理、但存在细微结构错误的“坏版本”**（例如，把砖墙的纹理弄乱一点，但整体看起来还是墙）。\n    - **如何制造**：它利用主模型生成图片过程中的中间状态，施加一个微小的扰动，这个扰动的方向正好是模型最容易犯错的方向（在论文的数学框架里，这对应于Sobolev空间中的“最坏情况梯度”）。\n3.  **训练循环**：\n    - 对于同一张低质量输入，现在有三个候选输出：`高质量真图`（来自数据）、`主模型生成的图`、`对抗网络制造的坏图`。\n    - 训练目标变为：**鼓励主模型生成的图要像“高质量真图”，同时要远离“对抗网络制造的坏图”**。\n    - 这个过程不断迭代，对抗网络变得越来越会找茬，主模型则变得越来越擅长生成既清晰又忠实的图片。\n\n**第三步：推理/使用**\n- **输入**：一张新的低质量图片。\n- **过程**：训练好的主模型（已经内化了频谱先验和抗干扰能力）直接进行去噪生成。\n- **输出**：一张高分辨率、细节清晰且忠于原图结构的高质量图片。\n\n**(5) 结果怎么样？**\n论文在多个标准测试集上进行了实验，结果表明：\n*   **综合性能更好**：在衡量图片清晰度的指标（如PSNR, SSIM）和衡量图片视觉真实感的指标（如LPIPS, FID）上，ASASR都达到了领先水平。\n*   **关键优势**：特别在**保持频谱一致性**和**结构保真度**方面表现突出。这意味着它生成的图片，其频率分布更接近真实图片，并且能更好地保留原始结构，减少了扭曲和虚假纹理。\n*   **视觉对比**：从论文给出的图片例子看，ASASR生成的纹理（如头发、织物）更自然、合理，而其他方法可能会出现模糊、平滑或过度夸张的不真实纹理。\n\n**总结一下**：这篇论文就像给超分辨率AI请了一位“严师”。这位老师做了两件事：一是教AI用符合自然规律的“眼光”（有色噪音）去观察细节；二是不断地给AI出“易错题”（对抗性负样本），专门训练它避开那些隐蔽的结构性错误。最终训练出的AI，在“脑补”细节时就更靠谱、更忠实于原图了。",
+    "2605.26108": "这篇论文是关于**文本到图像生成模型加速与优化**的。\n\n**(1) 任务是什么？**\n*   **任务输入**：一段描述性文字（例如“一只戴着礼帽的猫在弹钢琴”）。\n*   **任务输出**：一张与输入文字相匹配的高质量图片。\n*   **任务功能**：将文本语义快速、高质量地转换成图像。\n\n**(2) 想解决什么问题？**\n当前最好的文生图模型（如Stable Diffusion, FLUX）生成一张图需要几十步的计算（迭代去噪），速度很慢。为了加速，一种常见方法是**知识蒸馏**：训练一个步数很少（例如4步）的“学生”模型，让它模仿需要很多步的“老师”模型的效果。但这面临两个难题：\n1.  **蒸馏不精确**：学生模型在中间步骤生成的是带噪的图片，很难稳定地学习老师模型的“想法”。\n2.  **缺乏人类偏好对齐**：蒸馏出来的学生模型可能只模仿了“形”，但生成图片的美观度、符合人类审美的程度可能下降。现有的用人类反馈强化学习（RLHF）来优化模型的方法，又没有很好地适配这种“前几步随机、最后一步确定”的快速生成过程。\n\n**(3) 贡献是什么？**\n*   **理论框架（RTDMD）**：提出了一个统一的公式，将“模仿老师（蒸馏）”和“满足人类偏好（强化学习）”两个目标自然地结合在一个训练目标里。\n*   **改进的蒸馏方法（AC-DMD）**：提出了一种更稳定的初始蒸馏方法，通过增加一个“一致性”约束，帮助学生模型在中间步骤的学习更可靠。\n*   **新的强化学习方法（混合策略梯度）**：针对快速生成模型的特点，设计了一种新的训练方法，能同时优化随机的前几步和确定的最后一步，并减少了训练波动。\n*   **优异的实验结果**：用该方法得到的4步模型，在多个测评基准上超越了之前的快速生成方法，甚至能媲美或超越步数多得多的大模型。\n\n**(4) 整体思路与流程**\n**核心思想**：分两步走，先打好基础（学会模仿），再精雕细琢（满足偏好）。\n\n**模型基础**：基于**流模型（Flow Model）**。你可以简单理解为一种更数学化的扩散模型，它通过一个确定的轨迹（ODE）将噪声变成图片。\n\n**整体流程（RTDMD）：**\n1.  **第一阶段：稳定蒸馏（AC-DMD）**\n    *   **输入**：预训练好的、步数很多的“老师”流模型 + 文本提示。\n    *   **过程**：\n        *   目标是训练一个步数很少（如4步）的“学生”模型。\n        *   关键是要训练一个“伪评分模型”，它用来指导学生模型在每一步应该怎么走，才能最终匹配老师模型的输出分布。\n        *   论文的改进在于：将整个时间轴分成几段，在每一小段内独立进行分布匹配。同时，增加一个“一致性”损失，让伪评分模型在不同步骤间的预测保持连贯，避免学习过程不稳定。\n    *   **输出**：一个已经能较好模仿老师、生成还不错图片的**4步学生模型**。\n\n2.  **第二阶段：偏好对齐（奖励倾斜的联合优化）**\n    *   **输入**：第一阶段得到的4步学生模型 + 人类偏好奖励模型（例如，给图片美观度、文字匹配度打分的模型）。\n    *   **过程**：\n        *   根据论文推导的理论公式，此时的训练目标包含两部分：**A. 继续模仿老师（保持多样性）** + **B. 最大化奖励（提高质量）**。\n        *   对于目标B，论文设计了**混合策略梯度**来优化学生模型：\n            *   对于**前3步（随机步骤）**：采用类似GRPO（一种RL算法）的方法，通过采样不同噪声来估计梯度，并创新性地使用了“子集GRPO”来降低估计的波动。\n            *   对于**最后1步（确定步骤）**：可以直接通过反向传播计算奖励对模型参数的梯度。\n        *   将这两部分梯度结合起来，共同更新学生模型。\n    *   **输出**：一个既保持了强大生成能力，又更符合人类审美的**最终版4步学生模型**。\n\n**(5) 结果怎么样**\n*   **非常出色**。论文在三个强大的基座模型（SD3-Medium, SD3.5-Medium, FLUX.2 4B）上进行了实验。\n*   **主要结论**：使用RTDMD方法得到的**4步模型**，在图像质量、审美偏好、与文本的符合程度等多个评测指标上，都达到了新的**最好水平**。\n*   **一个亮点**：他们蒸馏出的4步FLUX.2 4B模型，其综合表现甚至超过了需要50步的、参数量更大的FLUX.2 9B原版模型。这充分体现了该方法在**大幅提升速度的同时，显著提升质量**的有效性。"
   },
   "figures": {
     "2605.26089": [
@@ -425,26 +525,6 @@
         "caption": "Figure 1:(Left) VQ vs. CVQ.Conventional VQ assigns an index to each1×1×c1\\!\\times\\!1\\!\\times\\!cpatch feature vector, while CVQ assigns an index to eachchannelof the feature map.(Right) AR vs. CAR.Traditional autoregressive (AR) models generate images patch by patch in raster scan order (here, Emu3[emu3]), whereas our channel-wise autoregressive (CAR) model generates images channel by channel.\nFor example, given the prompt “a photo of an apple”, the model first sketches a red circular shape corresponding to the apple’s outline and dominant color, then progressively depicts its appearance, and finally adds fine-grained visual details such as specular highlights and yellow speckles.",
         "role": "pipeline_3",
         "caption_zh": "图 1：（左）VQ 与 CVQ 对比。传统向量量化（VQ）为每个 1×1×c 的块特征向量分配一个索引，而通道向量量化（CVQ）为特征图的每个通道分配一个索引。（右）AR 与 CAR 对比。传统自回归（AR）模型以光栅扫描顺序逐块生成图像（此处以 Emu3[emu3] 为例），而我们的通道自回归（CAR）模型则逐通道生成图像。例如，给定提示“一张苹果的照片”，模型首先勾勒出苹果轮廓和主色调的红色圆形草图，随后逐步描绘其外观，最后添加如高光和黄斑等细粒度视觉细节。"
-      }
-    ],
-    "2605.26108": [
-      {
-        "path": "https://arxiv.org/html/2605.26108v1/x2.png",
-        "caption": "Figure 2:Overview of the proposed RTDMD. “Det.” means the final deterministic step and “Stoc.” denotes the stochastic steps (see Sec.3.2).Blue,green, andyellowtrajectories represent the denoising trajectory of the pretrained-teacher, few-step generator, and fake score model, respectively.",
-        "role": "pipeline_1",
-        "caption_zh": "图 2：所提 RTDMD 方法的概览。“Det.” 表示最终的确定性步骤，“Stoc.” 表示随机步骤（详见第 3.2 节）。蓝色、绿色和黄色轨迹分别代表预训练教师模型、少步生成器及伪分数模型的去噪轨迹。"
-      },
-      {
-        "path": "https://arxiv.org/html/2605.26108v1/x3.png",
-        "caption": "Text prompt:“Lego Arnold Schwarzenegger.”Text prompt:“a green backpack and a pig.”Text prompt:“A vintage postcard with a faded, nostalgic look, featuring elegant cursive text that reads “Wish You Were Here” against a backdrop of a serene, old-world waterfront town with pastel buildings and a gentle, sunny sky.”Figure 3:Qualitative comparison for few-step diffusion models (4 NFE). Using identical noise inputs, our method outperforms others in both quality and prompt alignment, showing strong performance.",
-        "role": "pipeline_2",
-        "caption_zh": "文本提示：“乐高版阿诺德·施瓦辛格。”文本提示：“一个绿色背包和一只猪。”文本提示：“一张具有褪色怀旧感的复古明信片，以柔和建筑和宁静阳光天空为背景的旧世界海滨小镇为景，上方印有优雅草书文字‘希望你也在此’。” 图3：少步扩散模型（4 NFE）的定性对比。在相同噪声输入下，我们的方法在生成质量与提示对齐方面均优于其他方法，展现出强劲性能。"
-      },
-      {
-        "path": "https://arxiv.org/html/2605.26108v1/x6.png",
-        "caption": "Figure 4:Evaluation curves when reinforcing the few-step generator. “Mean” denotes the average score of normalized PickScore, HPSv2, and CLIPScore.",
-        "role": "pipeline_3",
-        "caption_zh": "图4：强化少步生成器时的评估曲线。“均值”表示归一化PickScore、HPSv2与CLIPScore的平均得分。"
       }
     ],
     "2605.26115": [
@@ -487,6 +567,86 @@
         "caption_zh": "图4：在Web360[62]和Habitat[46]数据集上的可视化结果。我们的方法（Ours）能够生成时间一致且在不同相机轨迹下保持连贯跨视角几何的视频。相比之下，基于透视的基线方法（ViewCrafter[87]、TrajectoryCrafter[86]、GEN3C[52]）在不同视角（左图与右图）下渲染时表现出严重的跨视角不一致性，这揭示了它们在保持跨视角几何连贯性方面的局限性。当初始帧以近距离捕捉几何结构时，这种不一致性尤为明显，因为有限的视场无法为一致性生成提供足够的空间上下文。我们的360°方法通过完整的全景覆盖自然克服了这些限制，确保了所有视角下的全局一致性生成。"
       }
     ],
+    "2605.23889": [
+      {
+        "path": "https://arxiv.org/html/2605.23889v1/x3.png",
+        "caption": "Figure 3:Overview ofHorizonStream.\nGiven an RGB stream, the model causally processes the most recentWWframes. Geometric Local Attention handles local matching, Geometric Linear Attention propagates long-range geometry with anO​(1)O(1)recurrent geometric state, and Metric Readout Tokens recover stable scale and pose. An optional loop-closure module refines the trajectory.",
+        "role": "pipeline_1",
+        "caption_zh": "图 3：HorizonStream 模型概览。给定 RGB 视频流，模型以因果方式处理最近的 W 帧。几何局部注意力（Geometric Local Attention）处理局部匹配，几何线性注意力（Geometric Linear Attention）通过 O(1) 的循环几何状态传播长程几何信息，度量读出标记（Metric Readout Tokens）恢复稳定的尺度与姿态。一个可选的闭环模块用于优化轨迹。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.23889v1/x6.png",
+        "caption": "(a)(b)(c)Figure 6:(a) Learned retention spectra in Geometric Linear Attention.Effective lifetimesτ=−1/log⁡γ¯\\tau=-1/\\log\\bar{\\gamma}vary across channels and layers. Layer 4 exhibits broad mid-range retention, while Layer 17 develops a sharper long-retention tail, supporting channel-wise multi-timescale propagation.(b) Retention-band ablation.Replacing the learned channel-wise retention spectrum with fixed short-, medium-, or long-horizon bands increases trajectory error, showing that stable long-sequence propagation requires learned multi-timescale retention.(c) Long-sequence stability of Geometric Local Attention.Head-wise gating and 3D RoPE are complementary: removing either causes error growth over time, while using both keeps the model stable.",
+        "role": "pipeline_2",
+        "caption_zh": "(a)(b)(c)图6：(a)几何线性注意力中学习到的保持谱。有效生命周期τ=−1/logγ¯在不同通道和层间变化。第4层展现出宽泛的中程保持能力，而第17层发展出更尖锐的长保持尾迹，支持通道级多时间尺度传播。(b)保持频段消融实验。将学习到的通道级保持谱替换为固定的短、中或长程频段会增加轨迹误差，表明稳定的长序列传播需要学习得到的多时间尺度保持机制。(c)几何局部注意力的长序列稳定性。头级门控与3D RoPE具有互补性：移除任一组件均会导致误差随时间增长，而同时使用两者可保持模型稳定性。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.23889v1/x4.png",
+        "caption": "Figure 4:Qualitative comparisonon long-sequence 3D reconstruction.\nAs sequence length grows, existing methods show pose degradation, drift, or collapse.\nLingbot-map exhibits progressively stronger pose jitter over longer rollouts, while HorizonStream maintains stable pose estimation.",
+        "role": "pipeline_3",
+        "caption_zh": "图4：长序列三维重建的定性比较。随着序列长度增加，现有方法出现位姿退化、漂移或崩溃现象。Lingbot-map 在更长的运行过程中表现出逐渐增强的位姿抖动，而 HorizonStream 保持了稳定的位姿估计。"
+      }
+    ],
+    "2605.26105": [
+      {
+        "path": "https://arxiv.org/html/2605.26105v1/x2.png",
+        "caption": "Figure 2:Overview of AFD for black-box on-policy video distillation. A sampling-only teacher provides prompt-conditioned completed videos, while the current AR student provides on-policy rollouts. A co-evolving discriminator estimates teacher–student distributional discrepancy from completed samples, and DiffusionNFT converts this black-box sample-level signal into dense forward-process flow updates on the student’s own noised states.",
+        "role": "pipeline_1",
+        "caption_zh": "图 2：黑盒同策略视频蒸馏的 AFD 概览。一个仅采样的教师模型提供提示条件生成的完整视频，而当前的自回归学生模型提供同策略的展开序列。一个共演化的判别器根据完整样本估计教师-学生分布差异，DiffusionNFT 则将此黑盒样本级信号转换为对学生自身加噪状态的密集前向过程流更新。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.26105v1/x1.png",
+        "caption": "Figure 1:Preliminary SFT trend for an AR video student. VBench and VideoPhy-2 scores decrease rather than improve monotonically as SFT steps increase.",
+        "role": "pipeline_2",
+        "caption_zh": "图1：某AR视频模型的初步SFT趋势。随着SFT步数增加，VBench和VideoPhy-2分数并未单调提升，反而呈现下降趋势。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.26105v1/x3.png",
+        "caption": "Figure 3:Qualitative visualizations of AFD in the main experiment. The first row shows Self-Forcing examples, and the second row shows Causal-Forcing examples. Each example shows representative teacher–student comparison frames under the same prompt, illustrating how the on-policy AFD update changes the student’s generated video distribution. Prompts are given in Table4.",
+        "role": "pipeline_3",
+        "caption_zh": "图3：主要实验中AFD的定性可视化结果。首行为自强迫示例，次行为因果强迫示例。每个示例展示了相同提示词下具有代表性的教师-学生对比帧，说明了基于策略的AFD更新如何改变学生生成的视频分布。相关提示词见表4。"
+      }
+    ],
+    "2605.23699": [
+      {
+        "path": "https://arxiv.org/html/2605.23699v1/x1.png",
+        "caption": "Figure 2:CRONOS dataset overview.Examples illustrating the three physical events (rows) used in the CRONOS benchmark: collision, fall, and occlusion. For each event instance, we render multiple counterfactual observations by varying factors such as scene context, camera viewpoint, object category, and object appearance. Colored overlays show object trajectories across time, visualizing the underlying motion dynamics. This controlled design enables systematic evaluation of whether video models produce consistent predictions across different observations of the same event setup.",
+        "role": "pipeline_1",
+        "caption_zh": "图2：CRONOS 数据集概览。本图展示了 CRONOS 基准测试中使用的三种物理事件（每行对应一种）的示例：碰撞、下落与遮挡。针对每个事件实例，我们通过改变场景上下文、相机视角、物体类别及物体外观等因素，渲染生成多个反事实观测样本。彩色叠加层显示了物体随时间推移的轨迹，以可视化其底层运动动态。这种受控设计能够系统性地评估视频模型是否能在同一事件设置的不同观测中产生一致的预测。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.23699v1/figures/supplementary/assets.png",
+        "caption": "Figure 6:Dataset assets.Overview of Unreal Engine assets used for all rendered sequences: original scenes, object models, and appearance variations.",
+        "role": "pipeline_2",
+        "caption_zh": "图6：数据集素材。用于所有渲染序列的虚幻引擎素材概览：原始场景、物体模型与外观变体。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.23699v1/figures/main/teaser.png",
+        "caption": "Figure 1:The CRONOS Benchmark.A benchmark for evaluating\ncounterfactual physical consistency: whether a model’s predictions of\nphysical events respond appropriately to controlled changes in the\nvisual input.",
+        "role": "pipeline_3",
+        "caption_zh": "图1：CRONOS 评估基准。该基准用于评估模型的反事实物理一致性：即模型对物理事件的预测是否能够对视觉输入中受控的变化做出恰当响应。"
+      }
+    ],
+    "2605.25294": [
+      {
+        "path": "https://arxiv.org/html/2605.25294v1/x2.png",
+        "caption": "(a)I-CFM(b)OT vs SOT Matching(c)SFMFigure 3:Comparison of different flow matching strategies.(a) I-CFM: Samples from a prior distribution (x0x_{0}, blue circles∙{\\color[rgb]{0,0,1}\\definecolor[named]{pgfstrokecolor}{rgb}{0,0,1}\\bullet}) are randomly paired with data samples (x1x_{1}, red squares■\\blacksquare) via straight-line paths in Euclidean space. (b) OT vs. SOT Matching: Standard OT (solid red) minimizes Euclidean distance, potentially creating pairings with large angular differences. SOT (dashed cyan) matches points by angular proximity, better preserving semantic structure. (c) SFM: Flows are constrained to a spherical manifold with geodesic paths (great-circle arcs) between samples and tangent vector fields (utu_{t}).",
+        "role": "pipeline_1",
+        "caption_zh": "图3：不同流匹配策略的比较。(a) I-CFM：先验分布样本（x0，蓝色圆点∙）与数据样本（x1，红色方块■）通过欧几里得空间中的直线路径随机配对。(b) OT与SOT匹配：标准OT（红色实线）最小化欧几里得距离，可能导致配对间存在较大角度差异。SOT（青色虚线）根据角度邻近性匹配点，能更好地保持语义结构。(c) SFM：流被约束在球面流形上，样本间采用测地线路径（大圆弧）和切向量场（ut）进行匹配。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.25294v1/x1.png",
+        "caption": "Figure 1:Effect of hyperspherical projection on RGB and latent representations.Original (columns 1, 3) and projected (columns 2, 4) versions in RGB and latent spaces. L2 norms below each image. Despite appreciable norm changes through projection, the images remain almost indistinguishable to human perception. Images are shown in the original pixel value range without per-image normalization.",
+        "role": "pipeline_2",
+        "caption_zh": "图1：超球面投影对RGB与潜在表示的效应。RGB空间（第1、3列）与潜在空间（第2、4列）中的原始版本与投影版本。每幅图像下方标注L2范数。尽管投影带来了显著的范数变化，但图像在人眼感知上几乎无法区分。所有图像均以原始像素值范围显示，未进行逐幅图像归一化处理。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.25294v1/figures/imagenet_rgb_rfid.png",
+        "caption": "(a)RGB Space(b)Latent Space (SD3-VAE)Figure 2:Robustness analysis of spherical projection on ImageNet-256.We evaluate reconstruction quality using rFID and LPIPS metrics after projecting data onto hyperspheres of varying radii (norms). The analysis is conducted in(a)pixel space (RGB) and(b)the latent space of SD3-VAE(esser2024scaling). The vertical dashed line indicates the global average norm of the dataset. The results show stable performance across a wide range of radii around the mean, suggesting that semantic content is effectively preserved in the directional components.",
+        "role": "pipeline_3",
+        "caption_zh": "(a) RGB 空间 (b) 潜在空间 (SD3-VAE) 图2：ImageNet-256上球面投影的鲁棒性分析。我们将数据投影到不同半径（范数）的超球面上，并使用rFID和LPIPS指标评估重建质量。分析在(a)像素空间（RGB）和(b)SD3-VAE的潜在空间(esser2024scaling)中进行。垂直虚线表示数据集的全局平均范数。结果显示，在均值附近的广泛半径范围内性能稳定，表明语义内容在方向分量中被有效保留。"
+      }
+    ],
     "2605.25874": [
       {
         "path": "https://arxiv.org/html/2605.25874v1/x1.png",
@@ -527,46 +687,6 @@
         "caption_zh": "图 4：不同 RoPE 比例的影响。我们测试在推理时通过将预训练的 Trellis2 模型中的低频空间 RoPE 波段替换为单位矩阵（左图），可以移除多少这样的波段。过小的 RoPE 比例会损害几何结构。相比之下，比例为 0.4 和 1.0 的结果（右图）在视觉上难以区分，这表明被移除的低频波段对输出贡献甚微，因此可重新用于时间编码而不会导致质量下降（中图）。"
       }
     ],
-    "2605.25294": [
-      {
-        "path": "https://arxiv.org/html/2605.25294v1/x2.png",
-        "caption": "(a)I-CFM(b)OT vs SOT Matching(c)SFMFigure 3:Comparison of different flow matching strategies.(a) I-CFM: Samples from a prior distribution (x0x_{0}, blue circles∙{\\color[rgb]{0,0,1}\\definecolor[named]{pgfstrokecolor}{rgb}{0,0,1}\\bullet}) are randomly paired with data samples (x1x_{1}, red squares■\\blacksquare) via straight-line paths in Euclidean space. (b) OT vs. SOT Matching: Standard OT (solid red) minimizes Euclidean distance, potentially creating pairings with large angular differences. SOT (dashed cyan) matches points by angular proximity, better preserving semantic structure. (c) SFM: Flows are constrained to a spherical manifold with geodesic paths (great-circle arcs) between samples and tangent vector fields (utu_{t}).",
-        "role": "pipeline_1",
-        "caption_zh": "图3：不同流匹配策略的比较。(a) I-CFM：先验分布样本（x0，蓝色圆点∙）与数据样本（x1，红色方块■）通过欧几里得空间中的直线路径随机配对。(b) OT与SOT匹配：标准OT（红色实线）最小化欧几里得距离，可能导致配对间存在较大角度差异。SOT（青色虚线）根据角度邻近性匹配点，能更好地保持语义结构。(c) SFM：流被约束在球面流形上，样本间采用测地线路径（大圆弧）和切向量场（ut）进行匹配。"
-      },
-      {
-        "path": "https://arxiv.org/html/2605.25294v1/x1.png",
-        "caption": "Figure 1:Effect of hyperspherical projection on RGB and latent representations.Original (columns 1, 3) and projected (columns 2, 4) versions in RGB and latent spaces. L2 norms below each image. Despite appreciable norm changes through projection, the images remain almost indistinguishable to human perception. Images are shown in the original pixel value range without per-image normalization.",
-        "role": "pipeline_2",
-        "caption_zh": "图1：超球面投影对RGB与潜在表示的效应。RGB空间（第1、3列）与潜在空间（第2、4列）中的原始版本与投影版本。每幅图像下方标注L2范数。尽管投影带来了显著的范数变化，但图像在人眼感知上几乎无法区分。所有图像均以原始像素值范围显示，未进行逐幅图像归一化处理。"
-      },
-      {
-        "path": "https://arxiv.org/html/2605.25294v1/figures/imagenet_rgb_rfid.png",
-        "caption": "(a)RGB Space(b)Latent Space (SD3-VAE)Figure 2:Robustness analysis of spherical projection on ImageNet-256.We evaluate reconstruction quality using rFID and LPIPS metrics after projecting data onto hyperspheres of varying radii (norms). The analysis is conducted in(a)pixel space (RGB) and(b)the latent space of SD3-VAE(esser2024scaling). The vertical dashed line indicates the global average norm of the dataset. The results show stable performance across a wide range of radii around the mean, suggesting that semantic content is effectively preserved in the directional components.",
-        "role": "pipeline_3",
-        "caption_zh": "(a) RGB 空间 (b) 潜在空间 (SD3-VAE) 图2：ImageNet-256上球面投影的鲁棒性分析。我们将数据投影到不同半径（范数）的超球面上，并使用rFID和LPIPS指标评估重建质量。分析在(a)像素空间（RGB）和(b)SD3-VAE的潜在空间(esser2024scaling)中进行。垂直虚线表示数据集的全局平均范数。结果显示，在均值附近的广泛半径范围内性能稳定，表明语义内容在方向分量中被有效保留。"
-      }
-    ],
-    "2605.26105": [
-      {
-        "path": "https://arxiv.org/html/2605.26105v1/x2.png",
-        "caption": "Figure 2:Overview of AFD for black-box on-policy video distillation. A sampling-only teacher provides prompt-conditioned completed videos, while the current AR student provides on-policy rollouts. A co-evolving discriminator estimates teacher–student distributional discrepancy from completed samples, and DiffusionNFT converts this black-box sample-level signal into dense forward-process flow updates on the student’s own noised states.",
-        "role": "pipeline_1",
-        "caption_zh": "图 2：黑盒同策略视频蒸馏的 AFD 概览。一个仅采样的教师模型提供提示条件生成的完整视频，而当前的自回归学生模型提供同策略的展开序列。一个共演化的判别器根据完整样本估计教师-学生分布差异，DiffusionNFT 则将此黑盒样本级信号转换为对学生自身加噪状态的密集前向过程流更新。"
-      },
-      {
-        "path": "https://arxiv.org/html/2605.26105v1/x1.png",
-        "caption": "Figure 1:Preliminary SFT trend for an AR video student. VBench and VideoPhy-2 scores decrease rather than improve monotonically as SFT steps increase.",
-        "role": "pipeline_2",
-        "caption_zh": "图1：某AR视频模型的初步SFT趋势。随着SFT步数增加，VBench和VideoPhy-2分数并未单调提升，反而呈现下降趋势。"
-      },
-      {
-        "path": "https://arxiv.org/html/2605.26105v1/x3.png",
-        "caption": "Figure 3:Qualitative visualizations of AFD in the main experiment. The first row shows Self-Forcing examples, and the second row shows Causal-Forcing examples. Each example shows representative teacher–student comparison frames under the same prompt, illustrating how the on-policy AFD update changes the student’s generated video distribution. Prompts are given in Table4.",
-        "role": "pipeline_3",
-        "caption_zh": "图3：主要实验中AFD的定性可视化结果。首行为自强迫示例，次行为因果强迫示例。每个示例展示了相同提示词下具有代表性的教师-学生对比帧，说明了基于策略的AFD更新如何改变学生生成的视频分布。相关提示词见表4。"
-      }
-    ],
     "2605.23264": [
       {
         "path": "https://arxiv.org/html/2605.23264v1/x2.png",
@@ -585,6 +705,26 @@
         "caption": "Figure 7:Impact analysis on the Sobolev indexss. We selects=1.5s=1.5(marked by star) as the optimal trade-off between structural fidelity and texture realism.",
         "role": "pipeline_3",
         "caption_zh": "图7：对Sobolev指数s的影响分析。我们选择s=1.5（星号标记）作为结构保真度与纹理真实感之间的最佳权衡点。"
+      }
+    ],
+    "2605.26108": [
+      {
+        "path": "https://arxiv.org/html/2605.26108v1/x2.png",
+        "caption": "Figure 2:Overview of the proposed RTDMD. “Det.” means the final deterministic step and “Stoc.” denotes the stochastic steps (see Sec.3.2).Blue,green, andyellowtrajectories represent the denoising trajectory of the pretrained-teacher, few-step generator, and fake score model, respectively.",
+        "role": "pipeline_1",
+        "caption_zh": "图 2：所提 RTDMD 方法的概览。“Det.” 表示最终的确定性步骤，“Stoc.” 表示随机步骤（详见第 3.2 节）。蓝色、绿色和黄色轨迹分别代表预训练教师模型、少步生成器及伪分数模型的去噪轨迹。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.26108v1/x3.png",
+        "caption": "Text prompt:“Lego Arnold Schwarzenegger.”Text prompt:“a green backpack and a pig.”Text prompt:“A vintage postcard with a faded, nostalgic look, featuring elegant cursive text that reads “Wish You Were Here” against a backdrop of a serene, old-world waterfront town with pastel buildings and a gentle, sunny sky.”Figure 3:Qualitative comparison for few-step diffusion models (4 NFE). Using identical noise inputs, our method outperforms others in both quality and prompt alignment, showing strong performance.",
+        "role": "pipeline_2",
+        "caption_zh": "文本提示：“乐高版阿诺德·施瓦辛格。”文本提示：“一个绿色背包和一只猪。”文本提示：“一张具有褪色怀旧感的复古明信片，以柔和建筑和宁静阳光天空为背景的旧世界海滨小镇为景，上方印有优雅草书文字‘希望你也在此’。” 图3：少步扩散模型（4 NFE）的定性对比。在相同噪声输入下，我们的方法在生成质量与提示对齐方面均优于其他方法，展现出强劲性能。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.26108v1/x6.png",
+        "caption": "Figure 4:Evaluation curves when reinforcing the few-step generator. “Mean” denotes the average score of normalized PickScore, HPSv2, and CLIPScore.",
+        "role": "pipeline_3",
+        "caption_zh": "图4：强化少步生成器时的评估曲线。“均值”表示归一化PickScore、HPSv2与CLIPScore的平均得分。"
       }
     ]
   }
