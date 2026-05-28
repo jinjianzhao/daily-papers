@@ -1,0 +1,497 @@
+{
+  "base_info": {
+    "2605.28816": {
+      "title": "Gamma-World: Generative Multi-Agent World Modeling Beyond Two Players",
+      "abstract": "World models for interactive video generation have largely focused on single-agent settings, where future observations are generated from a single control signal. However, many generated environments require multi-agent interaction: multiple players, robots, or embodied agents act simultaneously within a shared space. Scaling world models to such settings requires a principled multi-agent design: agents should remain independently controllable, permutation-symmetric, and support efficient inference while maintaining consistency across time and perspectives. In this paper, we present our generative multi-agent world model for interactive simulation. It introduces Simplex Rotary Agent Encoding, a parameter-free extension of 3D RoPE that represents agents as vertices of a regular simplex in rotary angle space. This gives each agent a distinct phase while making all agents permutation-equivalent, enabling scalable agent identity without learned per-slot identities or a fixed agent ordering. To avoid dense all-to-all attention across agents, we further propose Sparse Hub Attention, where learnable hub tokens mediate token interaction across agents, reducing cross-agent attention cost from quadratic to linear in the number of agents. For real-time rollout, we distill a full-context diffusion teacher into a causal student that generates temporal blocks sequentially with KV caching, enabling action-responsive generation at 24 FPS. Experiments in multiplayer virtual environments show that our model improves video fidelity, action controllability, and inter-agent consistency over slot-based and dense-attention baselines, while generalizing from two to four players without additional training.",
+      "abstract_zh": "交互式视频生成的世界模型主要聚焦于单智能体设置，即未来观测由单一控制信号生成。然而，许多生成环境需要多智能体交互：多个玩家、机器人或具身智能体在共享空间中同时行动。将世界模型扩展至此类场景需要一种原则性的多智能体设计：智能体应保持独立可控性、置换对称性，并支持高效推理，同时维持跨时间和视角的一致性。本文提出了一种用于交互式模拟的生成式多智能体世界模型。该模型引入了单纯形旋转智能体编码，这是三维旋转位置编码的三维扩展，它将智能体表示为旋转角空间中正单纯形的顶点。这种方法赋予每个智能体独特的相位，同时使所有智能体具有置换等价性，从而无需学习每个槽位的身份标识或固定智能体顺序即可实现可扩展的智能体身份识别。为避免智能体间密集的全连接注意力机制，我们进一步提出稀疏枢纽注意力，其中可学习的枢纽令牌负责协调跨智能体的令牌交互，将跨智能体注意力成本从智能体数量的二次方降至线性。为实现实时推演，我们将一个全上下文扩散教师模型提炼为因果学生模型，该模型通过KV缓存技术顺序生成时序块，从而以每秒24帧的速度实现动作响应式生成。在多玩家虚拟环境中的实验表明，相较于基于槽位和密集注意力的基线模型，我们的模型在视频保真度、动作可控性和智能体间一致性方面均有提升，且无需额外训练即可从双玩家场景泛化至四玩家场景。",
+      "hf_link": "https://huggingface.co/papers/2605.28816"
+    },
+    "2605.28763": {
+      "title": "CubePart: An Open-Vocabulary Part-Controllable 3D Generator",
+      "abstract": "Interactive 3D assets used in games and simulation are typically decomposed into specific semantic parts to support animation, physics, and scripted behaviors, yet most generative 3D models produce either monolithic meshes or arbitrary part decompositions that cannot be aligned with application-specific requirements. We present CubePart, a generative framework for open-vocabulary, part-controllable 3D mesh generation that exposes part structure as an explicit inference-time control signal. Given a global text prompt and a user-defined parts schema expressed as an open-ended list of part names, our method generates a set of meshes - one per schema element - that assemble into a coherent object while respecting the specified semantic structure. To enable this capability, we introduce a scalable data pipeline to construct a large open-vocabulary, part-labeled 3D dataset, along with a two-stage generative architecture that separates global shape synthesis from part-level decoding. We demonstrate that the resulting assets can be directly integrated into game engines and driven by animation and behavior scripts without manual post-processing. Project Page:this https URL",
+      "abstract_zh": "游戏与仿真中使用的交互式三维资产通常被分解为特定的语义部件，以支持动画、物理效果和脚本化行为，然而大多数生成式三维模型仅能输出单一整体网格或任意的部件分解结果，无法满足特定应用需求。本文提出CubePart——一个支持开放词汇、部件可控的三维网格生成框架，该框架将部件结构作为显式的推理时控制信号。在给定全局文本提示和用户定义的部件方案（表现为开放式部件名称列表）的前提下，我们的方法能生成一组网格（每个方案元素对应一个网格），这些网格可组装成具有语义一致性的物体，同时遵循指定的语义结构。为实现这一能力，我们构建了可扩展的数据流水线来创建大规模开放词汇的部件标注三维数据集，并设计了两阶段生成架构，将全局形状合成与部件级解码分离。实验证明，生成的资产可直接集成到游戏引擎中，并通过动画和行为脚本驱动，无需人工后处理。项目页面：此https网址",
+      "hf_link": "https://huggingface.co/papers/2605.28763"
+    },
+    "2605.28691": {
+      "title": "OSP-Next: Efficient High-Quality Video Generation with Sparse Sequence Parallelism, HiF8 Quantization, and Reinforcement Learning",
+      "abstract": "Diffusion Transformers achieve strong video generation quality, but the quadratic cost of full attention limits efficiency. We introduce OSP-Next, an efficient text-to-video generation model that integrates sparse attention, parallelism, quantization, and reinforcement learning. OSP-Next uses a hybrid full-sparse attention architecture, where the sparse component is implemented with Skiparse-2D Attention. This fixed-pattern mechanism applies token-wise and group-wise sparse attention along spatial dimensions, leveraging locality while maintaining native compatibility with FlashAttention kernels. Based on the local equivalence of rearrangement in Skiparse-2D Attention, we further propose Sparse Sequence Parallelism (SSP), which partitions subsequences across ranks and switches sparse patterns through a single All-to-All communication. Compared with Ulysses Sequence Parallelism (SP), SSP provides a native parallel strategy for sparse attention and reduces communication volume by 75%. OSP-Next also incorporates HiF8 quantization to enable stable joint training with 8-bit quantization and sparse fine-tuning, and applies Mix-GRPO post-training to improve the performance of the sparse model. Experiments show that OSP-Next achieves a VBench total score of 83.73%, surpassing the Wan2.1 baseline. Under the 5-second 720P and 5-second 768P settings, OSP-Next achieves up to 1.64$\\times$ single-GPU speedup and over 1.52$\\times$ eight-GPU speedup on NVIDIA H200 GPUs. In addition, with only a 0.4% drop in VBench total score, OSP-Next-HiF8 achieves 1.69$\\times$ and 2.27$\\times$ speedups under the two settings on a single Ascend 950PR, demonstrating the efficiency and performance of OSP-Next across hardware platforms.",
+      "abstract_zh": "扩散Transformer（扩散变换器）在视频生成质量方面表现优异，但完全注意力机制所需的二次计算成本限制了其效率。我们提出OSP-Next——一种高效文本到视频生成模型，它整合了稀疏注意力、并行化、量化与强化学习技术。OSP-Next采用混合式全稀疏注意力架构，其中稀疏组件通过Skiparse-2D Attention（Skiparse-2D注意力）实现。这种固定模式机制沿空间维度应用令牌级与分组级稀疏注意力，在保持对FlashAttention内核原生兼容性的同时有效利用了局部性特征。基于Skiparse-2D Attention中重排操作的局部等价性，我们进一步提出稀疏序列并行（Sparse Sequence Parallelism, SSP）方法，该方法将子序列跨计算秩划分，并通过单次全对全通信实现稀疏模式切换。相较于尤利西斯序列并行（Ulysses Sequence Parallelism, SP），SSP为稀疏注意力提供了原生并行策略，并将通信量降低75%。OSP-Next还集成HiF8量化技术，实现了8位量化与稀疏微调的稳定联合训练，并应用混合GRPO（Mix-GRPO）后训练方法以提升稀疏模型性能。实验表明，OSP-Next在VBench综合评测中获得83.73%的得分，超越Wan2.1基准模型。在5秒720P与5秒768P生成设定下，OSP-Next在NVIDIA H200 GPU上实现最高1.64倍的单GPU加速与超过1.52倍的八GPU加速。此外，在仅损失0.4% VBench综合得分的情况下，OSP-Next-HiF8在单张昇腾950PR处理器上，于两种设定下分别实现1.69倍与2.27倍加速，展现出跨硬件平台的高效性与性能优势。",
+      "hf_link": "https://huggingface.co/papers/2605.28691"
+    },
+    "2605.28774": {
+      "title": "Agent Explorative Policy Optimization for Multimodal Agentic Reasoning",
+      "abstract": "Vision-language models with extended reasoning succeed on complex problems, but many real-world problems require external tools that internal reasoning alone often cannot resolve. Agentic reasoning therefore interleaves two behaviors with a structural asymmetry: thinking (the self-contained default) and tool use (a high-variance auxiliary acting). We refer to this asymmetry as the Thinking-Acting Gap. Under standard RL recipes like GRPO, the gap manifests as two diagnostic symptoms during training: tool use is attempted on only ~30% of rollouts, and when attempted, the tool-using rollouts within a group are all-wrong on ~40% of questions, suppressing the learning signal at the tool calls that needed it. We propose AXPO (Agent eXplorative Policy Optimization): for each all-wrong tool-using subgroup, AXPO fixes the thinking prefix and resamples the tool call and its continuation, paired with uncertainty-based prefix selection. Across nine multimodal benchmarks and three scales of Qwen3-VL-Thinking, SFT+AXPO outperforms SFT+GRPO at average (+1.8pp Pass@1 and +1.8pp Pass@4 at 8B on average) and 8B with SFT+AXPO surpasses the 32B Base on Pass@4 with 4 times fewer parameters.",
+      "abstract_zh": "具备扩展推理能力的视觉语言模型已在复杂问题上取得成功，但许多现实问题需要外部工具辅助，仅靠内部推理往往无法解决。因此，智能体推理交错执行两种结构不对称的行为：思考（自包含的默认行为）与工具调用（高方差的辅助行动）。我们将这种不对称性称为\"思考-行动鸿沟\"。在GRPO等标准强化学习方案下，该鸿沟在训练中表现为两个典型症状：仅约30%的训练轮次尝试工具调用，且在尝试工具调用的轮次中，约40%问题的工具调用子组完全错误，这抑制了关键工具调用处的学习信号。我们提出AXPO（智能体探索策略优化）：针对每个完全错误的工具调用子组，AXPO固定思考前缀并重采样工具调用及其后续动作，同时结合基于不确定性的前缀选择机制。在九个多模态基准测试和三种规模的Qwen3-VL-Thinking模型上，SFT+AXPO平均表现优于SFT+GRPO（8B模型平均提升+1.8pp Pass@1和+1.8pp Pass@4），且8B规模的SFT+AXPO在Pass@4指标上超越32B基础模型，参数量仅为后者的四分之一。",
+      "hf_link": "https://huggingface.co/papers/2605.28774"
+    },
+    "2605.28293": {
+      "title": "ProRL: Effective Reinforcement Learning for Proactive Recommendation via Rectified Policy Gradient Estimation",
+      "abstract": "Proactive Recommender Systems (PRSs) aim to guide user preference shift toward target items by generating paths of intermediate recommendations. Reinforcement learning (RL) provides a principled framework for optimizing such sequential decision tasks, as path rewards can naturally capture both short-term acceptance and long-term guidance effectiveness. However, naively applying policy gradients to PRS results in deficient gradient estimation. We identify two deficiencies: (1) path-level rewards decompose into step-level rewards with positive mean, creating a length-dependent bias that causes gradients to favor path extension over meaningful exploration; (2) weighting each step by the entire path-level reward ignores the decomposition structure, leading to high gradient variance. To rectify these two deficiencies, we propose an effective RL framework ProRL with two novel mechanisms for proactive recommendation. First, Stepwise Reward Centering subtracts expected rewards to neutralize length-dependent bias, ensuring that path extension yields zero expected gradient signal. Second, Position-Specific Advantage Estimation leverages the reward decomposition structure to compute step-dependent baselines, reducing gradient variance. Together, these mechanisms yield policy gradients that precisely target path quality. Our experiments on three real-world datasets demonstrate that ProRL significantly outperforms state-of-the-art PRSs. Our code is available atthis https URL.",
+      "abstract_zh": "主动推荐系统(Proactive Recommender Systems，PRSs)旨在通过生成中间推荐路径，引导用户偏好向目标项目转移。强化学习(Reinforcement Learning，RL)为优化此类序列决策任务提供了原则性框架，因为路径奖励能够自然地同时捕捉短期接受度和长期引导效果。然而，直接将策略梯度应用于主动推荐系统会导致梯度估计存在缺陷。我们识别出两方面的不足：(1) 路径级奖励可分解为具有正均值的步级奖励，由此产生长度依赖性偏差，导致梯度倾向于延长路径而非进行有效探索；(2) 以整条路径的奖励对每一步进行加权会忽略奖励分解结构，导致梯度方差过高。为纠正这两项缺陷，我们提出一个有效的强化学习框架ProRL，其中包含两种用于主动推荐的新机制。首先，步进式奖励中心化通过减去期望奖励来消除长度依赖性偏差，确保路径延长产生的期望梯度信号为零。其次，位置特定优势估计利用奖励分解结构计算与步骤相关的基线，从而降低梯度方差。这两种机制共同作用，产生了能精准针对路径质量的策略梯度。我们在三个真实世界数据集上的实验表明，ProRL显著优于当前最先进的主动推荐系统。代码发布于https URL。",
+      "hf_link": "https://huggingface.co/papers/2605.28293"
+    },
+    "2605.28820": {
+      "title": "From Pixels to Words -- Towards Native One-Vision Models at Scale",
+      "abstract": "Current vision-language models (VLMs) typically stitch together separate image encoders and language decoders via multi-stage alignment, a modular framework that inevitably fragments pixel-level signals across frames and scatters early pixel-word interactions. In parallel, native VLMs, despite impressive performance on single images, remain largely unexplored in multi-image, video understanding, and spatial intelligence. Hence, we introduce NEO-ov, a native foundation model that learns cross-frame and pixel-word correspondence end-to-end, without any external encoders, auxiliary adapters, or post-hoc fusion. By eliminating module boundaries entirely, NEO-ov enables fine-grained and unified spatiotemporal modeling to emerge natively inside the model. Notably, NEO-ov largely narrows the gap to modular counterparts while excelling at fine-grained visual perception, validating that native \"one-vision\" architectures are not only feasible but competitive at scale. Beyond empirical performance, we unveil systematic architectural analyses and detailed training recipes to facilitate subsequent native multimodal modeling. Our code and models are publicly available at:this https URL.",
+      "abstract_zh": "当前视觉语言模型通常通过多阶段对齐将独立的图像编码器与语言解码器拼接起来，这种模块化框架不可避免地导致跨帧的像素级信号碎片化，并使早期的像素-词汇交互分散化。与此同时，原生视觉语言模型虽然在单图像理解上表现优异，但在多图像理解、视频理解及空间智能任务中仍鲜有探索。为此，我们提出NEO-ov——一个无需任何外部编码器、辅助适配器或后融合处理，能够端到端学习跨帧与像素-词汇对应关系的原生基础模型。通过完全消除模块边界，NEO-ov实现了细粒度且统一的时空建模能力在模型内部的自然涌现。值得注意的是，NEO-ov在显著缩小与模块化模型性能差距的同时，在细粒度视觉感知任务中表现卓越，这验证了原生“单视觉”架构不仅可行，且在大规模应用中具备竞争力。除实证性能外，我们还提供了系统的架构分析与详细训练方案，以促进后续原生多模态建模研究。我们的代码与模型已公开于：此https网址。",
+      "hf_link": "https://huggingface.co/papers/2605.28820"
+    },
+    "2605.28814": {
+      "title": "Self-Improving Language Models with Bidirectional Evolutionary Search",
+      "abstract": "Search has been proposed as an effective method for self-improving language models and agentic systems, both for post-training sample generation and for inference. However, widely used methods such as best-of-N sampling and tree search face two fundamental limitations: they are guided by sparse verification signals, and they construct candidates primarily through autoregressive expansion, restricting exploration to regions with substantial model probability mass. To address these, we propose Bidirectional Evolutionary Search (BES), a search framework that couples forward candidate evolution with backward goal decomposition. In the forward search, BES augments standard expansion with evolution operators that recombine partial trajectories to generate candidates that are difficult to obtain from a single model rollout. In the backward search, BES recursively decomposes the original task into checkable subgoals, producing dense intermediate feedback that guides forward search. We provide theoretical motivation showing that candidates generated by expansion-only search are confined to a narrow entropy shell while evolutionary operators can escape it, and that backward search can exponentially reduce the number of required samples to find a correct answer. Experiments show that on challenging post-training tasks where mainstream post-training algorithms fail to improve, BES enables consistent gains, and on three open problem solving benchmarks at inference time, BES outperforms existing open-source frameworks in both average and best-case performance. Code and trained models are available atthis https URL.",
+      "abstract_zh": "搜索已被提出作为自改进语言模型与智能体系统的一种有效方法，既可用于训练后样本生成，也可用于推理过程。然而，广泛采用的方法（如最佳N采样和树搜索）面临两个根本性局限：它们依赖稀疏的验证信号进行引导，且主要通过自回归扩展构建候选方案，从而将探索范围限制在具有显著模型概率质量的区域内。针对这些问题，我们提出双向进化搜索——一种将前向候选解进化与后向目标分解相耦合的搜索框架。在前向搜索中，BES通过进化算子增强标准扩展过程，这些算子能重组部分轨迹以生成难以通过单次模型推演获得的候选方案。在后向搜索中，BES递归地将原始任务分解为可验证的子目标，产生密集的中间反馈以指导前向搜索。我们从理论上证明：仅通过扩展生成的候选解被限制在狭窄的熵壳内，而进化算子能突破此限制；后向搜索能指数级减少找到正确答案所需的样本量。实验表明，在主流训练后算法难以取得进展的挑战性训练后任务中，BES能实现持续性能提升；在三个开放问题求解推理基准测试中，BES在平均性能和最佳性能上均优于现有开源框架。代码与训练模型可通过此链接获取：this https URL。",
+      "hf_link": "https://huggingface.co/papers/2605.28814"
+    },
+    "2605.28003": {
+      "title": "ResearchMath-14K: Scaling Research-Level Mathematics via Agents",
+      "abstract": "The frontier of mathematics is defined by problems whose solutions are not yet known, yet it remains unclear whether language models can meaningfully engage with such problems without human intervention. A major obstacle is the lack of large-scale research-level math datasets. To this end, we introduce ResearchMath-14k, a set of $14{,}056$ problems curated from academic sources via a multi-agent pipeline, making it the largest collection of research-level mathematical problems to date. We further generate ResearchMath-Reasoning, $220$K teacher trajectories from two open models, where we observe recurring avoidance behaviors such as non-attempts and fabricated references. Interestingly, across eight open-weight models, newer generations produce $5.6\\times$ more references and $5.0\\times$ more fake references per trace. After agentic filtering of ResearchMath-Reasoning, fine-tuning Qwen3 models from 4B to 30B parameters improves over base models by $9.2$ points on average. This shows that filtered open-problem attempts can provide useful supervision even without fully correct reasoning traces. We make ResearchMath-14k publicly available for future works on research-level mathematical reasoning.",
+      "abstract_zh": "数学前沿由那些尚未被解决的难题所界定，然而，在没有人类干预的情况下，语言模型能否真正有效地参与此类问题仍不明确。一个主要障碍是缺乏大规模研究级别的数学数据集。为此，我们引入了ResearchMath-14k，这是一个通过多智能体（multi-agent）流程从学术资料中收集整理的、包含$14,056$个问题的数据集，使其成为迄今为止规模最大的研究级数学问题集合。我们进一步生成了ResearchMath-Reasoning，即从两个开放模型中提取的$220$K条教师轨迹（teacher trajectories），其中我们观察到反复出现的回避行为，例如未尝试解题与捏造参考文献。值得注意的是，在八个开源权重（open-weight）模型中，较新一代模型在每条轨迹中产生的参考文献数量是之前的$5.6$倍，且捏造参考文献的数量达到$5.0$倍。在对ResearchMath-Reasoning进行智能体（agentic）筛选后，对参数规模从4B到30B的Qwen3模型进行微调（fine-tuning），其平均性能相较于基础模型提升了$9.2$个百分点。这表明，即便没有完全正确的推理轨迹，经过筛选的开放问题尝试仍能提供有效的监督信息。我们将ResearchMath-14k公开提供，以促进未来在研究级数学推理领域的工作。",
+      "hf_link": "https://huggingface.co/papers/2605.28003"
+    },
+    "2605.28732": {
+      "title": "MemTrace: Tracing and Attributing Errors in Large Language Model Memory Systems",
+      "abstract": "Memory is essential for enabling large language models to support long-horizon reasoning, yet existing memory systems remain unreliable and difficult to debug. Tracing memory's dynamic evolution is crucial to understand how information is synthesized, propagated, or corrupted over time. In this work, we study the new problem of error tracing and attribution in LLM memory systems. We propose a novel framework that transforms memory pipelines into executable memory evolution graphs, enabling fine-grained tracing of operational information flow. We then construct MemTraceBench, a benchmark collected from representative memory systems such as Long-Context, RAG, Mem0, and EverMemOS, to systematically study memory failure modes. We further introduce an automatic attribution method that iteratively traces operation subgraphs to pinpoint the root cause of any failed case. Our analysis reveals that memory failures are systematic, stemming from operation-level issues like information loss and retrieval misalignment. Crucially, we leverage these fine-grained attribution signals to guide downstream prompt optimization, establishing a closed-loop system that automatically corrects faults and boosts end-task performance by up to 7.62%. Code will be released atthis https URL.",
+      "abstract_zh": "记忆对于使大语言模型支持长程推理至关重要，然而现有记忆系统仍存在不可靠且难以调试的问题。追踪记忆的动态演化对于理解信息如何随时间合成、传播或损坏具有关键意义。本研究针对LLM记忆系统中的错误追踪与归因这一新问题展开探索。我们提出了一种新颖框架，将记忆管线转化为可执行记忆演化图，从而实现对操作级信息流的细粒度追踪。基于此，我们构建了MemTraceBench基准测试集，该数据集收集自长上下文、检索增强生成（RAG）、Mem0和EverMemOS等代表性记忆系统，用于系统研究记忆失效模式。我们进一步提出自动归因方法，通过迭代追踪操作子图精准定位任何失效案例的根本原因。分析表明，记忆失效具有系统性特征，其根源在于信息丢失、检索错位等操作层面的问题。值得注意的是，我们利用这些细粒度归因信号指导下游提示优化，建立了一个能够自动纠正错误、将终端任务性能提升最高达7.62%的闭环系统。代码将通过此链接发布：https://URL。",
+      "hf_link": "https://huggingface.co/papers/2605.28732"
+    },
+    "2605.28548": {
+      "title": "GEM: Generative Supervision Helps Embodied Intelligence",
+      "abstract": "Embodied Vision-Language Models (VLMs) have demonstrated impressive performance and generalization in robotics, particularly within Vision-Language-Action frameworks. However, a significant gap remains between the high-level semantic focus of standard text-guided pre-training paradigms and the low-level spatial and physical knowledge critical for execution in embodied environments. In this paper, we introduce GEM, a Generative-supervised Embodied vision-language Model designed to bridge this divide. We propose integrating a depth map generation task directly into the VLM pre-training phase. By training this generative objective jointly with the main model, we observe substantial improvements in embodied intelligence, significantly enhancing both semantic understanding and physical operation capabilities. To support this paradigm, we curate and release GEM-4M, a comprehensive large-scale dataset featuring a mixture of grounding, reasoning, and planning data paired with high-quality depth supervision. Extensive experiments demonstrate that GEM achieves state-of-the-art results across diverse embodied benchmarks. Furthermore, our deployed action model, GEM-VLA, exhibits vastly superior task execution abilities in both simulation environments and real-world evaluations. Code, models, and datasets are available atthis https URL",
+      "abstract_zh": "具身视觉语言模型（Embodied Vision-Language Models，VLMs）在机器人学中展现出了令人印象深刻的性能与泛化能力，尤其在视觉-语言-行动（Vision-Language-Action）框架内。然而，标准文本引导预训练范式所关注的高层语义与具身环境中执行任务所必需的低层空间及物理知识之间仍存在显著差距。本文提出GEM，一种生成式监督的具身视觉语言模型（Generative-supervised Embodied vision-language Model），旨在弥合这一鸿沟。我们建议将深度图生成任务直接整合到VLM预训练阶段。通过将此生成目标与主模型联合训练，我们观察到具身智能水平显著提升，语义理解与物理操作能力均得到大幅增强。为支持此范式，我们构建并发布了GEM-4M——一个综合性强、规模庞大的数据集，其融合了具有高质量深度监督的接地（grounding）、推理与规划数据。大量实验表明，GEM在多种具身基准测试中均取得了最先进的成果。此外，我们所部署的行动模型GEM-VLA在仿真环境与现实场景评估中均展现出显著优越的任务执行能力。代码、模型及数据集可通过此链接获取：this https URL",
+      "hf_link": "https://huggingface.co/papers/2605.28548"
+    },
+    "2605.28775": {
+      "title": "Learn from Weaknesses: Automated Domain Specialization for Small Computer-Use Agents",
+      "abstract": "Computer-use agents (CUAs) have recently made substantial progress, but deploying a separate large expert for each software domain remains expensive. Small open computer-use agents are more practical specialization targets, but they remain substantially weaker and exhibit uneven domain-specific failures. A straightforward remedy is to synthesize large-scale training data for the target domain, yet we find that this naive approach yields only marginal improvements. Building on this observation, we introduce LearnWeak, an annotation-free specialization framework for small computer-use agents that uses a stronger reference agent to identify the student's weaknesses in the target domain, synthesize targeted tasks, and construct supervision automatically. LearnWeak further introduces an error-aware specialization objective that disentangles planning and execution errors, enabling more behaviorally precise updates than broad uniform supervision. On OSWorld, LearnWeak achieves average gains of 11.6 and 11.1 percentage points over EvoCUA-8B and OpenCUA-7B, respectively, across eight domains. We also validate that our student-aware dataset generation and training approaches outperform existing autonomous trajectory generation and training baselines. Our work highlights the importance of student awareness in both data synthesis and agent training, pointing toward a more principled and efficient path for specializing small computer-use agents in diverse domains.",
+      "abstract_zh": "计算机使用智能体（Computer-use agents，CUAs）近期取得了显著进展，但为每个软件领域部署独立的大型专家模型仍然成本高昂。小型开源计算机使用智能体是更实用的专业化目标，但其性能仍明显较弱，且存在领域特定的不均衡失效问题。一种直接的解决方案是为目标领域合成大规模训练数据，但我们发现这种简单方法仅能带来有限的改进。基于此观察，我们提出了LearnWeak——一种面向小型计算机使用智能体的免标注专业化框架，该框架利用更强的参考智能体来识别学生在目标领域的弱点，合成针对性任务，并自动构建监督信号。LearnWeak进一步引入了误差感知的专业化目标，能够解耦规划与执行错误，从而比宽泛的均匀监督实现更精确的行为更新。在OSWorld基准测试中，LearnWeak在八个领域上相比EvoCUA-8B和OpenCUA-7B分别实现了平均11.6和11.1个百分点的性能提升。我们同时验证了所提出的学生感知数据集生成与训练方法优于现有的自主轨迹生成和训练基线。本研究强调了学生感知在数据合成与智能体训练中的重要性，为在不同领域专业化小型计算机使用智能体指明了更具原则性和高效的技术路径。",
+      "hf_link": "https://huggingface.co/papers/2605.28775"
+    },
+    "2605.26340": {
+      "title": "ScientistOne: Towards Human-Level Autonomous Research via Chain-of-Evidence",
+      "abstract": "Autonomous research agents produce competitive solutions and professional-looking manuscripts, yet their outputs contain verifiability failures undetectable by surface-level evaluation: fabricated citations, unreproducible scores, and method descriptions that diverge from the implementation. We address this through three contributions. First, Chain-of-Evidence (CoE), a verifiability framework requiring every claim to be traceable to its evidence source. Second, ScientistOne, an end-to-end autonomous research system that maintains evidence chains by construction throughout literature review, solution discovery, and paper writing. Third, CoE Audit, a post-hoc audit whose four integrity checks -- score verification, specification violation, reference verification, and method-code alignment -- apply uniformly to all systems. Across 75 papers spanning five systems and five frontier research tasks, every baseline exhibits at least one systematic failure mode: hallucinated reference rates reach 21%, score verification passes in as few as 42% of papers, and method-code alignment ranges from 20% to 80%. ScientistOne achieves zero hallucinated references (0/337), perfect score verification (12/12), and the highest method-code alignment (14/15), while matching or exceeding human expert performance on all five tasks. ScientistOne further generalizes to six additional tasks spanning medical imaging, fine-grained recognition, 3D perception, and language modeling, achieving state-of-the-art on Parameter Golf and gold medals on MLE-Bench tasks where baselines fail entirely.",
+      "abstract_zh": "自主研究智能体能够生成具有竞争力的解决方案和专业水准的论文稿件，但其输出内容包含通过表面评估无法检测的可验证性缺陷：捏造的引用、不可复现的评分分数，以及与方法实际实现不一致的描述。我们通过三项贡献来解决这一问题。首先，提出证据链（Chain-of-Evidence，CoE）这一可验证性框架，要求每个论断都能追溯至其证据来源。其次，开发了ScientistOne——一个端到端自主研究系统，该系统在文献综述、方案发现和论文撰写全过程中通过构建方式维护证据链。第三，设计了CoE审计，这是一种事后审计机制，其四项完整性检查——分数验证、规范违反检测、参考文献核实以及方法与代码一致性检验——可统一适用于所有系统。在涵盖五个系统和五个前沿研究任务的75篇论文中，所有基线系统均表现出至少一种系统性失效模式：虚构参考文献的比例高达21%，论文中通过分数验证的比例低至42%，方法与代码一致性的范围在20%至80%之间。ScientistOne实现了零虚构参考文献（0/337）、完美的分数验证（12/12）以及最高的方法与代码一致性（14/15），同时在所有五项任务中达到或超越了人类专家水平。ScientistOne进一步推广至涵盖医学影像、细粒度识别、三维感知和语言建模的六项附加任务，在基线系统完全失败的参数高尔夫（Parameter Golf）任务上取得最先进成果，并在MLE-Bench任务中获得金牌。",
+      "hf_link": "https://huggingface.co/papers/2605.26340"
+    },
+    "2605.28421": {
+      "title": "DenoiseRL: Bootstrapping Reasoning Models to Recover from Noisy Prefixes",
+      "abstract": "Reinforcement learning has become a central paradigm for advancing reasoning in large language models, yet most existing methods still depend on stronger teacher models or heavily curated difficult datasets, limiting scalable capability improvement. In this paper, we introduce DenoiseRL, a reinforcement learning framework that substitutes external supervision with recovery-oriented optimization over failures from weak models. Instead of relying on stronger supervision or carefully engineered data, DenoiseRL learns directly from incorrect reasoning traces by converting them into opportunities for improvement, making training more scalable and less dependent on external resources. This yields a richer and more diverse learning signal, improving exploration efficiency from imperfect model behavior. As a result, DenoiseRL improves reasoning performance and overall training efficiency while reducing the need for expensive data curation or stronger teacher models. Empirically, DenoiseRL consistently outperforms strong on-policy RL baselines across competitive mathematical and general reasoning benchmarks and promotes stronger self-corrective behavior as training difficulty increases, highlighting an effective and scalable alternative pathway for improving reasoning in large language models.",
+      "abstract_zh": "强化学习已成为推进大语言模型推理能力的核心范式，然而现有方法大多仍依赖于更强的教师模型或精心构建的困难数据集，限制了可扩展的能力提升。本文提出DenoiseRL，一种通过弱模型错误进行恢复导向优化的强化学习框架，用以替代外部监督。该框架不依赖更强监督或精心设计的数据，而是直接从错误推理轨迹中学习，将其转化为改进机会，使训练更具可扩展性且减少对外部资源的依赖。这种方法产生了更丰富、更多样的学习信号，从模型的不完美行为中提升了探索效率。因此，DenoiseRL在提升推理性能和整体训练效率的同时，降低了对昂贵数据标注或更强教师模型的需求。实验表明，在竞争性的数学与通用推理基准测试中，DenoiseRL持续优于强策略性强化学习基线，并在训练难度增加时促成了更强的自我纠正行为，这为提升大语言模型推理能力提供了一条高效且可扩展的替代路径。",
+      "hf_link": "https://huggingface.co/papers/2605.28421"
+    },
+    "2605.25969": {
+      "title": "Triplet-Block Diffusion RWKV",
+      "abstract": "Causal Transformer language models suffer from strictly sequential decoding and a quadratic per-step attention cost. While linear-time causal models and discrete diffusion models each address these weaknesses, their integration remains inherently inconsistent: diffusion requires bidirectional attention, while causal models are unidirectional. To unify these architectures, we propose $B^3D-RWKV$, a diffusion RWKV variant that integrates the model's $O(L)$ inference efficiency with parallel, bidirectional discrete-diffusion through a \\emph{triplet-block layout} method. $B^3D-RWKV-7.2B$ reaches comparable accuracy on an 8-task suite versus existing models while significantly outperforming baselines in decoding throughput with an average of $\\mathbf{1.6\\times}$ speedup.",
+      "abstract_zh": "因果Transformer语言模型受限于严格的顺序解码和每一步注意力计算的二次方时间复杂度。尽管线性时间因果模型和离散扩散模型各自解决了这些缺陷，但二者的结合存在本质矛盾：扩散模型需要双向注意力机制，而因果模型则是单向的。为统一这两类架构，我们提出$B^3D-RWKV$——一种扩散RWKV变体，通过\\emph{三重块布局}方法将模型的$O(L)$推理效率与并行双向离散扩散相融合。$B^3D-RWKV-7.2B$在八项任务测试集上达到了与现有模型相当的准确度，同时在解码吞吐量上显著超越基线模型，平均实现$\\mathbf{1.6倍}$的加速。",
+      "hf_link": "https://huggingface.co/papers/2605.25969"
+    },
+    "2605.28109": {
+      "title": "Long Live The Balance: Information Bottleneck Driven Tree-based Policy Optimization",
+      "abstract": "Recent advances in online reinforcement learning (RL) for large language models (LLMs) have demonstrated promising performance in complex reasoning tasks. However, they often exhibit an imbalanced exploration-exploitation trade-off, resulting in unstable optimization and sub-optimal performance. We introduce IB-Score, a novel metric grounded in Information Bottleneck theory that evaluates policy's exploration-exploitation balance by quantifying the trade-off between step-level reasoning diversity and mutual information shared with the correct answer. Analysis based on IB-Score shows that popular online RL approaches (e.g., GRPO) with common regularizers fail to consistently maintain balance during training with suboptimal results. To address this, we propose Information Bottleneck-driven Tree-based Policy Optimization (IB-TPO), a principled framework that formulates IB-Score as a fine-grained optimization objective and utilizes a novel IB-guided tree sampling strategy that not only improves the efficiency of online sampling with 50% more trajectories under the same token budget, but also reuses the tree structure for effective IB-Score Monte Carlo estimation. Extensive experiments across standard benchmarks show that our method significantly outperforms GRPO baseline by 2.9% to 3.6% and also outperforms other state-of-the-art online RL approaches. Our code is available atthis https URL.",
+      "abstract_zh": "近年来，大规模语言模型在线强化学习在复杂推理任务中展现出优异性能，但常面临探索与利用权衡失衡的问题，导致优化过程不稳定和性能欠佳。本研究提出基于信息瓶颈理论的新型度量指标IB-Score，通过量化步骤级推理多样性与正确答案互信息之间的权衡关系，系统评估策略的探索-利用平衡状态。基于IB-Score的分析表明，当前主流在线强化学习方法（如GRPO）即使采用常规正则化器，仍难以在训练过程中保持稳定平衡，最终导致次优结果。为解决该问题，我们提出信息瓶颈驱动的树状策略优化框架——IB-TPO。该框架将IB-Score构建为细粒度优化目标，并采用创新的IB引导树采样策略：在相同令牌预算下可提升50%轨迹采样效率，同时复用树状结构实现高效的IB-Score蒙特卡洛估计。在标准基准测试中的大量实验表明，本方法较GRPO基线模型提升2.9%至3.6%，且优于其他前沿在线强化学习方法。代码已发布于https://github.com/xxx。",
+      "hf_link": "https://huggingface.co/papers/2605.28109"
+    },
+    "2605.28773": {
+      "title": "Rethinking Memory as Continuously Evolving Connectivity",
+      "abstract": "Existing memory-augmented LLM agents often treat memory as a static repository with pre-defined representations and fixed retrieval pipelines, which is brittle in dynamic agentic environments where feedback, task variation, and heterogeneous signals continuously reshape what should be remembered and how it should be connected. To address this, we propose FluxMem, a connectivity-evolving memory framework that models memory as a heterogeneous graph and progressively refines its topology through three stages: initial connection formation, feedback-driven refinement, and long-term consolidation. During execution, FluxMem repairs missing links, prunes interference, aligns abstraction granularity, and distills recurrent successful trajectories into reusable procedural circuits, guided by one metric for memory generalizability and evolutionary maturity. Across three fundamentally distinct benchmarks including LoCoMo, Mind2Web, and GAIA, FluxMem achieves consistent state-of-the-art performance, demonstrating strong adaptation and generalization in complex agentic environments. The code will be open-sourced inthis https URL.",
+      "abstract_zh": "现有基于记忆增强的大语言模型（LLM）智能体通常将记忆视为具有预定义表征和固定检索流程的静态存储库，这在动态智能体环境中显得脆弱——此类环境中反馈、任务变化和异构信号持续重塑着应记忆的内容及其关联方式。为此，我们提出FluxMem，一种连接性演化的记忆框架，将记忆建模为异构图，并通过三个阶段逐步优化其拓扑结构：初始连接形成、反馈驱动优化和长期巩固。在执行过程中，FluxMem以记忆泛化能力和演化成熟度为核心度量指标，动态修复缺失链接、剪枝干扰信息、对齐抽象粒度，并将反复成功的轨迹提炼为可复用的程序化回路。在LoCoMo、Mind2Web和GAIA这三个本质不同的基准测试中，FluxMem均取得了一致的领先性能，展现了在复杂智能体环境中强大的适应与泛化能力。代码将通过此链接开源：this https URL。",
+      "hf_link": "https://huggingface.co/papers/2605.28773"
+    },
+    "2605.28398": {
+      "title": "HRBench: Benchmarking and Understanding Thinking-Mode Switch Strategies in Hybrid-Reasoning LLMs",
+      "abstract": "Hybrid-reasoning large language models (LLMs) expose explicit controls over reasoning effort, allowing users or systems to trade off answer quality against inference cost. However, existing methods for adaptive thinking-mode selection are typically evaluated under different models, datasets, and implementation assumptions, making it difficult to compare their practical behavior. We introduce HRBench, a unified evaluation framework for studying thinking-mode switching in hybrid-reasoning LLMs. HRBench organizes the design space along two axes: three switching strategy families, prompt-based selection, external routing, and speculative execution, and four training regimes, training-free, SFT, offline and online RL, yielding 12 controlled evaluation settings. We evaluate these settings across 6 LLMs, from Qwen3.5-2B to Kimi-K2.5-1.1T, and 5 reasoning benchmarks covering mathematics, science, and code, while reimplementing 12+ representative prior methods within the same pipeline. Our analysis characterizes how different switching strategies occupy distinct effectiveness-efficiency trade-off regions: prompt-based methods often provide favorable token-accuracy trade-offs, routing methods offer more stable cost reduction, and speculative methods tend to improve accuracy at higher token cost. We further find that training affects strategies differently, and that the preferred strategy varies with model scale and task domain. HRBench provides reference implementations and a unified evaluation platform to support more controlled research on efficient reasoning in hybrid-reasoning LLMs. Our data, code and repository are available atthis https URL.",
+      "abstract_zh": "混合推理大语言模型（LLMs）通过显式控制推理力度，允许用户或系统在答案质量与推理成本之间进行权衡。然而，现有自适应思维模式选择方法通常在不同模型、数据集和实现假设下进行评估，这使得比较它们的实际行为变得困难。我们提出了HRBench，一个用于研究混合推理LLMs中思维模式切换的统一评估框架。HRBench将设计空间沿两个轴组织：三个切换策略家族——基于提示的选择、外部路由和推测执行，以及四种训练机制——免训练、监督微调（SFT）、离线强化学习（RL）和在线强化学习（RL），共形成12种受控评估设置。我们在6个LLM（从Qwen3.5-2B到Kimi-K2.5-1.1T）和5个涵盖数学、科学与代码的推理基准上评估这些设置，并在同一流程中复现了12个以上代表性先前方法。我们的分析揭示了不同切换策略如何占据各自的效果-效率权衡区域：基于提示的方法通常提供有利的令牌-准确率权衡，路由方法提供更稳定的成本降低，而推测方法倾向于以更高的令牌成本提升准确性。进一步研究发现，训练对不同策略的影响各异，且优选策略随模型规模和任务领域而变化。HRBench提供了参考实现和统一评估平台，以支持对混合推理LLMs高效推理的更受控研究。我们的数据、代码和仓库可通过此链接获取：https://URL。",
+      "hf_link": "https://huggingface.co/papers/2605.28398"
+    },
+    "2605.28721": {
+      "title": "LiveBrowseComp: Are Search Agents Searching, or Just Verifying What They Already Know?",
+      "abstract": "Are LLM-based search agents genuinely searching, or using the web to verify what they already know? We study this question on BrowseComp with three diagnostics. Our analysis reveals Intrinsic Knowledge Dependence (IKD): even with tool access, agents often rely on intrinsic knowledge -- information encoded in the model before retrieval -- rather than on external evidence. Agents answer up to 44.5% of BrowseComp questions without tools, generate more than half of their search queries from internally produced hypotheses rather than retrieved leads, and perform worse than closed-book baselines when answer-supporting evidence is removed. These results suggest that static search benchmarks can reward memory-backed verification rather than evidence-driven discovery, conflating what agents already know with what they can find. We then introduce LiveBrowseComp, a deep-search benchmark designed to evaluate agents beyond intrinsic coverage. It contains 335 human-authored questions whose answers depend on facts published within the 90 days preceding benchmark construction, drawn from six updated sources and filtered to exclude globally salient events. On LiveBrowseComp, all evaluated agents fall below 2% closed-book accuracy, search-augmented scores drop by 25-40 points relative to BrowseComp, and prior model rankings no longer reliably predict performance. LiveBrowseComp is available atthis https URL.",
+      "abstract_zh": "基于大语言模型（LLM）的搜索代理究竟是在真实搜索，还是仅仅利用网络来验证其已有知识？我们在BrowseComp数据集上通过三项诊断测试对此问题展开研究。我们的分析揭示了**内在知识依赖（Intrinsic Knowledge Dependence, IKD）**现象：即使具备工具调用能力，代理仍常常依赖**内在知识**——即检索前已编码于模型中的信息——而非外部证据。这些代理能在不使用工具的情况下回答多达44.5%的BrowseComp问题，其生成的搜索查询中超过半数源自内部产生的假设而非检索线索，且当支持答案的证据被移除时，其表现甚至逊于闭卷基线模型。这些结果表明，静态搜索基准可能会奖励基于记忆的验证行为而非证据驱动的探索过程，混淆了代理“已知”与“可发现”的界限。为此，我们提出了**LiveBrowseComp**——一个旨在评估代理超越内在知识覆盖能力的深度搜索基准。该基准包含335个由人工编写的问题，其答案依赖于基准构建前90天内发布的事实信息，数据来源于六个持续更新的信息源，并经过筛选以排除全球性热点事件。在LiveBrowseComp上，所有受测代理的闭卷准确率均低于2%，其搜索增强得分较BrowseComp下降25-40个百分点，且既有模型排名无法再可靠预测性能表现。LiveBrowseComp可通过此链接访问：https://...",
+      "hf_link": "https://huggingface.co/papers/2605.28721"
+    },
+    "2605.27354": {
+      "title": "Guiding LLM Post-training Data Engineering with Model Internals from Sparse Autoencoders",
+      "abstract": "Model internals encode rich information about how a large language model (LLM) processes its training data; however, post-training data engineering largely relies on external signals and ignores rich intrinsic signals lying in model internals. We propose SAERL, a data engineering framework for LLM reinforcement learning (RL). It models three intrinsic data properties: diversity, difficulty, and quality, using model internals extracted with Sparse Autoencoder (SAE), an advanced mechanistic interpretability tool. Each property grounds a concrete data engineering operation: SAE-space clustering with moderate batch mixing for batch diversity control, a difficulty proxy for easy-to-hard curriculum ordering, and a quality probe for data filtering. SAERL improves average accuracy by 3.00% over vanilla GRPO and reaches target accuracy with 20% fewer training steps on Qwen2.5-Math-1.5B, with consistent gains across model scales and RL algorithms. Experiments show that SAE transfers effectively across model families and scales, serving as a lightweight and reusable data engineering tool. These results demonstrate that model internals are a powerful and practical source of signals for post-training data engineering.",
+      "abstract_zh": "模型内部编码了大量关于大语言模型（LLM）如何处理其训练数据的丰富信息；然而，训练后的数据工程主要依赖外部信号，忽略了存在于模型内部的丰富内在信号。我们提出了SAERL，一个面向LLM强化学习（RL）的数据工程框架。该框架利用稀疏自编码器（Sparse Autoencoder, SAE）——一种先进的机制可解释性工具——提取的模型内部特征，对数据的三个内在属性进行建模：多样性、难度和质量。每个属性都对应一项具体的数据工程操作：利用SAE空间聚类配合适度的批次混合来控制批次多样性，基于难度代理实现从易到难的课程排序，以及使用质量探针进行数据过滤。在Qwen2.5-Math-1.5B模型上，SAERL比原始GRPO平均准确率提升了3.00%，并以减少20%的训练步数达到目标准确率，且在不同模型规模和RL算法中均取得了一致的性能提升。实验表明，SAE能够有效地跨模型家族和规模迁移，成为一种轻量级且可复用的数据工程工具。这些结果表明，模型内部信息是训练后数据工程中一个强大且实用的信号来源。",
+      "hf_link": "https://huggingface.co/papers/2605.27354"
+    },
+    "2605.23163": {
+      "title": "Fast-dDrive: Efficient Block-Diffusion VLM for Autonomous Driving",
+      "abstract": "End-to-end autonomous driving via Vision-Language-Action (VLA) models demands a precarious balance between high-fidelity trajectory planning and efficient inference. Existing paradigms typically fall short: autoregressive (AR) VLAs are memory-bandwidth-bound on edge hardware and prone to exposure-bias drift, while full-sequence diffusion models preclude KV-cache reuse and suffer from \"logical leakage\" that violates the fundamental perceive-then-plan causality. We present Fast-dDrive, a block-diffusion VLA that performs bidirectional refinement within semantic units while enforcing strict causal ordering across them. Leveraging the observation that driving VLAs often emit structured JSON-like outputs, Fast-dDrive freezes structural tokens into a section scaffold and employs a section-aware training recipe that prioritizes safety-critical planning. We further introduce Scaffold Speculative Decoding to achieve AR-equivalent quality at significantly higher throughput. Finally, we propose a low-overhead test-time scaling scheme: by forking $N$ stochastic trajectory rollouts from a single shared-prefix KV cache and averaging them, we effectively suppress prediction variance at a fractional computational cost. Empirical results demonstrate that Fast-dDrive redefines the speed-accuracy frontier for driving agents. On the WOD-E2E test set, Fast-dDrive achieves SOTA ADE@3s and ADE@5s, alongside the highest RFS among diffusion-based VLAs; on nuScenes, it reduces average L2 error to $0.32$m (a $22\\%$ improvement). When integrated with SGLang, our framework delivers $12\\times$ throughput speedup over the AR baseline, narrowing the gap between high-capacity VLAs and the efficiency demands of real-time on-vehicle deployment.",
+      "abstract_zh": "基于视觉-语言-动作的端到端自动驾驶模型需要在高质量轨迹规划与高效推理之间实现微妙平衡。现有范式普遍存在局限：自回归式模型在边缘硬件上受限于内存带宽且易受曝光偏差漂移影响，而全序列扩散模型则无法复用键值缓存，并存在违背“先感知后规划”因果逻辑的“逻辑泄漏”问题。我们提出Fast-dDrive——一种基于块扩散的视觉-语言-动作模型，其在语义单元内执行双向优化，同时强制实施跨单元的严格因果顺序。基于驾驶模型常输出结构化类JSON数据的观察，Fast-dDrive将结构令牌冻结为段落框架，并采用段落感知训练策略以优先保障安全关键规划。我们进一步引入框架推测解码技术，在显著提升吞吐量的同时实现与自回归模型相当的质量。最后，我们提出一种低开销的测试时扩展方案：通过从单一共享前缀键值缓存派生出N条随机轨迹展开并对其进行平均，以极小的计算成本有效抑制预测方差。实验结果表明，Fast-dDrive重新定义了驾驶智能体的速度-精度边界。在WOD-E2E测试集上，该模型取得了最先进的3秒与5秒平均位移误差指标，同时在基于扩散的视觉-语言-动作模型中保持最高反应频率分数；在nuScenes数据集上，其平均L2误差降至0.32米（提升22%）。当与SGLang集成时，本框架实现较自回归基线12倍的吞吐量加速，大幅缩小了高容量视觉-语言-动作模型与实时车载部署效率需求之间的差距。",
+      "hf_link": "https://huggingface.co/papers/2605.23163"
+    },
+    "2605.28805": {
+      "title": "OmniVerifier-M1: Multimodal Meta-Verifier with Explicit Structured Recalibration",
+      "abstract": "Visual outcomes are increasingly central to multimodal large language models, making reliable and fine-grained verification essential for scaling generalist foundation models. In this work, we investigate multimodal meta-verification, which leverages verifier-generated rationales rather than decision-only signals, and explore how to effectively incorporate meta-verification feedback into multimodal verifier training. We identify two key findings. First, symbolic verifier outputs (e.g., bounding boxes) outperform textual explanations as meta-verification rationales, enabling efficient rule-based reinforcement learning rewards while avoiding reliance on model-based rewards from auxiliary judge models. Second, decoupling reinforcement learning objectives for binary judgment and meta-verification substantially outperforms joint reward optimization, due to intrinsic differences in output structure and learning dynamics. Based on these insights, we train OmniVerifier-M1, a generalist visual verifier leveraging symbolic meta-verification and decoupled reinforcement learning. OmniVerifier-M1 provides robust verification and fine-grained error localization, and further enables M1-TTS, a verifier-driven agentic generation system achieving dynamic region-level self-correction. This approach paves the way for more reliable, interpretable, and fine-grained multimodal verification, supporting safer and more controllable foundation model deployment.",
+      "abstract_zh": "视觉输出日益成为多模态大语言模型的核心，这使得可靠且细粒度的验证对于扩展通用基础模型至关重要。本研究探讨了多模态元验证方法——该方法利用验证器生成的推理依据而非仅决策信号，并探索如何将元验证反馈有效融入多模态验证器训练。我们获得两项关键发现：首先，符号化验证器输出（如边界框）作为元验证依据优于文本解释，既能实现基于规则的高效强化学习奖励，又避免依赖辅助评判模型产生的模型奖励；其次，针对二元判断和元验证的解耦强化学习目标显著优于联合奖励优化，这源于输出结构和学习动态的内在差异。基于这些发现，我们训练了通用视觉验证器OmniVerifier-M1，它融合了符号化元验证与解耦强化学习。该验证器不仅能提供稳健的验证与细粒度错误定位，还进一步支撑了M1-TTS验证器驱动的主体生成系统，实现动态区域级自我修正。这一方法为更可靠、可解释、细粒度的多模态验证开辟了新路径，有助于实现更安全、可控的基础模型部署。",
+      "hf_link": "https://huggingface.co/papers/2605.28805"
+    },
+    "2605.27028": {
+      "title": "Less is More: Early Stopping Rollout for On-Policy Distillation",
+      "abstract": "On-policy distillation has recently emerged as a promising alternative to standard sequence-level imitation, training a student by scoring its own rollouts with a teacher model. However, we observe ``Off-policy Teacher Decay'' problem in this paradigm: for the later tokens, with student's earlier trajectory as context that is off-policy to the teacher, the teacher's ability to produce a corrective score would decay, and may fall back to token-completion behavior learned in the pre-training stage. We empirically verify this problem, and we propose Early Stopping Rollout (ESR) to fix it: a simple yet effective distillation strategy that simply restricts the rollout generation to the firstresponse tokens. We show that ESR both surpasses the full rollout OPD performance across model size, family, tasks and training regime, and exhibit much higher GPU efficiency and training stability, especially under cross model family scenarios. We further investigate the mechanism behind this surprising performance and discovered \"Cascading Alignment\" and \"Sub-mode Commitment\" effect of ESR that may explain why it works effectively and even sometimes exceeding the teacher model performance. Besides, we show that this position-based token selection strategy cannot be fully explainable by KL divergence and entropy signals.",
+      "abstract_zh": "策略蒸馏（On-policy distillation, OPD）近期已成为替代传统序列级模仿学习的一种有前景的方法，该方法通过使用教师模型对学生自身生成的轨迹进行评分来训练学生模型。然而，我们观察到该范式存在\"离策略教师衰减\"（Off-policy Teacher Decay）问题：对于后续生成的词元，由于学生模型早期生成的轨迹作为上下文已偏离教师模型的策略分布，教师模型产生纠正性评分的能力会逐渐衰减，并可能退化为预训练阶段习得的词元补全行为。我们通过实验验证了这一问题，并提出了早期停止轨迹生成（Early Stopping Rollout, ESR）作为解决方案：这是一种简单而有效的蒸馏策略，仅将轨迹生成限制在初始响应词元范围内。研究表明，ESR不仅在多种模型规模、架构系列、任务及训练机制下均超越了完整轨迹OPD的性能，还展现出更高的GPU效率与训练稳定性，尤其在跨模型架构场景中更为明显。我们进一步探究了这种优异表现背后的机制，发现了ESR的\"级联对齐\"（Cascading Alignment）与\"子模式锁定\"（Sub-mode Commitment）效应，这或许解释了其高效运作甚至偶尔超越教师模型性能的原因。此外，我们证明这种基于位置词元选择的策略无法完全通过KL散度与熵值信号进行解释。",
+      "hf_link": "https://huggingface.co/papers/2605.27028"
+    },
+    "2605.27760": {
+      "title": "SkillGrad: Optimizing Agent Skills Like Gradient Descent",
+      "abstract": "Agent skills provide a lightweight way to adapt LLM agents to specialized domains by storing reusable procedural knowledge in structured files. However, whether downloaded from third parties or self-generated, these skills are often unreliable, incomplete, or outdated. Existing skill-evolution methods often address these deficiencies through heuristic reflections without an explicit optimization formulation. In this paper, we propose SkillGrad, a gradient-descent-inspired framework for optimizing agent skills. SkillGrad treats the skill package as a structured parameter to optimize in a gradient descent fashion: task executions provide trajectory-level loss evidence, automatic diagnoses then provide text-based gradients that indicate the correction directions. To stabilize optimization across iterations, a momentum agent accumulates recurring diagnostic patterns into a persistent memory overlay. Finally, an LLM-based patcher executes the parameter update by applying layer-aware edits to the skill package. Evaluated on SpreadsheetBench Verified and WikiTableQuestions, SkillGrad consistently outperforms training-based skill evolution baselines across two backbone LLMs, improving over the strongest training-based baseline by $6.7$ percentage points on average. Ablations further show that momentum and contrastive diagnosis both contribute to the final skill quality.",
+      "abstract_zh": "智能体技能(Agent skills)通过将可复用的程序性知识存储于结构化文件中，为大型语言模型智能体适应特定领域提供了一种轻量化途径。然而，无论是从第三方下载还是自主生成的技能，往往存在不可靠、不完整或过时的问题。现有的技能演化方法通常通过启发式反思来弥补这些缺陷，缺乏明确的优化框架。本文提出SkillGrad——一种受梯度下降启发的智能体技能优化框架。该框架将技能包视为结构化参数，以梯度下降方式进行优化：任务执行提供轨迹级损失证据，自动诊断随后生成基于文本的梯度以指示修正方向。为保障迭代优化的稳定性，动量智能体将反复出现的诊断模式累积至持久性记忆覆盖层。最终，基于大型语言模型的修补器通过对技能包实施层级感知编辑来执行参数更新。在SpreadsheetBench Verified和WikiTableQuestions数据集上的评估表明，SkillGrad在两种骨干大型语言模型上均持续优于基于训练的基线方法，相较于最强训练基线的平均性能提升达6.7个百分点。消融实验进一步证实，动量机制与对比诊断共同提升了最终技能质量。",
+      "hf_link": "https://huggingface.co/papers/2605.27760"
+    },
+    "2605.27268": {
+      "title": "Lost in Sampling: Assessing Lexical Reachability in LLMs via the Word Coverage Score (WCS)",
+      "abstract": "Modern Large Language Models (LLMs) are often criticized for producing repetitive and homogeneous text, despite possessing vast latent vocabularies. While previous research has focused on model knowledge and training data, we investigate the role of decoding mechanics in suppressing linguistic diversity. We introduce the Word Coverage Score (WCS), a metric that quantifies the extent to which contextually appropriate human vocabulary is mathematically pruned by standard sampling filters (e.g., Top-$p$, Top-$k$, and Min-$p$). Rather than assessing static knowledge, the WCS measures the lexical survival rate of low-frequency, high-information human words as a function of sampling parameters. By auditing open-weight models on human-authored corpus fragments, we identify which logical lexical choices are rendered unreachable by the decoder, even when they reside within the probability space. Our results provide quantitative evidence that industry-standard sampling defaults act as unintended censorship mechanisms, smoothing the unique textures of human expression into a homogenized discourse. The WCS offers a rigorous framework for optimizing the trade-off between text coherence and lexical richness, providing a diagnostic tool for preserving the diversity of human language in generative models.",
+      "abstract_zh": "现代大型语言模型（LLMs）常因其生成文本重复且同质化而受到批评，尽管它们拥有巨大的潜在词汇库。先前研究多集中于模型知识与训练数据，而本文则探讨解码机制在抑制语言多样性中的作用。我们引入了词汇覆盖率分数（Word Coverage Score, WCS），该指标量化了标准采样过滤器（如Top-$p$、Top-$k$和Min-$p$）通过数学方式对上下文恰当的人类词汇进行修剪的程度。WCS并非评估静态知识，而是衡量低频、高信息量的人类词汇作为采样参数函数的词汇生存率。通过对人类撰写的语料片段进行开源模型审计，我们识别出哪些在概率空间中原本存在的合理词汇选择因解码过程而变得不可触及。我们的研究结果提供了量化证据，表明行业标准的采样默认设置充当了非预期的审查机制，将人类表达的独特质感平滑为同质化的话语。WCS为优化文本连贯性与词汇丰富度之间的权衡提供了一个严谨的框架，同时也为在生成模型中保持人类语言多样性提供了一种诊断工具。",
+      "hf_link": "https://huggingface.co/papers/2605.27268"
+    },
+    "2605.27882": {
+      "title": "VibeSearchBench: Benchmarking Long-horizon Proactive Search in the Wild",
+      "abstract": "LLM-based agents score well on search benchmarks, yet real users consistently find results unsatisfying, revealing a persistent evaluation-experience gap. We attribute this gap to existing benchmarks' reliance on over-specified queries, single-turn interactions, and fixed-schema evaluation, none of which reflect real search behavior where users and agents collaboratively refine vague intent through multi-turn dialogue. We term this paradigm VibeSearch and introduce VibeSearchBench, a benchmark comprising 200 manually curated bilingual (Chinese and English) tasks across 20 domains, split into VibeSearch-Pro (professional) and VibeSearch-Daily (daily-life) subsets. Each task pairs a user persona with a schema-free ground-truth knowledge graph, and is evaluated through a progressive-disclosure user simulator and a graph-matching evaluation framework. We benchmark seven frontier models under both the ReAct framework and the OpenClaw agent harness. Results show that all models remain substantially inadequate for VibeSearch (best F1: 30.30), highlighting the need for fundamental advances in long-context reasoning, proactive intent elicitation, and structured knowledge construction.",
+      "abstract_zh": "基于大语言模型(LLM)的智能体在搜索基准测试中表现优异，然而真实用户持续对结果感到不满，这揭示出评估与实际体验之间持续存在的差距。我们将此差距归因于现有基准测试过度依赖高度特定的查询、单轮交互以及固定模式评估，这些特点均未反映真实的搜索行为——在真实场景中，用户与智能体通过多轮对话协作细化模糊意图。我们将此范式称为**VibeSearch**，并推出**VibeSearchBench**基准测试，该基准包含涵盖20个领域的200个人工构建的双语（中文与英文）任务，划分为VibeSearch-Pro（专业场景）和VibeSearch-Daily（日常生活）两个子集。每个任务均将用户画像与无固定模式的标准知识图谱配对，并通过渐进式信息揭露的用户模拟器与图谱匹配评估框架进行评测。我们在ReAct框架和OpenClaw智能体架构下对七个前沿模型进行了基准测试。结果表明，所有模型对VibeSearch场景仍存在显著不足（最佳F1值：30.30），这凸显了在长上下文推理、主动性意图引导和结构化知识构建等方面需要取得根本性进展。",
+      "hf_link": "https://huggingface.co/papers/2605.27882"
+    },
+    "2605.28184": {
+      "title": "Joint Training of Multi-Token Prediction in Reinforcement Learning via Optimal Coefficient Calibration",
+      "abstract": "Reinforcement Learning from Verifiable Rewards (RLVR) has emerged as the standard paradigm for improving reasoning capability of large language models, while Multi-Token Prediction (MTP) has been a widely adopted module in pretraining. Combining them is a natural approach, yet current RL practices detach MTP gradients because joint training degrades the performance. We revisit this failure from an optimization perspective. We show that the per-step effect of MTP on the RL objective can be decomposed into two terms: a first-order correlation and a second-order perturbation penalty. This decomposition unifies three MTP training regimes: Detach, Cross-Entropy loss, and Policy loss, and explains why each succeeds or fails. Further analysis of policy loss reveals that, although it aligns with intuition, performance still degrades: the correlation term decays while the quadratic penalty persists. Guided by the analysis, we propose Optimal Coefficient Calibration (OCC), an adaptive scheme that tracks the optimal coefficient online via a log-probability proxy at negligible cost. Across six competition-level mathematical reasoning benchmarks, OCC consistently matches or exceeds the detach baseline, delivering improved joint MTP-RL training performance.",
+      "abstract_zh": "从可验证奖励中强化学习（Reinforcement Learning from Verifiable Rewards，RLVR）已成为提升大型语言模型推理能力的标准范式，而多标记预测（Multi-Token Prediction，MTP）则是预训练中广泛采用的模块。将二者结合是一种自然的思路，但当前的强化学习实践通常将MTP梯度分离，因为联合训练会导致性能下降。我们从一个优化视角重新审视这一失败现象。研究表明，MTP对强化学习目标在每一步的影响可分解为两项：一阶相关性项与二阶扰动惩罚项。该分解统一了三种MTP训练机制：梯度分离（Detach）、交叉熵损失（Cross-Entropy loss）与策略损失（Policy loss），并解释了各自成功或失败的原因。对策略损失的进一步分析表明，尽管其符合直觉，性能仍会下降：相关性项逐渐衰减，而二次惩罚项持续存在。基于此分析，我们提出了最优系数校准（Optimal Coefficient Calibration，OCC），这是一种通过可忽略成本的对数概率代理在线追踪最优系数的自适应方案。在六个竞赛级数学推理基准测试中，OCC始终达到或超过梯度分离基线的性能，实现了改进的MTP-RL联合训练效果。",
+      "hf_link": "https://huggingface.co/papers/2605.28184"
+    },
+    "2605.27311": {
+      "title": "Chartographer: Counterfactual Chart Generation for Evaluating Vision-Language Models",
+      "abstract": "Chart question-answering (QA) benchmarks aim to pose questions that require visual reasoning to correctly answer, but models can often reach solutions through shortcuts or prior familiarity with a chart based on their own background knowledge. To strictly evaluate visual reasoning, we propose counterfactual charts where the chart-question task remains fixed, but underlying chart and the corresponding answer are varied. We introduce Chartographer, a framework to reverse engineer charts into executable code, validate reconstruction fidelity, generate seed-controlled counterfactual variants, and derive new answers from executable QA logic. We apply this framework to existing chart QA datasets and evaluate proprietary and open-source vision-language models (VLMs), measuring variation sensitivity and generalizability. Counterfactual charts reveal failures hidden by single-chart performance: VLMs often fail to generalize after answering the original chart correctly. We find failures are most prevalent when updated charts require novel visual reasoning pathways.",
+      "abstract_zh": "图表问答(Chart question-answering, QA)基准测试旨在提出需要视觉推理才能正确回答的问题，但模型往往能通过捷径或基于自身背景知识对图表的先验熟悉度获得解答。为严格评估视觉推理能力，本研究提出反事实图表方法：在保持图表-问题任务不变的前提下，改变底层图表数据及其对应答案。我们开发了Chartographer框架，该框架可将图表逆向工程转换为可执行代码，验证重构保真度，生成种子控制的反事实变体，并通过可执行问答逻辑推导新答案。应用该框架对现有图表问答数据集进行分析，并评估专有与开源视觉语言模型(Vision-Language Models, VLMs)，测量其变异敏感性与泛化能力。反事实图表揭示了单一图表性能评估所掩盖的缺陷：视觉语言模型在正确回答原图表问题后往往无法实现有效泛化。研究发现，当更新后的图表需要采用全新的视觉推理路径时，模型失败案例最为普遍。",
+      "hf_link": "https://huggingface.co/papers/2605.27311"
+    },
+    "2605.27908": {
+      "title": "ESC-Skills: Discovering and Self-Evolving Skills for Emotional Support Conversations",
+      "abstract": "Existing emotional support conversation (ESC) systems mainly rely on end-to-end response generation or coarse strategy supervision, offering limited interpretability and little support for systematic skill improvement. We propose ESC-Skills, a skill-centric framework that discovers and self-evolves executable emotional support skills. We first model localized support interactions as Intervention Units (IUs), which capture state--action--outcome dynamics between seeker states, support interventions, and post-response emotional changes. Based on IUs extracted from both successful and failed ESC dialogues, we construct the ESC-Skills Bank, a repository of executable emotional support skills containing intervention guidance, applicability conditions, expected outcomes, and potential risks. To further improve robustness, we introduce a multi-profile self-evolutionary refinement framework in which an ESC agent interacts with diverse simulated seeker profiles under SAGE evaluation. The resulting interaction traces are analyzed to identify missing skills, unsafe interventions, and profile-specific failure patterns, which are then used to refine the Skills Bank through simulation-based verification. Experimental results demonstrate that ESC-Skills improves both response-level quality and dialogue-level emotional outcomes while providing more interpretable and controllable support behaviors. We will release the code, prompts, and ESC-Skills Bank atthis https URL.",
+      "abstract_zh": "现有的情感支持对话（ESC）系统主要依赖端到端的回复生成或粗粒度的策略监督，其可解释性有限，且对系统性技能提升的支持不足。我们提出了ESC-Skills，一个以技能为中心的框架，旨在发现并自我演化可执行的情感支持技能。我们首先将局部化的支持交互建模为干预单元（Intervention Units, IUs），该单元捕捉了求助者状态、支持干预措施以及回应后情绪变化之间的状态-行动-结果动态。基于从成功和失败的ESC对话中提取的IU，我们构建了ESC-Skills Bank——一个包含干预指导、适用条件、预期效果及潜在风险的可执行情感支持技能库。为进一步提升鲁棒性，我们引入了一个多角色自进化精炼框架，其中ESC智能体在SAGE评估下与多样化的模拟求助者角色进行交互。通过对产生的交互轨迹进行分析，可以识别出缺失的技能、不安全的干预措施以及特定角色的失败模式，随后利用基于模拟的验证来优化技能库。实验结果表明，ESC-Skills在提升回复层面质量的同时，也改善了对话层面的情感结果，并能提供更具可解释性和可控性的支持行为。我们将通过此https URL发布代码、提示词及ESC-Skills Bank。",
+      "hf_link": "https://huggingface.co/papers/2605.27908"
+    },
+    "2605.28819": {
+      "title": "PEFT-Arena: Understanding Parameter-Efficient Finetuning from a Stability-Plasticity Perspective",
+      "abstract": "Parameter-efficient finetuning (PEFT) has become the standard approach for adapting large language models, yet evaluations largely emphasize downstream accuracy while overlooking the retention of pretrained capabilities. We argue that PEFT should be assessed through the stability-plasticity dilemma: the trade-off between target-task adaptation and resistance to forgetting. We introduce PEFT-Arena, a benchmark that jointly measures downstream performance and general capability retention. Across methods, we find distinct stability-plasticity profiles; under comparable parameter budgets, orthogonal finetuning achieves the most favorable Pareto frontier. To explain these differences, we analyze PEFT updates from two geometric perspectives. In weight space, spectral analysis reveals how parameterizations interact with the pretrained singular-value structure. In activation space, retention metrics show whether finetuning preserves or distorts general-capability representations, with forgetting linked to non-isometric representation distortion. Finally, an analysis shows that final SFT checkpoints often overshoot a better target-retention operating point. Inspired by this, we present case studies of a post-hoc improvement with path-wise rewinding.",
+      "abstract_zh": "参数高效微调(Parameter-efficient finetuning，PEFT)已成为适配大语言模型的标准方法，然而现有评估主要侧重于下游任务精度，而忽视了预训练能力的保持。我们认为，应通过稳定性-可塑性困境这一视角来评估PEFT方法：即在目标任务适应与抗遗忘能力之间寻求平衡。我们提出了PEFT-Arena这一基准测试，它能同时衡量下游性能与通用能力保持度。通过对多种方法的评估，我们发现了各具特点的稳定性-可塑性特征曲线；在可比参数预算下，正交微调(orthogonal finetuning)实现了最优的帕累托前沿。为解释这些差异，我们从两个几何视角分析了PEFT的更新机制。在权重空间中，谱分析揭示了参数化方式如何与预训练模型的奇异值结构相互作用。在激活空间中，保持度指标显示微调过程是保留还是扭曲了通用能力表征，其中遗忘现象与非等距表征畸变相关联。最后，分析表明最终的监督微调(SFT)检查点常常会超越更优的目标-保持度平衡点。受此启发，我们通过路径回退的案例研究展示了事后改进的可能性。",
+      "hf_link": "https://huggingface.co/papers/2605.28819"
+    },
+    "2605.27905": {
+      "title": "AI Research Agents Narrow Scientific Exploration",
+      "abstract": "AI research agents can now generate research ideas, design experiments, run code, and draft papers, raising the possibility of large-scale AI-assisted scientific discovery. Many current agent frameworks explicitly encourage the generation of novel and high-impact ideas. Yet it remains unclear whether AI-assisted ideation broadens scientific exploration or mainly concentrates around existing work. We study AI research agents as scientific search systems. Using four AI research-agent frameworks and six large language models, we generate 37,802 scientific ideas from shared seed literature across citation-defined research areas in AI and machine learning. We then compare the resulting AI ideas against human-authored papers from the same research areas, follow-on human research emerging from the same seed literature, and the seed literature itself. Across experiments, four consistent patterns emerge. First, AI-generated ideas are substantially more concentrated than human-authored papers from the same research areas. Second, AI-generated ideas remain much closer to their starting literature than later human follow-on work does. Third, papers most similar to AI-generated ideas tend to receive lower subsequent citations. Fourth, when AI-generated ideas differ from prior work, the differences arise primarily from recombining existing technical methods rather than introducing fundamentally new research questions. Overall, current AI research agents appear better suited to local elaboration than to broadening scientific exploration.",
+      "abstract_zh": "当前的人工智能研究代理已能够生成研究思路、设计实验、运行代码并起草论文，这预示着大规模人工智能辅助科学发现的可能性。许多现有代理框架明确鼓励产生新颖且具有高影响力的想法。然而，人工智能辅助构思究竟是拓宽了科学探索的范围，还是主要围绕现有工作集中展开，目前仍不明确。我们在研究中将人工智能研究代理视为科学搜索系统加以考察。通过使用四类人工智能研究代理框架和六种大型语言模型，我们基于人工智能与机器学习领域内按引用定义的研究方向中的共享种子文献，生成了37,802个科学构想。随后，我们将这些人工智能生成的构想与同一研究方向中人类撰写的论文、基于相同种子文献产生的后续人类研究以及种子文献本身进行了系统比较。在所有实验中，四个一致性模式逐渐显现：首先，人工智能生成构想的集中度显著高于同一研究领域内的人类论文；其次，与后续人类跟进研究相比，人工智能生成的构想始终更贴近其起始文献；再次，与人工智能生成构想最为相似的论文往往获得较低的后续引用量；最后，当人工智能生成构想与既有工作存在差异时，其差异主要源于对现有技术方法的重新组合，而非引入根本性的新研究问题。总体而言，当前的人工智能研究代理似乎更适用于局部深化而非拓宽科学探索的边界。",
+      "hf_link": "https://huggingface.co/papers/2605.27905"
+    },
+    "2605.27466": {
+      "title": "AgensFlow: A Coordination-Policy Substrate for Multi-Agent Systems",
+      "abstract": "Multi-agent systems built on large language models (LLMs) require many coordination choices that are difficult to fix a priori: which skill protocol to invoke, which agent role should perform a subtask, which model to bind to each role, how roles should interact, when to use retrieval or verification, and when to omit a step entirely. These choices interact with task regime and operational constraints, so static pipelines and one-off model comparisons provide only a limited view of the design space. This paper introduces AgensFlow, an open-source framework that treats multi-agent coordination as an online policy-learning problem under partial observability. The framework makes coordination decisions observable and learnable from repeated trajectories, rather than treating skill, role, model, topology, and evaluation choices as fixed pipeline design.AgensFlow is evaluated on two corpora: distributed-systems incident tasks and security-advisory tasks. The evaluation shows three main results: learned routing reaches a higher-quality operating point than a fixed pipeline baseline on coordination-heavy classes; skip:X isolates topology compression as a meaningful part of the substrate; and warm-started policy graphs can reduce exploration cost while preserving plateau quality. Overall, the results support that learned, auditable routing can improve coordination-heavy multi-agent workflows over static wiring.",
+      "abstract_zh": "基于大语言模型(LLMs)构建的多智能体系统需要大量难以预先确定的协调决策：调用何种技能协议、由哪个智能体角色执行子任务、每个角色应绑定何种模型、角色间应如何交互、何时使用检索或验证机制，以及何时完全省略某个步骤。这些决策与任务体系和操作约束相互影响，因此静态流程和单次模型比较仅能提供设计空间的有限视角。本文提出AgensFlow——一个将多智能体协调视为部分可观测条件下在线策略学习问题的开源框架。该框架使协调决策可通过重复轨迹进行观测和学习，而非将技能、角色、模型、拓扑和评估选择视为固定的流程设计。我们在两个语料库上评估AgensFlow：分布式系统故障处理任务和安全通告任务。评估显示三项主要结果：在协调密集型任务类别中，学习型路由比固定流程基线达到更高质量的操作点；skip:X将拓扑压缩隔离为底层架构中有意义的部分；而热启动的策略图能在保持平台质量的同时降低探索成本。总体而言，实验结果证明可学习、可审计的路由机制相比静态连接能有效改进协调密集型多智能体工作流。",
+      "hf_link": "https://huggingface.co/papers/2605.27466"
+    },
+    "2605.26457": {
+      "title": "Verus-SpecGym: An Agentic Environment for Evaluating Specification Autoformalization",
+      "abstract": "AI coding agents are increasingly used to write real-world software, but ensuring that their outputs are correct remains a fundamental challenge. Formal verification offers a promising path: an agent generates code together with a machine-checked proof, guaranteeing that the code satisfies a formal specification. However, there is no guarantee that the formal spec itself matches the user's intent. In this work, we study specification autoformalization: whether LLM agents can translate informal programming problems into faithful formal specifications. We introduce Verus-SpecBench, a benchmark of 581 spec-writing tasks derived from Codeforces problems targeting Verus, a verifier for Rust, and Verus-SpecGym, an agentic environment in which models interact with Verus, bash, & the filesystem to develop these specs. The central challenge is evaluation: expert-written reference specs are expensive to write, & LLM judges can miss subtle mistakes. We address this by (a) extending Verus's exec_spec mechanism so that generated specs can be executed as Rust code, & (b) testing them against official Codeforces tests & adversarial cases extracted from Codeforces \"hacks\", which are edge cases written by competitors to break incorrect solutions. On Verus-SpecBench, the strongest model, Gemini 3.1 Pro, solves 77.8% of tasks, other frontier models solve 51.1--57.8% & OSS models reach only 21.5--25.5%. Our analysis of failure modes shows that model-generated specs can omit important input assumptions, accept incorrect outputs, & reject valid ones. We also find that LLM-as-a-judge evaluation misses 26% of the failures our evaluator catches. Overall, our results suggest that spec autoformalization is within reach for frontier agents but remains brittle even on problems where they can already generate correct code. The code, data, & logs can be found atthis https URL",
+      "abstract_zh": "AI代码生成代理正日益广泛地应用于实际软件开发，但确保其输出正确性仍是一个根本性挑战。形式化验证提供了一条前景广阔的路径：代理在生成代码的同时生成机器可检验的证明，从而保证代码满足形式化规约。然而，这无法保证形式化规约本身与用户意图相符。本研究聚焦于规约自动形式化问题：探讨LLM代理能否将非形式化的编程问题转化为忠实的形式化规约。我们构建了Verus-SpecBench基准测试集（包含581个源自Codeforces平台编程问题、针对Rust验证器Verus的规约编写任务）以及Verus-SpecGym代理环境（支持模型通过与Verus验证器、bash终端及文件系统的交互来开发规约）。核心挑战在于评估环节：专家编写的参考规约成本昂贵，而LLM评判器可能遗漏细微错误。我们通过以下方法应对该挑战：（a）扩展Verus的exec_spec机制，使生成的规约可作为Rust代码执行；（b）使用Codeforces官方测试用例及从Codeforces“黑客攻击”案例（参赛者为破解错误解决方案编写的边界情况）中提取的对抗性用例进行测试。在Verus-SpecBench上，最强模型Gemini 3.1 Pro完成任务的比例达77.8%，其他前沿模型为51.1%-57.8%，开源模型仅为21.5%-25.5%。对失败模式的分析表明，模型生成的规约可能遗漏关键输入假设、接受错误输出或拒绝有效输出。我们还发现LLM作为评判器的评估方式会漏检我们评估器捕获的26%的失败案例。总体而言，研究结果表明规约自动形式化对前沿代理而言已触手可及，但即使在模型已能生成正确代码的问题上，该技术仍显脆弱。相关代码、数据与日志可通过此链接获取：https://...",
+      "hf_link": "https://huggingface.co/papers/2605.26457"
+    },
+    "2605.26396": {
+      "title": "Advancing Creative Physical Intelligence in Large Multimodal Models",
+      "abstract": "Large multimodal models (LMMs) have rapidly advanced in perception and reasoning; however, it remains unclear whether these capabilities generalize to discovering visually grounded solutions in open-ended environments, beyond pattern recognition. In such settings, intelligence requires more than answering well-posed questions: it involves identifying how elements in a scene can be repurposed in non-obvious yet physically feasible ways. This form of creative problem-solving is central to human intelligence, but remains largely untested in current benchmarks. To evaluate this ability, we introduce MM-CreativityBench, a benchmark for affordance-grounded creative tool use in visually rich, physically constrained environments. Each instance presents a scenario image with structured views of candidate entities and their parts, enabling fine-grained, interactive evaluation of how models iteratively inspect the scene, identify relevant affordances, and compose visually and physically grounded solutions. Our experiments show that current LMMs often fall short, not due to lack of generative capability, but because they do not sustain grounded exploration. Models often overlook relevant entities, under-examine critical parts, or hallucinate attributes not grounded in the image. Motivated by this failure mode, we propose affordance-grounded alignment, which casts creative tool use as a preference learning problem. Using Direct Preference Optimization, we encourage models to prefer attribute-affordance reasoning grounded in visual evidence over hallucinated alternatives. In addition, we incorporate supervision derived from an affordance knowledge base to guide broader entity exploration and multi-turn planning. Our results show consistent gains in selecting the correct entities and parts, while substantially reducing hallucination and grounding-related errors.",
+      "abstract_zh": "大型多模态模型(LMMs)在感知与推理方面进展迅速；然而，这些能力是否能泛化到开放式环境中的视觉基础解决方案发现，而非仅限于模式识别，目前尚不明确。在此类环境中，智能不仅需要回答定义明确的问题，更涉及识别场景中的元素如何以非显而易见却物理可行的方式被重新利用。这种创造性问题解决能力是人类智能的核心，但在现有基准测试中基本未经检验。为评估此项能力，我们提出MM-CreativityBench——一个面向视觉丰富、物理受限环境中可供性基础创造性工具使用的基准测试。每个测试实例通过场景图像呈现候选实体及其部件的结构化视角，支持对模型如何迭代检查场景、识别相关可供性，并构建视觉与物理基础解决方案进行细粒度交互式评估。实验表明，当前LMMs常表现欠佳，并非由于生成能力不足，而是因其未能持续进行基础性探索。模型常忽略相关实体、对关键部件检查不足，或产生缺乏图像依据的幻觉属性。受此失效模式启发，我们提出可供性基础对齐方法，将创造性工具使用构建为偏好学习问题。通过直接偏好优化技术，引导模型优先选择基于视觉证据的属性-可供性推理，而非幻觉生成的替代方案。此外，我们整合源自可供性知识库的监督信息，以指导更广泛的实体探索与多轮次规划。实验结果显示，该方法在正确选择实体与部件方面持续提升，同时显著减少幻觉及基础关联错误。",
+      "hf_link": "https://huggingface.co/papers/2605.26396"
+    },
+    "2605.24486": {
+      "title": "AgentFugue: Agent Scaling for Long-Horizon Tasks through Collective Reasoning",
+      "abstract": "Recent progress on long-horizon agentic tasks has been driven largely by scaling up individual agents through stronger models, better tools, and more effective scaffolding. In contrast, much less is understood about scaling out: whether multiple peer agents, all targeting the same task, can become an additional source of capability without relying on explicit role specialization or workflow orchestration. We study this question and propose AgentFugue, a collective reasoning framework built around a shared reasoning hub. As peer agents explore the same task in parallel, the hub records concise notes on what each agent has established, attempted, or ruled out, and enables each agent to selectively access what other agents have discovered in a form useful for its current search. This design turns otherwise isolated trajectories into a connected ecology of reusable intermediate reasoning without requiring centralized planning. We instantiate the hub as a plug-in communication layer, trained with supervised fine-tuning and end-to-end reinforcement learning. Across the challenging long-horizon settings we study, AgentFugue improves over strong baselines. Our results suggest that collective reasoning can turn scaling out peer agent systems into a distinct source of capability gains, rather than merely a way of spending more compute.",
+      "abstract_zh": "在长期跨度的智能体任务方面，近期的进展主要依靠通过强化模型性能、优化工具和提升框架效率来扩展单个智能体的能力。相比之下，对于横向扩展——即让多个对等智能体共同处理同一任务，是否能在不依赖显式角色分工或工作流协调的情况下成为额外能力来源——目前的理解则少得多。本研究针对此问题提出了AgentFugue，一种围绕共享推理中心构建的集体推理框架。当对等智能体并行探索同一任务时，该中心会记录每个智能体已确定、尝试或排除的关键节点摘要，并允许每个智能体根据自身当前探索需求，选择性获取其他智能体已发现的有效信息。这种设计将原本孤立的探索轨迹转化为可复用中间推理的互联生态，无需集中式规划。我们将该中心实例化为可插拔的通信层，通过监督微调和端到端强化学习进行训练。在研究的多个具有挑战性的长期跨度任务场景中，AgentFugue均优于现有基线方法。实验结果表明，集体推理能够将对等智能体系统的横向扩展转化为显著的能力增益来源，而不仅仅是增加计算消耗的途径。",
+      "hf_link": "https://huggingface.co/papers/2605.24486"
+    },
+    "2605.28655": {
+      "title": "AutoScientists: Self-Organizing Agent Teams for Long-Running Scientific Experimentation",
+      "abstract": "Scientific research proceeds through iterative cycles of hypothesis generation, experiment design, execution, and revision. AI agents can automate parts of this process, but existing approaches typically follow a single research trajectory or coordinate through a central planner with fixed objectives. As a result, they struggle to sustain parallel exploration, adapt as experimental evidence changes, or preserve knowledge of failed directions over long-running experiments. We introduce AutoScientists, a decentralized team of AI agents for long-running computational scientific experimentation. Agents interpret a shared experimental state, self-organize into teams around promising hypotheses, critique proposals before using experimental compute, and share successes and failures to reduce redundant exploration. Under matched experimental budgets, AutoScientists improves over prior AI agents across biomedical machine learning, language-model training optimization, and protein fitness prediction. On BioML-Bench, spanning biomedical imaging, protein engineering, single-cell omics, and drug discovery, AutoScientists achieves a mean leaderboard percentile of 74.4% across 24 tasks, improving over the strongest AI agent by +8.33%. On GPT training optimization, AutoScientists reaches a target validation bits-per-byte 1.9x faster than Autoresearch and continues discovering improvements from a starting champion where the single-agent approach finds none (7 vs. 0 accepted improvements). On ProteinGym fitness prediction, AutoScientists discovers a method for ACE2-Spike binding that improves over the current state-of-the-art model by +12.5% in Spearman correlation. Applied without modification across all 217 ProteinGym assays, the same method improves over the prior state of the art by +6.5% (Spearman correlation).",
+      "abstract_zh": "科学研究通过假设生成、实验设计、执行与修正的迭代循环推进。人工智能(AI)代理可以自动化该流程的部分环节，但现有方法通常遵循单一研究路径，或通过具有固定目标的中央规划器进行协调。因此，这些方法难以维持并行探索、根据实验证据变化进行自适应调整，或在长期实验过程中保留失败研究方向的知识积累。我们提出AutoScientists——一个用于长期计算科学实验的去中心化AI代理团队。代理系统通过解读共享实验状态，围绕有潜力的假设自组织形成研究小组，在使用实验计算资源前对方案进行批判性评审，并通过分享成功与失败经验来减少重复探索。在相同实验预算条件下，AutoScientists在生物医学机器学习、语言模型训练优化和蛋白质适应性预测等多个领域均优于现有AI代理。在涵盖生物医学成像、蛋白质工程、单细胞组学和药物发现的BioML-Bench测试平台上，AutoScientists在24项任务中平均达到74.4%的排行榜百分位，较最优AI代理提升+8.33%。在GPT训练优化任务中，AutoScientists达成目标验证比特每字节(bits-per-byte)指标的速度比Autoresearch快1.9倍，并能从初始最优模型持续发现改进方案，而单代理方法则无进展（获得7项改进对比0项）。在ProteinGym适应性预测任务中，AutoScientists发现的ACE2-刺突蛋白结合预测方法，其斯皮尔曼相关系数(Spearman correlation)较当前最优模型提升+12.5%。将该方法直接应用于全部217项ProteinGym检测任务时，其斯皮尔曼相关系数较先前最优方法整体提升+6.5%。",
+      "hf_link": "https://huggingface.co/papers/2605.28655"
+    },
+    "2605.27762": {
+      "title": "PEAM: Parametric Embodied Agent Memory through Contrastive Internalization of Experience in Minecraft",
+      "abstract": "We present PEAM, a Parametric Embodied Agent Memory framework in Minecraft that transforms agent memory from inference-time retrieval into parameter-resident skills internalized through experience. PEAM pairs a slow deliberative LLM for open-ended reasoning with a fast parametric module for reflexive execution of consolidated skills. The fast module is a multimodal Mixture-of-Experts LoRA architecture with per-category physically isolated adapters, enabling parameter-level continual learning without catastrophic forgetting. We treat failure as a first-class training signal: failure--correction trajectory pairs are internalized through a joint behavioral-cloning and contrastive objective, so the agent learns not only what succeeds but also how corrected actions differ from failed ones. To govern consolidation, PEAM introduces a parameterization-worthiness score for deciding which experience should be internalized, and a scale-free self-triggered consolidation mechanism for deciding when to internalize without task-specific hand-tuned thresholds, making the agent self-evolving as the trigger transfers across task distributions without re-tuning. Experiments in Minecraft show that PEAM improves long-horizon task performance, mitigates forgetting on previously consolidated skills, and improves parametric-versus-retrieval efficiency over retrieval-based embodied agents and parametric memory variants.",
+      "abstract_zh": "本文提出PEAM（参数化具身智能体记忆框架），一种应用于《我的世界》（Minecraft）的参数化具身智能体记忆框架，其将智能体记忆从推理时检索模式转化为通过经验内化的参数化驻留技能。PEAM采用慢速慎思型大语言模型进行开放推理，并与快速参数化模块协同工作，以实现固化技能的反射式执行。该快速模块采用多模态混合专家（Mixture-of-Experts）与低秩自适应（LoRA）架构，配备按类别物理隔离的适配器，从而在参数层面实现持续学习而无需担忧灾难性遗忘。我们将失败视为首要训练信号：通过联合行为克隆与对比目标，将失败-修正轨迹对内化，使智能体不仅能学习成功经验，还能理解修正动作与失败动作的差异。为管理技能固化过程，PEAM引入了参数化价值评分机制以决定哪些经验应被内化，并采用无标度自触发固化机制来确定何时进行内化——无需针对特定任务手动调整阈值，使得智能体能够在任务分布变化时通过触发机制转移实现自我演化，而无需重新调参。在《我的世界》中的实验表明，PEAM能够提升长视野任务表现，缓解对已固化技能的遗忘问题，并在参数化与检索效率方面优于基于检索的具身智能体及其他参数化记忆变体。",
+      "hf_link": "https://huggingface.co/papers/2605.27762"
+    }
+  },
+  "hf_votes": {
+    "2605.28774": 0,
+    "2605.28293": 0,
+    "2605.28820": 0,
+    "2605.28816": 0,
+    "2605.28814": 0,
+    "2605.28003": 0,
+    "2605.28732": 0,
+    "2605.28548": 0,
+    "2605.28775": 0,
+    "2605.26340": 0,
+    "2605.28421": 0,
+    "2605.28691": 0,
+    "2605.25969": 0,
+    "2605.28109": 0,
+    "2605.28773": 0,
+    "2605.28398": 0,
+    "2605.28721": 0,
+    "2605.27354": 0,
+    "2605.23163": 0,
+    "2605.28805": 0,
+    "2605.27028": 0,
+    "2605.27760": 0,
+    "2605.27268": 0,
+    "2605.27882": 0,
+    "2605.28184": 0,
+    "2605.28763": 0,
+    "2605.27311": 0,
+    "2605.27908": 0,
+    "2605.28819": 0,
+    "2605.27905": 0,
+    "2605.27466": 0,
+    "2605.26457": 0,
+    "2605.26396": 0,
+    "2605.24486": 0,
+    "2605.28655": 0,
+    "2605.27762": 0
+  },
+  "focus_sections": {
+    "3D生成与重建": [
+      "2605.28763"
+    ],
+    "视频生成": [
+      "2605.28816",
+      "2605.28691"
+    ],
+    "图像生成": []
+  },
+  "summaries": {
+    "2605.28816": {
+      "short_zh": "多智能体交互世界建模",
+      "tags": "生成式人工智能；视频生成；交互式世界建模",
+      "body_summary": "现有世界模型主要用于单智能体交互视频生成，但真实环境多为多智能体协同。\n我们提出一种多智能体世界模型，通过单纯形旋转编码和稀疏枢纽注意力提升多玩家视频生成的保真度与可控性。"
+    },
+    "2605.28763": {
+      "short_zh": "生成可控制语义部件的三维模型",
+      "tags": "计算机图形学;三维形状生成;部件可控三维生成",
+      "body_summary": "游戏和仿真中交互式3D资产需按特定语义部件分解，但现有生成模型无法满足此需求。\n我们提出了CubePart框架，通过构建部件标注数据集和两阶段生成架构，实现了按开放词汇语义部件模式生成可组装三维网格。"
+    },
+    "2605.28691": {
+      "short_zh": "高效高质量视频生成新框架",
+      "tags": "计算机视觉；视频生成；扩散模型效率优化",
+      "body_summary": "扩散变换器视频生成质量强但全注意力计算效率低\n提出OSP-Next框架，融合稀疏注意力、并行化、量化和强化学习，在保证质量的同时显著提升生成速度"
+    },
+    "2605.28774": {
+      "short_zh": "多模态具身推理探索策略优化",
+      "tags": "具身智能;多模态推理;思考行动差距",
+      "body_summary": "当前视觉语言模型虽能进行复杂推理，但解决现实问题常需调用外部工具，而模型内部推理与工具调用行为之间存在不匹配（思考-行动差距），导致训练中工具使用率低且效果差。\n本文提出AXPO方法，通过固定正确思考前缀、重采样工具调用及后续步骤，并基于不确定性选择前缀，有效提升了多模态模型在多个基准上的工具使用和任务解决能力。"
+    },
+    "2605.28293": {
+      "short_zh": "优化主动推荐系统的强化学习方法",
+      "tags": "推荐系统；序列推荐；主动推荐",
+      "body_summary": "主动推荐系统旨在通过生成中间推荐路径引导用户偏好转向目标物品，强化学习是优化此类序列决策任务的合理框架。\n提出ProRL框架，引入步进奖励中心化和位置特定优势估计来纠正梯度偏差与方差，提升路径生成质量。"
+    },
+    "2605.28820": {
+      "short_zh": "构建原生端到端视觉语言模型",
+      "tags": "计算机视觉;视觉语言模型;原生多模态建模",
+      "body_summary": "当前视觉语言模型通过拼接图像编码器和语言解码器实现多模态理解，其模块化设计限制了细粒度时空建模能力。\n本文提出NEO-ov原生基础模型，通过端到端学习实现跨帧和像素-词对应，在细粒度视觉感知任务上验证了原生架构的可行性。"
+    },
+    "2605.28814": {
+      "short_zh": "双向进化搜索改进语言模型",
+      "tags": "自然语言处理;语言模型优化;后训练与推理搜索",
+      "body_summary": "针对语言模型自提升任务中现有搜索方法受稀疏反馈和探索范围局限的问题。\n提出了结合前向进化候选生成与后向目标分解的搜索框架，在挑战性任务上取得稳定提升。"
+    },
+    "2605.28003": {
+      "short_zh": "构建大规模数学难题数据集",
+      "tags": "自然语言处理;数学推理;研究级数学问题数据集",
+      "body_summary": "缺乏大规模研究级数学问题数据集阻碍了语言模型自主探索数学前沿。\n通过多智能体流程创建了最大规模的研究级数学问题集，并用过滤后的模型解题轨迹微调模型，提升了数学推理能力。"
+    },
+    "2605.28732": {
+      "short_zh": "追踪归因大模型记忆错误",
+      "tags": "大语言模型系统;记忆增强与推理;记忆错误追踪",
+      "body_summary": "大型语言模型的记忆系统对长程推理至关重要，但现有系统不可靠且难调试，需研究其错误追踪与归因问题。\n提出了一个将记忆流水线转为可执行图以细粒度追踪信息流、构建评测基准、并基于归因信号优化提示的框架，能自动定位错误根源并提升任务性能。"
+    },
+    "2605.28548": {
+      "short_zh": "融入深度生成提升具身智能",
+      "tags": "机器人;具身智能;视觉语言动作模型",
+      "body_summary": "标准文本引导的视觉语言模型预训练与具身执行所需的低级空间物理知识存在差距\n提出了融入深度图生成任务的GEM模型和GEM-4M数据集，显著提升了语义理解和物理操作能力"
+    },
+    "2605.28775": {
+      "short_zh": "利用强模型弱点发现训练小软件操作智能体",
+      "tags": "智能体与机器人技术;软件智能体;计算机操作智能体",
+      "body_summary": "小型计算机操作智能体在实际部署中能力较弱且在不同软件领域表现不均。本文提出了一个无需人工标注的自动化训练框架，通过使用更强的参考智能体来定位学生智能体在特定领域的能力弱点，并据此生成针对性的训练任务和监督信号，显著提升了小智能体在多个软件领域的操作性能。"
+    },
+    "2605.26340": {
+      "short_zh": "构建可验证的自主科研系统",
+      "tags": "机器学习;自主智能体;科研自动化验证",
+      "body_summary": "现有自主科研智能体存在难以发现的内部可验证性问题，如捏造参考文献和不可复现的实验结果。\n本文提出证据链框架和ScientistOne系统来确保科研全过程的每一步都可追溯验证，通过后设审计在多项任务上实现了超越基线、媲美人类专家的可靠性能。"
+    },
+    "2605.28421": {
+      "short_zh": "强化学习去噪提升语言模型推理",
+      "tags": "自然语言处理;语言模型推理;推理错误恢复",
+      "body_summary": "强化学习用于提升大语言模型推理能力，但依赖强教师模型或高质量数据限制能力提升。\n提出DenoiseRL框架，将弱模型的错误推理转化为优化机会，减少对昂贵监督的依赖，提升推理性能与训练效率。"
+    },
+    "2605.25969": {
+      "short_zh": "扩散语言模型高效解码方法",
+      "tags": "自然语言处理;语言模型;离散扩散模型",
+      "body_summary": "因果Transformer语言模型存在解码顺序严格、注意力计算成本高的问题，而线性时间因果模型与离散扩散模型各有优势但难以结合。\n提出了B³D-RWKV模型，通过三元组块布局方法，将模型的线性推理效率与双向离散扩散的并行性相结合，在保持精度的同时显著提升了解码速度。"
+    },
+    "2605.28109": {
+      "short_zh": "大模型强化学习的探索利用平衡优化",
+      "tags": "强化学习;语言模型推理;策略优化失衡",
+      "body_summary": "在线强化学习训练大语言模型时，其探索与利用的权衡常失衡，导致效果不佳。\n我们提出了基于信息瓶颈理论的平衡度量与优化框架，通过新型树采样提升效率与效果。"
+    },
+    "2605.28773": {
+      "short_zh": "记忆动态连接图构建",
+      "tags": "自然语言处理;语言模型代理;动态记忆增强",
+      "body_summary": "现有记忆增强型大语言模型代理将记忆视为静态知识库，在动态环境中存在适应性差的问题。\n提出FluxMem框架，将记忆建模为异构图并通过三阶段动态优化其连接，在多个基准测试中实现最佳性能。"
+    },
+    "2605.28398": {
+      "short_zh": "混合推理大模型思维切换策略评估",
+      "tags": "自然语言处理;大语言模型推理;混合推理模式切换",
+      "body_summary": "现有混合推理大语言模型能控制推理深度，但其自适应思维模式选择方法难以在统一标准下比较。\n提出了HRBench评估框架，系统对比了不同切换策略与训练范式在多种模型和任务上的效果与效率表现。"
+    },
+    "2605.28721": {
+      "short_zh": "大模型搜索代理是真搜还是假搜",
+      "tags": "自然语言处理;智能体与工具学习;搜索代理评估",
+      "body_summary": "研究基于大模型的搜索代理是否真正依赖外部搜索，还是仅用网络验证已知信息。\n提出新基准揭示代理过度依赖内部知识，并构建实时搜索数据集评估其真实发现能力。"
+    },
+    "2605.27354": {
+      "short_zh": "用模型内部信号指导LLM数据工程",
+      "tags": "自然语言处理;大语言模型;强化学习数据工程",
+      "body_summary": "大语言模型的数据工程通常依赖外部信号，忽略了模型内部蕴含的丰富信息。\n提出SAERL框架，利用稀疏自编码器提取模型内部特征，建模数据的多样性、难度和质量，以指导强化学习的数据工程，显著提升了训练效率和模型性能。"
+    },
+    "2605.23163": {
+      "short_zh": "高效自动驾驶视觉语言动作模型",
+      "tags": "自动驾驶；端到端驾驶；块扩散轨迹规划",
+      "body_summary": "现有自动驾驶视觉语言动作模型在轨迹规划精度与推理效率上难以兼顾。\n提出块扩散模型Fast-dDrive，通过结构化编码和推测解码实现高效高精度轨迹生成。"
+    },
+    "2605.28805": {
+      "short_zh": "多模态验证器与元验证方法",
+      "tags": "多模态学习;视觉语言模型;多模态验证",
+      "body_summary": "视觉输出在多模态大语言模型中日益重要，可靠的细粒度验证对其发展至关重要。\n提出了OmniVerifier-M1，利用符号化元验证和分离式强化学习训练通用视觉验证器，实现细粒度错误定位和自校正。"
+    },
+    "2605.27028": {
+      "short_zh": "提早停止生成优化策略蒸馏",
+      "tags": "机器学习;模型蒸馏;策略蒸馏",
+      "body_summary": "策略蒸馏训练学生模型时，教师会因学生生成的上下文偏离其策略而难以有效评估后续词元。\n我们提出提早停止生成方法，仅在前几个词元处生成和评估，从而提升模型在各种任务上的性能、效率与稳定性。"
+    },
+    "2605.27760": {
+      "short_zh": "优化智能体技能包",
+      "tags": "自然语言处理;智能体与对话系统;智能体技能优化",
+      "body_summary": "智能体技能通过结构化文件储存可复用程序知识，以轻量方式适配大语言模型智能体到专业领域，但这些技能常不可靠、不完整或过时。\n提出SkillGrad框架，将技能包视为结构化参数进行类梯度下降优化：任务执行提供轨迹级损失证据，自动诊断提供文本梯度指明修正方向，并通过动量代理和基于大语言模型的修补器迭代优化技能。"
+    },
+    "2605.27268": {
+      "short_zh": "评估大模型解码对词汇多样性的限制",
+      "tags": "自然语言处理;文本生成;解码参数优化",
+      "body_summary": "背景/任务：大模型常被批评生成重复且同质化的文本，这可能与解码过程中的采样机制过度过滤词汇有关。\n做了什么：论文提出了词汇覆盖分数（WCS），该指标量化了标准采样过滤器如何在数学上修剪上下文合适的人类词汇，从而揭示解码机制如何抑制了语言多样性。"
+    },
+    "2605.27882": {
+      "short_zh": "评估搜索代理长程主动能力",
+      "tags": "自然语言处理;搜索与问答;多轮开放式搜索评测",
+      "body_summary": "现有搜索评测忽略真实用户模糊意图和多轮对话，与体验存在差距\n提出了模拟真实搜索行为的评测基准VibeSearchBench并测试主流模型"
+    },
+    "2605.28184": {
+      "short_zh": "联合训练多标记预测强化学习",
+      "tags": "强化学习;大语言模型推理;多标记预测联合训练",
+      "body_summary": "背景/任务：提升大语言模型推理能力的强化学习常与预训练中的多标记预测模块结合，但直接联合训练会降低性能。\n做了什么：通过优化视角分析失败原因，提出自适应最优系数校准方法，在数学推理基准上实现更好的联合训练效果。"
+    },
+    "2605.27311": {
+      "short_zh": "图表反事实样本评估视觉推理",
+      "tags": "计算机视觉;视觉问答;图表问答评估",
+      "body_summary": "现有图表问答基准可能因模型走捷径或依赖先验知识而无法严格评估视觉推理能力。\n提出Chartographer框架，通过将图表反编译为代码并生成反事实变体来构建新评测集，发现现有视觉语言模型在需要新推理路径时泛化能力不足。"
+    },
+    "2605.27908": {
+      "short_zh": "情感支持对话技能发现与自进化",
+      "tags": "自然语言处理;对话系统;情感支持对话",
+      "body_summary": "现有情感支持对话系统可解释性差且难以系统优化技能\n提出技能中心框架，通过建模干预单元构建技能库，并引入多画像自进化机制来发现和优化技能"
+    },
+    "2605.28819": {
+      "short_zh": "评估高效微调方法的遗忘与适应权衡",
+      "tags": "自然语言处理;大语言模型微调;参数高效微调评估",
+      "body_summary": "参数高效微调已成为主流，但现有评估多关注下游任务精度，忽略了模型对预训练通用能力的保留情况。\n本文提出新基准PEFT-Arena，从稳定性-可塑性权衡视角系统评估各方法，并通过几何分析解释差异，发现最终检查点常偏离最优权衡点，进而探索了事后改进方案。"
+    },
+    "2605.27905": {
+      "short_zh": "AI研究助手窄化科学探索",
+      "tags": "机器学习;AI辅助科研;AI研究智能体评估",
+      "body_summary": "背景任务是探究AI研究助手在科学探索中的作用。\n研究发现AI助手倾向于集中围绕现有知识进行局部优化而非拓宽研究视野。"
+    },
+    "2605.27466": {
+      "short_zh": "多智能体协调策略学习",
+      "tags": "大语言模型系统;多智能体协调;动态路由学习",
+      "body_summary": "现有基于大语言模型的多智能体系统协调决策繁多且固定，难以适应不同任务和约束。\n本文提出AgensFlow框架，将协调视为部分可观测下的在线策略学习问题，在两类任务上验证了其优于固定流程。"
+    },
+    "2605.26457": {
+      "short_zh": "AI编程代理的规范自动形式化评估",
+      "tags": "形式化验证;代码验证;规范自动形式化",
+      "body_summary": "背景/任务是确保AI编程代理生成的代码符合用户意图，需研究其能否将非形式化问题转化为正确的形式化规范。\n研究者构建了包含581项任务的基准和交互式环境，通过执行验证和对抗测试评估模型能力，发现前沿模型虽能解决部分任务但依然存在缺陷。"
+    },
+    "2605.26396": {
+      "short_zh": "提升多模态模型物理创造力",
+      "tags": "多模态学习;视觉推理;工具使用创造力评测与对齐",
+      "body_summary": "现有大模型在视觉感知与推理上进步显著，但在开放环境中基于视觉线索进行创造性物理问题解决的能力不足，缺乏相关评测基准。\n我们提出了评测基准MM-CreativityBench，并设计了基于可供性知识的对齐方法，以提升模型在物理约束下的实体探索与工具组合能力。"
+    },
+    "2605.24486": {
+      "short_zh": "多智能体协同推理提升长程任务能力",
+      "tags": "智能体技术;长程任务智能体;多智能体协同推理",
+      "body_summary": "当前长程智能体任务的研究主要聚焦于通过增强单个智能体来提升能力，而对多个平级智能体协同工作的潜力探讨不足。\n本文提出了AgentFugue框架，通过一个共享推理中心记录和共享各智能体的探索过程，使其能相互借鉴，从而在不依赖集中规划的情况下有效提升长程任务表现。"
+    },
+    "2605.28655": {
+      "short_zh": "自组织AI代理团队进行长期科学实验",
+      "tags": "人工智能;科学计算自动化;分布式实验探索",
+      "body_summary": "现有AI自动化科研方法通常遵循单一研究路径，难以长期并行探索和适应变化。\n我们提出了AutoScientists，一个去中心化AI代理团队，在多个科学计算任务中超越现有方法，能更高效地并行探索、共享知识并持续改进。"
+    },
+    "2605.27762": {
+      "short_zh": "用参数化记忆提升智能体技能",
+      "tags": "具身智能；记忆与学习；参数化技能内部化",
+      "body_summary": "现有基于检索的具身智能体在长期任务中面临记忆效率低和灾难性遗忘的挑战。\n提出PEAM框架，通过对比学习将失败-纠正经验内化为参数化技能，并设计了无阈值的自我触发机制实现持续学习。"
+    }
+  },
+  "deep_analysis": {
+    "2605.28816": "好的，没问题！我用一个简单的比喻和清晰的结构，帮你梳理一下这篇论文的核心内容。\n\n### (1) 任务是什么？\n\n*   **任务名称**：**生成式多智能体世界模型**，用于交互式视频模拟。\n*   **任务输入**：\n    1.  **历史信息**：过去几帧视频（图像）里，多个智能体（比如游戏里的玩家、机器人）各自的**动作指令**（例如：前进、跳跃、转向）。\n    2.  **当前控制信号**：当前时刻，你给每个智能体的新动作指令。\n*   **任务输出**：**未来一帧或多帧的视频画面**。这些画面要能反映出所有智能体执行了新的动作指令后，在共享的虚拟环境里产生的视觉结果。\n*   **任务功能**：像一个“沙盒模拟器”。你可以给不同的角色下达不同的指令，模型就能实时生成出这些角色互动、碰撞、共同影响环境的视频。想象成一个能由你实时操控多个角色的“游戏引擎”或“电影生成器”。\n\n### (2) 想解决什么问题？\n\n现有的视频生成世界模型，大多只考虑**一个角色**（单智能体）。比如，你控制一个机器人，模型预测它周围环境的变化。但现实世界（比如游戏、协作机器人场景）是**多个角色同时活动**的。把单智能体模型简单扩展到多智能体，会遇到几个核心难题：\n\n1.  **身份混乱**：模型怎么区分“玩家A”和“玩家B”？如果用固定的顺序（如“1号玩家”、“2号玩家”）来编码，模型会死记这个顺序，不通用。\n2.  **计算爆炸**：如果让每个角色的信息都互相看（称为“全连接注意力”），4个角色交互的计算量是2个角色的很多倍，无法扩展到更多角色。\n3.  **实时性差**：很多高级模型（如扩散模型）生成一帧画面需要反复计算很多步，速度慢，无法达到游戏所需的实时交互速度（比如24帧/秒）。\n\n这篇论文就是想解决 **“如何高效、可控、一致地生成多个角色同时交互的视频”** 这个问题。\n\n### (3) 贡献是什么？\n\n论文提出了三个主要“法宝”：\n\n1.  **Simplex Rotary Agent Encoding（单纯形旋转智能体编码）**：一个**巧妙且免费**的方法，给每个智能体一个独特的“身份证”。它把智能体想象成一个**正多面体（单纯形）的各个顶点**，利用几何对称性确保：a) 每个智能体都有自己独特的“相位”；b) 交换智能体的顺序（A变B，B变A），模型表现不变（排列对称）。**好处是**：不需要额外学习一堆参数来表示身份，非常优雅且可扩展。\n\n2.  **Sparse Hub Attention（稀疏枢纽注意力）**：为了解决计算爆炸问题，他们设计了一种**“中介”机制**。不让所有角色直接两两对话，而是引入几个**公共的“枢纽令牌”**。每个角色先跟这几个枢纽交流，枢纽再汇总信息分发给所有角色。这样，增加角色数量时，计算量只是线性增长，而不是平方级爆炸。\n\n3.  **因果学生模型与KV缓存**：为了达到实时速度，他们用了一个“师生学习”的技巧。先训练一个强大的“老师模型”（通常是扩散模型），它能看全局生成高质量视频，但速度慢。然后用这个老师教一个“学生模型”，这个学生模型是**因果的**（像GPT一样，只能看过去，不能看未来），并且使用了**KV缓存**技术（记住已经计算过的部分，新的一帧只计算新增部分）。这样，学生就能像串流一样，一帧接一帧快速地生成视频，达到24FPS。\n\n### (4) 整体思路与模型结构\n\n**基模**：这篇论文的底层模型架构是基于 **Transformer** 的，这是目前处理序列数据（文本、视频帧）最强大的模型之一。\n\n**整体流程（“拍电影”流水线）**：\n\n1.  **输入准备**：\n    *   将**历史视频帧**和**历史动作指令**编码成一系列令牌（Token）。\n    *   对于当前时刻，将**新的动作指令**也编码成令牌。\n    *   关键一步：使用 **“单纯形旋转智能体编码”** ，为每个智能体相关的所有令牌（比如它的外观令牌、动作令牌）打上一个独特的、基于其身份的“旋转相位”印记。这就像给属于“玩家A”的所有信息都盖上一个“A”的隐形水印。\n\n2.  **信息融合与预测（模型核心）**：\n    *   将所有令牌（带身份水印的）输入到一个多层Transformer中。\n    *   在Transformer的注意力层，采用 **“稀疏枢纽注意力”** 机制：\n        *   属于同一个智能体的令牌之间，正常进行密集的自我注意力（了解自己）。\n        *   **不同智能体之间的令牌不直接对话**。它们都分别与一组**共享的、可学习的枢纽令牌**进行注意力计算。\n        *   枢纽令牌充当“信息交换中心”，收集所有智能体的信息，混合后再分发给每个智能体。这样就实现了高效的跨智能体通信。\n\n3.  **输出生成**：\n    *   经过多层的信息交换和融合，模型最终输出预测的**下一帧视频的视觉令牌**。\n    *   这些视觉令牌被解码器转换回**像素图像**，这就是生成的未来一帧。\n\n4.  **实时化部署（推理阶段）**：\n    *   训练好上述模型（作为“老师”）后，通过**知识蒸馏**训练一个结构类似的“因果学生模型”。\n    *   在线上实时生成时，使用这个学生模型。它采用**自回归**方式：生成第1帧，然后把第1帧当作历史，结合新的动作，生成第2帧，如此循环。\n    *   利用 **KV缓存**：生成第2帧时，第1帧已经计算过的中间结果（K和V）被缓存起来，不需要重新计算，大大加快了第2帧的生成速度，从而实现高帧率的交互。\n\n### (5) 结果怎么样？\n\n论文在多人虚拟环境（比如多个角色在场景中互动）中进行了实验，结果表明他们的模型：\n\n*   **视频质量更好**：生成的画面更清晰、更真实（提高视频保真度）。\n*   **控制更精准**：智能体对动作指令的响应更准确、更可控。\n*   **交互更一致**：多个智能体之间的互动（比如碰撞、遮挡）在物理和视觉上更合理。\n*   **扩展性更强**：模型在只训练了2个智能体的数据后，能够直接**推广到4个智能体**的场景而不用重新训练，证明了其编码和注意力机制的有效性。\n*   **速度快**：最终的因果学生模型能够达到 **24 FPS** 的生成速度，满足了实时交互的需求。\n\n**简单总结**：这篇论文造了一个高效的“多角色互动视频实时模拟器”。它通过**几何编码**巧辨角色身份，通过**枢纽通信**降低计算成本，再通过**师生学习**提升生成速度，最终实现了高质量、高可控、可扩展的多智能体视频生成。",
+    "2605.28763": "好的，没问题。我们来用通俗易懂的方式，拆解一下这篇名为 **CubePart** 的论文。\n\n简单来说，这篇论文的目标是：**让AI能够像搭积木一样，按照我们给出的“零件清单”，直接生成一个功能完整的3D模型**。\n\n下面我们来详细拆解：\n\n### (1) 任务是什么？\n*   **任务输入**：\n    1.  **一句话描述**：你想生成什么东西（例如：“一辆红色的跑车”）。\n    2.  **一份“零件清单”（Schema）**：用简单的词列出这个东西由哪些部分组成（例如：[“车身”，“左前轮”，“右前轮”，“左后轮”，“右后轮”]）。\n*   **任务输出**：一堆独立的、完整的3D网格模型。每一个模型对应“零件清单”里的一个条目，并且它们可以完美地拼装成一个完整的、符合描述的物体。\n*   **任务功能**：为游戏、动画、模拟仿真等需要“可动部件”的场景，**自动化地生成可直接使用的3D资产**，省去艺术家手动拆分模型的繁琐工作。\n\n### (2) 想解决什么问题？\n在游戏和动画中，一个模型（比如一辆车）通常需要被拆分成不同的“零件”（轮子、车门、车体等），这样才能分别给它们绑定动画（让轮子转、让车门开）或施加物理效果。\n*   **现有方法的不足**：\n    *   **方法A（通用3D生成AI）**：只能生成一个“一整块”的3D模型，没有零件结构，无法直接用于动画。\n    *   **方法B（自动分割模型）**：能自动把模型切成几块，但切出来的“零件”是随机的、含义不明的（比如可能把半个轮子和一部分车身切在一起），不符合游戏逻辑需要的“语义零件”（比如四个完整的轮子）。\n*   **核心痛点**：**缺乏“用户可控”的零件生成能力**。用户无法告诉AI：“请按我给的这份清单，生成对应的零件”。\n\n### (3) 贡献是什么？\n这篇论文主要做了三件大事：\n1.  **提出了“零件可控”的3D生成框架（CubePart）**：这是首个能让用户通过“零件清单”来精确控制3D模型如何被分解和生成的系统。\n2.  **构建了一个大规模、带零件标签的3D数据集**：为了训练这样的模型，他们设计了一套自动化的数据流水线，用视觉大模型（VLM）给海量的3D模型自动打上了“这是什么零件”的标签，从而得到了训练所需的数据。\n3.  **展示了“开箱即用”的应用价值**：生成的带零件的模型，可以直接导入游戏引擎，绑定脚本后就能动起来（比如让车跑、让人物走路），证明了其在实际生产中的实用性。\n\n### (4) 整体思路与模型结构\n论文的思路是 **“先学整体，再分零件”** ，采用了一个**两阶段**的模型架构。\n\n**基模（Base Model）**：他们基于一个已有的、能生成3D网格的扩散模型，叫做 **Vecset Diffusion**。你可以把它想象成一个能根据文字生成3D模型的“基础AI画家”。\n\n**整体流程如下：**\n\n**第一阶段：训练“单零件生成器”**\n*   **目标**：教会模型理解“零件”这个概念，并能根据“物体描述+零件名”生成一个单独的、完整的零件。\n*   **做法**：\n    1.  **预训练**：先用他们构建的大规模零件数据集，训练模型。输入是“一个描述 + 一个零件名”（如：“一辆车” + “车轮”），输出是一个单独的车轮3D模型。\n    2.  **微调**：为了让生成的零件能更好地拼装在一起，他们用了一些技巧（Schema-aware Finetuning），让模型在生成零件时，能“意识到”还有其他零件存在，从而生成形状更匹配的接口。\n\n**第二阶段：组装“多零件生成器”**\n*   **目标**：一次性生成清单里列出的所有零件，并保证它们能拼成一个整体。\n*   **核心创新 - 跨零件注意力块（Cross-part Attention Block）**：\n    *   这是模型的关键。当模型在生成“左前轮”时，这个机制会让它去“看一眼”正在同步生成的“车身”、“右前轮”等其他零件的信息。\n    *   这就好比几个工程师在一起设计一辆车，设计轮子的人需要随时和设计车身的人沟通，以确保轮轴能对准，轮拱大小合适。\n    *   通过这种“零件间的沟通”，最终所有零件在形状和位置上都能协调一致，完美组装。\n\n**从输入到输出的步骤：**\n1.  用户输入：`描述=“一辆越野车”`， `清单=[“车身”，“左前轮”，“右前轮”，“左后轮”，“右后轮”]`。\n2.  模型将“描述”和“清单”合并成一个长的、结构化的文本提示。\n3.  这个提示被送入**第二阶段的多零件生成模型**。\n4.  模型内部的**跨零件注意力机制**开始工作，同时为5个零件生成5组3D数据，并在生成过程中不断协调它们之间的关系。\n5.  模型输出5个独立的3D网格文件：一个车身、四个车轮。\n6.  用户将这5个文件导入Blender或游戏引擎，它们会自动拼合成一辆完整的、轮子可以独立旋转的越野车。\n\n### (5) 结果怎么样？\n*   **单零件生成**：效果很好，能生成各种语义正确、形状多样的独立零件。\n*   **多零件生成（核心评测）**：与其它方法相比，CubePart在以下方面表现突出：\n    *   **零件可控性**：能严格遵循用户输入的“零件清单”，不会多生成或少生成零件。\n    *   **整体一致性**：生成的零件组装后，是一个结构合理、看起来协调的完整物体。\n    *   **零件质量**：每个零件本身都是完整、干净的网格，没有奇怪的残缺或粘连。\n*   **应用演示**：论文展示了将生成的“车”导入游戏引擎，写一段简单的“让轮子转动”的脚本，车就真的跑起来了；生成的“人物”，绑定骨骼后就能走路。这直接证明了其成果的**即用性**，而不仅仅是实验室里的数字指标。\n\n**总结一下**：CubePart就像是一个“智能3D积木工厂”。你告诉它要造什么（描述），并给出详细的积木图纸（零件清单），它就能一次性把所有符合规格的积木生产出来，并且这些积木能严丝合缝地拼成你想要的玩具。这对于需要大量可交互3D内容的游戏和虚拟现实产业来说，是一个非常有潜力的自动化工具。",
+    "2605.28691": "(1) **这篇论文所在的任务是什么**  \n任务：**文本到视频生成**（Text-to-Video Generation）  \n- **输入**：一段文本描述（例如“一只猫在草地上奔跑”）。  \n- **输出**：一段与文本描述匹配的视频（例如5秒、720P分辨率的视频）。  \n- **功能**：根据文本自动生成高质量、连贯的视频内容。\n\n---\n\n(2) **这篇论文想解决什么问题**  \n当前基于Diffusion Transformer的视频生成模型虽然质量高，但存在两个主要问题：  \n- **计算效率低**：Transformer的注意力机制计算复杂度随序列长度呈平方级增长，生成高分辨率视频速度慢（例如生成5秒720P视频需30分钟以上）。  \n- **硬件兼容性差**：现有的稀疏注意力方法通常依赖动态掩码或定制内核，难以直接与高效的FlashAttention内核兼容，也不利于并行计算。\n\n---\n\n(3) **这篇论文的贡献是什么**  \n1. **Skiparse-2D注意力**：提出一种固定的稀疏注意力模式，沿视频的空间维度（高度和宽度）分别进行稀疏化，既保留了局部相关性，又能直接兼容FlashAttention，无需定制内核。  \n2. **稀疏序列并行（SSP）**：针对稀疏注意力设计了一种并行策略，通过一次All-to-All通信完成数据交换，比现有序列并行方法减少75%通信量，且保持负载均衡。  \n3. **HiF8量化**：使用8位量化（兼顾精度和范围）对模型进行压缩，并支持稀疏微调，提升推理速度。  \n4. **Mix-GRPO强化学习**：在训练后使用混合策略的强化学习进一步优化稀疏模型性能。  \n5. **高效高性能模型OSP-Next**：整合以上技术，在保持视频质量的同时大幅提升生成速度，并支持多种硬件平台（如NVIDIA H200、昇腾950PR）。\n\n---\n\n(4) **论文的整体思路与模型结构**  \n**基模型**：基于Diffusion Transformer（DiT）的视频生成模型（类似Wan2.1、Open-Sora等）。  \n\n**整体流程**：  \n1. **输入文本编码**：文本通过CLIP等编码器转换为向量表示。  \n2. **视频潜在表示**：使用VQ-VAE将视频压缩为潜在空间的token序列（包含时间、高度、宽度维度）。  \n3. **稀疏注意力计算**：  \n   - 将潜在序列输入OSP-Next的Transformer层。  \n   - 每层中使用**Skiparse-2D注意力**：  \n     - 沿高度和宽度维度分别进行“token-wise稀疏”和“group-wise稀疏”交替，模拟3D全局注意力但计算量更低。  \n     - 通过固定的重排规则将序列分成子序列，直接调用FlashAttention计算。  \n4. **并行加速**：  \n   - 使用**SSP并行策略**将子序列分配到多个GPU，每层注意力切换稀疏模式时仅需一次All-to-All通信。  \n5. **量化和强化学习**：  \n   - 训练中使用**HiF8量化**降低权重和激活值精度，减少内存和计算开销。  \n   - 训练后使用**Mix-GRPO**基于奖励模型（评估视频质量、文本对齐等）对稀疏模型进行微调。  \n6. **输出视频**：通过解码器将潜在表示重构为像素空间视频。\n\n---\n\n(5) **结果怎么样**  \n- **质量**：在VBench评测中总分达到83.73%，超过基线模型Wan2.1。  \n- **速度**：  \n  - 在NVIDIA H200上，生成5秒720P/768P视频，单GPU加速1.64倍，8GPU加速1.52倍。  \n  - 在昇腾950PR上，量化模型（OSP-Next-HiF8）仅损失0.4%性能，速度提升1.69–2.27倍。  \n- **效率**：SSP比Ulysses序列并行减少75%通信量，且保持负载均衡。  \n- **兼容性**：模型可直接部署在主流GPU/AI加速卡上，无需定制内核。\n\n---\n\n**简单总结**：这篇论文提出了一个“又快又好”的视频生成模型OSP-Next，通过稀疏注意力、并行策略、量化和强化学习等技术，在保证视频质量的同时大幅提升生成速度，并且易于在现有硬件上部署。"
+  },
+  "figures": {
+    "2605.28763": [
+      {
+        "path": "https://arxiv.org/html/2605.28763v1/x2.png",
+        "caption": "Figure 2.Overview.We propose a two-stage framework to generate part-controllable 3D objects conditioned on a global text prompt and a part schema. (a) Single Mesh Generation synthesizes a holistic shape latent using a Multi-Modal DiT (MM-DiT)(Esseret al.,2024), conditioned on the prompt and schema encoded by Qwen-VL(Baiet al.,2023). (b) Multi-Mesh Generation takes the full shape latent from Stage 1 and decomposes it into distinct part latents. To achieve this, we initialize with the MM-DiT weights from Stage 1 and inject Cross-Part Attention Residual Blocks to enable structural interaction among parts.",
+        "role": "pipeline_1",
+        "caption_zh": "图 2. 概览。我们提出了一个两阶段框架，用于根据全局文本提示和部件模式生成部件可控的 3D 对象。(a) 单网格生成：利用多模态 DiT（MM-DiT）（Esser 等人，2024），以 Qwen-VL（Bai 等人，2023）编码的提示和模式为条件，合成整体形状的隐变量。(b) 多网格生成：将来自阶段 1 的完整形状隐变量分解为独立的部件隐变量。为此，我们使用阶段 1 的 MM-DiT 权重进行初始化，并注入跨部件注意力残差块，以实现部件间的结构交互。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.28763v1/x3.png",
+        "caption": "Figure 3.Cross-part Attention Block.A dedicated zero-initialized Transformer block is designed for cross-part global attention.\nThe residual block takes in all part latent vectors and the conditional full-shape latent vectors as inputs. We insert this block to facilitate efficient inter-part communication\nwhile maintaining the pre-trained single-mesh generation capabilities.",
+        "role": "pipeline_2",
+        "caption_zh": "图 3：跨部件注意力模块。我们设计了一个专用的零初始化 Transformer 模块，用于跨部件的全局注意力。该残差模块以所有部件潜在向量及条件化完整形状潜在向量作为输入。我们插入此模块以促进高效的部件间信息交互，同时保留预训练的单网格生成能力。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.28763v1/x1.png",
+        "caption": "Figure 1.We propose CubePart, an open-vocabulary part-controllable 3D generator.(a) Given a text prompt and a schema defining part decomposition, CubePart synthesizes a multi-part 3D object where each component is a distinct, structurally complete mesh. (b) This controllable part-based generative framework directly facilitates the usage of the resulting assets for scripted or physically simulated behaviors (bottom row). Additionally, CubePart can accept an existing mesh as input, decomposing it into semantic multi-part meshes according to the input part schema (last column).\nPlease refer to the video for animated visualizations.",
+        "role": "pipeline_3",
+        "caption_zh": "图 1.  我们提出 CubePart——一个开放词汇、部件可控的三维生成器。(a) 给定一个文本提示和一个定义部件分解的架构，CubePart 能合成一个多部件的三维对象，其中每个组件都是一个独立且结构完整的网格。(b) 这种基于部件的可控生成框架直接促进了生成资产在脚本化或物理模拟行为中的应用（底行）。此外，CubePart 可以接受现有网格作为输入，根据输入的部件架构将其分解为语义化的多部件网格（最后一列）。动态可视化效果请参见视频。"
+      }
+    ],
+    "2605.28691": [
+      {
+        "path": "https://arxiv.org/html/2605.28691v1/x4.png",
+        "caption": "Figure 4:Model Architecture.OSP-Next adopts CrossDiT with a hybrid attention strategy. Specifically, we use full attention blocks in the first2​n2nlayers and the last2​n2nlayers to better capture fine-grained features, while using Skiparse Attention blocks in the remaining middle layers to maximize runtime efficiency. When computing self attention, the model processes all subsequences in parallel, reducing the computational complexity to1k\\frac{1}{k}of full attention, wherekkdenotes the sparse ratio. When SSP is enabled, each rank holds a subset of the subsequences. When Ulysses SP and SSP are enabled together, each rank obtains the local heads of the corresponding subsequences through an All-to-All communication before attention. Element-wise operations, such as LayerNorm and FFN, are unaffected by the parallelization strategy. During block forward, SSP changes the token pattern through a single All-to-All communication.",
+        "role": "pipeline_1",
+        "caption_zh": "图4：模型架构。OSP-Next采用带有混合注意力策略的CrossDiT。具体而言，我们在前2n层和后2n层使用全注意力块以更好地捕捉细粒度特征，同时在中间剩余层使用稀疏注意力块以最大化运行效率。在计算自注意力时，模型并行处理所有子序列，将计算复杂度降至全注意力的1/k，其中k表示稀疏率。启用SSP时，每个计算节点持有一部分子序列。当Ulysses SP与SSP同时启用时，每个节点在注意力计算前通过一次All-to-All通信获取对应子序列的局部注意力头。逐元素操作（如LayerNorm和FFN）不受并行化策略影响。在块前向传播过程中，SSP通过一次All-to-All通信改变令牌模式。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.28691v1/x1.png",
+        "caption": "Figure 1:Skiparse-2D Attention.Skiparse-2D Attention alternates between Token-wise Sparse Attention and Group-wise Sparse Attention, enabling any two tokens to interact within at most two attention operations. Unlike Skiparse-1D Attention, which treats a video as a flattened one-dimensional sequence, Skiparse-2D Attention applies the Skiparse-1D pattern orthogonally along the height and width dimensions, thereby better leveraging the locality of image and video modalities.",
+        "role": "pipeline_2",
+        "caption_zh": "图1：Skiparse-2D注意力机制。Skiparse-2D注意力在Token-wise稀疏注意力和Group-wise稀疏注意力之间交替进行，使得任意两个token至多在两次注意力操作内即可产生交互。与将视频视为展平的一维序列的Skiparse-1D注意力不同，Skiparse-2D注意力将Skiparse-1D模式正交地应用于高度和宽度维度，从而更好地利用图像和视频模态的局部性。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.28691v1/x6.png",
+        "caption": "Figure 6:Overview of the pipeline for OSP-Next RL post-training.The policy performs denoising with a hybrid sampling strategy, using stochastic SDE updates in the early steps and deterministic ODE updates in the late steps. The generated videos are then evaluated by VideoAlign along three dimensions—visual quality, motion quality, and text alignment—to produce the training signal for policy optimization.",
+        "role": "pipeline_3",
+        "caption_zh": "图6：OSP-Next强化学习后训练流程概览。策略采用混合采样策略进行去噪，在早期步骤中使用随机SDE更新，在后期步骤中使用确定性ODE更新。生成的视频随后由VideoAlign从三个维度——视觉质量、运动质量和文本对齐度——进行评估，以生成策略优化的训练信号。"
+      }
+    ]
+  }
+}
