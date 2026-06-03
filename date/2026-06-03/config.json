@@ -1,0 +1,283 @@
+{
+  "base_info": {
+    "2606.01048": {
+      "title": "Decoupled Residual Denoising Diffusion Models for Unified and Data Efficient Image-to-Image Translation",
+      "abstract": "We propose Decoupled Residual Denoising Diffusion models (DRDD) for unified and data-efficient image-to-image (I2I) translation. While diffusion models have advanced I2I translation in terms of quality and diversity, we uncover a previously under-explored property in diffusion models. Crucially, beyond its conventional role of manifold lifting (i.e., moving data off low-dimensional manifolds), injecting Gaussian noise facilitates domain harmonization by implicitly aligning feature distributions across domains, a property particularly advantageous for unified I2I translation. However, existing diffusion models prematurely erode this harmonization effect, as noise and residuals are simultaneously removed in a single coupled diffusion process. To address this, DRDD decouples the diffusion process into two sequential and independent diffusion stages: (1) a stochastic noise diffusion for domain harmonization and manifold lifting, and (2) a deterministic residual diffusion that learns the core semantic mapping entirely within the fixed-noise domain. This decoupling preserves harmonization and manifold lifting effects throughout the transformation, substantially simplifying the learning of unified mappings across diverse tasks and domains. Notably, the noise diffusion stage is trained exclusively on abundant, unpaired target-domain images, greatly improving data efficiency. Comprehensive theoretical and empirical analysis demonstrates that DRDD is broadly compatible with mainstream diffusion models and consistently delivers robust, unified I2I translation, even under limited paired data. Our code is available atthis https URL.",
+      "abstract_zh": "本文提出了一种用于统一且数据高效的图像到图像(I2I)转换的解耦残差去噪扩散模型(Decoupled Residual Denoising Diffusion models, DRDD)。尽管扩散模型在质量和多样性方面已推进了I2I转换的发展，我们发现了扩散模型中一个此前未被充分探索的特性：关键在于，注入高斯噪声不仅承担着传统的流形提升(manifold lifting)作用（即将数据移出低维流形），还能通过隐式对齐跨域特征分布来促进域协调(domain harmonization)，这一特性对于统一I2I转换尤为有利。然而，现有扩散模型过早地削弱了这种协调效应，因为噪声和残差在单个耦合的扩散过程中被同时消除。为解决此问题，DRDD将扩散过程解耦为两个连续且独立的扩散阶段：（1）用于域协调和流形提升的随机噪声扩散阶段；（2）完全在固定噪声域内学习核心语义映射的确定性残差扩散阶段。这种解耦方式在整个转换过程中保留了协调与流形提升效应，显著简化了跨多种任务和领域的统一映射学习。值得注意的是，噪声扩散阶段仅需在大量非配对的目标域图像上进行训练，极大提升了数据效率。全面的理论与实证分析表明，DRDD与主流扩散模型具有广泛兼容性，即使在有限配对数据条件下，仍能持续提供稳健、统一的I2I转换效果。代码发布于此https URL。",
+      "hf_link": "https://huggingface.co/papers/2606.01048"
+    },
+    "2606.03159": {
+      "title": "NVIDIA OmniDreams: Real-Time Generative World Model for Closed-Loop Autonomous Vehicle Simulation",
+      "abstract": "As autonomous vehicle capabilities advance, the safe evaluation of driving policies in long-tail scenarios remains a critical bottleneck. In closed-loop simulation, the driving policy model actively interacts with the environment, where its actions dynamically update the simulator state and directly influence the next set of generated sensor observations. While recent reconstruction-based neural simulators offer photorealism, they are fundamentally constrained by their initial captured data and struggle to generalize to highly dynamic or novel scenes. To overcome these limitations, we introduce OmniDreams, a foundation generative world model mid- and post-trained from the Cosmos diffusion model to autoregressively generate action-conditioned videos in real time. By leveraging the rich visual priors of Cosmos and mid- and post-training on 21k hours of driving scenarios, OmniDreams synthesizes complex, unobserved phenomena that are hard for traditional simulators to capture, such as extreme weather and unpredictable dynamic agent behaviors. Crucially, it autoregressively conditions its photorealistic sensor generation on past frames, the current simulator state, and immediate driving actions. Deployed in a closed-loop system with the Alpamayo 1 policy model and AlpaSim orchestrator, OmniDreams acts as a highly responsive, reactive environment, providing a scalable and comprehensive solution for training and evaluating next-generation autonomous driving policies. We additionally show preliminary results indicating that a world-action model (WAM) post-trained from OmniDreams achieves strong performance on the Physical AI Autonomous Vehicles NuRec dataset, surpassing the VLA-based Alpamayo 1.5 research policy model while using only 1/5 the total parameters. These results highlight the potential for a real-time world model like OmniDreams to also serve as a backbone for policy architectures.",
+      "abstract_zh": "随着自动驾驶能力的不断提升，在长尾场景中安全评估驾驶策略仍是一个关键瓶颈。在闭环仿真中，驾驶策略模型与环境主动交互，其行为会动态更新模拟器状态，并直接影响下一组生成的传感器观测数据。尽管近期基于重建的神经模拟器能够提供逼真的视觉渲染，但它们本质上受限于初始采集的数据，难以泛化到高度动态或全新的场景中。为突破这些限制，我们提出了OmniDreams——一个基于Cosmos扩散模型进行中段与后段训练的基础生成世界模型，能够实时自回归地生成动作条件视频。通过利用Cosmos丰富的视觉先验知识，并结合21,000小时驾驶场景数据的中段与后段训练，OmniDreams能够合成传统模拟器难以捕捉的复杂、未观测现象，例如极端天气和不可预测的动态智能体行为。关键在于，它能将过去帧、当前模拟器状态及即时驾驶动作作为条件，自回归地生成逼真的传感器数据。在部署于包含Alpamayo 1策略模型和AlpaSim编排器的闭环系统中时，OmniDreams充当了一个高响应、高反应性的环境，为训练和评估下一代自动驾驶策略提供了可扩展且全面的解决方案。我们还展示了初步成果：基于OmniDreams进行后段训练的世界-动作模型（World-Action Model, WAM）在Physical AI Autonomous Vehicles NuRec数据集上表现出色，其性能超越了基于视觉语言模型（Vision-Language Model, VLA）的Alpamayo 1.5研究策略模型，而总参数量仅为后者的五分之一。这些结果表明，像OmniDreams这样的实时世界模型同样有潜力成为策略架构的核心支柱。",
+      "hf_link": "https://huggingface.co/papers/2606.03159"
+    },
+    "2606.01249": {
+      "title": "Trust Region On-Policy Distillation",
+      "abstract": "On-Policy Distillation (OPD) is a fundamental technique for efficient post-training of large language models (LLMs), with broad applications in agent learning, multi-task enhancement, and model compression. However, OPD training becomes unstable when the teacher and student distributions differ substantially, as teacher supervision on student-generated tokens may yield unreliable policy gradients and even cause optimization failure. This work addresses reliable on-policy token-level supervision through credit assignment strategies, and proposes Trust Region On-Policy Distillation, TrOPD. It features the following characteristics: 1) Trust-Region On-Policy Learning: TrOPD performs OPD only in regions where the teacher provides reliable supervision, mitigating the optimization difficulty of the K1 reverse-KL estimator under distribution mismatch. 2) Outlier Estimation: For outlier regions, we explore gradient clipping, masking, and forward-KL estimation to reduce the adverse effects of unreliable supervision. 3) Off-Policy Guidance: The student continues generation from teacher prefixes and uses forward KL to imitate off-policy guidance, encouraging on-policy exploration toward reliable regions. Experiments show that TrOPD consistently outperforms SoTA OPD baselines, including OPD, EOPD, and REOPOLD, across mathematical reasoning, code generation, and general-domain benchmarks.",
+      "abstract_zh": "On-Policy Distillation（OPD，即同策略蒸馏）是一种用于大语言模型（LLM）高效训练后调试的基础技术，在智能体学习、多任务增强与模型压缩等领域具有广泛应用。然而，当教师模型与学生模型的分布差异显著时，OPD训练会变得不稳定，因为教师模型对学生模型生成词元的监督可能产生不可靠的策略梯度，甚至导致优化失败。本研究通过信用分配策略解决可靠的同策略词元级监督问题，并提出信任域同策略蒸馏方法TrOPD。该方法具有以下特征：1）信任域同策略学习：TrOPD仅在教师模型能提供可靠监督的区域执行OPD，从而缓解分布不匹配情况下K1反向KL估计量的优化困难；2）异常区域估计：针对异常区域，我们探索梯度裁剪、掩码处理与前向KL估计等方法，以降低不可靠监督的负面影响；3）离策略引导：学生模型基于教师模型前缀继续生成，并利用前向KL模仿离策略引导，激励同策略探索向可靠区域靠拢。实验表明，在数学推理、代码生成与通用领域基准测试中，TrOPD始终优于包括OPD、EOPD和REOPOLD在内的当前最优OPD基线方法。",
+      "hf_link": "https://huggingface.co/papers/2606.01249"
+    },
+    "2606.03985": {
+      "title": "Humanoid-GPT: Scaling Data and Structure for Zero-Shot Motion Tracking",
+      "abstract": "We introduce Humanoid-GPT, a GPT-style Transformer with causal attention trained on a billion-scale motion corpus for whole-body control. Unlike prior shallow MLP trackers constrained by scarce data and an agility-generalization trade-off, Humanoid-GPT is pre-trained on a 2B-frame retargeted corpus that unifies all major mocap datasets with large-scale in-house recordings. Scaling both data and model capacity yields a single generative Transformer that tracks highly dynamic behaviors while achieving unprecedented zero-shot generalization to unseen motions and control tasks. Extensive experiments and scaling analyses show that our model establishes a new performance frontier, demonstrating robust zero-shot generalization to unseen tasks while simultaneously tracking highly dynamic and complex motions.",
+      "abstract_zh": "我们推出了Humanoid-GPT，这是一种基于因果注意力机制训练的GPT风格Transformer模型，专为全身运动控制而设计，其训练数据来自十亿规模的动作语料库。与先前受限于稀缺数据及敏捷性-泛化能力权衡的浅层MLP追踪器不同，Humanoid-GPT在包含20亿帧重定向数据的语料库上进行预训练，该语料库整合了所有主要动作捕捉数据集及大规模内部录制数据。通过扩展数据规模与模型容量，我们构建了一个单一的生成式Transformer，该模型不仅能追踪高动态行为，还能对未见过的动作和控制任务实现前所未有的零样本泛化能力。大量实验与规模分析表明，我们的模型开创了性能新标杆，在精准追踪高动态复杂动作的同时，展现出对未知任务的强大零样本泛化能力。",
+      "hf_link": "https://huggingface.co/papers/2606.03985"
+    },
+    "2606.02398": {
+      "title": "A Local Perturbation Theory for Cross-Domain Interference and Recovery in Multi-Domain RL",
+      "abstract": "Reinforcement learning (RL) post-training improves large language models (LLMs) on individual domains such as mathematical reasoning, code generation, question answering, and creative writing (CW), but training on one domain often degrades performance on others. Existing explanations based on catastrophic forgetting or global gradient conflict are incomplete: substantial interference can occur even when full-model gradients are nearly orthogonal. We show that single-domain RL produces sparse, small-magnitude parameter edits with weak overlap among top-changed neurons, while different domains still share substantial active computation routes on which update directions determine whether they act synergistically or conflict. Guided by this observation, we prove under a local perturbation model of multi-domain RL that later-domain training harms an earlier domain mainly through a second-order damage term, which under the observed sparse route structure concentrates in a low-dimensional shared conflict subspace. Moreover, a short domain refresh contracts the harmful component on this subspace, enabling selective recovery with limited collateral damage. Consistent with the theory, a brief Re-Math refresh after Code $\\rightarrow$ Math $\\rightarrow$ QA $\\rightarrow$ CW recovers Math from 57.66 to 66.04 while largely preserving performance on the other domains, yielding the best average score of 66.39. Beyond refresh, a training-free rollback on a sparse proxy conflict coordinate set for the Math-QA pair partially restores Math, providing direct proxy-level evidence for localized damage. These results provide a localized mechanistic account of interference and recovery in multi-domain RL.",
+      "abstract_zh": "强化学习(RL)后训练能提升大语言模型(LLMs)在数学推理、代码生成、问答及创意写作(CW)等单一领域的表现，但针对某一领域的训练常导致其他领域性能下降。现有基于灾难性遗忘或全局梯度冲突的解释并不完备：即使在模型整体梯度近乎正交时，显著的干扰仍可能发生。我们发现单领域RL会产生稀疏、小量级的参数编辑，且高活跃度神经元间的重叠较弱，而不同领域仍共享大量活跃计算路径，这些路径上的更新方向决定了它们是协同作用还是相互冲突。基于这一观察，我们在多领域RL的局部扰动模型下证明：后续领域的训练主要通过二阶损害项对先前领域造成伤害，该损害项在观测到的稀疏路径结构下集中于低维共享冲突子空间。此外，短暂的领域刷新能压缩该子空间上的有害分量，从而以有限的附带损害实现选择性恢复。与理论一致，在代码→数学→问答→创意写作的训练序列后，对数学领域进行短暂\"Re-Math\"刷新，能将其得分从57.66恢复至66.04，同时基本保持其他领域性能，最终获得66.39的最佳平均分。除刷新外，在数学-问答对稀疏代理冲突坐标集上进行无需训练的梯度回滚，可部分恢复数学领域性能，为局部化损害提供了直接的代理层级证据。这些结果为多领域RL中的干扰与恢复机制提供了局部化的机理解释。",
+      "hf_link": "https://huggingface.co/papers/2606.02398"
+    },
+    "2606.01961": {
+      "title": "AutoMedBench: Towards Medical AutoResearch with Agentic AI Models",
+      "abstract": "Autonomous agents are increasingly expected to support end-to-end medical-AI research workflows, moving beyond isolated prediction tasks or short-form clinical question answering. However, existing medical agent benchmarks primarily evaluate final outputs, providing limited visibility into agent behavior within the research process. To address this gap, we present AutoMedBench, a workflow-aware benchmark for autonomous medical-AI research across diverse medical imaging and multimodal inference tasks, organizing agent execution into a unified five-stage workflow (S1-S5): Plan, Setup, Validate, Inference, and Submit. It comprises long-horizon tasks with each run averaging 33 agent turns, spanning five research tracks: segmentation, image enhancement, visual question answering (VQA), report generation, and lesion detection. Each task is evaluated under two difficulty tiers, Lite and Standard, which use the same data and metrics but differ in the amount of task-brief scaffolding, and each run is scored using both final task performance and S1-S5 stage scores, enabling stage-level analysis from the initial task brief to the final submitted artifact. Across thousands of recorded runs, stage-level scoring reveals that Validate is the weakest workflow stage on average, whereas Setup is the strongest, suggesting that current agents are better at making pipelines executable than at verifying their reliability. Post-run error analysis further shows that verification and submission failures dominate tagged errors, accounting for 37.7% and 38.1% of fired codes respectively, whereas task-understanding errors are rare at 0.9%, and runs with one fired error code have a 48% lower overall score than runs with no error code on average.",
+      "abstract_zh": "自主智能体正日益被期望支持端到端的医学人工智能研究流程，其角色已超越孤立的预测任务或短形式的临床问答。然而，现有的医学智能体基准测试主要评估最终输出，对研究流程中智能体行为的可见性有限。为填补这一空白，我们提出了AutoMedBench——一个面向流程的基准测试框架，用于评估自主医学人工智能研究在多样化医学影像与多模态推理任务中的表现，并将智能体执行过程组织为统一的五阶段工作流（S1-S5）：规划（Plan）、配置（Setup）、验证（Validate）、推断（Inference）与提交（Submit）。该基准涵盖长程任务，每次运行平均包含33轮智能体交互，涉及五大研究赛道：分割（segmentation）、图像增强（image enhancement）、视觉问答（visual question answering，VQA）、报告生成（report generation）以及病灶检测（lesion detection）。每项任务设置轻量级（Lite）与标准级（Standard）两种难度层级，二者采用相同数据与评价指标，但任务说明的辅助框架详略程度不同；每次运行均通过最终任务性能与S1-S5阶段得分进行双重评估，支持从初始任务说明到最终提交产物的全流程阶段级分析。基于数千次运行记录的统计表明，阶段级评分揭示验证（Validate）环节平均表现最弱，而配置（Setup）环节最强，这暗示当前智能体更擅长构建可执行流程而非验证其可靠性。运行后错误分析进一步显示，验证与提交失败在标记错误中占主导地位，分别占触发错误代码的37.7%与38.1%；任务理解错误则仅占0.9%。平均而言，触发单次错误代码的运行其总得分比无错误代码运行低48%。",
+      "hf_link": "https://huggingface.co/papers/2606.01961"
+    },
+    "2606.03603": {
+      "title": "World Models Meet Language Models: On the Complementarity of Concrete and Abstract Reasoning",
+      "abstract": "World models and multimodal large language models (MLLMs) provide complementary capabilities for predicting future outcomes from static visual observations. World models can generate concrete visual rollouts of possible futures, while MLLMs can reason abstractly over questions, goals, and rules. However, generated rollouts are stochastic and may be visually plausible but task-incorrect, making it necessary to determine when visual simulation is useful, whether a rollout is credible, and how it should influence the final answer. We formulate this problem as controlled concrete reasoning, where a model learns to invoke, verify, and integrate visual future simulation alongside abstract reasoning. To study this setting, we construct two human-verified benchmarks, VRQABench for controllable spatial lookahead and OpenWorldQA for open-domain physical prediction, and propose Privileged-Future On-Policy Self-Distillation (PF-OPSD). During training, PF-OPSD uses ground-truth future videos and answers only as teacher-side privileged context to evaluate on-policy concrete-reasoning trajectories, while the deployable student never observes true futures at test time. Experimental results show that PF-OPSD outperforms baseline by 10.6% and 10.9% on VRQABench and OpenWorldQA, respectively, while increasing robustness to noisy or conflicting rollouts. Our code and dataset are available atthis https URL.",
+      "abstract_zh": "世界模型（world model）与多模态大语言模型（MLLMs）在基于静态视觉观察预测未来结果方面具备互补的能力。世界模型能够生成具体可行的未来视觉推演序列，而多模态大语言模型则能对问题、目标和规则进行抽象推理。然而，生成的推演具有随机性，可能在视觉上合理但与任务实际不符，因此需要判断视觉模拟何时有效、推演是否可信以及它应如何影响最终答案。我们将此问题形式化为**受控具象推理**，即模型学习在抽象推理的同时调用、验证并整合视觉未来模拟。为研究这一设定，我们构建了两个经人工验证的基准测试：用于可控空间前瞻的**VRQABench**以及用于开放域物理预测的**OpenWorldQA**，并提出了**特权未来策略内自蒸馏方法（Privileged-Future On-Policy Self-Distillation, PF-OPSD）**。在训练过程中，PF-OPSD仅将真实未来视频与答案作为教师端的特权上下文，用于评估策略内的具象推理轨迹，而可部署的学生模型在测试时从不观测真实未来。实验结果表明，PF-OPSD在VRQABench和OpenWorldQA上分别比基线方法提升了10.6%和10.9%，同时增强了对噪声或矛盾推演的鲁棒性。我们的代码与数据集可通过此链接获取。",
+      "hf_link": "https://huggingface.co/papers/2606.03603"
+    },
+    "2606.01599": {
+      "title": "TRON: Targeted Rule-Verifiable Online Environments for Visual Reasoning RL",
+      "abstract": "Reinforcement learning (RL) for visual reasoning needs scalable, verifiable, and controllable training signals. Existing visual RL post-training trains on static curated datasets, with fixed image-question-answer samples bounded by their collection budget. In this work, we introduce TRON (Targeted, Rule-verifiable Online eNvironments), an online environment substrate: a training rollout is generated on demand by a controllable generator-verifier program that samples a fresh latent visual state, renders an image, asks a question, and exactly verifies the answer. A single run can therefore draw an unbounded stream of fresh instances at the difficulty level required by the current curriculum. The current TRON suite contains 520 environments organized into five ability buckets (spatial, mathematical, diagram, pattern/logic, and counting); the same substrate supports both a single full model trained on all buckets and per-bucket ability-specialist models, with no additional data collection. We also introduce a substrate analysis covering generation reliability, instance and level diversity, cross-environment near-duplicates, and base-model pass rate by difficulty level. RL post-training with METHOD consistently improves performance on ten external multimodal reasoning benchmarks across Qwen3-VL-4B, Qwen2.5-VL-7B, and MiMo-VL-7B-SFT.",
+      "abstract_zh": "视觉推理的强化学习(Reinforcement Learning, RL)需要可扩展、可验证且可控的训练信号。现有的视觉RL后训练基于静态人工标注数据集进行，其固定的图像-问题-答案样本受限于数据收集成本。本研究提出TRON（面向目标、规则可验证的在线环境）——一种在线环境基底：训练轨迹由可控的生成器-验证器程序按需生成，该程序采样全新的潜在视觉状态，渲染图像，提出问题，并精确验证答案。因此单次运行即可根据当前课程要求，生成无限流量的新实例。当前TRON套件包含520个环境，分为五大能力类别（空间、数学、图表、模式/逻辑及计数）；同一基底既支持在所有类别上训练的单一完整模型，也支持针对每类能力的专项模型，且无需额外数据收集。我们还提出了基底分析框架，涵盖生成可靠性、实例与难度层级多样性、跨环境近重复样本，以及不同难度级别的基础模型通过率。采用METHOD的RL后训练在Qwen3-VL-4B、Qwen2.5-VL-7B和MiMo-VL-7B-SFT三个模型上，持续提升了十个外部多模态推理基准的表现。",
+      "hf_link": "https://huggingface.co/papers/2606.01599"
+    },
+    "2606.02754": {
+      "title": "$Ψ$-Bench: Evaluating Persona-Sensitive Influencing in Persuasive Dialogues",
+      "abstract": "Personalization is a crucial capability of modern language agents. However, current research primarily positions personalized agents as passive responders to user preferences, limiting their ability to interact with users and provide suggestions or guidance proactively. To systematically evaluate such proactive personalization in realistic interactions, we propose $\\Psi$-Bench, a benchmark for assessing LLMs' ability to influence realistic users through conversation. We design three real-world interaction scenarios that involve persuasion in $\\Psi$-Bench, and endow simulated clients with personal characteristics through explicit user profiles derived from dialogue histories. We evaluate 10 frontier LLMs on $\\Psi$-Bench and find that while most models can produce coherent and reasonable arguments, even state-of-the-art models still leave considerable room for improvement in persuasion. We also find that providing access to client profiles yields an average performance gain of 18.24\\%, highlighting the importance of user-specific information for effective persuasion. Overall, our work highlights persona-sensitive influencing as a challenging yet practical direction for evaluating and developing more proactive personalized LLM agents. Codes are available at:this https URL.",
+      "abstract_zh": "个性化是现代语言智能体的核心能力。然而，当前研究主要将个性化智能体定位为用户偏好的被动响应者，限制了其与用户互动并提供主动建议或引导的能力。为系统性评估现实交互中此类主动个性化能力，我们提出 $\\Psi$-Bench——一个通过对话评估大语言模型影响真实用户能力的基准测试平台。我们在 $\\Psi$-Bench 中设计了三个涉及说服行为的现实交互场景，并通过从对话历史衍生的显式用户画像为模拟客户赋予个性化特征。我们在 $\\Psi$-Bench 上评估了 10 个前沿大语言模型，发现虽然多数模型能生成连贯合理的论证，但即使最先进的模型在说服能力上仍有显著提升空间。研究还表明，提供客户画像访问权限可带来平均 18.24\\% 的性能提升，这凸显了用户特定信息对有效说服的重要性。总体而言，我们的工作表明，对人物特征敏感的影响力引导是评估和开发更主动的个性化大语言模型智能体时兼具挑战性与实用价值的研究方向。代码已发布于：this https URL。",
+      "hf_link": "https://huggingface.co/papers/2606.02754"
+    },
+    "2606.01717": {
+      "title": "Decentralized Instruction Tuning: Conflict-Aware Splitting and Weight Merging",
+      "abstract": "Instruction tuning aligns large language models, including multimodal ones, with diverse user intents, but scaling to heterogeneous mixtures is hindered by gradient interference and bandwidth-heavy synchronization. We ask whether these two bottlenecks can be addressed jointly by training parts of the mixture independently and reconciling them once in parameter space. We develop a local quadratic theory inside a shared flat basin that yields three results: weight merging produces a curvature-weighted variance reduction; PCA-aligned conflict splitting maximizes this gain along high-curvature directions; and merging additionally acts as spectral filtering with implicit norm regularization. These results directly motivate MERIT, a decentralized merge-ready instruction-tuning pipeline that estimates dataset-level gradient conflicts, partitions the mixture along the top PCA conflict axes, fine-tunes each partition independently with no inter-partition communication, and merges once via token-weighted averaging. On Qwen2.5-VL-3B with 136 Vision-FLAN tasks, MERIT improves the 8-benchmark average from 54.3 (joint training) to 57.0. The same recipe scales to a 7B model on a 1.6M-example, 176-source mixture -- matching or exceeding centralized joint training with minimal cost overhead -- and transfers to text-only FLAN. Our code is available atthis https URL.",
+      "abstract_zh": "指令微调将包括多模态模型在内的大型语言模型与多样化的用户意图对齐，但扩展到异构任务混合训练时受到梯度干扰和带宽密集型同步的阻碍。我们探讨是否可以通过独立训练混合任务的部分子集并在参数空间中进行一次性融合来共同解决这两个瓶颈。我们在共享平坦盆地内构建了局部二次型理论，该理论得出三项结论：权重合并产生曲率加权的方差缩减；沿主成分分析对齐的冲突分裂可在高曲曲率方向最大化此增益；此外合并还充当具有隐式范数正则化的谱滤波。这些结论直接推动了MERIT的提出——这是一个去中心化、合并就绪的指令微调流程，其通过估计数据集层级的梯度冲突，沿主成分分析识别的顶部冲突轴划分任务混合集，在无分区间通信的情况下独立微调每个分区，最终通过令牌加权平均进行一次性合并。在包含136个Vision-FLAN任务的Qwen2.5-VL-3B模型上，MERIT将8个基准测试平均分数从54.3（联合训练）提升至57.0。该方法可扩展至7B模型在160万样本、176个数据源的任务混合集上——以最小成本开销达到或超越集中式联合训练效果——并成功迁移至纯文本FLAN任务。代码已发布于https://github.com/merit-project。",
+      "hf_link": "https://huggingface.co/papers/2606.01717"
+    },
+    "2606.03102": {
+      "title": "Small RL Controller, Large Language Model: RL-Guided Adaptive Sampling for Test-Time Scaling",
+      "abstract": "Test-time scaling improves the reasoning performance of large language models but incurs substantial cost in both total computation and latency. Existing adaptive sampling methods partially mitigate this issue by dynamically deciding when to stop sampling, yet they typically rely on heuristic rules or rely on distribution assumptions. In this work, we formulate adaptive sampling as a Markov decision process (MDP). We train a lightweight sampling controller with reinforcement learning (RL) to jointly balance answer correctness, latency, and computation cost. At each round, the controller decides to stop sampling or to acquire additional samples. Our method is lightweight which only relies on statistics of final answers, and can be trained and deployed on CPU. We further show that the resulting framework admits an interpretation as the Lagrangian relaxation of a constrained optimization problem with explicit budget constraints. Experiments against strong baselines such as ASC and ESC show that our method achieves improved trade-offs among answer correctness, sampling rounds, and total samples required.",
+      "abstract_zh": "测试时扩展采样虽能提升大语言模型的推理性能，但会显著增加总体计算量与延迟开销。现有自适应采样方法通过动态决定何时停止采样来部分缓解该问题，但这些方法通常依赖启发式规则或预设分布假设。本研究将自适应采样构建为马尔可夫决策过程，通过强化学习训练一个轻量级采样控制器，以协同优化答案正确性、延迟与计算成本。控制器在每轮决策中判断应停止采样或继续获取额外样本。该方法仅依赖最终答案的统计特征，具备轻量化特性，可在CPU上完成训练与部署。我们进一步证明该框架可解释为具有明确预算约束的优化问题的拉格朗日松弛形式。与ASC、ESC等强基线方法的对比实验表明，本方法在答案正确率、采样轮次和总样本需求之间实现了更优的权衡关系。",
+      "hf_link": "https://huggingface.co/papers/2606.03102"
+    },
+    "2606.03979": {
+      "title": "Language Models Need Sleep: Learning to Self-Modify and Consolidate Memories",
+      "abstract": "The past few decades have witnessed significant advances in the design of machine learning algorithms, from early studies on task-specific shallow models to more general deep Large Language Models (LLMs). Despite showing promising results in tasks that require instant prediction or in-context learning, existing models lack the ability to continually learn and effectively transfer their temporal in-context knowledge to their long-term parameters. Inspired by human learning process, we introduce a ''Sleep'' paradigm that allows the models to continually learn, distill their short-term fragile memories into stable long-term knowledge with replay, and recursively improve themselves with ''Dreaming'' process. In more detail, sleep consists of two stages: (1) Memory Consolidation: an upward distillation process, called Knowledge Seeding, where the memories of a smaller-self are distilled into a larger network to provide more capacity while preserving the knowledge. As a proof of concept, we present a new Generalized Distillation process for {Knowledge Seeding} (i.e., the combination of on-policy distillation with Reinforcement Learning (RL)-based imitation learning); (2) Dreaming: a self-improvement phase, where the model uses RL to generate a curriculum of synthetic data to rehearse new knowledge and refine existing capabilities without human supervision. Our experiments on long-horizon, continual learning, knowledge incorporation, and few-shot generalization tasks support the importance of the sleep stage.",
+      "abstract_zh": "过去几十年间，机器学习算法的设计取得了重大进展，从早期针对特定任务的浅层模型研究发展到更为通用的深度大语言模型（Large Language Models，LLMs）。尽管现有模型在需要即时预测或上下文学习的任务中展现出良好的效果，但它们缺乏持续学习的能力，无法将临时的上下文知识有效迁移至长期参数中。受人类学习过程的启发，我们提出一种\"睡眠\"范式，使模型能够持续学习，通过回放机制将短期脆弱记忆提炼为稳定的长期知识，并借助\"做梦\"过程实现递归式自我提升。具体而言，睡眠阶段包含两个步骤：（1）记忆巩固：这是一个自下而上的蒸馏过程，称为知识播种，即较小规模模型的记忆被蒸馏至更大规模的网络中，在保留已有知识的同时提供更强的容量。作为概念验证，我们提出一种用于知识播种的广义蒸馏方法（即结合策略蒸馏与基于强化学习的模仿学习）；（2）做梦：作为自我改进阶段，模型通过强化学习生成合成数据课程，在无需人工监督的情况下演练新知识并优化现有能力。我们在长时程任务、持续学习、知识融合及少样本泛化任务上的实验，验证了睡眠阶段的重要性。",
+      "hf_link": "https://huggingface.co/papers/2606.03979"
+    },
+    "2606.01788": {
+      "title": "PlatonicNav: Unveiling Semantic Correspondence in Navigation with Platonic Topological Maps",
+      "abstract": "Embodied visual navigation, where an agent perceives a complex environment and acts to reach a goal from raw sensory input, underpins a wide range of applications such as household service robotics, assistive robotics, and large-scale autonomous exploration. However, recent attempts to unify vision-and-language navigation (VLN) and object goal navigation (ObjNav) remain at the level of architectural fusion, mixed-task training, and large vision-language pretraining, without examining whether independently trained vision and language encoders may already share a common semantic structure. Moreover, even object-centric topological maps still ground language goals through explicit cross-modal supervision such as CLIP or large vision-language models, leaving open whether such grounding is possible from a purely vision-built map. To address these challenges, we extend the Platonic Representation Hypothesis to embodied navigation and recast vision-only ObjNav, cross-modal ObjNav, and VLN as three different interfaces to the same object-centric semantic manifold. We further introduce PlatonicNav, a training-free framework whose Platonic Topological Map fuses geometric and semantic node distances from a self-supervised visual encoder, and grounds language goals via blind matching without any paired vision-language data. Extensive experiments on simulation benchmarks including HM3D-IIN, OVON, and R2R-CE on MP3D, together with deployment on Unitree Go2, demonstrate that PlatonicNav generalizes across tasks, modalities, and embodiments without explicit cross-modal training. Code:this https URL. Website:this https URL.",
+      "abstract_zh": "具身视觉导航指智能体感知复杂环境并通过原始感官输入执行动作以达到目标，其广泛应用于家庭服务机器人、辅助机器人及大规模自主探索等领域。然而，近期统一视觉语言导航（VLN）与目标物体导航（ObjNav）的尝试仍停留在架构融合、混合任务训练和大规模视觉语言预训练层面，尚未探究独立训练的视觉与语言编码器是否已共享共同的语义结构。此外，即使是面向物体的拓扑地图仍需通过CLIP或大型视觉语言模型等显式跨模态监督来实现语言目标的空间关联，而此类关联能否仅通过纯视觉构建的地图实现仍未可知。针对这些挑战，我们将柏拉图表征假说（Platonic Representation Hypothesis）拓展至具身导航领域，将纯视觉ObjNav、跨模态ObjNav与VLN重新定义为同一物体中心语义流形（object-centric semantic manifold）的三种不同接口。我们进一步提出PlatonicNav——一种无需训练的新框架，其柏拉图拓扑地图（Platonic Topological Map）融合了来自自监督视觉编码器的几何与语义节点距离，并通过无需配对视觉语言数据的盲匹配实现语言目标的空间关联。在HM3D-IIN、OVON及MP3D平台上的R2R-CE等仿真基准的大量实验，以及在Unitree Go2机器人上的实际部署均表明，PlatonicNav能够在无需显式跨模态训练的情况下，实现跨任务、跨模态与跨具身形态的泛化能力。代码：此 https URL。项目网站：此 https URL。",
+      "hf_link": "https://huggingface.co/papers/2606.01788"
+    },
+    "2606.03920": {
+      "title": "Benchmarking Visual State Tracking in Multimodal Video Understanding",
+      "abstract": "Understanding a video requires more than recognizing isolated moments, as humans continuously track entities, states, and events over time. This capacity for visual state tracking is fundamental to video understanding, yet remains underexplored in current evaluations of Multimodal Large Language Models (MLLMs). We introduce Visual STAte Tracking benchmark (VSTAT), a video-based benchmark designed to diagnose visual state tracking in MLLMs. VSTAT consists of 834 clips drawn from both synthetic and real-world videos, paired with 1,500 questions that cannot be answered from any single frame or short segment, requiring continuous perception and integration of events across the entire video stream. Despite their strong performance on existing video benchmarks, we find that state-of-the-art MLLMs perform far below humans and only modestly above answer-prior baselines. To analyze this gap, we compare MLLMs' thinking traces with the underlying video stream to understand why and when MLLMs fail on VSTAT. We find that MLLMs reason and track correctly in text, but fail at visually perceiving the events they need to track. Finally, our preliminary evaluation suggests that recent agentic approaches, including MLLM-based video agents and coding agents, do not readily resolve these failures, still falling short on VSTAT.",
+      "abstract_zh": "理解视频内容远不止识别孤立的片段，因为人类会随时间持续追踪实体、状态和事件。这种视觉状态跟踪能力是视频理解的基础，但在当前多模态大语言模型（Multimodal Large Language Models, MLLMs）的评估中仍未得到充分探索。我们提出了视觉状态跟踪基准（Visual STAte Tracking benchmark, VSTAT），这是一个基于视频的评测集，旨在诊断MLLMs的视觉状态跟踪能力。VSTAT包含834个从合成视频和真实世界视频中选取的片段，并配有1,500个无法从任何单帧或短片段中得出答案的问题，要求模型在整个视频流中持续感知并整合事件。尽管现有MLLMs在主流视频基准上表现优异，但我们发现它们在VSTAT上的表现远低于人类水平，仅略高于基于答案先验的基线模型。为分析这一差距，我们通过对比MLLMs的思维轨迹与底层视频流，探究其为何以及在何时会在VSTAT上失败。研究发现，MLLMs能够在文本层面进行正确推理和跟踪，但在视觉感知需要追踪的关键事件时存在缺陷。最后，我们的初步评估表明，包括基于MLLM的视频智能体和代码智能体在内的近期智能体方法，尚未能有效解决这些缺陷，在VSTAT上仍表现不佳。",
+      "hf_link": "https://huggingface.co/papers/2606.03920"
+    },
+    "2605.27346": {
+      "title": "MERIT: Learning Disentangled Music Representations for Audio Similarity",
+      "abstract": "Current music similarity models typically compute a single, monolithic score, entangling distinct musical dimensions like melody, rhythm, and timbre. This limits user control and interpretability, making it impossible to execute nuanced queries. We introduce MERIT, a framework for learning disentangled, factor-specific music representations tailored to these three core dimensions. To overcome the lack of isolated musical variations in real-world audio, we use a novel training strategy that uses conditional audio generation and source-separated stems to strongly encourage single-factor variation in training data. Our evaluations demonstrate strong factor-wise disentanglement. Each head responds strongly to its intended perceptual dimension while remaining near chance on the others, a representational property that holds across both the synthetic training domain and independent real-world audio.",
+      "abstract_zh": "当前的音乐相似度模型通常计算一个单一的、整体的分数，将旋律、节奏和音色等不同的音乐维度纠缠在一起。这限制了用户控制和可解释性，使得无法执行细致入微的查询。我们引入了MERIT框架，旨在为旋律、节奏和音色这三个核心维度学习解耦的、针对特定因子的音乐表征。为了克服现实世界音频中缺乏孤立音乐变化的问题，我们采用了一种新颖的训练策略，该策略利用条件音频生成和源分离的声部，在训练数据中强烈鼓励单一因子的变化。我们的评估结果表明了强大的因子间解耦效果。每个表征头对其预期的感知维度反应强烈，而对其他维度的反应则接近随机水平，这一表征特性在合成的训练领域以及独立的现实世界音频中均保持一致。",
+      "hf_link": "https://huggingface.co/papers/2605.27346"
+    },
+    "2606.03928": {
+      "title": "Value-Aware Stochastic KV Cache Eviction for Reasoning Models",
+      "abstract": "Reasoning models improve accuracy through extended chains of thought, but their long outputs create a memory and compute bottleneck. KV cache eviction methods reduce this cost by evicting unimportant key-value pairs from the cache, yet they often yield worse accuracy than selection-based sparse attention alternatives, which keep the full KV cache. We identify key factors crucial to KV cache eviction accuracy. First, a small fraction of value states have abnormally large magnitudes, and evicting them causes catastrophic failure where models enter repetitive reasoning loops. Second, introducing stochasticity during eviction improves accuracy by increasing cache diversity. Based on these findings, we propose Value-aware Stochastic KV Cache Eviction (VaSE), a training-free recipe that protects large-magnitude value states and promotes diverse eviction decisions. Across six reasoning tasks, Qwen3 models using VaSE with 4x KV cache compression yield higher average accuracies than SOTA selection method at the same sparsity, while outperforming the strongest eviction method by more than 4%. Overall, VaSE bridges the gap between efficiency and accuracy, supporting FlashAttention2 and enabling a static memory footprint for reasoning models.",
+      "abstract_zh": "推理模型通过扩展思维链提升了准确性，但其长输出会带来内存与计算瓶颈。KV缓存淘汰方法通过从缓存中清除不重要的键值对来降低开销，但其准确性通常低于基于选择的稀疏注意力方案——后者保留了完整的KV缓存。我们识别出影响KV缓存淘汰准确性的关键因素：首先，极小部分值状态具有异常大的幅值，清除这些状态会导致灾难性失效，使模型陷入重复推理循环；其次，在淘汰过程中引入随机性可通过提高缓存多样性来增强准确性。基于这些发现，我们提出值感知随机KV缓存淘汰方案，这是一种无需训练的策略，既能保护大幅值状态，又能促进多样化的淘汰决策。在六项推理任务中，采用VaSE进行4倍KV缓存压缩的Qwen3模型，在同等稀疏度下比当前最优选择方法的平均准确率更高，同时以超过4%的优势领先于最强的淘汰方法。总体而言，VaSE弥合了效率与准确性之间的鸿沟，既兼容FlashAttention2优化，又能为推理模型提供静态内存占用的支持。",
+      "hf_link": "https://huggingface.co/papers/2606.03928"
+    },
+    "2606.03264": {
+      "title": "PaddleOCR-VL-1.6: Expanding the Frontier of Document Parsing with Under-Optimized Region Refinement and Progressive Post-Training",
+      "abstract": "We introduce PaddleOCR-VL-1.6, an upgraded compact document parsing model built upon PaddleOCR-VL-1.5. Although PaddleOCR-VL-1.5 establishes a strong 0.9B baseline, its remaining errors concentrate in under-optimized regions where model behavior is unstable, data coverage is sparse, or supervision is unreliable. Rather than expanding the training corpus indiscriminately, PaddleOCR-VL-1.6 introduces a region-aware data optimization framework that identifies weak regions from the previous model, applies targeted enhancement to these regions, and improves the reliability of supervision signals. It further adopts a progressive post-training recipe based on curated data selection and reinforcement learning, pushing model performance to a higher level through staged optimization. PaddleOCR-VL-1.6 achieves a new state-of-the-art score of 96.33% on OmniDocBench v1.6, demonstrates strong competitiveness against top-tier VLMs, and provides a practical post-training recipe for the PaddleOCR-VL series.",
+      "abstract_zh": "我们推出PaddleOCR-VL-1.6，这是一个基于PaddleOCR-VL-1.5升级的紧凑型文档解析模型。尽管PaddleOCR-VL-1.5建立了坚实的9亿参数基线，但其遗留误差主要集中在模型行为不稳定、数据覆盖稀疏或监督信号不可靠的欠优化区域。PaddleOCR-VL-1.6并未盲目扩展训练语料库，而是引入了区域感知数据优化框架：该框架首先从先前模型中识别弱区域，对这些区域实施针对性增强，并提升监督信号的可靠性。模型进一步采用基于精选数据选择与强化学习的渐进式后训练方案，通过分阶段优化将模型性能提升至更高水平。PaddleOCR-VL-1.6在OmniDocBench v1.6基准测试中取得了96.33%的最新最优成绩，展现出与顶级视觉语言模型（VLMs）的强劲竞争力，同时为PaddleOCR-VL系列提供了可实践的后训练方案。",
+      "hf_link": "https://huggingface.co/papers/2606.03264"
+    },
+    "2605.29288": {
+      "title": "Diagnosing Harmful Continuation in Answer-Correct Long-CoT Training Traces",
+      "abstract": "Long chain-of-thought (CoT) traces are widely used as supervision for reasoning-oriented LLM SFT, yet answer-correct traces can still lead to markedly different fine-tuning outcomes. We study post-conclusion continuation in answer-correct long-CoT data: a continuation where the answer appears sufficiently supported, but the trace continues with additional reasoning that remains in the supervised target. To test its training effect, we use a delete-only editor to construct answer-preserving suffix removal and compare CoT-based SFT on the original and processed traces. We observe improved SFT outcomes after removing the editor-identified post-conclusion continuation, suggesting that this continuation is harmful to training in our setting. We therefore refer to this empirically supported phenomenon as harmful continuation. Beyond this intervention, we further characterize the removed post-conclusion continuation through uncertainty and hidden-state progress. We observe persistent local uncertainty together with weakened terminal-directional progress, forming an uncertainty--geometry mismatch. Finally, we instantiate Harmful Continuation Cut (HCC), a lightweight boundary proxy that approximates the editor-identified post-conclusion continuation boundary.",
+      "abstract_zh": "长链思维（CoT）追踪被广泛用作面向推理的大语言模型监督式微调（SFT）的监督信号，但答案正确的追踪仍可能导致显著不同的微调结果。我们研究了答案正确的长链思维数据中的结论后延续现象：即当答案已得到充分支撑后，追踪仍继续包含额外推理步骤，且这些步骤仍保留在监督训练目标中。为检验其训练影响，我们使用仅删除编辑器构建了保留答案的后缀移除方案，并比较了基于原始追踪与处理后追踪的链式思维监督式微调效果。实验发现，在移除编辑器识别的结论后延续部分后，监督式微调结果得到改善，这表明在我们设定的场景中此类延续对训练具有损害性。因此，我们将这种经实证支持的现象称为有害延续。除该干预实验外，我们进一步通过不确定性与隐藏状态进展来刻画被移除的结论后延续特征。我们观察到持续存在的局部不确定性伴随终端方向性进展的减弱，形成了不确定性-几何结构错配现象。最终，我们实例化了有害延续截断（HCC）——一种轻量级边界代理方法，用以近似模拟编辑器识别的结论后延续边界。",
+      "hf_link": "https://huggingface.co/papers/2605.29288"
+    },
+    "2606.01494": {
+      "title": "ClawHub Security Signals: When VirusTotal, Static Analysis, and SkillSpector Disagree",
+      "abstract": "Agent skills extend AI agents with reusable instructions, tools, scripts, references, and workflows, establishing a security boundary distinct from both model safety and traditional package-malware detection. ClawHub Security Signals is a sanitized dataset of 67,453 latest public OpenClaw skill versions. Each row pairs redactedthis http URLcontent and sanitized bundled files where present with a final ClawScan registry verdict and evidence from three scanner families: VirusTotal, static heuristic analysis, and NVIDIA SkillSpector.Rather than estimating malicious-skill prevalence, we study scanner disagreement. The three scanners rarely flag the same skills: any pair overlaps on at most 10.4% of their combined positives, only 0.69% of skills are flagged by all three, and 81.9% of flagged skills are identified by a single scanner. The disagreement is structured by attack surface. SkillSpector, which raises semantic agentic-risk advisories rather than malware-reputation signals, is positive for 19,209 of 25,504 suspicious rows (75.3%) but only 14 of 206 malicious rows (6.8%). The malicious-verdict region shows the inverse profile: 150 of 206 malicious rows (72.8%) are VirusTotal-positive, consistent with bundled-code malware evidence.These results show that agent-skill security requires layered governance, not single-scanner allow/block decisions. The corpus is released as a sanitized silver-standard dataset: labels are the registry's automated verdicts, not human-annotated ground truth, and the release represents an early, versioned snapshot intended to support the community while a human-annotated subset is developed. Further research is encouraged, including models tailored for skill-security triage.",
+      "abstract_zh": "智能体技能（Agent skills）通过可复用的指令、工具、脚本、参考资源和工作流程扩展了AI智能体，其安全边界既不同于模型安全性，也区别于传统的软件包恶意代码检测。ClawHub安全信号数据集是一个经过清理的公开数据集，包含67,453个最新版本的OpenClaw技能。每一行数据均将经过脱敏处理的this http URL内容（若存在）及清理后的捆绑文件，与来自三类扫描器的最终ClawScan注册判定及其证据进行配对：VirusTotal、静态启发式分析以及NVIDIA SkillSpector。本研究不侧重于评估恶意技能的普遍性，而是聚焦于扫描器之间的判断差异。三类扫描器很少同时标记相同技能：任意两者在共同阳性结果中的重叠率最高仅为10.4%，仅0.69%的技能被三者同时标记，81.9%的被标记技能仅被单一扫描器识别。这种差异具有攻击面层面的结构性特征。SkillSpector主要针对语义层面的智能体风险提出告警，而非传统的恶意软件信誉信号，其在25,504条可疑数据行中对19,209条给出阳性判定（占比75.3%），但在206条恶意数据行中仅对14条判定为阳性（占比6.8%）。恶意判定区域则呈现相反特征：206条恶意数据行中有150条被VirusTotal判定为阳性（占比72.8%），这与捆绑代码恶意软件的证据特征一致。这些结果表明，智能体技能安全需要分层治理机制，而非依赖单一扫描器的允许/阻断决策。本语料库以清理后的银标准数据集形式发布：其标签为注册系统的自动化判定结果，而非人工标注的真实基准；该版本代表早期阶段性快照，旨在支持社区研究，同时人工标注子集正在开发中。我们鼓励进一步研究，包括开发适用于技能安全分级检测的专用模型。",
+      "hf_link": "https://huggingface.co/papers/2606.01494"
+    },
+    "2605.27958": {
+      "title": "Pressure-Testing Deception Probes in LLMs: Scaling, Robustness, and the Geometry of Deceptive Representations",
+      "abstract": "Linear probes trained on LLM activations are increasingly proposed as deception-detection metrics, yet report AUROC exceeding 0.96 on clean benchmarks while collapsing under distributional shift. This paper systematically pressure-tests probe-based metrics across the Gemma 3 model family (1B-27B parameters), diagnosing why they fail rather than merely documenting that they fail. We test four hypotheses about deception encoding: (1) single linear direction, (2) multi-dimensional subspace, (3) convex conic hull, (4) entropy proxy. Our design includes cross-domain transfer matrices, multi-dimensional probe analysis with permutation null baselines, entropy-residualization tests, and distractor evaluations across 8 stylistic shifts. We find that: (a) probes achieve near-perfect AUROC (>=0.998) on clean data but collapse under stylistic shifts; style-augmented probes recover near-perfect detection (mean AUROC 0.979-0.983) on unseen styles; (b) the single-direction hypothesis is rejected (k=1 captures only 0.61-0.80 AUROC), with cross-domain transfer failure confirmed as geometric rather than layer-mismatch-driven; (c) the entropy-proxy hypothesis is rejected (max |rho|=0.454, max Delta-AUROC after residualization=0.004); and (d) deception does not form a significant linear subspace (per-domain k*=0), yet multi-dimensional probes (k>=5) recover the signal through distributed sub-threshold features. Probe fragility reflects distributional narrowness rather than an architectural limitation: style-augmented probes recover near-perfect detection at both 4B and 27B, establishing that the inverse scaling pattern is a training-distribution artifact rather than a genuine scale-dependent phenomenon.",
+      "abstract_zh": "基于大语言模型激活训练的线性探针日益被提出作为欺骗检测指标，其在干净基准测试中报告AUROC（受试者工作特征曲线下面积）超过0.96，却在分布偏移下失效。本文系统地对Gemma 3模型系列（10亿至270亿参数）中基于探针的指标进行压力测试，旨在诊断其失效原因而非仅记录失效现象。我们检验了关于欺骗编码的四种假设：（1）单一线性方向假设，（2）多维子空间假设，（3）凸锥包假设，（4）熵代理假设。实验设计包含跨域转移矩阵、基于排列零假设基准的多维探针分析、熵残差化测试，以及涵盖8种文体偏移的干扰项评估。研究发现：（a）探针在干净数据上达到接近完美的AUROC（≥0.998），但在文体偏移下崩溃；经文体增强的探针在未见文体上恢复了接近完美的检测能力（平均AUROC为0.979-0.983）；（b）单一方向假设被推翻（k=1仅能捕获0.61-0.80的AUROC），跨域转移失败被证实源于几何结构而非层间失配；（c）熵代理假设被否定（最大|ρ|=0.454，残差化后最大Δ-AUROC=0.004）；（d）欺骗并未形成显著的线性子空间（各领域k*=0），但多维探针（k≥5）通过分布式亚阈值特征恢复了信号。探针脆弱性反映的是分布狭窄性而非架构限制：文体增强探针在40亿和270亿参数规模下均恢复了接近完美的检测性能，证实逆向缩放模式是训练分布人工产物而非真实的规模依赖性现象。",
+      "hf_link": "https://huggingface.co/papers/2605.27958"
+    }
+  },
+  "hf_votes": {
+    "2606.01249": 0,
+    "2606.03985": 0,
+    "2606.02398": 0,
+    "2606.01961": 0,
+    "2606.03603": 0,
+    "2606.01599": 0,
+    "2606.01048": 0,
+    "2606.02754": 0,
+    "2606.01717": 0,
+    "2606.03102": 0,
+    "2606.03979": 0,
+    "2606.01788": 0,
+    "2606.03159": 0,
+    "2606.03920": 0,
+    "2605.27346": 0,
+    "2606.03928": 0,
+    "2606.03264": 0,
+    "2605.29288": 0,
+    "2606.01494": 0,
+    "2605.27958": 0
+  },
+  "focus_sections": {
+    "3D生成与重建": [],
+    "视频生成": [
+      "2606.03159"
+    ],
+    "图像生成": [
+      "2606.01048"
+    ]
+  },
+  "summaries": {
+    "2606.01048": {
+      "short_zh": "解耦扩散模型提升图像翻译",
+      "tags": "计算机视觉;图像生成与合成;图像到图像翻译",
+      "body_summary": "扩散模型在图像翻译中质量好但噪声注入的领域对齐作用未被充分探索且在学习过程中被过早消除。\n提出了解耦残差去噪扩散模型，将过程分为噪声扩散和残差扩散两阶段，以保留对齐作用、简化跨域映射学习并提升数据效率。"
+    },
+    "2606.03159": {
+      "short_zh": "实现自动驾驶闭环仿真世界模型",
+      "tags": "自动驾驶;仿真与测试;神经渲染世界模型",
+      "body_summary": "自动驾驶在长尾场景下的安全评估是重大挑战，现有仿真器难以生成未见过的动态复杂场景。\n我们提出了OmniDreams，一个实时生成式世界模型，能根据驾驶动作自回归生成逼真传感器视频，用于闭环策略训练与评估，其衍生的策略模型也展现出优异性能。"
+    },
+    "2606.01249": {
+      "short_zh": "提升策略蒸馏稳定性的信任域方法",
+      "tags": "自然语言处理;大语言模型微调;策略蒸馏",
+      "body_summary": "在策略蒸馏中师生分布差异大时训练不稳定，需可靠监督。\n提出信任域在策略蒸馏，仅教师可靠区蒸馏，并用离群处理与离策略引导提升效果。"
+    },
+    "2606.03985": {
+      "short_zh": "用GPT模型实现人体运动跟踪",
+      "tags": "机器人;运动控制;全身动作跟踪",
+      "body_summary": "现有的人体运动跟踪方法受限于数据稀缺和灵活性-泛化能力之间的权衡。\n通过在大规模运动数据上训练GPT风格的Transformer模型，实现了对未见过的复杂动作和任务的零样本跟踪。"
+    },
+    "2606.02398": {
+      "short_zh": "多领域强化学习的干扰与恢复机制",
+      "tags": "强化学习;多任务学习;领域干扰与恢复",
+      "body_summary": "背景/任务：大模型在单一领域强化学习后，会在其他领域出现性能下降，现有理论无法完全解释。\n做了什么：提出局部扰动理论解释干扰机制，并通过领域刷新和稀疏坐标回滚实现了对受损领域的恢复。"
+    },
+    "2606.01961": {
+      "short_zh": "构建医疗AI自主研究基准",
+      "tags": "医疗人工智能;AI智能体评估;医疗影像多模态推理",
+      "body_summary": "现有医疗AI智能体基准缺乏对研究流程行为的细粒度评估。\n提出了AutoMedBench基准，通过五阶段流程评估智能体在医疗研究任务中的表现，并发现验证阶段是当前智能体的主要短板。"
+    },
+    "2606.03603": {
+      "short_zh": "融合世界模型与语言模型进行互补推理",
+      "tags": "计算机视觉;视觉推理;视觉未来预测",
+      "body_summary": "结合能生成具体视觉推演的世界模型与能抽象推理的多模态大语言模型，解决从静态观察预测未来结果的问题。\n提出一种训练方法，让模型学习在抽象推理中调用和整合视觉模拟，并在两个新基准上验证了其有效性。"
+    },
+    "2606.01599": {
+      "short_zh": "视觉推理强化学习的可控训练环境",
+      "tags": "强化学习；视觉推理；可控环境生成",
+      "body_summary": "现有视觉推理强化学习训练依赖静态数据集，存在扩展性和可控性瓶颈。\n提出TRON，一种可按需生成无限训练样本的可控在线环境，并验证其能提升多种视觉语言模型在外部基准上的表现。"
+    },
+    "2606.02754": {
+      "short_zh": "评估个性化对话说服力",
+      "tags": "自然语言处理;对话系统;人设敏感的对话影响",
+      "body_summary": "当前个性化智能体主要被动响应用户，缺乏主动引导能力，需要评估其在真实对话中基于用户特点进行说服的能力。\n我们构建了Ψ-Bench基准，在三个现实场景中通过带用户画像的模拟客户评估10个前沿大模型的说服表现，发现提供用户信息能显著提升说服效果，但现有模型仍有很大改进空间。"
+    },
+    "2606.01717": {
+      "short_zh": "分散式指令调优冲突分割权重合并",
+      "tags": "自然语言处理;大型语言模型对齐;多任务指令调优",
+      "body_summary": "指令调优旨在使大型语言模型与多样用户意图对齐，但集中式训练在多任务混合时面临梯度干扰和通信开销大的瓶颈。\n提出MERIT方法，先分析任务冲突并用PCA分割任务子集，然后独立训练各子集，最后通过权重合并统一模型，在减少通信的同时提升了多任务性能。"
+    },
+    "2606.03102": {
+      "short_zh": "用小型强化学习控制器指导大语言模型采样",
+      "tags": "自然语言处理;大语言模型推理;自适应推理采样",
+      "body_summary": "现有的自适应采样方法通常基于启发式规则或分布假设，难以在推理性能、延迟和计算成本之间取得最优平衡。\n本文提出将自适应采样建模为马尔可夫决策过程，训练一个轻量级强化学习控制器来联合优化答案正确性、延迟和计算成本，无需模型内部信息即可实现高效决策。"
+    },
+    "2606.03979": {
+      "short_zh": "大模型学习睡眠记忆巩固",
+      "tags": "机器学习;语言模型;持续学习",
+      "body_summary": "现有大模型缺乏持续学习并将上下文知识转化为长期参数的能力。\n提出睡眠范式，通过记忆巩固和梦想自改进，使模型能持续学习并自我提升。"
+    },
+    "2606.01788": {
+      "short_zh": "用单一视觉地图实现跨模态导航",
+      "tags": "机器人学;具身导航;多模态任务统一",
+      "body_summary": "背景/任务是探索视觉编码器是否已具备跨模态语义结构，以统一视觉导航与语言导航。\n提出了无需训练的PlatonicNav框架，通过纯视觉构建的地图匹配语言目标，实现了跨任务与模态的泛化。"
+    },
+    "2606.03920": {
+      "short_zh": "评测多模态大模型视频状态追踪能力",
+      "tags": "多模态学习;视频理解;视觉状态追踪",
+      "body_summary": "现有评测未充分探究多模态大模型对视频中实体状态持续追踪的能力。\n构建VSTAT基准测试发现现有模型能力远低于人类，其失败主因是视觉感知而非推理，且现有智能体方法也未能解决。"
+    },
+    "2605.27346": {
+      "short_zh": "学习音乐解耦表示用于相似性",
+      "tags": "音乐信息检索;音频表示学习;音乐解耦相似性",
+      "body_summary": "当前音乐相似性模型输出单一综合分数，无法控制不同音乐维度\n提出MERIT框架，通过条件生成和音轨分离训练解耦的旋律、节奏、音色表示"
+    },
+    "2606.03928": {
+      "short_zh": "大模型KV缓存高效驱逐优化",
+      "tags": "自然语言处理;大语言模型推理优化;键值缓存动态管理",
+      "body_summary": "推理模型因长输出生成而产生巨大的KV缓存内存和计算开销，现有驱逐方法常导致准确性下降。\n提出了一种训练无关的、保护大值状态并引入随机性的KV缓存驱逐方法，在显著压缩缓存的同时提升了多项推理任务的准确性。"
+    },
+    "2606.03264": {
+      "short_zh": "优化文档解析模型的弱区性能",
+      "tags": "计算机视觉;文档理解;视觉语言文档解析",
+      "body_summary": "PaddleOCR-VL-1.5模型存在行为不稳定、数据稀疏等弱区问题。\n提出区域感知数据优化与渐进式后训练方法，提升了模型性能。"
+    },
+    "2605.29288": {
+      "short_zh": "移除思维链训练中的有害延续",
+      "tags": "自然语言处理;语言模型训练;思维链监督微调",
+      "body_summary": "长思维链数据常用于训练推理大模型，但答案正确的数据仍可能导致不同的微调效果。\n本文通过删除编辑器识别的结论后延续来提升训练效果，并提出了轻量级边界代理方法。"
+    },
+    "2606.01494": {
+      "short_zh": "AI技能安全扫描不一致分析",
+      "tags": "AI安全;智能体安全;技能恶意性检测",
+      "body_summary": "论文研究了AI智能体技能的安全性问题，特别是不同安全扫描工具对同一技能恶意性判断不一致的现象。\n作者构建并发布了一个包含6.7万多个公开技能版本的安全扫描结果数据集，分析了三种扫描工具（VirusTotal、静态分析、SkillSpector）的检测分歧，发现其判断存在显著差异且与攻击面类型相关，进而指出需要分层的安全治理策略。"
+    },
+    "2605.27958": {
+      "short_zh": "压力测试大模型欺骗探测",
+      "tags": "自然语言处理;大语言模型;欺骗表示探测",
+      "body_summary": "线性探针常被用作大语言模型的欺骗检测指标，其在标准测试集上表现优异但面对分布变化时失效。\n本研究系统测试了线性探针在Gemma模型家族上的鲁棒性，否定了单一方向等假设，发现其脆弱性源于数据分布而非模型架构。"
+    }
+  },
+  "deep_analysis": {
+    "2606.01048": "这篇论文是关于**图像到图像（I2I）翻译**的，特别是**统一且数据高效的I2I翻译**。我来为你详细解释一下：\n\n### (1) 任务是什么\n- **任务输入**：一张来自“源域”的图像（比如模糊的图片、有雨滴的图片、低分辨率的图片等）\n- **任务输出**：一张翻译到“目标域”的图像（比如清晰的图片、没有雨滴的图片、高分辨率的图片等）\n- **任务功能**：将一个领域的图像转换成另一个领域的图像，同时保持图像的核心内容不变。这个任务可以包括很多子任务，比如图像修复、超分辨率、去雨、风格转换等。\n\n### (2) 想解决什么问题\n目前基于扩散模型的I2I翻译方法存在两个主要问题：\n1.  **统一翻译困难**：一个模型很难同时处理多种不同的I2I任务（比如又要去模糊又要去雨），因为不同任务之间的“领域差异”很大。\n2.  **数据效率低**：训练通常需要大量的“配对数据”（即同一场景的源图像和目标图像）。收集这些数据成本很高，尤其是对于多种任务。\n\n### (3) 贡献是什么\n这篇论文的主要贡献是：\n1.  **发现新特性**：他们发现，在扩散模型中注入高斯噪声不仅是为了“提升流形”，还有一个隐藏的好处——**噪声可以充当“领域协调器”**，拉近不同任务领域之间特征的距离，让统一学习变得更容易。\n2.  **提出新方法**：基于上述发现，他们提出了 **DRDD模型**。核心创新是**将传统的“耦合”扩散过程“解耦”成两个独立的阶段**：\n    - **噪声扩散阶段**：负责“领域协调”和“流形提升”。\n    - **残差扩散阶段**：在噪声固定的领域内，专门学习从源图像到目标图像的**核心语义映射**。\n3.  **提升数据效率**：噪声扩散阶段**只需要大量无配对的目标域图像**来训练，大大降低了对昂贵配对数据的需求。\n\n### (4) 整体思路与模型结构\n**基模**：这篇论文的方法是**通用框架**，可以建立在主流的扩散模型之上（比如DDPM、DDIM等），而不是一个全新的、从零开始的基础模型。\n\n**整体流程**（对照图1右半部分）：\n传统的扩散模型（如RDDM）进行I2I翻译时，是从**带噪声的源图像**（图b）**直接一步到位**到**干净的目标图像**（图d），在这个过程中**同时去除噪声和残差**（残差就是源图和目标图的差异部分）。作者认为这个过程过早地破坏了噪声带来的“领域协调”好处。\n\nDRDD的做法是**分两步走**：\n1.  **第一阶段：残差去除（在噪声域内进行）**\n    - **输入**：带噪声的源图像（图b）。\n    - **过程**：模型学习**只去除残差，但保留噪声**。也就是说，它把带噪声的源图像，映射成**带噪声的目标图像**（图c）。\n    - **关键**：这个映射学习**完全发生在“带噪声的领域”内**。由于噪声协调了不同任务的特征，所以学习这个统一的映射变得简单多了。\n    - **输出**：带噪声的目标图像（图c）。\n\n2.  **第二阶段：去噪（跨噪声域到干净域）**\n    - **输入**：第一阶段输出的带噪声的目标图像（图c）。\n    - **过程**：这是一个标准的**去噪过程**，将带噪声的图像恢复成干净的图像。**这个阶段不涉及任何任务相关的语义映射**，它只是一个通用的去噪器。\n    - **输出**：最终干净的目标图像（图d）。\n\n**简单比喻**：\n想象你要把一幅**铅笔草图（源）** 变成**彩色油画（目标）**，但草图风格和油画风格差异巨大。\n- **传统方法**：你试图一边给草图上色（去残差），一边把铅笔线条转换成油画笔触（去噪声/风格），两手一起抓，很混乱。\n- **DRDD方法**：\n    - **第一步**：你先在草图（带噪声源）上，**只专注于涂上正确的颜色**（去残差），但保留铅笔线条的质感（噪声）。现在你得到了一幅“**铅笔线条的彩色画**”（带噪声目标）。这一步专注于内容转换。\n    - **第二步**：你再用一个专门的工具，**把铅笔线条（噪声）转换成油画笔触**（去噪）。这一步专注于风格/质感转换。\n这样，每一步任务明确，更容易学习和处理多种不同的“上色”任务（对应多种I2I任务）。\n\n### (5) 结果怎么样\n论文在大量实验上验证了DRDD的有效性：\n1.  **统一I2I翻译**：在包含多达11种不同退化类型的统一I2I任务数据集上，DRDD显著优于其他先进的统一翻译方法，在感知质量和保真度上都有更好表现。\n2.  **数据高效性**：在**配对数据极其有限**（例如，只有10%或1%的配对数据）的情况下，DRDD的表现远远超过其他方法。这证明了其利用大量无配对目标域图像的能力。\n3.  **单任务性能**：即使在传统的单任务I2I设置下（如超分辨率、去雨、修复），DRDD也与当前最好的任务特定方法表现相当，甚至更好。\n4.  **兼容性与鲁棒性**：该方法被证明可以轻松集成到不同的扩散范式（如DDPM, DDIM, Cold Diffusion）中，并且对噪声注入水平的选择具有鲁棒性。\n\n**总结**：这篇论文通过重新思考扩散模型中噪声的角色，提出了一个巧妙的“解耦”两阶段框架，同时解决了统一I2I翻译的“领域差异”难题和“数据稀缺”难题，是一个既有理论洞察又有实践价值的贡献。",
+    "2606.03159": "好的，没问题！我用通俗易懂的语言为你梳理一下这篇论文的核心内容。你可以把它看作是一个“自动驾驶模拟器升级换代”的故事。\n\n### (1) 这篇论文所在的任务是什么？\n\n*   **任务名称**：为自动驾驶汽车**生成逼真的、可交互的驾驶模拟环境**。\n*   **任务输入**：\n    1.  **当前模拟器状态**：比如车辆的位置、速度等。\n    2.  **驾驶策略模型的“动作”**：比如方向盘打多少度、踩多少油门或刹车。\n    3.  **过去的视频帧序列**：最近几秒车辆“看到”的周围环境画面。\n*   **任务输出**：一张**下一时刻的、逼真的、全新的驾驶场景图像**（比如车辆前进一点点后，“摄像头”会看到的新画面）。\n*   **任务功能**：这个系统就像一个**超级逼真的“游戏引擎”**，但它不是预先设计好的静态场景，而是能根据自动驾驶AI的每一个驾驶决策，**实时生成对应的、可能从未见过的驾驶画面**，用于训练和测试自动驾驶AI。\n\n### (2) 这篇论文想解决什么问题？\n\n**核心问题**：现有的自动驾驶模拟器**不够真实、不够灵活**，难以应对“长尾场景”。\n*   **传统/重建型模拟器**：像用3D建模软件做的游戏，场景是固定的，很难模拟没见过的情况（比如前所未见的车祸现场、极端的天气组合）。\n*   **“长尾场景”**：指的是那些发生概率很低、但一旦发生就非常危险和复杂的罕见情况（比如一个小孩的皮球突然滚到路中间，同时天上开始下冰雹）。这些正是自动驾驶最需要测试、但现实中又最难收集到的场景。\n\n论文想解决的就是：**如何创造一个能自动生成无限多、无限复杂、无限逼真（尤其是包含各种罕见“长尾”危险情况）的驾驶模拟环境**。\n\n### (3) 这篇论文的贡献是什么？\n\n1.  **提出了OmniDreams**：一个**实时的、生成式的世界模型**。它不是记录世界，而是像“想象力”一样，根据当前状态和动作，“预测”或“生成”下一刻世界可能的样子。\n2.  **实现了高质量的实时生成**：能够以**照片级的真实感**，**实时**（对训练AI至关重要）生成驾驶视频。这得益于它基于一个强大的视频生成基础模型（Cosmos），并用了海量驾驶数据（2.1万小时）进行训练。\n3.  **展示了闭环应用价值**：成功地将OmniDreams接入一个完整的自动驾驶测试系统（AlpaSim + Alpamayo），证明它可以作为一个**反应灵敏的环境**，与驾驶AI互动，用于策略训练和评估。\n4.  **一个意外发现（Bonus）**：用OmniDreams进一步微调得到的“世界-动作模型”，本身就能作为一个很强的**自动驾驶策略模型**，性能超过了某些更复杂的模型，但参数量小很多。这显示了这类世界模型潜力巨大。\n\n### (4) 论文的整体思路和模型流程\n\n**核心思路**：不费力去精确建模物理世界（太难了），而是利用一个看过海量视频的**超级大脑（基础模型Cosmos）**，让它学会“驾驶视频的规律”。然后，教它根据“过去发生了什么 + 我现在做了什么”，去“想象”出“接下来我会看到什么”。\n\n**基模**：**Cosmos模型**。这是一个已经在大规模视频数据上学过的**扩散模型**，非常擅长生成高质量、连贯的视频。\n\n**整体流程（像一个自动写作机器）**：\n想象一下，你在让一个AI续写一篇驾驶故事，并且是逐帧续写：\n\n1.  **输入准备**：\n    *   **历史记忆**：把过去几帧（比如过去1秒的连续画面）喂给模型，让它知道故事背景（车在路上开，左边有辆车，天是晴的...）。\n    *   **当前指令**：告诉模型两个关键信息：① **模拟器状态**（比如你的车速是60km/h）；② **驾驶动作**（比如你命令车辆“向右轻微转向并减速”）。\n2.  **模型工作（OmniDreams内部）**：\n    *   模型将这些信息（历史画面 + 状态 + 动作）进行编码、融合。\n    *   基于从Cosmos和海量驾驶数据中学到的“世界知识”，它开始推理：“在晴天，以60km/h速度行驶的车，如果此时向右微转并减速，下一帧画面应该是什么样？左边的车会相对向左移动一点，前方的路会向右弯曲...”\n    *   它运用**扩散模型**的能力，从一个随机噪声开始，一步步“去噪”、“绘制”出一张符合这个推理的、逼真的新图片。\n3.  **输出**：\n    *   生成的就是**下一时刻的传感器（如摄像头）观测图像**。这张图是全新的、合成的，但符合物理逻辑和视觉真实性。\n4.  **闭环循环**：\n    *   这张生成的图片，会立刻成为自动驾驶AI（如Alpamayo）的输入。AI分析这张新图，做出下一个驾驶决策（新的“动作”）。\n    *   这个新动作和新的“历史画面”（包含刚生成的这一帧）又被送入OmniDreams，生成再下一帧...如此循环，就形成了一个**自动驾驶AI与生成式模拟环境的实时互动闭环**。\n\n### (5) 结果怎么样\n\n论文宣称的结果非常积极：\n\n1.  **模拟能力**：OmniDreams能生成传统模拟器难以构建的**复杂动态场景和极端现象**（如恶劣天气、行人突然窜出）。\n2.  **系统集成**：成功与已有的自动驾驶系统（AlpaSim, Alpamayo）集成，作为一个**可用的、反应式的仿真环境**运行。\n3.  **意外之喜（策略模型性能）**：用OmniDreams微调出的驾驶策略模型（WAM），在权威的**NuScenes数据集**上评测时，表现**超越了更强的研究模型Alpamayo 1.5**，而且模型体积（参数量）只有后者的**五分之一**。这说明OmniDreams学到的“世界知识”质量非常高，不仅能用来模拟环境，其核心理解能力直接用于决策也很有优势。\n\n**总结一下**：这篇论文提出了一个叫OmniDreams的“想象力引擎”，它能实时生成逼真且多变的驾驶场景，特别是能创造各种罕见危险路况，为训练和测试自动驾驶AI提供了一个强大、廉价、可扩展的“虚拟练兵场”。它的成功也暗示，这种“理解世界才能决策”的路径，可能是未来自动驾驶AI发展的一个关键方向。"
+  },
+  "figures": {
+    "2606.01048": [
+      {
+        "path": "https://arxiv.org/html/2606.01048v1/pic/method_image2.png",
+        "caption": "Figure 2:Proposed DRDD framework.DRDD decouples the traditional single forward diffusion processes into two sequential and independent process: a noise diffusion stage that injects Gaussian noise into the target image, followed by a residual diffusion stage that conducts deterministic target-to-source transformation, but now within a noise-carrying level. The reverse diffusion process is correspondingly decoupled into a residual removal stage and a denoising stage.",
+        "role": "pipeline_1",
+        "caption_zh": "图 2：所提出的 DRDD 框架。DRDD 将传统的单一前向扩散过程解耦为两个顺序独立的过程：首先是一个噪声扩散阶段，将高斯噪声注入目标图像；随后是一个残差扩散阶段，在携带噪声的层级内执行确定性的目标到源域的转换。相应地，逆向扩散过程被解耦为残差去除阶段与去噪阶段。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.01048v1/pic/second_page.png",
+        "caption": "Figure 1:Left: Domain gap reduction via noise introduction.t-SNE plot of feature representations across three I2I translation tasks. The original source domain (a) shows a significant domain gap, complicating unified I2I translation. Introducing noise (Source+Noise domain, b) reduces the\ndomain gap, as shown by noticeably closer feature representation. Here,noise-carrying domainsrefer to domains with noise added to original images (e.g., Source+Noise and Target+Noise domains) as noise-carrying domains, excluding pure noise.Right: Reverse process comparison.During the inference stage, traditional coupled diffusion models perform domain shifting from the noise-carrying input to the target by simultaneously removing the residual (the difference between the source and target) and the noise [(b)→\\rightarrow(d)]. Different from them, DRDD first performs residual removal exclusively within the noise-carrying domain, and then performs a denoising process to transform noisy-carrying target into clean target [(b)→\\rightarrow(c)→\\rightarrow(d)].",
+        "role": "pipeline_2",
+        "caption_zh": "图 1：左图：通过引入噪声减少域间差异。三个图像到图像（I2I）翻译任务中特征表示的 t-SNE 可视化图。原始源域（a）显示出明显的域间差异，使得统一的 I2I 翻译变得复杂。引入噪声（源域+噪声域，b）后，域间差异减小，表现为特征表示明显更为接近。此处，“含噪域”指对原始图像添加噪声的域（例如源域+噪声域和目标域+噪声域），不包括纯噪声域。右图：反向过程对比。在推理阶段，传统的耦合扩散模型通过同时去除残差（源域与目标域之间的差异）和噪声，实现从含噪输入到目标域的域转换 [(b)→(d)]。与之不同，DRDD 首先在含噪域内专门执行残差去除，随后通过去噪过程将含噪目标域转换为干净目标域 [(b)→(c)→(d)]。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.01048v1/x1.png",
+        "caption": "Figure 3:Quantitative comparison to state-of-the-art on 11 degradation tasks and their average.SSIM (↑\\uparrow) is reported. Our DRDD method consistently outperforms recent SOTA models, with favorable results in complex composited degradation scenarios. All experiments are conducted on the CDD11 dataset[15].",
+        "role": "pipeline_3",
+        "caption_zh": "图3：在11种退化任务及其平均值上与当前最优方法的定量比较。报告了SSIM（↑）指标。我们的DRDD方法在复杂的复合退化场景中均稳定优于近期SOTA模型，取得更优结果。所有实验均在CDD11数据集[15]上进行。"
+      }
+    ]
+  }
+}
