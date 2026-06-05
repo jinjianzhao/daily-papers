@@ -1,0 +1,437 @@
+{
+  "base_info": {
+    "2606.06042": {
+      "title": "LoomVideo: Unifying Multimodal Inputs into Video Generation and Editing",
+      "abstract": "Developing unified video generation and editing models capable of interpreting interleaved multimodal inputs is a promising yet challenging frontier field. Existing unified frameworks predominantly rely on massive models (typically 13B parameters or more) and incorporate source video conditions for editing by concatenating sequence tokens. This concatenation inevitably doubles the sequence length, quadrupling the computational complexity of the self-attention mechanism and introducing prohibitive overhead. To address these bottlenecks, we present LoomVideo, a highly efficient 5B-parameter unified architecture for both video generation and editing. LoomVideo replaces the standard text encoder with a Multimodal Large Language Model (MLLM) and employs Deepstack injection mechanism to align multi-layer MLLM features with the Diffusion Transformer (DiT). Crucially, we introduce a zero-overhead Scale-and-Add conditioning approach for video editing. By scaling and directly adding the clean source video latent to the noised target latent, this elegant design eliminates the need for token concatenation, drastically reducing computational cost while maintaining robust capabilities for complex, non-rigid edits. Furthermore, a Negative Temporal RoPE strategy is seamlessly integrated to handle multiple reference images. Extensive experiments demonstrate that our compact 5B model achieves state-of-the-art or highly competitive performance across comprehensive benchmarks, exhibiting exceptional superiority in e-commerce and fashion generation scenarios. Benefiting from the zero-overhead conditioning mechanism, LoomVideo achieves at least a 5.41x acceleration in inference speed compared to models of similar capabilities, paving the way for highly practical and efficient video foundation models.",
+      "abstract_zh": "开发能够理解交织多模态输入的统一视频生成与编辑模型，是一个前景广阔但充满挑战的前沿领域。现有的统一框架主要依赖于大规模模型（通常为130亿参数或更多），并通过拼接序列标记来引入源视频条件以实现编辑。这种拼接方式不可避免地使序列长度加倍，导致自注意力机制的计算复杂度增至四倍，并带来难以承受的开销。为应对这些瓶颈，我们提出了LoomVideo——一个高效且参数仅为50亿的统一架构，兼具视频生成与编辑能力。LoonVideo采用多模态大语言模型（MLLM）替代标准文本编码器，并利用深度堆叠注入机制将多层MLLM特征与扩散变换器（DiT）对齐。尤为关键的是，我们引入了一种零开销的“缩放相加”条件调节方法用于视频编辑。该设计通过将干净的源视频潜变量缩放后直接添加至带噪目标潜变量，优雅地避免了标记拼接操作，在保持复杂非刚性编辑鲁棒能力的同时，大幅降低了计算成本。此外，模型无缝集成了负时序旋转位置编码策略以处理多张参考图像。大量实验表明，我们紧凑的50亿参数模型在综合基准测试中达到了最先进或极具竞争力的性能，在电子商务和时尚生成场景中展现出卓越优势。得益于零开销条件调节机制，LoomVideo的推理速度相比同等能力模型至少提升了5.41倍，为构建高实用性与高效率的视频基础模型开辟了新路径。",
+      "hf_link": "https://huggingface.co/papers/2606.06042"
+    },
+    "2606.05172": {
+      "title": "Is This Edit Correct? A Multi-Dimensional Benchmark for Reasoning-Aware Image Editing",
+      "abstract": "Diffusion-based image editing has achieved strong visual fidelity under natural language instructions, yet most existing systems still operate at the level of surface instruction following, without reasoning about the implicit contextual constraints embedded in real user requests. This often leads to visually plausible but logically inconsistent edits. In this work, we introduce RE-Edit, a benchmark for REasoning-aware image Editing that evaluates image editing systems across five complementary reasoning dimensions: physical, environmental, cultural, causal, and referential. RE-Edit comprises 1,000 carefully curated samples, each designed such that visual plausibility alone is insufficient and correct editing requires satisfying implicit logical constraints. To support fine-grained analysis, we establish dimension-aligned evaluation criteria and conduct a comprehensive study of ten open-source and two commercial image editing models. Our results show that even advanced systems frequently struggle with implicit multi-dimensional reasoning despite producing high-quality visuals. We further present a lightweight reasoning-guided post-edit baseline as an initial exploration, illustrating how inserting explicit reasoning can help mitigate such failures in a model-agnostic manner.",
+      "abstract_zh": "基于扩散的图像编辑技术已在自然语言指令下实现了较强的视觉保真度，但现有系统大多仍停留在表层指令跟随的层面，未能对真实用户请求中蕴含的隐式语境约束进行推理。这常导致编辑结果在视觉上合理但逻辑上不一致。本文提出RE-Edit（推理感知图像编辑）基准，从五个互补的推理维度评估图像编辑系统：物理推理、环境推理、文化推理、因果推理和指代推理。RE-Edit包含1000个精心构建的样本，每个样本的设计都确保仅凭视觉合理性不足以实现正确编辑，必须满足隐式的逻辑约束。为支持细粒度分析，我们建立了维度对齐的评估标准，并对十个开源模型及两个商业图像编辑模型进行了全面研究。结果显示，即使先进的系统在生成高质量视觉效果的同时，也常难以应对隐式的多维度推理。我们进一步提出了一种轻量级的推理引导后编辑基线方法作为初步探索，展示了如何通过引入显式推理以模型无关的方式帮助缓解此类错误。",
+      "hf_link": "https://huggingface.co/papers/2606.05172"
+    },
+    "2606.06477": {
+      "title": "Complexity-Balanced Diffusion Splitting",
+      "abstract": "Standard continuous-time generative models rely on monolithic architectures that must navigate vastly different signal regimes, from isotropic noise to intricate data distributions. While scaling model capacity improves performance, deploying a massive network uniformly across the entire generative timeline is inherently inefficient. In this work, we propose Complexity-Balanced Splitting (CBS), a principled framework for temporal capacity allocation that distributes the generative workload across multiple specialized sub-networks. Grounded in function approximation theory and de Boor's equidistribution principle, CBS partitions the diffusion timeline into segments of equal approximation burden, allocating more representational capacity to regions where the generative dynamics are more difficult to model. To estimate this local complexity, we introduce two complementary and tractable monitor functions: a spatial measure based on the flow's Dirichlet energy, and a geometric measure based on the acceleration of the sampling trajectories. Using a lightweight auxiliary model to estimate these complexity profiles, our approach eliminates the need for heuristic temporal splits or computationally expensive search procedures. Extensive evaluation across multiple architectures (SiT, JiT, and UNet) and datasets demonstrates that CBS consistently improves synthesis quality without increasing per-step inference cost. In particular, CBS improves FID by ~35% on SiT-XL with CFG relative to naive temporal partitioning. Project page is available atthis https URL.",
+      "abstract_zh": "标准连续时间生成模型依赖于整体式架构，必须处理从各向同性噪声到复杂数据分布等截然不同的信号状态。虽然扩大模型容量能够提升性能，但在整个生成时间线上统一部署庞大规模网络本质上是低效的。本文提出复杂度均衡分割（Complexity-Balanced Splitting，CBS）这一用于时序容量分配的框架，将生成工作负载分配给多个专用子网络。基于函数逼近理论和德布尔等分布原理，CBS将扩散时间线划分为具有相等逼近负担的区段，并将更多表示容量分配给生成动态更难以建模的区域。为估计这种局部复杂度，我们引入两种互补且易于处理的监控函数：基于流狄利克雷能量（Dirichlet energy）的空间度量，以及基于采样轨迹加速度的几何度量。通过使用轻量级辅助模型估计这些复杂度分布，我们的方法避免了启发式时间分割或计算昂贵的搜索过程。在多种架构（SiT、JiT和UNet）和数据集上的广泛评估表明，CBS在不增加单步推理成本的情况下持续提升合成质量。特别地，相较于简单时间分割，CBS在使用分类器引导（CFG）的SiT-XL模型上将FID提升了约35%。项目页面见此https URL。",
+      "hf_link": "https://huggingface.co/papers/2606.06477"
+    },
+    "2606.04743": {
+      "title": "TIDE: Proactive Multi-Problem Discovery via Template-Guided Iteration",
+      "abstract": "Agents are widely deployed as assistants over documents, tools, and code. However, they typically act only on explicit user requests, which surface only the problems the user has noticed, while many other important problems coexist, hidden in plain sight, within the broader user context, with their total number unknown in advance. We frame this as the task of discovering multiple hidden problems from context, in which coexisting problems should be uncovered, grounded in supporting evidence, and paired with concrete actions. To this end, we introduce TIDE, a template-guided iterative framework with two complementary mechanisms. Specifically, motivated by the observation that single-pass prediction anchors on the most salient cases and yields generic claims, we propose iterative discovery, which surfaces a small batch of candidates per round while conditioning on what has already been found, so subsequent rounds extend coverage; and thought templates, reusable schemas distilled from previously solved cases that specify what contextual signals to attend to and how to connect them, anchoring each prediction in a recognizable problem class. We validate TIDE on two realistic settings, personal workspaces and software repositories, across four model backbones, showing substantial gains over single-shot and parallel multi-agent baselines on task coverage, identification, and resolution.",
+      "abstract_zh": "智能体（agents）作为文档、工具和代码的助手已被广泛部署。然而，它们通常仅对用户的显式请求作出响应，这只能揭示用户已注意到的问题，而许多其他重要问题却共同存在于更广泛的用户情境中，隐藏于显而易见之处，且其总数预先未知。我们将此任务定义为从情境中发现多个隐藏问题，其中需要揭示共存的问题，并基于支持性证据，与具体行动方案相匹配。为此，我们提出了TIDE，一种模板引导的迭代框架，包含两种互补机制。具体而言，基于单次预测往往锚定于最显著案例并产生通用结论的观察，我们提出了迭代发现机制——该机制每轮生成一小批候选问题，同时以前已发现的问题为条件，从而使后续轮次能够扩展覆盖范围；以及思维模板（thought templates）机制——这种可复用的模式提炼自先前已解决的案例，明确规定了应关注哪些情境信号及如何将其关联起来，将每个预测锚定于可识别的问题类别中。我们在两个现实场景（个人工作空间和软件仓库）中，基于四种模型骨干对TIDE进行了验证，结果显示其在任务覆盖度、问题识别与解决方面均显著优于单次预测及并行多智能体基线方法。",
+      "hf_link": "https://huggingface.co/papers/2606.04743"
+    },
+    "2606.05259": {
+      "title": "VideoKR: Towards Knowledge- and Reasoning-Intensive Video Understanding",
+      "abstract": "We introduce VideoKR, the first large-scale training corpus specifically designed to strengthen knowledge- and reasoning-intensive video understanding. It comprises 315K video reasoning examples over 145K newly collected, CC-licensed, expert-domain videos. We develop a human-in-the-loop, skill-oriented example generation pipeline that targets progressively deeper video reasoning capabilities while ensuring the difficulty, diversity, and reliability of both the examples and their CoT rationales. We also curate VideoKR-Eval, a new expert-annotated benchmark where questions require genuine video understanding and knowledge-intensive reasoning rather than textual shortcuts. Our experiments show that, under a standard SFT$\\rightarrow$GRPO pipeline, models post-trained on VideoKR outperform prior post-training approaches on knowledge-intensive video reasoning while remaining competitive on general video reasoning, highlighting data design as a key driver of progress in video reasoning. We further conduct comprehensive ablations to isolate the contributions of VideoKR, providing actionable insights for future work.",
+      "abstract_zh": "我们推出VideoKR，这是首个专为强化知识密集型和推理密集型视频理解而构建的大规模训练语料库。该语料库基于14.5万个新收集的CC协议授权专业领域视频，构建了31.5万个视频推理样本。我们开发了一套人机协同、面向技能层次的样本生成流程，旨在逐步深化视频推理能力，同时确保样本及其思维链（CoT）推理解释的难度、多样性和可靠性。此外，我们构建了VideoKR-Eval——一个经专家标注的新型评测基准，其中问题要求真正的视频理解与知识密集型推理，而非依赖文本捷径。实验表明，在标准的有监督微调（SFT）→分组策略优化（GRPO）流程下，基于VideoKR进行后训练的模型在知识密集型视频推理任务上超越了以往的后训练方法，同时在通用视频推理任务中保持竞争力，这凸显了数据设计是推动视频推理进步的关键因素。我们进一步通过全面的消融实验解析了VideoKR的贡献，为未来研究提供了可操作的见解。",
+      "hf_link": "https://huggingface.co/papers/2606.05259"
+    },
+    "2606.05553": {
+      "title": "ArcANE: Do Role-Playing Language Agents Stay in Character at the Right Time?",
+      "abstract": "Role-playing language agents (RPLAs) should play characters whose values and behavior evolve as the story progresses, not maintain a fixed persona. Existing benchmarks measure factual recall at a given chapter, not whether responses align with the character's psychological trajectory, especially in scenarios the source text never explores. We introduce ArcANE (Arc-Aware Narrative Evaluation), an automatically constructed benchmark spanning 17 novels and 80 principal characters. A Character Arc segments the narrative into phases along a psychological axis, and each probe poses the same scenario across phases, spanning both situations within the source text and situations beyond it. Across six models and six context modes, conditioning on the Character Arc tops every other context strategy on every model, and the gap is largest on scenarios outside the source text where retrieval has nothing to find. We further fine-tune open-weight models on the same data to obtain ArcANE-8B/32B, which widen the Arc advantage even more on scenarios outside the source text.",
+      "abstract_zh": "角色扮演语言代理（Role-playing language agents, RPLAs）应当演绎其价值观与行为随故事发展而演变的角色，而非保持固定人设。现有基准（benchmarks）仅衡量特定章节的事实回忆能力，未能评估回应是否契合角色的心理发展轨迹，尤其在源文本（source text）未曾涉及的情境中。我们提出ArcANE（Arc-Aware Narrative Evaluation，弧线感知叙事评估）——一个自动构建的基准，涵盖17部小说与80个主要角色。该体系通过\"角色弧线（Character Arc）\"沿心理轴将叙事分割为不同阶段，每个探针（probe）在多个阶段中设置相同情境，这些情境既包含源文本内的场景，也延伸至文本外的虚构场景。在六种模型与六种上下文模式的测试中，基于角色弧线的条件设置（conditioning）在所有模型上均优于其他上下文策略，且在源文本外的情境中优势最为显著——此类情境中检索机制（retrieval）无法获取有效信息。我们进一步利用相同数据对开源权重模型进行微调，得到ArcANE-8B/32B模型，该模型在源文本外情境中将角色弧线优势进一步扩大。",
+      "hf_link": "https://huggingface.co/papers/2606.05553"
+    },
+    "2606.05622": {
+      "title": "AdaPlanBench: Evaluating Adaptive Planning in Large Language Model Agents under World and User Constraints",
+      "abstract": "Planning for real-world problems by language models often involves both world and user constraints, which may not be fully specified upfront and are progressively disclosed through interaction. However, existing benchmarks still underexplore adaptive planning under such progressively revealed dual constraints. To address this gap, we introduce AdaPlanBench, a dynamic interactive benchmark for evaluating whether Large Language Model (LLM) agents can adaptively plan and re-plan under progressively revealed world and user constraints. AdaPlanBench is built on 307 household tasks, with a scalable constraint construction pipeline that augments each task with dual constraints. At runtime, agents interact with the environment in a multi-turn protocol where hidden constraints are revealed only when the agent proposes a plan that violates them, requiring iterative plan revision under accumulating feedback. This makes planning challenging, as agents must infer and track constraints from feedback while re-planning effectively. Experiments on ten leading LLMs show that adaptive planning under dual constraints remains challenging, with the best model reaching only 67.75% accuracy. We further observe that performance degrades as more constraints accumulate, with user constraints posing a particularly large challenge and failures often stemming from weaker physical grounding and reduced effectiveness. These results establish AdaPlanBench as a testbed for dual-constrained interactive planning and highlight the challenge of reliable adaptation to dynamically revealed constraints in LLM agents.",
+      "abstract_zh": "语言模型在规划现实世界问题时，常需同时处理世界约束与用户约束，而这些约束往往无法预先完整指定，需通过交互逐步揭示。然而，现有基准测试对这类逐步揭示的双重约束下的自适应规划能力仍探索不足。为填补这一空白，我们提出了AdaPlanBench——一个动态交互式基准测试平台，用于评估大语言模型（LLM）智能体能否在逐步揭示的世界约束与用户约束下进行自适应规划与再规划。AdaPlanBench基于307项家庭任务构建，通过可扩展的约束构造流程为每项任务增添了双重约束。在运行过程中，智能体以多轮协议与环境交互：仅当智能体提出的计划违反隐藏约束时，约束才会被揭示，这要求智能体在累积反馈中迭代修订计划。这使得规划极具挑战性，因为智能体必须从反馈中推断并追踪约束，同时高效执行再规划。对十个主流大语言模型的实验表明，双重约束下的自适应规划仍然困难重重，表现最佳的模型准确率仅为67.75%。我们进一步观察到，随着约束数量的增加，模型性能持续下降，其中用户约束带来的挑战尤为显著，失败案例往往源于较弱的物理基础（physical grounding）和下降的规划有效性。这些结果确立了AdaPlanBench作为双重约束交互式规划的测试平台，并凸显了大语言模型智能体在可靠适应动态揭示约束方面所面临的挑战。",
+      "hf_link": "https://huggingface.co/papers/2606.05622"
+    },
+    "2606.06428": {
+      "title": "Reinforcement Learning Elicits Contextual Learning of Unseen Language Translation",
+      "abstract": "Prior work has shown that large language models (LLMs) can translate unseen or low-resource languages by undergoing continued training or even by encoding a grammar book in their context. However, both methods typically overfit specific languages, with limited zero-shot transfer at test time. To translate extremely low-resource languages at scale, we argue that LLMs must acquire the meta-skill of utilizing in-context linguistic knowledge rather than memorizing specific languages. In this paper, we propose a reinforcement learning (RL) approach to unseen language translation given rich linguistic context, using a surface-level translation metric (chrF) as the reward. Empirically, despite the lightweight reward, our RL-trained models effectively extract and apply relevant linguistic information from the provided context, leading to better translations on completely unseen languages than in-context learning or supervised fine-tuning. Our analyses suggest that outcome-based RL can extend beyond conventional reasoning tasks like math and coding to serve as a recipe for language learning from context.",
+      "abstract_zh": "已有研究表明，大型语言模型（LLMs）能够通过持续训练，甚至在其上下文语境中编码语法书，实现对未见或低资源语言的翻译。然而，这两种方法通常会对特定语言产生过拟合，在测试时表现出有限的零样本迁移能力。为大规模翻译极低资源语言，我们认为大型语言模型必须掌握利用上下文语言学知识的元技能，而非仅仅记忆特定语言。本文提出一种基于强化学习（RL）的方法，在丰富语言学语境下进行未见语言翻译，并使用表层翻译度量指标（chrF）作为奖励。实验结果表明，尽管奖励机制设计轻量，但经过强化学习的模型能够有效地从提供的语境中提取并应用相关语言学信息，从而在完全未见语言上获得比上下文学习或有监督微调更好的翻译效果。我们的分析表明，基于结果的强化学习可超越数学和编程等传统推理任务，成为从语境中学习语言的有效方法。",
+      "hf_link": "https://huggingface.co/papers/2606.06428"
+    },
+    "2606.03312": {
+      "title": "RobotValues: Evaluating Household Robots When Human Values Conflict",
+      "abstract": "While household robots are often evaluated based on task completion, everyday domestic environments involve value-conflicting situations in which robots are expected to choose actions that prioritize other values than task success, such as human autonomy, efficiency, or social appropriateness. Yet, there are no benchmarks for evaluating robots' value preferences in such scenarios. We introduce RobotValues, a benchmark to evaluate household robot planners in 10K value-conflict scenarios. Each instance consists of a realistic household image with multiple plausible robot actions that prioritize different human values. We construct RobotValues through LLM-assisted scenario generation, stakeholder-grounded value extraction, image generation and automatic quality control. Using RobotValues we evaluate VLMs used in robotics and find that models exhibit default value preferences, including safety and accommodation, while underselecting privacy-prioritizing actions. When the models are instructed to prioritize specific values that conflict with their own preferences, they often fail to override their default actions, choosing incorrect actions for 80% of the time. These findings suggest that household robot evaluation should measure not only task completion or safety compliance, but also whether robots can choose among plausible actions when human values conflict.",
+      "abstract_zh": "尽管家用机器人通常以任务完成度作为评估标准，但日常家庭环境中存在诸多价值冲突情境，此时人们期望机器人能够选择优先考虑任务成功之外其他价值的行动——例如人类自主性、效率或社会适宜性。然而，目前尚缺乏评估机器人在这类场景中价值偏好的基准体系。我们推出RobotValues基准，旨在通过10,000个价值冲突场景评估家用机器人规划系统。每个测试实例包含一张真实的家庭环境图像及多个可行的机器人行动方案，这些方案分别优先考虑不同的人类价值。我们采用大语言模型辅助场景生成、基于利益相关者的价值提取、图像生成与自动质量控制相结合的方法构建了RobotValues。借助该基准，我们对机器人领域常用的视觉语言模型进行评估，发现模型呈现出默认的价值偏好（包括安全性和适应性），但对优先保护隐私的行动方案选择不足。当指示模型优先考虑与其自身偏好相冲突的特定价值时，它们往往难以突破默认行动模式，在80%的情况下仍会做出错误选择。这些研究结果表明，家用机器人的评估不仅应衡量任务完成度或安全合规性，还需检验其在人类价值冲突时能否在多个可行行动中做出恰当抉择。",
+      "hf_link": "https://huggingface.co/papers/2606.03312"
+    },
+    "2606.04703": {
+      "title": "Rethinking Continual Experience Internalization for Self-Evolving LLM Agents",
+      "abstract": "Experience internalization converts contextual experience from past interactions into reusable parametric capability, offering a promising path toward continual learning in large language models (LLMs). While prior work has predominantly focused on single-iteration transfer, we discover that under multi-iteration experience learning, existing methods suffer from a progressive capability collapse rather than compounding improvement. We systematically examine this failure through three vital dimensions of experience internalization: (1) Experience Granularity: We find that principle-level experience is more durable than instance-level experience, as it effectively abstracts transferable strategies away from trajectory-specific details. (2) Experience Injection Pattern: Our analysis reveals that step-wise injection significantly outperforms global injection by aligning experience with intermediate decision states, a property that is critical for long-horizon tool use. (3) Internalization Regime: We demonstrate that off-policy context-distillation on high-quality teacher trajectories provides a substantially more stable training signal than on-policy context-distillation, which is inherently limited by local corrections on student-induced flawed states. Together, these insights yield a simple yet robust recipe for stable and sustainable experience internalization, providing concrete guidance for engineering self-evolving and continually learning LLMs.",
+      "abstract_zh": "经验内化将过往交互中的情境经验转化为可复用的参数化能力，为大型语言模型（LLM）的持续学习提供了可行路径。现有研究主要关注单次迭代的知识迁移，而本研究发现：在多轮经验学习过程中，现有方法会出现渐进式能力退化而非持续提升。我们通过经验内化的三个核心维度系统性地分析了这一失效机制：（1）经验粒度：研究发现原则级经验比实例级经验更具持久性，因其能有效从具体轨迹细节中抽象出可迁移的策略。（2）经验注入模式：分析表明，通过将经验与中间决策状态对齐的分步注入方式显著优于全局注入，这一特性对长程工具使用至关重要。（3）内化机制：研究证明基于高质量教师轨迹的离线策略情境蒸馏能提供比在线策略情境蒸馏更稳定的训练信号，后者受限于对学生生成错误状态的局部修正。这些发现共同构成了稳定可持续经验内化的简洁而有效的方案，为构建自我演进、持续学习的大型语言模型提供了具体指导。",
+      "hf_link": "https://huggingface.co/papers/2606.04703"
+    },
+    "2606.05275": {
+      "title": "Personal AI Agent for Camera Roll VQA",
+      "abstract": "We study the personal camera roll visual question answering setting. In this setting, a conversational AI assistant can access a user's personal camera roll and retrieve relevant photos to answer queries, ranging from simple factual questions (e.g., ``Name of the food I tried yesterday?'') to more open-ended ones (e.g., ``Recommend some dishes I have never eaten before''). Given the vast nature of the personal camera roll (i.e., multiple years, hundreds to thousands of photos), a successful AI assistant needs to understand a long-horizon, highly personalized visual content stream in order to navigate and locate the correct and/or relevant information. To support this, we collect and manually annotate questions that mimic real-world usage. The final dataset, camroll, contains 50 users, 31,476 images, and 2,500 QA pairs. We further design camroll-agent, a conversational AI agent equipped with hierarchical memory and a minimal set of tools for efficient navigation over large, personalized visual memory. Experimental results show that camroll-agent outperforms numerous baselines and methods for long-context understanding AI agents system. Together, the camroll dataset and camroll-agent highlight the gap in AI agents' long-context reasoning: personalized visual memory requires different approaches from standard long-context textual memory, especially when consistency, visual details, and user-specific context are present.",
+      "abstract_zh": "本研究探讨个人相册视觉问答场景。在此场景下，对话式人工智能助手可访问用户的个人相册，通过检索相关照片回答各类查询——从简单事实性问题（例如“昨天尝试的食物名称？”）到更开放的问题（例如“推荐一些我从未吃过的菜肴”）。鉴于个人相册的庞大规模（即跨越多年度、包含数百至数千张照片），成功的人工智能助手需要理解长跨度、高度个性化的视觉内容流，以实现对正确或相关信息的导航与定位。为此，我们收集并手工标注了模拟真实使用场景的问题，最终构建的camroll数据集包含50位用户、31,476张图像及2,500组问答对。我们进一步设计了camroll-agent对话式智能体，该智能体配备分层记忆系统与精简工具集，可实现对大规模个性化视觉记忆的高效导航。实验结果表明，camroll-agent在长上下文理解智能体系统中表现优于多种基准方法。camroll数据集与camroll-agent共同揭示了当前智能体在长上下文推理方面的不足：个性化视觉记忆需要不同于标准长上下文文本记忆的处理方法，尤其在涉及一致性、视觉细节和用户特定语境时更为显著。",
+      "hf_link": "https://huggingface.co/papers/2606.05275"
+    },
+    "2606.06416": {
+      "title": "Unsupervised Skill Discovery for Agentic Data Analysis",
+      "abstract": "Inference-time skill augmentation provides a lightweight way to improve data-analytic agents by injecting reusable procedural knowledge without updating model parameters. However, discovering effective skills for data analysis remains challenging, as reliable supervision is expensive and success criteria vary across analytical formats. This raises the key question of how to discover reusable data-analysis skills from unlabeled exploration alone. We propose DataCOPE, an unsupervised verifier-guided skill discovery framework for data-analytic agents. DataCOPE derives verifier signals from the exploration trajectories and uses them to characterize relative quality or aggreement among trajectories. It iteratively coordinates a Data-Analytic Agent for trajectory generation, an Unsupervised Verifier for signal extraction, and a Skill Manager for contrastive skill distillation. For report-style analysis, we instantiate the verifier as an Adaptive Checklist Verifier that derives task-specific criteria, scores reports by verifiable coverage, and iteratively refines the checklist. For reasoning-style analysis, we instantiate it as an Answer Agreement Verifier that groups trajectories by answer agreement and uses self-consistency as an auxiliary signal. We evaluate DataCOPE on report-style analysis from Deep Data Research and reasoning-style analysis from DABStep. Across both settings, DataCOPE consistently improves held-out performance over baselines. Averaged across four model settings, DataCOPE improves the mean score by 9.71% and 32.30% on report-style and reasoning-style tasks respectively.",
+      "abstract_zh": "推理时技能增强为提升数据分析智能体提供了一种轻量级方法，其通过注入可复用的程序性知识实现模型性能改进，而无需更新模型参数。然而，发现适用于数据分析的有效技能仍具挑战，因为可靠的监督标注成本高昂，且成功标准随分析形式的变化而不同。这引出了一个核心问题：如何仅通过无标注的探索过程发现可复用的数据分析技能？我们提出了DataCOPE（无监督验证器引导的技能发现框架），该框架专为数据分析智能体设计。DataCOPE从探索轨迹中提取验证器信号，并利用这些信号刻画轨迹间的相对质量或一致性。该系统迭代协调三个组件：用于轨迹生成的数据分析智能体（Data-Analytic Agent）、用于信号提取的无监督验证器（Unsupervised Verifier），以及通过对比进行技能提炼的技能管理器（Skill Manager）。针对报告式分析，我们将验证器实例化为自适应清单验证器（Adaptive Checklist Verifier），该验证器推导任务特定标准，通过可验证覆盖度对报告评分，并迭代优化检查清单。针对推理式分析，我们将其实例化为答案一致性验证器（Answer Agreement Verifier），该验证器按答案一致性对轨迹分组，并以自洽性作为辅助信号。我们在Deep Data Research的报告式分析与DABStep的推理式分析任务上评估DataCOPE。在两种实验设置中，DataCOPE相较于基线方法均能持续提升留出集表现。在四种模型配置的平均结果中，DataCOPE使报告式任务和推理式任务的平均得分分别提升了9.71%和32.30%。",
+      "hf_link": "https://huggingface.co/papers/2606.06416"
+    },
+    "2606.06286": {
+      "title": "LLMs Can Leak Training Data But Do They Want To? A Propensity-Aware Evaluation of Memorization in LLMs",
+      "abstract": "Large language models can reproduce training data, but existing memorization evaluations mostly measure whether models can be forced to do so, rather than whether they do so under ordinary use. We introduce PropMe, a propensity-aware framework for memorization evaluation that contrasts prefix-based capability attacks with non-adversarial evaluations. We propose a metric transformation that, applied to existing functions, allows to create propensity metrics. We further introduce SimpleTrace, a lightweight tracing pipeline built on infini-gram that deterministically attributes model generations to large-scale training corpora and computes verbatim, near-verbatim, and propensity-transformed memorization metrics. Evaluating two fully-open models: Comma and DFM Decoder on two datasets: Common Pile and Dynaword in two languages, we find a consistent gap between capability and propensity: prefix attacks elicit substantially stronger memorization signals than generic or dataset-specific prompts, while propensity scores remain low overall. Thus, the models can reveal training data when directly elicited, but rarely do so in more common non-adversarial settings. We also find that DFM Decoder, which is continually pre-trained from Comma, exhibits reduced memorization and memorization propensity for Common Pile, confirming that memorization capability can decrease when later training emphasizes partially different data. Our results suggest, and we encourage, that memorization audits should report both worst-case extractability and ordinary leakage propensity in order to have a more comprehensive view of this phenomenon.",
+      "abstract_zh": "大型语言模型能够复现训练数据，但现有的记忆化评估主要衡量模型是否能在强制条件下进行复现，而非其在常规使用中是否自发产生此类行为。我们提出了PropMe——一种基于倾向性感知的记忆化评估框架，该框架通过对比基于前缀的能力攻击与非对抗性评估来开展研究。我们提出了一种适用于现有函数的度量转换方法，可借此构建倾向性度量指标。此外，我们开发了SimpleTrace——一个基于无限元文法（infini-gram）构建的轻量级追溯管道，能够确定性地将模型生成内容归因于大规模训练语料，并计算逐字记忆、近似记忆及倾向性转换后的记忆化度量指标。通过对两款完全开源模型（Comma和DFM Decoder）在两种语言（Common Pile和Dynaword）的两个数据集上进行评估，我们发现能力与倾向性之间存在持续性差距：前缀攻击引发的记忆化信号显著强于通用提示或数据集特定提示，而倾向性得分整体保持较低水平。这表明模型在直接诱导下可能暴露训练数据，但在更常见的非对抗性场景中很少自发产生此类行为。我们还发现，在Comma基础上持续预训练得到的DFM Decoder模型对Common Pile数据集的记忆化程度及记忆化倾向性均有所降低，这证实当后续训练侧重于部分不同数据时，模型的记忆化能力可能减弱。我们的研究结果表明，记忆化审计应当同时报告最坏情况下的可提取性与常规泄漏倾向性，从而更全面地理解这一现象，我们建议业界采纳该评估方式。",
+      "hf_link": "https://huggingface.co/papers/2606.06286"
+    },
+    "2606.03092": {
+      "title": "The Shadow Price of Reasoning: Economic Perspective on Optimal Budget Allocation for LLMs",
+      "abstract": "Inference-time scaling has emerged as a critical avenue for enhancing Large Language Models' performance, yet real-world deployment is constrained by strict computational budgets. In this work, we formulate inference budget allocation as a global constrained optimization problem governed by economic principles. By modeling per-query reasoning utility with a shifted-surge function, we derive an optimal allocation policy based on a global shadow price that equilibrates marginal utility under resource scarcity. Based on this theory, we propose Constrained Latent-utility Equilibrium Allocation for Reasoning (CLEAR). It performs rational abandonment and reallocates resources from insolvent queries to solvable queries near their emergence thresholds.Extensive experiments on several reasoning tasks with different traffic streams demonstrate that CLEAR significantly improves the Pareto frontier of total token cost versus mean accuracy. In resource-scarce regimes, CLEAR achieves up to a 3x improvement in global accuracy compared to uniform allocation.",
+      "abstract_zh": "推理时缩放已成为提升大语言模型性能的关键途径，然而现实世界的部署受到严格计算预算的限制。本研究将推理预算分配问题构建为一个受经济学原理支配的全局约束优化问题。通过采用平移冲击函数对单次查询的推理效用进行建模，我们推导出基于全局影子价格的最优分配策略，该策略能在资源稀缺条件下实现边际效用的均衡。基于此理论，我们提出了约束型潜在效用均衡推理分配方法。该方法执行理性舍弃机制，并将资源从无效查询重新分配到接近其涌现阈值的可解查询上。在多种流量场景下对若干推理任务进行的大规模实验表明，该方法显著提升了总标记成本与平均准确率之间的帕累托前沿。在资源稀缺情况下，相较于均匀分配策略，该方法可实现高达3倍的全局准确率提升。",
+      "hf_link": "https://huggingface.co/papers/2606.03092"
+    },
+    "2605.30159": {
+      "title": "Meta-Cognitive Memory Policy Optimization for Long-Horizon LLM Agents",
+      "abstract": "Memory-augmented LLM agents tackle complex long-horizon tasks by recursively summarizing interaction trajectories into compact memory. However, existing approaches typically train these memory policies using outcome-based reinforcement learning, failing to localize where intermediate memory quality degrades. As interactions unfold, ambiguous recursive summaries progressively discard task-relevant information and introduce semantic noise. This exacerbates belief deviation, obscuring the agent's estimate of the latent task state and ultimately derailing long-horizon reasoning. We therefore argue that memory optimization should focus not merely on trajectory-level success, but on the clarity of the belief induced by intermediate summaries. To this end, we introduce Belief Entropy, a self-supervised proxy that probes how uncertain the model remains about the latent task state given its current memory. Based on this proxy, we propose Metacognitive Memory Policy Optimization (MMPO). Instead of relying only on sparse outcome-based signals, MMPO provides fine-grained, memory-specific supervision via explicitly penalizing summaries that induce high epistemic uncertainty. Experiments show that MMPO consistently outperforms existing methods on diverse long-horizon tasks, maintaining 97.1% performance even when scaled to 1.75M-token contexts.",
+      "abstract_zh": "记忆增强型大语言模型（LLM）智能体通过将交互轨迹递归总结为紧凑型记忆来处理复杂的长期任务。然而，现有方法通常基于结果导向的强化学习来训练这些记忆策略，无法定位中间记忆质量在何处出现退化。随着交互的展开，模糊的递归摘要逐步丢弃任务相关信息并引入语义噪声。这加剧了信念偏差，模糊了智能体对潜在任务状态的估计，最终导致长期推理偏离正轨。因此我们认为，记忆优化不应仅关注轨迹层面的成功，更应聚焦于中间摘要所引发的信念清晰度。为此，我们提出信念熵（Belief Entropy）这一自监督代理指标，用于探测模型在当前记忆条件下对潜在任务状态的不确定性程度。基于此指标，我们提出元认知记忆策略优化（Metacognitive Memory Policy Optimization，MMPO）。该方法不仅依赖稀疏的结果导向信号，更通过显式惩罚引发高认知不确定性的记忆摘要，提供细粒度、针对记忆的监督机制。实验表明，MMPO在多种长期任务中持续优于现有方法，即使扩展至175万标记的语境规模仍能保持97.1%的性能表现。",
+      "hf_link": "https://huggingface.co/papers/2605.30159"
+    },
+    "2606.05979": {
+      "title": "World-Language-Action Model for Unified World Modeling, Language Reasoning, and Action Synthesis",
+      "abstract": "We propose world-language-action (WLA) models as a new class of embodied foundation models. WLA takes textual instructions, images, and robot states as inputs to jointly predict textual subtasks, subgoal images, and robot actions, conjoining the \\emph{world modeling interface} to learn from extensive egocentric videos as in the world-action model (WAM) and the \\emph{language reasoning} capacities to solve complex long-horizon tasks as in vision-language-action (VLA) models. At the core of WLA lies an \\emph{autoregressive (AR)} Transformer backbone, instead of a bidirectional diffusion Transformer as in WAMs, to predict the \\emph{next state}, comprising the \\emph{semantic-level} textual intention and complementary \\emph{fine-grained} physical dynamics. The physical dynamics are supervised by the world modeling objective based on a dedicated World Expert, and are leveraged to ease the characterization of the state-action correlation for the Action Expert. WLA leverages meta-queries to make the world prediction \\emph{implicitly} impact the action generation so that the former can be disabled during inference. The world prediction can also be activated to enable test-time scaling for improved robot control. Our WLA-0 prototype, with 2B active parameters, achieves 40 ms per inference on an NVIDIA RTX 5090. Evaluations across simulated and real-world environments demonstrate that WLA-0 achieves state-of-the-art multi-task and long-horizon learning abilities, e.g., 92.94\\% success rate on RoboTwin2.0 Clean and 56.5\\% success rate on RMBench. WLA-0 also holds the promise to learn novel tasks directly from \\emph{cross-embodiment robot videos} without action annotations.",
+      "abstract_zh": "我们提出世界-语言-动作（World-Language-Action, WLA）模型作为一类新型具身基础模型。WLA以文本指令、图像和机器人状态作为输入，联合预测文本子任务、子目标图像和机器人动作，其结合了**世界建模接口**——使其能够像世界-动作模型（World-Action Model, WAM）那样从大量第一人称视角视频中学习，以及**语言推理**能力——使其能够像视觉-语言-动作（Vision-Language-Action, VLA）模型那样解决复杂的长期任务。WLA的核心是一个**自回归**（Autoregressive, AR）Transformer骨干网络（而非WAM中使用的双向扩散Transformer），用于预测**下一状态**，该状态包含**语义层面**的文本意图和互补的**细粒度**物理动态。物理动态通过基于专用世界专家（World Expert）的世界建模目标进行监督，并用于简化动作专家（Action Expert）对状态-动作关联的表征。WLA利用元查询使世界预测**隐式地**影响动作生成，从而在推理阶段可停用世界预测部分。世界预测也可被激活，以支持测试时扩展，从而提升机器人控制性能。我们的WLA-0原型模型拥有20亿激活参数，在NVIDIA RTX 5090上每次推理耗时40毫秒。在仿真和真实环境中的评估表明，WLA-0实现了最先进的多任务和长期学习能力，例如在RoboTwin2.0 Clean任务上达到92.94%的成功率，在RMBench上达到56.5%的成功率。WLA-0还展现出无需动作标注、直接通过**跨具身机器人视频**学习新任务的潜力。",
+      "hf_link": "https://huggingface.co/papers/2606.05979"
+    },
+    "2606.05769": {
+      "title": "Imagine Before You Predict: Interleaved Latent Visual Reasoning for Video Event Prediction",
+      "abstract": "Video event prediction (VEP) requires models to infer unobserved future states from partial video evidence. Existing video MLLMs usually verbalize intermediate future reasoning in text space: once visual evidence is verbalized, fine-grained motion, geometry, and interaction cues can be lost, leading to plausible but visually ungrounded hallucinations. We introduce Future-L1, an interleaved latent visual reasoning framework that lets an MLLM alternate between language tokens and continuous latent visual spans during autoregressive decoding. To train this capability, we construct Future-L1-50K by selecting examples where future visual hints help prediction and align latent states to future-frame embeddings, then further optimize sampled latent trajectories with LA-DAPO, a latent-aware RL objective with outcome-contrastive and temporal-diversity rewards. Future-L1 achieves new state-of-the-art results on both benchmarks: on FutureBench, it improves Qwen3-VL-8B from 61.0 to 85.4 and exceeds the previous best Video-CoE by 10.4 points; on TwiFF-Bench, it improves the average score from 2.44 to 3.04. These results suggest that future-oriented video reasoning benefits from preserving intermediate visual semantics in latent space rather than translating every reasoning step into text.",
+      "abstract_zh": "视频事件预测任务要求模型根据部分视频证据推断未观测到的未来状态。现有的视频多模态大语言模型通常将中间阶段的未来推理过程文本化：一旦视觉证据被转化为文字，细粒度的运动、几何和交互信息就可能丢失，导致生成看似合理但缺乏视觉依据的幻觉内容。我们提出了Future-L1——一种交错式潜在视觉推理框架，使多模态大语言模型能够在自回归解码过程中交替生成语言标记与连续的潜在视觉片段。为训练这种能力，我们构建了Future-L1-50K数据集，筛选出需要未来视觉提示辅助预测的样本，并将潜在状态与未来帧嵌入对齐，进而通过LA-DAPO（一种包含结果对比奖励与时间多样性奖励的潜在感知强化学习目标）对采样的潜在轨迹进行优化。Future-L1在多项基准测试中取得了新的最优表现：在FutureBench上，它将Qwen3-VL-8B模型的得分从61.0提升至85.4，较先前最佳模型Video-CoE高出10.4分；在TwiFF-Bench上，平均得分从2.44提升至3.04。这些结果表明，面向未来的视频推理能够通过将中间视觉语义保留在潜在空间中而非转化为文本步骤而获得显著提升。",
+      "hf_link": "https://huggingface.co/papers/2606.05769"
+    },
+    "2606.06473": {
+      "title": "MLEvolve: A Self-Evolving Framework for Automated Machine Learning Algorithm Discovery",
+      "abstract": "Large language model (LLM) agents are increasingly applied to long-horizon tasks such as scientific discovery and machine learning engineering (MLE), where sustained self-evolution becomes a key capability. However, existing MLE agents suffer from inter-branch information isolation, memoryless search, and lack of hierarchical control, which together hinder long-horizon optimization. We present MLEvolve, an LLM-based self-evolving multi-agent framework for end-to-end machine learning algorithm discovery. By extending tree search to Progressive MCGS, MLEvolve enables cross-branch information flow through graph-based reference edges and gradually shifts the search from broad exploration to focused exploitation with an entropy-inspired progressive schedule. To allow the agent to evolve with accumulated experience, we introduce Retrospective Memory, which combines a cold-start domain knowledge base with a dynamic global memory for task-specific experience retrieval and reuse. For stable long-horizon iteration, we further decouple strategic planning from code generation with adaptive coding modes. Evaluation on MLE-Bench shows that MLEvolve achieves state-of-the-art performance across multiple dimensions including average medal rate and valid submission rate under a 12-hour budget (half the standard runtime). Moreover, MLEvolve also outperforms specialized algorithm discovery methods including AlphaEvolve on mathematical algorithm optimization tasks, demonstrating strong cross-domain generalization. Our code is available atthis https URL.",
+      "abstract_zh": "大语言模型（LLM）智能体越来越多地应用于科学发现与机器学习工程（Machine Learning Engineering，MLE）等长周期任务中，持续的自我进化成为其关键能力。然而，现有的MLE智能体普遍面临分支间信息隔离、无记忆搜索以及缺乏层次化控制等问题，这些因素共同阻碍了长周期的优化过程。本文提出MLEvolve，一种基于LLM的自我进化多智能体框架，用于端到端的机器学习算法发现。通过将树搜索扩展为渐进式蒙特卡洛图搜索（Progressive MCGS），MLEvolve借助基于图的参考边实现跨分支信息流动，并利用受熵启发的渐进调度策略，使搜索逐渐从广泛探索转向集中利用。为了让智能体能够随着经验积累而进化，我们引入了回顾性记忆机制，该机制结合了冷启动领域知识库与动态全局记忆，实现面向特定任务的经验检索与重用。为了实现稳定的长周期迭代，我们进一步通过自适应编码模式将策略规划与代码生成解耦。在MLE-Bench上的评估表明，在12小时计算预算（仅为标准运行时间的一半）下，MLEvolve在平均奖牌率和有效提交率等多个维度上均达到最先进水平。此外，在数学算法优化任务中，MLEvolve也超越了包括AlphaEvolve在内的专用算法发现方法，展现出强大的跨领域泛化能力。我们的代码可通过此链接访问。",
+      "hf_link": "https://huggingface.co/papers/2606.06473"
+    },
+    "2606.06021": {
+      "title": "OPRD: On-Policy Representation Distillation",
+      "abstract": "On-policy distillation (OPD) supervises the student only in output space by matching next-token probabilities. This output-only paradigm has two limits: (1) sampling variance from Monte Carlo KL estimates over large vocabularies (e.g., Qwen's ~150k tokens) persists throughout training, and (2) it treats the teacher as a black-box, discarding all intermediate hidden states after the LM head. We propose On-Policy Representation Distillation (OPRD), which lifts distillation into hidden-state space by aligning student and teacher representations across selected layers on the same rollouts, bypassing the LM head entirely. Theoretically, OPRD eliminates sampling variance and provides richer per-layer structural information. Empirically, OPRD closes the student-teacher gap on AIME 2024/2025 and AIMO, while output-space OPD baselines plateau below the teacher. OPRD also trains 1.44x faster and uses 54% less memory than top-k OPD. Code:this https URL.",
+      "abstract_zh": "在线策略蒸馏(On-policy distillation, OPD)仅通过匹配下一个词元的概率分布，在输出空间中对学生模型进行监督。这种纯输出范式存在两个局限：(1) 在大词汇表(例如Qwen的约15万个词元)上通过蒙特卡洛方法估计KL散度所产生的采样方差会在整个训练过程中持续存在；(2) 该方法将教师模型视为黑箱，在语言模型头(LM head)之后丢弃所有中间隐藏状态。我们提出在线策略表示蒸馏(On-Policy Representation Distillation, OPRD)，通过在同轮策略执行轨迹上对齐学生模型与教师模型在选定层的表示，将蒸馏过程提升至隐藏状态空间，完全绕过了语言模型头。理论上，OPRD消除了采样方差，并提供了更丰富的逐层结构信息。实验表明，在AIME 2024/2025和AIMO基准测试中，OPRD能够弥合学生模型与教师模型的性能差距，而基于输出空间的OPD基线则始终低于教师模型水平。同时，OPRD的训练速度比top-k OPD快1.44倍，内存使用减少54%。代码地址：this https URL。",
+      "hf_link": "https://huggingface.co/papers/2606.06021"
+    },
+    "2606.03841": {
+      "title": "EvoDS: Self-Evolving Autonomous Data Science Agent with Skill Learning and Context Management",
+      "abstract": "Recent progress in Large Language Model (LLM) agents has enabled promising advances in automated data science. However, existing approaches remain fundamentally limited by their static action sets and lack of principled long-horizon context management, hindering their ability to accumulate reusable experience across tasks and operate reliably in multi-stage, iterative data science pipelines. To address these challenges, we introduce EvoDS, a self-evolving autonomous data science agent that learns to expand its skills and adaptively managing long-term context through agentic reinforcement learning. Specifically, EvoDS introduces two key strategies: (1) Autonomous Skill Acquisition (ASA) mechanism, which enables agents to synthesize, validate, and reuse executable skills; and (2) Adaptive Context Compression (ACC) strategy, which treats context management as a learned control problem rather than passive truncation. These strategies are orchestrated within a two-stage multi-agent training scheme, enabling EvoDS to autonomously improve over time. Theoretically, we prove that EvoDS's hierarchical design reduces tool-selection error, and its optimization objective aligns with an information bottleneck principle, ensuring efficient context use. Empirically, EvoDS outperforms state-of-the-art open-source data science agents by an average of 28.9% across four diverse benchmarks while eliminating out-of-token failures. Our code and data are available atthis https URL.",
+      "abstract_zh": "大型语言模型智能体领域的最新进展，为自动化数据科学带来了前景广阔的发展。然而，现有方法仍受限于其静态的动作集合和缺乏原则性的长程上下文管理，这阻碍了其在跨任务中积累可复用经验的能力，也影响了其在多阶段、迭代式数据科学流程中的可靠运行。为解决这些挑战，我们提出了EvoDS——一种通过智能体强化学习实现技能扩展与长程上下文自适应管理的自进化式自主数据科学智能体。具体而言，EvoDS引入了两项核心策略：（1）自主技能获取机制，该机制使智能体能够合成、验证并复用可执行技能；（2）自适应上下文压缩策略，该策略将上下文管理视为一个可学习的控制问题而非被动截断过程。这些策略通过两阶段多智能体训练方案进行协同，使EvoDS能够随时间推移自主改进。理论上，我们证明了EvoDS的层次化设计降低了工具选择误差，其优化目标符合信息瓶颈原理，确保了上下文的高效利用。实证结果表明，在四项不同基准测试中，EvoDS平均领先最先进的开源数据科学智能体28.9%，同时彻底消除了令牌耗尽导致的失败。我们的代码与数据可通过此链接获取：https://URL。",
+      "hf_link": "https://huggingface.co/papers/2606.03841"
+    },
+    "2606.05846": {
+      "title": "Towards Truly Multilingual ASR: Generalizing Code-Switching ASR to Unseen Language Pairs",
+      "abstract": "Automatic Speech Recognition (ASR) has become a key technology for human--AI interaction. However, code-switching ASR (CS-ASR) remains particularly challenging due to the severe scarcity of multilingual CS speech resources across diverse language pairs. Existing approaches primarily improve CS-ASR performance through synthetic CS speech generation or pair-specific fine-tuning on limited bilingual datasets. Nevertheless, these approaches face an inherent scalability limitation, as support for CS must be developed separately for language pairs whose number grows combinatorially with the number of supported languages. In this work, we investigate whether CS capabilities learned from a limited set of seen language pairs can generalize to unseen language pairs through model merging and domain generalization methods. Our experiments show that merged bilingual CS-ASR models modestly generalize to unseen language pairs, suggesting limited transfer of bilingual CS capabilities across language pairs.",
+      "abstract_zh": "自动语音识别(Automatic Speech Recognition，ASR)已成为人机交互的关键技术。然而，由于跨不同语言对的多语言语码转换(Code-Switching，CS)语音资源极度匮乏，语码转换语音识别(CS-ASR)仍然面临特殊挑战。现有方法主要通过合成语码转换语音或基于有限双语数据集进行特定语言对的微调来提升CS-ASR性能。然而，这些方法存在固有的可扩展性局限——由于需要支持的语言对数量随语言数量呈组合式增长，每个语言对的语码转换支持都必须单独开发。本研究通过模型融合与领域泛化方法，探究从有限已知语言对中习得的语码转换能力是否能泛化至未知语言对。实验表明，融合后的双语CS-ASR模型对未知语言对仅能实现有限泛化，这暗示着双语语码转换能力在跨语言对间的迁移效应较为有限。",
+      "hf_link": "https://huggingface.co/papers/2606.05846"
+    },
+    "2606.05645": {
+      "title": "Discrete-WAM: Unified Discrete Vision-Action Token Editing for World-Policy Learning",
+      "abstract": "Autonomous driving requires reasoning about how ego actions shape the evolution of the surrounding world. However, most end-to-end methods rely on direct state-to-action mappings, capturing correlations without explicitly modeling action-conditioned dynamics. Conversely, continuous-latent world models often lack compositional structure for causal reasoning across counterfactual futures. We introduce Discrete-WAM, a unified latent vision-action world policy that represents future visual states and ego actions as aligned discrete tokens, enabling compositional causal reasoning across alternative futures. Built upon this unified discrete alignment, Discrete-WAM establishes a shared discrete diffusion framework with unified generative tasks, jointly formulating world modeling, world-action policy, and hierarchical decision-enabled policy, supporting compositional generalization across diverse driving scenarios. Experiments on large-scale autonomous-driving benchmarks show that Discrete-WAM achieves competitive performance while supporting controllable generation and counterfactual reasoning, offering a principled path toward more reliable decision-making.",
+      "abstract_zh": "自动驾驶需要推理自车行为如何影响周边环境的演变。然而，多数端到端方法依赖于直接从状态到行为的映射，仅捕捉相关性而未显式建模行为条件下的动态变化。相反，连续潜在世界模型通常缺乏跨反事实未来进行因果推理的组合结构。我们提出离散世界行动模型（Discrete-WAM），这是一种统一的潜在视觉-行动世界策略，将未来视觉状态与自车行为表征为对齐的离散标记，从而实现跨替代未来的组合式因果推理。基于这种统一的离散对齐机制，离散世界行动模型建立了具有统一生成任务的共享离散扩散框架，联合构建了世界建模、世界-行动策略及支持分层决策的策略，实现了跨多样驾驶场景的组合泛化能力。在大规模自动驾驶基准测试上的实验表明，离散世界行动模型在实现竞争性性能的同时支持可控生成与反事实推理，为构建更可靠的决策系统提供了原理性路径。",
+      "hf_link": "https://huggingface.co/papers/2606.05645"
+    },
+    "2606.06447": {
+      "title": "Latent Reasoning with Normalizing Flows",
+      "abstract": "Large language models often improve reasoning by generating explicit chain-of-thought (CoT), demonstrating the importance of intermediate computation. However, textual CoT forces this computation through a discrete, serial, and communication-oriented token stream: each reasoning step must be verbalized before the model can proceed, even when the underlying update is semantic, uncertain, or only partially formed. Latent reasoning offers a higher-bandwidth alternative by performing intermediate computation in compact continuous states before committing to text. Yet existing latent-reasoning methods often sacrifice key advantages that make CoT effective in autoregressive language models, including native left-to-right generation, probabilistic sampling, compatibility with KV-cache decoding, and tractable likelihood estimation. We propose NF-CoT, a latent reasoning framework that preserves these advantages by modeling continuous thoughts with normalizing flows. NF-CoT instantiates a TARFlow-style normalizing flow inside the LLM backbone, defining a tractable probability model over compact continuous thoughts distilled from explicit CoT. Continuous-thought positions are generated by an NF head, while text positions are generated by the standard LM head within the same causal stream. This design provides exact likelihoods for latent thoughts, enables probabilistic left-to-right decoding with the original KV cache, and supports direct policy-gradient optimization in the latent reasoning space. On code-generation benchmarks, NF-CoT improves pass rates over explicit-CoT and prior latent-reasoning baselines while substantially reducing intermediate-reasoning cost.",
+      "abstract_zh": "大型语言模型常通过生成显式的思维链（CoT）来提升推理能力，这凸显了中间计算的重要性。然而，文本形式的思维链迫使计算过程必须通过离散、串行且面向通信的词元流进行：每个推理步骤都必须被语言化后模型才能继续，即使底层更新本质上是语义性、不确定性或仅部分成型的。潜在推理提供了一种更高带宽的替代方案，即在确定文本输出前，先在紧凑的连续状态中执行中间计算。但现有的潜在推理方法往往牺牲了使思维链在自回归语言模型中有效的关键优势，包括：原生的从左到右生成、概率采样、与KV缓存（key-value cache）解码的兼容性，以及可处理的似然估计。我们提出NF-CoT，一种通过归一化流（normalizing flows）建模连续思维的潜在推理框架，以保留这些优势。NF-CoT在LLM主干网络内部实例化了一个TARFlow风格的归一化流，定义了一个基于从显式思维链蒸馏而来的紧凑连续思维的可处理概率模型。连续思维位置由归一化流头生成，而文本位置则由同一因果流内的标准语言模型头生成。该设计为潜在思维提供了精确的似然估计，支持使用原始KV缓存进行概率式从左到右解码，并允许在潜在推理空间中进行直接策略梯度优化。在代码生成基准测试中，NF-CoT相比显式思维链及先前的潜在推理基线提升了通过率，同时大幅降低了中间推理成本。",
+      "hf_link": "https://huggingface.co/papers/2606.06447"
+    },
+    "2606.04465": {
+      "title": "SePO: Self-Evolving Prompt Agent for System Prompt Optimization",
+      "abstract": "System prompt optimization improves agent behavior without modifying the underlying model, yielding human-readable, model-agnostic instructions. Existing methods build a prompt agent that refines task agents' system prompts, yet leave the prompt agent's own system prompt hand-engineered and fixed. We propose Self-Evolving Prompt Optimization (SePO), which treats the prompt agent's own system prompt as an optimization target alongside task agents' system prompts. SePO adopts a self-referential design. A single prompt agent improves both task agents' system prompts and its own under an open-ended evolutionary search that maintains an archive of candidate prompts as stepping stones. Training proceeds in two stages: pre-training evolves the prompt agent on a multi-task pool, and fine-tuning then applies it to a target task. Across five benchmarks spanning math (AIME'25), abstract reasoning (ARC-AGI-1), graduate-level science (GPQA), code generation (MBPP), and logic puzzles (Sudoku), SePO consistently outperforms Manual-CoT, TextGrad, and MetaSPO, improving the average accuracy by 4.49 points compared to Manual-CoT. The prompt optimization skill from pre-training also generalizes to tasks beyond the pre-training mixture, rather than memorizing per-task prompts.",
+      "abstract_zh": "系统提示优化无需修改底层模型即可改善智能体行为，产生人类可读且与模型无关的指令。现有方法通过构建提示优化智能体来精炼任务智能体的系统提示，却使优化智能体自身的系统提示仍依赖于人工设计且固定不变。我们提出自进化提示优化方法，将优化智能体自身的系统提示与任务智能体的系统提示共同作为优化目标。该方法采用自指涉设计：单一优化智能体在开放式进化搜索中同时改进任务智能体与自身的系统提示，并通过维护候选提示存档作为演进阶梯。训练过程分为两个阶段：预训练阶段在多任务池中进化优化智能体，微调阶段将其应用于目标任务。在涵盖数学、抽象推理、研究生级科学问题、代码生成与逻辑谜题的五个基准测试中，该方法在平均准确率上较人工思维链提示提升4.49个百分点，且预训练获得的提示优化技能能够泛化至预训练任务组合之外的新任务，而非机械记忆特定任务提示。",
+      "hf_link": "https://huggingface.co/papers/2606.04465"
+    },
+    "2606.05254": {
+      "title": "Flash-WAM: Modality-Aware Distillation for World Action Models",
+      "abstract": "World-action models (WAMs) jointly generate future video and robot actions through iterative diffusion, achieving strong performance on manipulation benchmarks but requiring tens of denoising steps, a cost that precludes real-time control. Step distillation has emerged as the natural remedy, but off-the-shelf methods break down in the joint video-action setting because video and action streams use different SNR-shifted noise schedules and reach training with substantially different marginal noise distributions, an asymmetry that single-modality distillation methods cannot accommodate. We introduce \\textbf{Flash-WAM}, a modality-aware step-distillation framework inspired by consistency distillation that selects the consistency function for each modality to match its noise regime: a linear-gradient-scaling parametrization for the action stream's low-noise regime, paired with a variance-preserving parametrization for the video stream's high-noise regime, grounded in a structural analysis of the consistency-function family that characterizes the achievable gradient scaling under the consistency boundary condition. Instantiated on LingBot-VA, Flash-WAM compresses inference to a single step in each modality. On RoboTwin 2.0, this reduces per-chunk latency from $8.1$ seconds to $348$ ms on NVIDIA L40S, a $23{\\times}$ speedup that enables real-time inference. Flash-WAM preserves task success on simulation benchmarks ($85.5\\%$ RoboTwin 2.0, $95.7\\%$ LIBERO) and substantially recovers real-world performance ($60\\%$ average on a Unitree G1 humanoid robot), while naive consistency distillation drops to $24\\%$ at the same step budget.",
+      "abstract_zh": "世界动作模型（World-action models, WAMs）通过迭代扩散联合生成未来视频与机器人动作，在操作基准测试中表现优异，但需要数十步去噪过程，这一计算成本阻碍了实时控制应用。步数蒸馏已成为自然的解决方案，但现有方法在联合视频-动作场景中失效，因为视频流与动作流使用不同的信噪比偏移噪声调度，并在训练中达到差异显著的边缘噪声分布，这种不对称性是单模态蒸馏方法无法处理的。我们提出 **Flash-WAM**，一种受一致性蒸馏启发的模态感知步数蒸馏框架。该框架为每个模态选择与其噪声状态匹配的一致性函数：针对动作流的低噪声状态采用线性梯度缩放参数化，而对视频流的高噪声状态则采用方差保持参数化，这一设计基于对一致性函数族的结构分析，该分析刻画了在一致性边界条件下可实现的梯度缩放特性。在 LingBot-VA 模型上的实现表明，Flash-WAM 可将每个模态的推理压缩至单步完成。在 RoboTwin 2.0 平台上，该方法将每片段延迟从 8.1 秒降低至 348 毫秒（基于 NVIDIA L40S 显卡），实现 23 倍加速并支持实时推理。Flash-WAM 在仿真基准测试中保持了任务成功率（RoboTwin 2.0 达 85.5%，LIBERO 达 95.7%），并在真实场景中显著恢复性能（Unitree G1 人形机器人上平均达 60%），而原生一致性蒸馏在相同步数预算下成功率降至 24%。",
+      "hf_link": "https://huggingface.co/papers/2606.05254"
+    },
+    "2606.04351": {
+      "title": "Video2LoRA: Parametric Video Internalization for Vision-Language Models",
+      "abstract": "Processing video in vision-language models is expensive: each frame occupies hundreds of tokens, and inference cost scales with every frame and every repeated query. We introduce Video2LoRA, a method for parametric video internalization. A perceiver hypernetwork reads the intermediate representations produced layer-by-layer as a frozen VLM encodes a video, and generates a Low-Rank Adaptation (LoRA) adapter in a single forward pass. Unlike standard LoRA fine-tuning, which requires iterative gradient updates, Video2LoRA predicts these weights directly from the video. Trained for SmolVLM2 500M and 2.2B on video summarization and captioning, Video2LoRA enables the same frozen VLM to answer queries from the adapter alone, with zero visual tokens in its context at query time. Video2LoRA is statistically non-inferior and equivalent to direct video-in-context inference across all five captioning benchmarks at both model scales, and across seven of eight video question answering benchmark-scale pairings. Although trained only on 12 frames at 384px, it remains stable up to 1,024 frames and 1024px, where direct video-in-context inference often degenerates. Across this sweep, it reduces answer-time visual-token load by up to 1,500x and query TTFT by 6-80x, while preserving video-faithful outputs. We also find that independently generated adapters for non-overlapping video segments can compose in rank space, suggesting a path toward chunked long-video internalization.",
+      "abstract_zh": "视觉语言模型处理视频的成本高昂：每帧图像占用数百个标记，且推理成本随帧数与查询次数的增加而线性增长。本文提出Video2LoRA——一种参数化视频内化的方法。该方法通过感知器超网络逐层读取冻结视觉语言模型编码视频时产生的中间表示，并在单次前向传播中生成低秩自适应适配器。与需要迭代梯度更新的标准低秩自适应微调不同，Video2LoRA直接从视频数据中预测这些权重参数。通过对500M和2.2B参数的SmolVLM2模型进行视频摘要与描述任务的训练，Video2LoRA使得同一冻结视觉语言模型仅通过适配器即可响应查询，在查询时上下文中完全无需视觉标记。在两个模型规模的所有五个视频描述基准测试中，以及在八个视频问答基准-规模配对中的七个测试中，Video2LoRA在统计上均不劣于且等效于直接视频上下文推理。尽管仅使用384像素的12帧画面进行训练，该方法在高达1,024帧与1024像素的场景下仍保持稳定，而直接视频上下文推理在此条件下常出现性能退化。在此参数范围内，该方法将应答时的视觉标记负载降低最高达1,500倍，查询首字延迟缩短6-80倍，同时保持视频忠实性输出。我们还发现，针对非重叠视频片段独立生成的适配器可在秩空间中进行组合，这为分块式长视频内化提供了可行路径。",
+      "hf_link": "https://huggingface.co/papers/2606.04351"
+    },
+    "2606.02569": {
+      "title": "AdaCodec: A Predictive Visual Code for Video MLLMs",
+      "abstract": "Video is temporally redundant: adjacent frames usually share most objects, background, and layout. Yet existing video multimodal large language models (video MLLMs) usually encode each sampled frame as an independent RGB image, causing visual tokens to repeat content already present in earlier frames. This suggests a more direct video interface: send a full reference frame only when the scene cannot be predicted well from prior context, and otherwise transmit a compact description of inter-frame changes. We call this interface a \\emph{predictive visual code}, and instantiate it for video MLLMs as \\textbf{AdaCodec}. AdaCodec spends full visual tokens on a reference frame only when its conditional predictive cost is high; otherwise, it encodes inter-frame changes, including motion and prediction residuals, as compact P-tokens. Across all eleven benchmarks, AdaCodec improves over the Qwen3-VL-8B per-frame RGB baseline at a matched visual-token budget. Even at $1/7$ the budget, AdaCodec with 32k tokens surpasses the 224k baseline on all long-video benchmarks; on five general-video benchmarks, it raises the average score while substantially cutting time-to-first-token from 9.26s to 1.62s.",
+      "abstract_zh": "视频数据在时间维度上存在冗余：相邻帧通常共享大部分物体、背景与画面布局。然而现有的视频多模态大语言模型（video MLLMs）通常将每个采样帧编码为独立的RGB图像，导致视觉令牌（visual tokens）不断重复已在前序帧中出现的内容。这表明存在一种更直接的视频交互方式：仅在场景无法根据先前上下文有效预测时发送完整的参考帧，其余情况下则传输帧间变化的紧凑描述。我们将这一交互方式称为**预测性视觉编码**（predictive visual code），并在视频MLLMs中将其实现为**AdaCodec**。AdaCodec仅在参考帧的条件预测成本较高时为其分配完整视觉令牌；否则，它将帧间变化（包括运动信息与预测残差）编码为紧凑的P-令牌（P-tokens）。在全部十一项基准测试中，AdaCodec在同等视觉令牌预算下均优于基于逐帧RGB编码的Qwen3-VL-8B基线模型。即使在仅使用1/7令牌预算的情况下，配备32k令牌的AdaCodec在所有长视频基准测试中超越了使用224k令牌的基线；在五项通用视频基准测试中，其平均得分得到提升，同时将首令牌生成时间（time-to-first-token）从9.26秒大幅缩短至1.62秒。",
+      "hf_link": "https://huggingface.co/papers/2606.02569"
+    },
+    "2605.31058": {
+      "title": "Combinatorial Synthesis: Scaling Code RLVR via Atomic Decomposition and Recombination",
+      "abstract": "Reinforcement Learning with Verifiable Rewards (RLVR) has recently emerged as the cornerstone for shaping the remarkable coding abilities of Large Language Models (LLMs). However, the scalability of RLVR is severely constrained by the scarcity of sufficiently challenging verifiable code tasks that target near the model's edge of competence. Prior studies often rely on heuristic seed expansions for data synthesis, which severely limits both novelty and difficulty. Consequently, the training value of such data fails to scale proportionally with the size of its synthesis. To this end, we propose Atomic Decomposition and Recombination (ADR), a novel framework that generates verifiable code tasks via decomposition into atomic elements and controlled recombination, thereby enabling the generation of genuinely novel and challenging verifiable code tasks. Experiments and analysis demonstrate that ADR achieves superior originality, difficulty, diversity, and test quality over existing baselines, and consistently delivers greater improvements in code ability across RLVR in diverse downstream domains, including algorithmic programming, tool usage, and data science. Our work sheds light on a new paradigm for novel code task synthesis and scalable RLVR training.",
+      "abstract_zh": "可验证奖励的强化学习(Reinforcement Learning with Verifiable Rewards, RLVR)已成为塑造大语言模型(Large Language Models, LLMs)卓越编码能力的基石。然而，RLVR的可扩展性因缺乏针对模型能力边缘、具有足够挑战性的可验证代码任务而受到严重制约。先前研究通常依赖启发式种子扩展进行数据合成，这严重限制了任务的新颖性与难度。因此，此类数据的训练价值无法与其合成规模成比例提升。为此，我们提出原子分解与重组(Atomic Decomposition and Recombination, ADR)框架，通过将代码任务分解为原子元素并进行受控重组，生成真正新颖且具有挑战性的可验证代码任务。实验与分析表明，ADR在原创性、难度、多样性和测试质量上均优于现有基线方法，并在算法编程、工具使用和数据科学等多种下游领域中，持续通过RLVR为代码能力带来更大提升。我们的研究为新型代码任务合成与可扩展RLVR训练揭示了新范式。",
+      "hf_link": "https://huggingface.co/papers/2605.31058"
+    },
+    "2605.30794": {
+      "title": "MechVQA: Benchmarking and Enhancing Multimodal LLMs on Comprehensive Mechanical Drawing Understanding",
+      "abstract": "Multimodal Large Language Models (MLLMs) have demonstrated significant achievements in general visual question answering (VQA) tasks. However, they remain brittle on mechanical engineering drawings, where high annotation density and weak domain knowledge, compounded by unreliable spatial relation reasoning under strict projection rules and geometric constraints, make decisive cues easy to miss and frequently lead to wrong answers. To bridge this gap, we introduce the first comprehensive mechanical drawing understanding dataset, MechVQA, created through a semi-automated construction and quality-control pipeline. MechVQA contains 3.3k high-density pictures with 21K question-answer pairs, spanning 10 different fine-grained tasks across three capability levels: Recognition, Reasoning, and Judging, providing a testbed to evaluate and improve MLLM understanding on real-world mechanical drawings. On top of MechVQA, we then develop the MechVL model through a multi-stage training paradigm, building a strong domain-specialized baseline. Extensive experimental results demonstrate that MechVL outperforms the strongest closed-source baseline by 7.57 percentage points on the MechVQA total score, significantly enhancing mechanical drawing understanding ability and providing a reusable foundation for deploying MLLMs in mechanical design and inspection scenarios.",
+      "abstract_zh": "多模态大语言模型（Multimodal Large Language Models, MLLMs）在通用视觉问答（Visual Question Answering, VQA）任务中已展现出显著成就。然而，其在机械工程图纸理解方面仍显脆弱：高标注密度与薄弱的领域知识，加之严格投影规则与几何约束下不可靠的空间关系推理，使得关键线索易被忽略，经常导致错误答案。为弥补这一差距，我们通过半自动化构建与质量控制流程，首次推出了综合性机械图纸理解数据集——MechVQA。该数据集包含3.3千张高密度图片与2.1万个问答对，涵盖识别、推理、判断三个能力层次的十项细粒度任务，为评估与提升MLLM在真实机械图纸上的理解能力提供了测试平台。基于MechVQA，我们通过多阶段训练范式开发了MechVL模型，构建了一个强大的领域专用基线。大量实验结果表明，MechVL在MechVQA总分上超越最强的闭源基线7.57个百分点，显著提升了机械图纸理解能力，为在机械设计与检测场景中部署MLLM提供了可复用的基础。",
+      "hf_link": "https://huggingface.co/papers/2605.30794"
+    },
+    "2606.00125": {
+      "title": "Multimodal Music Recommendation System using LLMs",
+      "abstract": "Music recommendation systems typically treat songs as opaque tokens, relying on collaborative interaction histories which overlooks semantic or acoustic content. Prior work has explored LLM-augmented, multimodal, and text-enhanced approaches to sequential recommendation, and while some methods partially combine semantic, acoustic, or engagement signals, none jointly model all three within a unified LLM-based sequential reasoning framework that grounds recommendations in actual song content. In this work, we propose a multimodal framework for session-based music recommendation that enriches the LastFM-1K dataset with three complementary signals: (1) audio and lyric embeddings extracted using pretrained music and text representation models, (2) LLM-generated semantic metadata using the MGPHot annotation schema, and (3) listening completion ratios. We adopt the E4SRec framework by extending it with multimodal features and different item ID encoder backbones, including SASRec, BERT4Rec, and GRU4Rec. We further extend the LLM backbone option with LLaMa-2-13B, Qwen2.5-7B-Instruct, and LLaMa-3-70B in both zero-shot and fine-tuned settings. Our experiments show that integrating content-based features improves over ID-only baselines up to 95% in terms of Recall and 79% in terms of NDCG. Moreover, our experiments show that naive multimodal fusion does not always yield additive improvements, highlighting challenges in cross-modal integration. We release a large-scale multimodal benchmark for music recommendation.",
+      "abstract_zh": "音乐推荐系统通常将歌曲视为不透明的标记，依赖于协同交互历史，而忽略了语义或声学内容。先前的研究探索了基于LLM增强、多模态和文本增强的序列推荐方法，尽管部分方法结合了语义、声学或参与度信号，但尚未有工作在一个统一的基于LLM的序列推理框架内同时建模这三种信号，并将推荐建立在实际歌曲内容的基础上。本研究提出一个用于会话式音乐推荐的多模态框架，通过三种互补信号丰富了LastFM-1K数据集：(1) 使用预训练的音乐和文本表示模型提取的音频与歌词嵌入，(2) 基于MGPHot注释框架生成的LLM语义元数据，以及(3) 收听完成率。我们通过扩展多模态特征及采用不同项目ID编码器骨干网络（包括SASRec、BERT4Rec和GRU4Rec）来改造E4SRec框架，并进一步扩展LLM骨干网络选项，在零样本和微调设置中采用了LLaMa-2-13B、Qwen2.5-7B-Instruct和LLaMa-3-70B模型。实验表明，整合基于内容的特征相比纯ID基线方法，在召回率（Recall）指标上最高提升95%，在归一化折损累计增益（NDCG）指标上最高提升79%。此外，实验发现简单的多模态融合并不总能带来叠加性改进，这凸显了跨模态整合面临的挑战。我们发布了面向音乐推荐的大规模多模态基准数据集。",
+      "hf_link": "https://huggingface.co/papers/2606.00125"
+    },
+    "2606.01753": {
+      "title": "Quality-Guided Semi-Supervised Learning for Medical Image Segmentation",
+      "abstract": "Training accurate medical image segmentation models requires large amounts of densely annotated data, which is costly and time-consuming to obtain. Semi-supervised learning (SSL) alleviates this by learning from both abundant unlabeled data and limited labeled data. However, most modern SSL methods rely on pseudolabels for unlabeled data, and typically assess their reliability through model confidence or uncertainty, measures that are self-referential and lack explicit grounding in segmentation quality. Instead, we propose a quality-guided SSL framework that trains a dedicated network to estimate segmentation quality from image-mask pairs. The predictor is trained on variable-quality masks generated through synthetic corruptions augmented with imperfect outputs from partially trained segmentation models, capturing realistic error patterns encountered during training. We integrate the quality predictor into SSL through two complementary mechanisms: a quality-aware regularization loss and a quality-based pseudolabel sample reweighting scheme. We show that our method serves as a drop-in enhancement to existing SSL frameworks. Extensive experiments across five datasets and multiple architectures demonstrate consistent improvements over competing SSL methods, advancing the state-of-the-art in semi-supervised medical image segmentation.",
+      "abstract_zh": "训练精确的医学图像分割模型需要大量密集标注的数据，而获取这些数据成本高昂且耗时。半监督学习（SSL）通过同时利用丰富的未标注数据和有限的标注数据进行学习，从而缓解了这一难题。然而，当前大多数SSL方法依赖于对未标注数据生成伪标签，并通常通过模型置信度或不确定性来评估其可靠性，这些衡量标准具有自指性且缺乏对分割质量的明确依据。为此，我们提出了一种质量引导的SSL框架，该框架训练一个专用网络来从图像-掩码对中估计分割质量。预测器通过在合成损坏生成的可变质量掩码上进行训练，这些掩码进一步结合了部分训练的分割模型产生的不完美输出，从而捕捉了训练过程中遇到的实际误差模式。我们通过两种互补机制将质量预测器整合到SSL中：一种质量感知的正则化损失函数和一种基于质量的伪标签样本重加权方案。我们的方法能够作为现有SSL框架的直接增强模块。通过在五个数据集和多种架构上进行的大量实验表明，相较于其他SSL方法，我们的方法取得了持续性的改进，推动了半监督医学图像分割领域的技术前沿。",
+      "hf_link": "https://huggingface.co/papers/2606.01753"
+    }
+  },
+  "hf_votes": {
+    "2606.04743": 0,
+    "2606.05259": 0,
+    "2606.05553": 0,
+    "2606.05622": 0,
+    "2606.06428": 0,
+    "2606.03312": 0,
+    "2606.04703": 0,
+    "2606.06042": 0,
+    "2606.05275": 0,
+    "2606.06416": 0,
+    "2606.06477": 0,
+    "2606.06286": 0,
+    "2606.03092": 0,
+    "2605.30159": 0,
+    "2606.05979": 0,
+    "2606.05769": 0,
+    "2606.06473": 0,
+    "2606.06021": 0,
+    "2606.03841": 0,
+    "2606.05846": 0,
+    "2606.05645": 0,
+    "2606.06447": 0,
+    "2606.04465": 0,
+    "2606.05254": 0,
+    "2606.04351": 0,
+    "2606.02569": 0,
+    "2605.31058": 0,
+    "2605.30794": 0,
+    "2606.00125": 0,
+    "2606.05172": 0,
+    "2606.01753": 0
+  },
+  "focus_sections": {
+    "3D生成与重建": [],
+    "视频生成": [
+      "2606.06042"
+    ],
+    "图像生成": [
+      "2606.06477",
+      "2606.05172"
+    ]
+  },
+  "summaries": {
+    "2606.06042": {
+      "short_zh": "高效视频生成编辑统一模型",
+      "tags": "计算机视觉；视频生成与编辑；多模态统一视频生成",
+      "body_summary": "现有统一视频生成与编辑模型计算开销巨大，难以处理交错多模态输入。\n提出了LoomVideo模型，采用多模态大语言模型和零开销条件机制，以较小参数量实现高效高性能视频生成与编辑。"
+    },
+    "2606.05172": {
+      "short_zh": "评估图像编辑系统推理能力",
+      "tags": "计算机视觉;图像生成与编辑;推理感知图像编辑评测",
+      "body_summary": "现有图像编辑系统常因缺乏对用户指令中隐含逻辑约束的理解，而产生视觉合理但逻辑不一致的编辑结果。\n提出了一个多维度评测基准，用于系统评估编辑模型在多种隐含推理约束下的表现，并初步探索了基于推理的后编辑改进方法。"
+    },
+    "2606.06477": {
+      "short_zh": "优化扩散模型容量分配",
+      "tags": "生成式人工智能;扩散模型;模型架构优化",
+      "body_summary": "标准连续时间生成模型采用单一架构处理从噪声到复杂数据分布的整个生成过程，效率低下。\n提出复杂度平衡分割框架，根据生成动态的建模难度将时间线分段，并分配不同容量，从而在不增加推理成本下提升生成质量。"
+    },
+    "2606.04743": {
+      "short_zh": "模板引导迭代发现多问题",
+      "tags": "自然语言处理;智能代理;多问题协同发现",
+      "body_summary": "现有智能代理仅响应用户显式请求，难以发现隐藏在用户上下文中的多个未知问题。\n提出TIDE框架，通过迭代发现和思维模板两种机制，逐步、有依据地识别并解决共存的多重问题。"
+    },
+    "2606.05259": {
+      "short_zh": "构建大规模视频推理数据集",
+      "tags": "计算机视觉；视频理解；知识密集型视频推理",
+      "body_summary": "针对现有视频理解任务缺乏深度推理能力，我们提出首个面向知识和推理密集型视频理解的大规模数据集VideoKR。\n我们构建了包含大量高质量视频推理示例的数据集和评估基准，并通过实验验证了其在提升模型知识密集型视频推理能力上的有效性。"
+    },
+    "2606.05553": {
+      "short_zh": "角色扮演智能体角色弧对齐评测",
+      "tags": "自然语言处理;语言智能体评测;角色弧一致性评估",
+      "body_summary": "现有基准难以评估角色扮演智能体是否与角色心理发展轨迹一致。\n构建ArcANE基准验证角色弧信息的价值，并微调模型增强其外部场景表现。"
+    },
+    "2606.05622": {
+      "short_zh": "评测大模型应对动态双重约束的规划能力",
+      "tags": "自然语言处理;智能体与环境交互;双重约束自适应规划",
+      "body_summary": "面向实际问题的语言模型规划常涉及环境和用户双重约束，这些约束难以预先完全确定、需通过交互逐步揭示，而现有基准对此类动态双重约束下的自适应规划评估不足。\n为此构建了AdaPlanBench动态交互基准，通过307项家务任务和可扩展的约束构建流程，在多轮交互中仅当智能体违反隐藏约束时才予以揭示，要求其在累积反馈下迭代修订计划，实验发现当前模型在此任务上仍面临显著挑战，最佳模型准确率仅67.75%。"
+    },
+    "2606.06428": {
+      "short_zh": "强化学习让大模型学会翻译未见语言",
+      "tags": "自然语言处理;机器翻译;低资源语言翻译",
+      "body_summary": "现有方法翻译低资源语言易过拟合，需提升模型利用上下文语言知识的能力\n提出基于强化学习的方法，使大模型能有效提取并运用上下文中的语言学信息来翻译未见语言"
+    },
+    "2606.03312": {
+      "short_zh": "家用机器人价值观评估",
+      "tags": "机器人学;服务机器人;价值观冲突决策",
+      "body_summary": "家用机器人评估通常关注任务完成度，但真实家庭环境充满价值观冲突，需要机器人权衡任务与隐私、自主等人类价值。\n创建RobotValues基准，用一万个冲突场景评估机器人规划模型，发现其存在固有价值偏好且难以按指令调整。"
+    },
+    "2606.04703": {
+      "short_zh": "持续经验内化提升大模型智能体",
+      "tags": "自然语言处理;大语言模型;持续学习",
+      "body_summary": "经验内化旨在将过往交互经验转化为模型可重用的参数化能力，是实现大语言模型持续学习的重要途径。\n研究发现多轮经验学习中现有方法会引发能力退化，并系统分析了影响内化稳定的三个关键维度，提出了更稳健的实践方法。"
+    },
+    "2606.05275": {
+      "short_zh": "个人相册视觉问答助手",
+      "tags": "视觉问答;个性化视觉助手;个人相册长期记忆",
+      "body_summary": "研究针对用户个人相册的视觉问答任务，助手需理解多年的个性化图片流以回答各种问题。\n构建了包含真实问题的数据集，并设计了配备分层记忆的工具型智能体，实验证明其在长上下文理解上优于基线方法。"
+    },
+    "2606.06416": {
+      "short_zh": "无监督技能发现提升数据分析智能体",
+      "tags": "自然语言处理;智能体与对话系统;数据分析智能体技能发现",
+      "body_summary": "提升数据分析智能体性能需要可重用的分析技能，但缺乏监督且分析格式多样，如何从无标签探索中发现技能是挑战。\n提出DataCOPE框架，通过无监督验证器引导，从探索轨迹中提取信号来指导技能的对比式提炼，在报告式和推理式分析任务上均显著提升了效果。"
+    },
+    "2606.06286": {
+      "short_zh": "评估大模型训练数据记忆倾向",
+      "tags": "自然语言处理;大规模语言模型;记忆化评估",
+      "body_summary": "现有评估主要关注模型被迫泄露训练数据的能力，但未考察其日常使用中的实际泄露倾向。\n提出倾向感知框架和轻量追踪流水线，发现模型在普通提示下泄露倾向低，但能力攻击会诱发强记忆信号。"
+    },
+    "2606.03092": {
+      "short_zh": "大模型推理资源经济学优化",
+      "tags": "自然语言处理;大语言模型推理优化;推理预算分配",
+      "body_summary": "大型语言模型推理时资源有限，部署需优化预算分配。\n提出CLEAR方法，用经济学原理优化资源分配，提升整体性能。"
+    },
+    "2605.30159": {
+      "short_zh": "优化长任务大模型记忆策略",
+      "tags": "自然语言处理；大语言模型智能体；长视野任务记忆优化",
+      "body_summary": "现有方法用结果反馈训练记忆策略，无法定位中间记忆质量下降，导致长视野推理失败。\n本文提出用信念熵衡量记忆不确定性，并基于此设计了元认知记忆策略优化方法，通过惩罚高不确定性记忆来提供细粒度监督，提升长任务性能。"
+    },
+    "2606.05979": {
+      "short_zh": "世界语言动作模型联合建模与决策",
+      "tags": "具身智能;机器人学习;多模态世界建模与推理",
+      "body_summary": "现有具身模型在利用海量无标注视频进行世界建模和处理复杂长时序语言任务方面存在割裂。\n提出世界语言动作模型，通过自回归骨干联合预测文本子任务、子目标图像和机器人动作，实现了世界建模与语言推理能力的统一，并在仿真与真实任务中取得先进性能。"
+    },
+    "2606.05769": {
+      "short_zh": "视频事件预测新框架",
+      "tags": "计算机视觉;视频理解;视频事件预测",
+      "body_summary": "现有视频大语言模型在预测未来事件时，将视觉信息转化为文本会丢失关键细节，导致预测可能合理但与实际视觉不符。\n研究提出一种交替使用语言和潜在视觉表征的推理框架，通过构建专用训练集和强化学习优化，在多个基准上取得了显著性能提升。"
+    },
+    "2606.06473": {
+      "short_zh": "自动化机器学习算法发现框架",
+      "tags": "机器学习;自动化机器学习;机器学习算法发现",
+      "body_summary": "现有自动化机器学习代理在长期优化中存在信息隔离、缺乏记忆和层级控制不足的问题。\n提出了一个基于大语言模型的自进化多智能体框架MLEvolve，通过渐进树搜索、回顾性记忆和策略代码解耦，提升了算法发现的效率和性能。"
+    },
+    "2606.06021": {
+      "short_zh": "大模型蒸馏中的策略表征对齐",
+      "tags": "自然语言处理;语言模型蒸馏;在线策略表征蒸馏",
+      "body_summary": "在策略蒸馏方法仅对学生模型输出空间进行监督，存在采样方差大且忽视教师模型中间表征的问题。\n提出在线策略表征蒸馏方法，通过对齐师生模型选定层的中间表征，消除了方差、提升了性能与效率。"
+    },
+    "2606.03841": {
+      "short_zh": "自进化数据科学智能体",
+      "tags": "自主智能体;数据科学自动化;技能学习与上下文管理",
+      "body_summary": "现有自动化数据科学方法受限于静态动作集和上下文管理不足，难以积累可复用经验。\n提出EvoDS，通过自主技能学习和自适应上下文压缩策略，使智能体能够自我演进，在多个基准测试中表现显著优于现有方法。"
+    },
+    "2606.05846": {
+      "short_zh": "代码切换语音识别跨语言迁移",
+      "tags": "语音识别;多语言语音识别;代码切换语音识别",
+      "body_summary": "代码切换语音识别因多语言语音数据稀缺而极具挑战，现有方法存在可扩展性局限。\n研究了通过模型合并与领域泛化方法，将已见语言对的代码切换能力迁移到未见语言对。"
+    },
+    "2606.05645": {
+      "short_zh": "离散视觉动作世界策略模型",
+      "tags": "自动驾驶;世界模型与决策;离散令牌对齐与因果推理",
+      "body_summary": "当前自动驾驶方法在建模动作对世界演化的因果影响上存在局限。\n提出离散令牌对齐的世界策略模型，通过统一离散扩散框架实现世界建模与决策，支持可控生成与反事实推理。"
+    },
+    "2606.06447": {
+      "short_zh": "用归一化流实现大模型隐性推理",
+      "tags": "自然语言处理;大语言模型推理;隐性链式推理",
+      "body_summary": "大语言模型通过显式链式推理提升能力，但文本推理存在带宽低、效率受限的问题。\n提出NF-CoT框架，用归一化流建模连续隐性思维，在保持自回归生成优势的同时提升推理效果与效率。"
+    },
+    "2606.04465": {
+      "short_zh": "自进化的提示词优化方法",
+      "tags": "自然语言处理;提示工程;系统提示优化",
+      "body_summary": "大模型系统提示优化可不改模型参数提升性能，现有方法固定了提示优化器自身的提示词\n提出自进化提示优化方法，让提示优化器能同时优化任务模型和自身的提示词，并通过两阶段训练实现泛化"
+    },
+    "2606.05254": {
+      "short_zh": "让世界动作模型实时化",
+      "tags": "机器人;具身智能;世界动作模型",
+      "body_summary": "世界动作模型性能好但推理慢，无法实时控制。\n提出了感知模态的步数蒸馏法，实现单步推理并保持性能。"
+    },
+    "2606.04351": {
+      "short_zh": "视频内化为轻量适配器",
+      "tags": "视觉-语言模型；视频理解；视频参数化内化",
+      "body_summary": "视觉语言模型直接处理视频成本高昂，每帧占用大量计算资源\n提出Video2LoRA，用感知器从视频中间表示直接预测LoRA权重，实现零视觉令牌推理，降低成本并保持性能"
+    },
+    "2606.02569": {
+      "short_zh": "降低视频大模型视觉冗余",
+      "tags": "计算机视觉;视频理解;视频多模态大语言模型",
+      "body_summary": "现有视频多模态大语言模型独立编码冗余帧，效率低下。\n提出AdaCodec，预测性编码参考帧与帧间变化以高效传输视觉信息。"
+    },
+    "2605.31058": {
+      "short_zh": "用原子分解重组合成验证码任务",
+      "tags": "自然语言处理;代码生成;可验证奖励强化学习",
+      "body_summary": "现有可验证奖励强化学习的数据合成方法难以生成新颖且具有挑战性的代码任务，限制了其训练效果。\n提出了原子分解重组框架，通过分解与重组生成新颖、高难度的可验证代码任务，提升了模型在多个下游领域的代码能力。"
+    },
+    "2605.30794": {
+      "short_zh": "多模态大模型在机械图纸理解评估与提升",
+      "tags": "计算机视觉;视觉问答;机械图纸理解",
+      "body_summary": "多模态大模型在通用视觉问答上表现出色，但在信息密集、需要专业知识和严格空间推理的机械工程图纸理解上效果不佳。\n我们构建首个机械图纸问答数据集MechVQA，并训练出专用模型MechVL，显著提升了该领域理解能力。"
+    },
+    "2606.00125": {
+      "short_zh": "多模态音乐推荐系统",
+      "tags": "推荐系统;序列推荐;音乐推荐",
+      "body_summary": "现有音乐推荐系统忽视歌曲内容，主要依赖用户交互历史\n提出多模态框架融合音频歌词和语义特征，扩展多种基础模型提升效果"
+    },
+    "2606.01753": {
+      "short_zh": "质量引导医学图像半监督分割",
+      "tags": "计算机视觉;医学图像分析;图像分割",
+      "body_summary": "训练准确的医学图像分割模型需要大量标注数据，但获取成本高昂；半监督学习旨在利用少量标注数据和大量未标注数据来缓解此问题。\n我们提出一个质量引导的半监督学习框架，通过训练一个独立的质量预测网络来评估分割质量，并将其集成到训练过程中，从而提升多种现有半监督方法的性能。"
+    }
+  },
+  "deep_analysis": {
+    "2606.06042": "好的，没问题。我们来把这篇文章的核心内容拆解一下，就像在实验室里听师兄师姐给你讲一样，用尽量简单的话说明白。\n\n---\n\n### (1) 这篇论文所在的任务是什么？\n\n*   **任务名称**：**统一的视频生成与编辑**。\n*   **任务输入**：\n    *   **文本描述**：比如“一只猫在弹钢琴”。\n    *   **多模态输入**：除了文本，还可能包括**多张参考图片**，用来告诉模型生成视频的风格、人物外貌、场景布局等。\n    *   **源视频**：在**视频编辑**任务中，还需要输入一个已有的视频。\n*   **任务输出**：\n    *   根据文本描述生成一段全新的、高质量的短视频。\n    *   在输入源视频和编辑指令（如“把西装换成毛衣”）后，输出一个经过编辑的视频。\n*   **任务功能**：这是一个“多合一”的视频基础模型。它既能“无中生有”地生成视频，也能“改头换面”地编辑已有视频，并且能听懂和融合复杂的图文指令。\n\n### (2) 这篇论文想解决什么问题？\n\n主要想解决现有统一视频模型的**两大瓶颈**：\n\n1.  **模型太大**：之前的模型动不动就是130亿参数起步，训练和部署成本极高。\n2.  **视频编辑效率极低**：为了在编辑时参考源视频，老办法是把源视频的“特征标记”和正在生成的视频标记**拼在一起**。这会导致处理序列长度翻倍，而Transformer中的注意力计算量会因此**暴增4倍**（因为注意力复杂度是序列长度的平方），使得推理速度变得非常慢，不实用。\n\n简单说就是：**以前的模型“又大又慢”，尤其是在做视频编辑时，慢得离谱。** 这篇论文想造一个 **“又小又快又好用”** 的统一视频模型。\n\n### (3) 这篇论文的贡献是什么？\n\n他们提出了一个叫 **LoomVideo** 的模型，主要做了三件创新的事：\n\n1.  **把模型做小（只有50亿参数）**：用更强大的**多模态大语言模型** 替换了标准的文本编码器，并用一种叫“Deepstack注入”的方式把它的多层特征传给视频生成模块。这样能用更小的参数量理解更复杂的指令。\n2.  **把视频编辑做快（“零开销”条件机制）**：这是**最核心的创新**。他们提出了一个非常巧妙的 **“缩放相加”** 方法。在编辑时，不是把源视频的特征拼接到序列里，而是直接把源视频的“干净”特征，经过缩放后，加到正在处理的“带噪声”的目标视频特征上。这个操作计算量极低，**完全避免了序列拼接带来的4倍计算爆炸**，实现了“零额外开销”的条件控制。\n3.  **优化多图输入（负向RoPE）**：为了能同时处理多张参考图片，并让它们更好地融合，他们设计了一个简单的策略来调整模型的位置编码，确保多张图片的信息能被有效利用。\n\n### (4) 论文的整体思路和模型结构\n\n**基模是谁？**\n视频生成的核心模块是一个 **Diffusion Transformer**，这是一种用Transformer结构来做扩散模型去噪的流行架构。他们把DiT作为视频生成的“引擎”。\n\n**整体流程（从输入到输出）：**\n\n1.  **理解指令（编码阶段）**：\n    *   用户输入一段文字（和/或几张参考图）。\n    *   这些图文信息被送入一个**多模态大语言模型** 进行深度理解。MLLM比普通文本编码器更懂图，能提取出更丰富的语义和风格特征。\n\n2.  **特征对齐（注入阶段）**：\n    *   MLLM不同层次理解到的特征（浅层的细节、深层的语义），通过一个叫 **“Deepstack注入”** 的机制，被精准地送入视频生成DiT的对应层中，指导视频的生成。\n\n3.  **视频生成/编辑（去噪阶段 - 核心差异在这里）**：\n    *   **如果是视频生成**：DiT从一个纯随机噪声开始，在MLLM特征的引导下，一步步去噪，最终“雕刻”出一个符合描述的视频。\n    *   **如果是视频编辑**：\n        *   流程图中会同时有“源视频”和“目标视频”两条线。\n        *   源视频会被编码成一组干净的潜变量。\n        *   目标视频的生成过程也是从噪声开始。\n        *   在去噪的每一步，**关键操作来了**：将源视频的潜变量按一定比例缩放，然后直接加到当前步的目标视频噪声潜变量上。这个“缩放相加”操作就像给生成过程提供了一个强大的“锚点”，让它既知道要改成什么样（来自文本），又知道从哪里开始改、保留什么结构（来自源视频），而计算开销几乎没增加。\n\n4.  **输出结果**：经过多步去噪后，得到目标视频的潜变量，再解码回像素空间，就得到了最终生成或编辑好的视频。\n\n### (5) 结果怎么样？\n\n实验结果非常亮眼，证明了他们“小、快、好”的设计是成功的：\n\n1.  **性能好**：这个仅有50亿参数的“小”模型，在多个标准评测基准上，取得了**最先进**或**非常有竞争力**的成绩。尤其在**电商和时尚视频生成**这类对细节和保真度要求很高的场景，表现特别突出。\n2.  **速度快**：得益于那个“零开销”的编辑机制，LoomVideo在**推理速度上比能力相近的其他模型至少快了5.41倍**。这是一个巨大的提升，让高质量视频编辑变得真正“实用”和“可部署”。\n\n**总结一下**：\n这篇论文就像给视频AI领域造了一辆“家用高性能跑车”。以前的模型是“油老虎”级超跑（能力很强但成本极高、不实用），而LoomVideo通过精巧的设计（换更好的“发动机”MLLM、用创新的“传动系统”缩放相加），实现了用更小的车身（50亿参数）跑出顶级性能，同时还极度省油（推理极快），特别适合开上路（实际应用）。",
+    "2606.05172": "好的，我们先放下那些复杂的术语，用最简单的话来拆解这篇论文。\n\n你可以把这篇论文想象成给“AI修图师”办的一场**高阶逻辑思维考试**。\n\n### (1) 任务是什么？\n\n*   **任务输入**：一张原始图片 + 一句用户指令（通常是隐含逻辑的，不是直白的描述）。\n*   **任务输出**：一张编辑后的新图片。\n*   **任务功能**：让AI修图师（图像编辑模型）不仅能看懂指令的字面意思，还能理解指令背后**没说出来的逻辑和常识**，并据此进行正确的编辑。\n\n**举个例子**：\n*   **输入**：一张脸上有剃须泡沫和胡茬的男士照片 + 指令：“让他看起来像刚刮完胡子”。\n*   **输出**：一张脸上**既没有剃须泡沫，也没有胡茬**的干净男士照片。\n*   **功能**：AI需要推理出“刮完胡子”这个事件的结果是“泡沫和胡茬都消失”，而不是只做其中一项。\n\n### (2) 想解决什么问题？\n\n当前AI修图技术已经很厉害了，能根据“把胡子去掉”这种**直白指令**生成逼真的图片。但是，当用户给出**隐含逻辑**的指令时（比如“让他刮完胡子”），AI常常会“犯傻”：\n*   **问题**：AI只会做“表面文章”。它可能只去掉了泡沫但留下了胡茬，或者反过来。图片看起来“逼真”，但**逻辑上错了**。\n*   **核心痛点**：现有的AI修图模型和评测标准，都只关注图片“像不像”、“美不美”，**不关心编辑得“对不对”**（是否符合物理、因果、文化等常识逻辑）。这就好比一个学生作文写得字很漂亮，但内容完全跑题了。\n\n这篇论文就是要解决这个“逻辑跑题”的问题。\n\n### (3) 贡献是什么？\n\n这篇论文做了三件主要的事情：\n\n1.  **提出了一个新考试（Benchmark）**：叫做 **RE-Edit**。它不是一个新模型，而是一个**评测数据集和标准**。\n    *   数据集里包含了1000个精心设计的“考题”，每道题都专门考察AI在五个方面的逻辑推理能力：**物理常识、环境协调、文化习俗、因果逻辑、指代关系**。\n    *   建立了对应的评分标准，可以精确地给AI的“逻辑分”打分。\n\n2.  **用这个新考试给主流AI修图模型“摸底考”**：他们用RE-Edit测试了十多个开源和商业模型（比如Janus、FLUX等）。结果发现，**即使是目前最先进的模型，在逻辑推理题上也经常不及格**，证实了问题的严重性。\n\n3.  **提出了一个简单的“解题思路”示范**：他们设计了一个叫 **EditRefine** 的轻量级方法。这个方法的核心思想是：在让AI动手修图**之前**，先让它**动脑想一想**。\n    *   具体来说，就是用一个**大语言模型（LLM）** 作为“军师”，先分析原始图片和指令，推理出“如果要正确执行这个指令，我具体需要做哪几步修改？”，然后把这几步详细的、逻辑严密的指令，再交给专业的AI修图师去执行。\n    *   这个方法证明了，**引入明确的推理步骤，可以有效减少逻辑错误**。\n\n### (4) 整体思路与模型结构（以EditRefine为例）\n\n论文的主体是提出RE-Edit这个评测基准。而EditRefine是论文为了展示“如何改进”而提出的一个示例性解决方案。\n\n**基模（Base Model）**：EditRefine本身不是一个从零训练的图像生成模型。它像一个**插件**或**工作流**，核心是调用两个现成的“专家”：\n1.  **推理专家**：一个大语言模型（LLM，比如GPT-4）。它擅长逻辑分析和文本规划。\n2.  **执行专家**：一个现成的图像编辑模型。它擅长根据具体指令修改图片。\n\n**整体流程（看图1c）**：\n1.  **输入**：用户给出一张原始图片和一句隐含逻辑的编辑指令（例如：“让他刮完胡子”）。\n2.  **第一步：诊断与推理（LLM干活）**：\n    *   把图片和指令一起喂给LLM“军师”。\n    *   LLM的任务是：分析当前图片状态，理解用户指令的真实意图，然后**拆解成具体的、可执行的编辑步骤**。\n    *   **输出**：一段新的、详细的、无歧义的修图指令。例如：“首先，移除人物脸上的所有白色剃须泡沫。然后，移除人物下巴和脸颊上的所有胡茬，使皮肤看起来光滑。”\n3.  **第二步：指令执行（图像编辑模型干活）**：\n    *   把上一步LLM生成的**详细指令**和**原始图片**，一起输入给专业的图像编辑模型（如InstructPix2Pix）。\n    *   图像编辑模型根据这个清晰的指令，生成最终的编辑图片。\n4.  **输出**：一张既视觉逼真，又符合逻辑的编辑后图片。\n\n**简单说**：`用户模糊指令 -> LLM分析并转化为清晰指令 -> 图像模型执行清晰指令 -> 正确结果`。这个流程把“思考”和“动手”分开了。\n\n### (5) 结果怎么样？\n\n论文的主要结果分为两部分：\n\n1.  **RE-Edit基准测试结果（主要结论）**：\n    *   **所有被测模型在逻辑推理题上表现都很差**。在五个推理维度上，最好的模型平均正确率也不到60%，有些维度（如因果、文化）正确率甚至低于30%。\n    *   这强力证明了当前图像编辑系统存在严重的“逻辑盲区”，视觉质量高不代表编辑正确。\n\n2.  **EditRefine方法的效果**：\n    *   作为初步探索，EditRefine这个简单的“先思考再执行”的流程，在RE-Edit基准上**显著提升了编辑的逻辑正确率**。\n    *   它像一个“外挂大脑”，帮助那些“动手能力强但脑子不太灵光”的图像编辑模型，做出了更符合逻辑的修改。\n    *   这证明了**将显式推理引入图像编辑流程是有效且必要的**，为未来更智能的编辑系统指明了一个方向。\n\n**总结**：这篇论文像一声警钟，指出当前AI修图“有手无脑”的问题，并设计了一套系统的“逻辑思维考题”（RE-Edit）来量化这个问题。同时，它用一个简单巧妙的方法（EditRefine）示范了如何给AI“装上脑子”，开启了“推理感知的图像编辑”这个新的研究方向。",
+    "2606.06477": "好的，作为你的AI博士学长，我用简单的话跟你聊聊这篇论文在讲什么。\n\n### (1) 任务是什么？\n*   **任务输入**：一段连续的“时间”（在扩散模型中，这个“时间”代表从纯噪声到干净图像的演变过程，从t=0到t=T）。\n*   **任务输出**：高质量的生成图像。\n*   **任务功能**：这是一个**图像生成**任务。论文的核心不是发明新的生成模型，而是**如何更高效地组织和训练现有的扩散模型**，让它们在生成图像时质量更高、计算更划算。\n\n### (2) 想解决什么问题？\n**核心问题：传统扩散模型“杀鸡用牛刀”，计算上不划算。**\n\n*   **传统做法**：训练一个“巨无霸”神经网络，让它负责整个从噪声到图像的生成过程。这个网络必须既擅长处理早期“像什么都不是”的噪声，又擅长处理后期“精雕细琢”图像的细节。\n*   **问题所在**：整个生成过程中，不同阶段的“难度”是完全不同的。用同一个庞大的网络去处理所有阶段，就像让一台超级计算机同时做简单的加减法和复杂的3D渲染，资源分配不合理，效率低下。\n*   **已有改进**：有人想到了把时间线切成几段，每段用一个专门的、小一点的网络来负责（这叫时间分割）。这样，总的参数量可以很大，但每一步推理时只调用一个小网络，计算量（FLOPs）不变。\n*   **新问题**：**怎么切这个时间线？** 之前的方法要么凭感觉瞎切，要么用笨办法（比如把各种切法都训练一遍，看哪个好），既没道理又费钱。\n\n所以，这篇论文就是要**科学地、有理论依据地**解决“**怎么切时间线**”这个问题。\n\n### (3) 贡献是什么？\n1.  **提出了一个理论框架**：从**函数逼近理论**的角度，把“切时间线”这个问题，转化成了“如何让每个时间段的建模难度都差不多”的问题。核心思想是：**难度大的阶段，就分给它更多的时间（或者说，更细的划分），让它有更专门的模型去处理**。\n2.  **提出了两种“难度测量仪”**：光有理论不够，得能实际测量每个时间点的“建模难度”。\n    *   **空间变化测量仪（Dirichlet Energy）**：看这个时间点，模型预测的速度场在空间上变化得有多剧烈。变化越剧烈，越难学。\n    *   **轨迹弯曲度测量仪（Path Acceleration）**：看这个时间点，图像从噪声“走”向目标的路径，拐弯有多急。拐弯越急，路径越复杂，越难学。\n3.  **一个轻量级的实现方案**：他们不是直接拿最终的大模型去测难度（那太贵了），而是先**快速训练一个小的、辅助的模型**，用这个辅助模型来估算整个时间线上的难度分布图。然后根据这个图，科学地划分时间边界。\n4.  **效果好且通用**：实验证明，用他们这个方法切出来的时间线，训练出来的多个小模型协作（比如SiT, JiT, UNet架构），生成的图片质量（FID指标）比凭感觉瞎切的高很多（提升15%-35%），而且能逼近用最笨的“穷举搜索”法找到的近乎最优的切分效果。\n\n### (4) 整体思路与流程\n**基模（Base Model）**：论文本身不发明新模型，它改进的是一种**训练范式**。它可以套用在很多现有的扩散模型上，比如文中实验用的**SiT**、**JiT**、**UNet**等。你可以把它们理解成乐高积木的“基础块”。\n\n**整体流程（照着论文思路描述）：**\n\n1.  **输入**：一个完整的扩散模型生成时间线 `[0, T]`，以及一个目标数据集（比如ImageNet图片）。\n2.  **第一步：绘制“难度地形图”**\n    *   我们先不急着切分和训练最终的大模型。\n    *   我们**快速训练一个轻量级的、性能普通的扩散模型**（比如一个小UNet）。这个模型就是我们的“侦察兵”。\n    *   让这个侦察兵模型在整个时间线上跑一遍，利用论文提出的两个“测量仪”（任选一个，比如Dirichlet Energy），**计算出每一个时间点`t`附近的建模难度值**。\n    *   最后，我们得到一条曲线，显示了难度如何随时间`t`变化。通常，中间阶段（噪声开始成形时）和接近结束阶段（精细纹理生成时）难度较高。\n3.  **第二步：科学“切蛋糕”**\n    *   现在我们有了一张难度地形图。目标是：把总时间`[0, T]`切成`N`段，要让**每一段所包含的“总难度”大致相等**。\n    *   这就像切一条面积不均匀的长条形蛋糕，要保证每一块的蛋糕面积（难度积分）一样。难度高的地方，就切得窄一点（时间段短），这样难度密度大，但时间段短，总难度不变；难度低的地方，就切得宽一点。\n    *   根据这个“等难度积分”的原则，我们可以精确计算出`N-1`个切割点（时间边界）。\n4.  **第三步：训练“专家团队”**\n    *   时间线切好了，现在我们有`N`个时间段。\n    *   我们为**每一个时间段训练一个专门的扩散模型**。这些模型架构可以一样（比如都是SiT-B），但它们是独立训练的，只“专精”于自己那一小段时空内的生成任务。\n    *   因为每个专家只处理一个相对均质的任务，它们可以更高效地学习。\n5.  **第四步：协作生成（推理）**\n    *   **输入**：一个随机噪声。\n    *   **过程**：开始生成时，从`t=T`（最噪声）开始，根据当前时间点落在哪个时间段，就调用对应的那个“专家”模型，预测一步去噪。时间向前推进，遇到时间边界就自动切换下一个专家模型。\n    *   **输出**：经过所有专家接力，最终得到一张高质量生成图像。\n    *   **关键**：**每一步推理的成本，只相当于调用一个小模型，但整个系统的总参数量和表示能力却相当于N个小模型之和**，实现了“加量不加价”。\n\n### (5) 结果怎么样？\n论文在多个标准数据集（ImageNet-256, ImageNet-64, CIFAR-10）和模型架构（SiT, JiT, UNet）上做了充分实验，结果非常扎实：\n*   **质量显著提升**：相比“凭感觉均匀切分”的基线方法，他们提出的**CBS方法在FID（衡量生成质量的核心指标）上提升了约15%（不用CFG）到35%（用CFG）**。这个提升幅度非常可观。\n*   **接近最优解**：他们的方法得到的结果，与极其耗费计算的“网格搜索穷举法”找到的近乎最优的切分结果非常接近，证明了其科学性和有效性。\n*   **高效实用**：他们绘制“难度地形图”的成本很低（只需要训练一个小型辅助模型），避免了传统方法中需要反复训练多个大型模型的巨大开销。\n*   **通用性强**：方法不依赖特定模型结构，在SiT、JiT、UNet上都work，说明这是一个有效的、通用的训练策略改进。\n\n**总结一下**：这篇论文就像给扩散模型训练找了一位“智能调度员”。它不再平均分配时间，而是先探测哪里任务重、哪里任务轻，然后给任务重的地方多派“专家”、多花时间，最终让整个团队协作效率最大化，用同样的单步计算成本，生成出质量高得多的图片。这是一个非常巧妙且实用的工程优化工作。"
+  },
+  "figures": {
+    "2606.05172": [
+      {
+        "path": "https://arxiv.org/html/2606.05172v1/x6.png",
+        "caption": "Figure 7:Overview of the EditRefine training pipeline.The framework proceeds in two stages:Stage 1 (SFT)aligns the policy model with structured reasoning formats, whileStage 2 (RL)optimizes reasoning capabilities via Group Relative Policy Optimization (GRPO). The diagram illustrates the online interaction loop where the Reason Agent generates refined instructions, which are executed and evaluated to provide feedback signals for policy updates.",
+        "role": "pipeline_1",
+        "caption_zh": "图7：EditRefine训练流程概览。该框架包含两个阶段：第一阶段（SFT）将策略模型与结构化推理格式对齐，第二阶段（RL）通过群组相对策略优化（GRPO）提升推理能力。图中展示了在线交互循环：推理智能体生成优化后的指令，执行并评估这些指令以提供策略更新的反馈信号。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.05172v1/x2.png",
+        "caption": "Figure 2:RE-Edit benchmark construction and statistics.(a) Curation pipeline: define five human-logic reasoning dimensions, expand corner cases, and verify instruction triples. (b) Benchmark comparison on reasoning-guided edits, human-logic taxonomy, evaluation rationales, and bilingual support. (c) RE-Edit dimension distribution and edit-instruction word cloud (generic terms removed).",
+        "role": "pipeline_2",
+        "caption_zh": "图 2：RE-Edit 基准的构建与统计。(a) 构建流程：定义五个人类逻辑推理维度，扩展边界案例，并验证指令三元组。(b) 在推理引导编辑、人类逻辑分类、评估依据和双语支持方面的基准对比。(c) RE-Edit 维度分布与编辑指令词云（通用术语已移除）。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.05172v1/x3.png",
+        "caption": "Figure 3:Qualitative comparisons on RE-Edit across five reasoning dimensions with EditRefine.We show representative RE-Edit cases evaluated with strong open-source and commercial image editors, where SOTA outputs often violate human-logic constraints (red circles).EditRefineperforms reasoning-guided refinement and produces corrected results (green check marks) by refining initial edits generated by a frozen Qwen-Image-Edit backbone.",
+        "role": "pipeline_3",
+        "caption_zh": "图3：在五个推理维度上与EditRefine在RE-Edit数据集上的定性对比。我们展示了使用强大的开源及商业图像编辑器评估的代表性RE-Edit案例，其中当前最优（SOTA）方法的输出常违反人类逻辑约束（红圈标注）。EditRefine通过推理引导的精细化过程，对冻结的Qwen-Image-Edit主干网络生成的初始编辑结果进行优化，并产生修正后的结果（绿色对勾标注）。"
+      }
+    ],
+    "2606.06477": [
+      {
+        "path": "https://arxiv.org/html/2606.06477v1/x1.png",
+        "caption": "Figure 1:Maximal local errors govern ODE approximation.",
+        "role": "pipeline_1",
+        "caption_zh": "图1：常微分方程近似解的最大局部误差控制。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.06477v1/x2.png",
+        "caption": "(a)SiT (ImageNet-256)(b)JiT (ImageNet-64)(c)UNet (CIFAR-10)Figure 2:Cumulative path acceleration across datasets and models.We visualize the cumulative second-order time derivatives (path acceleration) over the generative timelinet∈[0,1]t\\in[0,1]for SiT, JiT, and UNet.",
+        "role": "pipeline_2",
+        "caption_zh": "(a) SiT (ImageNet-256) (b) JiT (ImageNet-64) (c) UNet (CIFAR-10) 图2：跨数据集与模型的累积路径加速度。我们可视化了 SiT、JiT 和 UNet 在生成时间线 t∈[0,1] 上的累积二阶时间导数（路径加速度）。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.06477v1/x2.png",
+        "caption": "(a)SiT (ImageNet-256)",
+        "role": "pipeline_3",
+        "caption_zh": "(a)SiT（ImageNet-256）"
+      }
+    ]
+  }
+}
