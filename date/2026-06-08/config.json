@@ -1,0 +1,431 @@
+{
+  "base_info": {
+    "2606.07508": {
+      "title": "Streaming Video Generation with Streaming Force Control",
+      "abstract": "We introduce StreamForce, a streaming video generation framework that enables physically grounded control through continuous force inputs. Unlike prior video models that train separate models for different force types, assume fixed forces, or rely on non-causal processing, StreamForce is a causal and unified model that responds instantly and coherently to both local and global, time-varying forces. To achieve this, we design a unified force representation as a control signal and develop a distillation pipeline for force-controllable video generation. Our model combines autoregressive efficiency with force responsiveness, sustaining stable photometric and dynamic realism. StreamForce runs at up to 16.6 FPS on a single GPU, achieving state-of-the-art performance in both force adherence and motion realism. Project website:this https URL",
+      "abstract_zh": "我们提出StreamForce，一种流式视频生成框架，该系统通过连续作用力输入实现物理基础控制。与现有视频模型需要针对不同力类型训练独立模型、假设固定作用力或依赖非因果处理的方式不同，StreamForce采用因果统一架构，能够即时且连贯地响应局部与全局的时变作用力。为实现这一目标，我们设计了统一的作用力表征作为控制信号，并开发了面向力控视频生成的知识蒸馏流程。该模型融合了自回归效率与力学响应能力，持续保持稳定的光度学真实感与动态真实感。StreamForce在单GPU上运行速度高达16.6 FPS，在力学遵循度与运动真实感方面均达到最先进的性能水平。项目网站：https://this https URL",
+      "hf_link": "https://huggingface.co/papers/2606.07508"
+    },
+    "2606.07514": {
+      "title": "UniSHARP: Universal Sharp Monocular View Synthesis",
+      "abstract": "In this work, we focus on extending SHARP, the popular photorealistic view synthesis method, for universal monocular rendering across a continuum of camera systems, from conventional perspective cameras to wide-field-of-view, fisheye and omnidirectional panoramic settings. To overcome the pinhole-specific assumptions of SHARP, our key idea is to align various images in a unified omnidirectional latent space. Thus, we propose UniSHARP, which performs implicit alignment in both feature and Gaussian spaces. Specifically, Gaussian primitives are arranged along rays and radial distances in a ray-based universal representation, while 2D semantic and 3D spatial features extracted from UniK3D-inspired encoders are jointly decoded to generate the complete Gaussian cloud. To comprehensively evaluate our method, we construct a benchmark covering diverse imaging systems across various scenes. The benchmark is further stratified by field of view (FoV) to enable fine-grained assessment of the universal monocular rendering task. Extensive experiments on the proposed benchmark demonstrate the effectiveness of UniSHARP, outperforming alternative methods by a large margin. The project page can be found at:this https URL",
+      "abstract_zh": "在本研究中，我们致力于扩展广受欢迎的逼真视图合成方法SHARP，使其能够适用于跨越连续相机系统的通用单目渲染任务，涵盖从传统透视相机到宽视场、鱼眼及全向全景成像系统。为克服SHARP方法中针对针孔相机的特定假设，我们的核心思路是在统一的全向潜在空间中对各类图像进行对齐。为此，我们提出了UniSHARP模型，该模型在特征空间与高斯空间内同步执行隐式对齐。具体而言，我们采用基于射线的通用表示方法，将高斯图元沿射线方向与径向距离进行排布，同时通过受UniK3D启发的编码器提取的二维语义特征与三维空间特征，经由联合解码生成完整的高斯点云。为全面评估本方法，我们构建了一个涵盖多场景下各类成像系统的基准测试集。该基准集进一步按视场角进行分层，从而支持对通用单目渲染任务进行细粒度评估。在提出的基准集上进行的大量实验证明了UniSHARP的有效性，其性能显著优于现有对比方法。项目页面可通过此链接访问：https URL",
+      "hf_link": "https://huggingface.co/papers/2606.07514"
+    },
+    "2606.06601": {
+      "title": "Direct 3D-Aware Object Insertion via Decomposed Visual Proxies",
+      "abstract": "Object insertion aims to seamlessly composite a reference object into a specified region of a background image. Recent diffusion-based methods achieve high visual quality but formulate insertion as a simple 2D inpainting task, providing no explicit control over the object's 3D pose and limiting their practical applicability. We propose DIRECT (Decomposed Injection for Reference Composition and Target-integration), a novel framework that integrates interactive pose manipulation with high-fidelity 2D image synthesis to enable pose-controllable object insertion. Our method decomposes the insertion conditions into three complementary components: appearance guidance capturing visual details from the reference object, geometry guidance derived from the user-adjusted 3D proxy, and context guidance from the target background. By injecting them through separate pathways, DIRECT avoids feature entanglement and simultaneously preserves reference appearance, follows the user-specified pose, and adapts the object to the target scene. We also introduce an automated data construction pipeline to improve the diversity and quality of training data. Experiments show that DIRECT outperforms previous methods in both geometric controllability and visual quality.",
+      "abstract_zh": "目标插入旨在将参考对象无缝合成到背景图像的指定区域。当前基于扩散模型的方法虽能实现较高的视觉质量，但仅将插入任务简单定义为二维图像修复问题，无法对物体的三维位姿进行显式控制，从而限制了其实用性。我们提出了DIRECT（用于参考组合与目标整合的分解注入）框架，该框架将交互式位姿操控与高保真二维图像合成相结合，实现了位姿可控的对象插入。我们的方法将插入条件分解为三个互补组件：从参考对象中捕捉视觉细节的外观引导、源自用户调整的三维代理模型的几何引导，以及来自目标背景的上下文引导。通过独立路径注入这些组件，DIRECT避免了特征纠缠，同时保持了参考外观的一致性，遵循用户指定的位姿，并使对象自适应于目标场景。我们还引入了一套自动化数据构建流程，以提升训练数据的多样性与质量。实验表明，DIRECT在几何可控性与视觉质量方面均优于现有方法。",
+      "hf_link": "https://huggingface.co/papers/2606.06601"
+    },
+    "2606.07326": {
+      "title": "AnchorWorld: Embodied Egocentric World Simulation with View-based Evolution Customization",
+      "abstract": "Despite being a pivotal frontier, interactive world modeling remains underexplored in terms of the versatile controllability required by practical scenarios. To bridge this gap, we present AnchorWorld, a framework that advances egocentric simulation through enhanced interaction integrity and a flexible mechanism for world customization. First, we utilize 3D human motion as the primary interaction modality. To complement the out-of-view or truncated body parts in egocentric views, we introduce an auxiliary training supervision that incorporates exogenous viewpoints decoupled from the agent's first-person sensorium. It allows the model to observe the agent's full-body positioning relative to the environment, facilitating a more robust spatial grounding of human-world interactions. Furthermore, we propose a simple yet effective mechanism for customizing self-evolving worlds. This is achieved by defining anchor views within a unified world coordinate system, coupled with textual descriptions dictating the dynamic evolution of local scenes. Experimental results show that AnchorWorld significantly outperforms state-of-the-art baselines, while ablation studies validate the effectiveness of our key designs. Notably, our customization scheme exhibits promising spatio-temporal geometric consistency and adheres strictly to the prescribed evolutionary dynamics.",
+      "abstract_zh": "作为关键前沿领域，交互式世界建模在实际场景所需的多样化可控性方面仍未得到充分探索。为弥合这一差距，我们提出AnchorWorld框架，该框架通过增强交互完整性及灵活的世界定制机制，推进了以自我为中心的仿真研究。首先，我们采用3D人体运动作为主要交互模态。为补足自我中心视野中被遮挡或截断的身体部位，我们引入了一种辅助训练监督机制，该机制整合了与智能体第一人称感知解耦的外源性视角。这使得模型能够观察智能体相对于环境的全身定位，从而促进人机交互更稳健的空间基础。此外，我们提出了一种简单而有效的自演化世界定制机制，通过在统一世界坐标系中定义锚点视图，并结合描述局部场景动态演化的文本指令来实现。实验结果表明，AnchorWorld显著优于当前最先进的基线模型，消融研究也验证了我们核心设计的有效性。值得注意的是，我们的定制方案展现出良好的时空几何一致性，并严格遵循预设的演化动力学规律。",
+      "hf_link": "https://huggingface.co/papers/2606.07326"
+    },
+    "2606.06476": {
+      "title": "Thinking with Imagination: Agentic Visual Spatial Reasoning with World Simulators",
+      "abstract": "While Vision-Language Models (VLMs) have shown strong visual reasoning capabilities, their spatial reasoning abilities remain largely constrained to the observed images and text-oriented chain-of-thought. They often struggle to infer unobserved layouts, maintain cross-view consistency, and reason from alternative viewpoints when only limited egocentric observations are available. In this work, we study this problem as thinking with imagination, where a VLM actively acquires imagined visual evidence by interacting with a world simulator during reasoning. We propose Astra, an agentic spatial reasoning framework that empowers VLMs with action-conditioned visual imagination. Specifically, Astra couples Astra-VL, an RL-trained VLM policy, with Astra-WM, a Bagel-based world simulator that generates novel-view observations from context images and natural-language camera motions. To provide reliable imagined evidence, Astra-WM is trained with view consistency tuning to improve pose and content consistency across views. In the RL stage, we propose a world-simulator-in-the-loop two-phase RL curriculum to stabilize tool-use exploration and advance the model's ability to invoke the simulator only when imagined observations improve over direct answering. Experiments demonstrate that both the world simulator and the agentic policy are necessary: Astra-WM improves simulator-augmented Gemini-3-Flash on MMSI-Bench from 45.1 to 49.5, while Astra-VL improves the Qwen3-VL backbone from 29.8 to 38.8 on MMSI-Bench and from 36.8 to 42.7 on MindCube. These results show that imagined observations can provide useful spatial evidence, but effective world-model-augmented reasoning requires learning when, where, and how to imagine.",
+      "abstract_zh": "尽管视觉语言模型(Vision-Language Models, VLMs)已展现出强大的视觉推理能力，但其空间推理能力仍主要受限于观测到的图像和文本导向的思维链。当仅能获取有限的自我中心视角观测时，这类模型往往难以推断未观测的空间布局、保持跨视角一致性以及从替代视角进行推理。本研究将这一问题定义为\"具象化思维\"，即视觉语言模型在推理过程中通过与世界模拟器交互主动获取想象的视觉证据。我们提出Astra框架——一种赋予视觉语言模型行动条件化视觉想象能力的具身空间推理框架。具体而言，Astra将经过强化学习训练的视觉语言模型策略Astra-VL与基于Bagel构建的世界模拟器Astra-WM相结合，后者能够根据上下文图像和自然语言描述的相机运动生成新视角观测。为确保生成可靠的想象证据，Astra-WM通过视角一致性调优训练，以提升跨视角的位姿与内容一致性。在强化学习阶段，我们提出包含世界模拟器闭环的双阶段强化学习课程：首先稳定工具使用的探索过程，进而提升模型仅在想象观测能改进直接回答时才调用模拟器的决策能力。实验证明世界模拟器与具身策略均不可或缺：在MMSI-Bench基准测试中，Astra-WM将模拟器增强的Gemini-3-Flash模型性能从45.1提升至49.5，而Astra-VL则将Qwen3-VL基座模型在MMSI-Bench上的表现从29.8提升至38.8，在MindCube基准上从36.8提升至42.7。这些结果表明想象观测能够提供有效的空间证据，但实现高效的世界模型增强推理需要学习何时、何处以及如何进行想象。",
+      "hf_link": "https://huggingface.co/papers/2606.06476"
+    },
+    "2606.07502": {
+      "title": "Your UnEmbedding Matrix is Secretly a Feature Lens for Text Embeddings",
+      "abstract": "Large language models exhibit impressive zero-shot capabilities across a wide range of downstream tasks. However, they struggle to function as off-the-shelf embedding models, leading to suboptimal performance on massive text embedding benchmarks. In this paper, we identify a potential cause underlying this deficiency. Our motivation stems from an unexpected observation: text embeddings tend to align with frequent but uninformative tokens when projected onto the vocabulary space. We argue that this excessive expression of high-frequency tokens suppresses the model's ability to capture nuanced semantics. To address this, we introduce EmbedFilter, a simple linear transformation designed to refine text embeddings derived from LLMs directly. Specifically, we uncover that the unembedding matrix within LLMs encodes a latent space that is actively writing these frequent tokens into embedding space. By filtering out this subspace, EmbedFilter suppress the influence of high-frequency tokens, thereby enhancing semantic representations. As a compelling byproduct, this enables an inherent dimensionality reduction, lowering index storage and speedup retrieval while fully preserving the refined embedding quality. Our experiments across multiple LLM backbones demonstrate that LLMs equipped with EmbedFilter achieve superior zero-shot downstream performance even with significantly reduced embedding dimensions. We hope our findings provide deeper insights into the mechanisms of LLM-based representations and inspire more principled designs to improve text embeddings training. Our code is available atthis https URL.",
+      "abstract_zh": "大语言模型在下游任务中展现出令人印象深刻的零样本能力。然而，它们难以作为即用型嵌入模型使用，导致在大型文本嵌入基准测试中表现不佳。本文中，我们识别了造成这一缺陷的潜在原因。我们的动机源于一个意外发现：当文本嵌入投影到词汇空间时，往往会与频繁出现但信息量低的词元对齐。我们认为，这种对高频词元的过度表达抑制了模型捕捉细微语义的能力。为解决这一问题，我们引入了EmbedFilter，这是一种旨在直接优化从大语言模型导出的文本嵌入的简单线性变换。具体而言，我们发现大语言模型内的解嵌入矩阵编码了一个潜在空间，该空间正主动将这些高频词元写入嵌入空间。通过滤除这一子空间，EmbedFilter抑制了高频词元的影响，从而增强了语义表征。作为一个引人注目的副产品，这实现了内在的降维，在完全保留优化后嵌入质量的同时，降低了索引存储需求并加速了检索过程。我们在多种大语言模型骨干上的实验表明，配备EmbedFilter的大语言模型即使在大幅降低嵌入维度的情况下，仍能实现优越的零样本下游性能。我们希望我们的发现能为基于大语言模型的表征机制提供更深入的见解，并启发更多原则性的设计来改进文本嵌入训练。我们的代码可通过此https URL获取。",
+      "hf_link": "https://huggingface.co/papers/2606.07502"
+    },
+    "2606.07229": {
+      "title": "MMAE: A Massive Multitask Audio Editing Benchmark",
+      "abstract": "We introduce MMAE, a Massive Multitask Audio Editing benchmark, serving as the first comprehensive evaluation testbed designed for general-purpose instruction-based audio editing. Spurred by the shift toward intelligent creation, interactive editing has rapidly expanded from visual domains, pioneered by models like Nano-banana 2 for images and Gemini-Omni for video, into audio. However, the current evaluation infrastructure lags severely, remaining highly fragmented and restricted to specific subdomains or basic operations. Unlike existing benchmarks that are limited in scope, MMAE extends to a broad spectrum of real-world scenarios, encompassing 7 distinct audio modalities, including sound, speech, music, and their mixtures. Furthermore, we establish a comprehensive taxonomy spanning 6 levels of task complexity, from basic modifications to multi-hop reasoning and multi-round editing, 2 levels of granularity, and 8 distinct operation types. Meticulously curated through human-agent collaboration, MMAE comprises 2,000 high-fidelity samples paired with a pioneering rubric-based evaluation framework. By decomposing free-form tasks into 17,741 verifiable criteria, this robust rubric-based paradigm enables a precise, multi-dimensional assessment of both instruction following and context consistency. Our extensive evaluation of leading models reveals that current systems remain far from achieving reliable edits. Strikingly, the Exact Match Rate (EMR) consistently falls below 5% and plummets to an absolute 0% in complex, mixed-modality tasks, exposing critical bottlenecks in precise execution and structural robustness. We hope MMAE will serve as a catalyst for future advances in the intelligent creation community, providing a clear diagnostic roadmap and establishing a standardized, long-lasting evaluation paradigm for next-generation audio editing systems.",
+      "abstract_zh": "我们推出大规模多任务音频编辑基准 **MMAE (Massive Multitask Audio Editing)**，这是首个为通用指令驱动音频编辑设计的综合性评估测试平台。随着智能创作趋势的发展，交互式编辑已从视觉领域迅速扩展至音频领域——图像领域有 Nano-banana 2 等模型作为先驱，视频领域则有 Gemini-Omni。然而，当前的评估体系严重滞后，仍高度碎片化且局限于特定子领域或基础操作。与现有范围有限的基准不同，**MMAE** 覆盖了广泛的现实场景，涵盖包括声音、语音、音乐及其混合体在内的 7 种音频模态。此外，我们构建了一个完整的分类体系，涵盖从基础修改到多步推理及多轮编辑的 6 级任务复杂度、2 级操作粒度以及 8 种不同的操作类型。\n\n通过人机协作精心构建，**MMAE** 包含 2,000 个高保真样本，并配备开创性的基于量规的评估框架。该框架将自由形式任务分解为 17,741 条可验证标准，通过这一稳健的基于量规的范式，能够对指令遵循与上下文一致性进行精准的多维度评估。我们对主流模型的广泛评估表明，当前系统远未实现可靠的编辑效果。值得注意的是，其**精确匹配率 (Exact Match Rate, EMR)** 持续低于 5%，在复杂的混合模态任务中甚至骤降至绝对零值，这揭示了精准执行与结构鲁棒性方面存在关键瓶颈。我们期待 **MMAE** 能够成为智能创作领域未来发展的催化剂，为下一代音频编辑系统提供清晰的诊断路线图，并建立标准化、可持续的评估范式。",
+      "hf_link": "https://huggingface.co/papers/2606.07229"
+    },
+    "2606.05563": {
+      "title": "SoCRATES: Towards Reliable Automated Evaluation of Proactive LLM Mediation across Domains and Socio-cognitive Variations",
+      "abstract": "Evaluating LLM mediators remains challenging, as mediation unfolds as a real-time trajectory shaped by disputants' shifting emotions, intentions, and context. Existing testbeds rely on a few expert-authored domains, vary mainly strategic posture, and score every turn against every topic, introducing off-topic noise. We introduce SoCRATES, a benchmark for evaluating proactive LLM mediators in realistic, multi-domain testbeds. It constructs scenarios from real conflicts through an agentic pipeline across eight domains, probes five socio-cognitive adaptation axes (strategic posture, party composition, history length, emotional reactivity, and cultural identity), and scores each topic only on the turns that advance it via a topic-localized evaluator. The evaluator reaches 0.82 alignment with human experts, more than doubling a per-turn baseline. Benchmarking eight frontier LLMs, we find that even the strongest mediator closes only about a third of the unmediated consensus gap under diverse and realistic testbeds, with performance varying sharply by socio-cognitive axis, highlighting that progress lies in social adaptation to diverse conditions.",
+      "abstract_zh": "评估大型语言模型(LLM)调解员仍然面临挑战，因为调解过程是随着争议方不断变化的情绪、意图和背景而展开的实时动态轨迹。现有测试平台依赖于少数专家构建的领域，主要变化仅体现在策略姿态上，且对每个对话轮次在每个议题上进行评分，这引入了大量偏离主题的干扰噪音。我们推出SoCRATES基准，用于在现实、多领域的测试环境中评估主动型LLM调解员。该基准通过跨八个领域的智能体流程，从真实冲突中构建场景；探查五个社会认知适应维度（策略姿态、参与方构成、历史交互长度、情绪反应性和文化身份）；并采用议题本地化评估器，仅针对推进该议题的对话轮次进行评分。该评估器与人类专家的对齐度达到0.82，较逐轮评分基线提升了一倍以上。通过对八个前沿LLM的基准测试，我们发现即使最强的调解模型在多样化和现实化的测试环境下，也只能弥合约三分之一的未调解共识差距，且其性能在不同社会认知维度上呈现出显著差异，这表明研究进展的关键在于模型对多样化条件的社会适应性。",
+      "hf_link": "https://huggingface.co/papers/2606.05563"
+    },
+    "2606.05761": {
+      "title": "SubtleMemory: A Benchmark for Fine-Grained Relational Memory Discrimination in Long-Horizon AI Agents",
+      "abstract": "Persistent AI assistants, such as OpenClaw, accumulate large collections of related memories over long-term interactions. As these memories grow, they may reinforce one another, diverge across contexts, or directly conflict, making correct assistance depend on memory relations rather than isolated recall. Existing long-term memory benchmarks rarely probe how agents preserve and utilize such relations during downstream tasks. To address this gap, we introduce SubtleMemory, a benchmark for fine-grained relational memory discrimination in long-running AI agents. SubtleMemory constructs relation-controlled latent semantic artifacts whose variants instantiate complementary, nuanced, or contradictory relations, and embeds them into realistic user-agent histories, requiring agents to recover distributed relational structures during later queries and instructions. The benchmark contains 1,522 evaluation instances over 10 long histories, grounded in 1,090 relation-controlled memory-variant sets and spanning user-related and non-user-related queries. Evaluating six standalone memory systems, two Claw-style agents with native memory modules, and three Claw-style agents with plugin memory modules, we find that current systems remain weak on fine-grained relational memory discrimination. We further introduce diagnostic protocols that reveal distinct capability profiles across memory preservation, retrieval, and downstream reasoning stages.",
+      "abstract_zh": "持久性AI助手，例如OpenClaw，在长期交互中会积累大量相关记忆。随着这些记忆的增长，它们可能相互强化、在不同语境中产生分歧或直接冲突，这使得正确的协助依赖于记忆间的关系而非孤立的回忆。现有的长期记忆基准测试很少探究智能体在下游任务中如何保持和利用这类关系。为填补这一空白，我们推出了SubtleMemory——一个针对长期运行AI智能体的细粒度关系记忆区分能力的基准测试。SubtleMemory构建了关系可控的潜在语义构件，其变体实例化出互补性、细微差别或矛盾性关系，并将它们嵌入到真实的用户-智能体交互历史中，要求智能体在后续查询和指令中恢复分布式的关联结构。该基准包含10个长历史会话中的1,522个评估实例，基于1,090组关系可控的记忆变体集合，涵盖用户相关与非用户相关的查询类型。通过对六个独立记忆系统、两个自带原生记忆模块的Claw风格智能体，以及三个搭载插件式记忆模块的Claw风格智能体进行评估，我们发现现有系统在细粒度关系记忆区分方面仍存在明显不足。我们进一步提出了诊断协议，揭示了不同系统在记忆保持、检索与下游推理阶段具有差异化的能力特征。",
+      "hf_link": "https://huggingface.co/papers/2606.05761"
+    },
+    "2606.05806": {
+      "title": "When Tools Fail: Benchmarking Dynamic Replanning and Anomaly Recovery in LLM Agents",
+      "abstract": "Existing benchmarks evaluate Tool-Integrated Reasoning (TIR) in LLMs on idealized ''happy paths'', largely overlooking real-world tool failures. We introduce ToolMaze, a benchmark for dynamic path discovery and error recovery in TIR agents. To separate systematic replanning from blind trial-and-error, ToolMaze adopts a two-dimensional design: DAG-based topological complexity and a $2 \\times 2$ taxonomy of tool perturbations (explicit/implicit, transient/permanent). Evaluations show that perturbations degrade performance across nearly all models, with the sharpest drops under implicit semantic failures. Driven by systemic over-trust in corrupted outputs, Perturbation Recovery Rate (PRR) plummets by around 37\\% in these scenarios, while complex topologies trap agents in futile trial-and-error loops. Crucially, agentic fault-tolerance improves with model scale $3.66\\times$ slower than basic task execution, highlighting dynamic replanning as a distinct bottleneck unaddressed by model scaling or prompting. Data and code are available atthis https URL.",
+      "abstract_zh": "现有基准测试主要在理想化的“顺畅路径”上评估大语言模型（LLM）的工具集成推理（Tool-Integrated Reasoning，TIR）能力，很大程度上忽视了真实世界中的工具故障问题。我们推出了ToolMaze，一个用于评估TIR智能体动态路径发现与错误恢复能力的基准。为区分系统性重新规划与盲目的试错行为，ToolMaze采用二维设计：基于有向无环图（DAG）的拓扑复杂性，以及工具扰动的2×2分类体系（显性/隐性、瞬时/持久）。评估结果表明，扰动几乎导致所有模型性能下降，其中在隐性语义故障场景下性能下降最为显著。由于系统对受损输出存在过度信任，在这些场景中扰动恢复率（Perturbation Recovery Rate，PRR）骤降约37%，而复杂的拓扑结构则使智能体陷入无效的试错循环。关键发现表明，智能体容错能力随模型规模提升的速度比基本任务执行能力慢3.66倍，这凸显了动态重新规划是模型规模扩展或提示工程均未解决的独特瓶颈。相关数据与代码可通过此链接获取：https://github.com/相关地址。",
+      "hf_link": "https://huggingface.co/papers/2606.05806"
+    },
+    "2606.07433": {
+      "title": "Watch, Remember, Reason: Human-View Video Understanding with MLLMs",
+      "abstract": "Video understanding is being rapidly transformed by multimodal large language models (MLLMs), as research moves from short clips to long, multimodal, and knowledge-intensive video scenarios. These scenarios require models to handle sparse evidence, long-range dependencies, multimodal alignment, and reliable inference under limited computational budgets. This work presents a human-view perspective on LLM-based video understanding, organized around three functional abilities: watching, remembering, and reasoning. Rather than treating video tasks as isolated benchmarks, this view provides a unified structure for analyzing how video MLLMs acquire evidence, preserve context, and produce grounded outputs. We introduce a formulation that characterizes video understanding systems by their perceptual representations, memory states, reasoning traces, and final predictions. Based on this formulation, we identify challenges in spatio-temporal perception, efficient long-video processing, memory modeling, streaming understanding, and faithful reasoning. Representative methods are organized by their roles in video MLLM systems. Watching covers fine-grained, comprehensive, audio-visual, and efficient perception. Remembering includes offline and streaming memory, while reasoning covers text-only reasoning and thinking with videos. We further examine application domains such as egocentric, sports, instructional, medical, and narrative videos, and cover training datasets and evaluation benchmarks across task types, supervision formats, modalities, and capability dimensions. Finally, we outline open problems and future directions for scalable, memory-aware, and evidence-grounded video intelligence. Related works will be continuously traced atthis https URL.",
+      "abstract_zh": "多模态大语言模型（MLLMs）正在迅速变革视频理解领域，研究重心正从短视频片段转向长时、多模态且知识密集型的视频场景。这些场景要求模型能够在有限的计算资源下处理稀疏证据、长程依赖、多模态对齐以及可靠推理。本文从人类视角出发，围绕三种核心功能能力——观看、记忆与推理——对基于大语言模型的视频理解进行系统性阐述。这一视角并非将视频任务视为孤立的基准测试，而是提供了一个统一框架，用以分析视频多模态大语言模型如何获取证据、保持上下文并生成基于事实的输出。我们提出一种形式化表征，通过感知表征、记忆状态、推理轨迹和最终预测来刻画视频理解系统。基于此框架，我们梳理了时空感知、高效长视频处理、记忆建模、流式理解以及可信推理等方面面临的挑战。代表性方法按其视频多模态大语言模型中的作用进行了归类：观看涵盖细粒度感知、全面感知、视听感知与高效感知；记忆包括离线记忆与流式记忆；推理则涉及纯文本推理与视频伴随思考。我们进一步探讨了第一人称视角视频、体育视频、教学视频、医学视频及叙事视频等应用领域，并梳理了涵盖任务类型、监督形式、模态和能力维度的训练数据集与评估基准。最后，我们展望了面向可扩展性、记忆感知与证据驱动的视频智能所存在的开放性问题及未来发展方向。相关研究成果将通过此链接持续追踪：https://URL。",
+      "hf_link": "https://huggingface.co/papers/2606.07433"
+    },
+    "2606.06953": {
+      "title": "LIMMT: Less is More for Motion Tracking",
+      "abstract": "We argue that high-quality motion data can steer tracking policies toward better optimization trajectories early in training. In this work, we introduce LIMMT (Less Is More for Motion Tracking). To our knowledge, this is the first data-centric study for physics-based humanoid motion tracking. We go beyond simply removing low-quality and erroneous clips, but define motion data quality through three dimensions: physics feasibility, diversity, and complexity. We show that even training with under 3% of AMASS yields better tracking performance than training with the full dataset. We further conduct data cleaning on the estimated web-sourced mocap data. Extensive experiments and analyses validate the effectiveness of our framework.",
+      "abstract_zh": "我们认为，高质量的运动数据能够引导跟踪策略在训练早期走向更优的优化轨迹。本研究中，我们提出了LIMMT（运动跟踪中的“少即是多”原则）。据我们所知，这是首个基于物理的人形运动跟踪数据为中心的研究。我们不仅剔除了低质量与错误片段，更从三个维度定义了运动数据的质量：物理可行性、多样性与复杂度。实验表明，即使使用不到3%的AMASS数据集进行训练，其跟踪性能仍优于使用完整数据集的效果。我们进一步对网络来源的动作捕捉估计数据进行了数据清洗。大量实验与分析验证了我们框架的有效性。",
+      "hf_link": "https://huggingface.co/papers/2606.06953"
+    },
+    "2606.07080": {
+      "title": "dots.tts Technical Report",
+      "abstract": "We presentthis http URL, a 2B-parameter continuous autoregressive text-to-speech (TTS) foundation model that models speech in a continuous latent space. Compared with existing continuous autoregressive models, our key innovations are threefold. First, we train an AudioVAE with multiple objectives to build a semantically structured and prediction-friendly continuous speech space. Second, we use full-history conditioning in the flow-matching head to preserve long-range consistency and reduce drift during generation. Third, we apply reward-free self-corrective post-training to the flow-matching head to further improve robustness and acoustic quality. After being trained on a large-scale multilingual corpus,this http URLachieves the best average performance on Seed-TTS-Eval, with WERs of 0.94%/1.30%/6.60% and SIM scores of 81.0/77.1/79.5 on the zh/en/zh-hard test sets, respectively. Across other benchmarks,this http URLalso consistently demonstrates open-source state-of-the-art performance, exhibiting strong generation stability, voice cloning ability, and emotional expressiveness. For efficient inference, we further apply CFG-aware MeanFlow distillation, enabling low-latency speech generation with first-packet latencies of 85/54 ms in output streaming and dual-streaming modes, respectively. To facilitate reproducible research and practical deployment, we release the training and inference code, together with the pretrained, post-trained, and MeanFlow-distilled checkpoints, under the Apache 2.0 license.",
+      "abstract_zh": "我们推出this http URL，这是一个20亿参数的连续自回归文本转语音（TTS）基础模型，可在连续潜在空间中建模语音。与现有的连续自回归模型相比，我们的关键创新点有三方面。首先，我们训练了一个具有多目标的音频变分自编码器（AudioVAE），以构建语义结构清晰且易于预测的连续语音空间。其次，我们在流匹配（flow-matching）头部采用全历史条件机制，以保持生成长程一致性并减少生成过程中的漂移。第三，我们对流匹配头部应用无奖励的自校正后训练，以进一步提升鲁棒性和声学质量。在大规模多语言语料库上训练后，this http URL在Seed-TTS-Eval基准测试中取得了最佳平均性能，在中文/英文/中文困难测试集上的词错误率（WER）分别为0.94%/1.30%/6.60%，语音相似度（SIM）得分分别为81.0/77.1/79.5。在其他基准测试中，this http URL同样持续展现出开源领域最先进的性能，表现出强大的生成稳定性、语音克隆能力和情感表现力。为实现高效推理，我们进一步应用了条件流引导感知均值流蒸馏（CFG-aware MeanFlow distillation），在输出流式传输和双流式传输模式下分别实现了85/54毫秒的首包延迟，从而实现低延迟语音生成。为促进可复现研究和实际部署，我们在Apache 2.0许可下公开发布了训练与推理代码，以及预训练、后训练和均值流蒸馏的模型检查点。",
+      "hf_link": "https://huggingface.co/papers/2606.07080"
+    },
+    "2606.05972": {
+      "title": "LLM Explainability with Counterfactual Chains and Causal Graphs",
+      "abstract": "Causal graphs provide a high-level language for making mechanisms transparent. Recent work uses Large Language Models (LLMs) to recover causal graphs of external-world processes. Instead, in this paper, we use causal graphs to model LLM inference itself, providing stakeholders with a transparent view of how the model perceives and organizes high-level concepts to produce a prediction. We propose a four-phase method for constructing such graphs. Given a target LLM and a set of textual examples, our method discovers class-discriminative, human-interpretable concepts and maps each input to LLM-perceived concept states. We then introduce an MCMC-inspired counterfactual augmentation procedure that expands the sparse observational data through chains of counterfactuals. This enables stable causal discovery with $\\sigma$-CG, yielding informative, interpretable graphs. We apply our method to three LLMs across disease diagnosis, sentiment analysis, and LLM-as-a-judge classification tasks. We evaluate the learned graphs for predictive fidelity and structural stability, and the MCMC-inspired augmentation for convergence and downstream utility. Our results show that the discovered causal graphs capture meaningful dependencies consistent with LLMs' reasoning. Together, this paper provides a foundation for concept-level explainability of LLMs.",
+      "abstract_zh": "因果图(Causal Graph)提供了一种高层级的语言，使机制变得透明。近期研究利用大型语言模型(Large Language Models, LLMs)来还原外部世界过程的因果图。与此不同，本文利用因果图对LLM推理过程本身进行建模，为利益相关者提供一个透明的视角，以理解模型如何感知和组织高层级概念以产生预测。我们提出了一个构建此类因果图的四阶段方法。给定目标LLM和一组文本示例，我们的方法能够发现具有类别区分性且人类可解释的概念，并将每个输入映射到LLM所感知的概念状态。随后，我们引入一种受马尔可夫链蒙特卡洛(MCMC)启发的反事实增强方法，通过反事实链条扩展稀疏的观测数据。这使我们能够利用$\\sigma$-CG进行稳定的因果发现，从而得到信息丰富、可解释的因果图。我们将该方法应用于三种不同的LLM，覆盖疾病诊断、情感分析和LLM作为评判者(LLM-as-a-judge)的分类任务。我们从预测保真度和结构稳定性两个方面评估所学习到的因果图，并对MCMC启发的增强方法在收敛性和下游效用方面进行了评估。结果显示，所发现的因果图捕捉到了与LLM推理一致的有意义的依赖关系。综上所述，本文为LLM的概念层级可解释性奠定了基础。",
+      "hf_link": "https://huggingface.co/papers/2606.05972"
+    },
+    "2606.07454": {
+      "title": "PaperFlow: Profiling, Recommending, and Adapting Across Daily Paper Streams",
+      "abstract": "Scientific paper recommendation is typically evaluated as static ranking over a fixed candidate set, yet real scientific reading unfolds as a daily, longitudinal process in which interests shift and feedback accumulates. We introduce PaperFlow, a framework that organizes it into three coupled stages: Profiling, which constructs and maintains a structured, inspectable scholarly profile from heterogeneous cold-start evidence; Recommending, which ranks each date-specific paper stream through multi-signal aggregation under a fixed display budget; and Adapting, which updates user state from semantically distinct feedback signals and models interest drift across days. We further define a longitudinal user-day benchmark that fixes users, dates, candidate pools, visible inputs, and hidden simulated relevance labels under a shared temporal information boundary. The benchmark contains 24 simulated research users, 50 daily paper streams, 1,200 user-day episodes, 20,727 unique papers, and 497,448 episode-paper records. We additionally specify a blind human-evaluation protocol to validate alignment between automatic metrics and expert judgments. Experiments against five scientific recommendation baselines show that PaperFlow achieves the strongest oracle-based ranking, the highest behavioral alignment with simulated reading selections, and the best blind human-evaluation score.",
+      "abstract_zh": "科学论文推荐通常被评估为对固定候选集的静态排序，然而真实的科研阅读是一个每日进行的纵向过程，其中用户兴趣不断迁移，反馈持续累积。我们提出了PaperFlow框架，将其组织为三个耦合阶段：画像构建，从异构冷启动证据中构建并维护结构化、可检视的学术画像；推荐生成，在固定展示预算下通过多信号聚合对每日特定论文流进行排序；动态适应，从语义各异的反馈信号中更新用户状态，并建模跨日兴趣漂移。我们进一步定义了纵向用户-日基准测试，该基准在共享时间信息边界下固定用户、日期、候选池、可见输入及隐藏的模拟相关性标签。该基准包含24个模拟科研用户、50个每日论文流、1,200个用户-日情景、20,727篇独立论文及497,448条情景-论文记录。我们还制定了双盲人工评估协议，以验证自动指标与专家判断的一致性。针对五种科学推荐基线的实验表明，PaperFlow实现了最强的基于真实值的排序性能、与模拟阅读选择最高的行为对齐度，以及最优的双盲人工评估得分。",
+      "hf_link": "https://huggingface.co/papers/2606.07454"
+    },
+    "2606.06741": {
+      "title": "OpenSkill: Open-World Self-Evolution for LLM Agents",
+      "abstract": "Self-evolving agents requires adaptation after deployment, but existing approaches assume a usable learning loop, such as curated skills, successful trajectories, or verifier signals. Real open-world deployments may provide none of these, offering only a task prompt. In this work, we study open-world self-evolution, where an agent must build both its skills and its own verification signals from scratch, using open-world resources but no target-task supervision. We propose OpenSkill, a framework that bootstraps this loop: it acquires grounded knowledge and verification anchors from documentation, repositories, and the web, synthesizes them into transferable skills, and refines those skills against self-built virtual tasks grounded in the anchors rather than in target answers. The open world thus supplies both the knowledge to be learned and a supervision-independent practice environment, with target-task supervision reserved for final evaluation. Across three benchmarks and two target agents, OpenSkill attains the best automated pass rate while satisfying the no-supervision constraint. Analysis shows its skills transfer across models without model-specific adaptation, and its self-built verifier aligns with ground-truth outcomes despite never accessing them.",
+      "abstract_zh": "自演化智能体在部署后需要适应环境，但现有方法假设存在可用的学习循环，例如经过筛选的技能、成功轨迹或验证器信号。真实的开放世界部署可能无法提供上述任何条件，仅给出任务提示。本研究探讨开放世界自演化问题，即智能体必须从零开始构建其技能与自我验证信号，仅利用开放世界资源而不依赖目标任务监督。我们提出OpenSkill框架，该框架通过以下方式启动演化循环：从文档、代码库和网络获取具身知识与验证锚点，将其合成为可迁移技能，并基于锚点构建的虚拟任务（而非目标答案）对技能进行迭代优化。开放世界既提供了待学习的知识，也创造了独立于监督的实践环境，而目标任务监督仅保留用于最终评估。在三个基准测试和两种目标智能体上的实验表明，OpenSkill在满足无监督约束条件下实现了最优的自动化通过率。分析显示其技能可在不同模型间迁移而无需模型特定适配，且其自建验证器与真实结果保持对齐，尽管从未接触过这些真实结果。",
+      "hf_link": "https://huggingface.co/papers/2606.06741"
+    },
+    "2606.06891": {
+      "title": "Stream3D-VLM: Online 3D Spatial Understanding with Incremental Geometry Priors",
+      "abstract": "Despite advances in 3D scene understanding, existing 3D Large Multimodal Models operate in offline settings, requiring complete scene observations or predefined video clips. In this paper, we present an online 3D vision-language model that enables real-time spatial understanding from streaming video. Our approach adopts an autoregressive streaming control modeling based on the LLM's next-token prediction objective to learn when to respond, and employs a lightweight Visual-Spatial Feature Integration (VSFI) module to incrementally inject temporally aligned geometry priors into the visual stream. To alleviate long-context decoding overhead, we propose a plug-and-play Geometry-Adaptive Voxel Compression (GAVC) module for efficient visual token compression. To address the scarcity of streaming 3D-language data, we further develop a scalable data generation pipeline that curates over 1M online spatio-temporal 3D QA pairs and establishes a comprehensive benchmark spanning 29 tasks. Extensive experiments show that our approach significantly outperforms both proprietary and open-source models across online and offline 3D spatial understanding, reasoning, and grounding tasks. The project page is available atthis https URL",
+      "abstract_zh": "尽管三维场景理解领域已取得进展，现有的大型三维多模态模型仍局限于离线工作模式，需要完整的场景观测数据或预定义视频片段。本文提出了一种在线三维视觉语言模型，能够通过视频流实现实时空间理解。该方法基于大语言模型的下一个词元预测目标，采用自回归流式控制建模来学习何时生成响应，并通过轻量级视觉-空间特征融合模块，将时序对齐的几何先验逐步注入视觉流中。为缓解长上下文解码开销，我们提出即插即用的几何自适应体素压缩模块，以实现高效的视觉词元压缩。针对流式三维语言数据稀缺的问题，我们进一步开发了可扩展的数据生成流程，构建了超过100万条在线时空三维问答对，并建立了涵盖29项任务的综合性基准测试。大量实验表明，该方法在在线与离线三维空间理解、推理及空间定位任务上，均显著优于专有模型与开源模型。项目页面可通过此https链接访问。",
+      "hf_link": "https://huggingface.co/papers/2606.06891"
+    },
+    "2605.26046": {
+      "title": "When Gradients Collide: Failure Modes of Multi-Objective Prompt Optimization for LLM Judges",
+      "abstract": "Customizing an LLM judge to a specific problem or domain often involves optimizing its prompt across multiple evaluation criteria simultaneously. Textual gradient methods automate this for a single judge criterion, however they produce natural-language critiques, not numerical vectors. Thus, the conflict-resolution toolkit of multi-task learning (PCGrad, MGDA) does not apply to this multi-objective textual gradient setting. We extend TextGrad to the multi-objective setting and test four decomposition modes of textual gradient optimizers by varying how much cross-objective information the loss, gradient and optimizer LLMs share. We find the gradient's task-focus drops by 59% (9.0 to 3.7 out of 10) when the gradient LLM must provide feedback on multiple criteria jointly. Separately, we observe that naively combining single-objective optimized instructions into a single prompt degrades Spearman rho from 0.305 to 0.220 (-0.085). These results identify two separable failure modes: optimization-time gradient dilution and inference-time instruction interference, which together constrain the design space for multi-objective judge optimization using textual feedback.",
+      "abstract_zh": "针对特定问题或领域定制大型语言模型（LLM）评判器时，通常需要同时依据多项评估标准优化其提示。文本梯度方法在单一评判标准下实现了这一过程的自动化，但其产生的是自然语言批评而非数值向量。因此，多任务学习的冲突解决工具集（如PCGrad、MGDA）无法直接适用于这种多目标文本梯度优化场景。我们将TextGrad框架扩展至多目标设置，并通过调整损失函数、梯度及优化器LLM之间跨目标信息的共享程度，测试了四种文本梯度优化器的分解模式。研究发现，当梯度LLM必须联合提供针对多项标准的反馈时，其任务聚焦度会下降59%（从满分10分中的9.0分降至3.7分）。同时，实验观察到将单目标优化的指令简单组合至单一提示中，会使斯皮尔曼相关系数rho从0.305降至0.220（下降0.085）。这些结果揭示了两种可分离的失效模式：优化阶段的梯度稀释与推理阶段的指令干扰，它们共同制约了基于文本反馈进行多目标评判器优化的设计空间。",
+      "hf_link": "https://huggingface.co/papers/2605.26046"
+    },
+    "2606.07207": {
+      "title": "Entropy as a Structural Prior: How a Log-Barrier on DiT Belief Space Drives Musical Diversity and Development",
+      "abstract": "Confidence-based loss weighting is usually avoided in generative models because it accelerates errors when the model is confidently wrong, but this intuition breaks down in supervised diffusion training. We introduce the Eisbach log-barrier, a parameter-free weight derived from the entropy of the DiT output's spatial energy distribution: high entropy damps the gradient, while low entropy preserves it. Applied to LoRA fine-tuning of Stable Audio 3 Medium on MusicCaps, it unexpectedly yields stronger thematic development, clearer acoustic differentiation, and higher textural diversity than unweighted training, the opposite of mode collapse. This works because in supervised diffusion the gradient direction is locked to ground truth, so confidence only scales the step size, and because temporal entropy downweights flat samples while preserving high-contrast ones. The result is an online, self-referential data curriculum that emerges purely from the forward pass, with analyzed noise-level dynamics and testable predictions.",
+      "abstract_zh": "置信度加权损失在生成模型中通常被避免，因为它会在模型自信错误时加速误差累积，但这一直觉在监督扩散训练中并不成立。我们提出了艾斯巴赫对数屏障（Eisbach log-barrier），这是一种基于DiT输出空间能量分布熵值的无参数权重：高熵值会抑制梯度，而低熵值则保持梯度不变。将其应用于Stable Audio 3 Medium在MusicCaps数据集上的LoRA微调时，相较于未加权训练，该方法意外地产生了更强的主题发展性、更清晰的声学区分度以及更高的纹理多样性，这与模式坍塌（mode collapse）现象完全相反。其有效性源于两个原因：在监督扩散训练中，梯度方向被锁定于真实数据，因此置信度仅调节步长尺度；同时时间维度熵值会降低平淡样本的权重，同时保留高对比度样本。由此形成了一种完全基于前向传播过程产生的在线自参照数据课程（data curriculum），其中包含已分析的噪声水平动态特性及可检验的预测结果。",
+      "hf_link": "https://huggingface.co/papers/2606.07207"
+    },
+    "2606.07412": {
+      "title": "Socratic-SWE: Self-Evolving Coding Agents via Trace-Derived Agent Skills",
+      "abstract": "LLM-driven software engineering agents have become a central testbed for real-world language-model capability, yet their training remains limited by the availability of high-quality SWE tasks. Existing synthetic data methods typically create tasks through fixed mutation or bug-injection procedures, making the resulting distributions largely independent of the agent's own weaknesses and training progress. We introduce Socratic-SWE, a closed-loop self-evolution framework that reuses the agent's historical solving traces as a source of training signal. Rather than treating traces only as evidence for reward computation, Socratic-SWE distills them into structured agent skills that summarize recurring failures and effective repair patterns. These skills then guide the generation of targeted repair tasks in real repositories. Candidate tasks are checked through execution-based validation and scored with a solver-gradient alignment reward, so that the retained tasks are both verifiable and useful for improving the Solver. The updated Solver produces new traces, enabling the task curriculum to adapt over successive rounds. Across SWE-bench Verified, SWE-bench Lite, SWE-bench Pro, and Terminal-Bench 2.0, Socratic-SWE consistently improves over self-evolving baselines under the same compute budget, reaching 50.40% on SWE-bench Verified after three iterations. These results suggest that solving traces can serve as a scalable substrate for self-evolving SWE agents.",
+      "abstract_zh": "LLM驱动的软件工程(Software Engineering, SWE)智能体已成为现实世界语言模型能力的核心测试平台，但其训练仍受限于高质量SWE任务的可获得性。现有合成数据方法通常通过固定的变异或缺陷注入流程创建任务，导致生成的任务分布与智能体自身弱点及训练进度基本无关。我们提出Socratic-SWE——一个闭环自进化框架，通过复用智能体历史解题轨迹作为训练信号源。该方法不仅将轨迹视为奖励计算的依据，更将其提炼为结构化智能体技能，以总结反复出现的失败模式和有效的修复模式。这些技能进而指导在真实代码库中生成针对性修复任务。候选任务通过基于执行的验证进行检验，并采用求解器梯度对齐奖励进行评分，从而确保保留的任务既具备可验证性，又能有效提升求解器性能。更新后的求解器产生新的轨迹，使得任务课程能在连续迭代中自适应演化。在SWE-bench Verified、SWE-bench Lite、SWE-bench Pro和Terminal-Bench 2.0等基准测试中，Socratic-SWE在相同计算预算下持续超越自进化基线方法，经过三轮迭代后在SWE-bench Verified上达到50.40%的解决率。这些结果表明，解题轨迹可为自进化SWE智能体提供可扩展的基础训练资源。",
+      "hf_link": "https://huggingface.co/papers/2606.07412"
+    },
+    "2605.27276": {
+      "title": "SIA: Self Improving AI with Harness & Weight Updates",
+      "abstract": "Humans are the bottleneck in building and improving AI. Both the models and the agents that wrap them are written, tuned, and corrected by people. The long-horizon goal of an AI that can figure out how to improve itself remains open. Two largely disjoint research lines attack this bottleneck. The harness-update school has a meta-agent rewrite the scaffold of a task-specific agent (its tools, prompts, retry logic, and search procedure) while the model weights are held fixed. The test-time training school uses hand-written RL pipelines to update the model's own weights on task feedback while the harness is held fixed. These two silos operate in isolation. We propose SIA, a self-improving loop in which a language-model agent (the Feedback-Agent) updates both the harness and the weights of a task-specific agent. We evaluate across three contrasting domains: Chinese legal charge classification, low-level GPU kernel optimisation, and single-cell RNA denoising. Combining both levers outperforms scaffold iteration alone on all three benchmarks. SIA-W+H achieves 25.1% over prior SOTA on LawBench, 12.4% faster GPU kernels than prior SOTA (1,017 vs 1,161 {\\mu}s), and 20.4% over prior SOTA on denoising. Harness updates make the model agentic, shaping how it searches and acts, while weight updates build the domain intuition that no prompt or scaffold can instil.",
+      "abstract_zh": "构建和改进人工智能的瓶颈在于人类。无论是模型本身还是封装它们的智能体，均由人类编写、调优和修正。实现能够自我提升的人工智能这一长期目标仍然悬而未决。目前存在两个基本独立的研究路线试图突破这一瓶颈：\"架构更新学派\"通过元智能体重写任务专用智能体的框架（包括工具、提示、重试逻辑和搜索流程），同时保持模型权重固定；而\"测试时训练学派\"则采用人工编写的强化学习流程，在保持框架固定的前提下，根据任务反馈更新模型自身的权重。这两种研究范式长期处于相互隔离状态。我们提出SIA——一种自我改进循环，其中语言模型智能体（反馈智能体）能够同时更新任务专用智能体的框架和权重。我们在三个截然不同的领域进行评估：中国法律罪名分类、底层GPU内核优化以及单细胞RNA去噪。实验表明，结合两种改进机制在所有三个基准测试中均优于仅迭代框架的方法。SIA-W+H在法律基准测试上超越先前最佳水平25.1%，GPU内核运行速度比先前最佳结果提升12.4%（1017微秒对1161微秒），在去噪任务上超过先前最佳水平20.4%。框架更新使模型具备智能体特性，塑造其搜索与行动方式；而权重更新则建立起任何提示或框架都无法灌输的领域直觉。",
+      "hf_link": "https://huggingface.co/papers/2605.27276"
+    },
+    "2606.06538": {
+      "title": "WorldBench: A Challenging and Visually Diverse Multimodal Reasoning Benchmark",
+      "abstract": "In real-world applications, models are expected to perform reliably across diverse settings. Yet, many existing multimodal benchmarks expand task types without capturing the visual diversity needed to handle open-ended visual inputs. We present WorldBench, a challenging and visually diverse reasoning benchmark to evaluate Multimodal Large Language Models (MLLMs). We build a taxonomy of thousands of visual concepts across multiple domains (e.g., living things). Guided by this taxonomy, we curate a broad collection of images from search engines and existing datasets to comprehensively represent the visual world. Through structured trial-and-error, we manually design challenging questions that frontier MLLMs fail to answer. On quantitative and human evaluations, WorldBench achieves higher visual diversity than any existing diverse benchmark. Evaluating 15 MLLMs on WorldBench reveals weaknesses in visual understanding: even the strongest model reaches only 64.0% accuracy, while some models perform marginally above chance-level. We hope our work highlights the importance of visual diversity in building multimodal benchmarks.",
+      "abstract_zh": "在实际应用中，模型需要在多样化场景中保持可靠的性能。然而，现有许多多模态基准测试虽拓展了任务类型，却未能涵盖处理开放式视觉输入所需的视觉多样性。我们提出WorldBench——一个具有挑战性且视觉多样化的推理基准，用于评估多模态大语言模型（Multimodal Large Language Models，MLLMs）。我们构建了一个涵盖多领域（如生物）的数千个视觉概念分类体系，并以此为指导，从搜索引擎和现有数据集中筛选出广泛覆盖视觉世界的图像集合。通过结构化的试错过程，我们人工设计了前沿多模态大语言模型难以回答的挑战性问题。在定量评估与人工评估中，WorldBench展现出比现有任何多样化基准更高的视觉多样性。对15个多模态大语言模型的评估揭示了其在视觉理解方面的缺陷：即使最强模型仅达到64.0%的准确率，部分模型表现仅略高于随机猜测水平。我们希望本研究能凸显视觉多样性在构建多模态基准测试中的重要性。",
+      "hf_link": "https://huggingface.co/papers/2606.06538"
+    },
+    "2606.01779": {
+      "title": "HarnessForge: Joint Harness and Policy Evolution for Adaptive Agent Systems",
+      "abstract": "LLM agents are increasingly expected to operate across heterogeneous task regimes that require distinct execution paradigms. This challenges fixed agent systems and motivates system-level meta-adaptation beyond isolated component updates. While existing works have adapted external harness or trained underlying reasoning policies, full-system adaptation remains insufficiently characterized. The adaptation space between structure and execution is rarely made explicit, and the compatibility between the external harness and the internal reasoner is not optimized jointly. We propose HarnessForge, a meta-adaptive framework for evolving LLM agent systems. HarnessForge formulates an agent system as a harness--policy pair, defining a stable adaptation space that separates harness-level execution structure from policy-level reasoning behavior. It then performs harness--policy co-evolution through fault-guided harness tailoring and harness-conditioned policy alignment. Experiments across five benchmarks from diverse domains show that HarnessForge consistently improves both Qwen3-4B and Qwen3-8B backbones, outperforming harness-only and policy-only baselines with gains of up to 12.0\\% over the strongest baseline and achieving favorable rollout-efficiency tradeoffs, demonstrating that harness--policy co-evolution is effective, and that executable compatibility between the harness and reasoning policy is essential for agent-system adaptation. The code is available atthis https URL.",
+      "abstract_zh": "大型语言模型（LLM）智能体日益需要在需要不同执行范式的异构任务体系中运行。这对固定智能体系统提出了挑战，并推动了超越孤立组件更新的系统级元适应（meta-adaptation）需求。现有研究或侧重于调整外部控制框架（harness），或训练底层推理策略（reasoning policies），但针对全系统适应仍缺乏充分研究。结构与执行之间的适应空间很少被明确界定，且外部控制框架与内部推理器（reasoner）之间的兼容性未得到联合优化。我们提出了HarnessForge，这是一个用于演化LLM智能体系统的元适应框架。HarnessForge将智能体系统形式化为控制框架—策略对（harness--policy pair），定义了一个稳定的适应空间，将控制框架层面的执行结构与策略层面的推理行为分离开来。随后，该框架通过故障导向的控制框架定制（fault-guided harness tailoring）和控制框架条件化的策略对齐（harness-conditioned policy alignment），实现控制框架与策略的协同演化。在涵盖多个领域的五个基准测试上的实验表明，HarnessForge持续提升了Qwen3-4B和Qwen3-8B骨干模型的性能，优于仅调整控制框架或仅优化策略的基线方法，较最强基线的提升幅度最高达12.0%，并在部署效率与性能之间取得了良好平衡。实验证明，控制框架与策略的协同演化是有效的，且控制框架与推理策略之间的可执行兼容性对于智能体系统适应至关重要。代码发布于此https URL。",
+      "hf_link": "https://huggingface.co/papers/2606.01779"
+    },
+    "2603.16142": {
+      "title": "Parametric Social Identity Injection and Diversification in Public Opinion Simulation",
+      "abstract": "Large language models (LLMs) have recently been adopted as synthetic agents for public opinion simulation, offering a promising alternative to costly and slow human surveys. Despite their scalability, current LLM-based simulation methods fail to capture social diversity, producing flattened inter-group differences and overly homogeneous responses across demographic groups. We identify this limitation as a Diversity Collapse phenomenon in LLM hidden representations, where distinct social identities become increasingly indistinguishable across layers. Motivated by this observation, we propose Parametric Social Identity Injection (PSII), a general framework that injects explicit, parametric representations of demographic attributes and value orientations directly into intermediate hidden states of LLMs. Unlike prompt-based persona conditioning, PSII enables fine-grained and controllable identity modulation at the representation level. Extensive experiments on the World Values Survey using multiple open-source LLMs show that PSII significantly improves distributional fidelity and diversity, reducing KL divergence to real-world survey data while enhancing overall diversity. This work provides new insights into representation-level control of LLM agents and advances scalable, diversity-aware public opinion simulation.",
+      "abstract_zh": "大型语言模型（LLMs）近期被采纳为公众意见模拟的合成代理，为成本高昂且耗时的人工调查提供了有前景的替代方案。尽管具备可扩展性，当前基于LLM的模拟方法却未能捕捉社会多样性，导致不同群体间差异被扁平化，跨人口统计学群体的回应呈现过度同质化。我们将此局限性归因于LLM隐藏表征中的多样性坍缩现象，即不同的社会身份在模型各层间逐渐变得难以区分。基于此观察，我们提出参数化社会身份注入（Parametric Social Identity Injection, PSII）这一通用框架，该框架将人口统计属性和价值取向的显式参数化表征直接注入LLM的中间隐藏状态。与基于提示的人物设定条件化方法不同，PSII能够在表征层面实现细粒度且可控的身份调制。基于多个开源LLM在世界价值观调查（World Values Survey）上的大量实验表明，PSII显著提升了分布保真度与多样性，在降低与真实世界调查数据间KL散度的同时增强了整体多样性。这项工作为LLM代理的表征层级控制提供了新思路，并推动了可扩展、具备多样性意识的公众意见模拟的发展。",
+      "hf_link": "https://huggingface.co/papers/2603.16142"
+    },
+    "2606.00590": {
+      "title": "Critic-R: Improving Agentic Search using Instruction-tuned Retrievers with Natural Language Introspective Feedback",
+      "abstract": "Agentic search systems iteratively interact with retrieval models to answer complex queries. Despite substantial progress, optimizing retrievers for agentic search remains challenging, often requiring heavy co-training or gold-standard annotations that limit real-world applicability. We propose Critic-R, a framework that explicitly closes the feedback loop between the reasoning agent and the retrieval model during both inference and training. Critic-R introduces a critic model that evaluates the agent's introspective reasoning trace after consuming retrieved evidence to determine whether the retrieved context sufficiently supports the next reasoning step. Critic-R has two complementary mechanisms: Critic-R-Zero, an inference-time query refinement loop that iteratively rewrites queries and retrieval instructions, and Critic-Embed, an optimization approach for retrieval models that leverages successful and failed refinement trajectories as automatic supervision without requiring manual relevance annotation. We evaluate Critic-R on HotpotQA, 2WikiMultihopQA, MuSiQue, and Bamboogle. Results show that Critic-R significantly improves both retrieval quality and downstream answer accuracy.",
+      "abstract_zh": "代理式搜索系统通过迭代式地与检索模型交互来回答复杂查询。尽管已取得显著进展，但为代理式搜索优化检索器仍面临挑战，通常需要繁重的协同训练或依赖黄金标准标注，这限制了实际应用范围。我们提出Critic-R框架，该框架在推理和训练阶段均能显式闭合推理代理与检索模型之间的反馈循环。Critic-R引入了一个批评者模型，该模型在代理消化检索证据后评估其自省式推理轨迹，以判断检索到的上下文是否充分支持下一推理步骤。Critic-R包含两种互补机制：Critic-R-Zero是一种推理时查询优化循环，可迭代重写查询与检索指令；Critic-Embed则是一种检索模型优化方法，它利用成功与失败的优化轨迹作为自动监督信号，无需人工相关性标注。我们在HotpotQA、2WikiMultihopQA、MuSiQue和Bamboogle数据集上评估Critic-R。实验结果表明，Critic-R显著提升了检索质量与下游答案准确率。",
+      "hf_link": "https://huggingface.co/papers/2606.00590"
+    }
+  },
+  "hf_votes": {
+    "2606.07502": 0,
+    "2606.07229": 0,
+    "2606.07326": 0,
+    "2606.05563": 0,
+    "2606.05761": 0,
+    "2606.05806": 0,
+    "2606.07433": 0,
+    "2606.06953": 0,
+    "2606.07514": 0,
+    "2606.06601": 0,
+    "2606.06476": 0,
+    "2606.07080": 0,
+    "2606.05972": 0,
+    "2606.07454": 0,
+    "2606.06741": 0,
+    "2606.06891": 0,
+    "2605.26046": 0,
+    "2606.07207": 0,
+    "2606.07412": 0,
+    "2605.27276": 0,
+    "2606.07508": 0,
+    "2606.06538": 0,
+    "2606.01779": 0,
+    "2603.16142": 0,
+    "2606.00590": 0
+  },
+  "focus_sections": {
+    "3D生成与重建": [
+      "2606.07326",
+      "2606.06476",
+      "2606.07514"
+    ],
+    "视频生成": [
+      "2606.07508"
+    ],
+    "图像生成": [
+      "2606.06601",
+      "2606.07514"
+    ]
+  },
+  "summaries": {
+    "2606.07508": {
+      "short_zh": "流视频生成与力控制",
+      "tags": "计算机视觉；视频生成；可控视频生成",
+      "body_summary": "现有视频生成模型难以实时响应连续变化的物理力控制信号。\n提出StreamForce框架，用统一力表示实现实时、连贯的物理可控视频生成。"
+    },
+    "2606.07514": {
+      "short_zh": "通用单目相机逼真视图合成",
+      "tags": "计算机图形学;视图合成;通用单目渲染",
+      "body_summary": "将逼真视图合成方法扩展到通用单目渲染，以支持从透视到鱼眼等各种相机系统。\n提出UniSHARP方法，在统一全景隐空间中对齐特征和高斯，构建新基准并取得显著性能提升。"
+    },
+    "2606.06601": {
+      "short_zh": "可控三维物体插入",
+      "tags": "计算机视觉;图像合成;三维可控物体插入",
+      "body_summary": "现有物体插入方法多基于二维图像修复，缺乏对物体三维姿态的显式控制。\n本工作提出一个分解注入框架，通过分离的外观、几何和上下文引导，实现高保真且姿态可控的物体插入。"
+    },
+    "2606.07326": {
+      "short_zh": "沉浸式世界交互仿真建模",
+      "tags": "计算机图形学;沉浸式仿真;一视角世界交互建模",
+      "body_summary": "现有交互式世界建模的可控性不足，难以满足实际应用需求。\n提出AnchorWorld框架，通过引入第三人称视角辅助训练增强交互完整性，并设计基于锚定视图和文本描述的自定义世界演化机制，显著提升了仿真性能与控制灵活性。"
+    },
+    "2606.06476": {
+      "short_zh": "视觉语言模型空间推理",
+      "tags": "多模态人工智能;具身智能与智能体;视觉空间推理",
+      "body_summary": "现有视觉语言模型受限于观察到的图像和文本思维链，在空间推理上难以推断未观察到的布局、保持跨视图一致性或从不同视角推理。\n提出了Astra框架，包含经强化学习训练的视觉语言模型策略Astra-VL和基于世界模拟器Astra-WM的视觉想象能力，通过交互式想象获取新视角观察以提升空间推理性能。"
+    },
+    "2606.07502": {
+      "short_zh": "过滤嵌入高频词提升语义",
+      "tags": "自然语言处理;文本表示学习;大语言模型嵌入优化",
+      "body_summary": "大语言模型零样本能力虽强但用作通用文本嵌入模型效果欠佳，可能因嵌入向量过度表达高频但无意义的词汇。\n提出线性变换方法过滤嵌入中由解嵌入矩阵编码的高频词汇子空间，从而增强语义表示并实现降维。"
+    },
+    "2606.07229": {
+      "short_zh": "大规模音频编辑评测基准构建",
+      "tags": "音频处理;音频编辑;指令式音频编辑评测",
+      "body_summary": "现有音频编辑评测体系零散且局限于特定子领域，难以全面评估通用指令式音频编辑模型能力。\n构建了首个大规模多任务音频编辑评测基准MMAE，涵盖7种音频模态和6级任务复杂度，并提出了基于评分细则的评估框架以精确量化模型性能。"
+    },
+    "2606.05563": {
+      "short_zh": "评估大语言模型自动调解能力",
+      "tags": "自然语言处理;对话系统;大模型中介评估",
+      "body_summary": "现有方法难以准确评估大语言模型作为主动调解员的表现\n提出新基准SoCRATES，在多领域真实场景下评估模型，并发现模型调解能力仍有较大不足"
+    },
+    "2606.05761": {
+      "short_zh": "长时AI智能体记忆关系识别评测",
+      "tags": "人工智能智能体;长期记忆;记忆关系识别",
+      "body_summary": "现有长期记忆评测很少检验智能体在下游任务中如何保持和利用记忆间的复杂关系。\n构建了SubtleMemory基准，通过关系控制语义片段嵌入历史，评估多种记忆系统在精细记忆关系判别上的能力。"
+    },
+    "2606.05806": {
+      "short_zh": "大模型工具失败时如何恢复",
+      "tags": "自然语言处理;大语言模型智能体;工具集成推理的鲁棒性评测",
+      "body_summary": "现有基准测试主要评估大语言模型在理想“顺境”下使用工具的能力，忽视了真实场景中的工具故障。\n本文提出了ToolMaze基准，用于评测智能体在工具故障下的动态重规划和错误恢复能力，发现现有模型在此方面存在显著瓶颈。"
+    },
+    "2606.07433": {
+      "short_zh": "基于MLLM的视频理解综述",
+      "tags": "多模态学习;视频理解;多模态大语言模型视频智能",
+      "body_summary": "视频理解研究正从短片段转向长视频、多模态、知识密集场景，对模型处理稀疏证据、长程依赖和多模态对齐的能力提出了挑战。\n本文从人类认知的“观看、记忆、推理”三个能力出发，提出了一个统一的分析框架来梳理视频MLLM系统，系统综述了感知、记忆、推理方法以及应用、数据集和未来方向。"
+    },
+    "2606.06953": {
+      "short_zh": "用高质量数据优化人体运动追踪",
+      "tags": "计算机图形学；角色动画；物理人体运动跟踪",
+      "body_summary": "现有基于物理的角色动画常需大量运动捕捉数据训练跟踪策略，但数据质量参差不齐影响效果。\n提出从物理可行性、多样性和复杂度三个维度定义并筛选高质量运动数据，仅用少量数据即可训练出更优的跟踪策略。"
+    },
+    "2606.07080": {
+      "short_zh": "构建大规模连续自回归语音合成模型",
+      "tags": "语音合成;神经声码器;连续自回归语音合成",
+      "body_summary": "本文致力于构建一个能够生成高质量、高稳定性和富有表现力语音的大规模连续自回归文本转语音基础模型。\n我们提出了一个2B参数的连续自回归TTS模型dots.tts，通过设计结构化语音空间、利用全历史条件生成和应用自校正训练等创新，显著提升了语音质量与稳定性，并在多个基准测试中达到开源最优性能，同时通过蒸馏实现了低延迟推理。"
+    },
+    "2606.05972": {
+      "short_zh": "用因果图解释大语言模型推理",
+      "tags": "自然语言处理;大语言模型可解释性;因果图与反事实链解释",
+      "body_summary": "现有因果图多用于描述外部世界过程，本文则用因果图建模大语言模型自身的推理过程。\n提出四阶段方法，通过发现概念、反事实增强和因果发现，为三个任务构建了揭示模型推理的因果图。"
+    },
+    "2606.07454": {
+      "short_zh": "每日科研论文流推荐框架",
+      "tags": "信息检索;个性化推荐;科研论文流推荐",
+      "body_summary": "现有论文推荐方法多为静态排序，但科研阅读是兴趣会随时间变化的连续过程。\n提出了包含画像、推荐、适应三阶段的PaperFlow框架，构建了纵向评测基准并验证了其效果。"
+    },
+    "2606.06741": {
+      "short_zh": "开放世界大模型智能体自我进化框架",
+      "tags": "自然语言处理;智能体学习;开放世界自我进化",
+      "body_summary": "现有智能体自适应方法依赖预设学习循环，而真实开放世界仅提供任务提示\n提出OpenSkill框架，从开放资源获取知识构建可验证技能，通过自制虚拟任务实现无监督进化"
+    },
+    "2606.06891": {
+      "short_zh": "在线三维场景语言模型实时理解",
+      "tags": "计算机视觉;三维视觉理解;流式三维空间理解",
+      "body_summary": "现有三维大模型需要完整场景观测或预定义视频片段，无法处理实时视频流。\n我们提出在线三维视觉语言模型，通过增量几何先验注入和自适应体素压缩实现实时空间理解，并构建大规模数据集和评测基准。"
+    },
+    "2605.26046": {
+      "short_zh": "LLM评委多目标提示优化的失败模式",
+      "tags": "机器学习;大语言模型应用;提示优化",
+      "body_summary": "定制LLM评委需同时优化多个评分标准，但文本梯度方法在多目标设置中遇到挑战。\n本文扩展TextGrad，测试四种多目标分解方法，发现梯度稀释与指令干扰两种失败模式。"
+    },
+    "2606.07207": {
+      "short_zh": "熵调控扩散模型增强音乐多样性",
+      "tags": "生成式AI;扩散模型;音乐生成",
+      "body_summary": "在监督扩散模型训练中，传统认为基于置信度的损失加权会放大错误，但本文挑战了这一直觉。\n我们提出一种基于输出熵的无参数梯度加权方法，在音乐生成任务中实现了更好的主题发展、声学区分和纹理多样性，而非模式崩溃。"
+    },
+    "2606.07412": {
+      "short_zh": "Socratic-SWE：利用自解轨迹训练软件工程智能体",
+      "tags": "软件工程；智能软件工程；代码修复智能体自进化",
+      "body_summary": "现有基于大模型的软件工程智能体训练受限于高质量任务数据，且合成方法无法针对智能体弱点进行调整\n我们提出了一个闭环自进化框架，从智能体历史解决轨迹中提炼结构化技能并生成针对性训练任务，从而持续提升其性能"
+    },
+    "2605.27276": {
+      "short_zh": "自改进AI同时优化外挂与权重",
+      "tags": "机器学习;模型优化;AI自改进",
+      "body_summary": "提升AI性能通常依赖人工调整模型或外挂\n提出SIA系统让AI通过反馈同时优化外挂与权重提升多项任务表现"
+    },
+    "2606.06538": {
+      "short_zh": "构建多模态大模型视觉推理评测基准",
+      "tags": "多模态学习;视觉语言理解;多模态基准评测",
+      "body_summary": "现有基准缺乏视觉多样性，难以评估模型对开放视觉输入的可靠理解。\n提出视觉多样且具挑战性的基准WorldBench，通过概念分类法构建图像集与难题，评测发现主流模型性能仍有不足。"
+    },
+    "2606.01779": {
+      "short_zh": "联合演进智能体结构与策略",
+      "tags": "智能体系统；元适应；结构与策略协同演化",
+      "body_summary": "现有智能体系统难以适应异构任务，需要整体协同演化。\n提出HarnessForge框架，联合演化外部结构和内部策略，提升系统适应性和效率。"
+    },
+    "2603.16142": {
+      "short_zh": "大模型模拟舆论时注入社会身份参数",
+      "tags": "自然语言处理;大语言模型应用;舆论模拟多样性增强",
+      "body_summary": "大语言模型（LLMs）被用于模拟公众舆论以替代耗时费力的传统调查，但存在模拟结果多样性不足的问题。\n我们提出了一种参数化社会身份注入方法，直接在模型内部表征中注入人口属性和价值取向参数，有效提升了模拟结果的分布保真度和多样性。"
+    },
+    "2606.00590": {
+      "short_zh": "提升智能搜索的检索器反馈优化",
+      "tags": "自然语言处理;信息检索;智能搜索与推理代理",
+      "body_summary": "针对复杂查询的智能搜索系统优化检索模型存在挑战。\n提出Critic-R框架，利用自省反馈优化查询和检索模型，提升检索质量和答案准确率。"
+    }
+  },
+  "deep_analysis": {
+    "2606.07508": "好的，没问题！我们一步一步来，用简单的语言拆解这篇论文。\n\n### (1) 任务是什么？\n这篇论文研究的是 **“可控视频生成”** 中的一个特定任务。\n\n*   **任务输入**：\n    1.  **一张起始图片**：视频的第一帧。\n    2.  **一个连续的“力”的控制信号**：这是核心输入。这个“力”可以有两种形式：\n        *   **全局力**：影响整个场景，比如一阵风吹过整个画面。\n        *   **局部力**：只作用在画面的特定区域，比如用手指推画面里的某个物体。\n        *   关键在于，这个“力”是**随时间变化的**，你可以随时改变它的大小和方向（比如先向左推，再向右拉）。\n*   **任务输出**：一段**连续、流畅的视频**。视频中的物体和场景会根据你输入的“力”信号，做出符合物理规律的动态反应（比如被风吹动、被推动后滑动）。\n*   **任务功能**：让用户能够像玩一个“物理模拟器”一样，通过施加不同的“力”，实时地、交互式地生成和操控视频内容。你施加力，模型立刻生成对应的动态，你看到效果后可以马上调整力，视频也随之改变。\n\n### (2) 想解决什么问题？\n现有方法有三个主要问题：\n1.  **模型割裂**：以前的力控制方法，把“全局力”和“局部力”当作两个完全不同的问题，需要训练两个独立的模型，既费资源又学不到通用的物理规律。\n2.  **无法实时交互**：大部分模型（如基于扩散的模型）是“离线”生成视频的。你必须提前把所有帧的力都设定好，它一次性生成完整视频。你不能在生成过程中，根据看到的效果去调整力。\n3.  **力的变化不连贯**：训练数据里的力通常是固定不变的（比如一段视频里风一直朝一个方向吹）。所以当用户在生成中途突然改变力（比如风突然转向），模型不知道该怎么处理，生成的动作会不连贯、不自然。\n\n这篇论文的目标是：**造一个统一的、能实时交互的、对变化力响应连贯的视频生成模型。**\n\n### (3) 贡献是什么？\n1.  **统一的力量表示法**：提出了一个统一的“力地图”来表示所有类型的力（全局和局部）。这样，一个模型就能学会处理各种力，学习到的物理规律也能共享。\n2.  **构建了动态力的数据集**：创建了包含**随时间变化力**的训练数据，让模型学会如何应对用户在生成中途改变力的情况。\n3.  **提出了“力感知”的知识蒸馏流程**：这是技术核心。为了让模型能“实时”（因果、自回归）生成，他们从一个强大的“老师模型”（一个双向、离线的扩散模型）中蒸馏知识到一个“学生模型”（一个单向、实时的模型）。但直接蒸馏会导致学生模型忘记怎么响应“力”。他们改进的流程确保了学生模型既保持了生成质量，又牢牢记住了“力”与“运动”的对应关系。\n\n### (4) 整体思路和模型结构？\n**核心思路**：用一个强大的“老师”教一个轻快的“学生”，并确保学生学会对“力”做出反应。\n\n**整体流程（两步走）**：\n1.  **训练“老师模型”**：\n    *   **基模**：这个老师模型是基于**扩散模型**的。扩散模型是目前生成质量最好的模型之一，但速度慢，且是离线的。\n    *   **输入**：一张起始图片 + 一套描述每一帧受力情况的“力地图”。\n    *   **过程**：老师模型能看到整个视频的所有帧和所有力（双向信息），学习到非常准确的“力->运动”的物理规律。它生成的质量很高，但不能实时交互。\n2.  **蒸馏“学生模型”**：\n    *   **基模**：这个学生模型是基于**Transformer的自回归模型**（类似GPT生成文字）。它只能根据当前和过去的信息预测下一帧，所以能实时生成。\n    *   **输入**：起始图片 + **到目前为止**的所有已生成帧 + **到目前为止**的所有力信号。\n    *   **过程（关键！）**：\n        *   用老师模型生成大量高质量的“（图片，力序列）-> 视频”样本对。\n        *   用这些样本对去训练学生模型。学生模型的任务是：给定起始图和一段力的历史，预测出老师模型生成的那一帧。\n        *   **论文的改进**：在蒸馏过程中，他们特别强调让学生模型关注“力”这个条件。不仅仅是模仿老师的输出画面，更要模仿“在特定力的输入下，应该产生什么样的画面”这个映射关系。他们还用了大量多样的图片-力数据来训练，保证学生模型有很好的泛化能力。\n\n**简单比喻**：\n*   **老师**：一个精通物理的动画大师。你给他一个剧本（完整的力变化描述），他闭关一段时间，画出一整部高质量的动画片。\n*   **学生**：一个反应很快的实习生。你一边口头指挥他（实时输入力），他一边当场作画。他是通过反复观看大师的作品（蒸馏），并特别注意大师是如何根据指挥（力）来下笔的，从而学会实时作画的技巧。\n\n### (5) 结果怎么样？\n论文宣称取得了非常好的效果：\n\n1.  **性能领先**：在“力控制的准确性”和“生成动作的真实感”两个核心指标上，都超过了之前最好的方法（Force-Prompting等）。\n2.  **实时高效**：在单张H200 GPU上，能以 **16.6 FPS** 的速度生成832x480分辨率的视频，延迟只有0.6秒。这基本达到了实时交互的水平。\n3.  **功能强大**：模型成功实现了论文的核心目标：**统一的力处理**（一个模型搞定全局和局部力）、**流式生成**（实时出结果）、**对变化力响应连贯**（用户中途改力，视频动态也能平滑过渡）。\n\n**总结一下**：这篇论文就像给视频生成模型装了一个“物理引擎”和“实时手柄”。你给一张图，然后通过“力”这个直观的物理信号去实时驱动它，就能得到一段符合物理规律的动态视频，并且可以随时干预整个过程。这让AI视频生成变得更像在操作一个交互式的虚拟世界。",
+    "2606.07514": "好的，我们一步步来看这篇论文，我会用通俗易懂的方式来解释。\n\n### (1) 任务是什么\n*   **任务名称**：**单目（单张图）新视角合成**。\n*   **任务输入**：**一张RGB图片**。这张图可以来自任何类型的相机，比如普通的手机相机（透视相机）、广角相机、鱼眼相机，甚至是能拍360度全景的相机。\n*   **任务输出**：**一个3D高斯点云模型**。这个模型可以被渲染成任意新角度的、高分辨率的彩色图片。\n*   **任务功能**：只给你一张图，模型就能“脑补”出整个场景的3D结构，然后让你可以像在3D软件里一样，自由地改变视角，看到这个场景的其他角度。\n\n### (2) 想解决什么问题\n之前一个很火的模型叫 **SHARP**，它非常擅长用一张普通相机（透视相机）的照片来做新视角合成。\n但是，**SHARP有个大问题：它只在普通相机拍的图上训练过，一旦给它一张广角、鱼眼或者全景图，它就“懵了”，效果很差。**\n这是因为普通相机（小视野）和广角/全景相机（大视野）拍出来的图像扭曲程度、投影方式完全不同，SHARP这种基于像素坐标来预测3D点的方法就不适用了。\n这篇论文的核心就是想解决这个问题：**如何让SHARP这类方法变得“通用”，能处理世界上所有类型的相机拍出来的照片。**\n\n### (3) 贡献是什么\n这篇论文主要有四个贡献：\n1.  **提出了UniSHARP模型**：这是核心，一个能处理各种相机（透视、广角、鱼眼、全景）的单目新视角合成模型。\n2.  **统一表示法**：他们设计了一种“**基于射线和半径的统一表示法**”。简单说，就是不再用容易受相机类型影响的“像素坐标”来定位3D点，而是用“从相机中心发出的射线方向”和“点到相机的距离”来定义。这样，无论什么相机，数据都能被映射到同一个3D空间里。\n3.  **特征融合**：模型同时提取图片的2D语义特征（比如哪里是墙，哪里是桌子）和3D空间特征，然后把它们融合在一起，共同预测出更准确的3D高斯点云。\n4.  **建立了一个全面的新评测基准**：为了公平地测试“通用”性能，他们自己收集并整理了一个包含**四种相机类型**（透视、广角、鱼眼、全景）、覆盖多种场景的数据集。这样就能清楚地看出一个模型在不同视野下的表现好坏。\n\n### (4) 整体思路与模型结构\n**基模**：这篇论文的基模是 **SHARP**。你可以把UniSHARP看作是给SHARP做了一次“大升级”，让它从“只能开小轿车”变成了“能开轿车、卡车、越野车甚至坦克”的全能选手。\n\n**整体流程**：\n1.  **输入**：一张来自任意相机的图片。\n2.  **特征提取**：\n    *   图片会先经过一个**2D图像编码器**（比如像UniK3D里用的那种），提取出丰富的2D语义特征。\n    *   同时，模型会根据一个**3D空间查询网络**，生成一组表示3D空间位置的“锚点”特征。\n3.  **特征融合与解码**：\n    *   将上面得到的2D特征和3D锚点特征在模型内部进行**交叉注意力**操作，让2D的“外观信息”和3D的“位置信息”充分交流。\n    *   融合后的特征被送入一个**解码器**。\n4.  **生成3D高斯点云**：\n    *   解码器会输出两样东西：\n        *   **几何锚点高斯**：这是第一步预测，基于“射线-半径”表示法，生成一组基础的、位置和大小都比较粗糙的3D高斯点。\n        *   **高斯残差**：这是第二步细化。模型会再预测一组更精细的调整量（残差），加到第一步的基础高斯点上，让它们的位置、颜色、透明度等属性变得更精确。\n    *   **全景图特别处理**：如果输入是全景图，模型还会使用一些特殊技巧，比如在球面上初始化高斯点、用特殊的丢弃策略，来应对全景图边缘严重扭曲的问题。\n5.  **渲染与输出**：\n    *   最终，我们得到了一个完整的、精细的**3D高斯点云**。\n    *   把这个点云输入到标准的**3D高斯渲染器**里，给定一个你想要的新视角的相机参数，渲染器就能立刻生成一张该视角下的**高清彩色图片**。\n    *   **无参数模式**：如果连输入图片的相机参数都没有，UniSHARP还能先预测一下图片来自哪种相机（射线场），然后再进行上述流程。\n\n**简单总结**：输入一张图 -> 提取2D和3D特征并融合 -> 分两步（基础+细化）预测出3D高斯点 -> 用3D高斯渲染器渲染出新视角图片。\n\n### (5) 结果怎么样\n论文在他们新建的那个全面的评测基准上进行了大量实验，结果表明：\n*   **全面领先**：UniSHARP在**所有相机类型**（透视、广角、鱼眼、全景）的新视角合成任务上，都**大幅度超过了**其他对比方法。\n*   **指标优秀**：在衡量图片质量的PSNR、SSIM、LPIPS等标准指标上，UniSHARP都取得了最好的成绩。\n*   **视野越大，优势越明显**：随着相机视野从普通的60度增大到360度全景，UniSHARP相比其他方法的优势变得更加明显。这说明它的“统一表示法”在处理大视野图像扭曲时非常有效。\n*   **视觉效果出色**：从论文给出的图片看，UniSHARP生成的新视角图片细节更清晰、几何更准确、伪影更少。\n\n**一句话总结**：这篇论文成功地将单目新视角合成技术从“小众”（只适用于普通相机）推广到了“大众”（适用于所有相机），效果还非常好，是该领域一个重要的进展。",
+    "2606.06601": "当然没问题！这篇论文讲的是一个非常实用且有趣的任务。我来给你拆解一下，就像聊天一样。\n\n### (1) 任务是什么？\n*   **任务名称**：**姿态可控的物体插入**。\n*   **任务输入**：三样东西：\n    1.  **背景图**：你想往里面加东西的场景照片。\n    2.  **参考物体图**：一张你想要插入的物体的照片（比如一个特定款式的沙发）。\n    3.  **目标姿态**：你想让这个物体在背景里以什么样的3D姿态摆放（比如“向右旋转30度，靠墙放”）。\n*   **任务输出**：一张**新的合成图片**。在这张图里，参考物体被无缝地、真实感十足地“放”进了背景图的指定位置，并且其3D姿态完全符合你的要求。\n*   **任务功能**：让普通人也能像专业3D设计师一样，轻松地把一个物体（比如新买的家具）以任意角度“预览”到自家房间的照片里，看效果是否合适。\n\n### (2) 想解决什么问题？\n现有方法（基于强大的2D生成模型如Stable Diffusion）做物体插入时，有两个主要问题：\n1.  **“说不清”**：如果用文字描述姿态（比如“靠在左边”），语言太模糊，AI经常理解错，摆出奇怪的姿势。\n2.  **“控不住”**：如果用简单的3D旋转角度（如“绕Y轴转30度”）来控制，这种抽象的数字很难精确地对应到图像上每个像素应该怎么变形，导致控制不精准。\n\n**核心问题**：缺乏一种**直观、精准**的方式来告诉AI：“我要这个物体，以**这个具体的3D样子**，放在这里。”\n\n### (3) 贡献是什么？\n这篇论文主要有三大贡献：\n1.  **新框架（DIRECT）**：提出了一个全新的生成框架，首次将**交互式3D姿态操控**与**高保真2D图像合成**紧密结合，解决了姿态控制不准的难题。\n2.  **“分而治之”的引导策略**：创新地把生成条件分解为三个独立的部分（**外观、几何、上下文**），并通过不同的路径“注入”给模型。这样，模型就能同时做到：保持物体原样、遵循指定姿态、融入场景光影，互不干扰。\n3.  **高质量训练数据构建流水线**：因为缺少“真实场景+多视角物体”的配对数据，他们设计了一个自动化流程，利用大模型（VLM）和生成式编辑模型，从海量的单张网络图片中“制造”出高质量的训练数据，大大提升了模型的泛化能力。\n\n### (4) 整体思路与模型结构\n**基模**：他们使用的是强大的**文本到图像扩散模型**（如Stable Diffusion）作为基础。\n\n**核心思路一句话**：**用一个看得见的“3D替身”来精准控制姿态，同时用原物体的高清照片保真，让两者协作生成。**\n\n**整体流程（对照“流程图”逻辑）**：\n1.  **输入与准备**：你提供了背景图、物体参考图和想要的姿态。\n2.  **创建“3D视觉替身”**：使用一个现成的“图生3D”工具，把那个**物体参考图**快速变成一个粗糙的3D模型（这个模型可能有点丑，纹理模糊，但形状大致对）。这就是论文说的“3D视觉代理”。\n3.  **渲染“姿态蓝图”**：把这个粗糙的3D模型，按照你指定的**目标姿态**在虚拟空间里摆好，然后渲染出一张2D图片。这张图就是**几何引导**——它清晰地标明了物体在这个姿态下应该是什么轮廓、怎么透视，但画面质量很差。\n4.  **“三路分导”生成**：把三样东西一起输入到他们改进的扩散模型（DIRECT）中：\n    *   **几何引导**：上面渲染的那张“姿态蓝图”，通过一个专门的编码器处理，告诉模型 **“形状和位置得按这个来”**。\n    *   **外观引导**：原始的**物体参考图**，通过另一个编码器处理，告诉模型 **“表面纹理和细节得照这个画”**。\n    *   **上下文引导**：**背景图**本身，告诉模型 **“光影和氛围得跟这里协调”**。\n    模型内部有并行的处理通路，分别接收这三种信号，避免它们互相“打架”。\n5.  **去噪与合成**：扩散模型开始工作，从一个随机噪声图出发，在“几何”的约束下，“外观”的细节补充下，“上下文”的环境调和下，一步步去噪，最终**生成一张全新的图片**。在这张图里，物体以精确的姿态出现在背景中，看起来既真实又自然。\n\n### (5) 结果怎么样？\n论文通过大量实验证明，他们的方法（DIRECT）效果很好：\n\n*   **定量评估（看数字）**：在他们构建的数据集上，DIRECT在多项指标（如衡量图片质量的FID，衡量身份保持的DINO相似度等）上都**超过了之前的先进方法**。\n*   **定性评估（肉眼看）**：生成图片的**视觉质量更高**，物体的**姿态控制最精准**，与场景的融合（阴影、光照）也最自然。如图1所示，对比方法要么姿态不对，要么物体变形，而他们的结果又准又好。\n*   **鲁棒性强**：即使第一步生成的“3D视觉替身”比较粗糙或有瑕疵，他们的模型也能很好地利用其中的几何信息，最终生成高质量的图片，表现出很强的容错能力。\n\n**总结一下**：这篇论文就像给AI生成配了一个“3D预览拖拽工具”，解决了“往图里放东西时位置角度不准”这个痛点，让可控图像编辑向实用化迈进了一大步。",
+    "2606.07326": "这篇论文的核心内容可以用一个简单的比喻来理解：**它想造一个“第一人称视角的游戏引擎”，让你能用真实的肢体动作（比如走路、挥手）来控制游戏里的角色探索世界，并且这个世界里的场景和物体还能根据你的指令自己变化和生长。**\n\n下面我为你详细拆解一下：\n\n### 1. 任务是什么？\n*   **任务输入：**\n    1.  **一个初始的“第一人称”视角画面**：就像你玩游戏刚睁开眼看到的第一帧。\n    2.  **你接下来的动作指令**：不是键盘按键，而是**真实的3D人体动作**（比如走路、转身、伸手）。\n    3.  **（可选）你想自定义的世界锚点**：你可以在虚拟世界的不同位置“钉”一些“锚”，每个锚包含：\n        *   **一张在那个位置看到的图片**：定义那里长什么样。\n        *   **一个3D姿态**：精确指明锚点在世界中的位置和朝向。\n        *   **一句文本提示**：描述这个锚点区域未来会如何演变（比如“篝火越烧越旺”、“树苗慢慢长大”）。\n*   **任务输出：** 一段**连续的第一人称视角视频**，展示你的虚拟化身按照你的动作指令在探索，并且你“钉”下的锚点区域会按照你的文本提示动态演变。\n*   **任务功能：** 创造一个**可由真实人体动作交互**且**能按需定制和演化**的沉浸式虚拟世界。这可以用于虚拟现实、训练机器人、生成互动内容等。\n\n### 2. 想解决什么问题？\n现有技术有两个主要短板：\n*   **动作控制不“真”**：以前的方法多用键盘或简单轨迹控制，不自然。虽然有研究开始用人体动作，但训练时有个大麻烦：第一人称视频里**看不到自己大部分身体**（只能看到手和一点躯干），模型很难把“全身3D动作”和“第一人称看到什么”准确关联起来，学得慢、效果差。\n*   **世界定制不“灵”**：虚拟世界的场景通常由一个开头画面或一句全局描述（如“一个客厅”）决定，你无法精确指定“在房间东北角3米处放一个会自己长大的盆栽”，也无法让远处你还没走到的地方提前开始变化。\n\n这篇论文就是要解决这两个问题：**如何让模型更好地理解人体动作对第一人称视角的影响**，以及**如何让用户能灵活、精确地定制和演化虚拟世界的局部状态**。\n\n### 3. 贡献是什么？\n1.  **提出了一个新任务**：**“可定制世界的具身第一人称模拟”**，把真实人体动作控制和局部世界定制结合了起来。\n2.  **提出了一个新框架**：**AnchorWorld**。它的核心是两个“法宝”：\n    *   **混合视角人体动作控制**：训练时不仅用第一人称视频，还巧妙地引入**第三人称视频**作为辅助监督。因为第三人称能看到完整的人体和环境互动，模型就能更好地学会“做某个全身动作时，第一人称视角应该看到什么”。\n    *   **可演化的锚点视图定制**：让用户通过“锚点”（包含图片、3D位姿和演变提示）来像“钉钉子”一样，在虚拟世界的精确坐标上定义场景，并指挥它如何变化。\n3.  **提出了渐进式训练策略**：像搭积木一样，先训练基础的世界模型，再逐步加入动作控制和锚点定制功能，让模型学得更稳、更好。\n4.  **实验效果好**：在各种测试中（第一人称、游戏引擎场景、真实场景），效果都比之前的先进方法好，特别是在**动作控制的准确性**、**场景的一致性**和**动态演变的可控性**上。\n\n### 4. 整体思路与模型结构\n论文没有依赖一个特定的“基模”（如Stable Diffusion），而是构建了一个**基于Transformer的扩散模型**来生成视频。你可以把它想象成一个能理解和生成视频的“大脑”。\n\n**整体流程如下（参照图1和论文描述）：**\n\n**阶段一：模型初始化**\n*   **输入**：大量的第一人称和第三人称视频片段，以及对应的人体3D动作数据。\n*   **过程**：模型先学习一个基础的“世界模型”，即理解视频帧之间的时空关系，并能根据一个起始帧预测接下来的几帧。此时还没有很强的动作控制和定制能力。\n\n**阶段二：引入“混合视角动作控制”**\n*   **输入**：在基础模型上，用**配对的数据**（同一段动作，既有第一人称视频，也有对应的第三人称视频）进行训练。\n*   **关键设计**：\n    1.  将人体的3D姿态和**相机视角**（是第一人称还是第三人称）一起输入模型。\n    2.  模型学会一个关键能力：无论你给它的是第一人称还是第三人称的视角信息，它都能推断出“在这个全身动作下，从**第一人称视角**应该看到什么”。这解决了“第一人称看不到全身”的监督难题。\n*   **输出**：此时模型已经能根据人体动作，生成比较靠谱的第一人称视角视频了。\n\n**阶段三：引入“锚点视图定制”**\n*   **输入**：\n    1.  初始的第一人称帧。\n    2.  用户的动作序列。\n    3.  **一个或多个“锚点”**（每个锚点包含：图片 + 3D位姿 + 演变提示）。\n*   **过程**：\n    1.  **锚点先验注入**：模型将锚点的图片和3D位姿编码，作为对世界特定区域的“记忆”或“蓝图”，存入模型的内部表示中。这告诉模型：“世界里的这个位置，应该长这样。”\n    2.  **视角姿态对齐**：当用户用动作控制虚拟角色移动时，模型会实时计算当前第一人称视角与各个锚点3D位姿之间的空间关系（比如距离、角度）。这确保了无论用户走到哪，模型都能知道锚点区域相对于当前视角的位置。\n    3.  **文本驱动演变**：模型根据每个锚点附带的“演变提示”（如“火在燃烧”），结合时间信息，动态地修改对锚点区域的“记忆”，使其内容随时间变化。这个演变过程是**局部且独立**的，只影响锚点附近区域。\n*   **输出**：最终生成的第一人称视频中，用户不仅能用自己的动作探索，还会看到之前设定的锚点区域（即使一开始不在视野里）出现在正确的位置，并且按照文本提示在动态变化。\n\n**总结流程链**：`初始帧 + 3D人体动作序列 + （可选）锚点集` -> **模型（已通过渐进策略训练）** -> `融合了正确动作反馈和锚点定制演变的连续第一人称视频`。\n\n### 5. 结果怎么样？\n论文进行了大量实验，结果表明：\n*   **对比实验**：AnchorWorld在**动作控制准确性**（生成的视频与给定动作的匹配度）、**场景一致性**（物体在不同视角下看起来合理）、**动态质量**（视频流畅、逼真）等多个指标上，都**显著超过了**其他最新的方法。\n*   **消融实验**：证明了论文的两个核心设计（混合视角训练、锚点定制）各自都不可或缺，拿掉任何一个，性能都会下降。\n*   **亮点展示**：\n    *   **强大的视角泛化**：即使初始视角和锚点视角重叠很少（比如完全背对），模型也能正确渲染出锚点场景。\n    *   **精确的空间一致性**：对锚点区域进行旋转、缩放等空间变换后，模型生成的场景能保持正确的几何关系。\n    *   **可控的动态演化**：锚点区域能严格按照文本提示（如“从白天到夜晚”、“植物生长”）进行演变，并且这种演变是局部化的，不影响其他区域。\n*   **局限性**：文中也提到，在处理非常复杂的长序列动作、需要极精细物理交互（如精确的物体操控）、或理解非常抽象的演变提示时，模型仍然会面临挑战。\n\n总而言之，AnchorWorld朝着构建一个更自然、更可控的沉浸式虚拟世界迈出了扎实的一步，让用户不仅能“用身体”去探索，还能“像上帝一样”随手定制和点亮世界的各个角落。",
+    "2606.06476": "这篇论文讲的是如何让AI模型像人一样，通过“想象”新视角来更好地解决**视觉空间推理**问题。下面我用简单的方式为你梳理一下。\n\n### (1) 任务是什么\n*   **任务输入**：给模型几张从不同角度拍摄的**场景图片**（例如，房间里的一张桌子），以及一个关于这个场景的**空间关系问题**（例如，“椅子在桌子的左边还是右边？”）。\n*   **任务输出**：模型需要输出这个**空间问题的答案**。\n*   **任务功能**：让AI模型不仅能看懂给它的图片，还能在需要时，主动“想象”出从其他角度看到的画面，从而做出更准确的空间判断。这就像你看到房间一角，在脑子里想象走到另一边会看到什么一样。\n\n### (2) 想解决什么问题\n现有的视觉语言模型（VLMs，比如GPT-4V）在看图回答问题时，只能基于**给定的图片**进行推理。如果问题涉及图片中没有直接显示的角度或布局（比如被遮挡的物体、从另一侧看的关系），模型就容易出错。论文想解决的就是模型**缺乏空间想象力**、无法主动获取“未观测到”的视觉证据的问题。\n\n### (3) 贡献是什么\n1.  **提出了“用想象力思考”的新范式**：让模型从一个被动的“看图者”变成一个主动的“探索者”，可以自己决定什么时候、从什么角度去“想象”新画面来辅助推理。\n2.  **造了一个可靠的“世界模拟器”（Astra-WM）**：基于一个叫 **Bagel** 的图片生成模型进行改进，让它能根据“向前走两步”、“向左看”这样的文字指令，生成与原始场景**空间布局一致**的新视角图片，而不是随便乱画。\n3.  **训练了一个聪明的“推理代理”（Astra-VL）**：基于 **Qwen3-VL** 模型，用强化学习教会它两件事：**何时**需要调用模拟器来想象，以及想象到新画面后**如何**结合新旧信息进行推理。\n4.  **整体框架（Astra）有效**：实验证明，把上面两者结合起来，模型的空间推理能力比直接用强大的基座模型（如Gemini）或单纯让模型调用工具要好得多。\n\n### (4) 整体思路与流程\n整个系统叫 **Astra**，由两个核心部分组成：\n1.  **Astra-WM（世界模拟器）**：负责“想象”。你给它几张现有图片和一句相机移动指令（如“pan left”），它就生成一张从新角度“看”到的图片。\n2.  **Astra-VL（视觉推理代理）**：负责“思考”和“决策”。它看最初的图片和问题，决定是否需要想象，如果需要，就生成指令调用模拟器，然后根据模拟器返回的新图片继续推理。\n\n**基座模型**：\n*   世界模拟器基于 **Bagel**（一个图像生成模型）改进。\n*   推理代理基于 **Qwen3-VL**（一个强大的视觉语言模型）训练。\n\n**整体工作流程**（可以对照论文里的图看）：\n1.  **输入**：模型收到几张场景的初始图片和一个空间问题（比如：“B物体在A物体的哪边？”）。\n2.  **第一轮思考**：推理代理（Astra-VL）先直接看这些图片，尝试回答问题。如果它**很确信**答案，就直接输出。\n3.  **决定想象**：如果它对答案**不确定**（比如当前角度看不清楚关系），它就会**自主决定**需要“想象”一个新视角。\n4.  **规划行动**：推理代理生成一句**自然语言的相机运动指令**（例如，“请向右平移30度”），并调用世界模拟器（Astra-WM）。\n5.  **执行想象**：世界模拟器收到初始图片和这条指令，生成一张**符合指令要求且与原始场景一致**的新视角图片。\n6.  **整合与最终推理**：推理代理收到这张“想象”出来的新图片，把它和原来的图片放在一起，重新进行推理，最终**输出答案**。\n7.  （这个过程可以循环多次，想象多个新视角，直到模型确信为止）。\n\n**训练流程的关键**：\n*   **训练模拟器**：用了很多高质量的数据对Bagel进行“视角一致性调优”，确保它生成的图片在物体位置、形状等方面和原场景连贯。\n*   **训练推理代理**：用了**两阶段强化学习课程**：\n    *   **第一阶段**：先教模型学会正确使用模拟器这个“工具”，生成合理的指令。\n    *   **第二阶段**：教模型学会“偷懒”——即只有当真能帮上忙时才去想象，如果直接就能答对，就别费劲去调模拟器。这是通过比较“用工具”和“不用工具”的答案优劣来训练的。\n\n### (5) 结果怎么样\n论文在两个权威的视觉空间推理评测集上进行了测试：\n*   **MMSI-Bench**：Astra框架将基座模型Qwen3-VL的分数从 **29.8** 提升到了 **38.8**。同时，他们改进的世界模拟器（Astra-WM）也比直接用其他生成模型（如SDXL）辅助Gemini-3-Flash效果更好（从45.1提升到49.5）。\n*   **MindCube**：Astra将Qwen3-VL的分数从 **36.8** 提升到了 **42.7**。\n\n**结论**：实验结果证明了两个核心点：\n1.  **可靠的想象有用**：高质量的世界模拟器确实能提供有效的空间证据。\n2.  **聪明的调用更重要**：学会何时、如何想象（即Astra-VL的决策能力）比单纯拥有模拟器更重要。两者结合才能最大程度提升空间推理能力。\n\n**简单总结**：这篇论文让AI模型学会了“在脑子里转个角度看看”，通过主动想象缺失的视角来解决棘手的空间问题，并且通过专门的训练，让这个“想象”既靠谱（模拟器好）又聪明（知道什么时候该想）。"
+  },
+  "figures": {
+    "2606.07508": [
+      {
+        "path": "https://arxiv.org/html/2606.07508v1/x2.png",
+        "caption": "Figure 2:StreamForcemodel architecture and training pipeline.Stage 1: a bidirectional teacher is trained on synthetic force-conditioned videos using a unified force representation that supports both global and local force control with temporally changing forces (shown as color variations).Stage 2: the teacher generates ODE solution pairs from diverse and synthetic image–force inputs. These solution pairs are then used to initialize a causal student, where different noise levels are applied to the latent chunks during initialization (illustrated by the red dashed boxes), followed by Self-Forcing DMD distillation. The resulting model supports autoregressive video generation with dynamically changing force control.",
+        "role": "pipeline_1",
+        "caption_zh": "图 2：StreamForce 模型架构与训练流程。阶段 1：在合成的力条件视频上训练一个双向教师模型，该模型采用统一的力表征，支持全局与局部力控制，且力可随时间变化（以颜色变化示意）。阶段 2：教师模型从多样化的合成图像-力输入中生成 ODE 解对。这些解对随后用于初始化一个因果学生模型，其中在初始化过程中对潜在块施加了不同的噪声水平（如红色虚线框所示），接着进行自强制动态模态分解蒸馏。最终得到的模型支持在动态变化的力控制下进行自回归视频生成。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.07508v1/figures/wind_deeper_green.png",
+        "caption": "Figure 1:StreamForceenables users to generate streaming force-conditioned videos from a single image by predicting future scene dynamics. Motion is generated online as streaming forces are applied, and users can modify forces at any time to steer the evolving video.\nWe show theGlobal Force (affecting the entire scene like wind) andLocal Force (acting on specific regions like a push) examples in the bottom part.",
+        "role": "pipeline_2",
+        "caption_zh": "图 1：StreamForce 允许用户通过预测未来场景动态，从单张图像生成流式力条件视频。随着流式力的施加，运动可在线生成，且用户可随时修改力以引导视频演化。底部展示了全局力（如风一样影响整个场景）与局部力（如推动特定区域）的示例。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.07508v1/x4.png",
+        "caption": "Figure 6:Ablation Studies.F-Prompt Rep.: use Force-Prompting[15]representation.Separate: train separate models for global and local force.\nUsing a unified force representation with joint training (Ours-teacher) maintains generation quality while enabling cross-force generalization. This capability also carries over to the autoregressive model (Ours).indicates unified model for local and global force whileindicates a separate model.",
+        "role": "pipeline_3",
+        "caption_zh": "图 6：消融实验。F-Prompt 表示（F-Prompt Rep.）：使用 Force-Prompting[15] 表示。分离模型（Separate）：为全局力和局部力分别训练独立模型。采用联合训练的统一力表示（Ours-teacher）在保持生成质量的同时实现了跨力泛化。这一能力也延续到了自回归模型中（Ours）。表示局部力与全局力的统一模型，而表示独立模型。"
+      }
+    ],
+    "2606.07514": [
+      {
+        "path": "https://arxiv.org/html/2606.07514v1/x2.png",
+        "caption": "Figure 2:UniSHARP pipeline for universal-camera monocular novel view synthesis.\nGiven a single source image, UniSHARP estimates ray-distance geometry and multi-scale features, initializes two-layer Gaussians in ray-distance space, predicts Feature Conditioned Gaussian residuals, and renders target views with the unified Gaussian representation across perspective, wide-FoV, fisheye, and panoramic cameras.",
+        "role": "pipeline_1",
+        "caption_zh": "图 2：用于通用相机单目新视角合成的 UniSHARP 流程。给定单张源图像，UniSHARP 估计射线距离几何与多尺度特征，在射线距离空间中初始化双层高斯分布，预测特征条件高斯残差，并利用跨透视、宽视场、鱼眼及全景相机的统一高斯表示对目标视角进行渲染。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.07514v1/x1.png",
+        "caption": "Figure 1:UniSHARP performs monocular novel view synthesis across diverse camera types.\nGiven a single image from a perspective, wide-FoV, fisheye, or panoramic camera, UniSHARP predicts a 3D Gaussian point cloud and renders high-quality novel views.",
+        "role": "pipeline_2",
+        "caption_zh": "图 1：UniSHARP 能够跨多种相机类型实现单目新视角合成。给定一张来自透视、广角、鱼眼或全景相机的单一图像，UniSHARP 可预测三维高斯点云并渲染高质量的新视角图像。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.07514v1/x3.png",
+        "caption": "Figure 3:Qualitative comparison on perspective novel view synthesis.\nGiven a single source image, UniSHARP produces sharper target-view geometry and fewer disocclusion artifacts than perspective monocular baselines, while preserving view-consistent scene structure.",
+        "role": "pipeline_3",
+        "caption_zh": "图 3：基于单幅源图像的透视新视角合成定性对比。在视角一致性的场景结构保持前提下，UniSHARP 相较于单目透视基线方法，能够生成几何细节更清晰、遮挡伪影更少的目标视角结果。"
+      }
+    ],
+    "2606.06601": [
+      {
+        "path": "https://arxiv.org/html/2606.06601v1/x3.png",
+        "caption": "Figure 3:Geometric semantic ambiguity.Standard spatial signals, such as depth and normal maps, fail to distinguish the orientation of symmetric objects, whereas our RGB geometric condition explicitly preserves semantic pose.",
+        "role": "pipeline_1",
+        "caption_zh": "图 3：几何语义模糊性。标准的空间信号（如深度图和法向图）无法区分对称物体的朝向，而我们的 RGB 几何条件则明确保留了语义姿态。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.06601v1/x6.png",
+        "caption": "Figure 6:Qualitative Comparison.We compare our method against Object3DIT(Michelet al.,2023)and TRELLIS(Xianget al.,2025). Our method achieves superior identity preservation and background consistency, avoiding the appearance artifacts observed in TRELLIS and the geometric distortions in Object3DIT.\nIA denotes InsertAnything(Songet al.,2026).",
+        "role": "pipeline_2",
+        "caption_zh": "图6：定性对比。我们将本文方法与 Object3DIT（Michelet al., 2023）和 TRELLIS（Xianget al., 2025）进行对比。我们的方法在身份保持和背景一致性方面表现更优，避免了 TRELLIS 中出现的表观伪影以及 Object3DIT 中的几何畸变。IA 指代 InsertAnything（Songet al., 2026）。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.06601v1/x5.png",
+        "caption": "Figure 5:Overview of geometric alignment pipeline.Given a target imageIg​tI_{gt}, we estimate the rendering pose of the 3D proxy𝒫\\mathcal{P}such that its projection matches the target object.\nThe pose-aligned rendering is then used as the geometric conditionIg​e​oI_{geo}for training.",
+        "role": "pipeline_3",
+        "caption_zh": "图 5：几何对齐流程概览。给定目标图像 I_gt，我们估算三维代理 P 的渲染位姿，使其投影与目标对象匹配。随后，该位姿对齐的渲染结果将作为几何条件 I_geo 用于训练。"
+      }
+    ],
+    "2606.07326": [
+      {
+        "path": "https://arxiv.org/html/2606.07326v1/x2.png",
+        "caption": "Figure 2:AnchorWorld synthesizes egocentric videos conditioned on embodied human actions and anchor views.\nFor action control, full-body motion and ego-view pose are concatenated as a unified action representation and injected via spatial pose attention.\nFor world customization, each anchor view includes an RGB image, a 3D pose, and an evolution prompt, enabling spatially grounded and temporally evolvable world simulation.\nEvolution prompts are incorporated via cross-attention layers.",
+        "role": "pipeline_1",
+        "caption_zh": "图 2：AnchorWorld 能够以具身化人类动作和锚定视角为条件合成第一人称视频。为实现动作控制，系统将全身动作与第一人称视角姿态拼接为统一动作表征，并通过空间姿态注意力机制注入。针对世界定制化，每个锚定视角包含一张 RGB 图像、一个三维姿态及一个演化提示词，从而实现空间锚定且时间可演进的世界模拟。演化提示词通过交叉注意力层进行融合。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.07326v1/x3.png",
+        "caption": "Figure 3:Progressive multi-stage training strategy.\nStage I: TPV action training;\nStage II: FPV action training;\nStage III: static anchor-view customization;\nStage IV: dynamic anchor-view evolution.",
+        "role": "pipeline_2",
+        "caption_zh": "图 3：渐进式多阶段训练策略。阶段 I：TPV 动作训练；阶段 II：FPV 动作训练；阶段 III：静态锚定视角定制；阶段 IV：动态锚定视角演化。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.07326v1/x1.png",
+        "caption": "Figure 1:Showcasing AnchorWorld.\n(a) AnchorWorld synthesizes egocentric videos conditioned on human action and initial ego-view frame.\n(b) It further enables world customization with conditional anchor views, which provide local appearance, 3D pose, and evolution prompts for scene evolution.",
+        "role": "pipeline_3",
+        "caption_zh": "图 1：展示 AnchorWorld 系统。（a）AnchorWorld 能够根据人类动作与初始自我中心视角帧，生成以自我为中心的视频。（b）该系统进一步支持通过条件锚点视图实现世界定制，这些视图为场景演化提供了局部外观、三维姿态及演化提示。"
+      }
+    ],
+    "2606.06476": [
+      {
+        "path": "https://arxiv.org/html/2606.06476v1/figures/mainfig2.png",
+        "caption": "Figure 2:Astraconsists of two components: Astra-VL and Astra-WM. The overview illustrates the input-output details of both models during training and inference, as well as the two-phase reinforcement learning training pipeline.",
+        "role": "pipeline_1",
+        "caption_zh": "图 2：Astra 包含两个组件：Astra-VL 与 Astra-WM。该概览图展示了训练和推理过程中两个模型的输入-输出细节，以及两阶段强化学习的训练流程。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.06476v1/figures/world_model_sft_data.png",
+        "caption": "Figure 4:Pipeline for Constructing Training Data for the World Simulator",
+        "role": "pipeline_2",
+        "caption_zh": "图4：世界模拟器训练数据的构建流程"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.06476v1/figures/teaser_v2.jpg",
+        "caption": "Figure 1:Reasoning trajectory ofAstra. Astra tackles the challenging visual spatial reasoning task by agentic leveraging the world simulator within the reasoning process.",
+        "role": "pipeline_3",
+        "caption_zh": "图1：Astra的推理轨迹。Astra通过在推理过程中代理式利用世界模拟器，应对具有挑战性的视觉空间推理任务。"
+      }
+    ]
+  }
+}
