@@ -1,10 +1,22 @@
 {
   "base_info": {
-    "2606.09828": {
-      "title": "Latent Spatial Memory for Video World Models",
-      "abstract": "Video world models that maintain 3D spatial consistency across generated frames typically rely on explicit point cloud memory constructed in RGB space. This design is both computationally expensive, requiring repeated rendering and VAE encoding, and inherently lossy, as the round trip through pixel space discards rich features of the learned latent representation. In this paper, we introduce \\emph{latent spatial memory} for video world models, a persistent 3D cache that stores scene information directly in the diffusion latent space, avoiding pixel-space reconstruction. Building on this, we propose Mirage, a latent-space spatial memory framework that constructs the memory by lifting latent tokens into 3D via depth-guided back-projection and queries it by synthesizing novel views through direct latent-space warping. This unified formulation eliminates both the information loss of pixel-space reconstruction and the computational burden of repeated encoding and rendering. Experiments show that latent spatial memory achieves up to \\textbf{10.57}$\\times$ faster end-to-end video generation and \\textbf{55}$\\times$ reduction in memory footprint relative to explicit 3D baselines. Leveraging the geometric prior of the diffusion model, Mirage attains state-of-the-art performance on WorldScore and strong reconstruction quality on RealEstate10K.",
-      "abstract_zh": "在视频世界模型中，维持生成帧间三维空间一致性的方法通常依赖于在RGB空间中构建的显式点云记忆。这种设计不仅计算成本高昂——需要重复渲染与变分自编码器（VAE）编码，而且本质上存在信息损失，因为经由像素空间的往返转换会丢弃学习到的潜表征中的丰富特征。本文为视频世界模型引入了**潜空间记忆**，这是一种直接在扩散潜空间中存储场景信息的持久化三维缓存，从而避免了像素空间重建。在此基础上，我们提出了Mirage——一个潜空间记忆框架，该框架通过深度引导的反投影将潜令牌提升至三维以构建记忆，并通过直接潜空间变形合成新视角来查询记忆。这种统一的设计既消除了像素空间重建的信息损失，也避免了重复编码与渲染的计算负担。实验表明，相较于显式三维基线方法，潜空间记忆可实现高达**10.57**倍的端到端视频生成加速，并减少**55**倍的内存占用。借助扩散模型的几何先验，Mirage在WorldScore基准上达到了最先进的性能，并在RealEstate10K数据集上展现出强大的重建质量。",
-      "hf_link": "https://huggingface.co/papers/2606.09828"
+    "2606.08415": {
+      "title": "CoVEBench: Can Video Editing Models Handle Complex Instructions?",
+      "abstract": "While recent text-guided video editing models excel at elementary tasks (e.g., style transfer, object insertion), real-world user requests are highly compositional. A single prompt often demands multiple coupled edits, such as modifying subjects, actions, and camera views, while strictly preserving unrelated spatiotemporal content. Existing benchmarks, heavily constrained by isolated edits and coarse global metrics, fail to diagnose how models handle such complex workflows. To address this gap, we introduce CoVEBench, a compositional video editing benchmark comprising 416 curated source videos, 626 multi-point editing instructions, and 9,990 fine-grained checklist items. Covering diverse editing dimensions, CoVEBench evaluates models via MLLM-judged instruction compliance and video fidelity, alongside automated metrics for video quality. Extensive experiments reveal that compositional editing remains a profound challenge: current models frequently omit edits, violate preservation constraints, or introduce artifacts when handling multiple operations simultaneously. CoVEBench provides a challenging, diagnostic testbed to advance video editing toward realistic user workflows.",
+      "abstract_zh": "尽管当前基于文本引导的视频编辑模型在基础任务（如风格迁移、物体插入）上表现优异，但真实场景中的用户需求往往具备高度组合性。单个提示通常需要同时执行多个关联性编辑，例如修改主体、动作和摄像机视角，同时严格保留无关的时空内容。现有基准测试受限于孤立的编辑任务和粗粒度的全局评估指标，难以诊断模型处理此类复杂工作流的能力。为填补这一空白，我们提出了CoVEBench——一个组合式视频编辑基准，包含416个精选源视频、626条多点编辑指令及9,990项细粒度检查清单条目。该基准涵盖多样化的编辑维度，通过基于多模态大语言模型的指令遵循度与视频保真度评估，结合自动化视频质量指标对模型进行综合评测。大量实验表明，组合式编辑仍然存在显著挑战：现有模型在处理多重操作时经常遗漏编辑项、违反保留约束或产生伪影。CoVEBench为推进视频编辑技术适应真实用户工作流提供了一个具备挑战性的诊断性测试平台。",
+      "hf_link": "https://huggingface.co/papers/2606.08415"
+    },
+    "2605.25077": {
+      "title": "WorldCraft: From Camera Navigation to Object Manipulation in Interactive Video World Models",
+      "abstract": "Recent video-based world models have made pixel-space environments interactive at the camera level: users can navigate viewpoints while the model generates coherent visual continuations. Yet their action spaces remain incomplete: users can move the camera, but cannot act on individual objects. Since real-world interaction is inherently object-centric, such models remain closer to passive scene observers than truly manipulable environments. We present WorldCraft, a framework that expands interactive video world models from camera navigation to object-level trajectory actions. Given a user click and a sketched path, WorldCraft generates future frames in which the selected object follows the prescribed trajectory while the camera continues to navigate the scene. WorldCraft achieves this through a trajectory-centric control pipeline: First, Normalized World Trajectory (NWT) represents user-drawn motion in a camera-invariant world coordinate system and dynamically re-projects it under the current camera pose, separating object motion from camera-induced screen-space displacement; Spatial-Pathway LoRA (SP-LoRA) then injects this world-space signal through the model's spatial-control pathway, adding object manipulation capability while preserving the pretrained camera controller; finally, Trajectory-Anchored State Persistence (TASP) treats the world trajectory as a persistent spatial state and refreshes autoregressive memory after trajectory-conditioned generation, allowing moved objects to reappear at their updated positions after leaving the camera view. Experiments show that WorldCraft enables accurate object control, preserves the video-based world model's camera fidelity under camera-only evaluation, and maintains object state across long autoregressive rollouts with off-camera excursions.",
+      "abstract_zh": "近年来，基于视频的世界模型已在像素空间环境中实现了相机层面的交互：用户能够自由切换视角，同时模型生成连贯的视觉延续。然而，这些模型的动作空间仍不完整：用户虽可移动相机，却无法对单个物体进行操作。由于真实世界的交互本质上是对象中心的，此类模型仍更接近于被动的场景观察者，而非真正可操控的环境。我们提出WorldCraft框架，将交互式视频世界模型的能力从相机导航拓展至对象级轨迹动作。给定用户点击与绘制路径，WorldCraft能够生成后续帧，其中选定物体沿指定轨迹运动，同时相机继续在场景中导航。\n\nWorldCraft通过轨迹中心的控制流程实现这一目标：首先，归一化世界轨迹（Normalized World Trajectory，NWT）将用户绘制的运动表示为相机无关的世界坐标系中的轨迹，并根据当前相机姿态动态重投影，从而将物体运动与相机引起的屏幕空间位移分离；随后，空间通路低秩适配（Spatial-Pathway LoRA，SP-LoRA）通过模型的空间控制通路注入该世界空间信号，在保留预训练相机控制器功能的同时增添物体操控能力；最后，轨迹锚定状态持久化（Trajectory-Anchored State Persistence，TASP）将世界轨迹视为持久化空间状态，并在轨迹条件生成后更新自回归记忆，使移动物体在离开相机视域后仍能以更新后的位置重新出现。\n\n实验表明，WorldCraft能够实现精确的物体控制，在仅使用相机操作的评估中保持基于视频的世界模型的相机保真度，并在包含离屏运动的长序列自回归推演中维持物体状态的一致性。",
+      "hf_link": "https://huggingface.co/papers/2605.25077"
+    },
+    "2606.09803": {
+      "title": "Echo-Memory: A Controlled Study of Memory in Action World Models",
+      "abstract": "We present \\textbf{Echo-Memory}, a controlled study of memory mechanisms in action-conditioned world models. These models generate multi-segment videos from a first frame, text prompt, and camera-action sequence, but their central failure is often memory rather than local image synthesis: after the camera leaves and returns, the scene or salient object may silently change. Existing memory designs are hard to compare because gains are entangled with backbone, training, retrieval, and evaluation differences. Echo-Memory fixes the action-to-video interface and varies only how history is stored and read by the generator. Under a shared video diffusion backbone, optimizer, camera-action representation, sampler, and evaluation pipeline, we compare raw context, compression-based memory, spatial summaries with different read-out paths, and state-space recurrence. This matched matrix separates four otherwise conflated axes: \\emph{capacity}, \\emph{compression}, \\emph{read-out}, and \\emph{recurrence}. We also evaluate memory through a three-branch protocol: replay quality, in-domain loop revisit, and open-domain return probes. The branches routinely disagree, showing that replay fidelity is not a sufficient proxy for remembering a world. Three findings follow. Raw context is a strong capacity baseline and improves open-domain return far more than it improves replay metrics. Compactness is not a free substitute for capacity: aggressive spatial and hybrid-compression memories lose the salient evidence needed for return. Finally, block-wise state-space recurrence is the strongest open-domain return mechanism in our matrix, showing that the structure of implicit memory matters as much as the decision to use it. These results provide a compact protocol for studying memory in action world models beyond isolated replay metrics.",
+      "abstract_zh": "我们提出\\textbf{Echo-Memory}，一项针对动作条件世界模型（action-conditioned world models）中记忆机制的对照研究。这类模型能够根据起始帧、文本提示和相机动作序列生成多段视频，但其核心缺陷往往在于记忆而非局部图像合成：当相机离开后再次返回时，场景或显著物体可能悄然改变。现有记忆设计难以直接比较，因为性能提升常与主干网络、训练方式、检索机制及评估差异相互纠缠。Echo-Memory固定了动作到视频的接口，仅改变生成器存储与读取历史信息的方式。在共享的视频扩散主干网络、优化器、相机动作表示、采样器和评估流程下，我们比较了原始上下文、基于压缩的记忆、采用不同读取路径的空间摘要以及状态空间循环等机制。这一匹配对照框架分离了四个原本易混淆的维度：\\emph{容量}、\\emph{压缩}、\\emph{读取方式}和\\emph{循环结构}。我们还通过三支评估协议检验记忆性能：回放质量、域内循环重访和开放域返回探测。三项评估结果常出现分歧，表明回放保真度不足以完全代表对世界的记忆能力。由此得到三点发现。原始上下文作为容量基线表现强劲，对开放域返回能力的提升远高于对回放指标的改进；紧凑性无法替代容量：激进的空间压缩与混合压缩记忆会丢失返回所需的关键证据；最后，块状状态空间循环（block-wise state-space recurrence）在我们设计的框架中展现出最强的开放域返回能力，表明隐含记忆的结构设计与其使用决策同等重要。这些结果为超越孤立回放指标、深入探究动作世界模型中的记忆机制提供了简洁的评估方案。",
+      "hf_link": "https://huggingface.co/papers/2606.09803"
     },
     "2606.03715": {
       "title": "Text-to-Image Models Need Less from Text Encoders Than You Think",
@@ -12,17 +24,11 @@
       "abstract_zh": "文本到图像模型主要依赖文本提示词作为传递人类意图的接口。提示词通过文本编码器被转换为嵌入表示，进而指导图像生成过程。除了单个词元的语义外，文本嵌入还编码了整个提示词中的上下文信息，如组合性与属性绑定。然而，图像模型是否真正利用了这些更丰富的信息仍未得到充分探索。在此，我们探讨以下问题：文本表示的哪些方面对图像生成至关重要？我们发现，基于扩散Transformer的文本到图像模型通常仅依赖文本表示中两个相对直接的方面：（一）将跨越多词元的相邻词元合并为单词表示；（二）词序信息——其通过文本编码器的位置嵌入得以体现。为验证这一点，我们构建了一种新的文本嵌入表示，该表示仅编码单个词义及其顺序，而缺失完整提示词的任何上下文信息。实验表明，这种带位置标记的词袋表示足以成功引导图像生成，其视觉质量与文本忠实度与完整文本嵌入引导的生成效果相当。这证明，与普遍认知相反，文本到图像模型通常并未利用文本嵌入中除单个词义与词序之外的丰富信息；相反，复杂语言结构的解码是由图像模型自身完成的。项目网页：this https URL",
       "hf_link": "https://huggingface.co/papers/2606.03715"
     },
-    "2606.08415": {
-      "title": "CoVEBench: Can Video Editing Models Handle Complex Instructions?",
-      "abstract": "While recent text-guided video editing models excel at elementary tasks (e.g., style transfer, object insertion), real-world user requests are highly compositional. A single prompt often demands multiple coupled edits, such as modifying subjects, actions, and camera views, while strictly preserving unrelated spatiotemporal content. Existing benchmarks, heavily constrained by isolated edits and coarse global metrics, fail to diagnose how models handle such complex workflows. To address this gap, we introduce CoVEBench, a compositional video editing benchmark comprising 416 curated source videos, 626 multi-point editing instructions, and 9,990 fine-grained checklist items. Covering diverse editing dimensions, CoVEBench evaluates models via MLLM-judged instruction compliance and video fidelity, alongside automated metrics for video quality. Extensive experiments reveal that compositional editing remains a profound challenge: current models frequently omit edits, violate preservation constraints, or introduce artifacts when handling multiple operations simultaneously. CoVEBench provides a challenging, diagnostic testbed to advance video editing toward realistic user workflows.",
-      "abstract_zh": "尽管当前基于文本引导的视频编辑模型在基础任务（如风格迁移、物体插入）上表现优异，但真实场景中的用户需求往往具备高度组合性。单个提示通常需要同时执行多个关联性编辑，例如修改主体、动作和摄像机视角，同时严格保留无关的时空内容。现有基准测试受限于孤立的编辑任务和粗粒度的全局评估指标，难以诊断模型处理此类复杂工作流的能力。为填补这一空白，我们提出了CoVEBench——一个组合式视频编辑基准，包含416个精选源视频、626条多点编辑指令及9,990项细粒度检查清单条目。该基准涵盖多样化的编辑维度，通过基于多模态大语言模型的指令遵循度与视频保真度评估，结合自动化视频质量指标对模型进行综合评测。大量实验表明，组合式编辑仍然存在显著挑战：现有模型在处理多重操作时经常遗漏编辑项、违反保留约束或产生伪影。CoVEBench为推进视频编辑技术适应真实用户工作流提供了一个具备挑战性的诊断性测试平台。",
-      "hf_link": "https://huggingface.co/papers/2606.08415"
-    },
-    "2606.09803": {
-      "title": "Echo-Memory: A Controlled Study of Memory in Action World Models",
-      "abstract": "We present \\textbf{Echo-Memory}, a controlled study of memory mechanisms in action-conditioned world models. These models generate multi-segment videos from a first frame, text prompt, and camera-action sequence, but their central failure is often memory rather than local image synthesis: after the camera leaves and returns, the scene or salient object may silently change. Existing memory designs are hard to compare because gains are entangled with backbone, training, retrieval, and evaluation differences. Echo-Memory fixes the action-to-video interface and varies only how history is stored and read by the generator. Under a shared video diffusion backbone, optimizer, camera-action representation, sampler, and evaluation pipeline, we compare raw context, compression-based memory, spatial summaries with different read-out paths, and state-space recurrence. This matched matrix separates four otherwise conflated axes: \\emph{capacity}, \\emph{compression}, \\emph{read-out}, and \\emph{recurrence}. We also evaluate memory through a three-branch protocol: replay quality, in-domain loop revisit, and open-domain return probes. The branches routinely disagree, showing that replay fidelity is not a sufficient proxy for remembering a world. Three findings follow. Raw context is a strong capacity baseline and improves open-domain return far more than it improves replay metrics. Compactness is not a free substitute for capacity: aggressive spatial and hybrid-compression memories lose the salient evidence needed for return. Finally, block-wise state-space recurrence is the strongest open-domain return mechanism in our matrix, showing that the structure of implicit memory matters as much as the decision to use it. These results provide a compact protocol for studying memory in action world models beyond isolated replay metrics.",
-      "abstract_zh": "我们提出\\textbf{Echo-Memory}，一项针对动作条件世界模型（action-conditioned world models）中记忆机制的对照研究。这类模型能够根据起始帧、文本提示和相机动作序列生成多段视频，但其核心缺陷往往在于记忆而非局部图像合成：当相机离开后再次返回时，场景或显著物体可能悄然改变。现有记忆设计难以直接比较，因为性能提升常与主干网络、训练方式、检索机制及评估差异相互纠缠。Echo-Memory固定了动作到视频的接口，仅改变生成器存储与读取历史信息的方式。在共享的视频扩散主干网络、优化器、相机动作表示、采样器和评估流程下，我们比较了原始上下文、基于压缩的记忆、采用不同读取路径的空间摘要以及状态空间循环等机制。这一匹配对照框架分离了四个原本易混淆的维度：\\emph{容量}、\\emph{压缩}、\\emph{读取方式}和\\emph{循环结构}。我们还通过三支评估协议检验记忆性能：回放质量、域内循环重访和开放域返回探测。三项评估结果常出现分歧，表明回放保真度不足以完全代表对世界的记忆能力。由此得到三点发现。原始上下文作为容量基线表现强劲，对开放域返回能力的提升远高于对回放指标的改进；紧凑性无法替代容量：激进的空间压缩与混合压缩记忆会丢失返回所需的关键证据；最后，块状状态空间循环（block-wise state-space recurrence）在我们设计的框架中展现出最强的开放域返回能力，表明隐含记忆的结构设计与其使用决策同等重要。这些结果为超越孤立回放指标、深入探究动作世界模型中的记忆机制提供了简洁的评估方案。",
-      "hf_link": "https://huggingface.co/papers/2606.09803"
+    "2606.09828": {
+      "title": "Latent Spatial Memory for Video World Models",
+      "abstract": "Video world models that maintain 3D spatial consistency across generated frames typically rely on explicit point cloud memory constructed in RGB space. This design is both computationally expensive, requiring repeated rendering and VAE encoding, and inherently lossy, as the round trip through pixel space discards rich features of the learned latent representation. In this paper, we introduce \\emph{latent spatial memory} for video world models, a persistent 3D cache that stores scene information directly in the diffusion latent space, avoiding pixel-space reconstruction. Building on this, we propose Mirage, a latent-space spatial memory framework that constructs the memory by lifting latent tokens into 3D via depth-guided back-projection and queries it by synthesizing novel views through direct latent-space warping. This unified formulation eliminates both the information loss of pixel-space reconstruction and the computational burden of repeated encoding and rendering. Experiments show that latent spatial memory achieves up to \\textbf{10.57}$\\times$ faster end-to-end video generation and \\textbf{55}$\\times$ reduction in memory footprint relative to explicit 3D baselines. Leveraging the geometric prior of the diffusion model, Mirage attains state-of-the-art performance on WorldScore and strong reconstruction quality on RealEstate10K.",
+      "abstract_zh": "在视频世界模型中，维持生成帧间三维空间一致性的方法通常依赖于在RGB空间中构建的显式点云记忆。这种设计不仅计算成本高昂——需要重复渲染与变分自编码器（VAE）编码，而且本质上存在信息损失，因为经由像素空间的往返转换会丢弃学习到的潜表征中的丰富特征。本文为视频世界模型引入了**潜空间记忆**，这是一种直接在扩散潜空间中存储场景信息的持久化三维缓存，从而避免了像素空间重建。在此基础上，我们提出了Mirage——一个潜空间记忆框架，该框架通过深度引导的反投影将潜令牌提升至三维以构建记忆，并通过直接潜空间变形合成新视角来查询记忆。这种统一的设计既消除了像素空间重建的信息损失，也避免了重复编码与渲染的计算负担。实验表明，相较于显式三维基线方法，潜空间记忆可实现高达**10.57**倍的端到端视频生成加速，并减少**55**倍的内存占用。借助扩散模型的几何先验，Mirage在WorldScore基准上达到了最先进的性能，并在RealEstate10K数据集上展现出强大的重建质量。",
+      "hf_link": "https://huggingface.co/papers/2606.09828"
     },
     "2606.07297": {
       "title": "SWE-Explore: Benchmarking How Coding Agents Explore Repositories",
@@ -36,17 +42,11 @@
       "abstract_zh": "在线策略蒸馏（On-policy distillation，OPD）正日益广泛地用于提升大语言模型的推理能力，但其训练动态机制仍未得到充分理解。本文刻画了OPD在参数空间中的更新轨迹，并将其与监督微调（supervised fine-tuning，SFT）以及带可验证奖励的强化学习（reinforcement learning with verifiable rewards，RLVR）进行了比较。一系列参数空间诊断一致表明，OPD处于一种松弛的非主成分状态：与SFT相比，其更新影响的权重更少且更显著地避开了主方向；而与RLVR相比，其更新约束则相对宽松。除了这种静态定位特征外，OPD还表现出子空间锁定现象：其累积更新会迅速进入一个狭窄的低维通道。将训练约束在早期形成的更新子空间内，能够保持OPD的性能，但会显著降低SFT的效果，这表明锁定的子空间对OPD而言在功能上是充分的。对照实验进一步表明，对更新令牌进行稀疏化处理以及将经验生成转为离线策略，均能保持其秩动态特性；而将OPD目标与RLVR混合则会改变这些动态。总体而言，这些结果表明OPD不仅仅是SFT与RLVR之间的中间状态，而是在参数空间中形成了其特有的更新几何结构。",
       "hf_link": "https://huggingface.co/papers/2606.07082"
     },
-    "2509.10078": {
-      "title": "Human Psychometric Questionnaires Mischaracterize LLM Behavior",
-      "abstract": "We examine whether human psychometric questionnaires can serve as reliable tools for characterizing and predicting LLM behavior in everyday user interactions. We analyze eight open-source LLMs by comparing their value and personality profiles derived from two different methods: Likert self-reports on established questionnaires (PVQ-40/21 and BFI-44/10) and generation probabilities over value-laden responses to everyday user queries. The two profiles diverge substantially. Within-construct item consistency, often cited as evidence of stable LLM dispositions, disappears in generation probabilities. We attribute this gap to the fact that explicit lexical cues in established questionnaire items allow models to recognize the target construct and respond in alignment-consistent, socially desirable ways, whereas realistic user queries provide no such cues. In addition, demographic persona prompts shift models' responses to human questionnaires in ways consistent with real human patterns, but no such shifts appear in the generation probabilities of responses to realistic user queries, showing their limited ability to simulate the behaviors of target demographics in real-world user interactions. Overall, our study shows that human psychometric questionnaires are insufficient tools for predicting LLM behavior and suggests generation-based profiling as a more accurate measure.",
-      "abstract_zh": "本研究探讨人类心理测量问卷能否作为可靠工具，用于表征和预测大语言模型在日常用户交互中的行为。我们通过两种方法对八个开源大语言模型的价值取向与人格特征进行了对比分析：基于成熟问卷(PVQ-40/21和BFI-44/10)的利克特自评报告，以及对日常用户查询中蕴含价值判断的回复生成概率分析。两种方法得出的特征画像存在显著差异。在生成概率分析中，常被引作大语言模型稳定倾向性证据的结构内项目一致性完全消失。我们认为这种差异源于：成熟问卷项目中的显性词汇线索使模型能够识别目标构念，并以符合对齐要求和社会期许的方式回应，而现实用户查询则不具备此类线索。此外，人口统计角色提示能够使模型对人类问卷的回应产生符合真实人类模式的偏移，但在现实用户查询的回复生成概率中并未出现类似偏移，这表明模型在模拟真实世界用户交互中目标人群行为方面的能力有限。总体而言，我们的研究表明人类心理测量问卷不足以预测大语言模型行为，并提出基于生成的特征分析可作为更准确的测量方法。",
-      "hf_link": "https://huggingface.co/papers/2509.10078"
-    },
-    "2606.09669": {
-      "title": "SpatialWorld: Benchmarking Interactive Spatial Reasoning of Multimodal Agents in Real-World Tasks",
-      "abstract": "Spatial reasoning is a foundational capability for multimodal large language models (MLLMs) to perceive and operate within the physical world. However, existing benchmarks predominantly rely on passive evaluation (e.g., static VQA) or simulator-specific pipelines, failing to assess general interactive spatial understanding. We introduce SpatialWorld, a unified benchmark designed specifically for evaluating the interactive spatial understanding of multimodal agents in complex real-world tasks. Integrating eight heterogeneous simulation backends under a shared, simulator-agnostic protocol, SpatialWorld features 760 human-annotated tasks across diverse domains (e.g., household routines, travel, social collaboration). Agents must solve tasks under vision-only partial observability, actively gathering egocentric visual evidence and expressing decisions via a unified, text-based action interface native to MLLMs. For reliable evaluation, each task includes a human-validated initial state, a reference trajectory, and a terminal-state verifier. Evaluating 15 advanced agents reveals that robust spatial task solving remains challenging: the strongest model, GPT-5, achieves an average task success rate (TSR) of only 17.4%, while the leading open-source model, Qwen-3.5, reaches 14.1%. Further analysis exposes a clear mismatch between task success and execution efficiency, alongside substantial domain-specific performance variations. These bottlenecks in active exploration and long-horizon planning position SpatialWorld as a rigorous testbed for future spatial agents.",
-      "abstract_zh": "空间推理是多模态大语言模型（MLLMs）感知并在物理世界中运作的基础能力。然而，现有基准主要依赖被动评估（如静态视觉问答VQA）或特定于模拟器的流程，未能评估通用的交互式空间理解能力。我们提出SpatialWorld，这是一个专为评估多模态代理在复杂现实任务中交互式空间理解能力而设计的统一基准。通过将八个异构模拟后端整合到一个共享的、与模拟器无关的协议下，SpatialWorld涵盖了跨多个领域（如家庭日常、旅行、社交协作）的760项人工标注任务。代理必须在仅视觉部分可观测条件下解决任务，主动收集以自我为中心的视觉证据，并通过MLLMs原生、统一的基于文本的动作接口表达决策。为确保评估可靠性，每项任务均包含人工验证的初始状态、参考轨迹和终端状态验证器。对15种先进代理的评估表明，稳健的空间任务解决仍然具有挑战性：最强的模型GPT-5平均任务成功率（TSR）仅为17.4%，而领先的开源模型Qwen-3.5达到14.1%。进一步分析揭示了任务成功与执行效率之间的明显不匹配，以及跨领域的显著性能差异。这些在主动探索和长程规划方面的瓶颈，使SpatialWorld成为未来空间代理的严格测试平台。",
-      "hf_link": "https://huggingface.co/papers/2606.09669"
+    "2606.06087": {
+      "title": "LatentSkill: From In-Context Textual Skills to In-Weight Latent Skills for LLM Agents",
+      "abstract": "Agent systems increasingly use textual skills to encode reusable task procedures, but injecting these skills into the prompt at every step incurs substantial context overhead and exposes skill content as plaintext. We present LatentSkill, a framework that converts textual skills into plug-and-play LoRA adapters through a pretrained hypernetwork. LatentSkill stores skill knowledge in weight space rather than context space, removing per-step skill tokens while preserving modular loading, scaling, and composition. On ALFWorld and Search-QA, LatentSkill outperforms the corresponding in-context skill baseline while using substantially fewer prefill tokens: it improves ALFWorld success by 21.4 and 13.4 points on the seen and unseen splits with 64.1% fewer prefill tokens, and improves Search-QA exact match by 3.0 points with 72.2% lower skill-token overhead. Further analysis shows that generated skill LoRAs form a structured semantic geometry, can be precisely controlled via the LoRA scaling coefficient, and can be composed through parameter-space arithmetic when skill components are aligned. These findings suggest that weight-space skills provide an efficient, modular, and less exposed substrate for extending LLM agents.",
+      "abstract_zh": "智能体系统日益依赖文本技能来编码可复用的任务流程，但每一步都将这些技能注入提示会带来高昂的上下文开销，并以明文形式暴露技能内容。我们提出LatentSkill框架，通过预训练的泛化网络将文本技能转化为即插即用的LoRA适配器。LatentSkill将技能知识存储在权重空间而非上下文空间，在保持模块化加载、缩放与组合能力的同时，消除了每一步所需的技能令牌消耗。在ALFWorld和Search-QA基准测试中，LatentSkill在使用显著更少预填充令牌的情况下超越了对应的上下文技能基线：在ALFWorld的已知与未知场景划分中分别以64.1%更少的预填充令牌实现了21.4分和13.4分的成功率提升；在Search-QA上以72.2%更低的技能令牌开销将精确匹配率提高了3.0分。进一步分析表明，生成的技能LoRA适配器形成了结构化语义几何空间，可通过LoRA缩放系数进行精确控制，并在技能组件对齐时支持参数空间的算术组合。这些发现表明，权重空间技能为扩展大语言模型智能体提供了一种高效、模块化且低暴露风险的实现路径。",
+      "hf_link": "https://huggingface.co/papers/2606.06087"
     },
     "2606.09079": {
       "title": "FlashMemory-DeepSeek-V4: Lightning Index Ultra-Long Context via Lookahead Sparse Attention",
@@ -54,17 +54,23 @@
       "abstract_zh": "传统的LLM在解码过程中会保持完整的KV缓存加载，这对超长上下文服务造成了严重的GPU内存瓶颈。本报告提出了一种新颖的推理范式——前瞻稀疏注意力（Lookahead Sparse Attention, LSA），其由基于DeepSeek-V4架构构建的神经记忆索引器（Neural Memory Indexer）驱动。与被动关注所有历史token不同，LSA主动预测未来的上下文需求，并仅将查询关键（query-critical）的KV块保留在GPU内存中。关键在于，我们通过一种无主干（backbone-free）的解耦训练策略实现了该架构。通过将索引器构建为标准双编码器（dual-encoder）架构，我们使用标准检索训练框架独立训练它，而无需将庞大的主干模型加载到GPU内存中。我们证明，这种“少即是多”的范式在依赖长期全局记忆的任务中，不仅能显著最大化服务效率，还能充当有效的注意力降噪器。在主要的长上下文评估套件（如LongBench-v2、LongMemEval和RULER）上，FM-DS-V4将平均物理KV缓存占用压缩至完整上下文基线的仅13.5%，同时持续保持或略微提升下游准确率（平均绝对提升+0.6%）。至关重要的是，在极端的500K长度规模下，FlashMemory将物理KV缓存开销抑制了90%以上，且未破坏主干模型的核心推理能力。",
       "hf_link": "https://huggingface.co/papers/2606.09079"
     },
+    "2606.09669": {
+      "title": "SpatialWorld: Benchmarking Interactive Spatial Reasoning of Multimodal Agents in Real-World Tasks",
+      "abstract": "Spatial reasoning is a foundational capability for multimodal large language models (MLLMs) to perceive and operate within the physical world. However, existing benchmarks predominantly rely on passive evaluation (e.g., static VQA) or simulator-specific pipelines, failing to assess general interactive spatial understanding. We introduce SpatialWorld, a unified benchmark designed specifically for evaluating the interactive spatial understanding of multimodal agents in complex real-world tasks. Integrating eight heterogeneous simulation backends under a shared, simulator-agnostic protocol, SpatialWorld features 760 human-annotated tasks across diverse domains (e.g., household routines, travel, social collaboration). Agents must solve tasks under vision-only partial observability, actively gathering egocentric visual evidence and expressing decisions via a unified, text-based action interface native to MLLMs. For reliable evaluation, each task includes a human-validated initial state, a reference trajectory, and a terminal-state verifier. Evaluating 15 advanced agents reveals that robust spatial task solving remains challenging: the strongest model, GPT-5, achieves an average task success rate (TSR) of only 17.4%, while the leading open-source model, Qwen-3.5, reaches 14.1%. Further analysis exposes a clear mismatch between task success and execution efficiency, alongside substantial domain-specific performance variations. These bottlenecks in active exploration and long-horizon planning position SpatialWorld as a rigorous testbed for future spatial agents.",
+      "abstract_zh": "空间推理是多模态大语言模型（MLLMs）感知并在物理世界中运作的基础能力。然而，现有基准主要依赖被动评估（如静态视觉问答VQA）或特定于模拟器的流程，未能评估通用的交互式空间理解能力。我们提出SpatialWorld，这是一个专为评估多模态代理在复杂现实任务中交互式空间理解能力而设计的统一基准。通过将八个异构模拟后端整合到一个共享的、与模拟器无关的协议下，SpatialWorld涵盖了跨多个领域（如家庭日常、旅行、社交协作）的760项人工标注任务。代理必须在仅视觉部分可观测条件下解决任务，主动收集以自我为中心的视觉证据，并通过MLLMs原生、统一的基于文本的动作接口表达决策。为确保评估可靠性，每项任务均包含人工验证的初始状态、参考轨迹和终端状态验证器。对15种先进代理的评估表明，稳健的空间任务解决仍然具有挑战性：最强的模型GPT-5平均任务成功率（TSR）仅为17.4%，而领先的开源模型Qwen-3.5达到14.1%。进一步分析揭示了任务成功与执行效率之间的明显不匹配，以及跨领域的显著性能差异。这些在主动探索和长程规划方面的瓶颈，使SpatialWorld成为未来空间代理的严格测试平台。",
+      "hf_link": "https://huggingface.co/papers/2606.09669"
+    },
+    "2509.10078": {
+      "title": "Human Psychometric Questionnaires Mischaracterize LLM Behavior",
+      "abstract": "We examine whether human psychometric questionnaires can serve as reliable tools for characterizing and predicting LLM behavior in everyday user interactions. We analyze eight open-source LLMs by comparing their value and personality profiles derived from two different methods: Likert self-reports on established questionnaires (PVQ-40/21 and BFI-44/10) and generation probabilities over value-laden responses to everyday user queries. The two profiles diverge substantially. Within-construct item consistency, often cited as evidence of stable LLM dispositions, disappears in generation probabilities. We attribute this gap to the fact that explicit lexical cues in established questionnaire items allow models to recognize the target construct and respond in alignment-consistent, socially desirable ways, whereas realistic user queries provide no such cues. In addition, demographic persona prompts shift models' responses to human questionnaires in ways consistent with real human patterns, but no such shifts appear in the generation probabilities of responses to realistic user queries, showing their limited ability to simulate the behaviors of target demographics in real-world user interactions. Overall, our study shows that human psychometric questionnaires are insufficient tools for predicting LLM behavior and suggests generation-based profiling as a more accurate measure.",
+      "abstract_zh": "本研究探讨人类心理测量问卷能否作为可靠工具，用于表征和预测大语言模型在日常用户交互中的行为。我们通过两种方法对八个开源大语言模型的价值取向与人格特征进行了对比分析：基于成熟问卷(PVQ-40/21和BFI-44/10)的利克特自评报告，以及对日常用户查询中蕴含价值判断的回复生成概率分析。两种方法得出的特征画像存在显著差异。在生成概率分析中，常被引作大语言模型稳定倾向性证据的结构内项目一致性完全消失。我们认为这种差异源于：成熟问卷项目中的显性词汇线索使模型能够识别目标构念，并以符合对齐要求和社会期许的方式回应，而现实用户查询则不具备此类线索。此外，人口统计角色提示能够使模型对人类问卷的回应产生符合真实人类模式的偏移，但在现实用户查询的回复生成概率中并未出现类似偏移，这表明模型在模拟真实世界用户交互中目标人群行为方面的能力有限。总体而言，我们的研究表明人类心理测量问卷不足以预测大语言模型行为，并提出基于生成的特征分析可作为更准确的测量方法。",
+      "hf_link": "https://huggingface.co/papers/2509.10078"
+    },
     "2606.09826": {
       "title": "OmniGameArena: A Unified UE5 Benchmark for VLM Game Agents with Improvement Dynamics",
       "abstract": "Vision-language model (VLM) agents are increasingly deployed in interactive game environments. Yet game benchmarks for VLM agents typically report a single first-attempt score per (agent, game) pair, focus on single-agent Solo play, and lack unified protocols for evaluating heterogeneous agent classes (commercial VLMs, open-weight VLMs, and specialized game policies) on the same footing. We address these gaps with OmniGameArena, a real-time benchmark of twelve newly built Unreal Engine 5 games spanning Solo (7), PvP (3), and Coop (2) with unified action interfaces, and the Improvement Dynamics Curve (IDC), an agentic-reflection harness in which a tool-using reflector LLM autonomously refines a bounded skill prompt across multiple rounds. Beyond cold-start leaderboard scores, IDC exposes two additional observables for each (agent, game) pair: how the score evolves across reflection rounds, and how the learned skill behaves on held-out task variants. We report these observables for twelve VLM agents on the cold-start leaderboard and four top agents under IDC.",
       "abstract_zh": "视觉语言模型(Vision-language model, VLM)智能体正越来越多地被部署于交互式游戏环境中。然而，当前针对VLM智能体的游戏基准测试通常仅为每个(智能体, 游戏)对报告一个首次尝试的单一分数，且主要关注单智能体单人(Solo)游戏模式，同时缺乏在同等条件下评估异质智能体类别(商业VLM、开源权重VLM与专用游戏策略)的统一协议。为弥补这些不足，我们提出了OmniGameArena——一个包含十二款全新构建的虚幻引擎5(Unreal Engine 5)游戏的实时基准测试集，涵盖单人(Solo, 7款)、对抗(PvP, 3款)与合作(Coop, 2款)模式，并配有统一动作接口；同时引入改进动态曲线(Improvement Dynamics Curve, IDC)——一种基于智能体反思的调控机制，其中具备工具使用能力的反思型大语言模型(LLM)可在多轮迭代中自主优化有界技能提示。除了冷启动排行榜分数外，IDC还为每个(智能体, 游戏)对揭示了两个额外的可观测指标：分数在反思轮次中的演变过程，以及习得技能在保留任务变体上的泛化表现。我们报告了十二个VLM智能体在冷启动排行榜上的表现，以及四个顶尖智能体在IDC机制下的这些观测结果。",
       "hf_link": "https://huggingface.co/papers/2606.09826"
-    },
-    "2606.08348": {
-      "title": "Bayesian-Agent: Posterior-Guided Skill Evolution for LLM Agent Harnesses",
-      "abstract": "LLM agents increasingly rely on external inference conditions: prompts, tools, memory, SOPs, skills, and harness feedback. These assets can improve task execution without changing model weights, but they are often revised by heuristic reflection or by reusing observed successes and failures as if counts alone were reliable belief. We introduce \\textbf{Bayesian-Agent}, a native and cross-harness framework that treats reusable skills and SOPs as hypotheses about whether a frozen model will succeed under a particular prompt, context, and harness environment. Bayesian-Agent records verified trajectory evidence, maintains a feature-conditioned categorical posterior over each skill, and maps posterior state into inspectable actions such as patch, split, compress, retire, and explore. Model-facing prompts receive executable guardrails and failure-mode patches, while posterior summaries remain available for audit. With \\texttt{deepseek-v4-flash}, incremental repair improves SOP-Bench from 80\\% to 95\\%, Lifelong AgentBench from 90\\% to 100\\%, and RealFin-Bench from 45\\% to 65\\%. We further evaluate Bayesian-Agent's native backend and optional GenericAgent, mini-swe-agent, and Claude Code backends. The results include positive, negative, saturated, and case-study settings, suggesting that agent skill evolution is best viewed as posterior-guided harness optimization rather than uncalibrated prompt accumulation. The source code is available atthis https URL.",
-      "abstract_zh": "LLM智能体日益依赖外部推理条件：提示词、工具、记忆、标准操作流程（SOPs）、技能以及利用反馈。这些资源可在不改变模型权重的情况下提升任务执行效果，但它们通常通过启发式反思进行修订，或通过复用观察到的成功与失败案例来调整——仿佛仅凭频次统计就能形成可靠信念。本文提出\\textbf{贝叶斯智能体（Bayesian-Agent）}，这是一个原生且跨控制框架的架构，将可复用技能与标准操作流程视为关于冻结模型在特定提示、上下文及控制环境下能否成功的假设。贝叶斯智能体记录已验证的执行轨迹证据，为每个技能维护基于特征条件的分类后验分布，并将后验状态映射为可审查的操作（如修补、拆分、压缩、淘汰和探索）。面向模型的提示词获得可执行的防护机制与故障模式补丁，同时后验摘要始终可供审计。基于\\texttt{deepseek-v4-flash}模型的增量修复将SOP-Bench性能从80%提升至95%，将Lifelong AgentBench从90%提升至100%，并将RealFin-Bench从45%提升至65%。我们进一步评估了贝叶斯智能体的原生后端及其可选的通用智能体（GenericAgent）、迷你软件工程智能体（mini-swe-agent）与Claude Code后端。实验结果涵盖积极、消极、饱和及案例研究等场景，表明智能体技能演进应被视为后验指导的控制框架优化过程，而非未经校准的提示词堆砌。源代码可通过此链接获取：https URL。",
-      "hf_link": "https://huggingface.co/papers/2606.08348"
     },
     "2606.09811": {
       "title": "AHA-WAM:Asynchronous Horizon-Adaptive World-Action Modeling with Observation-Guided Context Routing",
@@ -72,11 +78,17 @@
       "abstract_zh": "世界-行动模型（world-action models）已成为机器人操作领域一种前景广阔的研究范式，其通过联合建模视觉场景动态与操作动作，将物理先验注入策略学习过程。然而，现有世界-行动模型以相同时间分辨率耦合世界预测与动作执行，迫使世界分支（world branch）对冗余且信息量稀少的短期帧变化进行建模。我们认为，将世界预测与动作执行严格绑定于相同时间节律，可能未能充分发挥视频分支在具身控制（embodied control）中的潜力。为此，我们提出AHA-WAM（异步视界自适应世界-行动模型），该模型基于双重扩散变换器（Diffusion Transformer，DiT）架构构建，围绕这种时间异步性重组世界-行动建模机制。AHA-WAM将视频DiT实例化为低频世界规划器，其通过对历史观测维持滚动键值记忆（key-value memory），并输出可复用的分层潜层上下文以编码长视界（long-horizon）场景演化；同时，高频动作DiT通过分层联合注意力（layerwise joint attention）查询该上下文，以闭环方式执行短时动作片段。为支持异步执行，我们提出视界自适应偏移训练（horizon-adaptive offset training）与观测引导的视频上下文路由（Observation-Guided Video-Context Routing，OVCR），二者协同使动作专家（action expert）既能利用长视界世界上下文，又能保持对实时执行状态的响应性，且无需重新运行视频DiT。在RoboTwin仿真环境与实际机器人操作任务上的实验表明，AHA-WAM在无需任何机器人数据预训练的情况下实现了最先进性能：在RoboTwin上达到92.80%的平均成功率，在4项实际任务中取得78.3%的成功率，同时以24.17 Hz的频率实现闭环控制，相比Fast-WAM获得4.59倍的加速比。",
       "hf_link": "https://huggingface.co/papers/2606.09811"
     },
-    "2606.06087": {
-      "title": "LatentSkill: From In-Context Textual Skills to In-Weight Latent Skills for LLM Agents",
-      "abstract": "Agent systems increasingly use textual skills to encode reusable task procedures, but injecting these skills into the prompt at every step incurs substantial context overhead and exposes skill content as plaintext. We present LatentSkill, a framework that converts textual skills into plug-and-play LoRA adapters through a pretrained hypernetwork. LatentSkill stores skill knowledge in weight space rather than context space, removing per-step skill tokens while preserving modular loading, scaling, and composition. On ALFWorld and Search-QA, LatentSkill outperforms the corresponding in-context skill baseline while using substantially fewer prefill tokens: it improves ALFWorld success by 21.4 and 13.4 points on the seen and unseen splits with 64.1% fewer prefill tokens, and improves Search-QA exact match by 3.0 points with 72.2% lower skill-token overhead. Further analysis shows that generated skill LoRAs form a structured semantic geometry, can be precisely controlled via the LoRA scaling coefficient, and can be composed through parameter-space arithmetic when skill components are aligned. These findings suggest that weight-space skills provide an efficient, modular, and less exposed substrate for extending LLM agents.",
-      "abstract_zh": "智能体系统日益依赖文本技能来编码可复用的任务流程，但每一步都将这些技能注入提示会带来高昂的上下文开销，并以明文形式暴露技能内容。我们提出LatentSkill框架，通过预训练的泛化网络将文本技能转化为即插即用的LoRA适配器。LatentSkill将技能知识存储在权重空间而非上下文空间，在保持模块化加载、缩放与组合能力的同时，消除了每一步所需的技能令牌消耗。在ALFWorld和Search-QA基准测试中，LatentSkill在使用显著更少预填充令牌的情况下超越了对应的上下文技能基线：在ALFWorld的已知与未知场景划分中分别以64.1%更少的预填充令牌实现了21.4分和13.4分的成功率提升；在Search-QA上以72.2%更低的技能令牌开销将精确匹配率提高了3.0分。进一步分析表明，生成的技能LoRA适配器形成了结构化语义几何空间，可通过LoRA缩放系数进行精确控制，并在技能组件对齐时支持参数空间的算术组合。这些发现表明，权重空间技能为扩展大语言模型智能体提供了一种高效、模块化且低暴露风险的实现路径。",
-      "hf_link": "https://huggingface.co/papers/2606.06087"
+    "2606.09516": {
+      "title": "SwiftVR: Real-Time One-Step Generative Video Restoration",
+      "abstract": "Real-time video restoration (VR) for live streams requires high-resolution outputs under strict per-frame latency constraints. Existing one-step diffusion-based VR models remain difficult to deploy on consumer-grade GPUs due to two main bottlenecks: quadratic spatial attention at high resolutions and the latency-memory overhead of large video autoencoders. We present SwiftVR, a streaming one-step generative VR framework that reduces both bottlenecks under a causal chunk-wise protocol. For attention, mask-free shifted-window self-attention gathers each spatial window into a dense tensor via deterministic indexing, keeping all attention calls on the dense scaled dot-product attention path without masks, cyclic shifts, padding, or hardware-specific sparse kernels. Because SwiftVR uses only standard dense SDPA calls, the trained model transfers to consumer GPUs without retraining or custom kernels. For autoencoding, a lightweight Restoration-aware Autoencoder enables fast chunk-wise decoding while preserving reconstruction quality. On a single H100, SwiftVR sustains 31~FPS at 2560x1440 and 14~FPS at 3840x2160, whereas all compared diffusion-based VR baselines exceed the memory limit at 4K. On a consumer RTX~5090, SwiftVR reaches 26~FPS at 1920x1080. To our knowledge, SwiftVR is the first generative VR model to achieve real-time 1080p streaming on a consumer-grade GPU, while attaining strong no-reference perceptual quality with lower inference cost. Project is available atthis https URL.",
+      "abstract_zh": "实时视频修复（VR）技术在直播流中的应用需在严格的逐帧延迟约束下实现高分辨率输出。现有的单步扩散基VR模型仍难以在消费级GPU上部署，主要受限于两大瓶颈：高分辨率下的二次空间注意力计算，以及大型视频自编码器的延迟-内存开销。本文提出SwiftVR，一种流式单步生成式VR框架，在因果分块协议下同时缓解了这两个瓶颈。针对注意力机制，我们采用无掩码移位窗口自注意力，通过确定性索引将每个空间窗口聚合为密集张量，使所有注意力计算保持在密集缩放点积注意力路径上，无需掩码、循环移位、填充或硬件专用稀疏核。由于SwiftVR仅使用标准密集SDPA调用，训练完成的模型可直接移植至消费级GPU，无需重新训练或定制内核。在自编码方面，轻量级的修复感知自编码器在保持重建质量的同时实现了快速分块解码。在单张H100上，SwiftVR能以31~FPS持续处理2560x1440分辨率视频，并以14~FPS处理3840x2160分辨率视频，而所有对比的扩散基VR基线模型在4K分辨率下均超出内存限制。在消费级RTX~5090上，SwiftVR在1920x1080分辨率下达到26~FPS。据我们所知，SwiftVR是首个在消费级GPU上实现实时1080p流式处理的生成式VR模型，同时以更低的推理成本获得了优异的无参考感知质量。项目地址见此https链接。",
+      "hf_link": "https://huggingface.co/papers/2606.09516"
+    },
+    "2606.08348": {
+      "title": "Bayesian-Agent: Posterior-Guided Skill Evolution for LLM Agent Harnesses",
+      "abstract": "LLM agents increasingly rely on external inference conditions: prompts, tools, memory, SOPs, skills, and harness feedback. These assets can improve task execution without changing model weights, but they are often revised by heuristic reflection or by reusing observed successes and failures as if counts alone were reliable belief. We introduce \\textbf{Bayesian-Agent}, a native and cross-harness framework that treats reusable skills and SOPs as hypotheses about whether a frozen model will succeed under a particular prompt, context, and harness environment. Bayesian-Agent records verified trajectory evidence, maintains a feature-conditioned categorical posterior over each skill, and maps posterior state into inspectable actions such as patch, split, compress, retire, and explore. Model-facing prompts receive executable guardrails and failure-mode patches, while posterior summaries remain available for audit. With \\texttt{deepseek-v4-flash}, incremental repair improves SOP-Bench from 80\\% to 95\\%, Lifelong AgentBench from 90\\% to 100\\%, and RealFin-Bench from 45\\% to 65\\%. We further evaluate Bayesian-Agent's native backend and optional GenericAgent, mini-swe-agent, and Claude Code backends. The results include positive, negative, saturated, and case-study settings, suggesting that agent skill evolution is best viewed as posterior-guided harness optimization rather than uncalibrated prompt accumulation. The source code is available atthis https URL.",
+      "abstract_zh": "LLM智能体日益依赖外部推理条件：提示词、工具、记忆、标准操作流程（SOPs）、技能以及利用反馈。这些资源可在不改变模型权重的情况下提升任务执行效果，但它们通常通过启发式反思进行修订，或通过复用观察到的成功与失败案例来调整——仿佛仅凭频次统计就能形成可靠信念。本文提出\\textbf{贝叶斯智能体（Bayesian-Agent）}，这是一个原生且跨控制框架的架构，将可复用技能与标准操作流程视为关于冻结模型在特定提示、上下文及控制环境下能否成功的假设。贝叶斯智能体记录已验证的执行轨迹证据，为每个技能维护基于特征条件的分类后验分布，并将后验状态映射为可审查的操作（如修补、拆分、压缩、淘汰和探索）。面向模型的提示词获得可执行的防护机制与故障模式补丁，同时后验摘要始终可供审计。基于\\texttt{deepseek-v4-flash}模型的增量修复将SOP-Bench性能从80%提升至95%，将Lifelong AgentBench从90%提升至100%，并将RealFin-Bench从45%提升至65%。我们进一步评估了贝叶斯智能体的原生后端及其可选的通用智能体（GenericAgent）、迷你软件工程智能体（mini-swe-agent）与Claude Code后端。实验结果涵盖积极、消极、饱和及案例研究等场景，表明智能体技能演进应被视为后验指导的控制框架优化过程，而非未经校准的提示词堆砌。源代码可通过此链接获取：https URL。",
+      "hf_link": "https://huggingface.co/papers/2606.08348"
     },
     "2606.03980": {
       "title": "Skill-RM: Unifying Heterogeneous Evaluation Criteria via Agent Skill",
@@ -84,11 +96,17 @@
       "abstract_zh": "奖励模型（Reward Models，RMs）为大型语言模型（LLM）的后训练提供了关键的反馈信号，特别是在强化微调（Reinforced Fine-Tuning，RFT）和强化学习（Reinforcement Learning，RL）流程中。然而，当前的奖励评估依赖于多种异质标准，例如基于规则的验证器、真实参考、程序性检查清单和复杂评分量表，而整合所有类型证据的统一机制仍有待探索。为此，我们提出了技能奖励模型（Skill Reward Model，Skill-RM），这是一个将奖励建模重新定义为可复用的奖励评估技能（Reward-Evaluation Skill）执行的统一框架。通过将奖励计算视为结构化的智能体任务，Skill-RM提供了一个协调异质资源的一致接口，能够根据每个输入的特定要求动态选择和聚合证据。这种方法使奖励模型超越了静态评估，确保了跨不同任务的一致性和透明度。在奖励基准测试和下游应用（包括最佳N选择（best-of-N selection）和强化学习）上的大量实验表明，Skill-RM始终优于传统的评判基线。我们的研究结果表明，Skill-RM不仅为奖励建模提供了一个统一的解决方案，还通过策略性和动态的证据协调实现了更优的性能。代码位于此 https URL。",
       "hf_link": "https://huggingface.co/papers/2606.03980"
     },
-    "2606.09516": {
-      "title": "SwiftVR: Real-Time One-Step Generative Video Restoration",
-      "abstract": "Real-time video restoration (VR) for live streams requires high-resolution outputs under strict per-frame latency constraints. Existing one-step diffusion-based VR models remain difficult to deploy on consumer-grade GPUs due to two main bottlenecks: quadratic spatial attention at high resolutions and the latency-memory overhead of large video autoencoders. We present SwiftVR, a streaming one-step generative VR framework that reduces both bottlenecks under a causal chunk-wise protocol. For attention, mask-free shifted-window self-attention gathers each spatial window into a dense tensor via deterministic indexing, keeping all attention calls on the dense scaled dot-product attention path without masks, cyclic shifts, padding, or hardware-specific sparse kernels. Because SwiftVR uses only standard dense SDPA calls, the trained model transfers to consumer GPUs without retraining or custom kernels. For autoencoding, a lightweight Restoration-aware Autoencoder enables fast chunk-wise decoding while preserving reconstruction quality. On a single H100, SwiftVR sustains 31~FPS at 2560x1440 and 14~FPS at 3840x2160, whereas all compared diffusion-based VR baselines exceed the memory limit at 4K. On a consumer RTX~5090, SwiftVR reaches 26~FPS at 1920x1080. To our knowledge, SwiftVR is the first generative VR model to achieve real-time 1080p streaming on a consumer-grade GPU, while attaining strong no-reference perceptual quality with lower inference cost. Project is available atthis https URL.",
-      "abstract_zh": "实时视频修复（VR）技术在直播流中的应用需在严格的逐帧延迟约束下实现高分辨率输出。现有的单步扩散基VR模型仍难以在消费级GPU上部署，主要受限于两大瓶颈：高分辨率下的二次空间注意力计算，以及大型视频自编码器的延迟-内存开销。本文提出SwiftVR，一种流式单步生成式VR框架，在因果分块协议下同时缓解了这两个瓶颈。针对注意力机制，我们采用无掩码移位窗口自注意力，通过确定性索引将每个空间窗口聚合为密集张量，使所有注意力计算保持在密集缩放点积注意力路径上，无需掩码、循环移位、填充或硬件专用稀疏核。由于SwiftVR仅使用标准密集SDPA调用，训练完成的模型可直接移植至消费级GPU，无需重新训练或定制内核。在自编码方面，轻量级的修复感知自编码器在保持重建质量的同时实现了快速分块解码。在单张H100上，SwiftVR能以31~FPS持续处理2560x1440分辨率视频，并以14~FPS处理3840x2160分辨率视频，而所有对比的扩散基VR基线模型在4K分辨率下均超出内存限制。在消费级RTX~5090上，SwiftVR在1920x1080分辨率下达到26~FPS。据我们所知，SwiftVR是首个在消费级GPU上实现实时1080p流式处理的生成式VR模型，同时以更低的推理成本获得了优异的无参考感知质量。项目地址见此https链接。",
-      "hf_link": "https://huggingface.co/papers/2606.09516"
+    "2606.08572": {
+      "title": "OmniCap-IF: Benchmarking and Improving Instruction Following Abilities for Omni-Video Captioning",
+      "abstract": "While Omni-modal Large Language Models (OLLMs) have demonstrated impressive capabilities in jointly processing audio and visual streams, their ability to strictly adhere to complex, multi-faceted user instructions remains largely unexplored. Existing benchmarks primarily focus on holistic video understanding or text-only instruction following, failing to capture the intricate interplay between modalities and user constraints. To bridge this gap, we introduce OmniCap-IF, the first comprehensive benchmark specifically designed to evaluate instruction-following capabilities in omni-modal captioning. OmniCap-IF incorporates a systematic framework that assesses captions on two dimensions: format correctness and content correctness. Our benchmark encompasses 50 distinct constraint types across pure visual, pure audio, and audio-visual modalities, while integrating Temporal Grounding to assess spatio-temporal precision. Extensive evaluations of prominent models on 1,920 high-quality samples reveal significant performance disparities. Furthermore, our analysis uncovers a critical \"format-content tradeoff\", demonstrating that increasing formatting complexity directly degrades models' omni-modal reasoning abilities. Finally, to advance the field, we curate a 54K instruction-tuning dataset, OmniCap-IF-54K and present OmniCaptioner-IF, which achieves notable improvements in both complex instruction adherence and general omni-modal captioning performance.",
+      "abstract_zh": "尽管全模态大语言模型（Omni-modal Large Language Models，OLLMs）在处理音频与视觉流联合任务中已展现出卓越能力，但其是否能够严格遵循复杂多层面的用户指令仍鲜有研究。现有基准测试主要集中于整体视频理解或纯文本指令跟随，未能捕捉模态间与用户约束间的精细交互。为弥补这一空白，我们推出了OmniCap-IF——首个专门评估全模态描述中指令跟随能力的综合性基准。OmniCap-IF采用系统性评估框架，从格式正确性与内容正确性两个维度对描述结果进行评判。该基准涵盖纯视觉、纯音频及视听融合三大模态下的50种约束类型，并整合时序定位（Temporal Grounding）以评估时空精度。通过对1,920个高质量样本的主流模型进行广泛评估，我们发现了显著的性能差异。进一步分析揭示出关键的“格式-内容权衡”现象：格式复杂度的提升会直接削弱模型的全模态推理能力。最后，为推进领域发展，我们构建了包含54K条数据的指令微调数据集OmniCap-IF-54K，并提出了OmniCaptioner-IF模型。该模型在复杂指令遵循与通用全模态描述性能方面均实现了显著提升。",
+      "hf_link": "https://huggingface.co/papers/2606.08572"
+    },
+    "2606.07074": {
+      "title": "SlimSearcher: Training Efficiency-Aware Web Agents via Adaptive Reward Gating",
+      "abstract": "Deep research agents have demonstrated remarkable capabilities in complex information-seeking tasks, yet this power comes at a steep computational cost. Driven by accuracy-focused training paradigms, current models adopt brute-force strategies characterized by blind tool dependency and performative reasoning-generating long, redundant trajectories that are far from necessary for resolving these tasks, leading to wasteful tool calls and excessive token consumption. To overcome this efficiency trap, we propose SlimSearcher, a principled framework that pushes the Pareto frontier between accuracy and computational cost across both Supervised Fine-Tuning (SFT) and Reinforcement Learning (RL). In the SFT stage, SlimSearcher employs Pareto-efficient filtration to distill trajectories that are both successful and economical, guiding the model toward inherently efficiency-aware search behaviors. During RL, we introduce Adaptive Reward Gating, a dynamic reward-shaping mechanism that evaluates relative tool and token efficiency within a sampled cohort. By cascading these adaptive efficiency metrics with a strict correctness gate, our approach effectively avoids the brevity bias associated with absolute penalties and mitigates reward hacking. Extensive experiments on long-horizon benchmarks, including GAIA, BrowseComp, and XBenchDeepSearch, demonstrate that SlimSearcher reduces average tool-call rounds by 17%-58% while maintaining or improving accuracy.",
+      "abstract_zh": "深度研究智能体（Deep research agents）在复杂信息检索任务中展现了卓越能力，但这种能力伴随着高昂的计算代价。受以精确性为核心的训练范式驱动，现有模型普遍采用暴力策略，其特点是盲目依赖工具和表演性推理——生成冗长冗余的任务轨迹，这些轨迹远非解决任务所必需，导致工具调用浪费和令牌消耗激增。为突破这一效率困境，我们提出SlimSearcher：一个通过原则性框架同时推进监督微调（Supervised Fine-Tuning，SFT）与强化学习（Reinforcement Learning，RL）阶段中精度与计算成本帕累托前沿的解决方案。在SFT阶段，SlimSearcher采用帕累托高效过滤机制，蒸馏出既成功又经济的任务轨迹，引导模型形成本质具备效率意识的搜索行为。在RL阶段，我们引入自适应奖励门控（Adaptive Reward Gating），这是一种动态奖励塑造机制，可在采样群体内评估相对工具效率与令牌效率。通过将这些自适应效率指标与严格的正确定门控级联，我们的方法有效避免了绝对惩罚带来的简洁性偏差，并抑制了奖励破解现象。在GAIA、BrowseComp和XBenchDeepSearch等长周期基准测试上的大量实验表明，SlimSearcher在保持或提升精度的同时，将平均工具调用轮次降低了17%-58%。",
+      "hf_link": "https://huggingface.co/papers/2606.07074"
     },
     "2606.05633": {
       "title": "Answer Presence Drives RAG Rewriting Gains",
@@ -120,23 +138,47 @@
       "abstract_zh": "深度研究(Deep Research，DR)作为一种新型智能体范式，已逐渐兴起以应对复杂、开放性的研究任务，这类任务要求系统能够迭代式地界定问题、获取证据、验证来源并综合生成长篇报告。然而实践中，现有DR系统受限于四个相互关联的约束：在未明确界定范围内的长周期规划、单一智能体中分解与调度此类任务的瓶颈、长篇综合中的幻觉风险，以及有限的过程可审计性。本技术报告提出DuMate-DeepResearch——一个基于千帆智能体工厂(Qianfan Agent Foundry)构建的多智能体DR框架。该框架将处理任务理解、规划与调度的智能体核心(Agent Core)，与用于检索、证据获取和报告生成的可扩展工具生态系统(Tool Ecosystem)解耦，使得每个中间决策和工具调用都具有显式可追溯性。在此基础架构上，DuMate-DeepResearch进一步引入三种机制：(一)基于图的动态规划策略以由粗到细的方式扩展研究路线图，并通过反思、重规划、回溯和并行分支持续修订路线；(二)递归式双层执行设计将每个复杂搜索子任务委托给内部搜索智能体(Search Agent)，使其运行独立的规划循环，从而隔离噪声检索并稳定长周期执行；(三)基于量规的测试时优化机制动态生成任务特异性质量标准，并将其作为实时推理支架，服务于证据驱动的综合与自适应停止。在两个深度研究基准测试中，DuMate-DeepResearch取得了最先进的成果：在DeepResearch Bench上获得最佳综合得分(58.03%)，在DeepResearch Bench II上同时获得最佳综合得分(61.95%)并在信息召回与分析维度位列第一。",
       "hf_link": "https://huggingface.co/papers/2606.07299"
     },
-    "2606.09809": {
-      "title": "Evaluation Cards: An Interpretive Layer for AI Evaluation Reporting",
-      "abstract": "AI evaluation results are produced at scale but reported inconsistently across leaderboards, model cards, benchmark papers, and company blogs. The cost is interpretive: readers cannot reliably compare results across sources, identify what a report omits, or trace an aggregate claim to its underlying evidence. Recent efforts address isolated components but leave three gaps: they cover only narrow slices of the evaluation lifecycle and do not compose into a single interpretable record; they specify static representations that do not differentiate the questions different stakeholders bring to the same evidence; and they remain proposals on paper, lacking the extraction infrastructure required for adoption at scale. We present \\EvalCards{}, an operational reporting layer that composes benchmark metadata, evaluation run data, and model metadata into a unified record. We (1) derive a reporting schema from a structured review of 52 papers and 10 stakeholder interviews, (2) implement four interpretive signals (reproducibility, documentation completeness, provenance and risk, and score comparability), rendered through reader modes calibrated to research and non-research audiences, and (3) deploy a monitoring tool that applies \\EvalCards{} across 5,816 models, 635 benchmarks, and 101,843 results, surfacing systematic gaps in current reporting practice.",
-      "abstract_zh": "人工智能评估结果正以规模化方式产出，但在排行榜、模型卡片、基准测试论文和企业博客中的报告形式却存在不一致性。这种不一致性带来了解读层面的代价：读者无法可靠地比较不同来源的结果，难以识别报告遗漏的内容，也无法将聚合性论断追溯至其底层证据。近期研究虽针对某些孤立环节提出了改进方案，但仍存在三个空白领域：现有方案仅覆盖评估生命周期中的狭窄片段，无法整合为单一可解读的记录；它们采用静态表征形式，未能区分不同利益相关者对同一证据提出的差异化问题；且这些方案仍停留在理论提案阶段，缺乏大规模应用所需的数据提取基础设施。本文提出“评估卡片”（\\EvalCards{}）——一种可操作的报告层，将基准测试元数据、评估运行数据和模型元数据整合为统一记录。我们通过以下方式实现该框架：（1）基于对52篇论文的结构化梳理及10次利益相关者访谈，推导出报告模式规范；（2）设计四种解读信号（可复现性、文档完整性、溯源与风险、分数可比性），并通过为研究型与非研究型受众校准的阅读模式进行呈现；（3）开发监测工具，将“评估卡片”框架应用于5,816个模型、635项基准测试及101,843条结果数据，从而揭示当前报告实践中存在的系统性缺陷。",
-      "hf_link": "https://huggingface.co/papers/2606.09809"
-    },
     "2606.04662": {
       "title": "Why Muon Outperforms Adam: A Curvature Perspective",
       "abstract": "Muon improves training efficiency over Adam in large language-model training by about two times, but the local geometric source of this advantage remains unclear. Our work takes a first step toward demystifying Muon's superiority over Adam from a curvature perspective. First, we apply a second-order Taylor approximation to the training landscape and show that Muon achieves a larger one-step loss decrease than Adam at matched validation loss. The two optimizers have comparable first-order gains, but Muon consistently incurs a smaller second-order curvature penalty. Second, we decompose this curvature penalty into the squared update norm and Normalized Directional Sharpness (NDS). We find that Muon and Adam have comparable update norms, so Muon's smaller curvature penalty is driven by lower NDS, not update scale. Third, we study how training data and model structure shape Muon's NDS advantage. Using Zipf-Probabilistic Context-Free Grammar (PCFG) data with controlled imbalance, we show that data imbalance amplifies Muon's NDS advantage over Adam. A within-/cross-layer decomposition further shows that, in the middle and late stages of training, Muon's lower NDS is mainly sustained by smaller within-layer curvature. Beyond empirical evidence, we analyze stylized quadratic problems with heterogeneous curvature and gradient alignment toward high-curvature modes. We prove that Muon attains a smaller average NDS than GD by balancing update energy across curvature groups; when curvature heterogeneity is sufficiently strong, this also yields lower local quadratic loss after the same number of steps.",
       "abstract_zh": "在大型语言模型训练中，Muon相较于Adam可将训练效率提升约两倍，但这种优势的局部几何来源尚不明确。我们的工作首次从曲率角度揭示了Muon优于Adam的内在机制。首先，我们对训练景观应用二阶泰勒近似，结果表明在验证损失相同的条件下，Muon比Adam实现了更大的单步损失下降。两种优化器的一阶增益相当，但Muon始终产生更小的二阶曲率惩罚。其次，我们将该曲率惩罚分解为更新范数的平方与归一化方向锐度（Normalized Directional Sharpness, NDS）。研究发现，Muon与Adam的更新范数相近，因此Muon更小的曲率惩罚源于其更低的NDS，而非更新规模。第三，我们探究了训练数据和模型结构如何塑造Muon的NDS优势。通过使用具有可控不平衡性的Zipf概率上下文无关文法（Probabilistic Context-Free Grammar, PFCG）数据，我们发现数据不平衡性会放大Muon相对于Adam的NDS优势。进一步的层内/跨层分解表明，在训练的中后期阶段，Muon更低的NDS主要得益于更小的层内曲率。除实证证据外，我们还分析了具有异质曲率特性且梯度向高曲率模式对齐的理想化二次问题。通过理论证明，Muon通过平衡不同曲率组间的更新能量，获得了比梯度下降法（GD）更低的平均NDS；当曲率异质性足够强时，这一特性还能使相同步数后的局部二次损失更低。",
       "hf_link": "https://huggingface.co/papers/2606.04662"
     },
+    "2606.09809": {
+      "title": "Evaluation Cards: An Interpretive Layer for AI Evaluation Reporting",
+      "abstract": "AI evaluation results are produced at scale but reported inconsistently across leaderboards, model cards, benchmark papers, and company blogs. The cost is interpretive: readers cannot reliably compare results across sources, identify what a report omits, or trace an aggregate claim to its underlying evidence. Recent efforts address isolated components but leave three gaps: they cover only narrow slices of the evaluation lifecycle and do not compose into a single interpretable record; they specify static representations that do not differentiate the questions different stakeholders bring to the same evidence; and they remain proposals on paper, lacking the extraction infrastructure required for adoption at scale. We present \\EvalCards{}, an operational reporting layer that composes benchmark metadata, evaluation run data, and model metadata into a unified record. We (1) derive a reporting schema from a structured review of 52 papers and 10 stakeholder interviews, (2) implement four interpretive signals (reproducibility, documentation completeness, provenance and risk, and score comparability), rendered through reader modes calibrated to research and non-research audiences, and (3) deploy a monitoring tool that applies \\EvalCards{} across 5,816 models, 635 benchmarks, and 101,843 results, surfacing systematic gaps in current reporting practice.",
+      "abstract_zh": "人工智能评估结果正以规模化方式产出，但在排行榜、模型卡片、基准测试论文和企业博客中的报告形式却存在不一致性。这种不一致性带来了解读层面的代价：读者无法可靠地比较不同来源的结果，难以识别报告遗漏的内容，也无法将聚合性论断追溯至其底层证据。近期研究虽针对某些孤立环节提出了改进方案，但仍存在三个空白领域：现有方案仅覆盖评估生命周期中的狭窄片段，无法整合为单一可解读的记录；它们采用静态表征形式，未能区分不同利益相关者对同一证据提出的差异化问题；且这些方案仍停留在理论提案阶段，缺乏大规模应用所需的数据提取基础设施。本文提出“评估卡片”（\\EvalCards{}）——一种可操作的报告层，将基准测试元数据、评估运行数据和模型元数据整合为统一记录。我们通过以下方式实现该框架：（1）基于对52篇论文的结构化梳理及10次利益相关者访谈，推导出报告模式规范；（2）设计四种解读信号（可复现性、文档完整性、溯源与风险、分数可比性），并通过为研究型与非研究型受众校准的阅读模式进行呈现；（3）开发监测工具，将“评估卡片”框架应用于5,816个模型、635项基准测试及101,843条结果数据，从而揭示当前报告实践中存在的系统性缺陷。",
+      "hf_link": "https://huggingface.co/papers/2606.09809"
+    },
+    "2606.07473": {
+      "title": "Whisper Hallucination Detection and Mitigation via Hidden Representation Steering and Sparse AutoEncoders",
+      "abstract": "Whisper, a widely adopted ASR model, is known to suffer from hallucinations - coherent transcriptions generated for non-speech audio entirely disconnected from the input. We investigate whether hallucinations can be detected and mitigated through Whisper's internal representations. We extract audio encoder activations and evaluate two representation spaces: raw Whisper activations and Sparse AutoEncoder (SAE) latents. We show that both spaces encode linearly separable hallucination-related information, with discriminative power concentrated in a sparse feature subset and increasing toward deeper encoder layers. We propose two steering strategies: activation-space steering and SAE latent-space steering. SAE-based steering reduces hallucination rate from 72.63% to 14.11% for Whisper small and from 86.88% to 27.33% for Whisper large-v3 on the full non-speech test set, with small WER degradation on speech data, approaching the performance of fine-tuning-based methods.",
+      "abstract_zh": "Whisper作为一种被广泛采用的自动语音识别（ASR）模型，已知存在幻觉现象——即针对与输入完全无关的非语音音频生成连贯的转录文本。本研究探讨是否能够通过Whisper的内部表征来检测并缓解幻觉问题。我们提取了音频编码器的激活值，并评估了两种表征空间：原始Whisper激活向量与稀疏自编码器（Sparse AutoEncoder, SAE）潜在表征。研究表明，这两种空间均编码了线性可分的幻觉相关信息，其判别能力集中在稀疏特征子集中，并随着编码器层级的加深而增强。我们提出了两种调控策略：激活空间调控与SAE潜在空间调控。基于SAE的调控方法在完整非语音测试集上，将Whisper small模型的幻觉率从72.63%降至14.11%，将Whisper large-v3模型的幻觉率从86.88%降至27.33%，同时在语音数据上仅产生较小的词错误率（WER）上升，其性能已接近基于微调的方法。",
+      "hf_link": "https://huggingface.co/papers/2606.07473"
+    },
+    "2606.06735": {
+      "title": "A Geometric Account of Activation Steering through Angle-Norm Decomposition",
+      "abstract": "Linear activation steering has gained popularity as a simple and empirically effective way to control language model behavior. More recently, spherical steering paradigms have been proposed to address limitations of additive interventions, often motivated by the assumption that hidden-state norm does not carry concept-relevant information. In this work, we revisit this assumption through a controlled empirical study designed to disentangle the roles of angular and radial components. We show that steering methods differ mainly in how they couple two geometric effects: changing a token's angular alignment with a concept direction and changing its hidden-state norm. Across seven language models, we find that concepts are represented primarily in angular structure, supporting the motivation for spherical methods, but that norm remains important for the stability and downstream effects of steering. Our results explain why interventions with similar concept-level effects can behave differently, and suggest that activation steering should be parameterized by interpretable angular and radial components of the intervention, rather than by a single additive coefficient that entangles these two effects.",
+      "abstract_zh": "线性激活引导(activation steering)因其简洁且在经验上有效而成为控制语言模型行为的流行方法。最近，为应对加法式干预(additive interventions)的局限性，球形引导范式被提出，其动机通常基于隐藏状态范数不携带概念相关信息的假设。本研究通过一项旨在分离角度与径向分量作用的受控实证研究，重新审视了这一假设。我们证明，不同引导方法的主要区别在于它们如何耦合两种几何效应：改变标记与概念方向的角度对齐性，以及改变其隐藏状态范数。在七个语言模型上的实验表明，概念主要表征于角度结构中，这支持了球形方法的动机；但同时范数对于引导的稳定性与下游效应仍然重要。我们的结果解释了为何具有相似概念层面效应的干预会表现出不同行为，并指出激活引导应当通过干预中可解释的角度与径向分量进行参数化，而非使用单一且混淆了这两种效应的加法系数。",
+      "hf_link": "https://huggingface.co/papers/2606.06735"
+    },
+    "2606.09585": {
+      "title": "Optical Reasoning: Rethinking Images as an Expressive Reasoning Medium Beyond Text",
+      "abstract": "Chain-of-Thought (CoT) improves the performance of Large Language Models (LLMs) and has been extended to Multimodal Large Language Models (MLLMs). More recent work further moves from text-based multimodal reasoning toward interleaved-modal reasoning, where intermediate steps can incorporate both textual rationales and visual evidence. In this work, we propose a bolder and more ambitious idea: could images alone serve as the reasoning medium for both language and multimodal tasks? To explore this, we propose optical reasoning, which treats images as a standalone reasoning medium. We instantiate this concept with two variants: typographic-based optical reasoning, which optimizes visual layouts for compact rationale rendering, and graphical-based optical reasoning, which composes text and graphical elements into structured visual rationales. Across mathematical, scientific, and interleaved-modal reasoning benchmarks, optical reasoning can match or even exceed traditional text reasoning while reducing reasoning tokens by an average of 28.57% on language tasks and 16% on multimodal tasks, achieving 1.96 times the token efficiency of text reasoning. These results show that images can effectively and efficiently encode rationales while providing a unified visual canvas for reasoning.",
+      "abstract_zh": "思维链（Chain-of-Thought，CoT）提升了大型语言模型（LLMs）的性能，并已扩展至多模态大型语言模型（Multimodal Large Language Models，MLLMs）。近期研究进一步从基于文本的多模态推理转向交错模态推理，其中间步骤可同时融入文本推理依据与视觉证据。本研究提出一个更大胆、更具雄心的构想：能否仅凭图像作为语言和多模态任务的推理媒介？为探索这一问题，我们提出**光学推理**概念，将图像视为独立的推理媒介。我们通过两种变体实现这一概念：基于排版的光学推理，通过优化视觉布局以实现紧凑的推理依据呈现；以及基于图形的光学推理，将文本与图形元素组合成结构化视觉推理依据。在数学、科学及交错模态推理基准测试中，光学推理能够达到甚至超越传统文本推理的表现，同时在语言任务上平均减少28.57%的推理词元，在多模态任务上减少16%，达到文本推理词元效率的1.96倍。这些结果表明，图像能够有效且高效地编码推理依据，同时为推理提供统一的视觉承载空间。",
+      "hf_link": "https://huggingface.co/papers/2606.09585"
+    },
     "2606.09365": {
       "title": "Experience Makes Skillful: Enabling Generalizable Medical Agent Reasoning via Self-Evolving Skill Memory",
       "abstract": "Medical agent systems are increasingly expected to support interactive clinical decision making rather than only static question answering. In such settings, effective agents must reuse prior experience across evolving cases, yet existing memory mechanisms often retain raw historical traces that are redundant, noisy, and difficult to govern. More importantly, they rarely distinguish which memories are truly useful for future reasoning. This limits their ability to accumulate compact and reliable experience for long-horizon clinical reasoning. To close this gap, we propose SkeMex, a post-deployment self-evolution framework that improves medical agents through a skill-based memory without updating model weights. SkeMex distills informative interaction trajectories into structured skills that encode reusable procedural knowledge, and organizes them into a multi-branch repository spanning general, task-specific, and action-level experience. To determine which memories should be reused and retained, SkeMex estimates context-dependent utility from environment feedback and uses it to guide value-aware retrieval and repository governance. A closed-loop ``Read--Write--Assess--Govern\" lifecycle further supports continual evolution by writing new skills, updating utilities, promoting useful memories, and removing harmful entries. Experiments across diverse clinical tasks show that SkeMex consistently outperforms representative memory-based agents in both offline and online settings. It also generalizes across model backbones and supports transferable skill memory. All data and code will be released publicly.",
       "abstract_zh": "医学智能体系统正日益被期望支持交互式临床决策，而非仅限于静态问答。在此类场景下，有效的智能体必须在动态变化的病例中复用先前的经验，然而现有的记忆机制通常保留原始历史轨迹，这些轨迹往往冗余、嘈杂且难以管理。更重要的是，它们很少区分哪些记忆对未来的推理真正有用。这限制了其积累紧凑且可靠的经验以进行长期临床推理的能力。为弥补这一差距，我们提出SkeMex——一个部署后自进化框架，它通过基于技能的记忆机制改进医学智能体，而无需更新模型权重。SkeMex将信息丰富的交互轨迹提炼为结构化的技能，这些技能编码了可复用的程序性知识，并将其组织成一个涵盖通用、任务特定和动作层级经验的多分支知识库。为确定哪些记忆应被复用和保留，SkeMex依据环境反馈评估上下文相关的效用，并以此指导基于价值的检索与知识库管理。一个闭环的“读取—写入—评估—治理”生命周期通过写入新技能、更新效用值、提升有用记忆及移除有害条目，进一步支持系统的持续进化。在多样化临床任务上的实验表明，SkeMex在离线和在线场景下均持续优于代表性的基于记忆的智能体。该框架还能跨模型主干网络泛化，并支持可迁移的技能记忆。所有数据与代码将公开发布。",
       "hf_link": "https://huggingface.co/papers/2606.09365"
+    },
+    "2606.08960": {
+      "title": "Hardening Agent Benchmarks with Adversarial Hacker-Fixer Loops",
+      "abstract": "Agent benchmarks score submissions with outcome verifiers that are typically hand-written and brittle, leaving them open to reward hacking. We audit 1,968 tasks across five terminal-agent benchmarks and find 323 (16%) hackable by frontier models given only the task description. This corrupts both leaderboard rankings and RL training signal, yet the standard response is manual and reactive.We introduce the hacker-fixer loop, a method for building exploit-resistant verifiers without per-task manual patching. The loop alternates three LLM agents: a hacker tries to pass the verifier without solving the task, a fixer patches the verifier to reject each discovered exploit, and a solver confirms the patched verifier still admits legitimate solutions. The loop iterates: each patch reshapes what the verifier rewards, surfacing the next exploit. We further add verifier access, and let patches transfer across tasks, to broaden the exploits the loop discovers.On KernelBench, the loop drives the attack success rate from 62% to 0% on a held-out corpus of publicly reported exploits. We also find that weaker agents in the loop can defend against much stronger hackers: Gemini 3 Flash's loop drives the stronger Gemini 3.1 Pro and Claude Opus 4.7's attack success rate from 76% and 61% to 0% on KernelBench, and Gemini 3.1 Pro's from 39% to 17% on Terminal Bench across 77 tasks. We release Terminal Wrench (323 hackable environments, 3,632 hack trajectories) as a snapshot of the current attack surface, our patched verifiers, the exploits the loop discovered, and our implementation as a basis for future work.",
+      "abstract_zh": "智能体基准测试通常采用结果验证器对提交结果进行评分，这些验证器多为手工编写且脆弱易破，容易遭受奖励攻击。我们对五个终端智能体基准测试中的1,968项任务进行审计，发现仅凭任务描述就有323项（16%）可能被前沿模型攻破。这不仅会扭曲排行榜排名，还会破坏强化学习的训练信号，而当前标准的应对方式仍是人工被动修补。为此，我们提出**黑客-修复者循环**方法，旨在构建无需逐项任务手动修补的抗攻击验证器。该循环交替运行三个大型语言模型智能体：黑客尝试在不解决任务的情况下通过验证器，修复者则修补验证器以抵御每个已发现的攻击手段，求解者则确认修补后的验证器仍能接受合法解决方案。循环持续迭代：每次修补都会重塑验证器的奖励机制，从而暴露出新的攻击漏洞。我们进一步引入验证器访问机制，并允许修补方案跨任务迁移，以扩大循环发现的攻击面。在KernelBench基准测试中，该方法将公开报告攻击案例集的攻击成功率从62%降至0%。我们还发现循环中较弱的智能体能够抵御更强的攻击者：在KernelBench测试中，Gemini 3 Flash构建的循环将更强的Gemini 3.1 Pro和Claude Opus 4.7的攻击成功率分别从76%和61%降至0%；在涵盖77项任务的Terminal Bench测试中，Gemini 3.1 Pro的攻击成功率从39%降至17%。我们发布**Terminal Wrench**工具集（包含323个可攻击环境、3,632条攻击轨迹）作为当前攻击面的快照，其中包含我们修补后的验证器、循环发现的攻击向量以及实现代码，为后续研究提供基础。",
+      "hf_link": "https://huggingface.co/papers/2606.08960"
     },
     "2606.09348": {
       "title": "PBSD: Privileged Bayesian Self-Distillation for Long-Horizon Credit Assignment",
@@ -174,12 +216,6 @@
       "abstract_zh": "赋能大语言模型（LLM）执行可靠的多步骤工作流已成为人工智能领域的核心挑战。尽管近期LLM的智能体能力取得进展，但大多数智能体系统仍缺乏用于规范、验证及调试其工作流与执行轨迹的形式化方法。这一挑战映射了数学领域长期存在的问题，即自然语言（NL）的模糊性催生了形式化语言（FL）的发展。受此范式启发，我们提出 **Lean4Agent**——据我们所知，这是首个利用依赖类型形式化语言Lean4对智能体行为进行建模与验证的框架。**Lean4Agent** 推出了 **FormalAgentLib**，这是一个可扩展的Lean4库，用于在显式假设下形式化建模与验证智能体工作流的语义一致性，并支持通过执行轨迹定位运行时故障。基于 **FormalAgentLib**，我们进一步开发了 **LeanEvolve**，它应用 **FormalAgentLib** 的验证结果来优化工作流以提升其性能。在SWE-Bench-Verified的难题子集和ELAIP-Bench的子集上，针对5个主流LLM的广泛实验表明：通过验证的工作流平均优于未通过验证的工作流 **11.94%**，而 **LeanEvolve** 可进一步将SWE性能平均提升 **7.47%**。此外，**Lean4Agent** 为运用表达能力强的依赖类型形式化语言进行智能体行为形式化建模与验证的新领域奠定了基石。",
       "hf_link": "https://huggingface.co/papers/2606.06523"
     },
-    "2606.09585": {
-      "title": "Optical Reasoning: Rethinking Images as an Expressive Reasoning Medium Beyond Text",
-      "abstract": "Chain-of-Thought (CoT) improves the performance of Large Language Models (LLMs) and has been extended to Multimodal Large Language Models (MLLMs). More recent work further moves from text-based multimodal reasoning toward interleaved-modal reasoning, where intermediate steps can incorporate both textual rationales and visual evidence. In this work, we propose a bolder and more ambitious idea: could images alone serve as the reasoning medium for both language and multimodal tasks? To explore this, we propose optical reasoning, which treats images as a standalone reasoning medium. We instantiate this concept with two variants: typographic-based optical reasoning, which optimizes visual layouts for compact rationale rendering, and graphical-based optical reasoning, which composes text and graphical elements into structured visual rationales. Across mathematical, scientific, and interleaved-modal reasoning benchmarks, optical reasoning can match or even exceed traditional text reasoning while reducing reasoning tokens by an average of 28.57% on language tasks and 16% on multimodal tasks, achieving 1.96 times the token efficiency of text reasoning. These results show that images can effectively and efficiently encode rationales while providing a unified visual canvas for reasoning.",
-      "abstract_zh": "思维链（Chain-of-Thought，CoT）提升了大型语言模型（LLMs）的性能，并已扩展至多模态大型语言模型（Multimodal Large Language Models，MLLMs）。近期研究进一步从基于文本的多模态推理转向交错模态推理，其中间步骤可同时融入文本推理依据与视觉证据。本研究提出一个更大胆、更具雄心的构想：能否仅凭图像作为语言和多模态任务的推理媒介？为探索这一问题，我们提出**光学推理**概念，将图像视为独立的推理媒介。我们通过两种变体实现这一概念：基于排版的光学推理，通过优化视觉布局以实现紧凑的推理依据呈现；以及基于图形的光学推理，将文本与图形元素组合成结构化视觉推理依据。在数学、科学及交错模态推理基准测试中，光学推理能够达到甚至超越传统文本推理的表现，同时在语言任务上平均减少28.57%的推理词元，在多模态任务上减少16%，达到文本推理词元效率的1.96倍。这些结果表明，图像能够有效且高效地编码推理依据，同时为推理提供统一的视觉承载空间。",
-      "hf_link": "https://huggingface.co/papers/2606.09585"
-    },
     "2606.08481": {
       "title": "PIPE-Cypher: Automatic Enterprise Benchmark Generation for Text-to-Cypher Systems",
       "abstract": "Enterprise property graphs vary widely in schema structure, internal terminology, domain assumptions, governance constraints, and user interaction patterns. A deployment-relevant Text2Cypher benchmark therefore reflects the questions users and agents actually ask of that graph. Creating such a benchmark is difficult because schemas and values are unique, and graph structure changes over time. Each NL-query pair must also be executable, use real graph entities, preserve diversity, and remain balanced across query types and difficulty levels. We present PIPE-Cypher, a local benchmark-generation pipeline that turns a live property graph and optional seed queries from customer questions, analyst logs, or agent tool calls into balanced NL-to-Cypher benchmarks. PIPE-Cypher combines schema profiling, reverse-query grounding, constrained generation, deterministic Cypher governance, execution validation, redaction, diversity controls, and a calibrated local LLM judge. Using local Qwen3.5-9B generation and judging, PIPE-Cypher exports 3,000 accepted FinBench/SNB examples, completes three audited ablation suites, calibrates judge behavior with human labels, and evaluates 11 local downstream models. The resulting benchmark is deliberately discriminative: zero-shot transfer is weak, while a few-shot control shows that schema-specific example banks can help compatible model families. Together, PIPE-Cypher makes Text2Cypher benchmarking a repeatable process that evolves with the graph, its users, and its target workloads.",
@@ -191,6 +227,18 @@
       "abstract": "Passive long-wave infrared (LWIR) hyperspectral imaging under a standoff geometry depends on atmospheric absorption and emission, as well as reflected radiance, thus making atmospheric compensation essential to get knowledge of a target of interest. Despite its importance, this compensation has been largely overlooked due to its practical and modeling difficulty. In this paper, we present a lightweight set-based deep learning framework that takes multiple radiance measurements, collected at different standoff ranges, as input and jointly estimates transmittance, atmospheric path radiance, and a shared downwelling spectrum. We analyze the learned representation with a sparse autoencoder and observe that several latent features do activate on geographically coherent subsets of the test data despite the absence of location supervision. Experiments on a MODTRAN generated standoff LWIR dataset demonstrate low spectral distortion across all estimated products. The dataset and code is publicly available at:this https URL",
       "abstract_zh": "远距离几何构型下的被动长波红外（LWIR）高光谱成像依赖于大气吸收与发射以及反射辐射，这使得大气补偿对于获取感兴趣目标信息至关重要。尽管其重要性不容忽视，但由于实际操作与建模的困难，这一补偿过程在很大程度上被忽视了。本文提出了一种轻量级的基于集合的深度学习框架，该框架以在不同远距离下采集的多组辐射测量值作为输入，联合估计透射率、大气路径辐射以及共享的下行辐射光谱。我们通过稀疏自编码器对学习到的表征进行分析，发现尽管未施加位置监督，多个潜在特征确实在测试数据的地理一致性子集上被激活。在基于MODTRAN生成的远距离长波红外数据集上的实验表明，所有估计产物的光谱失真均较低。相关数据集与代码已公开于：此https URL。",
       "hf_link": "https://huggingface.co/papers/2606.08324"
+    },
+    "2606.05011": {
+      "title": "CIPER: A Unified Framework for Cross-view Image-retrieval and Pose-estimation",
+      "abstract": "Cross-view geo-localization estimates the geographic location of a ground image by matching it against an aerial image database. Existing methods tackle this through either large-scale retrieval or precise pose estimation, but not both: retrieval-based methods enable wide-area search at the cost of localization accuracy, while pose estimation methods achieve high precision within only a narrow search space. Naively cascading these pipelines introduces error propagation and inconsistent feature representations. We formulate cross-view geo-localization as a unified problem requiring simultaneous city-scale retrieval and precise 3-DoF pose estimation. We propose CIPER (Cross-view Image-retrieval and Pose-estimation transformER), a single architecture that jointly performs both tasks through mutually beneficial feature learning. CIPER uses a shared transformer encoder with task-specific tokens to disentangle global retrieval features from spatial localization cues. To bridge the large domain gap between ground and aerial views, we introduce a two-way transformer pose decoder that uses ground features as spatial queries for bidirectional cross-attention. A set prediction strategy further enables stable 3-DoF regression under a unified multi-task objective. Experiments on VIGOR, KITTI, and Ford Multi-AV demonstrate competitive performance, especially under limited field-of-view and arbitrary orientation conditions. Code is available atthis https URL.",
+      "abstract_zh": "跨视角地理定位通过将地面图像与航空图像数据库进行匹配来估算其地理位置。现有方法主要通过大规模检索或精确姿态估计来解决此问题，但未能兼顾二者：基于检索的方法能够实现广域搜索，但以定位精度为代价；而姿态估计方法虽能实现高精度，却仅适用于狭窄的搜索空间。简单级联这些流程会引入误差传播和特征表示不一致的问题。本文将跨视角地理定位定义为一个需要同时实现城市尺度检索与精确三自由度姿态估计的统一问题。我们提出CIPER（跨视角图像检索与姿态估计变换器），这是一种通过互益特征学习联合执行两项任务的单一架构。CIPER采用共享的Transformer编码器与任务特定标记，以解耦全局检索特征和空间定位线索。为弥合地面视角与航空视角间的巨大领域差异，我们引入了一个双向Transformer姿态解码器，该解码器以地面特征作为空间查询进行双向交叉注意力计算。通过集合预测策略，我们进一步在统一的多任务目标下实现了稳定的三自由度回归。在VIGOR、KITTI和Ford Multi-AV数据集上的实验表明，该方法展现出优越性能，尤其在有限视场和任意朝向条件下表现突出。代码可通过此链接获取：https://github.com/...。",
+      "hf_link": "https://huggingface.co/papers/2606.05011"
+    },
+    "2606.03782": {
+      "title": "Reasoning over Grammar: Can Synthetic Linguistic Reasoning Traces Enhance Low-Resource Machine Translation?",
+      "abstract": "Large language models (LLMs) offer a promising approach to machine translation (MT) for extremely low-resource languages by incorporating linguistic resources through in-context learning. However, LLMs often struggle to apply grammatical information effectively during translation. Inspired by recent progress in chain-of-thought reasoning, we investigate whether low-resource MT can benefit from structured intermediate steps of linguistic analysis and grammatical reasoning. We propose a pipeline for automatically generating step-by-step linguistic reasoning traces from Universal Dependencies treebanks, dictionaries, and grammar-rule banks. We evaluate these traces in three settings: in-context learning (ICL), supervised fine-tuning (SFT), and reinforcement fine-tuning (RFT), on Xibe and Chintang as test cases. Our results show that linguistic reasoning traces are most effective as inference-time guidance: in ICL, reliable sentence-specific traces substantially improve translation performance across most models, languages, and metrics. In contrast, using the linguistic reasoning traces as training data yields smaller and less consistent gains, as models learn the trace format but often generate erroneous content. These findings suggest that LLMs can leverage grammatical information for low-resource MT when given reliable linguistic analyses, while learning to generate such analyses remains a major bottleneck.",
+      "abstract_zh": "大语言模型(LLMs)通过上下文学习整合语言学资源，为极低资源语言的机器翻译(MT)提供了有前景的路径。然而，大语言模型在翻译过程中常常难以有效运用语法信息。受近期思维链推理进展的启发，我们探究了结构化语言分析与语法推理的中间步骤能否助力低资源机器翻译。我们提出了一种自动化生成分步语言推理轨迹的流程，该流程基于通用依存树库、词典及语法规则库构建。以西伯语和钦唐语为测试案例，我们在三种设置下评估了这些推理轨迹的效果：上下文学习(ICL)、监督微调(SFT)和强化微调(RFT)。研究结果表明，语言推理轨迹作为推理阶段指导时效果最为显著：在上下文学习设置中，可靠的句子级轨迹能大幅提升大多数模型、语言及评估指标下的翻译性能。相比之下，将语言推理轨迹用作训练数据时，模型虽能掌握轨迹格式却常生成错误内容，导致改进幅度较小且不稳定。这些发现表明，当获得可靠的语言学分析时，大语言模型能够利用语法信息进行低资源机器翻译，而学习生成此类分析仍然是当前的主要瓶颈。",
+      "hf_link": "https://huggingface.co/papers/2606.03782"
     },
     "2605.29463": {
       "title": "Honest Lying: Understanding Memory Confabulation in Reflexive Agents",
@@ -208,26 +256,32 @@
   "hf_votes": {
     "2606.07297": 0,
     "2606.07082": 0,
+    "2606.08415": 0,
+    "2606.06087": 0,
     "2606.09828": 0,
+    "2606.09079": 0,
+    "2606.09669": 0,
     "2509.10078": 0,
     "2606.09803": 0,
-    "2606.09669": 0,
-    "2606.09079": 0,
-    "2606.08415": 0,
     "2606.09826": 0,
-    "2606.08348": 0,
     "2606.09811": 0,
-    "2606.06087": 0,
-    "2606.03980": 0,
     "2606.09516": 0,
+    "2606.08348": 0,
+    "2606.03980": 0,
+    "2606.08572": 0,
+    "2606.07074": 0,
     "2606.05633": 0,
     "2606.09659": 0,
     "2606.09380": 0,
     "2606.08432": 0,
     "2606.07299": 0,
-    "2606.09809": 0,
     "2606.04662": 0,
+    "2606.09809": 0,
+    "2606.07473": 0,
+    "2606.06735": 0,
+    "2606.09585": 0,
     "2606.09365": 0,
+    "2606.08960": 0,
     "2606.09348": 0,
     "2606.08548": 0,
     "2606.08327": 0,
@@ -235,9 +289,11 @@
     "2606.05122": 0,
     "2606.03715": 0,
     "2606.06523": 0,
-    "2606.09585": 0,
+    "2605.25077": 0,
     "2606.08481": 0,
     "2606.08324": 0,
+    "2606.05011": 0,
+    "2606.03782": 0,
     "2605.29463": 0,
     "2605.24047": 0
   },
@@ -246,34 +302,40 @@
       "2606.09828"
     ],
     "视频生成": [
+      "2606.08415",
       "2606.09828",
       "2606.09803",
-      "2606.08415"
+      "2605.25077"
     ],
     "图像生成": [
       "2606.03715"
     ]
   },
   "summaries": {
-    "2606.09828": {
-      "short_zh": "视频世界模型的空间记忆优化",
-      "tags": "计算机视觉;视频生成;三维一致视频合成",
-      "body_summary": "现有视频世界模型依赖像素空间的三维显式记忆，计算开销大且有信息损失。\n提出潜空间三维记忆框架，在扩散潜空间中存储与查询场景信息，提升了效率与质量。"
+    "2606.08415": {
+      "short_zh": "视频编辑模型处理复杂指令能力评估",
+      "tags": "计算机视觉;视频编辑;组合编辑评测",
+      "body_summary": "现有视频编辑模型擅长简单任务，但难以处理包含多个耦合编辑的真实复杂用户指令，缺乏相应评测基准。\n为此提出了CoVEBench评测基准，通过精细指标评估模型执行组合编辑指令的能力，发现现有模型面临巨大挑战。"
+    },
+    "2605.25077": {
+      "short_zh": "视频世界模型实现物体交互操控",
+      "tags": "计算机视觉；视频生成；交互式世界建模",
+      "body_summary": "现有视频世界模型仅支持视角导航，无法对场景内物体进行操控。\n提出WorldCraft框架，通过轨迹控制管道实现用户在视频世界中对指定物体的轨迹操控。"
+    },
+    "2606.09803": {
+      "short_zh": "研究动作世界模型的记忆机制",
+      "tags": "计算机视觉;生成式视频模型;动作世界模型记忆机制",
+      "body_summary": "现有动作世界模型在生成多段视频时存在记忆失效问题，导致相机返回时场景会悄变。该研究固定其他变量，通过对比实验系统分析了不同记忆机制在容量、压缩、读取和循环结构上的表现。研究发现，原始上下文是强基线，而块状状态空间循环在应对开放域返回时效果最佳，表明记忆结构至关重要。"
     },
     "2606.03715": {
       "short_zh": "文生图模型只需词义和词序",
       "tags": "计算机视觉;生成模型;文生图模型",
       "body_summary": "研究文生图模型在生成图像时实际利用了文本编码器提供的哪些信息。\n通过实验证明，模型主要依赖单词合并与词序信息，而无需复杂的上下文编码。"
     },
-    "2606.08415": {
-      "short_zh": "视频编辑模型处理复杂指令能力评估",
-      "tags": "计算机视觉;视频编辑;组合编辑评测",
-      "body_summary": "现有视频编辑模型擅长简单任务，但难以处理包含多个耦合编辑的真实复杂用户指令，缺乏相应评测基准。\n为此提出了CoVEBench评测基准，通过精细指标评估模型执行组合编辑指令的能力，发现现有模型面临巨大挑战。"
-    },
-    "2606.09803": {
-      "short_zh": "研究动作世界模型的记忆机制",
-      "tags": "计算机视觉;生成式视频模型;动作世界模型记忆机制",
-      "body_summary": "现有动作世界模型在生成多段视频时存在记忆失效问题，导致相机返回时场景会悄变。该研究固定其他变量，通过对比实验系统分析了不同记忆机制在容量、压缩、读取和循环结构上的表现。研究发现，原始上下文是强基线，而块状状态空间循环在应对开放域返回时效果最佳，表明记忆结构至关重要。"
+    "2606.09828": {
+      "short_zh": "视频世界模型的空间记忆优化",
+      "tags": "计算机视觉;视频生成;三维一致视频合成",
+      "body_summary": "现有视频世界模型依赖像素空间的三维显式记忆，计算开销大且有信息损失。\n提出潜空间三维记忆框架，在扩散潜空间中存储与查询场景信息，提升了效率与质量。"
     },
     "2606.07297": {
       "short_zh": "评测代码库探索能力",
@@ -285,50 +347,60 @@
       "tags": "大语言模型训练；模型蒸馏；在线蒸馏更新几何分析",
       "body_summary": "在线蒸馏广泛用于增强大语言模型推理能力，但其训练动态机制尚不明确。\n通过参数空间分析，我们发现在线蒸馏更新轨迹呈现独特的低维锁定特性，不同于监督微调与强化学习。"
     },
-    "2509.10078": {
-      "short_zh": "人类心理问卷无法准确测评大模型行为",
-      "tags": "自然语言处理;大语言模型测评;大模型行为一致性研究",
-      "body_summary": "背景/任务是探究人类心理问卷能否可靠地表征大语言模型在真实交互中的行为。\n研究发现，模型在问卷中的自评结果与其在真实查询下的生成行为存在显著差异，问卷测评方式存在误导性，建议采用基于生成概率的评估方法。"
-    },
-    "2606.09669": {
-      "short_zh": "测评智能体空间推理能力",
-      "tags": "多模态人工智能;具身智能与机器人;交互式空间推理评估",
-      "body_summary": "现有基准难以评估多模态智能体在真实世界任务中的交互式空间理解能力。\n作者构建了一个统一基准SpatialWorld，并评估了15个先进模型，发现其空间任务解决能力仍面临巨大挑战。"
+    "2606.06087": {
+      "short_zh": "大模型智能体技能储存新方法",
+      "tags": "自然语言处理;智能体系统;技能模块化储存",
+      "body_summary": "当前智能体系统使用文本技能编码会导致上下文开销大且技能明文暴露。\n提出LatentSkill框架，将文本技能转为LoRA适配器存入权重空间，降低开销并提升性能。"
     },
     "2606.09079": {
       "short_zh": "用稀疏前瞻减少长文本推理内存",
       "tags": "自然语言处理;高效推理;长上下文推理",
       "body_summary": "传统大模型在处理超长文本时需要将所有历史信息存储在GPU内存中，导致严重内存瓶颈。\n提出了一种名为前瞻稀疏注意力的新推理范式，它通过预测未来需求，只将关键信息块保留在GPU内存中，从而大幅减少内存占用并保持或提升模型性能。"
     },
+    "2606.09669": {
+      "short_zh": "测评智能体空间推理能力",
+      "tags": "多模态人工智能;具身智能与机器人;交互式空间推理评估",
+      "body_summary": "现有基准难以评估多模态智能体在真实世界任务中的交互式空间理解能力。\n作者构建了一个统一基准SpatialWorld，并评估了15个先进模型，发现其空间任务解决能力仍面临巨大挑战。"
+    },
+    "2509.10078": {
+      "short_zh": "人类心理问卷无法准确测评大模型行为",
+      "tags": "自然语言处理;大语言模型测评;大模型行为一致性研究",
+      "body_summary": "背景/任务是探究人类心理问卷能否可靠地表征大语言模型在真实交互中的行为。\n研究发现，模型在问卷中的自评结果与其在真实查询下的生成行为存在显著差异，问卷测评方式存在误导性，建议采用基于生成概率的评估方法。"
+    },
     "2606.09826": {
       "short_zh": "视觉语言模型游戏智能体统一评测基准",
       "tags": "视觉与多模态智能;具身智能;游戏智能体评测",
       "body_summary": "当前视觉语言模型智能体在游戏环境中的评测基准存在考察维度单一、缺乏统一协议和动态改进能力评估等不足。\n本文提出了OmniGameArena基准与改进动态曲线方法，构建了十二款UE5游戏并引入反思机制，以全面评估和促进智能体的动态能力提升。"
-    },
-    "2606.08348": {
-      "short_zh": "大模型智能体技能优化框架",
-      "tags": "自然语言处理;智能体与对话系统;技能评估与演化",
-      "body_summary": "大模型智能体依赖外部推理条件，但对其优化常依赖启发式反思，缺乏量化评估。\n提出贝叶斯智能体框架，将技能视为假设，用后验概率指导其演化，并验证了其在多个基准上的性能提升。"
     },
     "2606.09811": {
       "short_zh": "异步世界动作建模机器人控制",
       "tags": "机器人;机器人操作;世界动作建模",
       "body_summary": "现有模型将世界预测与动作执行耦合在同一时间分辨率，限制了视频分支在具身控制中的潜力。\n提出异步世界动作模型AHA-WAM，通过双扩散变换架构实现高频动作执行与低频世界规划的异步协同，提升机器人操作性能。"
     },
-    "2606.06087": {
-      "short_zh": "大模型智能体技能储存新方法",
-      "tags": "自然语言处理;智能体系统;技能模块化储存",
-      "body_summary": "当前智能体系统使用文本技能编码会导致上下文开销大且技能明文暴露。\n提出LatentSkill框架，将文本技能转为LoRA适配器存入权重空间，降低开销并提升性能。"
+    "2606.09516": {
+      "short_zh": "实时一步视频修复",
+      "tags": "计算机视觉;视频处理;实时视频修复",
+      "body_summary": "实时视频修复需要在严格延迟限制下生成高清画面，但现有一步扩散模型难以在消费级GPU上部署。\n提出SwiftVR框架，通过无掩码移位窗口自注意力和轻量修复感知自编码器，在消费级GPU上实现实时高清视频修复。"
+    },
+    "2606.08348": {
+      "short_zh": "大模型智能体技能优化框架",
+      "tags": "自然语言处理;智能体与对话系统;技能评估与演化",
+      "body_summary": "大模型智能体依赖外部推理条件，但对其优化常依赖启发式反思，缺乏量化评估。\n提出贝叶斯智能体框架，将技能视为假设，用后验概率指导其演化，并验证了其在多个基准上的性能提升。"
     },
     "2606.03980": {
       "short_zh": "统一评估标准的智能体技能模型",
       "tags": "自然语言处理；强化学习与对齐；奖励模型",
       "body_summary": "当前奖励模型依赖于多种异构评估标准，缺乏统一整合机制，限制了其一致性和透明度。\n我们提出Skill-RM框架，将奖励建模转化为可执行的智能体技能，动态整合异构证据，在多项任务中超越了传统基线。"
     },
-    "2606.09516": {
-      "short_zh": "实时一步视频修复",
-      "tags": "计算机视觉;视频处理;实时视频修复",
-      "body_summary": "实时视频修复需要在严格延迟限制下生成高清画面，但现有一步扩散模型难以在消费级GPU上部署。\n提出SwiftVR框架，通过无掩码移位窗口自注意力和轻量修复感知自编码器，在消费级GPU上实现实时高清视频修复。"
+    "2606.08572": {
+      "short_zh": "评估全模态视频指令跟随能力",
+      "tags": "多模态人工智能;视频内容理解;全模态视频描述",
+      "body_summary": "现有研究缺少对全模态大模型复杂指令跟随能力的系统评估。\n我们构建了首个全模态指令跟随评测基准OmniCap-IF，揭示了相关模型问题并提出了改进方案。"
+    },
+    "2606.07074": {
+      "short_zh": "训练高效能网页智能体",
+      "tags": "自然语言处理;智能体与交互系统;网页浏览效率优化",
+      "body_summary": "当前深度研究智能体在复杂信息检索任务中表现出色但计算成本高昂，存在工具依赖盲目和推理冗余的问题。\n提出了SlimSearcher框架，通过帕累托高效轨迹筛选和自适应奖励门控，在保持准确性的同时显著减少工具调用和令牌消耗。"
     },
     "2606.05633": {
       "short_zh": "检索增强问答中的答案泄漏",
@@ -355,20 +427,40 @@
       "tags": "智能体系统；自主智能体；深度研究任务",
       "body_summary": "针对深度研究任务中存在的规划、分解、幻觉与过程审计等难题\n提出了一个多智能体框架，通过动态规划、递归搜索和准则优化提升了研究能力与可追溯性"
     },
-    "2606.09809": {
-      "short_zh": "评估卡片统一报告AI评估结果",
-      "tags": "机器学习;模型评估;评估报告标准化",
-      "body_summary": "当前AI评估结果报告不一致，导致难以比较、追踪和解读。\n提出了EvalCards框架统一记录评估数据，并开发工具分析现有报告的不足。"
-    },
     "2606.04662": {
       "short_zh": "Muon比Adam快的原因探索",
       "tags": "机器学习;优化算法;大模型训练优化",
       "body_summary": "Muon优化器比Adam训练大语言模型效率高约两倍，但其优势的局部几何来源尚不清楚。\n从曲率视角对比了Muon与Adam，发现其优势源于更低的归一化方向锐度，并通过数据、模型分析及理论证明了该结论。"
     },
+    "2606.09809": {
+      "short_zh": "评估卡片统一报告AI评估结果",
+      "tags": "机器学习;模型评估;评估报告标准化",
+      "body_summary": "当前AI评估结果报告不一致，导致难以比较、追踪和解读。\n提出了EvalCards框架统一记录评估数据，并开发工具分析现有报告的不足。"
+    },
+    "2606.07473": {
+      "short_zh": "检测缓解Whisper幻觉",
+      "tags": "语音识别;自动语音识别;ASR幻觉缓解",
+      "body_summary": "Whisper模型在处理非语音音频时易产生与输入无关的幻觉转录。\n我们通过分析模型内部表示检测幻觉，并提出了两种方法有效降低了幻觉率。"
+    },
+    "2606.06735": {
+      "short_zh": "激活导向的几何角度模长分解",
+      "tags": "自然语言处理;语言模型控制;激活导向几何分析",
+      "body_summary": "当前线性激活导向虽流行但存在局限，球形导向范式被提出以改进，其假设隐藏状态模长不携带概念信息。\n本文通过实验解耦角度与径向分量，发现概念主要由角度表征，但模长影响导向稳定性，建议将导向参数化为可解释的角度与径向分量。"
+    },
+    "2606.09585": {
+      "short_zh": "图像作为推理媒介的探索",
+      "tags": "多模态大模型;视觉推理;光学推理方法",
+      "body_summary": "传统多模态推理多依赖文本，本文探索仅用图像作为推理媒介的可能性。\n提出光学推理方法，用图像编码推理过程，在保持性能的同时显著提升推理效率。"
+    },
     "2606.09365": {
       "short_zh": "医疗智能体自进化技能记忆框架",
       "tags": "自然语言处理;智能体与对话系统;医学智能体记忆管理",
       "body_summary": "医疗智能体需在交互临床决策中复用经验，但现有记忆机制冗余且难以管理。\n提出SkeMex框架，将交互提炼为结构化技能，构建多级记忆库并通过评估反馈实现闭环自进化。"
+    },
+    "2606.08960": {
+      "short_zh": "用对抗循环加固智能体评测基准",
+      "tags": "机器学习;智能体评测;奖励攻击防护",
+      "body_summary": "当前智能体基准测试容易被奖励攻击扭曲结果\n提出黑客修复循环法自动生成抗攻击验证器大幅提升基准鲁棒性"
     },
     "2606.09348": {
       "short_zh": "用贝叶斯方法解决稀疏奖励下的时序信用分配问题",
@@ -400,11 +492,6 @@
       "tags": "形式化方法;智能体系统;工作流验证与演进",
       "body_summary": "当前大型语言模型执行多步骤工作流时缺乏形式化规范与验证方法。\n提出了Lean4Agent框架，用Lean4形式化建模验证智能体工作流，并通过实验证明其有效性。"
     },
-    "2606.09585": {
-      "short_zh": "图像作为推理媒介的探索",
-      "tags": "多模态大模型;视觉推理;光学推理方法",
-      "body_summary": "传统多模态推理多依赖文本，本文探索仅用图像作为推理媒介的可能性。\n提出光学推理方法，用图像编码推理过程，在保持性能的同时显著提升推理效率。"
-    },
     "2606.08481": {
       "short_zh": "自动生成企业知识图谱查询基准",
       "tags": "数据库;图查询;文本到Cypher基准生成",
@@ -414,6 +501,16 @@
       "short_zh": "远距红外光谱大气补偿方法",
       "tags": "遥感图像处理;大气校正;红外光谱成像",
       "body_summary": "被动远距红外光谱成像受大气影响严重，需补偿以获取目标信息。\n提出轻量级集合深度学习框架，输入不同距离测量值，联合估计大气参数，降低光谱失真。"
+    },
+    "2606.05011": {
+      "short_zh": "跨视图检索与姿态估计统一框架",
+      "tags": "计算机视觉;跨视图定位;跨视图地理定位",
+      "body_summary": "跨视图地理定位通过匹配地面图像与航拍图像数据库来估计其地理位置。\n提出了CIPER框架，使用共享编码器和任务特定令牌联合实现城市尺度检索与精确姿态估计。"
+    },
+    "2606.03782": {
+      "short_zh": "用语言学推理提升低资源翻译",
+      "tags": "自然语言处理;机器翻译;低资源神经机器翻译",
+      "body_summary": "大语言模型为极低资源语言的机器翻译提供了新途径，但难以有效运用语法信息。\n研究通过自动生成逐步语言学推理轨迹，并测试其在上下文学习等三种设定下的效果，发现推理轨迹在推理时作为引导最有效。"
     },
     "2605.29463": {
       "short_zh": "反思式智能体的记忆幻觉问题研究",
@@ -427,30 +524,71 @@
     }
   },
   "deep_analysis": {
-    "2606.09828": "你好，这是一个非常好的问题。我来为你解读这篇论文，尽量用简单清晰的语言帮你梳理。\n\n### 1. 论文所在的任务是什么？\n\n*   **任务名称**：**几何一致、相机可控的视频生成**。\n*   **任务输入**：\n    1.  **一张起始图片**：作为3D世界的“第一印象”。\n    2.  **一条用户指定的相机运动轨迹**：告诉模型“接下来相机要怎么移动”。\n*   **任务输出**：一段生成的、**几何上自洽**的长视频。\n*   **任务功能**：想象一下，你拍了一张房间的照片，然后告诉AI：“请生成一段视频，模拟我从左边走到右边，再绕回来的过程。” 这个模型就要像一个“世界模拟器”，在脑海里构建一个3D场景，并根据你给的相机路径，生成每一帧画面，确保视频里的物体位置、形状、光照在不同视角下看起来是合理的、连贯的。\n\n### 2. 这篇论文想解决什么问题？\n\n**核心问题**：现有的方法虽然能生成几何一致的视频，但**效率太低、内存占用太大**。\n\n**具体来说**：\n*   **之前的方法**（如图2上半部分）：它们会在生成过程中，将看到的每一帧画面都转换成一个**RGB（红绿蓝三通道颜色）点云**（类似3D版“像素点”），存起来作为“3D记忆”。每次要生成新的一帧时，需要：\n    1.  **渲染**：把这个点云画成一整张图片。\n    2.  **编码**：再用VAE编码器把这张图片压缩成AI模型能理解的“特征”数据。\n    这个过程（渲染+编码）计算量巨大，非常慢，而且RGB点云本身也需要占用大量GPU内存。\n\n*   **带来的问题**：\n    1.  **速度慢**：每生成一帧都要做一遍昂贵的渲染和编码。\n    2.  **信息丢失**：从AI内部的高维“特征”转成RGB图片，再转回特征，就像把一首交响乐录下来再播放，会损失细节和保真度。\n    3.  **内存开销大**：存储高分辨率的RGB点云非常“吃”内存。\n\n### 3. 这篇论文的贡献是什么？\n\n这篇论文提出了一个名为 **Mirage** 的新框架，核心贡献是 **“潜在空间空间记忆”** 。\n\n*   **核心思想（最大贡献）**：不存RGB点云，而是**直接把AI模型内部的特征（Latent Tokens）存到3D空间里**。这就像我们不存拍好的照片（RGB），而是存照片背后的大脑理解（特征）。\n*   **带来的好处**：\n    1.  **速度极快**：读取记忆时，只需要在“特征”的低分辨率空间里做一次投影，**避免了渲染和编码的昂贵计算**。论文称速度提升了**10.57倍**。\n    2.  **内存占用极低**：因为特征数据比RGB图片小得多（例如压缩了64倍）。论文称GPU内存占用降低了**55倍**。\n    3.  **保真度更高**：直接使用模型原生的特征，避免了来回转换的信息损失，生成的视频几何一致性更好。\n\n### 4. 论文的整体思路和模型结构\n\n**核心组件**：\n*   **基模**：它使用一个现成的**视频扩散模型**作为生成视频的“大脑”或“主干网络”。论文并没有创造新的扩散模型，而是**高效地适配了现有的模型**。\n*   **核心创新模块**：**潜在空间空间记忆**，这是一个在3D空间中存储和读取特征数据的“缓存系统”。\n\n**整体流程（看图3理解）**：\n这是一个**“初始化-读取-更新”的循环**，用于生成一段段的长视频。\n\n1.  **初始化**：\n    *   **输入**：用户给的第一张图片。\n    *   **操作**：用VAE编码器把图片变成潜在特征（一堆特征向量）。\n    *   **构建3D记忆**：利用一个**深度估计模型**，算出图片中每个像素的深度（距离）。然后，把每个特征向量根据其对应的像素位置和深度，**反向投影**到真实3D世界坐标中。这样，我们就有了一个3D点云，但每个点存的是特征向量，而不是颜色。\n\n2.  **读取 & 生成（循环进行）**：\n    *   **输入**：用户指定的下一段相机轨迹（多个相机位姿）。\n    *   **读取记忆**：对于轨迹上的每一个目标相机位姿，将3D记忆中的特征点**投影**到这个相机的“视角”上，形成一个**2D的特征图**。这个过程完全在低分辨率的特征空间完成，非常快。\n    *   **条件生成**：将这个投影得到的特征图，通过一个类似 **ControlNet** 的侧支网络，输入给**视频扩散模型**。扩散模型以这个特征图为“条件提示”，生成对应视角的、去噪后的新特征。\n    *   **输出**：将新特征用VAE解码器变成一帧RGB图片。这样就生成了新的一帧/一批帧。\n\n3.  **更新记忆**：\n    *   **操作**：对于刚生成的视频帧，重复“初始化”的步骤：\n        1.  估计它们的深度。\n        2.  用一个模型**分割出动态物体**（比如走动的人），因为静态背景才是我们想存到持久3D记忆里的。\n        3.  将（主要是静态部分的）帧编码成特征，并反向投影到3D空间中，**更新或补充**现有的记忆库。\n    *   **目的**：让记忆库随着“探索”不断扩大和丰富，支持生成长时间、大范围的视频。\n\n**总结流程**：**输入图片 -> 构建3D特征记忆 -> 根据相机位姿从记忆投影特征 -> 用投影特征引导扩散模型生成新帧 -> 用新帧更新3D记忆 -> 循环... -> 输出长视频。**\n\n### 5. 结果怎么样？\n\n论文的实验结果表明，Mirage 方法非常成功：\n\n1.  **性能大幅提升**：\n    *   **速度**：端到端视频生成速度比基于RGB点云记忆的方法**快10.57倍**。\n    *   **内存**：GPU内存占用**降低55倍**。这使得在普通设备上生成长视频成为可能。\n\n2.  **生成质量高**：\n    *   在 **WorldScore**（一个评估生成视频3D几何一致性的基准）上达到了**最先进的性能**。这意味着它生成的视频，在多个视角下看，物体位置和形状最不容易“穿帮”。\n    *   在 **RealEstate10K**（一个真实室内场景数据集）上重建质量很高，说明它能很好地建模真实世界的几何。\n\n3.  **关键能力验证**：如图1所示，即使相机路径兜了一个大圈子再回到原来的地方，Mirage 也能**准确地重现之前看到的场景区域**，证明了其3D记忆的有效性和长期一致性。\n\n**简单总结**：这篇论文就像给视频生成AI装了一个**高效的“3D特征记忆体”**，让它不用再笨拙地“画了再看，看了再画”，而是直接在“大脑”（特征空间）里构建和查询3D场景，从而实现了又快又好又省资源的几何一致视频生成。",
-    "2606.03715": "这篇论文发表在**计算机视觉与自然语言处理交叉领域（CVPR/ICCV等会议相关）**，具体聚焦于**文本到图像（Text-to-Image, TTI）生成任务**。下面我用简单的语言为你拆解这篇论文的核心内容：\n\n---\n\n### **(1) 任务是什么**\n- **任务输入**：一段文本描述（例如：“一只戴着红色帽子的猫坐在蓝色沙发上”）。\n- **任务输出**：一张与文本描述相符的图片。\n- **任务功能**：根据文本提示生成高质量、语义一致的图像。\n\n---\n\n### **(2) 想解决什么问题**\n作者想探究一个关键问题：**文本到图像模型到底需要从文本编码器（text encoder）中获得多少信息？**\n\n传统观念认为，文本编码器（如CLIP、T5等）会提取丰富的**上下文信息**（例如：词语之间的关系、属性绑定、句子结构等），这些信息对生成复杂图片至关重要。但作者怀疑：**图像模型可能并不需要这么多上下文信息，而是自己“脑补”出了这些关系。**\n\n---\n\n### **(3) 贡献是什么**\n论文的主要贡献是：\n- **提出了一种“上下文无关”的文本嵌入方法**，通过实验证明：即使文本嵌入中**只包含单词含义和单词顺序**（而不包含句子结构或上下文关系），图像模型也能生成质量相当的图片。\n- **揭示了文本到图像模型的工作机制**：模型更多依赖**单词本身的意义和位置信息**，而不是复杂的句子结构信息。\n- **挑战了传统认知**：文本编码器可能被过度设计了，图像模型自身具备很强的“理解”能力。\n\n---\n\n### **(4) 整体思路与模型结构**\n#### **整体思路**\n作者设计了三种**逐步简化**的文本嵌入方式，替换原始文本编码器的输出，然后观察图像生成效果：\n\n1. **Bag of Tokens (BoT)**：只保留每个**子词（token）** 的独立含义，去掉所有上下文信息。\n2. **Bag of Words (BoW)**：将属于同一个单词的多个子词合并成一个**单词向量**，但仍无上下文。\n3. **Bag of Position-Tagged Words (BoPTW)**：在BoW基础上，为每个单词**加上位置编码**，保留单词顺序信息。\n\n#### **模型结构**\n- **基模**：使用了当前主流的**基于Transformer的扩散模型**，包括**Stable Diffusion 3 (SD3)**、**FLUX.1** 和 **FLUX.2**。\n- **文本编码器**：原本使用CLIP或T5等，但**实验中替换成了作者设计的简化嵌入**。\n- **图像生成器**：保持原模型不变，只改变输入的条件嵌入。\n\n#### **流程步骤**\n1. **输入文本提示**（如：“红帽猫坐蓝沙发”）。\n2. **构建简化嵌入**：\n   - 将每个单词（或子词）替换为它在**大量无关句子中出现的平均向量**，从而去除上下文。\n   - 对于BoPTW，再为每个单词向量加上**位置编码**（标记它在句子中的位置）。\n3. **输入图像模型**：将简化嵌入作为条件输入到预训练的扩散模型中。\n4. **生成图像**：模型根据这些“残缺”的文本信息生成图片。\n5. **评估效果**：使用视觉语言模型（VLM）作为裁判，判断生成的图片是否与原始文本匹配。\n\n---\n\n### **(5) 结果怎么样**\n- **简单提示**：即使只用**Bag of Tokens（BoT）**，模型也能生成不错的图片。\n- **复杂提示**（涉及属性绑定、空间关系等）：**Bag of Position-Tagged Words（BoPTW）** 效果最好，与使用完整文本嵌入的效果**几乎相当**。\n- **关键发现**：**单词顺序信息**（通过位置编码实现）对处理复杂提示至关重要，但**句子级的上下文信息**（如语法结构）并不是必需的。\n\n**结论**：文本到图像模型**并不像我们想象的那样依赖文本编码器提供的丰富上下文信息**，它们更多是靠**单词含义 + 单词顺序**来“猜”出正确的图像内容，模型自身具备了很强的语义组合能力。\n\n---\n\n如果你有更多问题或需要进一步解释某个部分，请随时告诉我！ 😊",
     "2606.08415": "好的，同学你好！我来用简单的语言为你解读这篇论文《CoVEBench: Can Video Editing Models Handle Complex Instructions?》。\n\n### (1) 任务是什么？\n这篇论文关注的是**文本引导的视频编辑**任务。\n*   **任务输入**：\n    1.  **一段原始的“源视频”**（例如，一个人在公园里跑步）。\n    2.  **一句复杂的文本编辑指令**（例如，“把跑步的人换成一只狗，背景从公园换成雪地，同时给视频加上黑白电影滤镜”）。\n*   **任务输出**：\n    *   一段**编辑后的新视频**，它应该精确地遵循输入指令的要求。\n*   **任务功能**：\n    *   让用户通过一句话，就能对视频进行**多个、关联的、复杂的修改**，而不是只能做单一、简单的修改（比如只换背景或只加滤镜）。\n\n### (2) 想解决什么问题？\n作者发现当前视频编辑模型和评测体系存在一个**巨大脱节**：\n1.  **现实需求是复合的**：用户真实的需求往往是复杂的、组合式的（就像上面的例子，同时改主体、背景和风格）。这要求模型能理解指令的各个部分，并协调完成多个编辑操作。\n2.  **现有评测是简单的**：当前主流的评测基准（如Gen-1， Gen-2等）主要用“简单指令”（如“把视频变成油画风格”）来测试模型，并用**粗糙的全局指标**（如CLIP相似度分数）来衡量好坏。这些指标无法判断模型在复杂指令下，是**部分成功、全部失败，还是破坏了不该改的地方**。\n    *   **简单来说**：现在的考试（评测基准）太简单了，考不出模型处理真实复杂任务（组合编辑）的真实水平。这篇论文就是想**出一套更难的、更贴近现实的“综合应用题”来考考现有的模型**。\n\n### (3) 贡献是什么？\n这篇论文主要有三大贡献：\n1.  **提出了新任务和新基准（CoVEBench）**：\n    *   定义并推动了“**组合式视频编辑**”这个更贴近实际需求的任务。\n    *   构建了一个包含**416个源视频**和**626条复杂编辑指令**（平均每条指令包含约3个子操作）的评测数据集。\n2.  **建立了一套可靠的评测系统**：\n    *   没有只用简单的全局分数。他们把每条复杂指令**拆解成近万个细粒度的“检查项”**（例如，“狗出现了吗？”，“背景是雪地吗？”，“黑白滤镜应用了吗？”，“跑步的人消失了吗？”）。\n    *   使用**多模态大模型（MLLM）作为“判卷老师”**，根据这些检查项来打分，从而能精确诊断模型在哪里出错。\n    *   同时还结合了自动化的视频质量、运动平滑度等指标进行综合评估。\n3.  **通过实验揭示了关键发现**：\n    *   用这个新基准测试了当前最先进的模型（如Seedance 2.0, Kling等），发现**处理组合指令仍然是一个巨大挑战**。模型常常会漏掉某些编辑、违反“保持原样”的约束，或者在同时执行多个操作时产生瑕疵。\n\n### (4) 整体思路与流程\n这篇论文的核心是**构建评测基准和设计评测方法**，而不是提出一个新的视频编辑模型。所以它没有自己的“模型结构”，而是**利用现有的SOTA模型作为“考生”**。\n\n它的整体流程更像是一个**严谨的考试出题和评卷过程**：\n\n**第一步：出题（构建数据集）**\n1.  **收集源视频**：从公开数据集和人工拍摄中选取了416段高质量、内容清晰的短视频。\n2.  **生成复杂指令**：\n    *   人工设计了一个覆盖多种编辑维度（主体、背景、相机运动、风格等）的指令模板库。\n    *   然后针对每个源视频，**组合多个维度的编辑要求**，生成一条复杂的自然语言指令。例如：`[改变主体] + [改变背景] + [添加风格]`。\n3.  **生成标准答案（检查清单）**：\n    *   这是关键！他们用大语言模型（LLM）将每条复杂指令**自动分解成一系列具体的、可验证的“是/否”问题**（检查项）。这就把模糊的指令变成了客观的评分标准。\n\n**第二步：考试（用基准测试模型）**\n1.  **输入**：将（源视频， 复杂指令）对输入给待评测的**视频编辑基模型**（如Seedance 2.0）。\n2.  **基模型推理**：这些基模型内部运作（通常基于扩散模型或多模态理解模型）生成编辑后的视频。**论文本身不干预这个过程**。\n3.  **输出**：得到各模型生成的“答卷”——编辑后的视频。\n\n**第三步：评卷（多维度评测）**\n这是论文方法的核心，对“答卷”进行打分：\n1.  **指令遵循度评测（核心）**：\n    *   **输入**：将（源视频， 编辑后视频， 复杂指令， 分解后的检查清单）一起输入给一个**强大的多模态大模型（MLLM）裁判**，如GPT-4V或Claude-3.5-Sonnet。\n    *   **MLLM判卷**：MLLM会观看前后视频，并逐一回答检查清单上的问题（例如，“视频里现在有狗吗？- 是”）。\n    *   **输出分数**：根据MLLM的答案，计算模型在“成功执行编辑”、“保持视频真实感”、“整体联合准确率”等方面的分数。\n2.  **视频质量与保真度评测（辅助）**：\n    *   使用一些**自动化指标**来计算生成视频的自身质量（如美观度、运动平滑度）以及对原视频的保留程度（如未修改区域的相似度）。\n\n### (5) 结果怎么样？\n实验结果表明，**即使对于最先进的模型，组合式视频编辑仍然非常困难**。\n*   **主要问题**：模型在处理多条编辑要求时，经常出现：\n    *   **编辑遗漏**：只完成了部分要求，漏掉了其他。\n    *   **过度编辑/破坏**：修改了指令中未要求改变的部分。\n    *   **逻辑/物理错误**：编辑后的内容在时空上不合理（如物体漂浮、运动诡异）。\n    *   **质量下降**：同时执行多个编辑导致视频出现更多瑕疵。\n*   **核心结论**： 现有的视频编辑模型在简单的“单选题”上可能表现很好，但面对需要综合理解的“应用题”时，能力还远远不足。**CoVEBench这个更难的基准，有效地暴露了当前模型的瓶颈**，为未来研发更能理解复杂指令、更好协调多步编辑的模型指明了方向。\n\n**打个比方**：以前的基准是考“背诵课文”（单一编辑），现在的模型都是“背诵高手”，接近满分。这篇论文出了份“根据课文内容写读后感并联系现实”的试卷（组合编辑），一下子就把高手们之间的真实差距和共同弱点考出来了。",
-    "2606.09803": "这篇论文讨论的是 **视频生成模型中的“记忆”问题**。我来用通俗的语言解释一下它的核心内容：\n\n---\n\n### **(1) 任务是什么**\n\n*   **任务名称**：**动作条件世界模型**。\n*   **任务输入**：\n    1.  一段文字描述（比如“一个安静的客厅”）。\n    2.  视频的第一帧图像。\n    3.  一系列“摄像机动作”（比如“向前走”、“向左转”、“回头看”）。\n*   **任务输出**：一段由多个片段组成的、连续的长视频。视频内容需要根据摄像机动作的变化而连贯地变化。\n*   **任务功能**：生成一个**可探索的虚拟世界**。就像你在游戏里控制角色移动，周围的环境（物体、布局）必须保持一致，不能你转个身回来，沙发就变成了床。\n\n**简单来说**：输入“剧本”和“操作指令”，模型要像导演一样，拍出一段逻辑连贯、场景稳定的长视频。\n\n---\n\n### **(2) 想解决什么问题**\n\n当前这类模型最大的**失败不是生成单张图不好看**，而是**“记不住”**世界。\n*   具体表现：当摄像机离开一个地方再转回来时，之前场景里的东西（比如桌上的杯子、墙上的画）可能会悄无声息地变成别的东西，或者直接消失。这说明模型没有真正“记住”这个世界的样子，只是在瞎猜下一帧。\n*   论文的核心问题：**如何让模型在生成长视频时，有效地“记住”历史信息，保证世界的稳定性？**\n*   更深层的问题：现有的各种“记忆”设计方案（比如存原图、存压缩信息、存场景摘要等）效果参差不齐，但很难公平比较，因为它们的改进可能混杂了模型结构、训练方式等其他因素的提升。\n\n---\n\n### **(3) 贡献是什么**\n\n这篇论文的主要贡献是**一个“控制变量”的公平比较框架**，而不是提出一个全新的、号称最好的记忆模型。\n\n1.  **构建了一个可控的研究平台（Echo-Memory）**：它固定了视频生成的主干模型、训练方法、数据接口等所有其他部分，**只改变“记忆”模块的设计**。这就好比做实验时，只改变一个变量（记忆方式），来观察它真实的效果。\n2.  **系统性地对比了四大类记忆机制**：\n    *   **原始上下文**：直接存一堆历史帧。\n    *   **压缩记忆**：把历史帧压缩成更紧凑的表示。\n    *   **空间记忆**：把历史信息总结成一些代表整个场景的“令牌”。\n    *   **状态空间记忆**：像RNN一样，用一个隐藏状态来隐式地携带历史信息。\n3.  **提出了更全面的三阶段评估协议**：\n    *   **回放质量**：模型能多好地复现训练数据中的动作序列？（基础能力）\n    *   **域内循环**：在熟悉的轨迹上，离开再回来，场景能保持一致吗？\n    *   **开放域返回**：在没见过的、全新的摄像机路径上，离开再回来，还能保持一致吗？（**真正的记忆考验**）\n    论文发现，这三个评估结果经常不一致，说明只看“回放画得好不好”不足以判断模型是否真的有“世界记忆”。\n\n---\n\n### **(4) 整体思路与模型结构**\n\n**整体思路**：像一个科学实验，在完全相同的“实验室条件”（相同的基模、数据、训练流程）下，测试不同的“记忆药水”（记忆模块）的效果。\n\n**基模**：论文使用了一个**视频扩散Transformer模型**作为生成视频的“基模”或“主干”。你可以把它想象成一个强大的、能根据指令生成短视频片段的AI画家。\n\n**整体流程（对照你提供的摘要图理解）**：\n\n1.  **输入**：用户提供一个文本描述、一个起始帧，以及一长串摄像机动作序列。\n2.  **分块生成**：模型不是一次性生成整个长视频，而是像播放幻灯片一样，**一小段一小段（一个chunk一个chunk）** 地生成。\n    *   例如，先生成第1-10帧，再基于第1-10帧生成第11-20帧，依此类推。\n3.  **记忆模块介入（这是论文的变量）**：\n    *   在生成**当前这一小段**视频时，模型除了看“当前指令”和“上一小段的最后一帧”，**还可以去“记忆库”里查询历史信息**。\n    *   **不同的记忆家族，就是不同的“记忆库”搭建和查询方式**：\n        *   **原始上下文**：直接把过去生成的很多帧图片都存下来，堆在一起给模型看。\n        *   **压缩记忆**：把过去那些帧先压缩一下（比如用编码器变成小一点的向量），存这些向量，需要时再解码或直接使用。\n        *   **空间记忆**：不存具体每帧，而是分析整个历史，提炼出一些代表场景全局信息的“空间令牌”存起来。\n        *   **状态空间记忆**：不设一个明确的“库”，而是让模型内部维护一个不断更新的“隐藏状态”，这个状态像滚雪球一样包含了所有过去的信息。\n4.  **生成与更新**：模型结合“当前指令”、“上一帧”、“查询到的记忆”，生成当前这一小段视频。生成完后，**根据设计好的记忆规则，更新“记忆库”**（例如，把新帧加进去，或更新隐藏状态）。\n5.  **循环**：重复步骤3和4，直到所有动作指令对应的视频片段都生成完毕，**输出最终的长视频**。\n\n---\n\n### **(5) 结果怎么样（核心发现）**\n\n在公平比较下，论文得到了几个反直觉的结论：\n\n1.  **“大力出奇迹”依然有效**：最简单的**原始上下文**（存很多历史帧）是一个很强的基线。给模型看得越多（从看1帧到看20帧），它在**开放域返回**这个最严苛的测试上提升巨大（从12.25分到58.63分）。这说明**记忆容量（能存多少）非常关键**。\n2.  **“压缩”可能得不偿失**：为了效率而做的**激进压缩**（无论是空间压缩还是混合压缩），往往会丢失掉那些对“返回时识别场景”至关重要的细节证据。**压缩不是记忆能力的免费替代品**。\n3.  **“隐式记忆”的结构很重要**：**状态空间记忆**（特别是块级递归的）在**开放域返回**测试中表现最好。这说明，不仅仅是要用隐式记忆（比如RNN），**如何组织这种递归结构（“怎么记”）和决定用不用它同样重要**。\n4.  **评估需要多维度**：仅在训练数据上“回放”得好的模型，不一定能在新路径上“记住”世界。论文的三分支评估协议揭示了这种差异。\n\n**总结**：这篇论文像一份“记忆模块选购指南”。它告诉你，在构建能记住世界的视频生成模型时：\n*   首先要保证足够的**记忆容量**（多存点没坏处）。\n*   不要为了压缩而牺牲掉关键细节。\n*   精心设计的**递归结构**可能是实现稳健记忆的钥匙。\n*   评估时一定要用**开放域返回**这种严苛测试，不能只看模型“复刻”旧视频的能力。"
+    "2605.25077": "这篇论文叫 **WorldCraft**，它研究的是 **交互式视频世界模型**。我来用简单的语言为你解读一下。\n\n### (1) 任务是什么？\n*   **任务输入：**\n    1.  **一段视频的起始帧**：作为当前世界的状态。\n    2.  **用户的两种“操作”**：\n        *   **相机控制**：告诉模型“接下来相机要怎么动”（比如向左转、拉近）。\n        *   **物体轨迹控制**：用户在视频中点击选择一个物体，并画出一条路径，告诉模型“这个物体接下来要按这条路移动”。\n*   **任务输出：**\n    *   模型根据这些操作，**生成接下来一系列连贯的视频帧**。在生成的视频中：\n        1.  相机会按照用户的指令移动（视角变化）。\n        2.  用户选中的那个物体会精确地沿着用户画的路径运动。\n*   **任务功能：**\n    *   它想做一个**可交互的、像素级的“世界模拟器”**。你不仅可以像玩游戏一样控制“镜头”去看世界，还能直接用手去“推”世界里的某个东西，让它动起来，并且世界会自然地、连贯地继续演化。\n\n### (2) 想解决什么问题？\n现有的视频世界模型（比如论文里提到的WorldPlay）已经能让用户控制**相机**来探索世界了。但是，它们**缺少对单个物体的直接操控能力**。这就像一个游戏，你只能移动摄像机看风景，却不能控制角色去捡起一个杯子。\n\n**具体挑战有三个：**\n1.  **相机-轨迹耦合问题**：当相机本身在动时，屏幕上所有东西（包括静止的物体）的位置都会变。这导致用户画的物体移动路径（在屏幕上）会和相机运动混在一起，模型很难分清“到底是物体自己在动，还是因为相机动了才看起来在动”。\n2.  **能力保留问题**：如果想给一个已经会控制相机的模型（基模型）新增控制物体的能力，很可能会破坏它原来控制相机的能力。因为控制相机和控制物体可能共用模型里同一个“空间控制”模块。\n3.  **离屏状态预测问题**：如果用户把一个物体移出了相机视野，过一会儿再把相机转回来，模型需要记得“那个物体已经被移走了，不在原来的位置了”。但现有的模型通常只记忆最后看到的样子，所以可能会错误地把物体“锚定”在它消失前的老位置。\n\n### (3) 贡献是什么？\n1.  **提出了物体级操作**：首次在自回归的视频世界模型中，同时支持**相机导航**和**物体轨迹控制**两种操作模式，让交互更接近真实世界。\n2.  **提出了“归一化世界轨迹”（NWT）**：一种聪明的轨迹表示方法。它把用户画的屏幕路径，转换成与相机运动无关的“世界坐标”下的路径，从而把物体自身运动和相机运动分开。\n3.  **提出了“空间通路LoRA”（SP-LoRA）**：一种高效的模型微调方法。它只针对模型中负责空间控制的部分进行小规模适配，从而给模型新增控制物体能力的同时，完美保留它原来控制相机的能力。\n4.  **提出了“轨迹锚定状态持久化”（TASP）**：一个记忆机制。它把物体的移动轨迹作为一种“全局位置记忆”，即使物体离开视野再回来，模型也能知道它应该在新位置出现，而不是老地方。\n\n### (4) 整体思路与模型结构\n**基模型**：这篇论文以 **WorldPlay** 这个强大的交互式视频世界模型作为基础。\n\n**整体流程（对照方法部分）：**\n1.  **输入与轨迹处理**：\n    *   用户输入起始帧、相机动作、以及（在屏幕上）对某个物体的点击和路径绘制。\n    *   **NWT模块开始工作**：\n        *   首先，利用一个现成的深度估计模型，根据当前帧估计出场景的**深度图**（知道每个像素离相机多远）。\n        *   结合估计的深度和相机参数，将用户画的**2D屏幕路径**，反向投影到**3D世界空间**，得到一条“世界轨迹”。这条轨迹描述了物体在世界中“绝对”的移动路径，与相机怎么动无关。\n        *   在生成每一帧时，根据**当前这一帧的（预测的）相机姿态**，再把这条3D世界轨迹投影回**当前帧的2D图像平面上**。这样，模型每一帧接收到的物体控制信号，都是适应了当前相机视角的、准确的屏幕位置。\n2.  **模型控制与生成**：\n    *   处理后的轨迹控制信号（2D点序列）和相机控制信号，会被输入到**WorldPlay基模型**中。\n    *   这里用到了 **SP-LoRA**：\n        *   作者发现，WorldPlay里有一个专门处理空间信息（比如光流、轨迹点）的“空间通路”。\n        *   他们不直接改动庞大的基模型，而是用**LoRA**（一种参数高效的微调技术）**只对这个“空间通路”的某些层进行微调**。\n        *   这样，模型就学会了如何理解和响应新增的“物体轨迹”信号，而控制相机的原有能力（也依赖这个通路）不会被破坏。\n3.  **状态记忆与自回归**：\n    *   模型基于输入和条件，生成下一帧。\n    *   **TASP机制生效**：\n        *   当物体在用户控制下移动时，它的**世界轨迹被记录下来，作为一个持久的“位置状态”**。\n        *   在模型自回归地生成后续帧时（即用上一帧的输出作为下一帧的输入），这个“轨迹记忆”会一直被携带。\n        *   如果物体移出了画面，传统的“外观记忆”会失效，但“轨迹记忆”仍然知道它被移到了世界中的哪个新位置。\n        *   当相机再次看到那个区域时，**轨迹记忆会覆盖或更新传统记忆中的位置信息**，确保物体在新位置出现，实现了状态的持久化。\n\n**简单总结流程**：用户画路径 → NWT转换成世界坐标下的真路径 → 每帧根据当前相机变回屏幕坐标 → SP-LoRA让模型学会按这个坐标控制物体 → TASP记住物体被移到了哪，即使出画了也不会忘 → 模型一帧帧生成带相机运动和物体运动的视频。\n\n### (5) 结果怎么样？\n论文通过实验证明了WorldCraft的有效性：\n*   **物体控制准确**：能精确地让物体沿着用户指定的复杂路径运动。\n*   **相机控制无损**：在只进行相机控制的测试中，WorldCraft的性能和原始的WorldPlay基模型一样好，说明新增物体控制能力没有损害原有的相机控制能力。\n*   **长序列生成稳定**：在长时间的自回归生成中（长达数百帧），即使物体多次离开再进入相机视野，它也能出现在正确（被移动后的）位置，证明了TASP机制的成功。\n*   **综合能力强**：如表1所示，WorldCraft是首个同时支持**可组合的相机-物体控制**和**长视频自回归生成**的模型，填补了现有技术的空白。\n\n总之，WorldCraft让视频世界模型从“可观看的互动场景”向“可动手操纵的互动世界”迈进了一大步。",
+    "2606.09803": "这篇论文讨论的是 **视频生成模型中的“记忆”问题**。我来用通俗的语言解释一下它的核心内容：\n\n---\n\n### **(1) 任务是什么**\n\n*   **任务名称**：**动作条件世界模型**。\n*   **任务输入**：\n    1.  一段文字描述（比如“一个安静的客厅”）。\n    2.  视频的第一帧图像。\n    3.  一系列“摄像机动作”（比如“向前走”、“向左转”、“回头看”）。\n*   **任务输出**：一段由多个片段组成的、连续的长视频。视频内容需要根据摄像机动作的变化而连贯地变化。\n*   **任务功能**：生成一个**可探索的虚拟世界**。就像你在游戏里控制角色移动，周围的环境（物体、布局）必须保持一致，不能你转个身回来，沙发就变成了床。\n\n**简单来说**：输入“剧本”和“操作指令”，模型要像导演一样，拍出一段逻辑连贯、场景稳定的长视频。\n\n---\n\n### **(2) 想解决什么问题**\n\n当前这类模型最大的**失败不是生成单张图不好看**，而是**“记不住”**世界。\n*   具体表现：当摄像机离开一个地方再转回来时，之前场景里的东西（比如桌上的杯子、墙上的画）可能会悄无声息地变成别的东西，或者直接消失。这说明模型没有真正“记住”这个世界的样子，只是在瞎猜下一帧。\n*   论文的核心问题：**如何让模型在生成长视频时，有效地“记住”历史信息，保证世界的稳定性？**\n*   更深层的问题：现有的各种“记忆”设计方案（比如存原图、存压缩信息、存场景摘要等）效果参差不齐，但很难公平比较，因为它们的改进可能混杂了模型结构、训练方式等其他因素的提升。\n\n---\n\n### **(3) 贡献是什么**\n\n这篇论文的主要贡献是**一个“控制变量”的公平比较框架**，而不是提出一个全新的、号称最好的记忆模型。\n\n1.  **构建了一个可控的研究平台（Echo-Memory）**：它固定了视频生成的主干模型、训练方法、数据接口等所有其他部分，**只改变“记忆”模块的设计**。这就好比做实验时，只改变一个变量（记忆方式），来观察它真实的效果。\n2.  **系统性地对比了四大类记忆机制**：\n    *   **原始上下文**：直接存一堆历史帧。\n    *   **压缩记忆**：把历史帧压缩成更紧凑的表示。\n    *   **空间记忆**：把历史信息总结成一些代表整个场景的“令牌”。\n    *   **状态空间记忆**：像RNN一样，用一个隐藏状态来隐式地携带历史信息。\n3.  **提出了更全面的三阶段评估协议**：\n    *   **回放质量**：模型能多好地复现训练数据中的动作序列？（基础能力）\n    *   **域内循环**：在熟悉的轨迹上，离开再回来，场景能保持一致吗？\n    *   **开放域返回**：在没见过的、全新的摄像机路径上，离开再回来，还能保持一致吗？（**真正的记忆考验**）\n    论文发现，这三个评估结果经常不一致，说明只看“回放画得好不好”不足以判断模型是否真的有“世界记忆”。\n\n---\n\n### **(4) 整体思路与模型结构**\n\n**整体思路**：像一个科学实验，在完全相同的“实验室条件”（相同的基模、数据、训练流程）下，测试不同的“记忆药水”（记忆模块）的效果。\n\n**基模**：论文使用了一个**视频扩散Transformer模型**作为生成视频的“基模”或“主干”。你可以把它想象成一个强大的、能根据指令生成短视频片段的AI画家。\n\n**整体流程（对照你提供的摘要图理解）**：\n\n1.  **输入**：用户提供一个文本描述、一个起始帧，以及一长串摄像机动作序列。\n2.  **分块生成**：模型不是一次性生成整个长视频，而是像播放幻灯片一样，**一小段一小段（一个chunk一个chunk）** 地生成。\n    *   例如，先生成第1-10帧，再基于第1-10帧生成第11-20帧，依此类推。\n3.  **记忆模块介入（这是论文的变量）**：\n    *   在生成**当前这一小段**视频时，模型除了看“当前指令”和“上一小段的最后一帧”，**还可以去“记忆库”里查询历史信息**。\n    *   **不同的记忆家族，就是不同的“记忆库”搭建和查询方式**：\n        *   **原始上下文**：直接把过去生成的很多帧图片都存下来，堆在一起给模型看。\n        *   **压缩记忆**：把过去那些帧先压缩一下（比如用编码器变成小一点的向量），存这些向量，需要时再解码或直接使用。\n        *   **空间记忆**：不存具体每帧，而是分析整个历史，提炼出一些代表场景全局信息的“空间令牌”存起来。\n        *   **状态空间记忆**：不设一个明确的“库”，而是让模型内部维护一个不断更新的“隐藏状态”，这个状态像滚雪球一样包含了所有过去的信息。\n4.  **生成与更新**：模型结合“当前指令”、“上一帧”、“查询到的记忆”，生成当前这一小段视频。生成完后，**根据设计好的记忆规则，更新“记忆库”**（例如，把新帧加进去，或更新隐藏状态）。\n5.  **循环**：重复步骤3和4，直到所有动作指令对应的视频片段都生成完毕，**输出最终的长视频**。\n\n---\n\n### **(5) 结果怎么样（核心发现）**\n\n在公平比较下，论文得到了几个反直觉的结论：\n\n1.  **“大力出奇迹”依然有效**：最简单的**原始上下文**（存很多历史帧）是一个很强的基线。给模型看得越多（从看1帧到看20帧），它在**开放域返回**这个最严苛的测试上提升巨大（从12.25分到58.63分）。这说明**记忆容量（能存多少）非常关键**。\n2.  **“压缩”可能得不偿失**：为了效率而做的**激进压缩**（无论是空间压缩还是混合压缩），往往会丢失掉那些对“返回时识别场景”至关重要的细节证据。**压缩不是记忆能力的免费替代品**。\n3.  **“隐式记忆”的结构很重要**：**状态空间记忆**（特别是块级递归的）在**开放域返回**测试中表现最好。这说明，不仅仅是要用隐式记忆（比如RNN），**如何组织这种递归结构（“怎么记”）和决定用不用它同样重要**。\n4.  **评估需要多维度**：仅在训练数据上“回放”得好的模型，不一定能在新路径上“记住”世界。论文的三分支评估协议揭示了这种差异。\n\n**总结**：这篇论文像一份“记忆模块选购指南”。它告诉你，在构建能记住世界的视频生成模型时：\n*   首先要保证足够的**记忆容量**（多存点没坏处）。\n*   不要为了压缩而牺牲掉关键细节。\n*   精心设计的**递归结构**可能是实现稳健记忆的钥匙。\n*   评估时一定要用**开放域返回**这种严苛测试，不能只看模型“复刻”旧视频的能力。",
+    "2606.03715": "这篇论文发表在**计算机视觉与自然语言处理交叉领域（CVPR/ICCV等会议相关）**，具体聚焦于**文本到图像（Text-to-Image, TTI）生成任务**。下面我用简单的语言为你拆解这篇论文的核心内容：\n\n---\n\n### **(1) 任务是什么**\n- **任务输入**：一段文本描述（例如：“一只戴着红色帽子的猫坐在蓝色沙发上”）。\n- **任务输出**：一张与文本描述相符的图片。\n- **任务功能**：根据文本提示生成高质量、语义一致的图像。\n\n---\n\n### **(2) 想解决什么问题**\n作者想探究一个关键问题：**文本到图像模型到底需要从文本编码器（text encoder）中获得多少信息？**\n\n传统观念认为，文本编码器（如CLIP、T5等）会提取丰富的**上下文信息**（例如：词语之间的关系、属性绑定、句子结构等），这些信息对生成复杂图片至关重要。但作者怀疑：**图像模型可能并不需要这么多上下文信息，而是自己“脑补”出了这些关系。**\n\n---\n\n### **(3) 贡献是什么**\n论文的主要贡献是：\n- **提出了一种“上下文无关”的文本嵌入方法**，通过实验证明：即使文本嵌入中**只包含单词含义和单词顺序**（而不包含句子结构或上下文关系），图像模型也能生成质量相当的图片。\n- **揭示了文本到图像模型的工作机制**：模型更多依赖**单词本身的意义和位置信息**，而不是复杂的句子结构信息。\n- **挑战了传统认知**：文本编码器可能被过度设计了，图像模型自身具备很强的“理解”能力。\n\n---\n\n### **(4) 整体思路与模型结构**\n#### **整体思路**\n作者设计了三种**逐步简化**的文本嵌入方式，替换原始文本编码器的输出，然后观察图像生成效果：\n\n1. **Bag of Tokens (BoT)**：只保留每个**子词（token）** 的独立含义，去掉所有上下文信息。\n2. **Bag of Words (BoW)**：将属于同一个单词的多个子词合并成一个**单词向量**，但仍无上下文。\n3. **Bag of Position-Tagged Words (BoPTW)**：在BoW基础上，为每个单词**加上位置编码**，保留单词顺序信息。\n\n#### **模型结构**\n- **基模**：使用了当前主流的**基于Transformer的扩散模型**，包括**Stable Diffusion 3 (SD3)**、**FLUX.1** 和 **FLUX.2**。\n- **文本编码器**：原本使用CLIP或T5等，但**实验中替换成了作者设计的简化嵌入**。\n- **图像生成器**：保持原模型不变，只改变输入的条件嵌入。\n\n#### **流程步骤**\n1. **输入文本提示**（如：“红帽猫坐蓝沙发”）。\n2. **构建简化嵌入**：\n   - 将每个单词（或子词）替换为它在**大量无关句子中出现的平均向量**，从而去除上下文。\n   - 对于BoPTW，再为每个单词向量加上**位置编码**（标记它在句子中的位置）。\n3. **输入图像模型**：将简化嵌入作为条件输入到预训练的扩散模型中。\n4. **生成图像**：模型根据这些“残缺”的文本信息生成图片。\n5. **评估效果**：使用视觉语言模型（VLM）作为裁判，判断生成的图片是否与原始文本匹配。\n\n---\n\n### **(5) 结果怎么样**\n- **简单提示**：即使只用**Bag of Tokens（BoT）**，模型也能生成不错的图片。\n- **复杂提示**（涉及属性绑定、空间关系等）：**Bag of Position-Tagged Words（BoPTW）** 效果最好，与使用完整文本嵌入的效果**几乎相当**。\n- **关键发现**：**单词顺序信息**（通过位置编码实现）对处理复杂提示至关重要，但**句子级的上下文信息**（如语法结构）并不是必需的。\n\n**结论**：文本到图像模型**并不像我们想象的那样依赖文本编码器提供的丰富上下文信息**，它们更多是靠**单词含义 + 单词顺序**来“猜”出正确的图像内容，模型自身具备了很强的语义组合能力。\n\n---\n\n如果你有更多问题或需要进一步解释某个部分，请随时告诉我！ 😊",
+    "2606.09828": "你好，这是一个非常好的问题。我来为你解读这篇论文，尽量用简单清晰的语言帮你梳理。\n\n### 1. 论文所在的任务是什么？\n\n*   **任务名称**：**几何一致、相机可控的视频生成**。\n*   **任务输入**：\n    1.  **一张起始图片**：作为3D世界的“第一印象”。\n    2.  **一条用户指定的相机运动轨迹**：告诉模型“接下来相机要怎么移动”。\n*   **任务输出**：一段生成的、**几何上自洽**的长视频。\n*   **任务功能**：想象一下，你拍了一张房间的照片，然后告诉AI：“请生成一段视频，模拟我从左边走到右边，再绕回来的过程。” 这个模型就要像一个“世界模拟器”，在脑海里构建一个3D场景，并根据你给的相机路径，生成每一帧画面，确保视频里的物体位置、形状、光照在不同视角下看起来是合理的、连贯的。\n\n### 2. 这篇论文想解决什么问题？\n\n**核心问题**：现有的方法虽然能生成几何一致的视频，但**效率太低、内存占用太大**。\n\n**具体来说**：\n*   **之前的方法**（如图2上半部分）：它们会在生成过程中，将看到的每一帧画面都转换成一个**RGB（红绿蓝三通道颜色）点云**（类似3D版“像素点”），存起来作为“3D记忆”。每次要生成新的一帧时，需要：\n    1.  **渲染**：把这个点云画成一整张图片。\n    2.  **编码**：再用VAE编码器把这张图片压缩成AI模型能理解的“特征”数据。\n    这个过程（渲染+编码）计算量巨大，非常慢，而且RGB点云本身也需要占用大量GPU内存。\n\n*   **带来的问题**：\n    1.  **速度慢**：每生成一帧都要做一遍昂贵的渲染和编码。\n    2.  **信息丢失**：从AI内部的高维“特征”转成RGB图片，再转回特征，就像把一首交响乐录下来再播放，会损失细节和保真度。\n    3.  **内存开销大**：存储高分辨率的RGB点云非常“吃”内存。\n\n### 3. 这篇论文的贡献是什么？\n\n这篇论文提出了一个名为 **Mirage** 的新框架，核心贡献是 **“潜在空间空间记忆”** 。\n\n*   **核心思想（最大贡献）**：不存RGB点云，而是**直接把AI模型内部的特征（Latent Tokens）存到3D空间里**。这就像我们不存拍好的照片（RGB），而是存照片背后的大脑理解（特征）。\n*   **带来的好处**：\n    1.  **速度极快**：读取记忆时，只需要在“特征”的低分辨率空间里做一次投影，**避免了渲染和编码的昂贵计算**。论文称速度提升了**10.57倍**。\n    2.  **内存占用极低**：因为特征数据比RGB图片小得多（例如压缩了64倍）。论文称GPU内存占用降低了**55倍**。\n    3.  **保真度更高**：直接使用模型原生的特征，避免了来回转换的信息损失，生成的视频几何一致性更好。\n\n### 4. 论文的整体思路和模型结构\n\n**核心组件**：\n*   **基模**：它使用一个现成的**视频扩散模型**作为生成视频的“大脑”或“主干网络”。论文并没有创造新的扩散模型，而是**高效地适配了现有的模型**。\n*   **核心创新模块**：**潜在空间空间记忆**，这是一个在3D空间中存储和读取特征数据的“缓存系统”。\n\n**整体流程（看图3理解）**：\n这是一个**“初始化-读取-更新”的循环**，用于生成一段段的长视频。\n\n1.  **初始化**：\n    *   **输入**：用户给的第一张图片。\n    *   **操作**：用VAE编码器把图片变成潜在特征（一堆特征向量）。\n    *   **构建3D记忆**：利用一个**深度估计模型**，算出图片中每个像素的深度（距离）。然后，把每个特征向量根据其对应的像素位置和深度，**反向投影**到真实3D世界坐标中。这样，我们就有了一个3D点云，但每个点存的是特征向量，而不是颜色。\n\n2.  **读取 & 生成（循环进行）**：\n    *   **输入**：用户指定的下一段相机轨迹（多个相机位姿）。\n    *   **读取记忆**：对于轨迹上的每一个目标相机位姿，将3D记忆中的特征点**投影**到这个相机的“视角”上，形成一个**2D的特征图**。这个过程完全在低分辨率的特征空间完成，非常快。\n    *   **条件生成**：将这个投影得到的特征图，通过一个类似 **ControlNet** 的侧支网络，输入给**视频扩散模型**。扩散模型以这个特征图为“条件提示”，生成对应视角的、去噪后的新特征。\n    *   **输出**：将新特征用VAE解码器变成一帧RGB图片。这样就生成了新的一帧/一批帧。\n\n3.  **更新记忆**：\n    *   **操作**：对于刚生成的视频帧，重复“初始化”的步骤：\n        1.  估计它们的深度。\n        2.  用一个模型**分割出动态物体**（比如走动的人），因为静态背景才是我们想存到持久3D记忆里的。\n        3.  将（主要是静态部分的）帧编码成特征，并反向投影到3D空间中，**更新或补充**现有的记忆库。\n    *   **目的**：让记忆库随着“探索”不断扩大和丰富，支持生成长时间、大范围的视频。\n\n**总结流程**：**输入图片 -> 构建3D特征记忆 -> 根据相机位姿从记忆投影特征 -> 用投影特征引导扩散模型生成新帧 -> 用新帧更新3D记忆 -> 循环... -> 输出长视频。**\n\n### 5. 结果怎么样？\n\n论文的实验结果表明，Mirage 方法非常成功：\n\n1.  **性能大幅提升**：\n    *   **速度**：端到端视频生成速度比基于RGB点云记忆的方法**快10.57倍**。\n    *   **内存**：GPU内存占用**降低55倍**。这使得在普通设备上生成长视频成为可能。\n\n2.  **生成质量高**：\n    *   在 **WorldScore**（一个评估生成视频3D几何一致性的基准）上达到了**最先进的性能**。这意味着它生成的视频，在多个视角下看，物体位置和形状最不容易“穿帮”。\n    *   在 **RealEstate10K**（一个真实室内场景数据集）上重建质量很高，说明它能很好地建模真实世界的几何。\n\n3.  **关键能力验证**：如图1所示，即使相机路径兜了一个大圈子再回到原来的地方，Mirage 也能**准确地重现之前看到的场景区域**，证明了其3D记忆的有效性和长期一致性。\n\n**简单总结**：这篇论文就像给视频生成AI装了一个**高效的“3D特征记忆体”**，让它不用再笨拙地“画了再看，看了再画”，而是直接在“大脑”（特征空间）里构建和查询3D场景，从而实现了又快又好又省资源的几何一致视频生成。"
   },
   "figures": {
-    "2606.09828": [
+    "2606.08415": [
       {
-        "path": "https://arxiv.org/html/2606.09828v1/x4.png",
-        "caption": "Figure 3:Overview of Mirage.Mirage initializes a 3D latent cache fromI0I_{0}by encoding it into VAE latents and lifting them with depth-guided back-projection. At each target view, the cache is read through a latent-resolution projection, and generation proceeds chunk by chunk: each decoded output chunk is re-estimated for depth, re-encoded into latents, and back-projected to extend the cache.",
+        "path": "https://arxiv.org/html/2606.08415v1/x2.png",
+        "caption": "Figure 2:Data curation pipeline of CoVEBench.",
         "role": "pipeline_1",
-        "caption_zh": "图 3：Mirage 方法概览。Mirage 从初始图像 I₀ 出发，通过 VAE 编码将其转换为潜在表示，并借助深度引导的反投影构建三维潜在缓存。在每一目标视角下，通过潜在分辨率投影读取缓存，并以分块方式进行生成：每个解码输出的区块会重新估计深度，重新编码为潜在表示，并通过反投影扩展缓存。"
+        "caption_zh": "图 2：CoVEBench 的数据处理流程。"
       },
       {
-        "path": "https://arxiv.org/html/2606.09828v1/x3.png",
-        "caption": "Figure 2:Latent spatial memory vs. RGB point cloud based memory for world model.Top: prior systems store memory as colored points and pay a rasterise-and-encode round trip at every conditioning step.\nBottom: latent spatial memory stores latent features at world-space location and reads them back through a single latent-resolution projection, eliminating the per-step pixel-space detour and shrinking the cache footprint by the squared VAE compression factor.",
+        "path": "https://arxiv.org/html/2606.08415v1/figures/Annotation.png",
+        "caption": "Figure 8:Annotation interface used for checklist verification and refinement. Annotators review videos, editing instructions, category labels, evaluation groups, questions, options, and expected answers in a structured workflow.",
         "role": "pipeline_2",
-        "caption_zh": "图 2：基于世界模型的潜在空间记忆与 RGB 点云记忆的对比。上图：先前系统将记忆存储为带颜色的点，并在每个条件化步骤中需经历一次“光栅化-编码”的往返过程。下图：潜在空间记忆将潜在特征存储在世界空间位置中，并通过单次潜在分辨率投影读回，消除了每一步在像素空间的迂回路径，并将缓存占用空间缩小了 VAE 压缩因子的平方倍。"
+        "caption_zh": "图 8：用于清单核查与细化的标注界面。标注员通过结构化工作流审阅视频、编辑指令、类别标签、评估组别、问题、选项及预期答案。"
       },
       {
-        "path": "https://arxiv.org/html/2606.09828v1/x8.png",
-        "caption": "Figure 7:Closed-loop revisit comparison on RealEstate10K.In the closed-loop test, the camera trajectory gradually returns to its starting point. The comparison between the last frame and the input frame shows that Mirage maintains strong consistency under the revisit setting.",
+        "path": "https://arxiv.org/html/2606.08415v1/x1.png",
+        "caption": "Figure 1:Video editing is moving towards complex instructions. CoVEBench provides evaluation for compositional video editing with fine-grained diagnostics across instruction compliance, video quality, and video fidelity.",
         "role": "pipeline_3",
-        "caption_zh": "图 7：RealEstate10K 上的闭环重访对比。在闭环测试中，相机轨迹逐渐回到其起点。末帧与输入帧的对比表明，Mirage 在重访场景下保持了强一致性。"
+        "caption_zh": "图1：视频编辑正朝着复杂指令的方向发展。CoVEBench 为组合式视频编辑提供了评估，涵盖指令依从性、视频质量和视频保真度的细粒度诊断。"
+      }
+    ],
+    "2605.25077": [
+      {
+        "path": "https://arxiv.org/html/2605.25077v1/x1.png",
+        "caption": "Figure 1:WorldCraft overview.(Top-left)WorldCraft lifts a user-specified 2D trajectory into a camera-decoupled normalized world space and re-projects it into per-frame trajectory conditions under the given camera actions.(Top-right)The trajectory and camera controls are injected through a lightweight pathway-selective LoRA on the spatial-control pathway, while the backbone attention and MLP layers remain frozen.(bottom)During autoregressive generation, WorldCraft updates the anchor frame and memory bank across chunks, and refreshes outdated memories to support long-horizon out-of-camera object reasoning.",
+        "role": "pipeline_1",
+        "caption_zh": "图 1：WorldCraft 概述。（左上）WorldCraft 将用户指定的 2D 轨迹提升至相机解耦的归一化世界空间，并在给定的相机动作下将其重新投影为每帧的轨迹条件。（右上）轨迹和相机控制通过空间控制通路上轻量级的通路选择性 LoRA 进行注入，而主干网络的注意力层和 MLP 层保持冻结。（底部）在自回归生成过程中，WorldCraft 跨片段更新锚帧和记忆库，并刷新过时记忆以支持长时域、出镜物体的推理。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.25077v1/x6.png",
+        "caption": "Figure 6:Automatic data curation pipeline. Given unlabeled video, we extract camera parameters, discover the salient moving subject, track it with SAM2 to obtain per-frame masks, and run CoTracker to produce multi-point trajectories. Physical-plausibility filters remove degenerate samples. The pipeline adapts to two data sources with complementary strengths: WISA-80K contributes diverse real-world scenes via a fully automatic VLM-guided discovery; SpatialVID-HQ provides metric camera annotations that we combine with a novel tracklet-based subject selection.",
+        "role": "pipeline_2",
+        "caption_zh": "图6：自动数据筛选流程。给定未标注视频，我们提取相机参数，识别显著运动主体，利用SAM2进行跟踪以获得逐帧掩码，并运行CoTracker生成多点轨迹。物理合理性过滤器剔除异常样本。该流程适配两个具有互补优势的数据源：WISA-80K通过全自动视觉语言模型引导的发现机制提供多样化的真实场景；SpatialVID-HQ则提供带度量信息的相机标注，我们将其与新颖的基于轨迹片段的主体选择方法相结合。"
+      },
+      {
+        "path": "https://arxiv.org/html/2605.25077v1/x8.png",
+        "caption": "Figure 8:Shared control subspace.2D PCA projection of token-level camera-control updates𝐮\\mathbf{u}(blue) and trajectory-control updates𝐯\\mathbf{v}(red) at the peak block.\nThe two distributions are aligned along the same principal directions rather than forming orthogonal subspaces, indicating that trajectory control is injected within the camera-compatible spatial-control subspace.",
+        "role": "pipeline_3",
+        "caption_zh": "图 8：共享控制子空间。峰值模块处 token 层级相机控制更新 𝐮（蓝色）与轨迹控制更新 𝐯（红色）的二维 PCA 投影。两个分布沿相同的主方向对齐而非形成正交子空间，表明轨迹控制被注入到相机兼容的空间控制子空间内。"
+      }
+    ],
+    "2606.09803": [
+      {
+        "path": "https://arxiv.org/html/2606.09803v1/x2.png",
+        "caption": "Figure 2:Overview of four representative approaches to memory\nin action world models.Under a shared video diffusion backbone and a\nshared camera-action interface, the approaches differ only in how\nhistorical information is stored and read. We compare four families\nthroughout: Context, Compression, Spatial, and State-Space.",
+        "role": "pipeline_1",
+        "caption_zh": "图2：动作世界模型中四种典型记忆方法的概览。在共享的视频扩散主干网络和相机-动作接口下，各方法仅因历史信息的存储与读取方式而异。全文比较了四种类型：上下文法、压缩法、空间法与状态空间法。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.09803v1/x1.png",
+        "caption": "Figure 1:Abstract teaser and workflow of Echo-Memory.Given a text description, historical observations, and the\ncamera/action state, an action world model must generate chunk-wise\nvideo while carrying memory across revisits. The figure positions\nContext, Compression, Spatial, and State-Space families as\nrepresentative designs for preserving a revisitable world.",
+        "role": "pipeline_2",
+        "caption_zh": "图 1：Echo-Memory 的摘要图示与工作流程。给定文本描述、历史观测以及相机/动作状态，动作世界模型必须在多次重访场景间保持记忆，并逐段生成视频。本图将情境建模、压缩建模、空间建模和状态空间建模等家族定位为具有代表性的、用于维持可重访世界模型的设计范式。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.09803v1/x3.png",
+        "caption": "Figure 3:Replay progression on a fixed GT camera trajectory.The diagnostic samples compare generated multi-segment replay against a\ndataset trajectory at matched time indices. The panel reveals where\nbackground structure, object layout, and boundary continuity begin to\ndrift before the final revisit probes are run.",
+        "role": "pipeline_3",
+        "caption_zh": "图3：在固定GT相机轨迹上的回放进度。诊断样本在匹配的时间索引处比较生成的多段回放与数据集轨迹。该面板显示了在运行最终重访探测之前，背景结构、物体布局和边界连续性开始发生漂移的位置。"
       }
     ],
     "2606.03715": [
@@ -473,44 +611,24 @@
         "caption_zh": "图 1：无上下文文本嵌入通常已足够。我们发现，当预训练的文本到图像生成模型以剥离了任何上下文信息的文本嵌入为条件时，模型仍能保持较高的视觉质量和对提示的遵循度。即使对于涉及属性绑定、空间关系和计数能力的复杂提示，这种令人惊讶的行为依然存在。我们表明，能够从类似词袋的文本表示中生成忠实于文本的图像，是由每个词嵌入内部编码的位置信息实现的。该信息使得文本到图像生成模型能够间接解读词语在提示中的角色，从而对由相同词语集合构成的不同句子进行消歧，如图所示。我们的观察表明，文本到图像生成模型从文本嵌入中提取的信息比通常认为的要少。"
       }
     ],
-    "2606.08415": [
+    "2606.09828": [
       {
-        "path": "https://arxiv.org/html/2606.08415v1/x2.png",
-        "caption": "Figure 2:Data curation pipeline of CoVEBench.",
+        "path": "https://arxiv.org/html/2606.09828v1/x4.png",
+        "caption": "Figure 3:Overview of Mirage.Mirage initializes a 3D latent cache fromI0I_{0}by encoding it into VAE latents and lifting them with depth-guided back-projection. At each target view, the cache is read through a latent-resolution projection, and generation proceeds chunk by chunk: each decoded output chunk is re-estimated for depth, re-encoded into latents, and back-projected to extend the cache.",
         "role": "pipeline_1",
-        "caption_zh": "图 2：CoVEBench 的数据处理流程。"
+        "caption_zh": "图 3：Mirage 方法概览。Mirage 从初始图像 I₀ 出发，通过 VAE 编码将其转换为潜在表示，并借助深度引导的反投影构建三维潜在缓存。在每一目标视角下，通过潜在分辨率投影读取缓存，并以分块方式进行生成：每个解码输出的区块会重新估计深度，重新编码为潜在表示，并通过反投影扩展缓存。"
       },
       {
-        "path": "https://arxiv.org/html/2606.08415v1/figures/Annotation.png",
-        "caption": "Figure 8:Annotation interface used for checklist verification and refinement. Annotators review videos, editing instructions, category labels, evaluation groups, questions, options, and expected answers in a structured workflow.",
+        "path": "https://arxiv.org/html/2606.09828v1/x3.png",
+        "caption": "Figure 2:Latent spatial memory vs. RGB point cloud based memory for world model.Top: prior systems store memory as colored points and pay a rasterise-and-encode round trip at every conditioning step.\nBottom: latent spatial memory stores latent features at world-space location and reads them back through a single latent-resolution projection, eliminating the per-step pixel-space detour and shrinking the cache footprint by the squared VAE compression factor.",
         "role": "pipeline_2",
-        "caption_zh": "图 8：用于清单核查与细化的标注界面。标注员通过结构化工作流审阅视频、编辑指令、类别标签、评估组别、问题、选项及预期答案。"
+        "caption_zh": "图 2：基于世界模型的潜在空间记忆与 RGB 点云记忆的对比。上图：先前系统将记忆存储为带颜色的点，并在每个条件化步骤中需经历一次“光栅化-编码”的往返过程。下图：潜在空间记忆将潜在特征存储在世界空间位置中，并通过单次潜在分辨率投影读回，消除了每一步在像素空间的迂回路径，并将缓存占用空间缩小了 VAE 压缩因子的平方倍。"
       },
       {
-        "path": "https://arxiv.org/html/2606.08415v1/x1.png",
-        "caption": "Figure 1:Video editing is moving towards complex instructions. CoVEBench provides evaluation for compositional video editing with fine-grained diagnostics across instruction compliance, video quality, and video fidelity.",
+        "path": "https://arxiv.org/html/2606.09828v1/x8.png",
+        "caption": "Figure 7:Closed-loop revisit comparison on RealEstate10K.In the closed-loop test, the camera trajectory gradually returns to its starting point. The comparison between the last frame and the input frame shows that Mirage maintains strong consistency under the revisit setting.",
         "role": "pipeline_3",
-        "caption_zh": "图1：视频编辑正朝着复杂指令的方向发展。CoVEBench 为组合式视频编辑提供了评估，涵盖指令依从性、视频质量和视频保真度的细粒度诊断。"
-      }
-    ],
-    "2606.09803": [
-      {
-        "path": "https://arxiv.org/html/2606.09803v1/x2.png",
-        "caption": "Figure 2:Overview of four representative approaches to memory\nin action world models.Under a shared video diffusion backbone and a\nshared camera-action interface, the approaches differ only in how\nhistorical information is stored and read. We compare four families\nthroughout: Context, Compression, Spatial, and State-Space.",
-        "role": "pipeline_1",
-        "caption_zh": "图2：动作世界模型中四种典型记忆方法的概览。在共享的视频扩散主干网络和相机-动作接口下，各方法仅因历史信息的存储与读取方式而异。全文比较了四种类型：上下文法、压缩法、空间法与状态空间法。"
-      },
-      {
-        "path": "https://arxiv.org/html/2606.09803v1/x1.png",
-        "caption": "Figure 1:Abstract teaser and workflow of Echo-Memory.Given a text description, historical observations, and the\ncamera/action state, an action world model must generate chunk-wise\nvideo while carrying memory across revisits. The figure positions\nContext, Compression, Spatial, and State-Space families as\nrepresentative designs for preserving a revisitable world.",
-        "role": "pipeline_2",
-        "caption_zh": "图 1：Echo-Memory 的摘要图示与工作流程。给定文本描述、历史观测以及相机/动作状态，动作世界模型必须在多次重访场景间保持记忆，并逐段生成视频。本图将情境建模、压缩建模、空间建模和状态空间建模等家族定位为具有代表性的、用于维持可重访世界模型的设计范式。"
-      },
-      {
-        "path": "https://arxiv.org/html/2606.09803v1/x3.png",
-        "caption": "Figure 3:Replay progression on a fixed GT camera trajectory.The diagnostic samples compare generated multi-segment replay against a\ndataset trajectory at matched time indices. The panel reveals where\nbackground structure, object layout, and boundary continuity begin to\ndrift before the final revisit probes are run.",
-        "role": "pipeline_3",
-        "caption_zh": "图3：在固定GT相机轨迹上的回放进度。诊断样本在匹配的时间索引处比较生成的多段回放与数据集轨迹。该面板显示了在运行最终重访探测之前，背景结构、物体布局和边界连续性开始发生漂移的位置。"
+        "caption_zh": "图 7：RealEstate10K 上的闭环重访对比。在闭环测试中，相机轨迹逐渐回到其起点。末帧与输入帧的对比表明，Mirage 在重访场景下保持了强一致性。"
       }
     ]
   }
