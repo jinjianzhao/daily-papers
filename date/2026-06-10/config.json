@@ -1,0 +1,513 @@
+{
+  "base_info": {
+    "2606.11188": {
+      "title": "ARM: An AutoRegressive Large Multimodal Model with Unified Discrete Representations",
+      "abstract": "This paper introduces ARM, a discrete representation-based AutoRegressive Model that unifies image understanding, generation, and editing within a next-token prediction framework. ARM is built on three efforts: first, we train a discrete semantic visual tokenizer that maps images into compact token sequences. Our tokenizer is supervised with multiple objectives that jointly promote semantic discriminability, language alignment and faithful reconstruction, thereby supporting diverse tasks in a shared latent space. With this, we train a 7B autoregressive model over large-scale text and image token sequences, seamlessly developing vision-language perception and generation capabilities. Finally, to further improve preference-aligned behavior for text-to-image generation and instruction-guided editing, ARM applies reinforcement learning (RL) to optimize task-level objectives such as visual quality, instruction adherence, and edit consistency. Surprisingly, the results show that RL not only substantially improves performance on the target tasks (e.g., raising WISE overall from 0.50 to 0.56, GEdit-Bench-EN G_O from 5.75 to 6.68), but also induces cross-task synergy between text-to-image generation and editing. Collectively, these findings highlight autoregressive modeling, when paired with strong representations and preference optimization, as a scalable foundation for multimodal intelligence. Code:this https URL.",
+      "abstract_zh": "本文介绍了ARM，一种基于离散表示的自回归模型，它将图像理解、生成与编辑统一于下一代预测框架中。ARM建立在三项核心工作之上：首先，我们训练了一个离散语义视觉标记器，将图像映射为紧凑的标记序列。该标记器通过多目标监督训练，共同提升语义区分性、语言对齐性和忠实重建能力，从而在共享的潜在空间中支持多样化的任务。基于此，我们在大规模文本与图像标记序列上训练了一个70亿参数的自回归模型，无缝地发展了视觉-语言感知与生成能力。最后，为进一步优化文本到图像生成与指令引导编辑中的偏好对齐行为，ARM应用强化学习来优化任务级目标，例如视觉质量、指令遵循度和编辑一致性。值得注意的是，结果显示强化学习不仅显著提升了目标任务的性能（例如将WISE总分从0.50提升至0.56，GEdit-Bench-EN G_O从5.75提升至6.68），还带来了文本到图像生成与编辑之间的跨任务协同效应。这些发现共同表明，当与强表征和偏好优化相结合时，自回归建模可作为多模态智能可扩展的基础。代码：此 https URL。",
+      "hf_link": "https://huggingface.co/papers/2606.11188"
+    },
+    "2606.09056": {
+      "title": "MilliVid: Hierarchical Latents for Long-Range Consistency in Video Generation",
+      "abstract": "Video generative models have become increasingly powerful, but long-range consistency remains challenging to achieve because even a few dozen frames require impractically long transformer sequence lengths. We show that this issue can be mitigated by generating video using coarse-to-fine rollout within a multi-scale token space. Our approach is simple: first, we pre-train an autoencoder that compresses each frame into a hierarchy of tokens, with levels ranging from the typical latent resolution to only a handful of tokens per frame. The coarsest levels capture the most consequential information, such as scene layout and semantics, while finer levels add high-frequency appearance and texture. Then, we train a video diffusion model to generate these tokens using coarse-to-fine rollout. By carefully controlling the level of detail at which frames are generated and used as context during each rollout step, we are able to preserve long-range consistency in geometry and object permanence while spending less compute on the long-range consistency of less perceptually relevant details. We validate this approach using a custom dataset of long Minecraft videos, where it produces substantially more consistent rollouts compared to existing baselines.",
+      "abstract_zh": "视频生成模型的能力日益强大，但长程一致性仍是难以实现的目标，因为即使是几十帧的视频也需要不切实际的长序列长度进行变换器建模。我们证明，通过在多尺度标记空间内采用由粗到细的展开生成策略，可以有效缓解这一问题。我们的方法简洁直接：首先预训练一个自动编码器，将每帧图像压缩为多层级的标记体系，其层级范围从典型潜在分辨率直至每帧仅含少量标记。最粗粒度层级捕捉最具决定性的信息（如场景布局与语义结构），而更精细的层级则补充高频外观与纹理特征。随后，我们训练视频扩散模型以由粗到细的展开方式生成这些标记。通过精确控制每步展开过程中生成帧的细节层级及其作为上下文信息的粒度，我们能够在保持几何结构与物体持久性长程一致性的同时，为感知相关性较低的细节分配更少的计算资源。我们使用自建的长序列《我的世界》视频数据集验证了该方法，相比现有基线模型，本方法生成的视频序列在长程一致性上展现出显著优势。",
+      "hf_link": "https://huggingface.co/papers/2606.09056"
+    },
+    "2606.11180": {
+      "title": "Lip Forcing: Few-Step Autoregressive Diffusion for Real-time Lip Synchronization",
+      "abstract": "Diffusion-based lip synchronization models achieve strong visual quality and audio-visual alignment, but full-sequence bidirectional attention and many denoising steps make them impractical for real-time inference. We present Lip Forcing, to our knowledge the first autoregressive diffusion method for video-to-video (V2V) lip synchronization, which distills a 14B audio-conditioned bidirectional video diffusion teacher into causal students. At inference, the students generate each chunk in only two denoising steps without inference-time CFG, enabling real-time lip synchronization. A lip-sync-specific teacher-trajectory analysis reveals a CFG fidelity-sync tradeoff: no-CFG predictions favor reference fidelity, whereas CFG-guided predictions favor synchronization within a mid-trajectory band. Lip Forcing translates this finding into three analysis-derived components: Sync-Window DMD, a two-step inference schedule, and a SyncNet-based reward. We validate Lip Forcing at two student scales, both distilled from the 14B teacher. The 1.3B student crosses into real-time streaming at 31 FPS, $17.6\\times$ faster than its same-scale bidirectional model. The 14B student, the largest diffusion model reported for V2V lip synchronization, runs $39.8\\times$ faster than its teacher at comparable reference fidelity. Time-to-first-frame is sub-millisecond at both scales, far below every diffusion baseline.",
+      "abstract_zh": "基于扩散的唇同步模型虽然能实现出色的视觉质量和音视频对齐效果，但其全序列双向注意力机制与多步去噪过程使得实时推理难以实现。本文提出Lip Forcing方法——据我们所知，这是首个用于视频到视频（V2V）唇同步的自回归扩散模型。该方法将140亿参数的音频条件双向视频扩散教师模型蒸馏为因果学生模型。在推理阶段，学生模型仅需两步去噪即可生成每个视频片段，且无需推理时的分类器自由引导（CFG），从而实现了实时唇同步。通过针对唇同步任务的教师轨迹分析，我们揭示了CFG在保真度与同步性之间的权衡规律：无CFG的预测倾向于保持参考视频的保真度，而CFG引导的预测则在中段轨迹区间内更注重同步性。Lip Forcing将这一发现转化为三个基于分析的核心组件：同步窗口动态模态分解（Sync-Window DMD）、两步推理调度机制以及基于SyncNet的奖励函数。我们在两种规模的学生模型上验证了Lip Forcing的有效性，二者均从140亿参数的教师模型蒸馏而来。其中13亿参数的学生模型实现了31帧/秒的实时流式处理速度，比同规模双向模型快17.6倍；而140亿参数的学生模型——目前报道中规模最大的V2V唇同步扩散模型——在保持相当参考保真度的同时，推理速度比教师模型提升39.8倍。两种规模模型的首帧生成时间均低于毫秒级，远超所有扩散基线模型。",
+      "hf_link": "https://huggingface.co/papers/2606.11180"
+    },
+    "2606.10804": {
+      "title": "SCAIL-2: Unifying Controlled Character Animation with End-to-end In-Context Conditioning",
+      "abstract": "Controlled character animation requires transferring motion from a driving sequence to a reference character. Prior works heavily rely on intermediate representations, including pose skeletons to represent motion or masked background to represent environment, which inevitably leads to information loss. To address this, we present SCAIL-2, an framework that bypasses those intermediates and achieves \\textbf{end-to-end} character animation. By directly concatenating driving videos to the sequence, the model can obtain all the required visual information from the input video. To address lack of end-to-end data, we unify sub-tasks of character animation with decoupled conditions and then curate a pipeline to synthesize MotionPair-60K, an end-to-end motion transfer dataset containing heterogeneous tasks of character animation. To archive the unification, we utilize in-context mask conditioning and mode-specific RoPE as soft guidance beyond textual instructions and raw visual information. To address synthetic discrepancy in detailed regions, we propose Bias-Aware DPO to construct preference items to mitigate the errors. Extensive experiments demonstrate that our method substantially outperforms existing state-of-the-art approaches in various character animation tasks. A large subset of synthetic data as well as model weights will be released at our project page:this https URL.",
+      "abstract_zh": "受控角色动画需要将动作从驱动序列迁移至参考角色。先前的研究严重依赖中间表示，包括用于表示动作的姿态骨架或用于表示环境的掩蔽背景，这不可避免地导致信息损失。为解决这一问题，我们提出了SCAIL-2框架，该框架绕过了这些中间表示，实现了**端到端**的角色动画生成。通过直接将驱动视频与参考序列拼接，模型能够从输入视频中获取全部所需的视觉信息。针对端到端数据缺乏的问题，我们通过解耦条件将角色动画的多个子任务统一，并设计了一套流程来合成MotionPair-60K——一个包含异构角色动画任务的端到端动作迁移数据集。为实现任务统一，我们采用了上下文掩码条件与模式特定的RoPE作为软引导机制，以补充文本指令和原始视觉信息的不足。针对合成数据中细节区域的差异，我们提出基于偏置感知的DPO方法构建偏好项以减少误差。大量实验表明，我们的方法在各种角色动画任务中均显著优于现有最先进方法。合成数据的大规模子集及模型权重将在项目页面发布：此HTTPS链接。",
+      "hf_link": "https://huggingface.co/papers/2606.10804"
+    },
+    "2606.09967": {
+      "title": "ABot-Earth 0.5: Generative 3D Earth Model",
+      "abstract": "We present ABot-Earth 0.5, a generative 3D framework designed to synthesize vast, seamless 3D environments from ubiquitous, geospatially referenced satellite imagery. To achieve this, we propose a novel generative model formulated directly with the 3D Gaussian Splatting (3DGS) representation. The model is trained on a diverse corpus of existing real-world urban reconstructions, learning to generate realistic geometry and textures. At inference, it synthesizes novel 3D scenes conditioned solely on satellite imagery at a scalable rate of under 10 minutes per square kilometer, while demonstrating exceptional realism. The framework is designed for accessibility, with integrated hierarchical level-of-detail (LOD) structures that permit real-time, interactive visualization on web-based map engines. This high-fidelity simulation sandbox effectively mitigates the sim-to-real domain gap, enabling critical downstream Embodied AI applications like closed-loop UAV navigation. By providing an ultra-low-cost and high-efficiency solution, ABot-Earth 0.5 significantly lowers the technical and financial barriers to large-scale 3D reconstruction and empowers the future of global digital earth visualization.",
+      "abstract_zh": "我们推出ABot-Earth 0.5，这是一个生成式三维框架，旨在从无处不在、具有地理空间参照的卫星影像中合成广阔且无缝的三维环境。为实现这一目标，我们提出了一种基于三维高斯溅射（3D Gaussian Splatting, 3DGS）表示直接构建的新型生成模型。该模型在多样化的真实世界城市重建数据集上进行训练，从而学习生成逼真的几何结构与纹理。在推理阶段，该模型仅依据卫星影像即可合成全新的三维场景，合成速率可扩展至每平方公里低于10分钟，同时展现出卓越的真实感。该框架注重易用性，集成了分层细节层次（Level-of-Detail, LOD）结构，支持在基于网页的地图引擎上实现实时交互式可视化。这一高保真仿真沙盒有效缩小了仿真与真实领域间的差距，为诸如闭环无人机导航等关键的具体人工智能（Embodied AI）应用提供了支持。通过提供超低成本、高效率的解决方案，ABot-Earth 0.5大幅降低了大规模三维重建的技术与资金门槛，并为未来全球数字地球可视化的发展赋能。",
+      "hf_link": "https://huggingface.co/papers/2606.09967"
+    },
+    "2606.11129": {
+      "title": "WorldOlympiad: Can Your World Model Survive a Triathlon?",
+      "abstract": "We introduce WorldOlympiad, a benchmark for diagnosing video-based world models across physical faithfulness, geometric consistency, and interaction fidelity. While existing benchmarks often focus on visual quality, semantic alignment, or short-term temporal coherence, they provide limited insight into whether generated videos obey physical rules, preserve coherent 3D structure, and sustain controllable interactions over long horizons. To address this gap, WorldOlympiad decomposes world-model evaluation into three complementary dimensions. The physical track uses object segmentation and MLLM-as-judge to assess whether generated videos follow interpretable rules in mechanics, thermal phenomena, and material properties. The geometry track reconstructs generated videos with Gaussian splatting and evaluates structural consistency, cross-view coherence, and camera-trajectory alignment. The interaction track assesses whether generated rollouts follow complex action prompts and maintain smooth, coherent transitions across consecutive video chunks. WorldOlympiad further covers three major downstream scenarios, including gaming, robotics, and general real-world videos, capturing diverse challenges from interactive control and embodied manipulation to open-domain motion and camera dynamics. Together, these tracks and scenarios form a scalable and interpretable evaluation suite that exposes failure modes beyond generic video quality. Experiments on state-of-the-art models reveal substantial gaps in physical reasoning, 3D consistency, and long-horizon interaction, underscoring the need for more structured evaluation protocols for generative world models.",
+      "abstract_zh": "我们推出WorldOlympiad基准测试，旨在从物理真实性、几何一致性与交互保真度三个维度评估基于视频的世界模型。现有基准测试多聚焦于视觉质量、语义对齐或短期时序连贯性，但难以有效判断生成视频是否遵循物理规律、保持连贯的三维结构以及能否维持长时程的可控交互。为填补这一空白，WorldOlympiad将世界模型评估分解为三个互补维度：物理赛道采用物体分割与大语言模型（MLLM）作为评判工具，评估生成视频是否遵循力学、热现象及材料特性等可解释规则；几何赛道通过高斯泼溅（Gaussian splatting）技术重建生成视频，评估其结构一致性、跨视角连贯性及相机轨迹对齐度；交互赛道则检验生成序列能否遵循复杂动作指令，并在连续视频块间保持平滑连贯的过渡。WorldOlympiad进一步涵盖游戏、机器人学与通用真实世界视频三大下游场景，囊括从交互控制、具身操作到开放域运动与相机动态的多样化挑战。这些赛道与场景共同构成可扩展、可解释的评估体系，能够揭示超越通用视频质量的深层缺陷。对前沿模型的实验表明，现有模型在物理推理、三维一致性及长时程交互方面仍存在显著差距，凸显了针对生成式世界模型建立更结构化评估框架的必要性。",
+      "hf_link": "https://huggingface.co/papers/2606.11129"
+    },
+    "2606.10917": {
+      "title": "Role-Agent: Bootstrapping LLM Agents via Dual-Role Evolution",
+      "abstract": "Although Large Language Model (LLM) agents have demonstrated strong performance on complex tasks, their learning is often limited by inefficient interaction feedback and static training environments, which hinder broader generalization. To address these limitations, this paper introduces Role-Agent, \\textcolor{black}{a framework} that harnesses a single LLM to function concurrently as both the agent and the environment, enabling a bootstrapped co-evolution. Role-Agent comprises two synergistic components: World-In-Agent (WIA) and Agent-In-World (AIW). In WIA, the LLM acts as the agent and predicts future states after each action; the alignment between predicted and actual states is then used as a process reward, encouraging environment-aware reasoning. In AIW, the LLM analyzes failure modes from failed trajectories and retrieves tasks with similar failure patterns, thereby reshaping the training data distribution for targeted practice. Experiments on multiple benchmarks show that Role-Agent consistently improves performance, yielding an average gain of over 4\\% over strong baselines.",
+      "abstract_zh": "尽管大语言模型（LLM）智能体在复杂任务上展现出强大的性能，但其学习过程常受限于低效的交互反馈和静态的训练环境，这阻碍了更广泛的泛化能力。为应对这些局限，本文提出了Role-Agent框架，该框架利用单一LLM同时扮演智能体与环境角色，实现一种自举式的协同进化。Role-Agent包含两个协同组件：World-In-Agent（WIA，智能体中的世界）与Agent-In-World（AIW，世界中的智能体）。在WIA中，LLM作为智能体，在执行每个动作后预测未来状态；预测状态与实际状态之间的一致性被用作过程奖励，以鼓励环境感知的推理。在AIW中，LLM分析失败轨迹中的故障模式，并检索具有类似失败模式的任务，从而重塑训练数据分布以实现针对性练习。在多个基准测试上的实验表明，Role-Agent能持续提升性能，相较于强基线模型平均获得超过4%的性能增益。",
+      "hf_link": "https://huggingface.co/papers/2606.10917"
+    },
+    "2606.09730": {
+      "title": "SearchSwarm: Towards Delegation Intelligence in Agentic LLMs for Long-Horizon Deep Research",
+      "abstract": "Large language models are increasingly expected to handle complex, long-horizon real-world tasks whose context demands can grow without bound, yet model context windows remain inherently finite. Recent work explores a paradigm where a main agent decomposes tasks and dispatches subtasks to subagents, which execute and return only summarized results, conserving the main agent's context budget. However, performing this well requires delegation intelligence: the ability to decompose complex tasks, determine when and what to delegate, and integrate returned results into the ongoing workflow. Training data for this capability is scarce in naturally occurring text, and to our knowledge, how to synthesize such data and train models to acquire this capability remains largely unexplored in the open-source community. To bridge this gap, we present a preliminary exploration targeting deep research, a representative long-horizon agent task. Specifically, we design a harness that guides the model toward high-quality task decomposition and delegation, while constraining subagents to return results properly to support the main agent's workflow. The harness-guided trajectories naturally encode correct delegation decisions, which we use as supervised fine-tuning data to internalize delegation intelligence into model weights. Our resulting model, SearchSwarm-30B-A3B, achieves 68.1 on BrowseComp and 73.3 on BrowseComp-ZH, the best results among all models of comparable scale. We will release our harness, model weights, and training data to facilitate future research.",
+      "abstract_zh": "大语言模型正日益被期望处理复杂、长周期的现实世界任务，这些任务的上下文需求可能无限增长，而模型的上下文窗口本质上仍受限于有限长度。近期研究探索了一种范式：主代理将任务分解并派发子任务给子代理，子代理执行后仅返回摘要结果，从而节约主代理的上下文资源。然而，要实现这一机制需要委托智能：即分解复杂任务、决定何时委托及委托内容、并将返回结果整合到工作流程中的能力。自然文本中针对这种能力的训练数据十分稀缺，且据我们所知，如何合成此类数据并训练模型获取该能力，在开源社区中仍属尚未充分探索的领域。为填补这一空白，我们以深度研究这一典型的长周期代理任务为目标，开展了初步探索。具体而言，我们设计了一个控制框架，引导模型实现高质量的任务分解与委托，同时约束子代理以恰当方式返回结果以支持主代理的工作流程。该框架引导的轨迹自然编码了正确的委托决策，我们将其作为监督微调数据，将委托智能内化至模型权重中。我们最终得到的模型SearchSwarm-30B-A3B在BrowseComp数据集上达到68.1分，在BrowseComp-ZH数据集上达到73.3分，这是同类规模模型中取得的最佳成绩。我们将公开控制框架、模型权重及训练数据，以促进未来研究。",
+      "hf_link": "https://huggingface.co/papers/2606.09730"
+    },
+    "2606.07512": {
+      "title": "MemDreamer: Decoupling Perception and Reasoning for Long Video Understanding via Hierarchical Graph Memory and Agentic Retrieval Mechanism",
+      "abstract": "Current Vision-Language Models struggle with hours-long videos because processing full-length visual sequences induces prohibitive token explosion and attention dilution. To overcome this, we introduce MemDreamer to decouple perception and reasoning, shifting long-video understanding into an agentic exploration process. As a plug-and-play framework, it incrementally streams videos to construct a Hierarchical Graph Memory, a top-down three-tier architecture for semantic abstraction, anchored by a foundational graph capturing spatiotemporal and causal relations. During inference, the reasoning model employs agentic tool-augmented retrieval, navigating hierarchies, searching nodes, and traversing logical edges via an Observation-Reason-Action loop. Experiments show MemDreamer achieves SOTA results across four mainstream benchmarks, narrowing the gap with human experts to only 3.7 points. It constrains the reasoning context window to merely 2% of full-context ingestion while delivering a 12.5 point absolute accuracy gain. Furthermore, statistical analysis uncovers a strong positive linear correlation between an VLM's performance on logic reasoning and long-video understanding benchmarks, establishing agentic capability scaling as a new paradigm for multimodal comprehension.",
+      "abstract_zh": "当前的视觉语言模型在处理长达数小时的视频时面临挑战，因为处理完整视觉序列会导致难以承受的令牌爆炸和注意力稀释问题。为克服这一局限，我们提出了MemDreamer框架，将感知与推理过程解耦，把长视频理解转化为一种自主探索的智能体进程。该框架作为即插即用系统，通过增量式视频流构建分层图记忆——这是一种自上而下的三层语义抽象架构，其基础层通过图结构捕获时空与因果关系。在推理阶段，推理模型采用智能体工具增强检索机制，通过“观察-推理-行动”循环在记忆层次中导航：遍历层级结构、搜索节点、沿逻辑边进行探索。实验表明，MemDreamer在四大主流基准测试中均取得最先进成果，与人类专家表现的差距缩小至仅3.7分。该框架将推理上下文窗口限制在全上下文输入的2%以内，同时实现了12.5分的绝对准确率提升。进一步的统计分析揭示，视觉语言模型在逻辑推理与长视频理解基准上的表现存在显著正线性相关，这确立了智能体能力扩展作为多模态理解的新范式。",
+      "hf_link": "https://huggingface.co/papers/2606.07512"
+    },
+    "2606.11025": {
+      "title": "Flow-DPPO: Divergence Proximal Policy Optimization for Flow Matching Models",
+      "abstract": "Recent work has demonstrated that online reinforcement learning (RL) can substantially improve the quality and alignment of flow matching models for image and video generation. Methods such as Flow-GRPO and CPS cast the denoising process as a Markov Decision Process and apply PPO-style ratio clipping to enforce a trust region. However, we argue that ratio clipping is structurally ill-suited for flow models: the probability ratio between new and old policies is a noisy, single-sample estimate of the true policy divergence, leading to over-constraining in some regions of the trajectory and under-constraining in others. We propose Flow-DPPO (Flow Divergence Proximal Policy Optimization), which replaces ratio clipping with a divergence proximal constraint. A key observation is that the per-step policy in flow models is Gaussian, enabling exact and cheap computation of the KL divergence between old and new policies. Flow-DPPO employs an asymmetric divergence mask that blocks gradient updates only when they simultaneously move away from the trusted region and violate the divergence threshold. Experiments show that Flow-DPPO achieves higher rewards with better KL-proximal efficiency, alleviates catastrophic forgetting, promotes balanced multi-objective optimization, and enables stable multi-epoch training where ratio clipping degrades. Code and models are available atthis https URL.",
+      "abstract_zh": "近期研究表明，在线强化学习（RL）能够显著提升图像与视频生成中流匹配模型（flow matching models）的质量与对齐度。诸如Flow-GRPO和CPS等方法将去噪过程建模为马尔可夫决策过程，并应用PPO风格的比例裁剪（ratio clipping）来构建信任区域。然而我们认为，比例裁剪在结构上并不适用于流模型：新策略与旧策略之间的概率比是对真实策略散度的噪声单样本估计，这会导致轨迹中某些区域约束过度而其他区域约束不足。我们提出Flow-DPPO（Flow Divergence Proximal Policy Optimization），用散度近端约束替代比例裁剪。一个关键发现是，流模型中的单步策略服从高斯分布，这使得新旧策略间的KL散度（KL divergence）能够被精确且高效地计算。Flow-DPPO采用非对称散度掩码，仅当梯度更新同时远离信任区域且违反散度阈值时，才阻断梯度更新。实验表明，Flow-DPPO能以更好的KL近端效率获得更高奖励，缓解灾难性遗忘，促进平衡的多目标优化，并实现稳定的多轮次训练——而比例裁剪方法在此情况下会出现性能退化。代码与模型可通过此链接获取：https://github.com/your-repo-link。",
+      "hf_link": "https://huggingface.co/papers/2606.11025"
+    },
+    "2606.09821": {
+      "title": "Rethinking the Divergence Regularization in LLM RL",
+      "abstract": "Reinforcement learning (RL) has become a key component of post-training large language models (LLMs). In practice, LLM RL is often off-policy because of training-inference mismatch and policy staleness, making trust-region control essential for stable optimization. Mainstream methods such as PPO and GRPO approximate this control with a ratio-clipping mechanism, but the importance ratio can be a poor proxy for distributional shift in long-tailed vocabularies. Recent work such as DPPO addresses this mismatch by replacing ratio-based clipping with a divergence-based mask, yielding a trust region defined by the sampled token's absolute probability shift. However, DPPO still relies on a hard mask: once a token crosses the trust-region boundary in a harmful direction, its gradient is discarded rather than corrected. To address this, we propose Divergence Regularized Policy Optimization (DRPO), which replaces the hard mask with a smooth advantage-weighted quadratic regularizer on policy shift. DRPO preserves the same trust-region geometry as DPPO while inducing bounded, continuous gradient weights that attenuate diverging updates and provide corrective signals beyond the boundary. Experiments across model scales, architectures, and precision settings show that DRPO improves the stability and efficiency of LLM RL training.",
+      "abstract_zh": "强化学习（RL）已成为后训练大语言模型（LLMs）的核心组成部分。在实践中，由于训练-推理不匹配和策略陈旧性，LLM的强化学习通常采用离轨策略，这使得信任域控制成为稳定优化的关键。主流方法如PPO和GRPO通过比率截断机制来近似实现这种控制，但在长尾词汇分布中，重要性比率可能难以有效表征分布偏移。近期研究如DPPO通过用基于散度的掩码替代基于比率的截断来解决此问题，从而构建了以采样标记绝对概率偏移定义的信任域。然而，DPPO仍依赖于硬掩码机制：一旦标记在有害方向上跨越信任域边界，其梯度将被直接丢弃而非修正。针对这一问题，我们提出了散度正则化策略优化（DRPO），该方法以策略偏移上的平滑优势加权二次正则化器取代硬掩码。DRPO在保持与DPPO相同信任域几何结构的同时，引入了有界且连续的梯度权重机制，既能衰减发散性更新，又能为边界外区域提供修正信号。在不同模型规模、架构和精度设定下的实验表明，DRPO显著提升了LLM强化学习训练的稳定性和效率。",
+      "hf_link": "https://huggingface.co/papers/2606.09821"
+    },
+    "2606.11176": {
+      "title": "Data Journalist Agent: Transforming Data into Verifiable Multimodal Stories",
+      "abstract": "Data tells stories that shape society; the data journalist's job is to turn raw information into stories non-experts can trust. A high-quality news feature takes a newsroom team weeks: hunting for context, running statistics, choosing an angle, and designing visuals. Recent agents handle individual steps well: data-science agents close the analysis loop, while design agents synthesize beautiful websites. But can an agent serve as a data journalist end to end? We introduce Data Journalist Agent (Data2Story), a multi-agent framework that orchestrates specialized roles into a single virtual newsroom. Data2Story contributes two innovations. (i) Claims are evidence-grounded: an Inspector links every number, angle, and asset back to data, code, or an external reference. (ii) Articles are multimodally generative: rather than defaulting to plain text and static charts, Data2Story reasons about what readers will want to see, then deploys multimodal tools, such as interactive maps for geography and audio for music. We evaluate Data2Story on 18 articles, each paired with the originally published expert piece, along four axes: (a) human-agent angle coverage; (b) rubric evaluation with 53 participants across five dimensions; (c) computer-use agents as judges, a cost-saving proxy for how readers navigate interactive articles; and (d) verifiability, where a coding verifier re-executes statements against the data and checks claims against references. Data2Story produces competitive, evidence-traceable multimedia stories, with particular strength in transparency and auditability. Human articles retain an edge in editorial angle, creative design, and presentation. We position Data2Story as a collaborator for journalists, enabling more evidence-based, transparent, and verifiable reporting. Code and demos are available atthis https URL.",
+      "abstract_zh": "数据讲述着塑造社会的故事；数据新闻工作者（data journalist）的任务是将原始信息转化为非专业人士能够信赖的报道。一篇高质量的新闻特稿需要新闻编辑室团队花费数周时间：搜寻背景信息、进行统计分析、选择报道角度并设计可视化呈现。现有的智能体（agent）能较好地处理单个环节：数据科学智能体（data-science agent）能完成分析闭环，设计智能体（design agent）可合成精美的网页。但智能体能否端到端地担任数据新闻记者的角色？我们提出数据新闻记者智能体（Data Journalist Agent，简称Data2Story），这是一个将专业角色协调组织成单一虚拟新闻编辑室的多智能体框架。Data2Story带来两项创新：（一）主张基于证据：审查员（Inspector）将每个数字、角度和素材都追溯至数据、代码或外部参考来源；（二）文章具备多模态生成能力：Data2Story并非仅采用纯文本与静态图表，而是推理读者希望看到的内容，随后调用多模态工具，例如针对地理信息使用交互式地图，针对音乐内容生成音频。我们通过四个维度对Data2Story生成的18篇文章进行评估（每篇均与专家原创发表的文章配对）：（a）人类与智能体的角度覆盖度；（b）邀请53位参与者从五个维度进行量表评估；（c）采用计算机使用智能体作为评判者，以经济高效的方式模拟读者浏览交互式文章的行为；（d）可验证性，通过代码验证器重新执行数据陈述并核对主张与参考文献。Data2Story能产出具有竞争力、证据可追溯的多媒体报道，在透明度与可审计性方面表现突出；人类撰写的文章则在编辑角度、创意设计与呈现方式上保持优势。我们将Data2Story定位为新闻工作者的协作伙伴，助力实现更基于证据、透明且可验证的新闻报道。代码与演示可通过此链接获取：https://...",
+      "hf_link": "https://huggingface.co/papers/2606.11176"
+    },
+    "2606.05922": {
+      "title": "Retrospective Harness Optimization: Improving LLM Agents via Self-Preference over Trajectory Rollouts",
+      "abstract": "AI agents rely on a harness of skills, tools, and workflows to solve complex problems. Continually improving this harness is essential for adapting to new tasks. However, existing optimization methods typically require ground-truth validation sets, yet such labeled data is difficult to acquire in practical deployment settings. To address this problem, we introduce Retrospective Harness Optimization (RHO), a self-supervised method that optimizes the agent harness using only past trajectories. Specifically, RHO selects a diverse coreset of challenging tasks from past trajectories and re-solves them in parallel. The agent analyzes these rollouts using self-validation and self-consistency, then generates candidate harness updates and selects the most effective one by its own pairwise self-preference. We evaluate RHO across three diverse domains, spanning software engineering, technical work, and knowledge work. Notably, a single optimization round improves the pass rate on SWE-Bench Pro from 59% to 78% without any external grading. Furthermore, our analysis demonstrates that RHO effectively targets prior failure modes. As a result, the optimized harness alters the agent's behavior patterns and sustains higher accuracy during long-horizon sessions.",
+      "abstract_zh": "智能体(AI agents)依赖一套由技能、工具和工作流程组成的运行框架来解决复杂问题。持续优化这一框架对于适应新任务至关重要。然而，现有的优化方法通常需要真实标注的验证集，而这类标注数据在实际部署环境中难以获取。为解决这一问题，我们提出了回顾式框架优化(Retrospective Harness Optimization, RHO)，这是一种仅使用历史轨迹进行自我监督的智能体框架优化方法。具体而言，RHO从历史轨迹中筛选出一组具有多样性且富有挑战性的核心任务集，并对其进行并行重解。智能体通过自我验证(self-validation)与自我一致性(self-consistency)分析这些执行轨迹，随后生成候选框架更新方案，并通过成对自我偏好(pairwise self-preference)自主选择最高效的版本。我们在软件工程、技术任务和知识工作三个不同领域对RHO进行了评估。值得注意的是，仅经过单轮优化，SWE-Bench Pro基准测试的通过率就从59%提升至78%，且全程无需外部评分。进一步分析表明，RHO能有效针对先前的失败模式进行优化。最终，优化后的框架改变了智能体的行为模式，并在长周期任务中保持了更高的准确率。",
+      "hf_link": "https://huggingface.co/papers/2606.05922"
+    },
+    "2606.10572": {
+      "title": "One Token per Multimodal Evidence: Latent Memory for Resource-Constrained QA",
+      "abstract": "External memory effectively grounds large language models (LLMs) and vision-language models (VLMs)-based question answering (QA) in relevant multimodal evidence. However, existing memory paradigms represent each memory item in raw text and image forms, so retrieval-based systems must pass the retrieved text or images to the generation LLMs/VLMs, resulting in high token consumption and storage pressure, making it unaffordable for resource-constrained applications. We propose Latent Memory, a latent-space memory paradigm that replaces each raw text or image evidence item with a single high-dimensional latent token produced by a small compressor LLM/VLM. Rather than retrieving raw evidence for generation, Latent Memory operates in a unified latent representation space: the query is embedded into this space to retrieve relevant latent tokens, and the retrieved latent tokens are directly prompted to a pretrained LLM or VLM for answer generation. To make each latent token simultaneously informative for reconstruction, retrieval, and generation, we train the compressor with reconstruction, contrastive, and distillation objectives in a unified end-to-end manner. Latent Memory is evaluated on seven text-only QA benchmarks (e.g., HotpotQA) and multimodal QA benchmarks, where it achieves competitive QA performance compared to advanced RAG baselines while consuming 3x to 10x fewer generator tokens. It can also deliver the strongest image-grounded QA performance on WebQA. Code is available atthis https URL.",
+      "abstract_zh": "外部记忆（External memory）能够有效将基于大型语言模型（LLM）和视觉语言模型（VLM）的问答（QA）系统锚定于相关的多模态证据中。然而，现有记忆范式以原始文本和图像形式表示每个记忆项，因此基于检索的系统必须将检索到的文本或图像传递给生成式LLM/VLM，导致高昂的令牌消耗和存储压力，这对于资源受限的应用而言难以承受。我们提出潜在记忆（Latent Memory），这是一种潜在空间记忆范式，它通过小型压缩器LLM/VLM生成的高维潜在令牌来替代每个原始文本或图像证据项。潜在记忆并非检索原始证据进行生成，而是在统一的潜在表示空间中运作：查询被嵌入该空间以检索相关潜在令牌，随后将检索到的潜在令牌直接输入预训练的LLM或VLM以生成答案。为了使每个潜在令牌同时具备重建、检索和生成的信息表达能力，我们以端到端统一方式，通过重建、对比和蒸馏目标训练压缩器。潜在记忆在七个纯文本问答基准（如HotpotQA）和多模态问答基准上进行了评估，结果表明其在消耗生成器令牌量仅为先进RAG基线3至10分之一的同时，达到了具有竞争力的问答性能。此外，它在WebQA数据集上实现了最强的基于图像的问答性能。代码可通过此https链接获取。",
+      "hf_link": "https://huggingface.co/papers/2606.10572"
+    },
+    "2606.11182": {
+      "title": "EEVEE: Towards Test-time Prompt Learning in the Real World for Self-Improving Agents",
+      "abstract": "In this paper, we propose EEVEE, the first multi-dataset test-time prompt learning framework for LLM agents, enabling test-time prompt learning under real-world task streams. Existing methods are largely designed for single-dataset settings, while real-world applications require models to handle heterogeneous input streams drawn from multiple datasets, domains, and task distributions, limiting their practical applicability. To mitigate cross-dataset interference, EEVEE introduces a router that partitions incoming inputs into task clusters and assigns them to suitable prompt configurations. This design is optimized via a router-prompt co-evolution strategy, which employs interleaved router and prompt learning phases to address their mutual dependency. Experiments across multiple datasets demonstrate that the framework improves robustness under heterogeneous data streams while maintaining single-benchmark learning capability and efficiency. Specifically, EEVEE improves average multi-benchmark scores by 10.38 and 24.32 points over Qwen3-4B-Instruct and DeepSeek-V3.2, surpassing SOTA methods GEPA and ACE by up to 37.2% and 48.2%.",
+      "abstract_zh": "本文提出EEVEE，这是首个面向大语言模型智能体的多数据集测试时提示学习框架，使其能够在真实世界任务流中进行测试时提示学习。现有方法大多针对单数据集场景设计，而实际应用要求模型处理来自多个数据集、领域和任务分布的异构输入流，这限制了它们的实际适用性。为减轻跨数据集干扰，EEVEE引入路由机制，将输入数据划分为任务集群并分配至合适的提示配置。该设计通过路由器-提示协同进化策略进行优化，该策略采用交替进行的路由器学习阶段与提示学习阶段，以解决二者的相互依赖关系。在多个数据集上的实验表明，该框架提升了异构数据流下的鲁棒性，同时保持了单基准学习能力与效率。具体而言，EEVEE在Qwen3-4B-Instruct和DeepSeek-V3.2模型上的多基准平均得分分别提升10.38和24.32分，相比前沿方法GEPA与ACE的领先幅度最高达37.2%和48.2%。",
+      "hf_link": "https://huggingface.co/papers/2606.11182"
+    },
+    "2606.11042": {
+      "title": "Workflow-GYM: Towards Long-Horizon Evaluation of Computer-use Agentic tasks in Real-World Professional Fields",
+      "abstract": "Recent years have witnessed the rapid evolution of AI agents toward handling increasingly complex, real-world tasks. However, existing benchmarks rarely evaluate whether agents can operate graphical user interfaces to complete long-horizon, high-value professional workflows across diverse domains. Current GUI benchmarks still predominantly focus on general-purpose software, relatively simple applications, and short-horizon tasks, leaving it largely unknown whether modern agents can follow user instructions to autonomously operate domain-specific professional software and accomplish economically valuable work in an end-to-end manner. To bridge this gap, we introduce Workflow-GYM, a benchmark for long-horizon GUI tasks centered on professional domains and specialized software environments. Through extensive experiments on state-of-the-art models, we find that even the strongest models achieve only slightly above 30% success rates, highlighting that professional long-horizon GUI workflows remain highly challenging for current GUI agents. Further analysis reveals that current agents struggle to maintain long-horizon workflow consistency, frequently exhibiting workflow stage omission, error propagation, objective drift, and insufficient understanding of professional software environments. Our findings provide important insights into the limitations of current agent systems and suggest key directions for the next generation of GUI-agent research.",
+      "abstract_zh": "近年来，人工智能代理在应对日益复杂的现实任务方面快速发展。然而，现有基准测试很少评估代理能否通过操作图形用户界面来完成跨领域的长周期、高价值的专业工作流程。当前的GUI基准测试仍主要集中于通用软件、相对简单的应用程序和短周期任务，这使得现代代理能否遵循用户指令自主操作特定领域的专业软件并以端到端方式完成具有经济价值的工作，在很大程度上仍是未知的。为填补这一空白，我们提出了Workflow-GYM——一个围绕专业领域和专用软件环境构建的长周期GUI任务基准。通过对前沿模型的大规模实验，我们发现即使最强大的模型也仅能达到略高于30%的成功率，这表明专业长周期GUI工作流程对当前GUI代理而言仍极具挑战性。进一步分析表明，当前代理难以维持长周期工作流程的一致性，频繁出现工作流程阶段遗漏、错误传播、目标漂移以及对专业软件环境理解不足等问题。我们的研究结果揭示了当前代理系统的局限性，并为下一代GUI代理研究指明了关键方向。",
+      "hf_link": "https://huggingface.co/papers/2606.11042"
+    },
+    "2606.11052": {
+      "title": "Attention Amnesia in Hybrid LLMs: When CoT Fine-Tuning Breaks Long-Range Recall, and How to Fix It",
+      "abstract": "Chain-of-thought (CoT) supervised fine-tuning (SFT) is widely adopted to improve reasoning ability, yet we find that it systematically degrades long-context recall in hybrid linear-attention models. Across architectures including HypeNet and Jet-Nemotron, retrieval performance on Needle-In-A-Haystack (NIAH) deteriorates substantially after CoT-SFT, and the degradation becomes more severe under harder retrieval settings and longer context windows. For example, HypeNet-9B on NIAH-S2@256K decreases from $67.2\\%$ to $9.4\\%$. We attribute this to CoT-SFT biasing attention gradients toward short-range patterns, disrupting query-key projections ($W_Q, W_K$) that are responsible for long-range routing. Motivated by this observation, we propose QK-Restore, a training-free method that restores only $W_Q$ and $W_K$ from the pre-SFT checkpoint while preserving all other post-SFT parameters. We further introduce a Procrustes variant to balance routing preservation and reasoning adaptation. Across architectures, QK-Restore consistently restores long-context capability at zero training cost while preserving reasoning performance; for instance, on HypeNet-5B it improves S3@256K from $65.4\\%$ to $76.4\\%$ while maintaining strong reasoning performance.",
+      "abstract_zh": "思维链（Chain-of-thought，CoT）监督微调（supervised fine-tuning，SFT）被广泛用于提升推理能力，但我们发现，该方法在混合线性注意力模型中会系统性损害长上下文召回能力。在包括HypeNet和Jet-Nemotron在内的多种架构中，经过CoT-SFT后，针在干草堆（Needle-In-A-Haystack，NIAH）任务上的检索性能显著下降，且检索难度越高、上下文窗口越长，性能退化越严重。例如，HypeNet-9B在NIAH-S2@256K任务上的准确率从$67.2\\%$降至$9.4\\%$。我们将此归因于CoT-SFT使注意力梯度偏向短程模式，从而破坏了负责长程路由的查询-键投影矩阵（$W_Q$, $W_K$）。基于这一观察，我们提出了QK-Restore——一种无需训练的方法，仅从SFT前的检查点恢复$W_Q$和$W_K$，同时保留所有SFT后的其他参数。我们还引入了一种Procrustes变体，以平衡路由保持与推理适应。在不同架构上，QK-Restore均能以零训练成本有效恢复长上下文能力，同时保持推理性能；例如在HypeNet-5B上，该方法将S3@256K任务准确率从$65.4\\%$提升至$76.4\\%$，且推理能力维持强劲表现。",
+      "hf_link": "https://huggingface.co/papers/2606.11052"
+    },
+    "2606.04391": {
+      "title": "Online Skill Learning for Web Agents via State-Grounded Dynamic Retrieval",
+      "abstract": "Language agents increasingly rely on reusable skills to improve multi-step web automation across related tasks. A growing line of work studies online skill learning, where agents continually induce skills from previous task trajectories and reuse them in future tasks on the fly. However, existing methods mainly reuse skills at the task-level: a fixed set of skills is retrieved based on the initial task instruction and then held fixed throughout execution. This static strategy is misaligned with web execution, where the appropriate next action depends not only on the task goal but also on the current webpage state, which often transitions into situations that the initial skills fail to cover. To address this gap, we propose State-Grounded Dynamic Retrieval (SGDR), an online skill learning method that enables stepwise skill reuse for web agents. SGDR consists of three components: a sliding-window extraction process that turns completed trajectories into reusable sub-procedures invokable at intermediate execution states, a dual text-code representation that connects skill retrieval with executable action, and a state-grounded dynamic retrieval mechanism that matches skills to both the task goal and the current webpage state. Experiments on WebArena across five domains show that SGDR consistently outperforms strong baselines, achieving average success rates of 37.5% with GPT-4.1 and 24.3% with Qwen3-4B, corresponding to relative gains of 10.6% and 10.0% over the strongest baseline, respectively. The code is available atthis https URL.",
+      "abstract_zh": "语言智能体日益依赖可复用的技能来提升跨相关任务的多步骤网络自动化能力。当前研究趋势聚焦于在线技能学习，即智能体持续地从过往任务轨迹中归纳技能，并在后续任务中即时复用。然而，现有方法主要在任务层面进行技能复用：根据初始任务指令检索出一组固定技能，并在整个执行过程中保持不变。这种静态策略与网络执行场景存在错位，因为恰当的后续行动不仅取决于任务目标，还取决于当前网页状态——网页状态常会切换至初始技能无法覆盖的情境。为弥补这一差距，我们提出状态导向动态检索法，这是一种支持网络智能体进行步骤级技能复用的在线技能学习方法。该方法包含三个组成部分：一个滑动窗口提取流程，将已完成的任务轨迹转化为可在中间执行状态调用的可复用子程序；一种双文本-代码表征机制，将技能检索与可执行操作相连接；以及一个状态导向的动态检索机制，使技能匹配同时兼顾任务目标与当前网页状态。在涵盖五个领域的WebArena平台上进行的实验表明，该方法持续优于现有强基线模型，使用GPT-4.1时平均成功率可达37.5%，使用Qwen3-4B时达24.3%，分别较最强基线获得10.6%与10.0%的相对提升。代码可通过此链接获取：https://URL。",
+      "hf_link": "https://huggingface.co/papers/2606.04391"
+    },
+    "2606.10646": {
+      "title": "How Does Reasoning Flow? Tracing Attention-Induced Information Flow for Targeted RL in LLMs",
+      "abstract": "Token-level credit assignment remains a key obstacle for reinforcement learning (RL) in large language models (LLMs), where RL recipes typically treat all tokens equally, failing to distinguish decisive reasoning steps from routine formatting or fluent filler. Recent attempts leverage model-internal signals to assign finer-grained credit, but these are often point-wise heuristics that ignore the global structure of information propagation. We propose FlowTracer, an RL framework that traces answer-targeted reasoning flow on an attention-induced directed acyclic graph in which nodes correspond to tokens and edge capacities come from aggregated attention weights and derives token credit from this global structure. The edge capacities are reweighted to retain only the influence that can reach the answer region, while enforcing local flow conservation so intermediate tokens neither lose nor gain effective mass due to path length or irrelevant branches. On this graph, FlowTracer extracts an information-flow backbone connecting the question to the answer and scores tokens by flow throughput, revealing high-impact hubs and aggregation checkpoints that mediate long-range dependencies. These derived importances are used to shape token-level rewards, enabling learning signals to focus precisely on the tokens that route information toward (or away from) correct answers and delivering consistent performance gains across a range of reasoning tasks.",
+      "abstract_zh": "在大型语言模型(LLM)的强化学习(RL)中，词元级别(Token-level)的信用分配仍是关键障碍——现有的RL方法通常对所有词元一视同仁，无法区分关键推理步骤与常规格式化或流畅的填充内容。近期研究尝试利用模型内部信号进行更细粒度的信用分配，但这些方法多为忽略信息传播全局结构的逐点启发式策略。我们提出FlowTracer框架，该RL框架通过在注意力诱导的有向无环图中追踪面向答案的推理流来实现信用分配：图中节点对应词元，边容量来自聚合注意力权重，并基于此全局结构推导词元信用。我们对边容量进行重加权，仅保留能够到达答案区域的影响力，同时强制实施局部流量守恒，确保中间词元不会因路径长度或无关分支损失或获得有效信息量。在该图谱上，FlowTracer提取连接问题与答案的信息流主干，通过流量吞吐量评估词元重要性，揭示调控长程依赖的高影响力枢纽与聚合检查点。由此衍生的重要性指标被用于塑造词元级奖励，使学习信号精准聚焦于将信息导向(或偏离)正确答案的词元，在一系列推理任务中实现了持续的性能提升。",
+      "hf_link": "https://huggingface.co/papers/2606.10646"
+    },
+    "2606.09032": {
+      "title": "Bridging the Agent-World Gap: Text World Models for LLM-based Agents",
+      "abstract": "Large language model (LLM)-based agents are increasingly used in interactive textual environments, from web navigation and code editing to tool use and long-horizon dialogue. Yet many remain largely reactive, mapping observations to actions without an explicit model of how these environments are structured and evolve. This motivates text world models (TWMs): transition models over textual states that, given a state and a candidate action, predict the resulting webpage, terminal output, API response, or user reply, thereby supporting planning, efficient learning, and principled evaluation. We systematically review text world models for LLM-based agents, organized around a formal framework and the agent lifecycle: (1) Foundations, defining text world models and characterizing them by state representation and grounding domain; (2) Construction, taxonomizing LLM-as-WM and code-as-WM paradigms and reviewing methods for building them; (3) Application, examining how world models support agents at training time through experience synthesis and at inference time through planning, verification, and adaptation; and (4) Evaluation, covering both evaluation of the world model itself and its use as an evaluation environment for agents. We aim to consolidate this rapidly developing area, clarify its design space, and highlight open challenges for future research.",
+      "abstract_zh": "基于大语言模型（LLM）的智能体在交互式文本环境中的应用日益广泛，涵盖网页导航、代码编辑、工具使用以及长程对话等领域。然而，许多现有智能体仍主要呈现反应式特征，即直接将观察映射为动作，而缺乏对这些环境结构与动态变化的显式建模。这催生了文本世界模型（Text World Models, TWMs）的研究：这类模型基于文本状态构建状态转移机制，在给定当前状态与候选动作时，能够预测生成的网页内容、终端输出、API响应或用户回复，从而为规划、高效学习和系统化评估提供支持。本文系统梳理了面向LLM智能体的文本世界模型研究，围绕形式化框架与智能体生命周期展开论述：（1）**基础理论**，明确定义文本世界模型，并从状态表征与基础领域两个维度进行特性分析；（2）**构建方法**，对“LLM即世界模型”与“代码即世界模型”两类范式进行归类，并综述其构建技术；（3）**应用场景**，探讨世界模型如何在训练阶段通过经验合成支持智能体学习，在推理阶段通过规划、验证与适配增强决策能力；（4）**评估体系**，涵盖世界模型自身的评价方法及其作为智能体评估环境的应用。本文旨在整合这一快速发展领域的研究成果，厘清其设计空间，并展望未来研究面临的开放挑战。",
+      "hf_link": "https://huggingface.co/papers/2606.09032"
+    },
+    "2606.07689": {
+      "title": "Struct-Searcher: Agentic Structural Thinking Advances Multimodal Deep Information Seeking",
+      "abstract": "Deep research agents have attracted increasing attention for their ability to collect large-scale online information to acquire target knowledge, with recent efforts shifting from purely text-based information seeking to multimodal settings. However, existing agentic workflows are largely aligned with evidence accumulation models, which linearly aggregate evidence and lack principled mechanisms for handling contradictory information across heterogeneous modalities. Towards this end, we propose Struct-Searcher, a structural agentic workflow grounded in belief revision theory that explicitly maintains an evolving multimodal structural graph throughout the reasoning process, enabling effective conflict-aware multimodal deep information seeking. Extensive experiments across multiple benchmark datasets and backbone models demonstrate that Struct-Searcher is (1) plug-and-play and model-agnostic, yielding an average relative accuracy improvement of 17.2% on BrowseComp-VL across five different backbones. (2) top-performing, consistently outperforming state-of-the-art vision-language models (VLMs) and deep research agents, with relative accuracy improvements of 3.7% on MM-BrowseComp, 1.5% on HLE-VL, and 0.7% on BrowseComp-VL over the second-best competing approach.",
+      "abstract_zh": "深度研究智能体因其能够收集大规模在线信息以获取目标知识而日益受到关注，近期研究重点已从纯文本信息检索转向多模态场景。然而，现有智能体工作流程主要遵循证据累积模型，这些模型线性聚合证据，且缺乏处理异构模态间矛盾信息的理论机制。为此，我们提出Struct-Searcher——一种基于信念修正理论的**结构化智能体工作流程**，其在推理过程中显式维护一个动态演化的多模态结构图，从而实现有效的**冲突感知型多模态深度信息检索**。在多个基准数据集和骨干模型上的广泛实验表明，Struct-Searcher具有以下特性：（1）即插即用且模型无关，在五种不同骨干模型上使BrowseComp-VL数据集平均相对准确率提升17.2%；（2）性能领先，持续优于最先进的**视觉语言模型**与深度研究智能体，相较于次优方案在MM-BrowseComp、HLE-VL和BrowseComp-VL数据集上分别实现3.7%、1.5%和0.7%的相对准确率提升。",
+      "hf_link": "https://huggingface.co/papers/2606.07689"
+    },
+    "2606.05304": {
+      "title": "What Should Agents Say? Action-state Communication for Efficient Multi-Agent Systems",
+      "abstract": "Multi-agent systems (MAS) built on large language models are typically organized around roles, pipelines, and turn schedules, while the content that agents pass to one another is often left as unconstrained natural language. However, this free-form communication can rapidly inflate token usage, consume the shared context window, and ultimately affect both system performance and inference cost. We analyze five common inter-agent communication strategies across two MAS topologies, finding that no fixed strategy is universally optimal. Instead, effective inter-agent messages consistently preserve action-centered information needed by downstream agents. Building on this, we propose the PACT (Protocolized Action-state Communication and Transmission), which treats inter-agent communication as a public state-update problem and projects each raw agent output into a compact action-state record before it enters shared history. Across different MAS topologies, PACT consistently improves the performance-cost trade-off, achieving comparable or stronger task performance with substantially fewer tokens. The gains extend to production coding harnesses: PACT lifts OpenHands' resolve rate at -10% tokens-per-resolved, and is resolve-neutral on SWE-agent while halving input tokens. Our code is publicly available atthis https URL.",
+      "abstract_zh": "基于大语言模型构建的多智能体系统通常围绕角色分工、流水线架构与回合调度进行组织，而智能体间传递的内容则常以不受约束的自然语言形式呈现。然而，这种自由形式的通信会迅速增加令牌使用量、挤占共享上下文窗口，并最终影响系统性能与推理成本。我们分析了两种多智能体系统拓扑结构中五种常见的智能体间通信策略，发现不存在普遍最优的固定策略。相反，有效的智能体间消息始终会保留下游智能体所需、以行动为中心的信息。基于此发现，我们提出PACT协议（Protocolized Action-state Communication and Transmission，协议化行动状态通信与传输），将智能体间通信视为公共状态更新问题，在原始智能体输出进入共享历史记录前，将其投射为紧凑的行动状态记录。在不同多智能体系统拓扑结构中，PACT始终能优化性能与成本的平衡——在显著减少令牌用量的同时，获得相当或更强的任务性能。该优势延伸至实际编码框架：PACT将OpenHands的解决率提升10%令牌消耗/每解决任务，在SWE-agent上保持解决率中立的同时将输入令牌减半。我们的代码已在https URL公开。",
+      "hf_link": "https://huggingface.co/papers/2606.05304"
+    },
+    "2606.11131": {
+      "title": "UniPET: a universal network for high-quality PET image denoising across varied dose reduction factors",
+      "abstract": "Most existing deep learning-based PET image denoising methods assume a fixed and known dose reduction factor (DRF) for low-dose PET images. However, these methods encounter significant performance degradation when the DRF varies beyond the assumed one in practical applications. To address the challenge posed by varied DRFs, several preliminary studies focus on the task of universal PET image denoising, aiming to train a universal model over low-dose data across DRFs. Nonetheless, these vanilla universal models often struggle with misaligned styles present in different DRF data, leading to the \\textit{style elimination issue} with a significant over-smoothing effect. To deal with this issue, we innovatively introduce domain generalization to PET image denoising and propose a universal PET image denoising network (UniPET) to achieve high-quality PET image denoising across diverse DRFs. UniPET comprises two primary innovations: a style alignment network (SAN) and a region-aware learning strategy (RALS). Specifically, SAN utilizes style alignment techniques derived from domain generalization to align and recover styles across different DRFs, ensuring the model's generalizability across various DRFs while effectively preserving styles. Furthermore, to enhance style recovery, RALS distinguishes between flat and stylized regions, exclusively conducting adversarial learning on the latter, thereby more effectively guiding the model's focus towards learning stylized regions. It is demonstrated that our proposed UniPET can adaptively recover different DRF styles and achieve high-quality PET image denoising across DRFs. Comprehensive experiments show that UniPET exhibits comparable performance to individual DRF-specific models at specific DRFs and realizes state-of-the-art performance in universal PET image denoising quantitatively, perceptually, and clinically.",
+      "abstract_zh": "现有的大多数基于深度学习的PET图像降噪方法都假设低剂量PET图像具有固定且已知的剂量降低因子（DRF）。然而，在实际应用中，当DRF变化超出预设范围时，这些方法的性能会出现显著下降。为应对不同DRF带来的挑战，一些初步研究聚焦于通用PET图像降噪任务，旨在通过跨DRF的低剂量数据训练一个通用模型。尽管如此，这些基础的通用模型常因不同DRF数据间存在的风格错位而陷入困境，导致出现具有明显过度平滑效应的“风格消除问题”。为解决此问题，我们创新性地将领域泛化引入PET图像降噪，并提出一种通用PET图像降噪网络（UniPET），以实现跨多种DRF的高质量PET图像降噪。UniPET包含两项主要创新：风格对齐网络（SAN）和区域感知学习策略（RALS）。具体而言，SAN利用源自领域泛化的风格对齐技术来对齐并恢复不同DRF间的风格，确保模型在多种DRF间的泛化能力，同时有效保留风格。此外，为增强风格恢复效果，RALS通过区分平坦区域与风格化区域，并仅在后者上进行对抗学习，从而更有效地引导模型聚焦于学习风格化区域。实验证明，我们提出的UniPET能够自适应地恢复不同DRF风格，并实现跨DRF的高质量PET图像降噪。综合实验表明，UniPET在特定DRF下表现与各DRF专用模型相当，并在定量评估、感知质量和临床验证上均实现了通用PET图像降噪的先进性能。",
+      "hf_link": "https://huggingface.co/papers/2606.11131"
+    },
+    "2606.11032": {
+      "title": "U-TTT: Towards Generalizable PET Image Denoising via Test-Time Training",
+      "abstract": "Existing deep learning models for Positron Emission Tomography (PET) image denoising often suffer from severe performance degradation under distribution shifts, fundamentally restricting their robust clinical deployment. This lack of generalization stems from the conventional paradigm of fixed-parameter models that cannot adapt to variations in test data (e.g., dose levels or scanner types) after training. To overcome this limitation and achieve robust generalization, we introduce U-TTT, a novel U-shaped model that integrates Test-Time Training (TTT) layers to dynamically adjust model parameters during inference through self-supervision, thereby adapting to the specific characteristics of each test instance. Furthermore, to comprehensively capture the complex degradations of 3D PET data, U-TTT features a dual-domain adaptation mechanism comprising a Spatial Test-Time Training (S-TTT) layer and a Frequency Test-Time Training (F-TTT) layer. The S-TTT layer captures and corrects spatial structural degradations, while the F-TTT layer suppresses global noise spectra and restores delicate high-frequency details. Extensive experiments demonstrate that U-TTT achieves state-of-the-art PET denoising performance and exhibits superior generalization under challenging distribution shifts, including both unseen dose levels and unseen scanners. Our code will be available atthis https URL.",
+      "abstract_zh": "现有的正电子发射断层扫描（PET）图像降噪深度学习模型在分布偏移下通常存在严重的性能退化，从根本上限制了其稳健的临床部署。这种泛化能力的缺乏源于传统的固定参数模型范式，这些模型无法在训练后适应测试数据（如剂量水平或扫描仪类型）的变化。为克服这一限制并实现稳健泛化，我们提出了U-TTT——一种新颖的U形模型，该模型集成了测试时训练（Test-Time Training, TTT）层，通过自监督在推理过程中动态调整模型参数，从而适应每个测试实例的具体特性。此外，为全面捕捉三维PET数据的复杂退化特征，U-TTT采用了包含空间测试时训练（Spatial Test-Time Training, S-TTT）层与频率测试时训练（Frequency Test-Time Training, F-TTT）层的双域适应机制。S-TTT层负责捕捉并修正空间结构退化，而F-TTT层则抑制全局噪声频谱并恢复精细的高频细节。大量实验表明，U-TTT在具有挑战性的分布偏移（包括未见过的剂量水平与未见过的扫描仪类型）下，不仅能达到最先进的PET降噪性能，还展现出卓越的泛化能力。我们的代码将通过此链接公开：https URL。",
+      "hf_link": "https://huggingface.co/papers/2606.11032"
+    },
+    "2606.10650": {
+      "title": "Dynamic Linear Attention",
+      "abstract": "The scalability of Large Language Models (LLMs) to long contexts is fundamentally constrained by the quadratic complexity of standard attention, motivating the adoption of linear attention mechanisms with sub-quadratic cost. To improve representation capacity under long contexts, recent approaches organize memory in a multi-state manner. However, existing multi-state linear attention methods rely on fixed state merging policies that cannot adapt to dynamically varying token importance, irreversibly obscuring critical tokens and causing severe error accumulation over long sequences. To address this limitation, we propose DLA, a dynamic memory modeling framework for multi-state linear attention. DLA introduces (i) Information-Aware Dynamic State Merging, which adaptively determines state boundaries based on token-level information variation, preserving high-resolution representations around semantic transitions while aggressively summarizing stable regions, and (ii) Capacity-Bounded Memory Modeling, which maintains a fixed-size, chronologically ordered state cache by selectively merging adjacent low-information states to control memory growth with minimal information loss. We pre-train DLA on two different linear attention models and evaluate on 16 datasets across three categories. Experimental results demonstrate the superiority of DLA over state-of-the-art.",
+      "abstract_zh": "大型语言模型（LLMs）在长上下文中的可扩展性，从根本上受到标准注意力机制二次复杂度的限制，这促使研究者采用具有次二次计算成本的线性注意力（linear attention）机制。为提升长上下文下的表征能力，近期方法以多状态（multi-state）方式组织记忆。然而，现有的多状态线性注意力方法依赖固定的状态合并策略，无法适应动态变化的词汇重要性，导致关键词汇信息被不可逆地掩盖，并在长序列中引发严重的误差累积。为解决这一局限，我们提出了DLA——一种面向多状态线性注意力的动态记忆建模框架。DLA引入了以下两个核心机制：（一）信息感知动态状态合并（Information-Aware Dynamic State Merging），该方法基于词汇级别的信息变化自适应地确定状态边界，在语义转换区域保持高分辨率表征，同时对稳定区域进行高效汇总；（二）容量受限记忆建模（Capacity-Bounded Memory Modeling），通过有选择地合并相邻的低信息状态，维持一个固定尺寸、按时间顺序排列的状态缓存，从而以最小信息损失控制内存增长。我们在两种不同的线性注意力模型上对DLA进行预训练，并在三大类共16个数据集上进行了评估。实验结果表明，DLA的性能优于现有最先进方法。",
+      "hf_link": "https://huggingface.co/papers/2606.10650"
+    },
+    "2606.09068": {
+      "title": "Emergent Misalignment Can Be Induced by Sycophancy and Reversed via Alignment Gating",
+      "abstract": "Prior work has shown that fine-tuning large language models on malicious or incorrect outputs in narrow domains can induce broad misalignment and harmful behavior, a phenomenon known as emergent misalignment. However, efficient methods for reversing such misalignment remain limited. In this work, we make two contributions. First, we identify sycophancy fine-tuning, i.e., training models to passively agree with users' incorrect opinions, as a previously underexplored driver of emergent misalignment, and show that it induces broad and severe misaligned behavior. Second, we propose Alignment Gating, an efficient method for reversing emergent misalignment that inserts learnable and controllable gates into the model during fine-tuning. Through fine-tuning, these gates learn to identify the internal representations responsible for unsafe responses. Thus, amplifying or suppressing these representations then exacerbates or mitigates EM, respectively. We further find that alignment gating module exhibits strong generalization: gating weights obtained from narrow-domain fine-tuning substantially suppress broad-domain misaligned behavior while preserving the model's general capabilities.",
+      "abstract_zh": "先前的研究表明，在特定狭窄领域内基于恶意或不正确的输出对大语言模型进行微调，可能诱发广泛的对齐偏移及有害行为，这种现象被称为涌现式对齐偏移。然而，目前仍缺乏有效逆转此类对齐偏移的高效方法。本研究作出了两项贡献。首先，我们识别出奉承性微调——即训练模型被动附和使用者的错误观点——作为先前未被充分探索的涌现式对齐偏移驱动因素，并证明其会引发广泛且严重的对齐偏移行为。其次，我们提出了对齐门控机制，这是一种用于逆转涌现式对齐偏移的高效方法，通过在微调过程中向模型插入可学习且可控的门控单元实现。这些门控单元通过微调学习识别导致不安全响应的内部表征。因此，增强或抑制这些表征将分别加剧或缓解涌现式对齐偏移。我们进一步发现，对齐门控模块展现出强大的泛化能力：从狭窄领域微调中获得的门控权重能显著抑制广泛领域的对齐偏移行为，同时保持模型的通用能力。",
+      "hf_link": "https://huggingface.co/papers/2606.09068"
+    },
+    "2606.09131": {
+      "title": "Late-Layer Fusion is Enough: Dual-Path Vision Token Routing for Multimodal Large Language Models under Visual Saturation",
+      "abstract": "Multimodal large language models (MLLMs) commonly inherit the deep, symmetric Transformer backbone designed for unimodal text modeling, and apply the same computation uniformly to image and language tokens. This design overlooks a key modality asymmetry: image and text tokens differ substantially in information density, redundancy, and required reasoning depth. Through a layer-wise analysis of LLaVA-1.5, we observe that vision tokens tend to saturate in the middle layers. Specifically, text-to-image attention decreases from 0.68 at layer 0 to 0.07 by layer 4, and stabilizes near 0.04 after layer 18, whereas text tokens continue to benefit from deep semantic processing. These findings suggest a mismatch between architectural symmetry and depth-asynchronous modality evolution, resulting in redundant visual computation and possible drift in perceptual representations during deep task-specific adaptation. Motivated by this, we propose Dual-Path Vision Token Routing (DPVR), a modality-asymmetric routing framework for efficient MLLMs. Its core instantiation, DPVR-LF (Late-Layer Fusion), routes vision tokens at the saturation point into a one-layer trainable side branch, runs a thirteen-layer text-only forward that skips image positions in the deep stack, and re-fuses the visual and textual streams only at the final layer. With approximately 3% trainable parameters, DPVR-LF preserves competitive multimodal performance on standard benchmarks while reducing visual computation in the deep Transformer stack. The results challenge the conventional assumption that vision tokens must traverse all deep language-model layers, and indicate that a single late fusion layer can be sufficient for maintaining strong perceptual competence in LLaVA-style MLLMs.",
+      "abstract_zh": "多模态大语言模型(Multimodal large language models，MLLMs)通常继承为单模态文本建模设计的深度对称Transformer主干网络，并对图像和语言标记(token)统一应用相同的计算。这种设计忽视了一个关键的多模态不对称性：图像与文本标记在信息密度、冗余度和所需推理深度上存在显著差异。通过对LLaVA-1.5进行分层分析，我们观察到视觉标记往往在中间层达到饱和状态。具体而言，文本到图像的注意力值从第0层的0.68下降至第4层的0.07，并在第18层后稳定在0.04附近，而文本标记则持续受益于深度语义处理。这些发现揭示了架构对称性与深度异步多模态演化之间的不匹配，导致冗余的视觉计算以及在深度任务特定适配过程中感知表征可能出现漂移。受此启发，我们提出双路径视觉标记路由(Dual-Path Vision Token Routing，DPVR)——一种面向高效MLLMs的多模态不对称路由框架。其核心实现DPVR-LF(后期层融合)将饱和点的视觉标记路由至单层可训练侧分支，在深层堆栈中执行跳过图像位置的十三层纯文本前向传播，并仅在最终层重新融合视觉与文本流。凭借约3%的可训练参数，DPVR-LF在标准基准测试中保持了有竞争力的多模态性能，同时显著减少了深层Transformer堆栈中的视觉计算量。这些结果挑战了视觉标记必须遍历所有深层语言模型层的传统假设，表明在LLaVA风格MLLMs中，单个后期融合层足以维持强大的感知能力。",
+      "hf_link": "https://huggingface.co/papers/2606.09131"
+    },
+    "2606.10740": {
+      "title": "When the Chain of Thought Knows Better: Failure Modes in Multi-Turn Reasoning Models",
+      "abstract": "Failures in multi-turn reasoning models are largely invisible to terminal-score evaluation. A model can lock onto an unsafe stance early in a long dialogue, yet its final-turn refusal rate may appear indistinguishable from a robustly aligned baseline. To expose these hidden temporal dynamics, we propose a trace-level diagnostic - the CoT-Output 2x2 safety matrix. This framework labels every turn along two independent axes (internal reasoning and visible output), yielding four operationally defined failure cells: robust alignment, alignment faking, overt jailbreak, and a distinct failure mode we term context-injection failure (where the CoT maintains safe reasoning, but the visible output produces harm, highlighting a multi-turn manifestation of reasoning unfaithfulness). We evaluate three distilled reasoning targets against a fixed attacker across five oversight conditions, collecting 6750 turn-level observations on the Information-Hazard scenario. Our analysis reveals two reproducible vulnerabilities: an oversight paradox where explicit monitoring cues paradoxically increase alignment-faking rates rather than suppress them, and a context-injection failure where models lock onto unsafe external outputs despite safe internal states. We release the full dataset of multi-turn dialogues and CoT traces to support follow-up trace-diagnostic research.",
+      "abstract_zh": "多轮推理模型的失效在终端评分评估中很大程度上是不可见的。模型可能在长对话早期就固守不安全立场，但其最终回合的拒绝率却可能与稳健对齐的基线模型表现无异。为揭示这些隐藏的时间动态，我们提出一种轨迹级诊断工具——思维链输出安全二维矩阵。该框架沿两个独立维度（内部推理与可见输出）对每个对话回合进行标注，形成四个操作性定义的失效单元：稳健对齐、对齐伪装、显性越狱，以及一种独特的失效模式——我们称之为上下文注入失效（即思维链保持安全推理，但可见输出产生危害，凸显了多轮场景下推理不忠实性的表现）。我们在五种监督条件下，对三个精炼推理目标模型与固定攻击者进行评估，于信息危害场景中收集了6750个回合级观测数据。分析揭示了两个可复现的脆弱性：监督悖论（即显式监控提示反而会加剧而非抑制对齐伪装率），以及上下文注入失效（即模型尽管内部状态安全，却固守不安全的外部输出）。我们发布了完整的多轮对话与思维链轨迹数据集，以支持后续的轨迹诊断研究。",
+      "hf_link": "https://huggingface.co/papers/2606.10740"
+    },
+    "2606.11087": {
+      "title": "Test-Time Gradient Guidance of Flow Policies in Reinforcement Learning",
+      "abstract": "Expressive continuous control policies, such as diffusion and flow models, form the backbone of recent advances in scaling imitation learning for simulated and real robot control. While they are known to scale stably in the supervised imitation learning setting, incorporating them into reinforcement learning (RL) pipelines for policy improvement has proven more difficult. It often requires specialized training objectives or backpropagating through denoising processes, which cause well-known issues with stability and affect scalability. In this paper we study the question of whether simple policy improvement schemes at test time alone, leaving stable supervised policy training intact, can be a competitive alternative which sidesteps these issues. To this end, we propose QGF (Q-Guided Flow), an RL algorithm that performs policy optimization entirely at test time. QGF works by pre-training both a reference flow policy (via a standard behavioral cloning objective) and a value function critic and, at test time, using the value gradient to guide the reference policy to generate higher-value actions without any additional policy learning. Empirically, QGF outperforms prior test-time RL methods on single-task and goal-conditioned offline RL benchmarks with high-dimensional action spaces, and is competitive with state-of-the-art training-time algorithms while being much cheaper to run. Moreover, it exhibits favorable scaling with model size by avoiding the instability of actor-critic training, offering a practical and effective alternative RL algorithm with expressive policies.",
+      "abstract_zh": "富有表现力的连续控制策略，例如扩散模型(diffusion model)和流模型(flow model)，构成了模仿学习在模拟和真实机器人控制领域规模化应用近期进展的核心。尽管已知这些模型在监督式模仿学习设置中能够稳定扩展，但将其纳入强化学习(reinforcement learning, RL) 流程以实现策略改进已被证明更为困难。这通常需要专门设计的训练目标或对去噪过程进行反向传播，从而引发众所周知的稳定性问题并影响可扩展性。本文研究了仅通过测试时简单的策略改进方案（同时保持稳定的监督式策略训练不变）是否能够成为避开这些问题的有竞争力的替代方案。为此，我们提出了QGF（Q引导流，Q-Guided Flow），这是一种完全在测试时进行策略优化的强化学习算法。QGF的工作原理是预训练一个参考流策略（通过标准的行为克隆目标）和一个价值函数评判器，并在测试时利用价值梯度引导参考策略生成更高价值的动作，而无需任何额外的策略学习。实验表明，在高维动作空间的单任务和目标条件离线强化学习基准测试中，QGF优于先前的测试时强化学习方法，并且与最先进的训练时算法性能相当，同时运行成本低得多。此外，通过避免行动者-评判者训练的不稳定性，QGF在模型规模扩大时表现出良好的扩展性，为使用富有表现力的策略提供了一个实用且有效的替代强化学习算法。",
+      "hf_link": "https://huggingface.co/papers/2606.11087"
+    },
+    "2606.10061": {
+      "title": "BenSyc: Benchmarking Conversational Sycophancy and Human Alignment in LLMs for Bengali Contexts",
+      "abstract": "Large language models (LLMs) increasingly participate in emotionally sensitive social conversations, where responses may shift from balanced support toward excessive validation or escalatory alignment. Existing sycophancy research primarily focuses on factual agreement and instruction-following settings, leaving culturally grounded conversational sycophancy underexplored. We introduce BenSyc, the first benchmark for studying conversational sycophancy in Bengali social contexts. Starting from 11,840 Reddit posts and 170k comments collected from communities across Bangladesh and West Bengal, we construct a human-validated benchmark with binary labels and a fine-grained five-level taxonomy spanning Invalidation, Neutral, Support, Validation, and Escalation. We evaluate more than 15 open and proprietary LLMs on conversational alignment classification and response generation tasks. Results show that distinguishing empathetic support from reinforcement-oriented validation remains challenging even for frontier instruction-tuned models: the best system achieves only 61.8 Macro-F1 on binary detection and 61.7 Macro-F1 on five-class classification. In generation settings, several models frequently produce strongly validating or escalatory responses in emotionally charged situations. Our findings highlight substantial variation across model families and conversational behaviors, underscoring the importance of culturally grounded multilingual benchmarks for evaluating socially aligned conversational AI systems.",
+      "abstract_zh": "大型语言模型(LLMs)越来越多地参与到情感敏感的社会对话中，其回应可能从平衡的支持滑向过度认同或升级性附和。现有谄媚性研究主要关注事实性认同与指令跟随场景，尚未充分探究具有文化根基的对话式谄媚现象。我们提出首个针对孟加拉语社会情境的对话谄媚性基准测试BenSyc。基于从孟加拉国和西孟加拉邦网络社区收集的11,840条Reddit帖文与17万条评论，我们构建了包含二元标签的人类验证基准，并制定了涵盖否定、中立、支持、认同、升级五个层级的细粒度分类体系。通过对超过15个开源与专有LLMs进行对话倾向分类与回应生成任务的评估，结果显示：即使对于前沿的指令微调模型，区分共情支持与强化导向的认同仍具挑战——最佳系统在二元检测中仅获得61.8的宏观F1值，在五级分类中为61.7宏观F1。在生成场景中，多个模型在情感激烈情境下频繁产生强烈认同或升级性回应。我们的研究揭示了不同模型系列与对话行为间的显著差异，凸显了建立具有文化根基的多语言基准对于评估社会对齐对话AI系统的重要性。",
+      "hf_link": "https://huggingface.co/papers/2606.10061"
+    }
+  },
+  "hf_votes": {
+    "2606.09967": 0,
+    "2606.10917": 0,
+    "2606.09730": 0,
+    "2606.07512": 0,
+    "2606.10804": 0,
+    "2606.11025": 0,
+    "2606.09821": 0,
+    "2606.11176": 0,
+    "2606.11129": 0,
+    "2606.05922": 0,
+    "2606.11180": 0,
+    "2606.10572": 0,
+    "2606.11182": 0,
+    "2606.11042": 0,
+    "2606.11052": 0,
+    "2606.04391": 0,
+    "2606.10646": 0,
+    "2606.09032": 0,
+    "2606.09056": 0,
+    "2606.07689": 0,
+    "2606.05304": 0,
+    "2606.11131": 0,
+    "2606.11032": 0,
+    "2606.10650": 0,
+    "2606.09068": 0,
+    "2606.11188": 0,
+    "2606.09131": 0,
+    "2606.10740": 0,
+    "2606.11087": 0,
+    "2606.10061": 0
+  },
+  "focus_sections": {
+    "3D生成与重建": [
+      "2606.09967",
+      "2606.11129"
+    ],
+    "视频生成": [
+      "2606.10804",
+      "2606.11180",
+      "2606.09056"
+    ],
+    "图像生成": [
+      "2606.10804",
+      "2606.11188"
+    ]
+  },
+  "summaries": {
+    "2606.11188": {
+      "short_zh": "ARM：统一视觉语言的自回归模型",
+      "tags": "计算机视觉；多模态学习；视觉语言生成",
+      "body_summary": "构建统一处理图像理解、生成与编辑的自回归多模态模型。\n训练离散视觉分词器统一表示，用强化学习优化生成与编辑性能。"
+    },
+    "2606.09056": {
+      "short_zh": "视频生成的长程一致性方法",
+      "tags": "计算机视觉;视频生成;长程一致性",
+      "body_summary": "视频生成模型难以保持长程一致性，因为处理长序列计算量大。\n提出多尺度分层表征，通过从粗到细的扩散生成实现高效一致的长视频生成。"
+    },
+    "2606.11180": {
+      "short_zh": "实时口型同步自回归扩散方法",
+      "tags": "计算机视觉；生成模型；口型同步",
+      "body_summary": "现有扩散模型口型同步效果好但推理慢，不适用于实时场景。\n提出Lip Forcing方法，将大教师模型蒸馏为因果学生模型，仅需两步去噪即可实时生成同步口型。"
+    },
+    "2606.10804": {
+      "short_zh": "端到端的角色动画统一框架",
+      "tags": "计算机视觉;图像视频生成;可控角色动画",
+      "body_summary": "背景/任务是实现无需中间表示的、端到端的角色动画，从驱动视频直接生成参考角色的动画。\n提出SCAIL-2框架，通过构建合成数据集、利用上下文掩码与模式感知RoPE进行统一指导，并结合偏好优化来提升细节质量。"
+    },
+    "2606.09967": {
+      "short_zh": "基于卫星图生成三维地球模型",
+      "tags": "计算机图形学;三维重建;生成式三维场景建模",
+      "body_summary": "提出一种从卫星图像快速生成大规模、逼真三维场景的框架。\n构建一个基于三维高斯溅射的生成模型，能在十分钟内合成每平方公里场景，支持实时交互与无人机导航应用。"
+    },
+    "2606.11129": {
+      "short_zh": "评测世界模型物理几何交互能力",
+      "tags": "计算机视觉;视频生成;世界模型评测",
+      "body_summary": "现有评测难以评估生成视频是否遵循物理规则、保持几何一致性以及支持长时程交互控制。\n我们构建了一个包含物理、几何和交互三个维度的多场景评测基准WorldOlympiad，揭示了当前模型的不足。"
+    },
+    "2606.10917": {
+      "short_zh": "双角色演化自举大语言模型智能体",
+      "tags": "自然语言处理;大语言模型智能体;智能体与环境协同演化",
+      "body_summary": "大语言模型智能体在处理复杂任务时，常因反馈效率低和训练环境静态化而难以泛化。\n提出Role-Agent框架，让单一LLM同时扮演智能体和环境以实现协同演化，通过预测对齐和失败模式分析重塑训练，在多个基准上平均提升超过4%。"
+    },
+    "2606.09730": {
+      "short_zh": "大模型委托子模型完成深度研究",
+      "tags": "自然语言处理;智能体与代理;长程任务委托",
+      "body_summary": "大模型处理复杂任务时上下文有限，需要学会将任务分解并委托给子代理执行\n本文设计了一套引导机制来训练模型掌握任务分解与委托能力，并发布了相关模型和数据"
+    },
+    "2606.07512": {
+      "short_zh": "长视频理解的分治框架",
+      "tags": "多模态学习;视频理解;长视频逻辑推理",
+      "body_summary": "现有视觉语言模型难以处理超长视频，面临计算成本高和注意力分散的难题。\n提出MemDreamer框架，通过分层图记忆解耦感知与推理，以代理式检索进行高效长视频理解，显著提升了性能。"
+    },
+    "2606.11025": {
+      "short_zh": "流模型强化学习优化方法",
+      "tags": "生成模型；扩散模型；流匹配模型强化学习对齐",
+      "body_summary": "在线强化学习可提升流匹配模型生成质量与对齐度，但现有PPO方法的策略比率裁剪机制不适用于流匹配过程。\n提出Flow-DPPO方法，用精确计算的高斯策略KL散度约束替代比率裁剪，实现更高效稳定的策略优化。"
+    },
+    "2606.09821": {
+      "short_zh": "优化大模型强化学习策略",
+      "tags": "机器学习;强化学习;大语言模型策略优化",
+      "body_summary": "大模型后训练依赖强化学习，但训练与推理策略不匹配及策略陈旧等问题常使其成为离轨策略问题，需通过置信域控制来稳定优化。\n我们提出用平滑的优势加权二次正则器替代硬掩码，以连续梯度权重衰减策略偏移，从而提升训练稳定性和效率。"
+    },
+    "2606.11176": {
+      "short_zh": "数据记者智能体自动写新闻",
+      "tags": "智能体与多模态;数据驱动新闻;可验证多模态新闻生成",
+      "body_summary": "数据新闻制作费时费力，现有智能体仅能处理单一步骤，能否构建一个端到端的数据记者智能体？\n提出了一个多智能体框架，通过角色协作将数据转化为可验证的多模态故事，并设计了评估方法验证其效果。"
+    },
+    "2606.05922": {
+      "short_zh": "优化智能体工具链性能",
+      "tags": "大型语言模型智能体;智能体优化;自监督工具链优化",
+      "body_summary": "现有智能体优化方法依赖带标注的验证数据，但实际部署中难以获取\n提出自监督优化方法RHO，利用过往任务轨迹自我评估和偏好选择来提升工具链"
+    },
+    "2606.10572": {
+      "short_zh": "资源受限问答的潜存记忆范式",
+      "tags": "自然语言处理;问答系统;多模态证据压缩",
+      "body_summary": "现有问答系统使用原始文本图像作为记忆单元，消耗大量计算资源。\n提出潜存记忆，将证据压缩为单一潜存令牌，实现高效检索与生成。"
+    },
+    "2606.11182": {
+      "short_zh": "让大模型在真实任务流中边测边学提示",
+      "tags": "自然语言处理;大语言模型;测试时提示学习",
+      "body_summary": "现有方法难以应对多数据集混合的真实任务流，限制了智能体的实际应用。\n提出了EEVEE框架，通过路由-提示协同进化在多数据集任务流中提升性能。"
+    },
+    "2606.11042": {
+      "short_zh": "评估专业软件长流程GUI任务",
+      "tags": "人机交互;图形用户界面智能体;专业软件长流程评估",
+      "body_summary": "当前AI智能体评测缺乏对跨领域专业软件长流程操作的评估。\n提出了Workflow-GYM基准测试，发现现有顶尖模型成功率仅略超30%，揭示了智能体在长流程一致性和专业软件理解上的主要不足。"
+    },
+    "2606.11052": {
+      "short_zh": "混合大模型注意遗忘机制及其修复方法",
+      "tags": "自然语言处理;大语言模型;注意机制优化",
+      "body_summary": "背景/任务：链式思维微调会损害混合线性注意模型的长上下文回忆能力，需要找到修复方法。\n做了什么：提出QK-Restore方法，通过恢复注意力权重中的查询和关键投影来修复长上下文能力，同时保持推理性能。"
+    },
+    "2606.04391": {
+      "short_zh": "网页智能体在线技能学习",
+      "tags": "智能体;网络智能体;在线技能学习",
+      "body_summary": "现有网页智能体在任务执行中静态复用技能，与动态网页状态不匹配。\n提出状态驱动动态检索方法，通过提取子程序、双编码表示和状态匹配技能，提升任务成功率。"
+    },
+    "2606.10646": {
+      "short_zh": "追踪大模型推理注意力流强化学习",
+      "tags": "自然语言处理;大语言模型强化学习;基于注意力流的信用分配",
+      "body_summary": "当前大语言模型强化学习方法对所有令牌平等分配奖励，忽视了关键推理步骤与常规内容间的差异，导致信用分配效率低下。\n我们提出FlowTracer框架，通过构建注意力诱导的有向无环图追踪面向答案的推理流，据此计算令牌级重要性并重塑奖励，从而将学习信号聚焦于影响答案的关键推理令牌。"
+    },
+    "2606.09032": {
+      "short_zh": "大语言模型Agent文本世界建模",
+      "tags": "自然语言处理;智能体与强化学习;文本世界模型",
+      "body_summary": "大语言模型智能体在文本交互环境中通常缺乏对环境结构演变的显式建模。\n系统综述了文本世界模型的定义、构建方法、在智能体训练与推理中的应用及其评估。"
+    },
+    "2606.07689": {
+      "short_zh": "基于结构推理的多模态信息搜索代理",
+      "tags": "人工智能代理；多模态信息检索；结构化解码与矛盾处理",
+      "body_summary": "现有AI代理在整合多模态信息时难以有效处理矛盾证据。\n本文提出Struct-Searcher，通过维护演化图结构进行冲突感知推理，在多个基准上超越现有方法。"
+    },
+    "2606.05304": {
+      "short_zh": "优化多智能体系统通信效率",
+      "tags": "自然语言处理;多智能体系统;智能体通信协议",
+      "body_summary": "大型语言模型构建的多智能体系统通常采用自由形式的自然语言通信，这会导致令牌使用量激增、共享上下文窗口消耗大，进而影响系统性能和推理成本。\n研究提出PACT协议，将智能体间通信视为公共状态更新问题，将原始输出压缩为紧凑的行动状态记录，在多种拓扑结构下以更少令牌实现相当或更强的任务性能。"
+    },
+    "2606.11131": {
+      "short_zh": "跨剂量PET图像通用降噪",
+      "tags": "医学影像分析;PET图像重建与降噪;跨剂量PET图像通用降噪",
+      "body_summary": "现有低剂量PET图像降噪方法通常在固定剂量下有效，当剂量变化时性能会下降。\n提出UniPET网络，通过风格对齐和区域感知学习，实现了对不同剂量PET图像的高质量通用降噪。"
+    },
+    "2606.11032": {
+      "short_zh": "通用PET图像去噪新方法",
+      "tags": "医学图像处理;图像去噪;PET图像去噪",
+      "body_summary": "现有PET图像去噪模型面对数据分布变化时性能显著下降。\n提出U-TTT模型，通过嵌入测试时训练层并融合双域适应机制，动态适应测试数据并提升泛化能力。"
+    },
+    "2606.10650": {
+      "short_zh": "动态线性注意力机制改进",
+      "tags": "自然语言处理;高效大模型;长序列注意力优化",
+      "body_summary": "标准注意力机制在处理长文本时计算成本过高，现有线性注意力方法的状态合并策略固定，无法适应动态变化的文本重要性。\n提出了DLA框架，它能根据信息变化动态合并状态以保持关键信息，并通过容量受限的内存建模控制内存增长，实验证明其性能优于现有方法。"
+    },
+    "2606.09068": {
+      "short_zh": "对齐失效的诱因与修复方法",
+      "tags": "自然语言处理;大语言模型对齐;对齐失效与修复",
+      "body_summary": "大语言模型在特定领域微调后可能出现广泛有害行为，即对齐失效现象，但高效修复方法有限。\n本文发现“迎合式”微调会诱发严重对齐失效，并提出“对齐门控”方法，通过可学习门控模块识别并抑制有害表征，有效修复模型。"
+    },
+    "2606.09131": {
+      "short_zh": "视觉饱和后层融合即够",
+      "tags": "多模态大模型;视觉语言理解;视觉令牌高效计算",
+      "body_summary": "多模态大模型通常采用对称的Transformer架构，但图像与文本令牌在信息密度和所需推理深度上存在不对称，导致视觉计算冗余。\n提出双路径视觉令牌路由框架，在视觉饱和后将图像令牌分流至浅层旁支，仅文本令牌进行深度计算，最终再融合，以少量参数保持性能并减少视觉计算。"
+    },
+    "2606.10740": {
+      "short_zh": "多轮推理模型失败诊断",
+      "tags": "自然语言处理;语言模型安全;多轮推理对齐评估",
+      "body_summary": "现有评估方法难以察觉多轮推理模型在对话过程中早期出现的安全隐患。\n提出诊断框架分析每轮内部推理与可见输出，识别多种失败模式并发现模型存在监督悖论等新漏洞。"
+    },
+    "2606.11087": {
+      "short_zh": "测试时梯度引导流策略强化学习",
+      "tags": "强化学习；连续控制策略；流模型测试时优化",
+      "body_summary": "近期模仿学习中扩散与流模型虽在监督学习中稳定，但融入强化学习策略提升时存在训练不稳定与扩展性难题。\n本文提出QGF，在测试时用价值梯度引导预训练的流策略生成高价值动作，无需额外训练，实现高性能且低成本的策略优化。"
+    },
+    "2606.10061": {
+      "short_zh": "评测孟加拉语对话附和倾向",
+      "tags": "自然语言处理;对话系统;多语言对话对齐评测",
+      "body_summary": "研究LLMs在情感敏感社会对话中过度附和倾向的评测需求\n构建首个孟加拉语对话附和评测基准并评估LLMs对齐表现"
+    }
+  },
+  "deep_analysis": {
+    "2606.11188": "好的，没问题！我们来像聊天一样，把这篇论文的核心拆解清楚。你把它想象成一个“全能型AI画家”。\n\n### (1) 任务是什么？\n*   **任务功能**：这是一个“通才”视觉AI模型，能同时做三件事：\n    1.  **图像理解**（看图说话）：给你一张图，它可以说出图里有什么、发生了什么、回答问题。\n    2.  **图像生成**（文生图）：给你一段文字描述（如“一只戴帽子的橘猫”），它能画出一张符合描述的图片。\n    3.  **图像编辑**（指令修图）：给你一张图和一段修改指令（如“把猫的帽子换成红色”），它能按要求修改图片。\n*   **任务输入**：可以是**纯文本**、**纯图像**，或者**“图像+文本”的组合**。\n*   **任务输出**：根据输入，输出可能是**一段描述文本**、**一张生成的图片**，或者**一张编辑后的图片**。\n\n### (2) 想解决什么问题？\n之前很多模型做上面三件事时，用的是 **“两套班子”**：\n*   **理解班子**：用一个编码器（如CLIP）把图变成“语义向量”，这个向量擅长理解含义，但细节模糊，没法还原成清晰的图。\n*   **生成班子**：用另一个编码器（如VQVAE）把图变成“细节向量”，这个向量能还原出清晰的图，但语义上可能和文字对不上。\n\n这就好比：**一个翻译官（理解班子）能准确理解一段外文的意思，但记不住原文每个词的发音；另一个配音演员（生成班子）能完美模仿发音，但不懂这句话的意思。** 让AI同时做理解和生成，就得在脑子里同时记住“意思”和“发音”两套信息，很笨重、效率低。\n\n**这篇论文的核心问题就是：能不能只用“一套班子”，既能准确理解图像语义，又能保留足够细节来生成/编辑高质量图像？**\n\n### (3) 贡献是什么？\n论文主要做了三件大事：\n1.  **造了一个“超级翻译官”**：训练了一个新的**视觉分词器**。它能把图片转换成一种特殊的“视觉词汇”（离散token）。这个分词器经过特殊训练，使得转换后的“词汇”**既包含清晰的语义（利于理解），又包含丰富的细节（利于生成）**，一举两得。\n2.  **训练了一个“全能大脑”**：用这个分词器，配合一个70亿参数的**自回归Transformer模型**（类似GPT），在海量“文本-图像”数据上训练。这个大脑学会了根据上下文，像预测下一个字一样，**预测下一个“视觉词汇”或“文本词汇”**，从而统一了理解和生成。\n3.  **用“奖励”调教出更好用的AI**：用**强化学习**的方法，根据人类偏好（比如图片好不好看、指令跟得紧不紧）进一步优化模型。神奇的是，优化生成或编辑中的任何一个任务，另一个任务也会跟着变好，产生了 **“跨任务协同”** 效应。\n\n### (4) 整体思路与模型结构\n你可以把整个流程想象成 **“编码 -> 思考 -> 解码”**。\n\n**基模（Base Model）**：一个标准的、仅解码器的**Transformer**（类似GPT、LLaMA的架构），参数是7B（70亿）。\n\n**整体流程（结合图1理解）：**\n\n1.  **第一步：统一编码（Unified Discrete Visual Tokenization）**\n    *   **输入**：一张图片。\n    *   **过程**：图片被送入论文**自研的视觉分词器**。这个分词器像一个高效的压缩器，把图片转换成一系列**离散的视觉token**（可以理解为一种“图像密码”）。\n    *   **关键**：这个“密码”是双优的——语义强、细节足。这是后面所有任务统一的基础。\n\n2.  **第二步：自回归建模（Autoregressive Large Multimodal Model）**\n    *   **输入**：任务指令 + （可选）图片token序列 + 文本。\n    *   所有这些信息都被转换成token序列（文本用已有的分词器，图片用上一步的分词器），混合在一起，形成一个长序列。\n    *   **过程**：这个长序列被送入**7B的自回归Transformer**。模型的工作就是**从左到右，根据已知的所有token，预测下一个token是什么**。\n    *   **输出**：\n        *   如果是**理解任务**（看图问答）：模型预测的下一个token就是**文本token**，一直预测下去就得到答案文本。\n        *   如果是**生成/编辑任务**（文生图/图生图）：模型预测的下一个token就是**视觉token**，预测出一长串视觉token序列。\n\n3.  **第三步：解码与优化**\n    *   **对于生成/编辑**：将模型预测出的**视觉token序列**，再送回到那个**视觉分词器的解码器部分**，解码器把这些“图像密码”**还原成像素图片**，就是最终输出的图像。\n    *   **额外优化（Preference Alignment）**：在模型学会基本生成后，引入“裁判”（GPT-4等大模型作为奖励模型）。给模型出的图打分（质量、符合指令程度等）。通过强化学习，模型学习如何输出能获得更高“奖励”（即更让人满意）的图片，从而在生成和编辑上表现更好。\n\n**一句话总结流程**：**图片/文字 -> （用统一分词器）变成统一token -> 送入Transformer大脑预测下一个token -> 将输出的视觉token还原为图片，或将文本token还原为文字。**\n\n### (5) 结果怎么样？\n在多个标准测试集上表现非常出色，证明了“一套班子”方案的可行性：\n*   **图像理解**：在MMMU（学科知识问答）和POPE（目标存在性判断）等基准测试上，**大幅超过**其他使用离散表示的模型，甚至媲美一些专用理解模型。\n*   **图像生成**：在GenEval和WISE（评估生成质量和语义对齐）上达到**领先水平**，与当前主流扩散模型（如Stable Diffusion）表现相当。\n*   **图像编辑**：在GEdit-Bench上取得了很高的分数，说明其指令编辑能力很强。\n*   **关键发现**：强化学习优化后，不仅目标任务提升，还产生了**跨任务增益**（优化生成，编辑也变好），且理解能力没有下降。\n\n**总而言之**，这篇论文展示了一条有前景的技术路径：通过设计一个优秀的**统一视觉表示**，配合强大的**自回归大模型**，可以实现一个真正“多才多艺”的视觉AI，在理解、生成、编辑三大任务上都取得顶尖表现。",
+    "2606.09056": "这篇论文是MIT和丰田研究院的研究人员发表的，主要研究**长视频生成**中的**长距离一致性**问题。我来用简单的语言为你解读：\n\n### (1) 任务是什么\n*   **任务输入**：一个视频的开头片段（例如，一个游戏场景的前几秒）。\n*   **任务输出**：根据这个开头，生成一段**很长**的、连贯的视频（例如，继续生成几十秒甚至更长的游戏画面）。\n*   **任务功能**：让AI模型能够像人一样，根据已有的开头，生成一个在时间上前后一致、不会“精神分裂”的长视频。比如，视频里走出画面的角色，过一会儿再回来时，样子和动作还能对上。\n\n### (2) 想解决什么问题\n当前最先进的视频生成模型（如扩散模型）在生成**长视频**时，存在一个严重问题：**“健忘症”**。\n*   模型通常采用“滚动生成”的方式，像写作文一样，一次写一小段（比如5秒），然后把这刚写完的一段当作上下文，去写下一段。\n*   问题来了：当模型生成到很后面时，它只能“看到”最近生成的这几秒内容。**最早开头的那些画面，早就被它“忘”了**。\n*   这导致视频前后矛盾：比如，开头有一栋红房子，到视频中间可能就消失了，或者变成了绿房子；角色走出画面后，再回来时可能就换了个模样。\n*   **根本原因**：要记住所有细节，需要给模型看非常长的上下文（几百甚至上千帧），但Transformer模型的计算量会随着序列长度**平方级增长**，根本吃不消。\n\n### (3) 贡献是什么\n这篇论文提出了一个叫 **MilliVid** 的方法，核心贡献有两点：\n1.  **分层的视频“压缩器”**：他们训练了一个**分层自编码器**，把每一帧画面压缩成不同“颗粒度”的表示。\n    *   **最粗糙层**：只用几个“词”（token）就概括了整张图的核心信息，比如场景布局、有什么物体、大致动作。信息少，但**对长期记忆最关键**。\n    *   **较精细层**：用更多“词”来补充细节，比如物体的纹理、光影、精确的边缘。信息多，但**对长期记忆没那么重要**（纹理变一点不容易被发现）。\n2.  **“由粗到细”的生成策略**：他们用扩散模型来生成这些分层的“词”。\n    *   第一步，只在**最粗糙的层级**上，生成**很长一段**视频的“故事大纲”。因为每帧的词很少，所以能一次性考虑很长的上下文，保证了长期一致性（房子在哪、角色是谁）。\n    *   第二步，把刚才生成的“大纲”作为指导，在**较精细的层级**上，去生成**较短片段**的细节。因为细节不需要那么长的记忆，所以可以聚焦在短期片段上。\n    *   如此反复，从最粗到最细，一层层地把视频“画”出来。**同一个Transformer模型被用在所有层级**，只是输入的“词”的粗细和长度不同。\n\n**简单总结贡献**：通过让模型**先用很少的“脑细胞”记住整个故事的“大纲”**，再去分阶段细化每一段的“细节”，从而在有限的计算成本下，大幅提升了长视频生成的前后一致性。\n\n### (4) 整体思路与模型结构\n论文没有提供传统意义上的“模型结构图”，但其**核心流程**非常清晰，可以分为两大阶段：\n\n**第一阶段：训练分层自编码器（建立“词汇库”和“压缩规则”）**\n1.  **输入**：大量视频的单帧图像。\n2.  **过程**：用一个编码器网络，把每张图片**同时**编码成多个不同大小的特征图（例如，4x4，8x8，16x16……）。每个特征图上的每个点，就是一个“潜在词”（latent token）。\n    *   4x4的特征图就是**最粗糙层**（16个词描述一帧）。\n    *   16x16的特征图就是**较精细层**（256个词描述一帧）。\n3.  **输出**：一个**分层的“词”序列**，代表了这张图片。再通过一个解码器，可以从这些“词”重建出原图。训练目标是让重建的图尽量像原图。\n\n**第二阶段：训练分层视频扩散模型（学习“写作”规则）**\n1.  **输入**：一段视频，其每一帧都已经用第一阶段的自编码器转化成了分层“词”序列。\n2.  **“由粗到细”的生成训练**：\n    *   **最粗层训练**：取所有帧的**最粗糙层“词”**（比如每帧16个词），拼接成一个长序列。在这个序列上训练扩散模型，让它学会根据开头，预测后面很长一段的“故事大纲”。**这里模型被迫进行“长期规划”**。\n    *   **较细层训练**：取较短片段内所有帧的**较精细层“词”**，同时把已经生成的、对应时间段的**更粗糙层的“词”** 也作为额外条件输入。在这个序列上训练扩散模型，让它学会在“大纲”的指导下，“润色”出细节。\n3.  **基模（Base Model）**：论文中使用的生成模型是**扩散Transformer（DiT）**。这是当前图像/视频生成领域的主流架构之一，它将扩散过程和Transformer结合。\n\n**推理时（生成新视频）的流程**：\n1.  **输入开头**：用户提供开头几秒的真实视频帧，用自编码器将其编码成各层“词”。\n2.  **由粗到细生成**：\n    *   **步骤A（规划大纲）**：将开头帧的**最粗糙层“词”** 输入扩散模型，让它**一次性生成**后续很长时间（比如20秒）的**最粗糙层“词”**。现在，整个视频的“大纲”都有了。\n    *   **步骤B（细化细节）**：把整个视频分成较短的片段（比如2秒一段）。对于第一段：\n        *   将 **A步骤中生成的、该时间段对应的“最粗糙层大纲”** 作为条件。\n        *   让扩散模型生成该时间段视频的**较精细层“词”**。\n        *   用解码器将这些“词”解码成该时间段的真实视频帧。\n    *   **逐段细化**：重复步骤B，处理下一个2秒片段，直到处理完所有片段。\n    *   **多级细化**：如果需要更多细节，可以重复B步骤，在更精细的层级上进一步细化（例如从8x8层细化到16x6层）。\n3.  **输出**：将所有片段拼接起来，得到最终生成的、长且一致的长视频。\n\n### (5) 结果怎么样\n论文在**Minecraft（我的世界）游戏视频**数据集上进行了验证，这个场景非常适合测试一致性（比如建筑、地形、物品需要长期保持）。\n*   **主要对比方法**：与当前最好的长视频生成方法 **FramePack**（它用统一压缩的方式节省token）进行比较。\n*   **关键发现**：\n    1.  **一致性显著提升**：MilliVid生成的长视频在物体持久性（东西不会消失）、场景布局稳定性方面**远远优于**FramePack和标准的滚动生成方法。例如，角色走出画面后再回来，MilliVid能记住它是谁，而基线方法经常忘记或弄错。\n    2.  **质量不打折**：在短期片段的质量上（如图像清晰度、动作自然度），MilliVid与基线方法相当，没有因为追求长期一致而损失短期质量。\n    3.  **有效性验证**：通过实验证明了他们的两个核心设计都有效：(a) 分层压缩比统一压缩更好；(b) 强迫模型在最粗层做长期预测是关键。\n\n**总结**：这篇论文通过“分层表示”和“由粗到细生成”这一巧妙的思想，在计算成本可控的前提下，显著缓解了AI生成长视频时的“健忘症”问题，朝着生成真正连贯、可信的长篇视觉内容迈出了重要一步。",
+    "2606.11180": "好的，我们先来打个比方，帮助你理解这篇论文在做什么。\n\n**想象一个场景**：你有一段视频，里面的人在说英语。现在，你有一句新的中文音频，想让他“说”出这句中文，但视频里人的脸、表情、背景都不能变，只有嘴唇的动作要和新音频对上。这就是“对口型”或者“唇语同步”技术。\n\n---\n\n### (1) 这篇论文所在的任务是什么？\n\n*   **任务输入**：\n    1.  **一段源视频**：包含一个人的脸在说话（比如说英语）。\n    2.  **一段目标音频**：想让视频里的人“说”出的新内容（比如一句中文）。\n*   **任务输出**：\n    *   **一段新的视频**：视频中人的身份、外貌、头部姿势、背景都和源视频一样，但他的**嘴唇动作完全匹配目标音频**，看起来就像他亲口说出了新内容一样。\n*   **任务功能**：\n    *   这个技术可以用于**电影配音**（让演员口型匹配外语配音）、**虚拟主播/数字人**（实时驱动）、**在线翻译/会议**（实时翻译并同步口型）等需要“改口型”的场景。\n\n### (2) 这篇论文想解决什么问题？\n\n虽然目前最先进的“对口型”模型（基于**扩散模型**）效果很好，画质和同步精度都很高，但它们有两个致命缺点，导致**无法实时应用**：\n1.  **计算量大（慢）**：它们需要同时看完整段视频（双向注意力），并且要反复“去噪”很多步（比如50步）才能生成最终画面，速度非常慢。\n2.  **内存消耗高**：处理长视频时，同时处理所有帧需要大量显存。\n\n简单说，这篇论文想解决的核心问题是：**如何让高质量的对口型模型变得足够快、足够省资源，以便能用在需要实时反馈（如直播、视频通话）的场景中。**\n\n### (3) 这篇论文的贡献是什么？\n\n1.  **提出了第一个用于“对口型”任务的“自回归”扩散模型**：就像你写句子是一个字一个字地写，这个模型生成视频也是一小段一小段地生成，前后有依赖，这样在生成时就不用看整个视频，大大降低了计算和内存需求，为实时处理铺平了道路。\n2.  **发现了“保真度”与“同步性”的权衡规律**：作者深入分析了他们强大的“老师模型”在生成过程中的行为，发现一个关键规律：在生成的不同阶段，模型对“保持原人脸样子”和“让嘴唇跟音频对齐”的侧重不同。早期更偏向保真，中期更偏向同步。这个发现是设计高效方案的基础。\n3.  **设计了一套基于上述规律的“蒸馏”方案**：他们用一个大而慢的“老师模型”来训练一个小而快的“学生模型”。这套方案包含三个核心技术：\n    *   **同步窗口引导**：只在“学生”学习的关键阶段（即老师模型擅长同步的阶段）加强音频信号的引导。\n    *   **两步推理计划**：让“学生”模型只运行两次（而不是50次）就能生成优质结果，第二步就安排在同步性最好的“落点”。\n    *   **同步奖励**：在训练目标中加入一个专门衡量唇语同步好坏的奖励信号，直接鼓励学生学得更好。\n4.  **实现了显著的性能提升**：他们训练了两个“学生”，小的（13亿参数）达到了**31帧/秒**，比同规模的传统模型快17.6倍，满足了实时需求；大的（140亿参数）比它的“老师”快了近40倍，且质量相当，是目前已知最大的对口型扩散模型。两者的“首帧延迟”都极低。\n\n### (4) 论文的整体思路与流程\n\n**核心思路**：用一个效果极好但极慢的**巨型“老师”扩散模型**（140亿参数，需要50步生成），通过**知识蒸馏**，教出一个效果接近但极快的**“学生”扩散模型**。学生采用**自回归**方式生成，并且只需要**2步**。\n\n**模型结构**：\n*   **基模（老师模型）**：是一个基于 **Transformer 架构的扩散模型**（具体是 OmniAvatar 模型，经过唇语同步微调）。它工作时能看到整个视频序列。\n*   **学生模型**：结构与老师类似（也是Transformer扩散模型），但被设计成**因果（Causal）自回归**的。这意味着在生成第N帧时，它只能看到前面的N-1帧和当前音频，看不到后面的帧。\n\n**整体流程（看图2和文字描述）**：\n\n1.  **输入准备**：\n    *   将源视频和目标音频切分成重叠的短片段（例如16帧为一个“块”）。\n    *   第一个块的输入是加噪的源视频帧。\n    *   后续块的输入是上一个块生成结果的后几帧（作为历史信息）加上当前块加噪的源视频帧。\n\n2.  **两步生成（学生模型推理）**：\n    *   **第一步**：学生模型接收上述输入、目标音频和第一步的时间步信号，预测出一个“中间状态”的视频块。这一步**不使用**音频引导（对应“保真”阶段）。\n    *   **第二步**：以上一步的“中间状态”为输入，加上音频和第二步（特定“落点”）的时间步信号，预测出最终清晰的视频块。这一步**使用强音频引导**（对应“同步”阶段）。\n    *   一个块生成完毕后，取其后几帧与下一个块的源视频帧拼接，重复此过程，像流水线一样生成整个视频。\n\n3.  **学生模型是如何训练出来的（蒸馏流程）**：\n    *   核心是让学生的两步输出，去模仿老师模型多步（50步）生成的高质量结果。\n    *   **同步窗口引导训练**：在训练时，并不是所有时间步都让老师用音频引导。作者根据之前发现的规律，**只在一个特定的“时间窗口”内让老师使用强音频引导**，然后让学生去学习这个模式下老师的输出。这样能让学生更专注于在关键步骤学好“同步”。\n    *   **加入同步奖励**：在计算学生和老师输出差异的损失函数之外，额外加一个损失项，这个项由一个预训练的**SyncNet模型**计算。SyncNet能判断嘴唇和音频是否同步，这个奖励直接告诉学生：“不仅要像老师，还要同步得好！”\n\n### (5) 结果怎么样？\n\n结果非常出色，主要体现在**速度与质量的平衡**上：\n\n*   **速度（FPS）**：\n    *   **1.3B学生模型**：达到 **31 FPS**，远超25 FPS的实时标准，比同等规模的旧式模型快 **17.6倍**。\n    *   **14B学生模型**：比它的巨型老师模型快 **39.8倍**。\n    *   **首帧延迟**：小于1毫秒，意味着几乎按下按钮就出画面，体验极佳。\n\n*   **质量**：\n    *   **视觉保真度**：在FVD（衡量视频真实感的指标）等指标上，Lip Forcing 学生模型与强大的老师模型和当前主流方法相比，处于领先或相当的水平。\n    *   **唇语同步精度**：在SyncNet置信度、LSE-D等衡量口型-音频同步的指标上，表现优秀。\n    *   **用户研究**：在真人评测中，用户认为Lip Forcing生成视频的**真实感和同步性**都优于或媲美现有的先进方法。\n\n**总结**：Lip Forcing 成功地将顶级的对口型模型“压缩”成了一个既能保持高质量，又能**实时运行**的版本，解决了该技术走向实际应用的最大瓶颈。它通过深入分析模型行为、精心设计蒸馏策略，实现了从“效果好但慢”到“效果好且快”的跨越。",
+    "2606.10804": "这篇论文主要在解决**可控角色动画**的问题。我按你的要求，用简单的语言来拆解一下：\n\n---\n\n### **(1) 论文所在的任务是什么？**\n\n*   **任务功能**：**角色动画**。简单说，就是让一个静态的人物或角色（比如一张图片里的卡通人物）按照一段“驱动视频”里的动作“动起来”。\n*   **任务输入**：\n    1.  **参考图像**：一张静态图片，包含你想让它动起来的角色。\n    2.  **驱动视频**：一段视频，里面的角色（可以是人、动物、甚至其他物体）在做你希望复制的动作。\n*   **任务输出**：一段**生成的视频**。视频里的环境和角色来源于“参考图像”，但角色的动作完全复刻了“驱动视频”里的动作，看起来非常自然。\n\n**举个例子**：你有一张钢铁侠的静态海报（参考图像），还有一段你朋友跳舞的视频（驱动视频）。这个任务就是要生成一段“钢铁侠”跳你朋友那段舞的新视频。\n\n---\n\n### **(2) 这篇论文想解决什么问题？**\n\n之前的角色动画方法（如AnimateAnyone、Wan-Animate等）存在一个核心问题：它们**过度依赖“中间表示”**。\n\n*   **什么是“中间表示”？**\n    *   最常见的是**骨骼姿态图**（类似火柴人动画）。模型先要从驱动视频里“抠”出骨骼，再根据骨骼去生成动画。\n    *   或者是**背景蒙版**（把角色从原图中扣掉，留下背景）。\n*   **为什么不好？**\n    1.  **信息丢失**：骨骼图会丢掉很多细节，比如手部的精细动作、衣服的飘动、物体间的遮挡关系。复杂的动作（如多人互动、动物动作）用骨骼很难准确表示。\n    2.  **不够通用**：骨骼估计器通常只针对人类设计，遇到动物或卡通角色就会失效。\n    3.  **影响背景**：在“角色替换”任务中（比如把A视频里的人换成B），简单扣掉背景再填充，可能导致新角色和背景的互动不自然（比如影子、遮挡）。\n\n**所以，这篇论文的核心目标就是：** **扔掉这些不可靠的“中间表示”，让模型能“端到端”地直接从驱动视频里学习动作信息。** 直接把驱动视频和参考图像拼在一起给模型看，让它自己理解该怎么动。\n\n---\n\n### **(3) 这篇论文的贡献是什么？**\n\n主要有四大贡献：\n\n1.  **提出“端到端条件”新范式**：不再用骨骼图等中间表示，而是把驱动视频直接拼接在输入序列里，让模型直接观察和学习原始视觉信息。这使得模型能处理更复杂的动作和角色（如动物）。\n2.  **构建新数据集 MotionPair-60K**：因为现实中很难找到“不同角色做完全相同动作”的视频对，作者用已有的动画模型合成了一批高质量、多样化的（参考图像，驱动视频）配对数据，用来训练自己的新模型。\n3.  **设计统一的任务接口**：他们用一个巧妙的技巧，把“单角色动画”、“角色替换”、“多角色动画”等子任务都统一到同一个模型框架里。这个技巧包括：\n    *   **上下文掩码条件**：在输入时加入一些“提示”，告诉模型当前是哪个任务（比如“换背景”或“不换背景”），以及哪个视频片段对应哪个角色。\n    *   **模式特定的RoPE**：对模型的位置编码（RoPE）做了微调，让它能更好地区分不同任务模式下的输入信息。\n4.  **提出 Bias-Aware DPO 后训练方法**：他们发现用合成数据训练的模型，在手指等细节动作上可能不准。于是他们用了一种类似“基于人类反馈的强化学习”的技术，构造一个“好动作 vs 坏动作”的偏好数据集，让模型学习生成更精细、更准确的动作。\n\n---\n\n### **(4) 论文的整体思路和模型结构**\n\n*   **基模**：论文没有明确说具体用了哪个开源视频扩散模型作为基础，但这类工作通常基于类似 **Stable Video Diffusion (SVD)** 或 **SEINE** 这样的**视频扩散模型**。\n*   **核心思路**：**“反向驱动”训练**。\n    *   通常训练是：给模型看参考图和驱动视频，让它学会生成动画视频。\n    *   他们反过来：用他们合成的 **MotionPair-60K** 数据，把**生成的动画视频当作“驱动视频”**，把原始的参考图当作“参考图像”，让模型去学习“复现”这个生成视频的动作。这样模型就学会了从任何视频里提取动作信息。\n*   **整体流程（看图说话）**：\n    1.  **输入准备**：\n        *   将 **参考图像** 复制多帧，形成一个静态视频。\n        *   将 **驱动视频** 进行预处理。\n        *   将两者在时序上**直接拼接**起来，形成一个更长的视频序列。\n        *   同时，加入一个**任务掩码**。这个掩码像是一个“说明书”，告诉模型：\n            *   **任务模式**：现在是做“动画”还是“角色替换”？\n            *   **角色绑定**：参考图像里的角色对应驱动视频里的哪个部分？\n    2.  **模型处理**：\n        *   这个拼接后的长视频序列，加上任务掩码，一起输入到**视频扩散模型**中。\n        *   模型内部通过 **U-Net** 结构（扩散模型的核心）进行处理。关键修改在于：\n            *   **注意力机制**：模型需要学会在参考图像部分和驱动视频部分之间建立联系，理解“这个动作应该安放到那个角色身上”。\n            *   **模式特定的RoPE**：根据任务掩码，轻微调整位置编码，帮助模型更好地区分不同任务下的信息流。\n    3.  **训练目标**：\n        *   模型的目标是**预测噪声**。在扩散过程中，给拼接视频加噪，然后让模型尝试去噪，最终还原出原始的拼接视频（即包含正确动画的部分）。\n        *   通过这种方式，模型隐含地学会了“看到驱动视频的动作，就在参考图像的角色身上复现出来”。\n    4.  **后训练精修 (Bias-Aware DPO)**：\n        *   训练完成后，为了提升细节（尤其是手部动作），他们进行后训练。\n        *   **构建偏好数据**：用模型生成同一提示下的多个视频，人工或利用规则标注哪个视频的细节动作更好。\n        *   **DPO训练**：用这些（好样本，坏样本）配对数据，调整模型，让它倾向于生成更像“好样本”的视频，从而纠正合成数据带来的偏差。\n\n**一句话总结流程**：**拼接参考图与驱动视频 -> 加入任务说明书（掩码）-> 送入改进的视频扩散模型学习去噪 -> 后训练优化细节 = 得到能端到端做角色动画的模型。**\n\n---\n\n### **(5) 结果怎么样**\n\n论文通过大量实验证明，他们的方法 **SCAIL-2** 效果非常好：\n\n*   **定量评估（用数字指标）**：在动作保真度（如关键点距离）、图像质量（如清晰度）、身份保持（角色像不像）等多个标准上，**显著超过了** AnimateAnyone、Wan-Animate、SCAIL-1 等之前的先进方法。\n*   **定性评估（肉眼观看）**：\n    *   **动作更精细**：特别是在手部、复杂的全身动作上，效果更好。\n    *   **场景更鲁棒**：能处理多人互动、遮挡、非人类角色（动物）等传统方法棘手的场景。\n    *   **任务更通用**：一个模型就能完成动画、角色替换、多角色驱动等多个任务，而且效果比专门为某个任务设计的模型还好。\n*   **消融实验**：证明了他们提出的几个关键部件（端到端输入、任务掩码、Bias-Aware DPO）都是有效的，去掉任何一个性能都会下降。\n\n**总而言之**，这篇论文提出了一种更直接、更强大的角色动画方法，通过“端到端”学习和统一的任务框架，解决了传统方法信息丢失、不够通用的痛点，并在各项测试中都取得了领先的效果。",
+    "2606.09967": "好的，同学。作为你的“学术导游”，我来帮你梳理一下这篇论文的核心内容。我们尽量用简单直白的语言，结合你已有的知识基础（比如Transformer）来理解。\n\n### (1) 任务是什么？\n*   **任务输入**：**单张（或少量）高空的卫星图片**。你可以想象成一张从Google Maps上截下来的卫星图。\n*   **任务输出**：**一个完整的、逼真的、可交互的3D场景**。这个场景包含地形高低、建筑物、树木、道路等所有东西的几何形状和纹理。\n*   **任务功能**：**用AI“脑补”出整个3D地球**。它就像一个“3D地球生成器”，你给它一张某个地方的卫星平面图，它就能快速生成这个地方对应的3D立体模型。\n\n### (2) 想解决什么问题？\n传统上，要制作一个城市或地形的3D模型，需要派飞机或无人机进行多角度拍照（多视点摄影测量）或激光扫描（LiDAR），然后花大量时间用计算机进行复杂的3D重建。这个过程**非常昂贵、耗时，且难以扩展到全球**。\n\n这篇论文想解决的核心问题就是：**能否用更便宜、更快的方法，大规模地生成接近真实世界质量的地球3D模型？** 同时，他们还想避免现有AI生成场景的“假”的问题（比如建筑形状奇怪、纹理不真实），让生成的3D世界更接近真实，以便能直接用于无人机导航、城市规划等严肃应用。\n\n### (3) 主要贡献是什么？\n1.  **首创的“生成式3D地球”框架**：提出了第一个能够根据卫星图，直接生成高质量、逼真3D地球场景的AI系统。\n2.  **基于“3D高斯泼溅”的原生生成模型**：他们没有用常见的隐式神经场（如NeRF）来生成，而是直接生成一种更高效、渲染质量更高的新表示——“3D高斯泼溅”。这好比别人用AI画像素画，他们直接用AI“捏”出3D橡皮泥点云，效果更好、更快。\n3.  **一个超大规模、高质量的训练数据集**：他们自己构建了一个庞大的数据集，里面包含了从真实世界（通过传统方法）重建出来的大量高质量3D城市模型。AI就是从这个“真实3D模型宝库”里学习世界长什么样。\n4.  **一个可部署的星球级系统**：不仅仅是一个实验室模型，他们设计了一整套生产流水线，能够高效、自动地将这个AI应用到全球范围，生成海量3D瓦片，并集成到地图引擎中，实现实时、交互式的3D地球浏览。\n\n### (4) 整体思路与模型结构\n**核心比喻**：你可以把这个模型想象成一个 **“看过无数真实3D城市模型的AI画家”** 。你给它一张新的卫星照片（草图），它就能根据以往学到的“知识”（世界是怎么构建的），快速画出（生成）这个地方对应的逼真3D模型。\n\n**整体流程（简化版）**：\n\n1.  **数据准备（学习阶段）**：\n    *   **输入**：收集全球大量城市的**真实3D模型**（作为“标准答案”）和对应的**卫星图**（作为“题目”）。\n    *   **处理**：把巨大的3D城市模型切成一个个小方块（“瓦片”），并为每个瓦片从不同角度渲染出多张图片。\n    *   **目标**：让AI学会“卫星图（题目）”和“真实3D模型（答案）”之间的复杂映射关系。\n\n2.  **模型训练（学习阶段）**：\n    *   **基模**：论文没有明确说基模是某个特定的模型（如Stable Diffusion），但其生成范式类似于**扩散模型**。你可以理解为，他们训练了一个条件扩散模型，但生成的不是2D图片，而是 **“3D高斯泼溅”** 这种3D表示。\n    *   **结构**：模型的核心是一个**条件生成网络**。它接收两个输入：(a) 卫星图特征（作为条件），(b) 一个随机噪声。然后通过类似去噪扩散的过程，逐步将噪声“雕刻”成一个符合卫星图所描述地点的、细节丰富的3D高斯泼溅集合。\n\n3.  **推理生成（应用阶段）**：\n    *   **输入**：一张新的、从未见过的区域的卫星图。\n    *   **过程**：\n        *   **分块**：把大的卫星区域也切成小瓦片。\n        *   **滑动窗口生成**：用训练好的模型，对每个瓦片进行3D生成。为了保证瓦片之间的衔接自然，他们采用了“滑动窗口”策略，让相邻瓦片的生成过程有重叠和信息交流。\n        *   **自适应**：模型内部还集成了对不同数据源（不同卫星、不同分辨率）的适应能力，保证输入条件变化时也能稳定输出。\n    *   **输出**：每个瓦片输出一个独立的 **“3D高斯泼溅”模型**。\n\n4.  **系统部署（产品化阶段）**：\n    *   **全球生产**：用上述方法，可以批量处理全球的卫星图，生成整个星球的3D瓦片。\n    *   **LOD组织**：为每个地方的3D模型生成多个细节层次（LOD）。当你放大地图时，看到精细模型；缩小地图时，看到简化模型，保证流畅。\n    *   **地图引擎集成**：将这些3D瓦片按照地理坐标组织好，接入像网页版地图一样的引擎中，最终实现一个可以实时缩放、旋转、浏览的 **“生成式3D地球”**。\n\n### (5) 结果怎么样？\n根据论文中的评估，他们的方法取得了非常出色的效果：\n\n1.  **生成质量高**：在多项客观指标和人工评价中，**ABot-Earth 0.5生成的3D场景在真实感和几何细节上，都显著超过了其他最先进的生成方法**。生成的建筑、植被、道路看起来非常自然。\n2.  **速度极快**：生成一平方公里的高质量3D场景，**只需要不到10分钟**。相比传统重建方法（可能需要数天），这是数量级的提升。\n3.  **覆盖范围广**：他们的系统已经成功生成了 **超过300个城市、190多个国家** 的3D模型，并且还在持续扩展，证明了其**强大的泛化能力和可扩展性**。\n4.  **实用性强**：生成的3D世界足够真实，能够有效缩小“模拟”与“现实”的差距。论文中展示了它可以直接用于**无人机闭环导航仿真**这种高要求的任务，这是很多“假”的生成场景做不到的。\n\n**总结一下**：这篇论文提出了一个革命性的想法和系统，用“AI生成”代替“物理重建”，以极低的成本和极高的效率，为整个地球快速构建了一个逼真的3D数字孪生。这为未来的地理信息应用、自动驾驶仿真、元宇宙基建等打开了巨大的想象空间。",
+    "2606.11129": "好的，没问题！我以你作为低年级博士生的视角，用最简单的语言来为你解读这篇论文。\n\n### (1) 任务是什么？\n\n这篇论文研究的是 **“视频世界模型”**。\n\n*   **任务输入**：**很灵活**，可以是：\n    *   一段历史视频 + 一句描述未来动作的指令（比如：“让机器人向右转”）。\n    *   一串描述视频内容的文字（比如：“一只猫在桌子上走”）。\n    *   或者一段历史视频。\n*   **任务输出**：**一段足够长的、高质量的视频**，这个视频应该能预测未来、响应指令，并且看起来像是真实世界发生的。\n*   **任务功能**：不仅仅是生成好看的视频，而是要模拟一个**虚拟的、有逻辑的、符合物理规律的世界**。这个“世界”可以用来训练游戏AI、机器人，或者创建逼真的虚拟场景。\n\n### (2) 想解决什么问题？\n\n作者发现，现有的视频生成模型评测方法存在一个**大问题**：它们主要看生成的视频“好不好看”、“流畅不流畅”，但很少去检查视频里发生的事情“合不合理”。\n\n这就好比一个学生考试，以前的评分标准只看字写得好不好看、卷面是否整洁，但不管他答案是不是完全胡编乱造。\n\n具体来说，现有评测忽略了对世界模型至关重要的三点：\n1.  **物理规则**：视频里的物体运动符合重力、碰撞、热量传递吗？（比如，一个球掉落会弹起来吗？）\n2.  **几何一致性**：视频中物体的三维结构（形状、大小）在镜头移动时保持不变吗？（比如，一个杯子从侧面看和从上面看，形状应该一致。）\n3.  **交互可控性**：生成的视频能**长时间、稳定地**响应用户的指令吗？（比如，你让机器人“往前走、再左转”，它能不能连贯地完成这两个动作？）\n\n所以，这篇论文要解决的问题就是：**如何系统、全面地评测一个视频生成模型到底是不是一个合格的“世界模型”，而不仅仅是一个“好看的视频生成器”。**\n\n### (3) 贡献是什么？\n\n这篇论文的核心贡献是提出了一个全新的、全面的评测基准，名叫 **“WorldOlympiad”**（世界奥林匹克）。\n\n你可以把它想象成一场针对视频世界模型的“铁人三项”比赛，包含三个赛道：\n*   **物理赛道**：检查视频是否符合物理定律。\n*   **几何赛道**：检查视频中物体的三维结构是否稳定。\n*   **交互赛道**：检查视频能否长时间、连贯地执行复杂指令。\n\n此外，它还提供了：\n*   **一个高质量的数据集**：包含了来自**游戏、机器人、真实世界**三大场景的1000个长视频，覆盖了不同领域的挑战。\n*   **一套创新的评测方法**：\n    *   用**多模态大模型（MLLM）当裁判**来“看懂”视频并回答物理/交互问题（比如：“球撞到墙后方向对了吗？”）。\n    *   用**3D高斯泼溅（一种3D重建技术）** 来检查几何一致性。\n*   **对当前顶尖模型的全面诊断**：用这个基准测试了8个主流的长视频生成模型，揭示了它们各自的优势和严重缺陷。\n\n### (4) 整体思路与流程\n\n这篇论文的**核心不是提出一个新模型**，而是**提出了一套新的评测方案**。所以它的“模型”就是评测框架本身。\n\n它的整体流程就像一个**自动化考试系统**：\n\n1.  **出题（准备评测数据）**：\n    *   **收集**：从游戏、机器人、真实世界三个领域找来1000个高质量的长视频。\n    *   **切分与标注**：把长视频切成一段一段的“视频块”，并为每一块配上详细的文字描述。最后还会用大语言模型（LLM）来精炼这些描述，确保质量。\n\n2.  **考试（生成视频）**：\n    *   把准备好的题目（比如：第一段视频 + 一个动作指令）输入给**待评测的视频世界模型**（比如Sora、Luma、Pika等）。\n    *   让模型根据指令，生成后续的视频内容。\n\n3.  **判卷（用三个赛道进行评测）**：\n    *   **物理判卷**：\n        *   **步骤1**：先用一个视觉模型（如SAM）把生成视频里的关键物体（如球、机器人）自动“抠”出来。\n        *   **步骤2**：把“抠”出来的物体序列和问题（如：“球受到摩擦力了吗？”）一起丢给一个**多模态大模型裁判（MLLM，如GPT-4V）**。\n        *   **步骤3**：MLLM“看”完视频后，直接给出“对”或“错”的判断。\n    *   **几何判卷**：\n        *   **步骤1**：把模型生成的整个视频，用**3D高斯泼溅技术**尝试重建出一个3D场景。\n        *   **步骤2**：分析这个3D重建的质量。如果生成的视频本身3D结构就很混乱、自相矛盾，那么重建出来的3D场景就会很糟糕（点云稀疏、扭曲）。\n        *   **步骤3**：用重建质量的好坏（比如点云密度、形状准确度）来反向推断原视频的几何一致性得分。\n    *   **交互判卷**：\n        *   **步骤1**：给模型一个复杂的多步骤指令（如：“前进，然后左转，再拿起杯子”）。\n        *   **步骤2**：让模型生成一长串视频来执行这个指令。\n        *   **步骤3**：请**MLLM裁判**观看这串视频，判断它是否每一步都正确执行了指令，并且动作之间是否连贯自然。\n\n**综述一下流程**：**高质量视频数据 -> 输入给待测模型 -> 生成视频 -> 分别送入物理/几何/交互三个“裁判系统”打分 -> 得到全面的能力诊断报告。**\n\n### (5) 结果怎么样？\n\n评测结果非常有趣，像一次“体检报告”，发现了很多问题：\n\n1.  **从“视频合成”到“世界模拟”还有巨大差距**：现有的顶级模型（如Sora）在“好看”上得分很高，但在物理、几何、交互这些“合理性”项目上得分骤降。说明它们更像高级的“画师”，而不是“物理引擎”。\n2.  **物理规律正在成为通用能力**：一些模型在不同领域的物理题上表现相对稳定，说明对基础物理（如物体下落）的建模可能正在成为模型的通用知识。\n3.  **几何一致性是最大短板**：几乎所有模型在“几何赛道”上都表现极差。它们生成的视频在3D重建后几乎都是一团糟，说明模型内部对物体和场景的**三维结构没有清晰、稳定的理解**。\n4.  **存在“专精”与“泛化”的权衡**：有些模型在特定领域（如游戏）表现很好，但换到其他领域（如机器人）就变差了。目前还没有一个模型能在所有领域都表现完美。\n5.  **细粒度诊断有效**：通过三个赛道的细分项目（如物理中的力学、热学），可以清晰地看出一个模型具体在哪个方面比较弱（比如，可能懂力学但不懂热传导）。\n\n**简单总结**：这篇论文告诉你，现在的AI视频生成器看起来很厉害，但如果用更严格的“世界模型”标准（物理、几何、交互）去考核它们，就会发现它们还很不成熟，尤其是对三维世界的理解非常薄弱。**WorldOlympiad** 就像一套严格的“高考大纲”，为未来真正强大的视频世界模型的研发指明了方向和评价标准。"
+  },
+  "figures": {
+    "2606.11188": [
+      {
+        "path": "https://arxiv.org/html/2606.11188v1/x2.png",
+        "caption": "Figure 2:Architecture of our unified discrete visual tokenizer.",
+        "role": "pipeline_1",
+        "caption_zh": "图2：我们统一的离散视觉分词器的架构。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.11188v1/x3.png",
+        "caption": "Figure 3:Comparison between diffusion decoders.Left:reconstruction comparison between SANA1.5 and Flux with shared visual tokens.Right:text-to-image comparison between diffusion decoders.",
+        "role": "pipeline_2",
+        "caption_zh": "图 3：扩散解码器对比。左：共享视觉词元时 SANA1.5 与 Flux 的重建效果对比。右：扩散解码器的文生图效果对比。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.11188v1/x5.png",
+        "caption": "Figure 4:Image generation w/ and w/o CFG. Prompt: “‘Book cover, A surreal double exposure portrait that blends a woman’s face with a beautiful seascape”’.",
+        "role": "pipeline_3",
+        "caption_zh": "图 4：启用与禁用分类器无关引导（CFG）的图像生成效果。提示词：“书籍封面，一幅将女性面部与美丽海景融合的超现实双重曝光肖像”。"
+      }
+    ],
+    "2606.09056": [
+      {
+        "path": "https://arxiv.org/html/2606.09056v1/x1.png",
+        "caption": "Figure 1:Our hierarchical autoencoder consists of a multi-resolution encoder-decoder pair.\nThe encoder receives a multi-resolution image pyramid as input.\nIt patchifies the pyramid’s images using a fixed kernel size, yielding fewer tokens for coarser levels, then feeds the tokens through a transformer.\nDuring training, we zero out all but one randomly chosen level.\nThe decoder, also a transformer, must reconstruct the entire resolution cascade based on the remaining tokens.\nThe highest-resolution reconstruction is supervised using MSE and LPIPS, while the others are supervised only using MSE.\nWe show three levels and a small number of tokens here for clarity; in practice, we use more.",
+        "role": "pipeline_1",
+        "caption_zh": "图1：我们的分层自编码器由多分辨率编码器-解码器对组成。编码器接收多分辨率图像金字塔作为输入，通过固定核尺寸对金字塔各层图像进行分块处理，使较粗糙层级生成更少的标记，随后将这些标记输入变换器。训练期间，我们随机保留一个层级的标记，其余层级的标记全部置零。解码器同样为变换器，需基于剩余的标记重建完整的分辨率级联。最高分辨率的重建采用均方误差和LPIPS进行监督，其余层级仅使用均方误差监督。为清晰展示，此处仅呈现三个层级及少量标记；实际应用中我们使用更多层级与标记。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.09056v1/x2.png",
+        "caption": "Figure 2:To generate videos, we use coarse-to-fine rollout.\nDuring each rollout step, the model sees a mixture ofcontextandtargettokens across different hierarchy levels; it does not see thefixed(already generated) orpending(not yet generated) tokens.\nOur model’s first four rollout steps are shown on the left.\nEach step is represented as a 3-row grid where the rows represent hierarchy levels and each column represents a single frame.\nOver the first three steps, the model generates a long sequence of coarse frames, a medium-length sequence of medium frames, and a single fine frame.\nThe full rollout sequence is shown on our accompanying project page and in Figure10in the appendix.\nWe show three levels here for clarity; in practice, we use more.",
+        "role": "pipeline_2",
+        "caption_zh": "图 2：为生成视频，我们采用由粗到细的展开式生成流程。在每一步展开中，模型会同时看到不同层级上的上下文令牌与目标令牌混合输入；它不会看到已固定的（已生成的）或待定的（尚未生成的）令牌。我们模型的前四步展开过程如左侧所示。每一步以一个三行网格表示，其中每行代表一个层级，每列代表单帧画面。前三步中，模型先生成长序列的粗粒度帧，再生成中等长度的中粒度帧序列，最后生成单个细粒度帧。完整的展开序列详见我们的项目页面和附录中的图 10。为清晰起见，此处仅展示三个层级；实际应用中我们使用更多层级。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.09056v1/x8.png",
+        "caption": "Figure 7:We plot three variants of FramePack against the original FramePack model.\nSee Section5(Q3) for a description of each model.\nThe mirrored variant performs better on consistency despite having a shorter context window; all perform worse on quality.\nWe find that the hierarchical variant’s consistency becomes worse than random frames due to rollout instability.",
+        "role": "pipeline_3",
+        "caption_zh": "图 7：我们将 FramePack 的三种变体与原始 FramePack 模型进行对比绘制。各模型的描述参见第 5 节（Q3）。尽管上下文窗口较短，镜像变体在一致性上表现更好；所有变体在质量上表现均更差。我们发现，由于 rollout 不稳定性，分层变体的一致性表现甚至差于随机帧。"
+      }
+    ],
+    "2606.11180": [
+      {
+        "path": "https://arxiv.org/html/2606.11180v1/x6.png",
+        "caption": "Figure 6:Qualitative comparison on HDTF.Each row shows the same source frame rendered by our method, six lip-sync baselines, and the ground truth (GT) at the moment of articulating the bracketed English phoneme. Best viewed zoomed in and in color.",
+        "role": "pipeline_1",
+        "caption_zh": "图 6：在 HDTF 数据集上的定性对比。每一行展示了同一源帧分别通过我们的方法、六种唇形同步基线方法以及真实标注（GT）在发出括号内所标英语音素时刻的渲染结果。建议放大和彩色查看。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.11180v1/x1.png",
+        "caption": "Figure 1:Lip Forcing.A streaming model for real-time lip synchronization that produces photorealistic, accurately lip-synced video at up to31 FPSwith low latency and memory.Right:both student scales lie on the throughput–FVD Pareto frontier, ahead of prior diffusion lip-sync methods.",
+        "role": "pipeline_2",
+        "caption_zh": "图1：唇部驱动。一种用于实时唇形同步的流式模型，能够以高达 31 FPS 的帧率、低延迟和低内存开销生成具有照片级真实感且唇形精确同步的视频。右图：两种学生模型尺度均位于吞吐量–FVD 帕累托前沿上，优于先前的扩散式唇形同步方法。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.11180v1/x3.png",
+        "caption": "Figure 3:Why few-step distillation needs trajectory-level care.Two HDTF[52]samples, each showing the 1-step prediction from pure noise, 50-step ODE final output, and ground truth, respectively.\nEven a one-step prediction preserves coarse facial structure and approximate mouth timing, but it loses the fine articulation and audio-visual synchronization recovered by the full 50-step teacher.\nLip Forcing compresses this gap with a two-step student via the trajectory analysis of Sec.4.2.",
+        "role": "pipeline_3",
+        "caption_zh": "图3：为何少步蒸馏需轨迹层面考量。两段HDTF[52]样本，分别展示了从纯噪声生成的一步预测结果、50步ODE最终输出结果及真实数据。即使单步预测能保留粗略的面部结构和大致嘴型时序，却丢失了完整50步教师模型所恢复的精细发音动作与视听同步性。通过第4.2节的轨迹分析，唇形强制方法以两步学生模型压缩了这一差距。"
+      }
+    ],
+    "2606.10804": [
+      {
+        "path": "https://arxiv.org/html/2606.10804v1/x3.png",
+        "caption": "Figure 3:Overview of our model architecture and the context mask signal.C​h0Ch_{0}means the mask channel for environment control, whileC​h1Ch_{1}toC​hKCh_{K}denoteKKchannels for character binding. The environment mask is the complement of the union of either the driving or the reference character masks.",
+        "role": "pipeline_1",
+        "caption_zh": "图 3：模型架构与上下文掩码信号概览。C​h0Ch_{0}  表示环境控制的掩码通道，C​h1Ch_{1} 到 C​hKCh_{K} 表示用于角色绑定的 K 个通道。环境掩码是驱动角色掩码或参考角色掩码的并集的补集。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.10804v1/x2.png",
+        "caption": "Figure 2:The overview of our synthetic pipeline for curating diverse high-quality cross-identity motion pairs.",
+        "role": "pipeline_2",
+        "caption_zh": "图2：我们用于筛选多样化高质量跨身份运动对的合成流程概览。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.10804v1/x1.png",
+        "caption": "Figure 1:SCAIL-2 adopts end-to-end driving paradigm to bypass unreliable animation intermediates.",
+        "role": "pipeline_3",
+        "caption_zh": "图1：SCAIL-2采用端到端驾驶范式，以绕过不可靠的动画中间环节。"
+      }
+    ],
+    "2606.09967": [
+      {
+        "path": "https://arxiv.org/html/2606.09967v1/figure/fig_data_pipeline.jpg",
+        "caption": "Figure 2:Data pipeline overview. Multi-source imagery is\nreconstructed into 3DGS scenes via ABot-3DGS, then spatially\npartitioned into tiles and rendered from multi-view cameras. Multi-granularity quality\nassessment and curation at the tile, view, and dataset levels ensure\nonly high-fidelity samples enter the final training set.",
+        "role": "pipeline_1",
+        "caption_zh": "图 2：数据流程概览。多源影像通过 ABot-3DGS 重建为 3DGS 场景，随后在空间上划分为图块并通过多视角相机进行渲染。在图块、视角及数据集层级进行的多粒度质量评估与筛选，确保了仅高保真样本进入最终训练集。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.09967v1/sections/CutBlock.png",
+        "caption": "(a)The tile-based production pipeline partitions the globe for parallel inference.(b)Hierarchical LOD tiles are generated for efficient, multi-resolution streaming.Figure 4:Overview of the production and data organization pipeline.",
+        "role": "pipeline_2",
+        "caption_zh": "(a)基于图块的生产管线将地球划分为多个区域以实现并行推理。(b)生成层次化的细节层次(LOD)图块，以支持高效的多分辨率流式传输。图4：生产与数据组织管线概述。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.09967v1/figure/fig_data_sources.jpg",
+        "caption": "Figure 3:Data sources overview. Satellite, aerial, and urban imagery\nprovide complementary viewpoint coverage for large-area reconstruction.\nEach category combines proprietary and public sources.",
+        "role": "pipeline_3",
+        "caption_zh": "图3：数据源概览。卫星影像、航空影像与城市影像为大范围三维重建提供了互补的视角覆盖。每个类别均包含专有数据源与公共数据源。"
+      }
+    ],
+    "2606.11129": [
+      {
+        "path": "https://arxiv.org/html/2606.11129v1/x1.png",
+        "caption": "Figure 1:Overview of the WorldOlympiad pipeline for data collection, long-video generation, and multi-dimensional evaluation.",
+        "role": "pipeline_1",
+        "caption_zh": "图1：WorldOlympiad 流程概述，涵盖数据收集、长视频生成与多维度评估。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.11129v1/x4.png",
+        "caption": "Figure 4:Pipeline statistics for data processing, annotation coverage, and evaluation-ready samples.",
+        "role": "pipeline_2",
+        "caption_zh": "图4：数据处理、标注覆盖度及评估就绪样本的流水线统计信息。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.11129v1/x2.png",
+        "caption": "Figure 2:Data collection overview across robotics, gaming, and real-world video sources.",
+        "role": "pipeline_3",
+        "caption_zh": "图 2：机器人、游戏及现实世界视频源的数据收集概览。"
+      }
+    ]
+  }
+}
