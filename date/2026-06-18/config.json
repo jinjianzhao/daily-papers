@@ -1,0 +1,243 @@
+{
+  "base_info": {
+    "2606.18943": {
+      "title": "Physics-IQ Verified",
+      "abstract": "Video generative models ( VGMs) have become a new frontier that can be used not just for video generation but for a multitude of downstream tasks, including world modeling. To advance these tasks, a good video model must understand the physical reality of the world. Evaluating this understanding is an emerging field and has led to the Physics-IQ benchmark, which quantifies this explicitly by comparing model-generated videos to real-world videos of physical experiments. In this work, we present a systematic audit of the Physics-IQ benchmark, expose shortcomings and propose three solutions that sharpen how we can measure physical understanding of VGMs. Specifically, we improve prompt and ground-truth quality to reduce the influence of confounding factors and further introduce a sample-level scoring system that weights each sample and metric equally. Our resulting benchmark, Physics-IQ Verified, refines 57.6\\% of all samples and improves over 34.8\\% of prompts. In a comparison study using six image-to-video generative models, we observe moderate but meaningful ranking changes (Kendall's $\\tau = 0.46$). We hope Physics-IQ Verified advances the community by providing a more reliable signal toward physically accurate VGMs. The code for the benchmark can be accessed atthis https URL",
+      "abstract_zh": "视频生成模型(Video Generative Models, VGMs)已成为一个新兴前沿领域，其应用不仅限于视频生成，还涵盖包括世界建模在内的众多下游任务。为推进这些任务的发展，优秀的视频模型必须理解世界的物理现实。对这种理解能力的评估是一个新兴研究方向，并催生了物理智商(Physics-IQ)基准测试——该基准通过对比模型生成的视频与真实物理实验视频，对模型的物理理解能力进行显式量化。本研究对物理智商基准进行了系统性审核，揭示其现存缺陷，并提出三项改进方案以完善VGMs物理理解能力的测量方法。具体而言，我们通过提升提示词与真实视频的质量来降低混杂因素的影响，并进一步引入样本级评分系统，确保每个样本和指标具有同等权重。我们改进后的基准测试——物理智商验证版(Physics-IQ Verified)——修正了全部样本的57.6%，优化了34.8%的提示词。在使用六种图像转视频生成模型的对比研究中，我们观察到模型排名发生了适度但具有意义的改变（肯德尔τ系数为0.46）。我们期望物理智商验证版能够通过提供更可靠的评估信号，推动学界向开发具有精确物理理解能力的VGMs迈进。该基准测试的代码可通过此https URL获取。",
+      "hf_link": "https://huggingface.co/papers/2606.18943"
+    },
+    "2606.18375": {
+      "title": "PAIWorld: A 3D-Consistent World Foundation Model for Robotic Manipulation",
+      "abstract": "World foundation models (WFMs) are powerful simulators, yet they predominantly operate in a single-view setting and lack the multi-view 3D consistency required for robotic manipulation. While robotic systems rely on multiple cameras (egocentric, eye-to-hand, and wrist-mounted) for policy learning, current multi-view world models simply concatenate view tokens without explicit geometric reasoning. This causes cross-view object drift, depth inconsistency, and texture misalignment. We trace these failures to two deficiencies: the absence of an explicit inter-view communication mechanism and the lack of a 3D geometric prior. We argue that resolving both simultaneously is necessary and sufficient. To address this, we present PAIWorld, a framework that augments diffusion-transformer world models via three core components: (1) Geometry-Aware Cross-View Attention blocks that establish an explicit pathway across views, (2) Geometric Rotary Position Embedding that encodes camera ray directions and extrinsic poses into the attention mechanism, and (3) Latent 3D-REPA, which distills 3D-aware features from frozen 3D foundation models to ensure 3D consistency. Built upon a DiT-based world foundation model, PAIWorld achieves state-of-the-art multi-view 3D consistency on robotic manipulation benchmarks, ranking 1st on the WorldArena leaderboard and 2nd on the AgiBot-Challenge2026 leaderboard, while enabling downstream applications such as model-based planning, world action models, and multi-view policy post-training.",
+      "abstract_zh": "世界基础模型（World Foundation Models，WFMs）是强大的模拟器，但其主要在单视图环境下运行，缺乏机器人操作所需的多视图三维一致性。尽管机器人系统依赖多个摄像头（如本体视角、手眼视角和腕戴式视角）进行策略学习，当前的多视图世界模型仅简单拼接视图令牌，而未进行显式的几何推理。这导致了跨视图物体漂移、深度不一致以及纹理错位等问题。我们将这些缺陷归因于两方面的不足：缺乏明确的视图间通信机制，以及缺少三维几何先验。我们认为，同时解决这两方面问题既是必要的也是充分的。\n\n为此，我们提出了PAIWorld框架，该框架通过三个核心组件增强基于扩散变换器的世界模型：（1）几何感知跨视图注意力块，建立跨视图的显式交互通路；（2）几何旋转位置编码，将相机射线方向与外部位姿编码到注意力机制中；（3）潜在三维重构感知对齐，从冻结的三维基础模型中提取三维感知特征，以确保三维一致性。基于DiT架构的世界基础模型，PAIWorld在机器人操作基准测试中实现了顶尖的多视图三维一致性，在WorldArena排行榜中位列第一，在AgiBot-Challenge2026排行榜中位列第二，同时支持基于模型的规划、世界动作模型及多视图策略后训练等下游应用。",
+      "hf_link": "https://huggingface.co/papers/2606.18375"
+    },
+    "2606.19338": {
+      "title": "Beyond the Current Observation: Evaluating Multimodal Large Language Models in Controllable Non-Markov Games",
+      "abstract": "Deploying multimodal foundation models as closed-loop policies increasingly requires conditioning actions on observations that are no longer visible. However, existing benchmarks either expose the full state, conflate hidden-state reconstruction with other agent skills, or test recall only after an episode has ended. We introduce RNG-Bench (Reconstructive Non-Markov Games), a benchmark suite designed to isolate a base model's ability to reconstruct past observations and act on them during multi-step interaction. RNG-Bench includes two complementary games: Matching Pairs, where card identities briefly revealed at specific locations must later be recalled, and 3D Maze, where egocentric views must be integrated into a spatial map. Both games are evaluated under a unified harness with three controlled difficulty axes: grid size, visual pattern, and observation modality. The benchmark further introduces a head-to-head duel protocol to control for instance-level variance and a Memory Gap metric that disentangles forgetting from poor action selection. The hardest configurations require contexts of roughly 128K tokens and 350 image inputs per episode, and remain far from saturated by frontier MLLMs. Memory Gap analysis shows that most residual errors stem from forgetting earlier observations rather than from suboptimal decision making. Finally, fine-tuning Qwen3.5-9B on optimal-policy rollouts and filtered model demonstrations improves performance on RNG-Bench and transfers to existing benchmarks without degrading general multimodal capability.",
+      "abstract_zh": "将多模态基础模型部署为闭环策略时，往往需要根据已不可见的观测信息来生成动作。然而，现有基准测试要么暴露完整环境状态，要么将隐状态重建与其他智能体技能混为一谈，抑或仅在回合结束后才测试记忆召回能力。我们提出了RNG-Bench（重建型非马尔可夫游戏），这是一套专门用于分离基础模型在多步交互过程中重建过往观测并据此行动能力的基准测试体系。RNG-Bench包含两个互补游戏：配对记忆游戏（Matching Pairs）要求智能体在特定位置短暂显示的卡片身份信息消失后进行回忆；三维迷宫（3D Maze）则需要将自我中心视角整合为空间地图。两个游戏均通过统一测试框架进行评估，该框架包含三个可控难度维度：网格尺寸、视觉模式与观测模态。本基准测试进一步引入对抗式对决协议以控制实例级方差，并提出记忆间隙（Memory Gap）指标以区分记忆遗忘与动作选择失误。最高难度配置要求每个回合处理约12.8万token的上下文和350张图像输入，当前前沿的多模态大语言模型（MLLMs）仍远未达到性能饱和。记忆间隙分析表明，多数残留错误源于对早期观测的遗忘，而非次优决策。最后，基于最优策略轨迹和筛选模型演示对Qwen3.5-9B进行微调，不仅提升了其在RNG-Bench上的表现，还能迁移至现有基准测试且不损害通用多模态能力。",
+      "hf_link": "https://huggingface.co/papers/2606.19338"
+    },
+    "2606.18363": {
+      "title": "Guava: An Effective and Universal Harness for Embodied Manipulation",
+      "abstract": "Language models trained on large-scale vision-language data have demonstrated strong potential for embodied agents. Harnessing models through embodied tools use offers a promising alternative to end-to-end vision-language-action systems by combining high-level reasoning with external modules for perception, planning, and control. However, it remains unclear what makes an effective harness for embodied manipulation, and to what extent such a harness can unlock embodied capabilities in a wide range of reasoning models. In this work, we present Guava, a harness framework for embodied tool use developed through systematic exploration of the design space of agent workflows, action spaces, and observation spaces. Our study identifies three key ingredients for effective embodied agents: iterative perception-reasoning-action loops, semantic action abstractions, and multimodal observations. To understand whether these design principles are universal even to small models, we develop an end-to-end training pipeline that distills embodied manipulation capabilities into a 4B open-source model using fewer than 2K trajectories collected entirely in simulation. Experimental results in both simulation and real-world environments show performance comparable to frontier proprietary models while exhibiting strong generalization to unseen objects, novel instructions, and long-horizon tasks. Results suggest that a well-designed harness can serve as a scalable, model-agnostic interface for embodied manipulation, enabling strong emergent embodied capabilities in compact open-source models with minimal training data.",
+      "abstract_zh": "在大规模视觉-语言数据上训练的语言模型已展现出赋能具身智能体的强大潜力。通过具身工具使用来驾驭此类模型，为结合高层推理与感知、规划、控制等外部模块提供了替代端到端视觉-语言-行动系统的可行路径。然而，何种设计能构建有效的具身操控框架，以及此类框架能在多大程度上释放各类推理模型的具身能力，目前仍不明确。本研究提出Guava框架——一种通过系统探索智能体工作流、行动空间与观测空间的设计空间而开发的具身工具使用框架。我们的研究揭示了高效具身智能体的三个关键要素：迭代的感知-推理-行动循环、语义化行动抽象以及多模态观测。为验证这些设计原则是否适用于轻量化模型，我们构建了端到端训练流程，仅使用完全在模拟环境中收集的不足2000条轨迹，将具身操控能力蒸馏至一个40亿参数的开源模型。在模拟与真实环境中的实验结果表明，该框架性能可比肩前沿专有模型，同时对未见物体、新指令和长周期任务展现出强大的泛化能力。研究证明，精心设计的框架可作为可扩展、模型无关的具身操控接口，使紧凑型开源模型能以极少的训练数据涌现出强大的具身能力。",
+      "hf_link": "https://huggingface.co/papers/2606.18363"
+    },
+    "2606.16533": {
+      "title": "Kairos: A Native World Model Stack for Physical AI",
+      "abstract": "World models are transitioning from passive visual generators to foundational, operational infrastructure for Physical AI: they must natively acquire world knowledge from heterogeneous experience, maintain persistent states over long horizons, and execute efficiently within real deployment constraints. We introduce Kairos, a native world model stack designed around these requirements. (1) Kairos learns the world by pioneering a Native Pre-training Paradigm governed by a Cross-Embodiment Data Curriculum, which organizes open-world videos, human behavioral data, and robot interactions into a progressive developmental pathway. (2) Kairos maintains the world by unified world understanding, generation, and prediction within a Native Unified Architecture equipped with Hybrid Linear Temporal Attention, where sliding-window attention captures local dynamics, dilated sliding windows capture mid-range dependencies, and gated linear attention maintains persistent global memory. We establish formal theoretical bounds demonstrating that this temporal factorization strictly limits error accumulation, mathematically guaranteeing state propagation across extended horizons. (3) Kairos runs the world by incorporating a Deployment-Aware System Co-Design to support low-latency rollout generation on server and consumer-grade hardware for real-world observation-action-feedback loops. Experiments on embodied world-model, long-horizon, and action-policy benchmarks show that Kairos achieves top level performance while offering a strong efficiency-capability trade-off. Together, these results position Kairos as a cohesive operational foundation for future self-evolving physical intelligence.",
+      "abstract_zh": "世界模型正从被动视觉生成器转变为物理人工智能（Physical AI）的基础操作架构：它们需从异构经验中自主获取世界知识，在长时程中维持持久状态，并在实际部署约束下高效运行。我们提出Kairos——一个围绕这些需求设计的原生世界模型堆栈。（1）Kairos通过开创受跨具身数据课程（Cross-Embodiment Data Curriculum）调控的原生预训练范式来学习世界，该范式将开放世界视频、人类行为数据与机器人交互整合为渐进式发展路径。（2）Kairos借助配备混合线性时序注意力（Hybrid Linear Temporal Attention）的原生统一架构来维护世界，实现统一的世界理解、生成与预测：滑动窗口注意力捕捉局部动态，扩张滑动窗口捕捉中程依赖，门控线性注意力维持持久全局记忆。我们建立了严格的理论界限，证明此时序因子分解能有效限制误差累积，从数学上保障了状态在长时程中的传播。（3）Kairos通过部署感知系统协同设计（Deployment-Aware System Co-Design）来运行世界，支持在服务器与消费级硬件上生成低延迟推演，实现现实世界的观测-动作-反馈闭环。在具身世界建模、长时程预测与动作策略基准测试中，Kairos在保持顶级性能的同时展现出卓越的效率-能力平衡。这些成果共同奠定了Kairos作为未来自演化物理智能（self-evolving physical intelligence）统一操作基础的地位。",
+      "hf_link": "https://huggingface.co/papers/2606.16533"
+    },
+    "2606.17539": {
+      "title": "Reinforcing Dual-Path Reasoning in Spatial Vision Language Models",
+      "abstract": "Spatial VLMs have made substantial progress in geometric perception, yet complex spatial reasoning requiring multi-step inference over depth, distance, and scene relations remains challenging. Moreover, different spatial queries call for fundamentally different strategies: some are best addressed through purely linguistic, step-by-step deduction, while others require explicit 3D grounding before quantitative inference. We present Dual-Path Spatial Reasoning via Reinforcement Learning for Spatial VLMs (SR-REAL), a unified framework that equips a spatial VLM with two complementary reasoning paths: Language-Only Reasoning (LOR), which performs step-by-step linguistic deduction, and Detect-Then-Reason (DTR), which detects 3D geometric cues (e.g., centers or bounding boxes) via region tokens before explicit geometric inference. SR-REAL begins with a cold-start supervised fine-tuning stage that constructs LOR and DTR chain-of-thought supervision and exposes a region-to-3D interface, followed by RL that optimizes the policy model with accuracy and format rewards; for DTR, a discrete center-based detection reward further refines geometric alignment. Across diverse spatial benchmarks, SR-REAL significantly outperforms spatial VLM baselines: (i) a single RL-trained model supports both reasoning paths, with DTR excelling in region-aware tasks through precise 3D localization and LOR enhancing general spatial reasoning; (ii) jointly training both paths fosters mutual reinforcement; (iii) high-quality, blended cold-start data is crucial for stable RL optimization; and (iv) the model generalizes across datasets and domains without per-task tuning, demonstrating positive transfer between LOR and DTR.",
+      "abstract_zh": "空间视觉语言模型在几何感知方面已取得显著进展，但涉及深度、距离和场景关系的多步推理的复杂空间推理任务仍具挑战性。此外，不同的空间查询需要根本不同的解决策略：有些问题最适合通过纯语言式的逐步演绎推理，而另一些问题则需要先进行显式的三维空间定位再进行定量推理。本文提出基于强化学习的空间视觉语言模型双路径空间推理框架，该统一框架为空间视觉语言模型配备了两种互补的推理路径：纯语言推理路径，通过逐步语言演绎进行推理；以及检测后推理路径，该路径在显式几何推理前通过区域标记检测三维几何线索（如中心点或边界框）。该框架始于冷启动监督微调阶段，该阶段构建了两种推理路径的思维链监督并开放区域到三维空间的接口，随后通过强化学习以精度和格式奖励优化策略模型；对于检测后推理路径，基于离散中心点的检测奖励进一步优化了几何对齐效果。在多种空间基准测试中，该框架显著优于现有空间视觉语言模型基线：（一）单个经过强化学习训练的模型可同时支持两种推理路径，其中检测后推理路径通过精确的三维定位在区域感知任务中表现卓越，而纯语言推理路径则增强了通用空间推理能力；（二）联合训练两条路径能产生协同强化效应；（三）高质量混合型冷启动数据对强化学习稳定优化至关重要；（四）该模型能在无需逐任务调优的情况下跨数据集和领域泛化，证明了两种推理路径间存在正向迁移效应。",
+      "hf_link": "https://huggingface.co/papers/2606.17539"
+    },
+    "2606.18322": {
+      "title": "SAE Interventions are Unreliable: Post-Intervention Recovery of Suppressed Behavior",
+      "abstract": "Sparse Autoencoders (SAEs) decompose residual-stream activations into interpretable features. Recent latent-space defenses increasingly rely on these decompositions, assuming that identified \"unsafe\" SAE features serve as actionable handles for monitoring and intervention. In this paradigm, clamping a specific harmful feature is expected to reliably prevent model misbehavior. However, we show that this success may hide a recoverable failure mode: the clamp may block one visible route to a behavior without eliminating the behavior itself. We formulate this vulnerability as post-intervention recovery, a constrained residual-space optimization problem. Starting from the post-intervention residual state, we optimize residual perturbations to recover the pre-intervention behavior while preserving the post-intervention values of the targeted SAE features. Even under a strong threat model where the intervention remains active throughout optimization and generation, recovery remains possible. To rule out that recovery simply undoes the intervention, we use encoder-orthogonal updates for single-layer interventions and the corresponding feature-map Jacobian in the cross-layer setting. Across TPP, unlearning, IOI, and refusal steering experiments, this stress test reveals recoverable behavior despite successful feature-level intervention. Especially in the safety-critical refusal-steering setting, we achieve a 95.8% recovery rate on valid samples while keeping defended-feature relative drift to 0.131, substantially below suffix-based baselines. A recovery-path attribution analysis further localizes this recovery to the SAE reconstruction residual, the component left unexplained by the SAE. These results expose a gap between feature-level control and behavioral completeness: SAE features can support causal intervention, but controlling them does not guarantee control over the underlying behavior.",
+      "abstract_zh": "稀疏自编码器（Sparse Autoencoders, SAEs）将残差流激活分解为可解释的特征。近来的潜在空间防御日益依赖此类分解，其前提是识别出的\"不安全\"SAE特征可作为监控与干预的有效抓手。在此范式中，对特定有害特征进行钳制（clamping）被认为能可靠防止模型产生不良行为。然而，我们证明这种成功可能掩盖了一种可恢复的失效模式：钳制操作可能仅阻断了行为的一种显性路径，却未消除行为本身。我们将此脆弱性表述为干预后恢复——一个受约束的残差空间优化问题。从干预后的残差状态出发，我们通过优化残差扰动来恢复干预前的行为，同时保持目标SAE特征在干预后的数值不变。即使在干预全程保持激活的强威胁模型下，恢复依然可能实现。为排除恢复过程仅简单撤销干预的可能性，我们在单层干预中使用编码器正交更新，在跨层场景中则采用相应的特征映射雅可比矩阵。通过在TPP（任务性能保持）、反学习（unlearning）、IOI（间接对象识别）和拒绝引导（refusal steering）等实验中进行压力测试，我们发现尽管特征层面干预显示成功，但行为仍可被恢复。尤其在安全关键的拒绝引导场景中，我们在有效样本上实现了95.8%的恢复率，同时将被防御特征的相对漂移控制在0.131，显著低于基于后缀的基线方法。恢复路径归因分析进一步将恢复现象定位于SAE重构残差——即SAE未能解释的剩余成分。这些结果揭示了特征层面控制与行为完整性之间的鸿沟：SAE特征虽能支持因果干预，但控制这些特征并不能保证对底层行为的完全掌控。",
+      "hf_link": "https://huggingface.co/papers/2606.18322"
+    },
+    "2606.18101": {
+      "title": "Trust the Right Teacher: Quality-Aware Self-Distillation for GUI Grounding",
+      "abstract": "Graphical user interface (GUI) grounding requires vision-language models (VLMs) to identify small target elements in high-resolution screenshots and predict precise screen coordinates. On-policy self-distillation (OPSD) is a promising post-training approach for this coordinate-sensitive task, since it provides dense token-level teacher signals beyond hard coordinate labels. However, naive OPSD is not well suited to GUI grounding: OPSD evaluates the teacher on student-generated prefixes, the quality of coordinate-token teacher signals can degrade when the prefix has already deviated from the target coordinate, leading to unreliable teacher signal. To mitigate this, We propose quality-aware self-distillation for VLM-based GUI grounding, which improves coordinate-token teacher-signal quality through soft correctness-aware gating and teacher-probability scaling. The soft correctness-aware gate checks whether the teacher's current coordinate-token prediction can still be completed into the ground-truth box under the student-generated prefix. If not, the corresponding teacher signal is down-weighted. Teacher-probability scaling then uses the teacher's confidence as a lightweight factor to further calibrate the strength of the gated supervision. A key empirical finding is that neither component alone improves overall performance, whereas combining them consistently improves performance. This suggests that the two mechanisms play complementary roles: correctness-aware gating suppresses unreliable coordinate-token supervision, while teacher-probability scaling calibrates the strength of the remaining signals. Experiments across six GUI grounding benchmarks show that our method consistently improves the base model and outperforms strong baselines.",
+      "abstract_zh": "图形用户界面(Graphical User Interface, GUI)定位要求视觉语言模型(Vision-Language Models, VLMs)在高分辨率屏幕截图中识别细小的目标元素并预测精确的屏幕坐标。策略性自蒸馏(On-policy Self-Distillation, OPSD)作为一种后训练方法，为此类坐标敏感任务提供了前景，因为它能提供超越硬坐标标签的密集令牌级教师信号。然而，朴素OPSD并不完全适用于GUI定位：OPSD基于学生模型生成的前缀来评估教师模型，当生成的前缀已偏离目标坐标时，坐标令牌教师信号的质量会下降，导致教师信号不可靠。为缓解此问题，我们提出面向基于VLM的GUI定位的质量感知自蒸馏方法，通过基于软正确性的门控机制和教师概率缩放来提升坐标令牌教师信号的质量。软正确性门控机制检查在给定学生生成前缀的条件下，教师模型当前的坐标令牌预测是否仍能完成与真实边界框的匹配；若不能，则相应教师信号将被降权。随后，教师概率缩放以教师模型的置信度作为轻量级因子，进一步校准门控后监督信号的强度。一项关键实证发现是，单独使用任一组件均无法提升整体性能，而将二者结合则能持续改善表现。这表明两种机制具有互补作用：正确性感知门控抑制不可靠的坐标令牌监督，而教师概率缩放则校准剩余信号的强度。在六个GUI定位基准测试上的实验表明，我们的方法持续提升了基础模型的性能，并优于现有强基线方法。",
+      "hf_link": "https://huggingface.co/papers/2606.18101"
+    },
+    "2606.19341": {
+      "title": "2606.19341",
+      "abstract": "",
+      "abstract_zh": "",
+      "hf_link": "https://huggingface.co/papers/2606.19341"
+    },
+    "2606.19005": {
+      "title": "Sumi: Open Uniform Diffusion Language Model from Scratch",
+      "abstract": "Diffusion models have become a promising alternative to autoregressive models. Among these, uniform diffusion language models (UDLMs) permit any token to be updated at any step, in principle enabling more flexible generation. However, no UDLM has yet been pretrained from scratch at both large parameter scale and large token budget. Both autoregressive modeling and masked diffusion modeling already have capable models at scale that the community can study and build on; uniform diffusion has none. A scratch-pretrained UDLM at scale would provide a clean reference point for studying scaling behavior, generation dynamics, controllability, and trade-offs against established autoregressive and masked diffusion models. To this end, we introduce Sumi (\"ink\" in Japanese), a fully open 7B uniform diffusion language model pretrained from scratch on 1.5T tokens. Sumi performs competitively with autoregressive models trained at comparable token budgets on knowledge, reasoning, and coding benchmarks, while under-performing on commonsense benchmarks, where our education-heavy data mixture is a likely contributor. We release our model weights, checkpoints, and full training recipe, including a complete specification of the data mixture over publicly available corpora. We hope this release enables the community to study native uniform diffusion at scale and catalyzes work on its as-yet poorly understood aspects.",
+      "abstract_zh": "扩散模型已成为自回归模型的一种有前景的替代方案。其中，均匀扩散语言模型（UDLM，Uniform Diffusion Language Model）允许在任何步骤更新任意词元，原则上能够实现更灵活的生成。然而，目前尚未有UDLM在大型参数规模与大规模词元预算下完全从头开始预训练。自回归建模与掩码扩散建模均已具备可供学术界研究并扩展的成熟大规模模型；而均匀扩散模型尚未有同等规模的成果。一个从头预训练的大规模UDLM将为研究缩放行为、生成动态、可控性以及与现有自回归及掩码扩散模型的权衡提供一个清晰的参照基准。为此，我们推出了Sumi（日语中“墨水”之意）——一个完全开源的70亿参数均匀扩散语言模型，基于1.5万亿词元从头预训练而成。在知识、推理和代码基准测试中，Sumi的表现与在同等词元预算下训练的自回归模型相当，但在常识基准测试中略有不足，这很可能与我们训练数据中教育类内容占比较高有关。我们公开了模型权重、检查点及完整训练方案，包括基于公开语料库构建的数据混合配比的完整说明。我们期望此次发布能推动学术界对原生均匀扩散模型的大规模研究，并促进对其尚未被充分理解的特性的探索。",
+      "hf_link": "https://huggingface.co/papers/2606.19005"
+    },
+    "2606.19336": {
+      "title": "Learning User Simulators with Turing Rewards",
+      "abstract": "Learning to simulate human users in interactive settings could advance the training of agent assistants, evaluation of personalization systems, research in the social sciences, and more. Existing approaches generally do so by training a large language model (LLM) to match a single ground truth response, either by maximizing the log probability or by using a similarity reward. We instead propose {Turing-RL}: a Turing-Test-based reinforcement learning approach for training user simulator models. {Turing-RL} uses a discriminative Turing reward with an LLM judge to score how indistinguishable a generated response is from the real user's given the user's history, and the user simulator LLM learns to produce responses indistinguishable from what the user could have said with such rewards. Across two different domains--conversational chat and Reddit forum discussion--we find that {Turing-RL} consistently outperforms baseline methods on both LLM and human evaluation metrics. Our study suggests that optimizing for indistinguishability, rather than response matching, is effective for learning user simulators.",
+      "abstract_zh": "在交互环境中学习模拟人类用户，可推动智能助手的训练、个性化系统的评估、社会科学研究等领域的发展。现有方法通常通过最大化对数概率或使用相似性奖励，训练大型语言模型（LLM）以匹配单一真实响应。与此不同，我们提出了{Turing-RL}：一种基于图灵测试的强化学习方法，用于训练用户模拟器模型。{Turing-RL}采用基于判别器的图灵奖励机制，通过LLM评判员对生成响应与真实用户在给定历史记录下的可区分性进行评分，用户模拟器LLM则通过学习生成与此类奖励下用户可能表达的内容无法区分的响应。在对话聊天和Reddit论坛讨论两个不同领域中，我们发现{Turing-RL}在LLM与人工评估指标上均持续优于基线方法。我们的研究表明，针对不可区分性而非响应匹配进行优化，对于学习用户模拟器是有效的。",
+      "hf_link": "https://huggingface.co/papers/2606.19336"
+    },
+    "2606.18874": {
+      "title": "Externalizing Research Synthesis and Validation in AI Scientists through a Research Harness",
+      "abstract": "AI systems can increasingly automate scientific workflows, but the reasoning that links prior evidence, generated ideas, experiments and final claims often remains implicit inside model inference. Here we introduce Xcientist, a research harness that externalizes research synthesis and experimental validation into inspectable, contract-governed processes. Xcientist organizes literature evidence, idea states, implementation plans, ablation records and repair traces as persistent research artifacts, so that generated mechanisms can be grounded, executed, tested and revised without losing their evidential basis. We identify claim drift as a failure mode of automated research, where runnable artifacts no longer support the mechanism originally claimed. Across training-free memory systems, graph-structured traffic forecasting and multi-scale physics-informed neural networks, Xcientist preserves traceable trajectories from problem formulation to mechanism design, validation and bounded revision. These results suggest that AI scientists should be evaluated not only by their final artifacts, but by whether their synthesis and validation processes remain attributable, inspectable and scientifically accountable.",
+      "abstract_zh": "人工智能系统正日益自动化科学工作流程，但连接先验证据、生成想法、实验与最终主张的推理过程往往仍隐含在模型推断之中。本文提出Xcientist研究框架，将研究综合与实验验证外化为可审查且受契约约束的透明流程。该框架将文献证据、构想状态、实施计划、消融记录与修正轨迹组织为持久性研究制品，使生成机制能够在保持证据基础的前提下实现落地执行、测试验证与迭代修订。我们识别出“主张漂移”作为自动化研究的失效模式，即运行制品无法继续支撑原始主张的机制原理。在免训练记忆系统、图结构交通预测和多尺度物理信息神经网络等场景中，Xcientist构建了从问题提出到机制设计、验证与有限修正的可追溯轨迹。这些结果表明，对人工智能科学家的评估不仅应关注最终产出，更应考察其综合与验证过程是否具备可归因性、可审查性及科学可问责性。",
+      "hf_link": "https://huggingface.co/papers/2606.18874"
+    },
+    "2606.18543": {
+      "title": "CEO-Bench: Can Agents Play the Long Game?",
+      "abstract": "Language model agents are becoming proficient executors at isolated, short-horizon tasks such as software engineering and customer service. Yet real-world challenges require a combination of sophisticated skills that remain largely untested in agents: (1) navigating long horizons amid uncertainty; (2) acquiring information in noisy environments; (3) adapting to a changing world; (4) orchestrating multiple moving parts toward a coherent goal. We introduce CEO-Bench, which evaluates these capabilities together by simulating a representative real-world task: operating a startup for 500 days. An agent manages pricing, marketing, budgeting, and many other aspects of a fictional company through a programmable Python interface, operating in the same environment and facing the same challenges as a human CEO. Success demands analyzing noisy, interconnected business databases, translating signals into sound strategy, and coordinating many decisions with programming. The strongest agents write sophisticated code that simulates customer cohorts to forecast future cash and mines negotiation history to uncover hidden customer preferences. Even so, most state-of-the-art models struggle in this environment. Only Claude Opus 4.8 and GPT-5.5 finish above the $1M starting balance, and neither consistently turns a profit. CEO-Bench takes a first step toward measuring the intelligence required to drive sustained, adaptive progress over time.",
+      "abstract_zh": "语言模型代理在执行孤立、短周期的任务（如软件工程和客户服务）方面正日益熟练。然而，现实世界的挑战需要综合运用多种复杂技能，而这些技能在代理中的表现大多尚未得到充分验证：(1)在不确定性中驾驭长期进程；(2)在嘈杂环境中获取信息；(3)适应不断变化的世界；(4)协调多个动态环节以实现连贯目标。我们推出CEO-Bench，通过模拟具有代表性的现实世界任务——运营一家初创公司500天，来综合评估这些能力。代理通过可编程的Python接口管理虚构公司的定价、营销、预算等诸多方面，在与人类CEO相同的环境中面对相同挑战。成功需要分析相互关联的嘈杂商业数据库，将市场信号转化为稳健策略，并通过编程协调大量决策。表现最优异的代理能够编写复杂代码来模拟客户群体以预测未来现金流，并挖掘谈判历史以发现隐藏的客户偏好。即便如此，大多数最先进的模型在此环境中仍举步维艰。仅有Claude Opus 4.8和GPT-5.5的最终余额超过100万美元起始资金，且两者均未实现持续盈利。CEO-Bench为衡量驱动长期持续自适应进展所需的智能迈出了第一步。",
+      "hf_link": "https://huggingface.co/papers/2606.18543"
+    },
+    "2606.14383": {
+      "title": "IndustryBench-MIPU: Benchmarking Multi-Image Attribute Value Extraction for Industrial Products",
+      "abstract": "Industrial products such as valves and circuit breakers are defined by dense technical specifications that govern procurement, compatibility, and safety across supply chains. These specifications are scattered across multiple heterogeneous product images, including specification tables, nameplates, and technical drawings, yet whether Multimodal Large Language Models (MLLMs) can reliably recover them remains underexplored. To fill this gap, we introduce IndustryBench-MIPU, the first large-scale benchmark for multi-image industrial product understanding, built around structured attribute extraction -- recovering property-value pairs from product images. This task jointly probes text recognition on specification tables and nameplates, visual reasoning over technical drawings, domain knowledge to decode industrial terminology, and cross-image evidence integration to assemble scattered specifications. Concretely, the benchmark comprises 4,559 products across 27,652 images with 103,703 annotations spanning 18 industrial categories, constructed through multi-model consensus and three-tier quality assurance. Evaluating nine MLLMs under both single-image and product-level multi-image settings reveals a stark completeness gap: models achieve high precision (86--94%) but the best recovers only 49.9% of product-level attributes; moving from single-image to multi-image extraction costs 15--34 percentage points of recall. Multi-image completeness, not single-image accuracy, is the core bottleneck. Dataset and code are publicly available.",
+      "abstract_zh": "阀门与断路器等工业产品的采购、兼容性与供应链安全由密集的技术规格定义。这些规格分散在规格参数表、铭牌和技术图纸等多张异构产品图像中，然而多模态大语言模型能否可靠地提取这些信息仍未得到充分探索。为此，我们提出了IndustryBench-MIPU——首个面向多图像工业产品理解的大规模基准测试，其核心任务为结构化属性提取，即从产品图像中恢复属性-值对。该任务综合考察了模型在规格参数表与铭牌上的文本识别能力、对技术图纸的视觉推理能力、解析工业术语的领域知识能力，以及整合跨图像证据以组装分散规格的综合能力。具体而言，该基准涵盖18个工业类别、共4,559个产品的27,652张图像，包含103,703条标注，并通过多模型共识与三级质量保障构建完成。对九种多模态大语言模型在单图像与产品级多图像设置下的评估显示，存在显著的完整性差距：模型虽能达到高精度（86-94%），但最佳模型仅能恢复49.9%的产品级属性；从单图像提取扩展到多图像提取会导致召回率下降15-34个百分点。多图像完整性（而非单图像准确率）是当前的核心瓶颈。数据集与代码均已公开。",
+      "hf_link": "https://huggingface.co/papers/2606.14383"
+    },
+    "2606.15872": {
+      "title": "SciOrch: Learning to Orchestrate Expert LLMs for Solving Frontier Multimodal Scientific Reasoning Tasks",
+      "abstract": "Frontier scientific reasoning remains a major challenge for large language models (LLMs), where even the strongest commercial systems fall short of expert-level performance. A closer look at model behavior reveals substantial complementarity that single-model evaluation hides: different frontier models excel on different question types, and no single model captures the full picture. We present SciOrch, a framework that trains a lightweight 8B model to orchestrate frontier LLMs for scientific reasoning. The orchestrator decomposes each question, delegates sub-problems to selected commercial models through API calls, and synthesizes a final answer. Training such an orchestrator is fundamentally harder than conventional agentic RL: each action triggers an API call that is expensive in both dollar cost and latency, making standard online rollouts infeasible. We address this with MCTS-based approach, producing diverse orchestration trajectories, extracting per-node single-turn samples, and optimizing the orchestrator with GRPO-style training. On a 240-question test set spanning SGI-Reasoning and Scientists' First Exam, SciOrch reaches 56.66% average accuracy, outperforming the strongest single commercial model by 3.74% and the strongest multi-agent baseline by 3.33%. It also attains the best accuracy on both SGI and SFE with less than half the API cost of typical multi-agent methods.",
+      "abstract_zh": "前沿科学推理仍然是大型语言模型(LLM)面临的主要挑战，即使最强大的商业系统也未能达到专家级性能。对模型行为的深入分析揭示了单一模型评估所掩盖的显著互补性：不同的前沿模型在不同类型问题上各有所长，没有任何单一模型能全面覆盖所有能力。我们提出SciOrch框架，通过训练一个轻量级的80亿参数模型来协调前沿LLM进行科学推理。该协调器将每个问题分解，通过API调用将子问题分配给选定的商业模型，并综合生成最终答案。训练此类协调器本质上比传统智能体强化学习更困难：每个动作都会触发API调用，在资金成本和延迟方面都极为昂贵，使得标准的在线推演难以实施。我们采用基于蒙特卡洛树搜索(MCTS)的方法解决这一问题，生成多样化的协调轨迹，提取节点级单轮样本，并通过GRPO风格训练优化协调器。在涵盖SGI-Reasoning和Scientists’ First Exam(SFE)的240道测试题集上，SciOrch平均准确率达到56.66%，超越最强单一商业模型3.74%，优于最强多智能体基线3.33%。同时以低于典型多智能体方法一半的API成本，在SGI和SFE两个数据集上均取得最佳准确率。",
+      "hf_link": "https://huggingface.co/papers/2606.15872"
+    }
+  },
+  "hf_votes": {
+    "2606.19338": 0,
+    "2606.18363": 0,
+    "2606.16533": 0,
+    "2606.17539": 0,
+    "2606.18322": 0,
+    "2606.18101": 0,
+    "2606.19341": 0,
+    "2606.19005": 0,
+    "2606.19336": 0,
+    "2606.18874": 0,
+    "2606.18543": 0,
+    "2606.14383": 0,
+    "2606.18943": 0,
+    "2606.18375": 0,
+    "2606.15872": 0
+  },
+  "focus_sections": {
+    "3D生成与重建": [
+      "2606.18375"
+    ],
+    "视频生成": [
+      "2606.18943"
+    ],
+    "图像生成": []
+  },
+  "summaries": {
+    "2606.18943": {
+      "short_zh": "改进视频生成模型物理理解评测基准",
+      "tags": "计算机视觉;视频生成;物理理解评测",
+      "body_summary": "视频生成模型需理解物理现实，但现有评测基准存在不足。\n作者系统审查Physics-IQ基准，改进提示与真值，引入样本级评分，提出更可靠的Physics-IQ Verified基准。"
+    },
+    "2606.18375": {
+      "short_zh": "构建3D一致的多视角世界模型",
+      "tags": "机器人学;机器人感知;多视角世界建模",
+      "body_summary": "现有世界模型缺乏多视角3D一致性，难以直接用于依赖多相机输入的机器人操作任务。\n提出了PAIWorld框架，通过几何感知注意力等组件增强扩散Transformer世界模型，实现了卓越的多视角3D一致性。"
+    },
+    "2606.19338": {
+      "short_zh": "评估多模态大模型在非马尔可夫游戏中的记忆与行动能力",
+      "tags": "多模态智能体；具身智能与交互；可控非马尔可夫游戏评估",
+      "body_summary": "现有基准无法有效测试多模态大模型在交互中依赖不可见历史观察进行决策的能力。\n提出了RNG-Bench基准套件，包含两个游戏并设计了统一评估框架，用于隔离和评估模型对历史观察的重建与利用能力，并基于此进行了模型微调实验。"
+    },
+    "2606.18363": {
+      "short_zh": "设计高效通用具身操作框架",
+      "tags": "具身智能;具身操作;工具调用框架",
+      "body_summary": "现有视觉语言模型在具身智能中潜力巨大，但如何设计有效的工具调用框架以解锁其能力尚不明确。\n本文提出了Guava框架，并通过系统设计探索和轻量蒸馏训练，使小型开源模型在仿真与现实任务中表现出强大的泛化能力。"
+    },
+    "2606.16533": {
+      "short_zh": "原生世界模型栈Kairos",
+      "tags": "机器人;具身智能;世界模型",
+      "body_summary": "世界模型正从被动视觉生成器向物理AI的基础操作设施转变，需具备原生学习、状态保持与高效执行能力。\n开发了原生预训练范式、统一混合时态架构及部署感知系统协同设计，在多个基准测试中取得高性能与高效能。"
+    },
+    "2606.17539": {
+      "short_zh": "强化空间视觉语言模型双路径推理",
+      "tags": "计算机视觉;视觉语言模型;空间推理",
+      "body_summary": "空间视觉语言模型在复杂空间推理如深度、距离和场景关系多步推断上仍有挑战，且不同问题需不同策略。\n提出SR-REAL框架，通过监督微调和强化学习联合训练语言推理与检测后推理双路径，提升模型在多类空间任务的表现与泛化能力。"
+    },
+    "2606.18322": {
+      "short_zh": "稀疏自编码器干预失效",
+      "tags": "机器学习;模型可解释性;稀疏自编码器特征干预",
+      "body_summary": "稀疏自编码器被用于分解模型激活以进行特征干预。\n研究发现干预后模型行为仍可恢复，揭示了特征控制与行为控制间的差距。"
+    },
+    "2606.18101": {
+      "short_zh": "提升基于视觉语言模型的图形界面元素定位精度",
+      "tags": "计算机视觉;视觉语言模型;图形界面元素定位",
+      "body_summary": "图形界面元素定位需要视觉语言模型在高分辨率截图中识别微小目标并预测精确坐标，现有策略蒸馏方法存在教师信号不可靠问题。\n提出质量感知自蒸馏方法，通过软正确感知门控与教师概率缩放提升教师信号质量，在六个基准上提升模型性能。"
+    },
+    "2606.19341": {
+      "short_zh": "智能体主动理解多模态视频",
+      "tags": "计算机视觉;视频理解;主动感知智能体",
+      "body_summary": "当前被动多模态理解方法难以处理复杂动态视频场景。\n提出了OmniAgent框架，通过主动感知与推理来增强智能体对视频的全面理解能力。"
+    },
+    "2606.19005": {
+      "short_zh": "从头训练开放式均匀扩散语言模型",
+      "tags": "自然语言处理;语言模型;均匀扩散语言模型",
+      "body_summary": "扩散模型是自回归模型的有力替代，但尚无大规模从头训练的均匀扩散语言模型用于研究。\n我们发布了从头训练的大规模开放式均匀扩散语言模型Sumi，性能接近同级自回归模型，并公开了全部资源。"
+    },
+    "2606.19336": {
+      "short_zh": "用强化学习训练用户模拟器",
+      "tags": "自然语言处理;对话系统;用户行为模拟",
+      "body_summary": "在交互式环境中模拟人类用户对助手训练、系统评估等有重要价值，但现有方法多训练大语言模型匹配单条真实回复。\n本文提出Turing-RL，用基于图灵测试的强化学习方法训练用户模拟模型，通过判别奖励使生成回复与真实用户历史下的可能回复难以区分，在对话和论坛场景中优于基线方法。"
+    },
+    "2606.18874": {
+      "short_zh": "外部化AI科学家的合成与验证",
+      "tags": "自动化科学工作流;研究合成与验证;可追溯可检查研究",
+      "body_summary": "AI系统能自动执行科研流程，但推理过程常隐含在模型内部，导致证据与主张的关联不透明。\n研究提出了Xcientist框架，将文献证据、设计方案、实验记录等外化为可追溯的研究制品，并通过案例证明它能保持合成与验证的可归因性和可检查性。"
+    },
+    "2606.18543": {
+      "short_zh": "大语言模型智能体长期决策能力评估",
+      "tags": "自然语言处理;智能体评测;长视野复杂任务仿真",
+      "body_summary": "当前语言模型智能体擅长短期独立任务，但处理真实世界长期复杂挑战的能力尚未得到充分测试。\n为此，该研究构建了CEO-Bench基准，通过模拟运营一家初创公司500天来综合评估智能体在长视野、不确定性环境下的信息处理、策略制定与协调执行能力。"
+    },
+    "2606.14383": {
+      "short_zh": "工业产品多图属性提取评测",
+      "tags": "多模态大模型;视觉语言理解;工业图像属性值抽取",
+      "body_summary": "工业产品规格信息分散在多种图像中，需多模态大模型准确提取。\n构建大规模多图工业产品数据集，评测发现多图完整性是模型核心瓶颈。"
+    },
+    "2606.15872": {
+      "short_zh": "训练小模型协调大模型解决科学推理",
+      "tags": "多模态学习;科学问答;大模型协同推理",
+      "body_summary": "前沿科学推理对现有大语言模型仍是挑战，不同模型在不同问题上表现互补。\n提出SciOrch框架，训练轻量模型来分解问题、调用商业模型API并合成答案，在测试集上以更低成本超越单一模型和多智能体基线。"
+    }
+  },
+  "deep_analysis": {
+    "2606.18943": "这篇论文的标题是 **《Physics-IQ Verified: Sharpening How Physical Understanding is Assessed》**。\n\n我来用简单的语言为你解释它的核心内容。\n\n---\n\n### (1) 这篇论文所在的任务是什么？\n\n*   **任务输入**：一个 **“文本到视频”** 或 **“图像到视频”** 生成模型。同时，还有一个包含大量物理现象（比如球落地、水波、物体碰撞）真实视频的数据集（Physics-IQ 数据集）。\n*   **任务输出**：一个 **评分** 或 **排名**，用于衡量这个视频生成模型 **理解和模拟真实物理世界规律的能力**。\n*   **任务功能**：**评估与基准测试**。它不是提出一个新模型，而是对一个已有的、专门用于评估视频生成模型物理理解能力的 **评测标准（Benchmark）** 进行改进和优化，使其更公平、更可靠。\n\n**简单比喻**：假设有一个考试（任务）用来测试学生（视频生成模型）的物理知识。这篇论文的工作不是教学生新知识，而是 **改进这个考试本身**，比如修改有歧义的考题、制定更公平的评分规则、剔除试卷上的印刷错误，确保考试分数能更真实地反映学生的物理水平。\n\n---\n\n### (2) 这篇论文想解决什么问题？\n\n论文发现，之前一个叫 **Physics-IQ** 的评测基准存在一些问题，导致它给出的分数可能 **不能完全准确地反映模型真正的物理理解能力**。主要问题有三个：\n\n1.  **考题（提示词）不清晰**：给模型下指令的文本（Prompt）有时很模糊或有歧义，模型可能因为没理解题目而做错，但这不一定是它物理不好。\n2.  **评分规则不公平**：原来的总评分是所有样本和指标一起算的，导致有些难的物理现象对分数影响大，有些简单的影响小。而且无法知道模型具体在哪个样本上失败了。\n3.  **参考答案（真实视频）有“干扰项”**：用来对比的真实物理实验视频里，可能包含一些与核心物理现象无关的“杂物”或偶然事件（比如摄像机抖动、无关物体的影子）。模型如果没生成这些“杂物”反而会被扣分，这显然不合理。\n\n**核心问题**：现有的 Physics-IQ 基准存在 **测量误差**，其分数可能被“糟糕的考题”、“不公平的算分”和“不干净的参考答案”所干扰，从而无法提供关于模型物理推理能力的 **纯净信号**。\n\n---\n\n### (3) 这篇论文的贡献是什么？\n\n论文提出了三大改进方案，合起来构成了一个新的、更可靠的基准，叫做 **Physics-IQ Verified**：\n\n1.  **提升提示词质量**：重写了超过 34.8% 有歧义的提示词，使其描述更精确、更符合不同模型的最佳提示词规范。这好比把“画一个球”改成“画一个红色的橡皮球从50厘米高的桌子边缘自由落体到木地板上”。\n2.  **改进评分聚合方法**：提出了一个 **样本级别的评分**。这意味着：\n    *   每个物理现象样本（如“球落地”）对最终总分的权重是相等的。\n    *   可以追溯模型在每个样本上的表现，方便分析具体失败原因。\n3.  **清理数据中的“伪影”（Artifacts）**：从用来对比的真实视频中，手动或自动地移除了与核心物理现象无关的干扰物（如无关的运动、摄像机晃动）。这确保了模型是在比拼“物理知识”，而不是比拼“复制无关噪音”。\n\n**总贡献**：通过对超过 **57.6%** 的样本进行细化，创造了一个 **更公平、更干净、更可解释** 的评测标准（Physics-IQ Verified），它能更准确地衡量视频生成模型的物理理解能力。\n\n---\n\n### (4) 论文的整体思路和流程是什么？\n\n这篇论文没有提出新的“模型结构”，它的工作流程是一个 **评测流程的优化**。我们可以把整个流程看作是对原有 Physics-IQ 评测管道（Pipeline）的三个关键环节打补丁。\n\n**整体思路**：**“净化”评测过程**。确保输入给模型的指令是清晰的，用于对比的答案是纯净的，最后计算分数的方法是公平的。这样，最终输出的分数才能纯粹地反映模型的物理建模能力。\n\n**参考流程图（图1）和文字描述，评测流程如下**：\n\n1.  **输入**：\n    *   **待评测的视频生成模型**（如 Sora、Luma 等）。\n    *   **Physics-IQ 数据集**：包含大量真实物理实验的视频和对应的文本描述（Prompt）。\n\n2.  **优化步骤（论文核心）**：\n    *   **Step A: 优化提示词**：使用一个“模板生成器”检查并重写数据集中模糊的文本描述，使其清晰且符合模型的最佳提示词实践。\n    *   **Step B: 清理真实视频**：检查数据集中的真实参考视频，识别并移除与核心物理现象无关的“伪影”或干扰运动。\n    *   **Step C: 生成与对比**：\n        *   用优化后的提示词，让待评测模型生成视频。\n        *   用清理后的真实视频作为“标准答案”。\n    *   **Step D: 计算指标**：使用 Physics-IQ 原有的四个指标（在哪里动、何时动、动得多强、像素像不像）来分别计算生成视频与标准答案的差距。**这一步本身没有改变**。\n    *   **Step E: 改进评分聚合**：**关键改变在这里**。不再直接把所有指标混在一起算总分。而是：\n        1.  对**每一个样本**，计算其四个指标的平均值，得到该样本的 **“样本级分数”**。\n        2.  最后，将所有样本的“样本级分数”再取平均，得到最终的 **Physics-IQ Verified 总分**。\n\n3.  **输出**：\n    *   一个更可靠的 **Physics-IQ Verified 总分**。\n    *   一系列 **样本级分数**，可用于详细分析模型在不同物理现象上的强弱项。\n\n---\n\n### (5) 结果怎么样？\n\n论文用六个先进的图像到视频生成模型进行了实验，比较它们在 **原始 Physics-IQ** 和 **Physics-IQ Verified** 上的表现。\n\n*   **主要发现**：模型排名发生了 **中等但有意义的变化**（肯德尔和谐系数 τ = 0.46，不是完美的1）。这说明改进后的基准确实提供了 **不同的、更可靠的信号**。\n*   **影响**：一些模型的相对排名上升或下降，表明原来的评测可能高估或低估了它们的能力。这证明了原始基准存在测量误差，而 Physics-IQ Verified 有效地减少了这些误差。\n*   **结论**：Physics-IQ Verified 能够更真实地反映模型的物理理解能力，为社区提供了一个更严谨的评估工具。未来的模型开发和比较，如果使用这个净化版的基准，结果会更具说服力。\n\n**一句话总结**：这篇论文像是一个“质检员”，它发现并修复了一个重要考试（Physics-IQ）中的漏洞，让考试成绩更能代表学生的真实水平，从而推动了整个领域更健康地发展。",
+    "2606.18375": "好的，没问题！我用最简单易懂的方式，为你拆解这篇《PAIWorld》论文的核心内容。\n\n你可以把这篇论文看作是给机器人做了一个 **“物理世界的想象力引擎”**。\n\n---\n\n### (1) 任务是什么？\n\n*   **任务输入**：机器人当前看到的**多视角画面**（比如手腕上、头顶上、眼睛上的多个摄像头拍的图） + **机器人将要执行的动作指令**。\n*   **任务输出**：**预测**机器人执行完这个动作后，下一时刻会看到的**多视角画面**。\n*   **任务功能**：这个模型就像一个“世界模拟器”。给定当前状态和动作，它能在“脑海里”想象出接下来会发生什么。这对于机器人**提前规划行动、避免失误**（比如想象到“伸手会打翻杯子”就换个动作）至关重要。\n\n### (2) 想解决什么问题？\n\n现有给机器人用的“想象力引擎”有个大问题：**多视角画面不一致**。\n\n*   比如，手腕摄像头“想象”中杯子在左边，头顶摄像头“想象”中杯子在中间。这两个画面在物理世界不可能同时成立，是矛盾的。\n*   这种矛盾会导致机器人基于错误的想象做出错误决策。这个问题叫**缺乏“3D一致性”**。\n*   作者认为，问题的根源有两个：\n    1.  **缺乏跨视角交流**：模型在“想象”每个摄像头的画面时，各想各的，没有互相通气。\n    2.  **缺乏3D几何知识**：模型不知道一个物体在3D空间里应该长什么样，所以即使想交流，也不知道该交流什么正确的信息。\n\n### (3) 贡献是什么？\n\n他们提出了一个叫 **PAIWorld** 的新模型，核心贡献是**同时解决了上面两个问题**：\n1.  **建立了“跨视角交流通道”**：在模型内部设计了一个专门的模块，让不同视角的信息能实时沟通。\n2.  **引入了“3D几何老师”**：从现成的、懂3D的AI模型那里“借”来知识，指导这个交流过程，确保大家交流的是正确的3D形状和位置信息。\n\n### (4) 整体思路与模型结构\n\n**基模是谁？**\n基模是 **DiT**。你可以把它理解为一个很强大的“视频生成模型”的骨架，擅长根据条件（比如文字、动作）生成连贯的视频。\n\n**PAIWorld 在 DiT 基础上做了关键改造，整体流程如下：**\n\n1.  **输入准备**：\n    *   把当前时刻多个摄像头的画面，通过一个编码器（比如VAE）变成一串串的“视觉令牌”（可以理解为一堆代表图像特征的小方块）。\n    *   把这些不同视角的令牌**按顺序拼接**在一起，形成一个很长的序列，输入给模型。同时，把机器人的动作指令也转换成令牌一起输入。\n\n2.  **核心处理（PAIWorld的三大法宝）**：\n    *   **法宝A：几何感知的跨视角注意力块**\n        *   这是**交流通道**的核心。它不是一个普通的注意力模块，而是被设计成能**特别关注来自不同视角的令牌**。这让“手腕视角”在生成图像时，能主动参考“头顶视角”的信息，从而保持一致。\n    *   **法宝B：几何旋转位置编码**\n        *   这是**给交流提供“坐标”**。普通的模型只知道令牌的顺序，不知道摄像头在哪儿。这个方法把每个摄像头的**位置、朝向**等信息编码进令牌里。这样，模型在交流时就知道：“哦，这个令牌来自左边45度的摄像头，那个来自正上方的摄像头”，从而能推理出正确的几何关系。\n    *   **法宝C：隐式3D-REPA（3D几何先验）**\n        *   这是**请来的“3D老师”**。他们用一个现成的、专门从单张图片理解3D形状的模型（比如一种叫“单目深度估计”的模型），来分析输入图像，提取出“这个物体的3D形状大概什么样”、“它离摄像头多远”等信息。\n        *   然后，**把这些3D知识像“小抄”一样，悄悄地注入到模型交流的过程中**，引导模型去学习正确的3D一致性特征，而不是学一些表面花样（比如只把颜色弄一致）。\n\n3.  **联合机制**：\n    *   上述三个法宝不是孤立的。**几何编码（B）** 告诉注意力模块（A）空间关系，**3D先验（C）** 则指导注意力模块（A）应该关注哪些有意义的3D特征。三者协同工作，缺一不可。\n\n4.  **输出**：\n    *   经过一系列这样的处理块后，模型输出预测的下一时刻的“视觉令牌”序列。\n    *   最后，用一个解码器把这些令牌**还原成多张图像**，就是机器人预测会看到的、**保持3D一致**的多视角画面。\n\n### (5) 结果怎么样？\n\n效果非常好，在当时的权威机器人仿真基准测试中达到了顶尖水平：\n*   在 **WorldArena** 排行榜上获得了 **第一名**。\n*   在 **AgiBot-Challenge2026** 排行榜上获得了 **第二名**。\n\n更重要的是，论文展示了这个“想象力引擎”能直接用于下游任务，比如：\n*   **基于模型的规划**：让机器人用这个模型在脑海里“试错”，找到最佳行动方案。\n*   **策略微调**：用模型生成的大量“想象”数据，来进一步训练机器人的控制策略。\n*   **多视角动作生成**：根据文字指令，直接生成符合物理规律的多视角动作视频。\n\n**总结一下**：PAIWorld 的核心就是**给机器人的世界模型装上了“对讲机”（跨视角注意力）和“3D地图”（几何编码与先验）**，让它在想象未来时，各个“眼睛”（摄像头）能看到一个统一、协调、符合物理规律的3D世界，从而做出更靠谱的决策。"
+  },
+  "figures": {
+    "2606.18943": [
+      {
+        "path": "https://arxiv.org/html/2606.18943v1/x1.png",
+        "caption": "Figure 1:Key improvements from the original to the verified Physics-IQ evaluation.We propose three refinements to the original pipeline targeting: (1) prompt quality, (2) metric aggregation, and (3) spurious metric activations (artifacts). These improvements together sharpen the focus of the evaluation on physical understanding rather than confounding factors and also lead to a fine-grained understanding of the final score in which also all samples are weighted equally.\nWe provide a detailed pipeline overview, including the original and verified metric computation, in App.C.1.",
+        "role": "pipeline_1",
+        "caption_zh": "图 1：从原始版到已验证版 Physics-IQ 评估的关键改进。我们对原始流程提出了三项改进，针对：(1) 提示词质量，(2) 指标聚合方式，以及 (3) 伪指标激活（人为干扰）。这些改进共同将评估重点更集中于物理理解而非干扰因素，并使得最终得分能够细粒度地反映所有样本均等加权后的理解情况。我们在附录 C.1 中提供了详细的流程概述，包括原始及已验证的指标计算过程。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.18943v1/x3.png",
+        "caption": "Figure 3:Overview of dataset modifications and issue distributions across the 198 benchmark videos.Of the 198 videos, 69 contain unclear prompts and 59 contain artifacts, with 20 videos belonging to both groups.(a)Video-level overview, with flows from all videos to unclear prompts and artifacts; prompt issue categories are shown as separate counts and may overlap across videos.(b)Frame-level composition, showing the proportion of inactive to active frames with at least 1 activation. Within the active frames we show the proportion of unmodified to modified frames where artifacts are removed.",
+        "role": "pipeline_2",
+        "caption_zh": "图3：198个基准视频的数据集修改与问题分布概览。在198个视频中，69个包含不明确的提示，59个存在伪影，其中20个视频同时属于这两类。(a)视频层面概览，展示了从所有视频流向不明确提示和伪影的分布；提示问题类别以独立计数显示，且在不同视频间可能存在重叠。(b)帧层面构成，展示了至少具有1次激活的非活跃帧与活跃帧的比例。在活跃帧中，我们进一步显示了未修改帧与已移除伪影的修改帧的比例。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.18943v1/x2.png",
+        "caption": "Figure 2:Examples of unclear prompt and artifact corrections in Physics-IQ Verified.(a)Unclear prompts reduce the ability of either a model or human to reliably predict the physical effect as key questions with respect to the movement are not addressed. Examples for each of the four categories in decreasing order of severity from left to right alongside our corrections.(b)Artifacts influence the binary activations, here visualized as a temporally aggregated heatmap, arising from visual events not stemming from the physical phenomena to be observed which we categorize into non-deterministic and deterministic.\nAll three IoU-based metrics (see Sec.2) directly operate on these activations and compare them to activations arising from generated videos to assess whether the physical phenomena were modeled accurately.\nThe occurrence of artifacts (red arrows), however, reduces the ability of these metrics to capture the physical phenomena potentially dominating the scoring as evident by the color scale in the original activations. Our cleaning directly addresses this by shifting the focus from the artifact towards the physical phenomena (here, falling ball and dominoes). More detailed examples are provided in App.B.",
+        "role": "pipeline_3",
+        "caption_zh": "图 2：Physics-IQ Verified 中不清晰提示与伪影修正的示例。(a) 不清晰的提示会降低模型或人类可靠预测物理效应的能力，因为涉及运动的关键问题未被阐明。图中从左到右按严重程度递减的顺序展示了四种类别的示例及其对应修正。(b) 伪影会影响二值化激活（此处以时间聚合的热力图形式呈现），这些激活源自非观测物理现象本身的视觉事件，我们将其分为非确定性和确定性两类。所有三种基于 IoU 的指标（见第 2 节）均直接基于这些激活进行操作，并将其与生成视频产生的激活进行比较，以评估物理现象是否被准确建模。然而，伪影（红色箭头）的出现会降低这些指标捕捉物理现象的能力，并可能主导评分结果，这在原始激活的颜色尺度中显而易见。我们的清理方法通过将焦点从伪影转移至物理现象（此处为下落的小球和多米诺骨牌）来直接解决此问题。更多详细示例见附录 B。"
+      }
+    ],
+    "2606.18375": [
+      {
+        "path": "https://arxiv.org/html/2606.18375v1/x2.png",
+        "caption": "Figure 2:Overview of the PAIWorld framework. Built on a DiT-based flow matching backbone, PAIWorld rests on two technical pillars realized by three components.Pillar 1, the inter-view pathway(two components): (1) Geometry-Aware Cross-View Attention blocks open an explicit communication pathway across views, and (2) Geometric Rotary Position Embedding (Geo-RoPE) encodes camera ray directions and extrinsic poses into this attention, biasing it toward geometrically corresponding tokens.Pillar 2, the geometric objective(one component): (3) Latent 3D-REPA aligns intermediate DiT representations with 3D-aware features from a frozen 3D foundation model (Depth Anything 3), supplying the supervisory signal. The first two components build the pathway, while Latent 3D-REPA ensures the information flowing through it is 3D-consistent.",
+        "role": "pipeline_1",
+        "caption_zh": "图 2：PAIWorld 框架概览。该框架基于 DiT 流匹配主干构建，其两大技术支柱由三个组件实现。支柱 1 为跨视图通路（两个组件）：(1) 几何感知跨视图注意力模块开辟了视图间显式通信通路；(2) 几何旋转位置编码（Geo-RoPE）将相机光线方向与外参姿态编码至该注意力中，使其偏向于几何对应的令牌。支柱 2 为几何目标（一个组件）：(3) 潜在 3D-REPA 将中间 DiT 表征与来自冻结 3D 基础模型（Depth Anything 3）的 3D 感知特征对齐，提供监督信号。前两个组件构建通路，而潜在 3D-REPA 确保流经其中的信息具有 3D 一致性。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.18375v1/x1.png",
+        "caption": "Figure 1:PAIWorld is a 3D-consistent multi-view world foundation model for robotic manipulation. Pre-trained on 2.5M multi-view video clips, PAIWorld serves as a versatile backbone for a range of downstream applications: multi-view world generation, world action modeling, robotic planning, and policy post-training. Across these settings, PAIWorld maintains cross-view 3D consistency, with coherent object placement, depth, and texture across all viewpoints, making its imagined rollouts physically plausible for embodied decision-making.",
+        "role": "pipeline_2",
+        "caption_zh": "图1：PAIWorld是一种用于机器人操作任务的、具有三维一致性的多视角世界基础模型。该模型在250万段多视角视频片段上进行了预训练，可作为多种下游应用的通用骨干网络，包括多视角世界生成、世界行为建模、机器人规划以及策略后训练。在这些应用场景中，PAIWorld始终保持跨视角的三维一致性，所有视角下的物体布局、深度和纹理均协调一致，从而使其生成的想象推演在物理上可信，适用于具身决策。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.18375v1/x7.png",
+        "caption": "Figure 7:Qualitative comparison of multi-view video generation. For each scene, we show generated frames from two viewpoints. Compared to Genie-Envisioner, PAIWorld produces geometrically consistent cross-view outputs with coherent object placement, depth structure, and texture alignment across viewpoints.",
+        "role": "pipeline_3",
+        "caption_zh": "图 7：多视角视频生成的定性对比。针对每个场景，我们展示了两个视角下生成的帧画面。与 Genie-Envisioner 相比，PAIWorld 生成的跨视角输出在几何上保持一致，各视角间的物体布局、深度结构与纹理对齐均具有连贯性。"
+      }
+    ]
+  }
+}
