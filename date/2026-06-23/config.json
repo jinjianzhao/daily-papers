@@ -1,10 +1,10 @@
 {
   "base_info": {
-    "2606.11075": {
-      "title": "Exploring the Design Space of Reward Backpropagation for Flow Matching",
-      "abstract": "Aligning text-to-image flow matching models with human preferences via direct reward backpropagation is sample-efficient but hampered by two well-known pathologies: activations cannot be stored across the full sampling trajectory at modern model scale, and chained Jacobian products across steps inflate the reward gradient as it travels back to early indices. Connector-based methods, such as LeapAlign, address these issues by replacing the full backward trajectory with a short pinned path, highlighting a useful decoupling between sampling and optimization. However, the quality of the resulting gradient depends on how accurately this short path approximates the full rollout, especially over long intervals. We propose FlowBP, a unified surrogate-trajectory framework that treats the backward trajectory itself as the design object. FlowBP keeps a no-gradient cached rollout for sampling, then builds a lightweight backward surrogate from cached and selectively re-forwarded velocities. This view separates four choices: the reward-model input, active set, integration weights, and bridge coupling, and recovers prior direct-gradient methods as particular settings. Within this framework, we instantiate three variants: FlowBP-Sparse uses sparse Euler reconstruction, FlowBP-Bridge adds controlled bridge coupling, and FlowBP-Lagrange raises the order of leap quadrature. All three bound memory by the active-set size and limit gradient chaining to at most one Jacobian factor. Across SD3.5-M, FLUX.1-dev, and FLUX.2-Klein-base on preference, quality, and compositional metrics, the three variants improve over direct-gradient baselines on most metrics.",
-      "abstract_zh": "通过直接奖励反向传播将文本到图像流匹配模型与人类偏好对齐具有样本效率高的优势，但受到两个众所周知的固有问题的阻碍：在现代模型规模下，无法存储整个采样轨迹中的激活值，并且跨步骤的链式雅可比积在梯度回传至早期索引时会膨胀奖励梯度。基于连接器的方法（例如LeapAlign）通过用短固定路径替代完整的反向轨迹来解决这些问题，凸显了采样与优化之间的有效解耦。然而，所得梯度的质量取决于该短路径对完整展开轨迹的近似程度，尤其是在长区间上。我们提出FlowBP，一个统一的代理轨迹框架，将反向轨迹本身作为设计对象。FlowBP在采样时保留一个无梯度的缓存展开轨迹，随后基于缓存和选择性重前传的速度构建轻量级反向代理。这一视角分离了四个设计选择：奖励模型输入、活跃集、积分权重和桥接耦合，并将先前的直接梯度方法恢复为特定设置。在此框架内，我们实例化了三种变体：FlowBP-Sparse采用稀疏欧拉重构，FlowBP-Bridge添加受控桥接耦合，FlowBP-Lagrange则提升跳跃求积的阶数。所有变体均通过活跃集大小约束内存使用，并将梯度链限制至最多一个雅可比因子。在SD3.5-M、FLUX.1-dev和FLUX.2-Klein-base模型上基于偏好、质量和组合性指标的实验中，三种变体在多数指标上均优于直接梯度基线方法。",
-      "hf_link": "https://huggingface.co/papers/2606.11075"
+    "2606.23267": {
+      "title": "Safe Few-Step Generation via Velocity Editing",
+      "abstract": "Flow matching has recently emerged as a strong paradigm for state-of-the-art text-to-image (T2I) generation, enabling high-quality generation with a small number of sampling steps. As these models are increasingly integrated into real-world applications, ensuring safe and non-sensitive content generation has become a critical requirement. However, adapting safety and concept removal methods to this new generation framework remains an open challenge. Specifically, prior methods largely rely on iterative trajectory steering across a number of denoising steps or on CLIP-centric prompt embedding manipulation. These design assumptions pose fundamental bottlenecks for safety in flow matching-based T2I generation, where limited sampling steps constrain iterative correction and modern context-aware text encoders diminish the effectiveness of embedding-level interventions. In this paper, we propose VESFlow, a training-free safety method tailored to flow matching with extremely few sampling steps. Leveraging the fact that flow matching models learn the marginal velocity, we directly edit the velocity field via a safe-conditional posterior. VESFlow steers the trajectory toward safe outputs while leaving the conditioning prompt unchanged. Building on the observation that VESFlow leaves outputs unchanged under benign prompts, we further introduce a risk score-based filtering that bypasses velocity editing to reduce computational cost while preserving benign prompt generation. Based on this filtering, we propose VESFlow+, a stronger variant of VESFlow that not only edits the velocity toward the safe direction, but also pushes it away from the unsafe direction. Experimental results show that VESFlow+ removes the target concept, reducing the attack success rate by NudeNet to 6.3% on Ring-A-Bell and 6.8% on MMA-Diffusion on the 4-step MeanFlow model, while preserving fidelity on benign prompts.",
+      "abstract_zh": "流匹配(Flow matching)近期已成为前沿文本到图像(T2I)生成领域的重要范式，能够以少量采样步骤实现高质量生成。随着这些模型日益融入实际应用，确保生成内容的安全性与非敏感性已成为关键需求。然而，将安全性与概念移除方法适配于这一新生成框架仍面临开放挑战。具体而言，现有方法主要依赖于在多步去噪过程中进行迭代轨迹引导，或基于CLIP的提示词嵌入操控。这些设计假设为基于流匹配的T2I生成安全带来了根本性瓶颈：有限采样步骤制约了迭代修正能力，而现代语境感知文本编码器又削弱了嵌入层级干预的有效性。本文提出VESFlow，一种专为极低采样步数的流匹配模型设计的免训练安全方法。基于流匹配模型学习边际速度这一特性，我们通过安全条件后验直接编辑速度场。VESFlow可在保持条件提示词不变的前提下，将生成轨迹引导至安全输出。进一步观察到VESFlow在处理良性提示词时保持输出不变，我们引入了基于风险评分的过滤机制，通过规避速度编辑来降低计算成本，同时保留良性提示词的生成质量。基于此过滤机制，我们提出了强化变体VESFlow+，其不仅将速度场导向安全方向，同时将其推离不安全方向。实验结果表明，在4步MeanFlow模型上，VESFlow+能有效移除目标概念，将Ring-A-Bell和MMA-Diffusion数据集的NudeNet攻击成功率分别降至6.3%和6.8%，同时保持良性提示词的生成保真度。",
+      "hf_link": "https://huggingface.co/papers/2606.23267"
     },
     "2606.23489": {
       "title": "MeshFlow: Mesh Generation with Equivariant Flow Matching",
@@ -12,17 +12,23 @@
       "abstract_zh": "网格是三维场景最常见的表示形式之一，但直接生成网格具有挑战性，因为该表示包含重要的对称性，包括面和顶点的置换不变性。MeshFlow 学习直接以三角形集合的形式生成三角形网格，避免了将网格序列化为长自回归序列的需求。我们采用等变最优传输流匹配模型，该模型尊重三角形集合的关键对称性：面的任意置换以及每个面内顶点的置换。为此，我们提出了一种对扩散变换器架构简单而有效的改进，从而构建了一个可扩展的网络，能够在模拟速度场的同时保持所需的等变性。我们进一步引入了基于最优传输的训练目标，通过消除违反这些对称性的监督信号来提升收敛性。MeshFlow 实现的网格质量可与最先进的自回归网格生成器相媲美，同时在推理过程中提供约 18 倍的加速。项目页面位于此 https URL。",
       "hf_link": "https://huggingface.co/papers/2606.23489"
     },
-    "2606.23267": {
-      "title": "Safe Few-Step Generation via Velocity Editing",
-      "abstract": "Flow matching has recently emerged as a strong paradigm for state-of-the-art text-to-image (T2I) generation, enabling high-quality generation with a small number of sampling steps. As these models are increasingly integrated into real-world applications, ensuring safe and non-sensitive content generation has become a critical requirement. However, adapting safety and concept removal methods to this new generation framework remains an open challenge. Specifically, prior methods largely rely on iterative trajectory steering across a number of denoising steps or on CLIP-centric prompt embedding manipulation. These design assumptions pose fundamental bottlenecks for safety in flow matching-based T2I generation, where limited sampling steps constrain iterative correction and modern context-aware text encoders diminish the effectiveness of embedding-level interventions. In this paper, we propose VESFlow, a training-free safety method tailored to flow matching with extremely few sampling steps. Leveraging the fact that flow matching models learn the marginal velocity, we directly edit the velocity field via a safe-conditional posterior. VESFlow steers the trajectory toward safe outputs while leaving the conditioning prompt unchanged. Building on the observation that VESFlow leaves outputs unchanged under benign prompts, we further introduce a risk score-based filtering that bypasses velocity editing to reduce computational cost while preserving benign prompt generation. Based on this filtering, we propose VESFlow+, a stronger variant of VESFlow that not only edits the velocity toward the safe direction, but also pushes it away from the unsafe direction. Experimental results show that VESFlow+ removes the target concept, reducing the attack success rate by NudeNet to 6.3% on Ring-A-Bell and 6.8% on MMA-Diffusion on the 4-step MeanFlow model, while preserving fidelity on benign prompts.",
-      "abstract_zh": "流匹配(Flow matching)近期已成为前沿文本到图像(T2I)生成领域的重要范式，能够以少量采样步骤实现高质量生成。随着这些模型日益融入实际应用，确保生成内容的安全性与非敏感性已成为关键需求。然而，将安全性与概念移除方法适配于这一新生成框架仍面临开放挑战。具体而言，现有方法主要依赖于在多步去噪过程中进行迭代轨迹引导，或基于CLIP的提示词嵌入操控。这些设计假设为基于流匹配的T2I生成安全带来了根本性瓶颈：有限采样步骤制约了迭代修正能力，而现代语境感知文本编码器又削弱了嵌入层级干预的有效性。本文提出VESFlow，一种专为极低采样步数的流匹配模型设计的免训练安全方法。基于流匹配模型学习边际速度这一特性，我们通过安全条件后验直接编辑速度场。VESFlow可在保持条件提示词不变的前提下，将生成轨迹引导至安全输出。进一步观察到VESFlow在处理良性提示词时保持输出不变，我们引入了基于风险评分的过滤机制，通过规避速度编辑来降低计算成本，同时保留良性提示词的生成质量。基于此过滤机制，我们提出了强化变体VESFlow+，其不仅将速度场导向安全方向，同时将其推离不安全方向。实验结果表明，在4步MeanFlow模型上，VESFlow+能有效移除目标概念，将Ring-A-Bell和MMA-Diffusion数据集的NudeNet攻击成功率分别降至6.3%和6.8%，同时保持良性提示词的生成保真度。",
-      "hf_link": "https://huggingface.co/papers/2606.23267"
+    "2606.11075": {
+      "title": "Exploring the Design Space of Reward Backpropagation for Flow Matching",
+      "abstract": "Aligning text-to-image flow matching models with human preferences via direct reward backpropagation is sample-efficient but hampered by two well-known pathologies: activations cannot be stored across the full sampling trajectory at modern model scale, and chained Jacobian products across steps inflate the reward gradient as it travels back to early indices. Connector-based methods, such as LeapAlign, address these issues by replacing the full backward trajectory with a short pinned path, highlighting a useful decoupling between sampling and optimization. However, the quality of the resulting gradient depends on how accurately this short path approximates the full rollout, especially over long intervals. We propose FlowBP, a unified surrogate-trajectory framework that treats the backward trajectory itself as the design object. FlowBP keeps a no-gradient cached rollout for sampling, then builds a lightweight backward surrogate from cached and selectively re-forwarded velocities. This view separates four choices: the reward-model input, active set, integration weights, and bridge coupling, and recovers prior direct-gradient methods as particular settings. Within this framework, we instantiate three variants: FlowBP-Sparse uses sparse Euler reconstruction, FlowBP-Bridge adds controlled bridge coupling, and FlowBP-Lagrange raises the order of leap quadrature. All three bound memory by the active-set size and limit gradient chaining to at most one Jacobian factor. Across SD3.5-M, FLUX.1-dev, and FLUX.2-Klein-base on preference, quality, and compositional metrics, the three variants improve over direct-gradient baselines on most metrics.",
+      "abstract_zh": "通过直接奖励反向传播将文本到图像流匹配模型与人类偏好对齐具有样本效率高的优势，但受到两个众所周知的固有问题的阻碍：在现代模型规模下，无法存储整个采样轨迹中的激活值，并且跨步骤的链式雅可比积在梯度回传至早期索引时会膨胀奖励梯度。基于连接器的方法（例如LeapAlign）通过用短固定路径替代完整的反向轨迹来解决这些问题，凸显了采样与优化之间的有效解耦。然而，所得梯度的质量取决于该短路径对完整展开轨迹的近似程度，尤其是在长区间上。我们提出FlowBP，一个统一的代理轨迹框架，将反向轨迹本身作为设计对象。FlowBP在采样时保留一个无梯度的缓存展开轨迹，随后基于缓存和选择性重前传的速度构建轻量级反向代理。这一视角分离了四个设计选择：奖励模型输入、活跃集、积分权重和桥接耦合，并将先前的直接梯度方法恢复为特定设置。在此框架内，我们实例化了三种变体：FlowBP-Sparse采用稀疏欧拉重构，FlowBP-Bridge添加受控桥接耦合，FlowBP-Lagrange则提升跳跃求积的阶数。所有变体均通过活跃集大小约束内存使用，并将梯度链限制至最多一个雅可比因子。在SD3.5-M、FLUX.1-dev和FLUX.2-Klein-base模型上基于偏好、质量和组合性指标的实验中，三种变体在多数指标上均优于直接梯度基线方法。",
+      "hf_link": "https://huggingface.co/papers/2606.11075"
     },
     "2606.22388": {
       "title": "PlanBench-XL: Evaluating Long-Horizon Planning of LLM Tool-Use Agents in Large-Scale Tool Ecosystems",
       "abstract": "LLM agents increasingly operate in large tool ecosystems, where real-world tasks require discovering relevant tools, inferring implicit sub-goals, and adapting to dynamic environments over long horizons. However, existing benchmarks rarely evaluate planning under retrieval-limited tool visibility. To address this gap, we introduce PlanBench-XL, an interactive benchmark of 327 retail tasks over 1,665 tools that tests whether agents can iteratively retrieve usable tools, invoke them to uncover intermediate evidence for subsequent calls toward the final goal. PlanBench-XL further features an optional blocking mechanism that simulates real-world unpredictability through missing, failing, or distracting tool functions, forcing agents to detect disrupted paths and adapt at runtime. Experiments on ten leading LLMs show that massive-tool planning remains challenging: while GPT-5.4 achieves 51.90% accuracy in block-free settings, it collapses to 11.36% under the most severe blocking condition. Further analysis shows that agents are especially vulnerable when failures lack explicit error signals or when recovery requires longer alternative tool-use paths. These results establish PlanBench-XL as a testbed for diagnosing agentic planning failures and highlight the need for robust adaptive planning in long-horizon tasks with large, imperfect tool environments.",
       "abstract_zh": "大型语言模型（LLM）智能体日益在庞大的工具生态系统中运行，现实世界的任务需要发现相关工具、推断隐含的子目标，并在长周期中适应动态环境。然而，现有基准测试很少评估检索受限工具可见性下的规划能力。为填补这一空白，我们提出了PlanBench-XL，这是一个包含327项零售任务和1,665个工具的交互式基准测试，用于检验智能体能否迭代检索可用工具、调用它们以发现中间证据，进而为实现最终目标进行后续调用。PlanBench-XL还引入了可选阻断机制，通过模拟缺失、失效或干扰性工具功能来再现现实世界的不确定性，迫使智能体检测中断路径并在运行时进行适应。对十种领先大型语言模型的实验表明，大规模工具规划仍然具有挑战性：虽然GPT-5.4在无阻断设置中达到51.90%的准确率，但在最严苛的阻断条件下其准确率骤降至11.36%。进一步分析显示，当故障缺乏明确错误信号或恢复需要更长的替代工具使用路径时，智能体尤其脆弱。这些结果确立了PlanBench-XL作为诊断智能体规划故障的测试平台，并突显了在庞大且不完美的工具环境中，长周期任务需要具备稳健的自适应规划能力。",
       "hf_link": "https://huggingface.co/papers/2606.22388"
+    },
+    "2606.21337": {
+      "title": "DataClaw0: Agentic Tailoring Multimodal Data from Raw Streams",
+      "abstract": "Massive unstructured multimodal streams suffer from high \"data entropy,\" impeding both efficient human knowledge acquisition and high-quality AI post-training. Existing passive annotation paradigms, heavily reliant on heuristic rules or general VLMs, are costly, monotonous, and fail to unlock the deep procedural logic embedded in raw data. We elevate data processing to a learnable capability, proposing a paradigm shift towards Agentic Data Tailoring, which actively refining and structuring data to align with diverse user and downstream intents. To overcome the data scarcity bottleneck in training such high-order capabilities, we design a two-stage pipeline grounding generative semantic synthesis in deterministic Factual Anchors, yielding a large-scale dataset spanning five core physical and digital domains. Building upon this, $\\text{DataClaw}_0$-9B model synergizes Supervised Fine-Tuning (SFT) with Group Relative Policy Optimization (GRPO), achieving robust alignment with complex refinement and tailoring intents. To systematically quantify this capability, we construct $\\text{DataClaw}_0$-val, the first benchmark dedicated to data refinement. Crucially, we adopt downstream post-training as the ultimate validation touchstone. Evaluations on video generation, real-world VQA, and GUI navigation confirm that $\\text{DataClaw}_0$ delivers high-information-density tailored data, facilitating efficient model adaptation to new tasks under limited training data regimes. Project page:this https URL",
+      "abstract_zh": "海量非结构化多模态数据流存在高\"数据熵\"问题，阻碍了高效的人类知识获取和高质量的人工智能后训练。现有被动标注范式严重依赖启发式规则或通用视觉语言模型（VLM），不仅成本高昂、流程单调，且无法发掘原始数据中嵌入的深层程序逻辑。我们将数据处理提升为可学习能力，提出向\"智能数据裁剪\"范式转型——通过主动精炼和结构化数据，使其与多样化用户及下游意图对齐。为突破训练此类高阶能力面临的数据稀缺瓶颈，我们设计了基于确定性事实锚点（Factual Anchors）的两阶段生成式语义合成流程，构建了涵盖五大核心物理与数字领域的大规模数据集。在此基础上，$\\text{DataClaw}_0$-9B模型通过监督微调（SFT）与分组相对策略优化（GRPO）的协同训练，实现了对复杂数据精炼与裁剪意图的强效对齐。为系统量化该能力，我们构建了首个专注于数据精炼的基准测试集$\\text{DataClaw}_0$-val。关键的是，我们采用下游后训练作为终极验证标准。在视频生成、真实世界视觉问答（VQA）及图形用户界面（GUI）导航任务上的评估表明，$\\text{DataClaw}_0$能提供高信息密度的定制化数据，助力模型在有限训练数据条件下高效适应新任务。项目页面：this https URL",
+      "hf_link": "https://huggingface.co/papers/2606.21337"
     },
     "2606.23654": {
       "title": "EnterpriseClawBench: Benchmarking Agents from Real Workplace Sessions",
@@ -54,6 +60,12 @@
       "abstract_zh": "现有嵌入模型本质上是静态的：它们孤立地对文本片段进行编码，忽略了其周围的上下文和时间顺序。本文提出了EvoEmbedding，一种新颖的生成可演化表征用于检索的嵌入模型。该模型专为长上下文场景量身定制，这类场景中的信息具有动态性、序列性，且需要持续的状态追踪。我们的设计简洁明了：EvoEmbedding在顺序处理输入时维护一个持续更新的潜在记忆（latent memory），并将其与原始内容结合使用，共同生成可演化的嵌入。因此，对于相同的查询，我们的模型能够根据不断演化的上下文调整其表征，以检索不同的目标，超越了静态的语义搜索范畴。为赋予模型这种能力，我们构建了EvoTrain-180K——一个用于联合优化潜在记忆与检索的多样化数据集。此外，我们引入了记忆队列（memory queue）以防止循环编码过程中的表征坍缩，并采用了分段批处理（segment-batching）技术来应对显著的文本长度差异，将训练速度提升了3.8倍。大量实验表明，我们的模型不仅在一系列长上下文检索基准测试中超越了更大规模的专用模型（如Qwen3-Embedding-8B和KaLM-Embedding-Gemma3-12B），还能很好地泛化至下游任务（如个性化推荐），其处理上下文长度可达训练窗口的10倍。值得注意的是，EvoEmbedding能无缝集成至智能体工作流以提升性能。例如，配备我们模型的简易RAG（检索增强生成）流水线表现优于专门的智能体记忆系统。项目页面：this https URL。",
       "hf_link": "https://huggingface.co/papers/2606.21649"
     },
+    "2606.22138": {
+      "title": "BioMatrix: Towards a Comprehensive Biological Foundation Model Spanning the Modality Matrix of Sequences, Structures, and Language",
+      "abstract": "We present BioMatrix, the first multimodal foundation model that natively integrates sequences, structures, and natural language for both molecules and proteins within a single decoder-only architecture. Existing biological foundation models pursue native multimodality and broad entity coverage separately: those that fuse multiple modalities under a shared objective remain confined to a single entity type, while those spanning multiple entity types either omit explicit structural modeling or rely on adapter-based designs in which the model cannot natively generate the very modalities it can read. BioMatrix closes this gap by mapping molecular sequences (supporting both SMILES and SELFIES notations), molecular structures, protein sequences, protein structures, and natural language into a shared discrete token space through a unified tokenization scheme, so that all modalities are consumed and produced uniformly under a single next-token prediction objective -- without external encoders, projection adapters, or modality-specific output heads. Built upon the Qwen3 language model (1.7B and 4B), BioMatrix is continually pretrained on 304.4 billion tokens spanning general and domain-specific text, sequence and structure views of molecules and proteins, and cross-modal corpora that interleave biomolecular entities with scientific text and link distinct entities through molecule-protein and protein-protein interaction data. After tuning on a comprehensive suite of downstream applications covering 80 tasks across 6 categories -- encompassing single-entity and multi-entity understanding and generation tasks across and within modalities -- BioMatrix achieves state-of-the-art or competitive performance on 77 out of 80 tasks, demonstrating that a single, natively multimodal generalist model can effectively match or surpass specialized approaches across a wide range of biological tasks.",
+      "abstract_zh": "我们提出了BioMatrix，这是首个在单一解码器架构内原生整合分子与蛋白质的序列、结构和自然语言的多模态基础模型。现有的生物基础模型分别追求原生多模态性与广泛的实体覆盖范围：那些在共享目标下融合多种模态的模型仍局限于单一实体类型；而覆盖多种实体类型的模型要么省略了显式结构建模，要么依赖于基于适配器的设计——此类模型无法原生生成其可读取的模态。BioMatrix通过统一的标记化方案，将分子序列（支持SMILES和SELFIES两种表示法）、分子结构、蛋白质序列、蛋白质结构及自然语言映射到共享的离散标记空间，从而弥合了这一差距。这使得所有模态都能在单一的下一个标记预测目标下被统一处理与生成——无需外部编码器、投影适配器或特定模态的输出头。基于Qwen3语言模型（1.7B和4B参数规模），BioMatrix持续预训练了3044亿个标记，涵盖通用与领域特定文本、分子与蛋白质的序列和结构视图，以及交叉模态语料库，这些语料库将生物分子实体与科学文本交织，并通过分子-蛋白质及蛋白质-蛋白质相互作用数据连接不同实体。在对覆盖6大类别的80项任务进行全面下游应用调优后——包括跨模态与模态内、单实体与多实体的理解与生成任务——BioMatrix在80项任务中的77项上达到了最先进或具有竞争力的性能，这表明单一的原生多模态通用模型能够有效匹配或超越多种生物学任务中的专用方法。",
+      "hf_link": "https://huggingface.co/papers/2606.22138"
+    },
     "2606.20097": {
       "title": "HydraHead: From Head-Level Functional Heterogeneity to Specialized Attention Hybridization",
       "abstract": "The quadratic complexity of attention poses a critical bottleneck for long-context processing, spurring interest in hybrid attention designs. Most open-source hybrid models adopt a layer-wise strategy. Yet, prior work has noted the inherent difficulty of integrating Linear Attention (LA) with Full Attention (FA), suggesting that the design space of attention hybridization remains underexplored. To probe this space, we conduct interpretability analysis and observe that layers exhibit block-wise functional similarity, while individual heads within the same layer display distinct functional specialization despite sharing input features. This head-level heterogeneity suggests that the head dimension provides a natural and principled granularity for fusing heterogeneous attention signals. Building on this insight, we introduce HydraHead, a novel architecture that hybridizes FA and LA along the head axis. HydraHead features two key innovations: (1) an interpretability-driven selection strategy that identifies retrieval-critical heads and preserves FA only for them, and (2) a scale-normalized fusion module that reconciles the distributional gap between FA and LA head outputs. By leveraging a three-stage transfer pipeline with parameter reuse and distillation, we achieve high-performance hybrid models with minimal training overhead. Under a unified training setup, HydraHead outperforms other hybrid designs in long-context tasks while maintaining strong general reasoning. With interpretability-driven head selection, it matches a 3:1 layer-wise hybrid's long-context performance at a 7:1 LA-to-FA ratio. Crucially, trained on only 15B tokens, HydraHead achieves over 69% improvement over the baseline at 512K context length, approaching Qwen3.5, a leading model of comparable size with a native context length of 256K. This highlights the significant scaling potential of head-level hybridization.",
@@ -72,11 +84,11 @@
       "abstract_zh": "现代智能体系统常面临运行时状态碎片化的问题：对话记录、工具效应、内存事件、工作空间放置、分支溯源与回放证据被分散记录，导致难以检视或复现。OpenRath通过引入一种类PyTorch编程模型来解决多智能体、多会话系统中的这一问题——其类比核心在于首要运行时抽象的角色，而非张量计算。该模型的核心抽象是会话（Session），即智能体与工作流间传递的运行时值。会话具备可分支、可检视、可回放、后端感知及可组合的特性，能记录对话片段、沙箱（Sandbox）放置、谱系元数据、令牌使用量、待处理任务及工具证据，同时定义内存交互进入运行时记录的接入点。由于这些状态由程序执行时使用的同一值承载，分支、合并与回放成为显式的运行时操作，而非依赖外部轨迹重建的状态。OpenRath进一步定义了沙箱（Sandbox）、工具（Tool）、智能体（Agent）、内存（Memory）、工作流（Workflow）及选择器（Selector），其中选择器将控制流转化为基于运行时路由的决策。本报告阐述了该编程模型、系统架构、审计里程碑及证据协议。其主张仅限于受控的运行时特性，而广泛的量化比较、实时服务商质量、可选后端可用性及内存质量将留待后续评估。核心论点为：会话为智能体系统提供了支持可审计组合的首要运行时值。",
       "hf_link": "https://huggingface.co/papers/2606.19409"
     },
-    "2606.21337": {
-      "title": "DataClaw0: Agentic Tailoring Multimodal Data from Raw Streams",
-      "abstract": "Massive unstructured multimodal streams suffer from high \"data entropy,\" impeding both efficient human knowledge acquisition and high-quality AI post-training. Existing passive annotation paradigms, heavily reliant on heuristic rules or general VLMs, are costly, monotonous, and fail to unlock the deep procedural logic embedded in raw data. We elevate data processing to a learnable capability, proposing a paradigm shift towards Agentic Data Tailoring, which actively refining and structuring data to align with diverse user and downstream intents. To overcome the data scarcity bottleneck in training such high-order capabilities, we design a two-stage pipeline grounding generative semantic synthesis in deterministic Factual Anchors, yielding a large-scale dataset spanning five core physical and digital domains. Building upon this, $\\text{DataClaw}_0$-9B model synergizes Supervised Fine-Tuning (SFT) with Group Relative Policy Optimization (GRPO), achieving robust alignment with complex refinement and tailoring intents. To systematically quantify this capability, we construct $\\text{DataClaw}_0$-val, the first benchmark dedicated to data refinement. Crucially, we adopt downstream post-training as the ultimate validation touchstone. Evaluations on video generation, real-world VQA, and GUI navigation confirm that $\\text{DataClaw}_0$ delivers high-information-density tailored data, facilitating efficient model adaptation to new tasks under limited training data regimes. Project page:this https URL",
-      "abstract_zh": "海量非结构化多模态数据流存在高\"数据熵\"问题，阻碍了高效的人类知识获取和高质量的人工智能后训练。现有被动标注范式严重依赖启发式规则或通用视觉语言模型（VLM），不仅成本高昂、流程单调，且无法发掘原始数据中嵌入的深层程序逻辑。我们将数据处理提升为可学习能力，提出向\"智能数据裁剪\"范式转型——通过主动精炼和结构化数据，使其与多样化用户及下游意图对齐。为突破训练此类高阶能力面临的数据稀缺瓶颈，我们设计了基于确定性事实锚点（Factual Anchors）的两阶段生成式语义合成流程，构建了涵盖五大核心物理与数字领域的大规模数据集。在此基础上，$\\text{DataClaw}_0$-9B模型通过监督微调（SFT）与分组相对策略优化（GRPO）的协同训练，实现了对复杂数据精炼与裁剪意图的强效对齐。为系统量化该能力，我们构建了首个专注于数据精炼的基准测试集$\\text{DataClaw}_0$-val。关键的是，我们采用下游后训练作为终极验证标准。在视频生成、真实世界视觉问答（VQA）及图形用户界面（GUI）导航任务上的评估表明，$\\text{DataClaw}_0$能提供高信息密度的定制化数据，助力模型在有限训练数据条件下高效适应新任务。项目页面：this https URL",
-      "hf_link": "https://huggingface.co/papers/2606.21337"
+    "2606.20636": {
+      "title": "SkillHarness: Harnessing Safe Skills for Computer-Use Agents",
+      "abstract": "Computer-Use Agents (CUAs) are increasingly deployed in dynamic interactive environments, creating a growing need for continual skill learning during interaction. Recent approaches address this challenge by learning reusable skills from successful trajectories. However, these skill learning methods largely assume static and safe environments, overlooking risks from adversarial interactions (e.g., prompt injections) and environmental dynamics (e.g., pop-ups). In dynamic settings, such assumptions can lead to risky skill learning and brittle execution, undermining the reliability of CUAs. This raises the question: how can CUAs learn and use skills safely in dynamic environments? To address this problem, we propose SkillHarness, a framework for safe skill harnessing in dynamic environments. SkillHarness moves beyond static skill abstractions by modeling skill learning and utilization as a safety-constrained interaction process. Specifically, we introduce the skill boundary that leverages multi-source supervision signals to identify safe skills from interaction trajectories, and construct self-improving safety constraints throughout the skill lifecycle. In addition, SkillHarness introduces selective skill reuse, where tasks are guided to decompose according to context and completed through the selective activation of skill subsets. Our experiments demonstrate that SkillHarness significantly reduces the unsafe rate of learned skills by 57.1% and consistently improves execution stability under dynamic environmental changes, outperforming existing baselines.",
+      "abstract_zh": "计算机使用代理（Computer-Use Agents，简称CUAs）正越来越多地被部署在动态交互环境中，这导致在交互过程中持续学习技能的需求日益增长。近期的研究通过从成功轨迹中学习可复用技能来应对这一挑战。然而，这些技能学习方法大多假设环境是静态且安全的，忽略了对抗性交互（例如提示注入）与环境动态变化（例如弹窗）带来的风险。在动态环境中，此类假设可能导致风险性技能学习和脆弱的执行过程，从而削弱CUAs的可靠性。这引出一个关键问题：CUAs如何在动态环境中安全地学习和使用技能？为解决这一问题，我们提出了SkillHarness，一个用于动态环境中安全技能驾驭的框架。SkillHarness通过将技能学习与利用建模为一个安全约束的交互过程，超越了静态的技能抽象。具体而言，我们引入了技能边界（skill boundary），利用多源监督信号从交互轨迹中识别安全技能，并在技能全生命周期中构建自增强的安全约束。此外，SkillHarness提出选择性技能复用机制，使任务能够根据上下文进行分解，并通过选择性激活技能子集来完成。实验表明，SkillHarness将所学技能的不安全率显著降低了57.1%，并在动态环境变化下持续提升执行稳定性，其表现优于现有基准方法。",
+      "hf_link": "https://huggingface.co/papers/2606.20636"
     },
     "2606.18648": {
       "title": "Deep Research in Physical Sciences: A Multi-Agent Framework and Comprehensive Benchmark",
@@ -84,17 +96,35 @@
       "abstract_zh": "深度研究智能体（Deep Research Agent）是基于大型语言模型（Large Language Model, LLM）的系统，旨在实现自主、多步骤的科学推理，在加速物理科学研究方面具有巨大潜力。然而，目前仍缺乏针对该领域内智能体能力的全面深入评估。为弥补这一空白，我们提出了PhySciBench——一个与物理科学研究高度相关的基准测试，包含200个由专家精心设计的问题，涵盖物理学和化学两大平衡领域，涉及反映真实世界科学工作流程的六大任务类别。在PhySciBench上对前沿模型与智能体系统的评估显示其性能有限；即使最强的基线模型Gemini Deep Research也仅达到33.5%的准确率。通过对失败案例的分析，我们识别出三个反复出现的缺陷：长推理链的脆弱性、跨步骤知识迁移的局限性，以及缺乏基于物理原理的自我验证机制。基于这些发现，我们开发了DelveAgent——一个配备自适应规划循环、双粒度记忆模块和分层式物理驱动反思机制的模块化多智能体框架。在四项科学基准测试中，DelveAgent将准确率最高提升了7.5个百分点，同时将推理成本降至最强基线的大约三分之一。这些结果确立了PhySciBench作为评估物理科学领域人工智能系统的关键基准的重要性，并证明通过架构专业化能有效提升自主科学研究的可靠性。本研究的代码与数据已公开于https://github.com/yigengjiang/physci-deepresearch。",
       "hf_link": "https://huggingface.co/papers/2606.18648"
     },
+    "2606.23050": {
+      "title": "Unlimited OCR Works",
+      "abstract": "Recently, end-to-end OCR models, exemplified by DeepSeek OCR, have once again thrust OCR into the spotlight. A widely held view is that employing a large language model (LLM) as the decoder allows the model to leverage the prior distribution of language, leading to improved OCR performance. However, the downside is equally evident: as the output sequence lengthens, the accumulated KV cache drives up memory consumption and progressively slows down generation. This stands in stark contrast to humans, who exhibit no such decline in efficiency during long-horizon copying tasks. In this technical report, we propose Unlimited OCR, a model designed to emulate human parsing working memory. Taking DeepSeek OCR as the baseline, we replace all attention layers in the decoder with our proposed Reference Sliding Window Attention (R-SWA), which reduces attention computation costs while maintaining a constant KV cache throughout the entire decoding process. By combining the high compression rate of DeepSeek OCR's encoder with our constant KV cache design, Unlimited OCR can transcribe dozens of pages of documents in a single forward pass under a standard maximum length of 32K. More importantly, R-SWA is a general-purpose parsing attention mechanism - beyond OCR, it is equally applicable to tasks such as ASR, translation, etc. Codes and model weights are publicly available atthis http URL.",
+      "abstract_zh": "近期，以DeepSeek OCR为代表的端到端光学字符识别（Optical Character Recognition, OCR）模型再次将OCR技术推向关注焦点。一个普遍观点认为，采用大语言模型（Large Language Model, LLM）作为解码器可使模型利用语言的先验分布，从而提升OCR性能。然而，其缺陷同样明显：随着输出序列增长，累积的键值（KV）缓存会推高内存消耗，并逐渐减慢生成速度。这与人类在长篇幅抄写任务中表现出的效率稳定性形成鲜明对比。在本技术报告中，我们提出Unlimited OCR模型，其设计灵感源于人类解析工作记忆机制。以DeepSeek OCR为基线，我们将解码器中所有注意力层替换为提出的参考滑动窗口注意力（Reference Sliding Window Attention, R-SWA）。该机制在保持全程解码过程中KV缓存恒定的同时，显著降低了注意力计算成本。通过结合DeepSeek OCR编码器的高压缩率与我们设计的恒定KV缓存架构，Unlimited OCR能在标准最大长度32K的单次前向传播中转录数十页文档。更重要的是，R-SWA是一种通用解析注意力机制——除OCR外，它同样适用于自动语音识别（ASR）、翻译等任务。代码与模型权重已在this http URL开源。",
+      "hf_link": "https://huggingface.co/papers/2606.23050"
+    },
+    "2606.20945": {
+      "title": "Grouped Query Experts: Mixture-of-Experts on GQA Self-Attention",
+      "abstract": "Self-attention is central to Transformer performance and is often the most expensive part of the Transformer at long context lengths because its pairwise token interactions scale quadratically with sequence length. Standard dense attention also applies the same set of attention heads to every token regardless of token difficulty or information content. This uniform activation can waste compute, especially as sequences grow longer and attention cost increases rapidly. We propose Grouped Query Experts (GQE), a mixture-of-experts layer on top of grouped-query attention (GQA). Within each GQA group, a router selects k query-head experts per token while all key-value (KV) heads remain dense and unchanged. Thus, GQE keeps the KV cache benefits of GQA and reduces only the active query-head computation. On a fixed 30B token budget at the 250M parameter scale, GQE matches the all-active GQA baseline in downstream accuracy while activating half the query heads per token.",
+      "abstract_zh": "自注意力机制是Transformer性能的核心，也是长上下文长度下Transformer中最昂贵的部分，因为其成对令牌交互的计算复杂度随序列长度呈平方级增长。标准稠密注意力机制无论令牌难度或信息内容如何，均对每个令牌应用相同的注意力头集合。这种均匀激活可能造成计算资源浪费，尤其当序列变长且注意力成本急剧增加时。我们提出分组查询专家机制（Grouped Query Experts，GQE），这是一种建立在分组查询注意力（grouped-query attention，GQA）之上的专家混合层。在每个GQA组内，路由器为每个令牌选择k个查询头专家，而所有键值头保持稠密且不变。因此，GQE保留了GQA在键值缓存上的优势，同时仅减少活跃查询头的计算量。在参数量为2.5亿规模的固定300亿令牌预算下，GQE在下游任务准确率上匹配全激活GQA基线，同时将每个令牌激活的查询头数量减少一半。",
+      "hf_link": "https://huggingface.co/papers/2606.20945"
+    },
+    "2606.21906": {
+      "title": "Deeper is Not Always Better: Mitigating the Alignment Tax via Confident Layer Decoding",
+      "abstract": "Autoregressive generation in large language models (LLMs) conventionally decodes from the final layer, assuming that deeper representations yield more reliable next-token predictions. We revisit this assumption by revealing a recurring Guess-Refine-Perturb dynamic: early layers form coarse guesses, intermediate layers refine reasoning-relevant semantics, and final layers can perturb these refined predictions toward generic or alignment-preferred tokens. We introduce Confident Decoding, a training-free decoding strategy that dynamically selects the most reliable near-final layer through entropy-guided conservative backward search. We further provide a theoretical formulation of layer selection as an optimal stopping problem, showing that under bounded projection noise and dominant late-stage alignment perturbation, our search rule filters perturbation while bounding the loss relative to the oracle refinement layer. Experiments across dense and Mixture-of-Experts LLMs demonstrate consistent gains on challenging reasoning benchmarks, including GPQA-Diamond, Omni-MATH, and HLE, with zero memory overhead and less than 2% latency increase. These results suggest dynamically bypassing final-layer perturbations can unlock stronger reasoning behavior from aligned LLMs.",
+      "abstract_zh": "在大型语言模型(LLMs)的自回归生成中，传统方法通常从最终层进行解码，其假设是更深层的表示能产生更可靠的下一个词元预测。我们通过揭示一种反复出现的\"猜测-优化-扰动\"动态模式对这一假设进行了重新审视：早期层形成粗略猜测，中间层优化与推理相关的语义，而最终层可能将这些优化后的预测偏向通用或对齐偏好的词元。我们提出了自信解码(Confident Decoding)这一无需训练的解码策略，它通过熵引导的保守后向搜索动态选择最可靠的近最终层。我们进一步将层选择问题理论化为最优停止问题，证明在有界投影噪声和主导的后期对齐扰动条件下，我们的搜索规则能够过滤扰动，同时将损失限定在相对理想优化层的有限范围内。在稠密模型和混合专家(Mixture-of-Experts) LLMs上的实验表明，该方法在GPQA-Diamond、Omni-MATH和HLE等具有挑战性的推理基准测试中均取得稳定提升，且实现零内存开销和低于2%的延迟增加。这些结果表明，动态规避最终层的扰动能够释放对齐后LLMs更强的推理能力。",
+      "hf_link": "https://huggingface.co/papers/2606.21906"
+    },
     "2606.12871": {
       "title": "DailyReport: An Open-ended Benchmark for Evaluating Search Agents on Daily Search Tasks",
       "abstract": "Search Agents (SAs) typically leverage large language models (LLMs) to support complex information-seeking tasks by autonomously exploring web sources and synthesizing information into comprehensive responses. For SAs evaluation, prior benchmarks mainly focus on specialized tasks that are unlikely to arise in real-world user scenarios. Moreover, their reliance on coarse task-level rubrics often limits evaluation interpretability. To bridge this gap, we introduce DailyReport, an open-ended benchmark to evaluate SA capabilities on daily search tasks. It contains 150 open-ended tasks with 3,546 associated rubrics, capturing widely discussed and timely information demands of real-world users. Each task is decomposed into subtasks and evaluated with cascade rubrics across disentangled dimensions. Through cascade performance attribution and user-centric aggregation, we derive highly interpretable scores for each dimension, along with a user preference score. Our results on 17 agentic systems show that current systems still fall short of users' expectations. To facilitate future research, our dataset and code are made publicly available atthis https URL.",
       "abstract_zh": "搜索智能体(SAs)通常利用大语言模型(LLMs)，通过自主探索网络资源并将信息整合为全面回答，以支持复杂的信息检索任务。在SAs评估方面，现有基准测试主要集中于专业任务，这些任务在实际用户场景中较少出现。此外，其对粗粒度任务级评价标准的依赖往往限制了评估的可解释性。为弥补这一差距，我们推出DailyReport——一个用于评估SAs在日常搜索任务中能力的开放式基准测试。该基准包含150项开放式任务及3,546条关联评价标准，涵盖现实用户广泛讨论的即时性信息需求。每项任务被分解为多个子任务，并通过跨解耦维度的级联评价标准进行评估。通过级联性能归因和以用户为中心的聚合方法，我们为每个维度推导出高度可解释的评分，同时生成用户偏好分数。我们在17个智能体系统上的测试结果表明，现有系统仍未能满足用户期望。为促进未来研究，我们的数据集和代码已通过此https链接公开。",
       "hf_link": "https://huggingface.co/papers/2606.12871"
     },
-    "2606.21139": {
-      "title": "PoLAR: Factorizing Extent and Mode in Latent Actions for Robot Policy Learning",
-      "abstract": "Latent action pretraining learns representations of visual change from pairs of observations, but existing methods typically encode each transition as a single unstructured representation that entangles transition extent and transition mode. We introduce Polar Latent Actions with Radial structure (PoLAR), which imposes a radial-direction structure on latent actions, encouraging radius to encode transition extent and direction to retain transition mode. PoLAR uses temporal offset between two observations as a weak proxy for transition extent, encouraging latent action from observation pairs separated by larger temporal gaps to occupy larger radii. We instantiate this structure in hyperbolic space, whose expanding volume with radius offers a natural fit for more diverse transition modes at larger extents. Across in-task and large-scale pretraining settings, PoLAR improves downstream policy performance in simulation and real-world robot experiments, outperforming latent action baselines and strong pretrained VLAs. These results suggest that the geometry of the latent action space is an important design choice for transferring visual pretraining to downstream robot policy learning.",
-      "abstract_zh": "潜在动作预训练通过成对的观察学习视觉变化的表示，但现有方法通常将每个过渡编码为单一的非结构化表示，从而混淆了过渡幅度与过渡模式。我们引入具有径向结构的极坐标潜在动作（PoLAR），该方法在潜在动作上施加径向-方向结构，促使半径编码过渡幅度，方向保留过渡模式。PoLAR利用两个观察之间的时间间隔作为过渡幅度的弱代理指标，鼓励时间间隔更大的观察对所对应的潜在动作占据更大的半径。我们在双曲空间中实例化了这一结构——其随半径扩展的体积特性自然契合更大过渡幅度下更丰富的过渡模式。在任务内与大规模预训练场景中，PoLAR在仿真与真实机器人实验中均提升了下游策略性能，超越了潜在动作基线模型与经过强预训练的视觉语言动作模型（VLAs）。这些结果表明，潜在动作空间的几何结构是将视觉预训练迁移至下游机器人策略学习的重要设计选择。",
-      "hf_link": "https://huggingface.co/papers/2606.21139"
+    "2606.11897": {
+      "title": "Notes2Skills: From Lab Notebooks to Certainty-Aware Scientific Agent Skills",
+      "abstract": "Scientific discovery workflows usually contain and rely heavily on lab notes, where researchers record observations, interpret uncertain results, and plan follow-up experiments. Such informative lab notes preserve evolving scientific reasoning and author uncertainty, rather than polished final results exhibited in publications, providing a valuable opportunity for AI to engage in scientific exploration at a more comprehensive and deeper level. However, most prior work on scientific text focuses on papers, protocols, or structured databases, leaving informal laboratory notes underexplored as inputs to AI agents for science. This gap matters because lab notes often intermingle validated observations, tentative judgments, and possible experimental next steps within the same passage. If these signals are conflated, an AI agent may mistake uncertain scientific judgments for confirmed conclusions or executable actions. To this end, we present Notes2Skills, a two-stage framework for turning lab notebooks into verifiable skills for scientific AI agents while preserving the author's certainty. Across seven conditions and three wet-lab sessions, Notes2Skills is the only configuration that neither mistakes uncertain notes for firm instructions nor discards firm ones. We show that certainty preservation is the missing piece between lab notebooks and reliable agent skills, opening a path toward safer AI co-scientist systems.",
+      "abstract_zh": "科学发现工作流通常包含并高度依赖于实验记录，研究人员在其中记录观察结果、解释不确定数据并规划后续实验。这类信息丰富的实验笔记保留了不断演进的科学推理过程与作者的不确定性，而非出版物中展示的经过润饰的最终结论，这为人工智能在更全面、更深层次参与科学探索提供了宝贵契机。然而，现有大多数针对科学文本的研究集中于论文、实验方案或结构化数据库，尚未充分探索将非正式实验室记录作为科学AI智能体的输入资源。这一研究空白至关重要，因为实验笔记往往在同一段落中交织着已验证的观察结果、尝试性判断及可能的后续实验步骤。若将这些信息信号混为一谈，AI智能体可能将不确定的科学判断误认为已确认的结论或可执行指令。为此，我们提出Notes2Skills——一个将实验记录转化为可验证科学AI智能体技能的双阶段框架，同时完整保留作者的确定性层级。在涵盖七个实验条件和三个湿实验室场景的测试中，Notes2Skills是唯一既不会将不确定记录误判为确定指令，也不会遗漏确定性指令的配置方案。我们证明，确定性保留机制是连接实验记录与可靠智能体技能的关键缺失环节，为构建更安全的AI协科学家系统开辟了新路径。",
+      "hf_link": "https://huggingface.co/papers/2606.11897"
     },
     "2606.23085": {
       "title": "Foresight: Failure Detection for Long-Horizon Robotic Manipulation with Action-Conditioned World Model Latents",
@@ -108,17 +138,17 @@
       "abstract_zh": "由思维链与工具调用构成的长智能体轨迹会不断累积陈旧内容，这些内容会锚定后续生成过程，并最终超出上下文窗口的限制。现有框架通过设定令牌阈值触发固定间隔压缩来缓解此问题，但这类触发机制无视轨迹结构，可能在中途推导或搜索过程中丢弃部分结果。我们提出SelfCompact框架，允许模型自主决定压缩时机与方式。该框架包含两个协同工作的推理时组件：（i）模型可调用的压缩工具，用于汇总累积的上下文；（ii）轻量级触发规则，明确何时启动压缩（子任务完成时或轨迹趋于收敛时）及何时抑制压缩（推导中途或陷入停滞时）。二者缺一不可：若仅提供工具，不同开源模型的使用频率参差不齐，常在无效时刻调用或完全不调用；若仅提供规则则无法执行操作。二者结合即可在不进行微调或外部监督的情况下实现有效的自适应压缩。我们在六个基准测试（竞争性数学与智能体搜索）和七个模型上进行了实证研究。结果显示，SelfCompact能以极低的令牌成本达到或超越固定间隔摘要的效果，在数学任务上相较无摘要基线提升高达18.1分，在智能体搜索任务上提升5-9分，同时将单问题成本降低30-70%。我们的研究揭示了一种元认知鸿沟：未经提示的模型虽无法可靠识别自身上下文的衰变状态，但轻量级触发规则能够弥合这一鸿沟，将压缩时机决策重构为无需训练即可由框架提供的基础能力。",
       "hf_link": "https://huggingface.co/papers/2606.23525"
     },
-    "2606.23050": {
-      "title": "Unlimited OCR Works",
-      "abstract": "Recently, end-to-end OCR models, exemplified by DeepSeek OCR, have once again thrust OCR into the spotlight. A widely held view is that employing a large language model (LLM) as the decoder allows the model to leverage the prior distribution of language, leading to improved OCR performance. However, the downside is equally evident: as the output sequence lengthens, the accumulated KV cache drives up memory consumption and progressively slows down generation. This stands in stark contrast to humans, who exhibit no such decline in efficiency during long-horizon copying tasks. In this technical report, we propose Unlimited OCR, a model designed to emulate human parsing working memory. Taking DeepSeek OCR as the baseline, we replace all attention layers in the decoder with our proposed Reference Sliding Window Attention (R-SWA), which reduces attention computation costs while maintaining a constant KV cache throughout the entire decoding process. By combining the high compression rate of DeepSeek OCR's encoder with our constant KV cache design, Unlimited OCR can transcribe dozens of pages of documents in a single forward pass under a standard maximum length of 32K. More importantly, R-SWA is a general-purpose parsing attention mechanism - beyond OCR, it is equally applicable to tasks such as ASR, translation, etc. Codes and model weights are publicly available atthis http URL.",
-      "abstract_zh": "近期，以DeepSeek OCR为代表的端到端光学字符识别（Optical Character Recognition, OCR）模型再次将OCR技术推向关注焦点。一个普遍观点认为，采用大语言模型（Large Language Model, LLM）作为解码器可使模型利用语言的先验分布，从而提升OCR性能。然而，其缺陷同样明显：随着输出序列增长，累积的键值（KV）缓存会推高内存消耗，并逐渐减慢生成速度。这与人类在长篇幅抄写任务中表现出的效率稳定性形成鲜明对比。在本技术报告中，我们提出Unlimited OCR模型，其设计灵感源于人类解析工作记忆机制。以DeepSeek OCR为基线，我们将解码器中所有注意力层替换为提出的参考滑动窗口注意力（Reference Sliding Window Attention, R-SWA）。该机制在保持全程解码过程中KV缓存恒定的同时，显著降低了注意力计算成本。通过结合DeepSeek OCR编码器的高压缩率与我们设计的恒定KV缓存架构，Unlimited OCR能在标准最大长度32K的单次前向传播中转录数十页文档。更重要的是，R-SWA是一种通用解析注意力机制——除OCR外，它同样适用于自动语音识别（ASR）、翻译等任务。代码与模型权重已在this http URL开源。",
-      "hf_link": "https://huggingface.co/papers/2606.23050"
+    "2606.21139": {
+      "title": "PoLAR: Factorizing Extent and Mode in Latent Actions for Robot Policy Learning",
+      "abstract": "Latent action pretraining learns representations of visual change from pairs of observations, but existing methods typically encode each transition as a single unstructured representation that entangles transition extent and transition mode. We introduce Polar Latent Actions with Radial structure (PoLAR), which imposes a radial-direction structure on latent actions, encouraging radius to encode transition extent and direction to retain transition mode. PoLAR uses temporal offset between two observations as a weak proxy for transition extent, encouraging latent action from observation pairs separated by larger temporal gaps to occupy larger radii. We instantiate this structure in hyperbolic space, whose expanding volume with radius offers a natural fit for more diverse transition modes at larger extents. Across in-task and large-scale pretraining settings, PoLAR improves downstream policy performance in simulation and real-world robot experiments, outperforming latent action baselines and strong pretrained VLAs. These results suggest that the geometry of the latent action space is an important design choice for transferring visual pretraining to downstream robot policy learning.",
+      "abstract_zh": "潜在动作预训练通过成对的观察学习视觉变化的表示，但现有方法通常将每个过渡编码为单一的非结构化表示，从而混淆了过渡幅度与过渡模式。我们引入具有径向结构的极坐标潜在动作（PoLAR），该方法在潜在动作上施加径向-方向结构，促使半径编码过渡幅度，方向保留过渡模式。PoLAR利用两个观察之间的时间间隔作为过渡幅度的弱代理指标，鼓励时间间隔更大的观察对所对应的潜在动作占据更大的半径。我们在双曲空间中实例化了这一结构——其随半径扩展的体积特性自然契合更大过渡幅度下更丰富的过渡模式。在任务内与大规模预训练场景中，PoLAR在仿真与真实机器人实验中均提升了下游策略性能，超越了潜在动作基线模型与经过强预训练的视觉语言动作模型（VLAs）。这些结果表明，潜在动作空间的几何结构是将视觉预训练迁移至下游机器人策略学习的重要设计选择。",
+      "hf_link": "https://huggingface.co/papers/2606.21139"
     },
-    "2606.21906": {
-      "title": "Deeper is Not Always Better: Mitigating the Alignment Tax via Confident Layer Decoding",
-      "abstract": "Autoregressive generation in large language models (LLMs) conventionally decodes from the final layer, assuming that deeper representations yield more reliable next-token predictions. We revisit this assumption by revealing a recurring Guess-Refine-Perturb dynamic: early layers form coarse guesses, intermediate layers refine reasoning-relevant semantics, and final layers can perturb these refined predictions toward generic or alignment-preferred tokens. We introduce Confident Decoding, a training-free decoding strategy that dynamically selects the most reliable near-final layer through entropy-guided conservative backward search. We further provide a theoretical formulation of layer selection as an optimal stopping problem, showing that under bounded projection noise and dominant late-stage alignment perturbation, our search rule filters perturbation while bounding the loss relative to the oracle refinement layer. Experiments across dense and Mixture-of-Experts LLMs demonstrate consistent gains on challenging reasoning benchmarks, including GPQA-Diamond, Omni-MATH, and HLE, with zero memory overhead and less than 2% latency increase. These results suggest dynamically bypassing final-layer perturbations can unlock stronger reasoning behavior from aligned LLMs.",
-      "abstract_zh": "在大型语言模型(LLMs)的自回归生成中，传统方法通常从最终层进行解码，其假设是更深层的表示能产生更可靠的下一个词元预测。我们通过揭示一种反复出现的\"猜测-优化-扰动\"动态模式对这一假设进行了重新审视：早期层形成粗略猜测，中间层优化与推理相关的语义，而最终层可能将这些优化后的预测偏向通用或对齐偏好的词元。我们提出了自信解码(Confident Decoding)这一无需训练的解码策略，它通过熵引导的保守后向搜索动态选择最可靠的近最终层。我们进一步将层选择问题理论化为最优停止问题，证明在有界投影噪声和主导的后期对齐扰动条件下，我们的搜索规则能够过滤扰动，同时将损失限定在相对理想优化层的有限范围内。在稠密模型和混合专家(Mixture-of-Experts) LLMs上的实验表明，该方法在GPQA-Diamond、Omni-MATH和HLE等具有挑战性的推理基准测试中均取得稳定提升，且实现零内存开销和低于2%的延迟增加。这些结果表明，动态规避最终层的扰动能够释放对齐后LLMs更强的推理能力。",
-      "hf_link": "https://huggingface.co/papers/2606.21906"
+    "2606.23049": {
+      "title": "Training Open Models for Agentic Phone Use",
+      "abstract": "Phones are becoming an important execution surface for general-purpose agents, but training open models for reliable phone use remains difficult because the environment that matters at deployment, real devices running real apps, is slow, stateful, side-effectful, and hard to reset or verify, while scalable mock environments only approximate real behavior. We present PhoneBuddy, a training recipe and open-model line for agentic phone use that combines a real-app environment with a mock-app environment, PhoneWorld, which reconstructs runnable mock apps from real GUI usage structure. PhoneBuddy first builds a shared supervised fine-tuning stage from trajectories collected in both environments, then compares real-app RL against mixed RL across both environments. Across a 150-task human evaluation on real phones spanning apps, mini-apps, and cross-app workflows, task success rate improves from 36.67\\% after supervised fine-tuning to 40.67\\% after real-app RL and 45.33\\% after mixed RL. On AndroidWorld, the same progression rises from 60.3\\% to 77.2\\% to 83.2\\%. These results show that mock-app training is not a replacement for real-app RL, but a complementary source of scalable, resettable, and automatically checked interaction. The gains are strongest on app and mini-app tasks, while long-horizontal cross-app workflows remain an important open challenge.",
+      "abstract_zh": "智能手机正日益成为通用智能体（agent）的重要执行界面，但为可靠的手机使用训练开放模型仍面临挑战：部署所依赖的真实设备与真实应用环境具有运行缓慢、状态保持、存在副作用且难以重置或验证的特性，而可扩展的模拟环境仅能近似真实行为。我们提出PhoneBuddy——一套针对智能体手机使用的训练方案及开放模型系列，该方法结合了真实应用环境与模拟应用环境PhoneWorld，后者通过重构真实图形用户界面（GUI）使用结构来构建可运行的模拟应用。PhoneBuddy首先利用从两种环境收集的运行轨迹构建共享的监督微调（supervised fine-tuning）阶段，随后对比纯真实应用环境强化学习（RL）与跨环境混合强化学习的表现。在对真实手机涵盖独立应用、小程序及跨应用工作流的150项任务进行人工评估中，任务成功率从监督微调后的36.67%提升至真实应用强化学习后的40.67%，并在混合强化学习后达到45.33%。在AndroidWorld测试环境中，同等进展使成功率从60.3%逐步提升至77.2%及83.2%。这些结果表明，模拟应用训练并非真实应用强化学习的替代方案，而是可扩展、可重置且支持自动检验的互补性交互训练来源。该方案在独立应用与小程序任务上提升最为显著，而长流程跨应用工作流仍是重要的开放挑战。",
+      "hf_link": "https://huggingface.co/papers/2606.23049"
     },
     "2606.20002": {
       "title": "Connect the Dots: Training LLMs for Long-Lifecycle Agents with Cross-Domain Generalization Via Reinforcement Learning",
@@ -132,11 +162,11 @@
       "abstract_zh": "终端使用代理（terminal-using agents）正迅速成为语言模型最流行的下游应用。尽管这类代理日益普及，但学术界对其基于强化学习的训练研究相对有限，这可能是由于基准测试难度较高、数据缺乏以及缺少简洁的基线方案所致。我们提出了Tmax——迄今为止最强大的开源终端代理强化学习方案，使开源数据方案更接近当前技术前沿。我们的方案虽然简洁，但仅用90亿参数就在Terminal-Bench 2.0基准上取得了27%的得分，超越了先前研究中参数规模大得多的模型。具体而言，我们通过结合难度控制、角色设定和验证器多样化的新型分类法生成数据，这种方法能够低成本地生成大量用于强化学习和监督微调训练的终端环境。我们开源了规模超过先前已发布终端代理数据集2.5倍的终端数据集。随后，我们采用仅基于执行结果的简洁方案，利用这些数据进行强化学习训练并发布了开放权重模型。我们公开提供数据、模型及代码，旨在为未来终端代理的开放式学术研究提供坚实基础，相关资源可通过此链接获取：https://...",
       "hf_link": "https://huggingface.co/papers/2606.23321"
     },
-    "2606.23049": {
-      "title": "Training Open Models for Agentic Phone Use",
-      "abstract": "Phones are becoming an important execution surface for general-purpose agents, but training open models for reliable phone use remains difficult because the environment that matters at deployment, real devices running real apps, is slow, stateful, side-effectful, and hard to reset or verify, while scalable mock environments only approximate real behavior. We present PhoneBuddy, a training recipe and open-model line for agentic phone use that combines a real-app environment with a mock-app environment, PhoneWorld, which reconstructs runnable mock apps from real GUI usage structure. PhoneBuddy first builds a shared supervised fine-tuning stage from trajectories collected in both environments, then compares real-app RL against mixed RL across both environments. Across a 150-task human evaluation on real phones spanning apps, mini-apps, and cross-app workflows, task success rate improves from 36.67\\% after supervised fine-tuning to 40.67\\% after real-app RL and 45.33\\% after mixed RL. On AndroidWorld, the same progression rises from 60.3\\% to 77.2\\% to 83.2\\%. These results show that mock-app training is not a replacement for real-app RL, but a complementary source of scalable, resettable, and automatically checked interaction. The gains are strongest on app and mini-app tasks, while long-horizontal cross-app workflows remain an important open challenge.",
-      "abstract_zh": "智能手机正日益成为通用智能体（agent）的重要执行界面，但为可靠的手机使用训练开放模型仍面临挑战：部署所依赖的真实设备与真实应用环境具有运行缓慢、状态保持、存在副作用且难以重置或验证的特性，而可扩展的模拟环境仅能近似真实行为。我们提出PhoneBuddy——一套针对智能体手机使用的训练方案及开放模型系列，该方法结合了真实应用环境与模拟应用环境PhoneWorld，后者通过重构真实图形用户界面（GUI）使用结构来构建可运行的模拟应用。PhoneBuddy首先利用从两种环境收集的运行轨迹构建共享的监督微调（supervised fine-tuning）阶段，随后对比纯真实应用环境强化学习（RL）与跨环境混合强化学习的表现。在对真实手机涵盖独立应用、小程序及跨应用工作流的150项任务进行人工评估中，任务成功率从监督微调后的36.67%提升至真实应用强化学习后的40.67%，并在混合强化学习后达到45.33%。在AndroidWorld测试环境中，同等进展使成功率从60.3%逐步提升至77.2%及83.2%。这些结果表明，模拟应用训练并非真实应用强化学习的替代方案，而是可扩展、可重置且支持自动检验的互补性交互训练来源。该方案在独立应用与小程序任务上提升最为显著，而长流程跨应用工作流仍是重要的开放挑战。",
-      "hf_link": "https://huggingface.co/papers/2606.23049"
+    "2606.23608": {
+      "title": "Causal Discovery in the Era of Agents",
+      "abstract": "Recent attempts to combine large language models (LLMs) with causal discovery ask models to infer pairwise directions, propose graph structures, or inject language-model outputs as priors and constraints. These approaches promise faster analysis, but they also obscure whether a causal evidence is supported by data and assumptions or by textual associations, prompt artifacts and hallucinated mechanisms. We argue for a different role for agents in causal discovery. Agents should inspect data, retrieve context, explain method assumptions and clarify graph outputs, but they should not supply edges, orientations, priors, constraints or causal conclusions. We propose the principle that agents assist the workflow, while causal claims remain grounded in data, explicit assumptions, formal algorithms, diagnostics and user or domain-expert decisions. We instantiate this principle in causal-learn+, an online platform that coordinates data analysis, preprocessing, method recommendation, expert-knowledge incorporation, formal discovery and interpretation around the algorithmic ecosystem of causal-learn. A case study on Big Five personality data illustrates agent-assisted pipeline of causal discovery without turning language-model unreliability into causal evidence. The platform is available atthis http URL.",
+      "abstract_zh": "近期将大语言模型与因果发现相结合的研究尝试，通常要求模型推断变量间的成对方向性、提出图结构，或将语言模型的输出作为先验和约束条件注入。这些方法有望加速分析进程，但同时也模糊了因果证据究竟是基于数据与假设，还是源于文本关联、提示词人为痕迹以及虚构机制。我们主张智能体在因果发现中应扮演不同的角色：智能体应当负责检查数据、检索背景信息、解释方法假设并澄清图输出，而不应提供边、方向、先验、约束或因果结论。我们提出以下原则：智能体应辅助工作流程，而因果主张必须始终基于数据、显式假设、形式化算法、诊断结果以及用户或领域专家的决策。我们在causal-learn+平台上实现了这一原则，该在线平台围绕causal-learn算法生态系统，协调数据分析、预处理、方法推荐、专家知识整合、形式化发现与结果解读等环节。一项基于大五人格数据的案例研究表明，通过智能体辅助的因果发现流程，能够避免将语言模型的不可靠性转化为因果证据。平台可通过此链接访问：this http URL。",
+      "hf_link": "https://huggingface.co/papers/2606.23608"
     },
     "2606.23503": {
       "title": "UniverSat: Resolution- and Modality-Agnostic Transformers for Earth Observation",
@@ -150,11 +180,11 @@
       "abstract_zh": "多视图三维视觉问答(MV3D-VQA)需要将局部观测整合为连贯的三维场景表示，并为多步空间推理选择信息丰富的视角。然而，当前的多模态大语言模型通常采用稀疏的答案级监督进行训练，这往往导致跨视图推理不一致和视角选择脆弱性。我们提出DR-MV3D（面向MV3D-VQA的密集奖励），这是一个基于地图的学习框架，通过密集且可验证的奖励来监督推理过程。我们的方法将MV3D-VQA分解为：（i）以观察者为中心的全景地图构建，（ii）问题条件化的视角轨迹规划，以及（iii）以自我为中心的答案预测基础。为使中间步骤无需人工标注即可学习，我们引入了两种奖励：全局一致性奖励——将预测地图与来自冻结三维视觉基础模型（如VGGT + SAM3）的几何一致伪目标对齐；局部轨迹奖励——监督有序视角选择。我们通过轨迹级策略优化（GRPO）对整个流程进行优化。在MindCube、VSI-Bench和BLINK (MV)数据集上的实验表明，DR-MV3D始终优于强大的多图像基线方法，验证了过程级密集监督对多视图三维推理的有效性。",
       "hf_link": "https://huggingface.co/papers/2606.23557"
     },
-    "2606.23608": {
-      "title": "Causal Discovery in the Era of Agents",
-      "abstract": "Recent attempts to combine large language models (LLMs) with causal discovery ask models to infer pairwise directions, propose graph structures, or inject language-model outputs as priors and constraints. These approaches promise faster analysis, but they also obscure whether a causal evidence is supported by data and assumptions or by textual associations, prompt artifacts and hallucinated mechanisms. We argue for a different role for agents in causal discovery. Agents should inspect data, retrieve context, explain method assumptions and clarify graph outputs, but they should not supply edges, orientations, priors, constraints or causal conclusions. We propose the principle that agents assist the workflow, while causal claims remain grounded in data, explicit assumptions, formal algorithms, diagnostics and user or domain-expert decisions. We instantiate this principle in causal-learn+, an online platform that coordinates data analysis, preprocessing, method recommendation, expert-knowledge incorporation, formal discovery and interpretation around the algorithmic ecosystem of causal-learn. A case study on Big Five personality data illustrates agent-assisted pipeline of causal discovery without turning language-model unreliability into causal evidence. The platform is available atthis http URL.",
-      "abstract_zh": "近期将大语言模型与因果发现相结合的研究尝试，通常要求模型推断变量间的成对方向性、提出图结构，或将语言模型的输出作为先验和约束条件注入。这些方法有望加速分析进程，但同时也模糊了因果证据究竟是基于数据与假设，还是源于文本关联、提示词人为痕迹以及虚构机制。我们主张智能体在因果发现中应扮演不同的角色：智能体应当负责检查数据、检索背景信息、解释方法假设并澄清图输出，而不应提供边、方向、先验、约束或因果结论。我们提出以下原则：智能体应辅助工作流程，而因果主张必须始终基于数据、显式假设、形式化算法、诊断结果以及用户或领域专家的决策。我们在causal-learn+平台上实现了这一原则，该在线平台围绕causal-learn算法生态系统，协调数据分析、预处理、方法推荐、专家知识整合、形式化发现与结果解读等环节。一项基于大五人格数据的案例研究表明，通过智能体辅助的因果发现流程，能够避免将语言模型的不可靠性转化为因果证据。平台可通过此链接访问：this http URL。",
-      "hf_link": "https://huggingface.co/papers/2606.23608"
+    "2606.21627": {
+      "title": "Counsel: A Meta-Evaluation Dataset for Agentic Tasks",
+      "abstract": "As agentic systems tackle increasingly complex multi-step tasks, evaluating their trajectories presents a major bottleneck - human annotation of a single trajectory on popular agentic benchmarks can take hours, making it difficult to scale evaluations for measuring performance or curating training data. This has driven widespread reliance on automated approaches such as LLM-as-a-judge (LLMJ) to critique agents at the process and outcome-levels at scale, however, the soundness of LLMJ critiques often goes unmeasured. Here, we introduce Counsel, the first public dataset of meta-evaluations for agentic tasks. Counsel consists of process-level critiques from open-weight LLMJs on two agent benchmarks: tau-bench (customer support agents) and DA-Code (coding agents), and human meta-evaluations of these critiques. Human annotators label critiques on each flagged error as \"spot on\", \"correct location but poor reasoning\", or \"should not have flagged\", achieving reliable inter-annotator agreement (Krippendorff's alpha of 0.78). The resulting dataset stratifies LLMJ critiques by human alignment across both error location within a trajectory and reasoning quality, serving as valuable data to calibrate, improve, or train LLMJs for agents. Comparing open-weight judges, we find that more capable judge models and more reasoning effort both enabled improved human agreement, with the strongest judge reaching ~88% agreement on location and ~65% on reasoning. Counsel is generated using open-weight models and is permissively licensed for broad community use, which we hope will enable rigorous study and improved alignment of LLM-based evaluators for agentic systems.",
+      "abstract_zh": "随着智能体系统处理日益复杂的多步骤任务，其轨迹评估已成为主要瓶颈——在主流智能体基准测试中，单条轨迹的人工标注可能耗时数小时，导致难以扩展评估规模以衡量性能或构建训练数据。这促使学界广泛依赖自动化评估方法，例如采用大语言模型作为评判者（LLMJ）对智能体的过程与结果进行规模化评估，然而LLMJ评判的可靠性往往未经检验。本文推出首个面向智能体任务的元评估公共数据集Counsel。该数据集包含基于两个智能体基准测试——tau-bench（客服智能体）与DA-Code（代码智能体）——的开源权重LLMJ过程级评判，以及针对这些评判的人工元评估。标注者对每条标注错误对应的评判进行三类标注：\"精准识别\"、\"定位正确但推理欠佳\"或\"不应标注\"，并实现了可靠的标注者间一致性（克里彭多夫α系数达0.78）。最终数据集依据人类标注共识，从轨迹内部错误定位与推理质量两个维度对LLMJ评判进行分层，为校准、改进或训练面向智能体的LLMJ提供了宝贵数据。通过对比开源权重评判模型，我们发现：能力更强的评判模型与更充分的推理投入均能提升与人类评估的一致性，最优模型在错误定位方面达到约88%的一致性，在推理质量方面达到约65%。Counsel完全基于开源模型构建，采用宽松许可协议供学界广泛使用，我们期望该数据集能推动智能体系统基于大语言模型的评估工具实现严谨研究并提升对齐质量。",
+      "hf_link": "https://huggingface.co/papers/2606.21627"
     },
     "2606.23670": {
       "title": "Tapered Language Models",
@@ -201,30 +231,35 @@
   },
   "hf_votes": {
     "2606.22388": 0,
+    "2606.21337": 0,
     "2606.23654": 0,
     "2606.22807": 0,
     "2606.20781": 0,
     "2606.22883": 0,
     "2606.21649": 0,
+    "2606.22138": 0,
     "2606.20097": 0,
     "2606.18844": 0,
     "2606.19409": 0,
-    "2606.21337": 0,
+    "2606.20636": 0,
     "2606.18648": 0,
+    "2606.23050": 0,
+    "2606.20945": 0,
+    "2606.21906": 0,
     "2606.12871": 0,
-    "2606.21139": 0,
-    "2606.11075": 0,
+    "2606.11897": 0,
     "2606.23085": 0,
     "2606.23525": 0,
-    "2606.23050": 0,
-    "2606.21906": 0,
+    "2606.21139": 0,
+    "2606.11075": 0,
+    "2606.23049": 0,
     "2606.20002": 0,
     "2606.23321": 0,
-    "2606.23049": 0,
+    "2606.23608": 0,
     "2606.23267": 0,
     "2606.23503": 0,
     "2606.23557": 0,
-    "2606.23608": 0,
+    "2606.21627": 0,
     "2606.23489": 0,
     "2606.23670": 0,
     "2606.22540": 0,
@@ -245,25 +280,30 @@
     ]
   },
   "summaries": {
-    "2606.11075": {
-      "short_zh": "改进流匹配模型的奖励反向传播",
-      "tags": "生成模型;扩散模型;流匹配对齐",
-      "body_summary": "直接奖励反向传播对齐文本到图像流匹配模型存在内存和梯度问题。\n提出FlowBP框架，通过构建轻量级反向代理轨迹来解决上述问题，并实例化三种变体，在多个模型和指标上优于基线方法。"
+    "2606.23267": {
+      "short_zh": "流速编辑实现安全少步图像生成",
+      "tags": "计算机视觉;文本到图像生成;安全内容生成",
+      "body_summary": "现有流匹配模型能在少量采样步数下生成高质量图像，但缺乏适配的安全防护方法。\n提出VESFlow系列方法，通过直接编辑流速场引导生成安全内容，并引入风险评分过滤提升效率与效果。"
     },
     "2606.23489": {
       "short_zh": "使用等变流匹配生成三角形网格",
       "tags": "计算机图形学;三维形状生成;网格生成",
       "body_summary": "直接生成三维网格具有挑战性，因为它需要处理顶点和面的置换不变性等重要对称性。\n本文提出MeshFlow，通过改进扩散Transformer架构和引入基于最优传输的训练目标，直接生成三角形网格，在保证质量的同时大幅提升了推理速度。"
     },
-    "2606.23267": {
-      "short_zh": "流速编辑实现安全少步图像生成",
-      "tags": "计算机视觉;文本到图像生成;安全内容生成",
-      "body_summary": "现有流匹配模型能在少量采样步数下生成高质量图像，但缺乏适配的安全防护方法。\n提出VESFlow系列方法，通过直接编辑流速场引导生成安全内容，并引入风险评分过滤提升效率与效果。"
+    "2606.11075": {
+      "short_zh": "改进流匹配模型的奖励反向传播",
+      "tags": "生成模型;扩散模型;流匹配对齐",
+      "body_summary": "直接奖励反向传播对齐文本到图像流匹配模型存在内存和梯度问题。\n提出FlowBP框架，通过构建轻量级反向代理轨迹来解决上述问题，并实例化三种变体，在多个模型和指标上优于基线方法。"
     },
     "2606.22388": {
       "short_zh": "大模型工具使用智能体长程规划评测",
       "tags": "智能体与机器人学;具身智能与工具使用;大规模工具生态长程规划评估",
       "body_summary": "现有基准难以评估工具可见性受限场景下智能体的长程规划能力。\n提出了PlanBench-XL基准，包含大量任务与工具并模拟动态干扰，通过实验揭示了现有模型在大规模不完美工具环境中进行鲁棒自适应规划的挑战。"
+    },
+    "2606.21337": {
+      "short_zh": "智能体主动精炼多模态数据",
+      "tags": "机器学习;多模态学习;数据精炼与结构化",
+      "body_summary": "大规模非结构化多模态数据流因“数据熵”高，难以有效支撑知识获取和模型训练。\n提出了主动式数据精炼新范式，构建了训练数据集和DataClaw₀模型，并通过下游任务验证其能生成高质量、高信息密度的定制化数据。"
     },
     "2606.23654": {
       "short_zh": "企业智能体效能基准构建与评估",
@@ -290,6 +330,11 @@
       "tags": "自然语言处理;检索与表示学习;长上下文动态嵌入",
       "body_summary": "现有嵌入模型是静态的，无法处理信息动态、顺序的长上下文检索与状态跟踪任务。\n提出EvoEmbedding模型，通过维护并利用动态更新的隐式记忆来生成可进化的嵌入，以适配变化的上下文，并在长上下文检索与下游任务中表现优异。"
     },
+    "2606.22138": {
+      "short_zh": "生物多模态基础模型跨序列结构与语言",
+      "tags": "生物信息学;多模态学习;生物分子建模",
+      "body_summary": "现有生物基础模型在多模态融合和跨实体覆盖上存在局限，要么局限于单一实体类型，要么缺乏原生结构建模能力。\n我们提出了BioMatrix模型，将分子和蛋白质的序列、结构及自然语言统一到共享的离散标记空间，通过单一解码器架构进行原生多模态生成，在广泛的下游任务中取得领先性能。"
+    },
     "2606.20097": {
       "short_zh": "多头注意力优化长上下文处理",
       "tags": "自然语言处理;大语言模型;注意力机制混合设计",
@@ -305,25 +350,40 @@
       "tags": "智能体系统;运行时状态管理;会话为中心的可审计执行",
       "body_summary": "现代智能体系统的运行时状态分散在多个组件中，难以检查和复现。\n提出OpenRath框架，其核心是会话（Session）这一可分支、可检查、可重放的运行时值，用于统一记录和传递状态，并通过其他组件支持可审计的组合。"
     },
-    "2606.21337": {
-      "short_zh": "智能体主动精炼多模态数据",
-      "tags": "机器学习;多模态学习;数据精炼与结构化",
-      "body_summary": "大规模非结构化多模态数据流因“数据熵”高，难以有效支撑知识获取和模型训练。\n提出了主动式数据精炼新范式，构建了训练数据集和DataClaw₀模型，并通过下游任务验证其能生成高质量、高信息密度的定制化数据。"
+    "2606.20636": {
+      "short_zh": "计算机智能体的安全技能学习",
+      "tags": "智能体;安全强化学习;交互环境安全",
+      "body_summary": "计算机智能体在动态交互环境中持续学习技能时面临安全风险。\n提出SkillHarness框架，通过划定技能边界和选择性技能复用，以降低风险并提升稳定性。"
     },
     "2606.18648": {
       "short_zh": "构建物理科学深度研究多智能体基准",
       "tags": "大语言模型应用;科学智能;物理科学深度研究",
       "body_summary": "目前缺乏对物理科学领域深度研究智能体能力的全面深入评估\n提出了PhySciBench基准和DelveAgent框架，并在多个基准上验证其有效性"
     },
+    "2606.23050": {
+      "short_zh": "大幅提升长文OCR效率",
+      "tags": "计算机视觉;文字识别;端到端OCR",
+      "body_summary": "端到端OCR模型在处理长序列时因注意力机制导致效率下降\n提出无限OCR模型，通过参考滑动窗口注意力机制实现恒定内存消耗和高效长文档识别"
+    },
+    "2606.20945": {
+      "short_zh": "分组查询专家注意力优化",
+      "tags": "自然语言处理;Transformer模型;注意力机制优化",
+      "body_summary": "自注意力计算成本高且对所有词元采用相同注意力头造成计算浪费。\n提出分组查询专家在分组查询注意力基础上用混合专家层按需激活查询头减少计算。"
+    },
+    "2606.21906": {
+      "short_zh": "解码层选择提升大模型推理能力",
+      "tags": "自然语言处理;大语言模型;自回归解码策略",
+      "body_summary": "传统大语言模型自回归生成仅解码最后一层，但研究发现深层表示可能引入不必要的扰动。\n本文提出一种免训练的置信解码方法，通过熵引导的后向搜索动态选择可靠层，有效提升多个推理基准任务性能，延迟开销低于2%。"
+    },
     "2606.12871": {
       "short_zh": "评估每日搜索任务智能体",
       "tags": "信息检索;智能搜索代理;开放基准构建",
       "body_summary": "现有搜索智能体评估基准多聚焦专业任务且缺乏解释性。\n我们提出了一个包含150个开放任务与精细量规的基准，以用户为中心评估现有系统。"
     },
-    "2606.21139": {
-      "short_zh": "机器人策略学习的潜在动作结构化",
-      "tags": "机器人学;机器人策略学习;潜在动作表示学习",
-      "body_summary": "现有视觉潜在动作预训练方法将观察对之间的变化编码为单一的、混合了变化幅度和模式的表示。\n我们提出了一种具有径向结构的极坐标潜在动作方法，在双曲空间中分离幅度与模式，提升了下游策略在仿真和真实机器人实验中的性能。"
+    "2606.11897": {
+      "short_zh": "从实验笔记中提取可靠技能",
+      "tags": "自然语言处理;科学文本理解;实验笔记技能化",
+      "body_summary": "科研工作流高度依赖记录观察、不确定结果和后续计划的实验笔记，但现有AI研究多关注正式论文而忽略了这类非正式文本。\n提出了Notes2Skills框架，将实验笔记转化为科学AI代理的可验证技能，并保留作者的不确定性标注，避免了将不确定判断误认为确定结论。"
     },
     "2606.23085": {
       "short_zh": "世界模型预测机器人长程操作故障检测",
@@ -335,15 +395,15 @@
       "tags": "大语言模型代理；推理轨迹管理；上下文窗口压缩",
       "body_summary": "智能体任务中的长推理轨迹会积累过时信息，超出模型上下文窗口限制，影响后续生成。\n提出SelfCompact框架，让模型根据任务状态自行决定压缩时机，显著降低计算成本并提升任务性能。"
     },
-    "2606.23050": {
-      "short_zh": "大幅提升长文OCR效率",
-      "tags": "计算机视觉;文字识别;端到端OCR",
-      "body_summary": "端到端OCR模型在处理长序列时因注意力机制导致效率下降\n提出无限OCR模型，通过参考滑动窗口注意力机制实现恒定内存消耗和高效长文档识别"
+    "2606.21139": {
+      "short_zh": "机器人策略学习的潜在动作结构化",
+      "tags": "机器人学;机器人策略学习;潜在动作表示学习",
+      "body_summary": "现有视觉潜在动作预训练方法将观察对之间的变化编码为单一的、混合了变化幅度和模式的表示。\n我们提出了一种具有径向结构的极坐标潜在动作方法，在双曲空间中分离幅度与模式，提升了下游策略在仿真和真实机器人实验中的性能。"
     },
-    "2606.21906": {
-      "short_zh": "解码层选择提升大模型推理能力",
-      "tags": "自然语言处理;大语言模型;自回归解码策略",
-      "body_summary": "传统大语言模型自回归生成仅解码最后一层，但研究发现深层表示可能引入不必要的扰动。\n本文提出一种免训练的置信解码方法，通过熵引导的后向搜索动态选择可靠层，有效提升多个推理基准任务性能，延迟开销低于2%。"
+    "2606.23049": {
+      "short_zh": "训练开放模型操控手机",
+      "tags": "智能体；具身智能；手机环境模拟",
+      "body_summary": "在真实手机环境中训练智能体模型存在成本高、难复现等问题，而纯模拟环境又难以完全反映真实情况。\n研究者提出PhoneBuddy方法，结合真实与模拟环境进行训练，并通过实验证明混合训练能有效提升模型在真实手机任务上的成功率。"
     },
     "2606.20002": {
       "short_zh": "用强化学习训练长周期智能体语言模型",
@@ -355,10 +415,10 @@
       "tags": "自然语言处理;指令调优与强化学习;终端代理强化学习训练",
       "body_summary": "终端代理已成为语言模型最流行的下游应用，但其强化学习训练缺乏高质量的基准、数据和简单方案。\n提出Tmax方案，通过新分类法生成大规模训练数据，训练出性能超越更大模型的高效终端代理。"
     },
-    "2606.23049": {
-      "short_zh": "训练开放模型操控手机",
-      "tags": "智能体；具身智能；手机环境模拟",
-      "body_summary": "在真实手机环境中训练智能体模型存在成本高、难复现等问题，而纯模拟环境又难以完全反映真实情况。\n研究者提出PhoneBuddy方法，结合真实与模拟环境进行训练，并通过实验证明混合训练能有效提升模型在真实手机任务上的成功率。"
+    "2606.23608": {
+      "short_zh": "智能体辅助因果发现而非替人决策",
+      "tags": "因果推断;因果发现;智能体辅助因果发现",
+      "body_summary": "当前将大语言模型用于因果发现的尝试，可能混淆数据证据与文本关联。\n我们主张智能体应辅助工作流而非直接提供因果结论，并开发了因果发现平台causal-learn+来贯彻这一原则。"
     },
     "2606.23503": {
       "short_zh": "通用遥感图像Transformer建模",
@@ -370,10 +430,10 @@
       "tags": "计算机视觉;三维场景理解;多视图三维视觉问答",
       "body_summary": "多视图三维视觉问答需整合多个视角观察进行空间推理，但现有模型仅用答案级稀疏监督易导致推理不一致和视角选择不稳定。\n我们提出基于密集奖励的学习框架，通过构建全局地图和规划视角轨迹来监督推理过程，利用几何一致性奖励和轨迹奖励优化模型。"
     },
-    "2606.23608": {
-      "short_zh": "智能体辅助因果发现而非替人决策",
-      "tags": "因果推断;因果发现;智能体辅助因果发现",
-      "body_summary": "当前将大语言模型用于因果发现的尝试，可能混淆数据证据与文本关联。\n我们主张智能体应辅助工作流而非直接提供因果结论，并开发了因果发现平台causal-learn+来贯彻这一原则。"
+    "2606.21627": {
+      "short_zh": "评估智能体任务自动评判质量",
+      "tags": "自然语言处理;智能体评估;自动评判元评估",
+      "body_summary": "现有智能体任务评估依赖大模型自动评判，但其评判质量缺乏有效衡量\n发布了首个公开的智能体任务自动评判元评估数据集，包含人类对评判的标注，用于校准和改进大模型评判器"
     },
     "2606.23670": {
       "short_zh": "非均匀分配参数提升语言模型性能",
@@ -412,29 +472,29 @@
     }
   },
   "deep_analysis": {
-    "2606.11075": "好的，我们来用简单易懂的语言梳理一下这篇论文的核心内容。你可以把它当成一个“论文速读”指南。\n\n### 1. 任务是什么？\n这篇论文研究的是 **“如何让AI绘画模型画出更符合人类喜好的图片”**。\n*   **任务输入**：一段文字描述，比如“一只戴着礼帽的猫在弹钢琴”。\n*   **任务输出**：一张与文字描述相符，并且质量高、符合人类审美偏好的图片。\n*   **任务功能**：对已经训练好的AI绘画模型进行“微调”或“对齐”，使其生成的图片不仅符合文字描述，还能在美感、细节、构图等方面更让人类满意。\n\n这里用的模型是**流匹配模型**，你可以把它理解成一种新型、高效的AI绘画模型（比如像Stable Diffusion，但背后的数学原理不同）。\n\n### 2. 想解决什么问题？\n目前，让AI模型“对齐”人类偏好主要有两大类方法：\n1.  **策略梯度法**：像训练强化学习智能体一样，给模型“奖励”或“惩罚”，但这种方法通常需要大量样本，效率不高，且结果不稳定。\n2.  **直接梯度回传法**：利用模型生成图片的过程是“可微分”的，直接把一个“奖励模型”的评分作为损失，反向传播回去更新模型参数。这种方法更高效，但存在两个老大难问题：\n    *   **内存爆炸**：生成一张图片需要几十上百步，每一步的中间结果都要保存下来才能算梯度，对于超大模型来说内存根本扛不住。\n    *   **梯度爆炸/消失**：梯度要像接力一样，从最后一步一步步传回第一步。这个“梯度链条”又长又脆弱，中间任何一步出问题（比如数值太大或太小），整个梯度就失效了。\n\n这篇论文就是想解决**直接梯度回传法**的这两个核心难题。\n\n### 3. 贡献是什么？\n1.  **提出了一个统一的框架**：作者发现，之前解决上述问题的各种方法（比如ReFL、DRaFT、LeapAlign等）虽然看起来不同，但本质上都是在**设计一个“替身轨迹”** 来计算梯度。这篇论文提出了一个叫 **FlowBP** 的框架，把这些方法都统一了起来，并清晰地指出了设计这个“替身”有四个关键旋钮可以调节。\n2.  **探索了新的设计**：在统一框架的指导下，论文设计了三种新的具体方法：\n    *   **FlowBP-Sparse（稀疏）**：只在少数几步计算梯度，其他步跳过，彻底切断长链条。\n    *   **FlowBP-Bridge（桥接）**：在“替身轨迹”中引入一个可调节的连接，让梯度信息可以在关键步骤之间传递，但又不至于让链条太长。\n    *   **FlowBP-Lagrange（高阶）**：用更精确的数学公式（高阶积分）来计算“替身轨迹”的每一步，让替身更接近真实的生成轨迹。\n3.  **效果好**：实验证明，这三种新方法在多个先进的AI绘画模型上，都超过了之前的直接梯度回传方法，生成的图片在偏好、质量和构图方面都更好。\n\n### 4. 整体思路与流程\n你可以把生成图片想象成开车从“噪声山”（起点，一张随机噪点图）开到“目标城”（终点，一张清晰的图片）。直接梯度回传法要求你记住一路上每一个岔路口的选择，这太难了。\n\n**FlowBP框架的核心思路是：**\n> 我们开车的时候（**采样**）不用记路（**不开梯度**，节省内存），等到了目的地，我们根据GPS记录和少量关键地标，在地图上**重新规划一条简化的路线（构建“替身轨迹”）** 来分析是怎么开过来的，然后只根据这条简化路线来学习改进。\n\n**具体流程如下：**\n\n1.  **前向采样（开车，不开记录仪）**：\n    *   输入一个文字提示和随机噪声。\n    *   让AI模型（**基模型** 是预训练好的流匹配模型，如SD3.5, FLUX等）从噪声开始，一步步生成图片。**这一步不保存中间状态的梯度信息**，只把最终图片和中间一些关键步骤的结果“缓存”下来。这解决了**内存问题**。\n\n2.  **构建替身轨迹（画简化地图）**：\n    *   利用缓存的结果，挑选出一些关键的“路标点”（**活跃集**）。\n    *   在这些路标点之间，用模型重新快速计算一下（**选择性重前向**），连成一条新的、更短的轨迹。这条轨迹就是“替身”。\n    *   设计这条替身轨迹时，作者提到了四个可以调节的“旋钮”：\n        *   **奖励输入**：是用最终生成的图片算奖励，还是用中间某一步估算的图片算？\n        *   **活跃集**：选哪几步作为关键路标点？\n        *   **积分权重**：每一步对最终结果的贡献有多大？（类似于每一步方向盘打了多少）\n        *   **桥接耦合**：要不要在非相邻的关键点之间加一条直接连接的“桥”？加多强？（这控制了梯度链条的长度和强度）\n\n3.  **反向传播与优化（分析地图，学习改进）**：\n    *   把最终生成的图片交给一个“奖励模型”（一个能判断图片好不好、符不符合人类偏好的小模型）打分。\n    *   将这个分数作为损失，**只沿着刚刚构建的那条“替身轨迹”进行反向传播**。因为替身轨迹很短，梯度最多只经过一步或几步的模型计算（**一个雅可比因子**），这就解决了**梯度爆炸/消失问题**。\n    *   用计算出的梯度去更新原始AI绘画模型的参数，让它下次能画出得分更高的图片。\n\n**模型结构**：论文没有提出一个全新的模型架构，而是提出了一种**通用的训练方法/框架（FlowBP）**。这个方法可以像插件一样，应用到各种已有的流匹配模型（基模型）上，去微调它们。\n\n### 5. 结果怎么样？\n论文在三个强大的主流流匹配模型（SD3.5-M, FLUX.1-dev, FLUX.2）上进行了测试。\n*   **评价指标**：使用了衡量人类偏好的分数（如HPS）、图片质量指标（如CLIP-I）和构图准确性指标。\n*   **主要结论**：\n    *   论文提出的三种FlowBP方法（Sparse, Bridge, Lagrange）在**大多数指标上都显著超越了之前的直接梯度回传方法**（如DRaFT, DRTune, LeapAlign）。\n    *   这说明FlowBP框架有效地解决了内存和梯度问题，并且其内部的不同设计（调节那四个“旋钮”）确实能带来性能提升。\n    *   不同的变体各有优势，比如FlowBP-Lagrange在有些任务上表现更精确，而FlowBP-Sparse可能更节省资源。\n\n**简单总结**：这篇论文就像给“教AI画画”这件事提供了一套更聪明、更高效的“教学方案”。这套方案通过“画简化地图复盘”的方式，避免了传统教学方法中“死记硬背”和“信息失真”的问题，从而让AI学生进步更快，画得更好。",
+    "2606.23267": "好的，没问题。我来用简单的语言为你梳理一下这篇论文的核心内容。\n\n### (1) 任务是什么？\n\n*   **任务输入**：一段用户输入的文本描述（例如：“一只穿着礼服的猫”或一些不安全的描述）。\n*   **任务输出**：一张与文本描述对应的高质量图片。\n*   **任务功能**：**文本生成图像（Text-to-Image, T2I）**，并且特别强调在**生成过程中确保内容安全**，防止模型根据有害提示（例如：暴力、色情内容）生成不适当或有害的图像。\n\n### (2) 想解决什么问题？\n\n这篇论文想解决一个关键矛盾：\n1.  **新一代生成模型（如Flow Matching模型）** 为了追求高效，可以用非常少的步骤（比如4步）就生成图片。这很棒，因为速度快。\n2.  **但现有的“内容安全”技术**（让模型不生成有害图片的方法）大多是为“扩散模型”设计的。这些方法依赖在生成过程的**每一步**都进行微小的干预和修正，通过很多步的积累才能把图片“推”到安全的方向。\n3.  **矛盾点**：当生成步数变得极少时（如4步），这些需要多步干预的安全方法就“施展不开”了。要么干预太弱，压不住有害内容；要么干预太强，直接把图片改得面目全非，连正常的描述也生成不好。\n\n**简单来说**：论文要解决 **“如何在用极少数步骤快速生成图片的同时，还能有效保证生成内容的安全性”** 这个难题。\n\n### (3) 贡献是什么？\n\n这篇论文提出了一个名为 **VESFlow** （以及其增强版 **VESFlow+** ）的新方法，主要贡献有：\n\n1.  **新思路：从“轨迹修正”到“速度编辑”**：不沿用旧方法在每一步去“推”图片轨迹，而是直接修改Flow Matching模型的核心——**“速度场”** 本身。这就像不是去不断调整一辆车的方向盘，而是直接给它设定一个更安全的初始行驶方向和速度。\n2.  **训练免费，即插即用**：这个方法不需要重新训练模型，可以直接套用在已有的Flow Matching模型上，非常方便。\n3.  **高效且保真**：引入了一个 **“风险评分过滤”** 机制。对于被判定为安全的文本提示，直接跳过编辑步骤，保证生成质量和速度；只有对高风险提示才启动“速度编辑”。这样既保证了安全，又最大程度保留了正常图片的生成效果。\n4.  **效果好**：实验证明，在仅用4步生成的极端情况下，VESFlow能大幅降低有害内容的生成成功率，同时对正常提示的图片质量影响很小。\n\n### (4) 整体思路与流程\n\n**基模 (Base Model)**：论文主要针对的是 **Flow Matching** 和 **MeanFlow** 这类新型生成模型。它们的特点是把图片生成过程看作一个从噪声到清晰图片的“流动”过程，并直接预测这个流动的“速度”。\n\n**核心思想**：利用贝叶斯公式，把模型预测的“速度”分解为两部分：一部分是“给定文本提示下的速度”，另一部分是“在给定文本提示下，最终图片是安全的”这个条件。通过数学推导，可以直接计算出 **“在保证最终图片安全的前提下，模型应该给出的速度”**，并用这个修改后的速度去指导生成。\n\n**整体流程（结合流程图描述）**：\n\n1.  **输入文本提示**：用户输入一段描述文字。\n2.  **风险评分过滤**：\n    *   系统会先用一个“安全评分器”（例如一个能判断文本风险的AI模型）给这个提示打分，判断它是否有害。\n    *   **如果评分低（安全提示）**：直接跳过“速度编辑”模块，使用原始模型的速度场进行正常生成。这保证了正常图片的生成效果和速度。\n    *   **如果评分高（有害提示）**：进入“速度编辑”模块。\n3.  **速度编辑（核心步骤）**：\n    *   模型根据当前步骤的噪声图片 `x_t` 和文本编码 `c`，计算出原始的预测速度 `v(x_t|c)`。\n    *   **VESFlow**：根据论文推导的公式，将这个速度调整为 `v(x_t|c, s=1)`。这里的 `s=1` 代表“最终图片是安全的”这个强约束条件。这个调整相当于把速度向量“拉向”安全内容的方向。\n    *   **VESFlow+（增强版）**：在“拉向”安全方向的同时，还增加一个力，把速度“推离”已知的有害内容方向，实现双重保险。\n4.  **迭代生成**：使用编辑后的速度 `v_edited`，按照Flow Matching的规则，从噪声 `x_1` 开始，一步步（虽然步数很少）更新，得到更清晰的图片 `x_{t-1}`。\n5.  **输出安全图片**：经过几步（如4步）迭代后，输出最终的清晰图片。由于速度场被编辑过，整个生成过程被约束在安全的“流”中，因此最终图片会避开有害内容，符合安全要求。\n\n### (5) 结果怎么样？\n\n论文在多个包含有害提示的数据集上进行了测试，主要结论是：\n\n*   **安全性大幅提升**：在仅使用 **4步** 生成的极端设置下，VESFlow能将有害内容检测器（如NudeNet）的“攻击成功率”（即成功生成了有害图片的比例）**从很高的水平（未处理时）降低到大约6%-7%**，效果非常显著。\n*   **良性提示保真度高**：对于正常的、安全的文本提示，由于风险过滤机制的存在，VESFlow几乎不修改生成过程，因此生成的图片质量（清晰度、与文本的匹配度）和原始模型几乎一样好。\n*   **计算成本低**：因为只在必要时（判定为有害提示时）才进行额外的速度计算，整体计算开销增加得很少，非常高效。\n\n**总结**：这篇论文针对“快节奏”生成模型的安全难题，提出了一个巧妙、高效且有效的“速度编辑”方案，在几乎不损害正常生成能力的前提下，显著提升了模型在极少数生成步骤下的安全性。",
     "2606.23489": "当然可以。这是一个关于**3D网格生成**的论文，我来用简单的语言为你解读。\n\n### (1) 任务是什么？\n*   **任务输入**： 一个或多个随机的3D三角形（一堆无序的、混乱的三角形顶点位置）。\n*   **任务输出**： 一个高质量的、结构清晰的3D网格模型（就像游戏里的角色模型或CAD模型）。\n*   **任务功能**： 开发一个模型，能够快速、逼真地**直接生成**3D网格，而不是先生成点云或体素等其他表示形式再转换过来。\n\n### (2) 想解决什么问题？\n1.  **直接生成高质量网格很难**。网格是一种复杂的结构数据，包含很多“对称性”（比如顶点和面的排列顺序可以打乱，但网格本身不变）。传统的扩散模型（比如生成图像的那种）很难直接处理这种结构。\n2.  **现有方法的缺点**：\n    *   **两阶段方法**（如先生成点云，再用算法转换成网格）：转换过程容易产生瑕疵，网格质量不高。\n    *   **自回归方法**（像GPT那样一个接一个生成顶点或面）：虽然质量好，但**生成速度非常慢**，且容易出错。\n\n### (3) 贡献是什么？\n1.  **提出了“三角形汤”表示法**： 将网格看作一堆无序的“三角形”（像一锅汤里的面片），巧妙地处理了网格的排列对称性问题。\n2.  **设计了一个“对等变换”的Transformer架构**： 对Transformer模型（基模是Diffusion Transformer，DiT）进行了关键修改，使其在预测“流动”方向时，能**尊重**三角形汤的对称性（例如，交换两个三角形的顺序，模型输出也会相应交换）。\n3.  **引入了“嵌套最优传输”训练目标**： 设计了一个新的损失函数，确保在训练时，模型不会接收到违背对称性的错误信号，从而学得更快更准。\n4.  **整体性能提升**： 最终模型**生成质量**媲美最好的自回归模型，但**生成速度**快了约**18倍**（从几十秒缩短到不到1秒）。\n\n### (4) 整体思路与模型流程\n**核心思想**： 不直接生成最终的网格，而是学习如何将一个**混乱的三角形汤**（输入）**“流动”** 成一个**整洁的网格**（输出）。这个过程由一个“流匹配”模型来指导。\n\n**基模**： 他们使用了 **Flow Matching**（流匹配，一种先进的扩散模型框架）和 **Diffusion Transformer** 作为基础架构。\n\n**整体流程（对照图1看）**：\n1.  **起点**： 从一个随机的、噪声状的“三角形汤”开始（图1左）。这堆三角形是随机排列的。\n2.  **迭代“去噪”/“流动”**：\n    *   论文的模型（MeshFlow）在每个步骤中，观察当前这个混乱的三角形汤。\n    *   **关键步骤**： 模型会预测一个“速度场”，告诉每个三角形的每个顶点应该朝哪个方向移动一点点。\n    *   这个预测是由他们设计的 **“对等变换DiT块”** 完成的。这个模块确保了无论三角形怎么排列，预测的移动方向都是“公平”的，符合对称性。\n    *   模型还会考虑“面条件”，即每个三角形作为一个整体的信息。\n3.  **逐步演化**： 根据模型预测的方向，所有顶点同时移动一小步。重复这个过程很多次（但步数远少于自回归模型），三角形汤就会逐渐变得有组织，顶点彼此靠近，形成合理的网格结构。\n4.  **终点**： 经过若干步后，混乱的三角形汤就“流动”成了一个高质量、水密的网格（图1右）。论文还提到一个简单的后处理步骤来修复一些小的连接问题。\n\n### (5) 结果怎么样？\n*   **质量高**： 在ShapeNet等标准数据集上测试，生成的网格在视觉质量和量化指标（如倒角距离）上，达到了与当前最先进的自回归模型（如MeshGPT）相当的水平。\n*   **速度快**： 这是最大的亮点。单次生成时间**小于1秒**，比自回归模型快了**约18倍**，实现了高质量的实时/近实时生成。\n*   **可控性好**： 由于基于流匹配框架，未来可以更方便地接入各种控制信号（如文本、草图）来引导生成。\n*   **局限性**： 论文提到，在处理拓扑结构（网格的连接方式）极其复杂或长尾分布的数据时仍有挑战，且目前主要生成固定面数的网格。\n\n**一句话总结**： 这篇论文像是一个“网格整理大师”，它用了一种尊重网格数学特性的聪明方法（对等变换+流匹配），把一堆乱糟糟的三角形快速、整齐地折叠成精美的3D模型，既快又好。",
-    "2606.23267": "好的，没问题。我来用简单的语言为你梳理一下这篇论文的核心内容。\n\n### (1) 任务是什么？\n\n*   **任务输入**：一段用户输入的文本描述（例如：“一只穿着礼服的猫”或一些不安全的描述）。\n*   **任务输出**：一张与文本描述对应的高质量图片。\n*   **任务功能**：**文本生成图像（Text-to-Image, T2I）**，并且特别强调在**生成过程中确保内容安全**，防止模型根据有害提示（例如：暴力、色情内容）生成不适当或有害的图像。\n\n### (2) 想解决什么问题？\n\n这篇论文想解决一个关键矛盾：\n1.  **新一代生成模型（如Flow Matching模型）** 为了追求高效，可以用非常少的步骤（比如4步）就生成图片。这很棒，因为速度快。\n2.  **但现有的“内容安全”技术**（让模型不生成有害图片的方法）大多是为“扩散模型”设计的。这些方法依赖在生成过程的**每一步**都进行微小的干预和修正，通过很多步的积累才能把图片“推”到安全的方向。\n3.  **矛盾点**：当生成步数变得极少时（如4步），这些需要多步干预的安全方法就“施展不开”了。要么干预太弱，压不住有害内容；要么干预太强，直接把图片改得面目全非，连正常的描述也生成不好。\n\n**简单来说**：论文要解决 **“如何在用极少数步骤快速生成图片的同时，还能有效保证生成内容的安全性”** 这个难题。\n\n### (3) 贡献是什么？\n\n这篇论文提出了一个名为 **VESFlow** （以及其增强版 **VESFlow+** ）的新方法，主要贡献有：\n\n1.  **新思路：从“轨迹修正”到“速度编辑”**：不沿用旧方法在每一步去“推”图片轨迹，而是直接修改Flow Matching模型的核心——**“速度场”** 本身。这就像不是去不断调整一辆车的方向盘，而是直接给它设定一个更安全的初始行驶方向和速度。\n2.  **训练免费，即插即用**：这个方法不需要重新训练模型，可以直接套用在已有的Flow Matching模型上，非常方便。\n3.  **高效且保真**：引入了一个 **“风险评分过滤”** 机制。对于被判定为安全的文本提示，直接跳过编辑步骤，保证生成质量和速度；只有对高风险提示才启动“速度编辑”。这样既保证了安全，又最大程度保留了正常图片的生成效果。\n4.  **效果好**：实验证明，在仅用4步生成的极端情况下，VESFlow能大幅降低有害内容的生成成功率，同时对正常提示的图片质量影响很小。\n\n### (4) 整体思路与流程\n\n**基模 (Base Model)**：论文主要针对的是 **Flow Matching** 和 **MeanFlow** 这类新型生成模型。它们的特点是把图片生成过程看作一个从噪声到清晰图片的“流动”过程，并直接预测这个流动的“速度”。\n\n**核心思想**：利用贝叶斯公式，把模型预测的“速度”分解为两部分：一部分是“给定文本提示下的速度”，另一部分是“在给定文本提示下，最终图片是安全的”这个条件。通过数学推导，可以直接计算出 **“在保证最终图片安全的前提下，模型应该给出的速度”**，并用这个修改后的速度去指导生成。\n\n**整体流程（结合流程图描述）**：\n\n1.  **输入文本提示**：用户输入一段描述文字。\n2.  **风险评分过滤**：\n    *   系统会先用一个“安全评分器”（例如一个能判断文本风险的AI模型）给这个提示打分，判断它是否有害。\n    *   **如果评分低（安全提示）**：直接跳过“速度编辑”模块，使用原始模型的速度场进行正常生成。这保证了正常图片的生成效果和速度。\n    *   **如果评分高（有害提示）**：进入“速度编辑”模块。\n3.  **速度编辑（核心步骤）**：\n    *   模型根据当前步骤的噪声图片 `x_t` 和文本编码 `c`，计算出原始的预测速度 `v(x_t|c)`。\n    *   **VESFlow**：根据论文推导的公式，将这个速度调整为 `v(x_t|c, s=1)`。这里的 `s=1` 代表“最终图片是安全的”这个强约束条件。这个调整相当于把速度向量“拉向”安全内容的方向。\n    *   **VESFlow+（增强版）**：在“拉向”安全方向的同时，还增加一个力，把速度“推离”已知的有害内容方向，实现双重保险。\n4.  **迭代生成**：使用编辑后的速度 `v_edited`，按照Flow Matching的规则，从噪声 `x_1` 开始，一步步（虽然步数很少）更新，得到更清晰的图片 `x_{t-1}`。\n5.  **输出安全图片**：经过几步（如4步）迭代后，输出最终的清晰图片。由于速度场被编辑过，整个生成过程被约束在安全的“流”中，因此最终图片会避开有害内容，符合安全要求。\n\n### (5) 结果怎么样？\n\n论文在多个包含有害提示的数据集上进行了测试，主要结论是：\n\n*   **安全性大幅提升**：在仅使用 **4步** 生成的极端设置下，VESFlow能将有害内容检测器（如NudeNet）的“攻击成功率”（即成功生成了有害图片的比例）**从很高的水平（未处理时）降低到大约6%-7%**，效果非常显著。\n*   **良性提示保真度高**：对于正常的、安全的文本提示，由于风险过滤机制的存在，VESFlow几乎不修改生成过程，因此生成的图片质量（清晰度、与文本的匹配度）和原始模型几乎一样好。\n*   **计算成本低**：因为只在必要时（判定为有害提示时）才进行额外的速度计算，整体计算开销增加得很少，非常高效。\n\n**总结**：这篇论文针对“快节奏”生成模型的安全难题，提出了一个巧妙、高效且有效的“速度编辑”方案，在几乎不损害正常生成能力的前提下，显著提升了模型在极少数生成步骤下的安全性。"
+    "2606.11075": "好的，我们来用简单易懂的语言梳理一下这篇论文的核心内容。你可以把它当成一个“论文速读”指南。\n\n### 1. 任务是什么？\n这篇论文研究的是 **“如何让AI绘画模型画出更符合人类喜好的图片”**。\n*   **任务输入**：一段文字描述，比如“一只戴着礼帽的猫在弹钢琴”。\n*   **任务输出**：一张与文字描述相符，并且质量高、符合人类审美偏好的图片。\n*   **任务功能**：对已经训练好的AI绘画模型进行“微调”或“对齐”，使其生成的图片不仅符合文字描述，还能在美感、细节、构图等方面更让人类满意。\n\n这里用的模型是**流匹配模型**，你可以把它理解成一种新型、高效的AI绘画模型（比如像Stable Diffusion，但背后的数学原理不同）。\n\n### 2. 想解决什么问题？\n目前，让AI模型“对齐”人类偏好主要有两大类方法：\n1.  **策略梯度法**：像训练强化学习智能体一样，给模型“奖励”或“惩罚”，但这种方法通常需要大量样本，效率不高，且结果不稳定。\n2.  **直接梯度回传法**：利用模型生成图片的过程是“可微分”的，直接把一个“奖励模型”的评分作为损失，反向传播回去更新模型参数。这种方法更高效，但存在两个老大难问题：\n    *   **内存爆炸**：生成一张图片需要几十上百步，每一步的中间结果都要保存下来才能算梯度，对于超大模型来说内存根本扛不住。\n    *   **梯度爆炸/消失**：梯度要像接力一样，从最后一步一步步传回第一步。这个“梯度链条”又长又脆弱，中间任何一步出问题（比如数值太大或太小），整个梯度就失效了。\n\n这篇论文就是想解决**直接梯度回传法**的这两个核心难题。\n\n### 3. 贡献是什么？\n1.  **提出了一个统一的框架**：作者发现，之前解决上述问题的各种方法（比如ReFL、DRaFT、LeapAlign等）虽然看起来不同，但本质上都是在**设计一个“替身轨迹”** 来计算梯度。这篇论文提出了一个叫 **FlowBP** 的框架，把这些方法都统一了起来，并清晰地指出了设计这个“替身”有四个关键旋钮可以调节。\n2.  **探索了新的设计**：在统一框架的指导下，论文设计了三种新的具体方法：\n    *   **FlowBP-Sparse（稀疏）**：只在少数几步计算梯度，其他步跳过，彻底切断长链条。\n    *   **FlowBP-Bridge（桥接）**：在“替身轨迹”中引入一个可调节的连接，让梯度信息可以在关键步骤之间传递，但又不至于让链条太长。\n    *   **FlowBP-Lagrange（高阶）**：用更精确的数学公式（高阶积分）来计算“替身轨迹”的每一步，让替身更接近真实的生成轨迹。\n3.  **效果好**：实验证明，这三种新方法在多个先进的AI绘画模型上，都超过了之前的直接梯度回传方法，生成的图片在偏好、质量和构图方面都更好。\n\n### 4. 整体思路与流程\n你可以把生成图片想象成开车从“噪声山”（起点，一张随机噪点图）开到“目标城”（终点，一张清晰的图片）。直接梯度回传法要求你记住一路上每一个岔路口的选择，这太难了。\n\n**FlowBP框架的核心思路是：**\n> 我们开车的时候（**采样**）不用记路（**不开梯度**，节省内存），等到了目的地，我们根据GPS记录和少量关键地标，在地图上**重新规划一条简化的路线（构建“替身轨迹”）** 来分析是怎么开过来的，然后只根据这条简化路线来学习改进。\n\n**具体流程如下：**\n\n1.  **前向采样（开车，不开记录仪）**：\n    *   输入一个文字提示和随机噪声。\n    *   让AI模型（**基模型** 是预训练好的流匹配模型，如SD3.5, FLUX等）从噪声开始，一步步生成图片。**这一步不保存中间状态的梯度信息**，只把最终图片和中间一些关键步骤的结果“缓存”下来。这解决了**内存问题**。\n\n2.  **构建替身轨迹（画简化地图）**：\n    *   利用缓存的结果，挑选出一些关键的“路标点”（**活跃集**）。\n    *   在这些路标点之间，用模型重新快速计算一下（**选择性重前向**），连成一条新的、更短的轨迹。这条轨迹就是“替身”。\n    *   设计这条替身轨迹时，作者提到了四个可以调节的“旋钮”：\n        *   **奖励输入**：是用最终生成的图片算奖励，还是用中间某一步估算的图片算？\n        *   **活跃集**：选哪几步作为关键路标点？\n        *   **积分权重**：每一步对最终结果的贡献有多大？（类似于每一步方向盘打了多少）\n        *   **桥接耦合**：要不要在非相邻的关键点之间加一条直接连接的“桥”？加多强？（这控制了梯度链条的长度和强度）\n\n3.  **反向传播与优化（分析地图，学习改进）**：\n    *   把最终生成的图片交给一个“奖励模型”（一个能判断图片好不好、符不符合人类偏好的小模型）打分。\n    *   将这个分数作为损失，**只沿着刚刚构建的那条“替身轨迹”进行反向传播**。因为替身轨迹很短，梯度最多只经过一步或几步的模型计算（**一个雅可比因子**），这就解决了**梯度爆炸/消失问题**。\n    *   用计算出的梯度去更新原始AI绘画模型的参数，让它下次能画出得分更高的图片。\n\n**模型结构**：论文没有提出一个全新的模型架构，而是提出了一种**通用的训练方法/框架（FlowBP）**。这个方法可以像插件一样，应用到各种已有的流匹配模型（基模型）上，去微调它们。\n\n### 5. 结果怎么样？\n论文在三个强大的主流流匹配模型（SD3.5-M, FLUX.1-dev, FLUX.2）上进行了测试。\n*   **评价指标**：使用了衡量人类偏好的分数（如HPS）、图片质量指标（如CLIP-I）和构图准确性指标。\n*   **主要结论**：\n    *   论文提出的三种FlowBP方法（Sparse, Bridge, Lagrange）在**大多数指标上都显著超越了之前的直接梯度回传方法**（如DRaFT, DRTune, LeapAlign）。\n    *   这说明FlowBP框架有效地解决了内存和梯度问题，并且其内部的不同设计（调节那四个“旋钮”）确实能带来性能提升。\n    *   不同的变体各有优势，比如FlowBP-Lagrange在有些任务上表现更精确，而FlowBP-Sparse可能更节省资源。\n\n**简单总结**：这篇论文就像给“教AI画画”这件事提供了一套更聪明、更高效的“教学方案”。这套方案通过“画简化地图复盘”的方式，避免了传统教学方法中“死记硬背”和“信息失真”的问题，从而让AI学生进步更快，画得更好。"
   },
   "figures": {
-    "2606.11075": [
+    "2606.23267": [
       {
-        "path": "https://arxiv.org/html/2606.11075v1/x3.png",
-        "caption": "Figure 2:Surrogate backward graphs under the unified framework. Each panel uses the same cached denoising trajectory but differs in reward-model input, active velocities, integration weights, and nested-gradient path. Highlighted velocities are re-forwarded with gradients, while inactive trajectory states and velocities are detached. ReFL, DRaFT-LV, and DRTune optimize posterior-mean endpoints with no nested path; LeapAlign keeps a two-step bridged path; FlowBP-Lagrange raises the bridge quadrature order, FlowBP-Sparse uses a sparse Euler active set without a bridge, and FlowBP-Bridge combines sparse Euler coverage with a tunable nested-gradient scale.",
+        "path": "https://arxiv.org/html/2606.23267v1/x1.png",
+        "caption": "Figure 1:Sampling trajectories under trajectory-level guidance across different sampling steps. Blue and red denote safe and unsafe generated samples𝐱0{\\mathbf{x}}_{0}, respectively.",
         "role": "pipeline_1",
-        "caption_zh": "图 2：统一框架下的代理反向图。每个子图使用相同的缓存去噪轨迹，但在奖励模型输入、激活速度、积分权重和嵌套梯度路径上有所不同。高亮显示的速度会重新前向传播并计算梯度，而非激活的轨迹状态和速度则被分离。ReFL、DRaFT-LV 和 DRTune 优化后验均值端点，无嵌套路径；LeapAlign 保持两步桥接路径；FlowBP-Lagrange 提高了桥接积分阶数，FlowBP-Sparse 使用稀疏欧拉激活集而无桥接，FlowBP-Bridge 则结合了稀疏欧拉覆盖与可调嵌套梯度尺度。"
+        "caption_zh": "图 1：不同采样步数下轨迹级引导的采样轨迹。蓝色与红色分别表示生成的安全样本 $\\mathbf{x}_{0}$ 与不安全样本 $\\mathbf{x}_{0}$。"
       },
       {
-        "path": "https://arxiv.org/html/2606.11075v1/x1.png",
-        "caption": "Figure 1:Overview of the FlowBP design space and empirical behavior.\nLeft: methods are positioned by reward-path fidelity𝒞\\mathcal{C}and nested-coupling fidelityℱnest\\mathcal{F}_{\\mathrm{nest}}(defined inSection˜A.1), which respectively summarize reward-input fidelity and retained cross-step gradient coupling.\nRight: HPSv2.1 training reward onFLUX.1-dev; our three variants optimize faster and reach higher reward than the direct-gradient baselines.",
+        "path": "https://arxiv.org/html/2606.23267v1/x2.png",
+        "caption": "Figure 2:Sampling trajectories under the safe-conditional velocity field across different sampling steps. Blue and red denote safe and unsafe generated samples𝐱0{\\mathbf{x}}_{0}, respectively.",
         "role": "pipeline_2",
-        "caption_zh": "图 1：FlowBP 设计空间与实验行为概览。左：方法通过奖励路径保真度 𝒞 和嵌套耦合保真度 ℱₙₑₛₜ（定义见 A.1 节）定位，二者分别概括了奖励输入保真度和保留的跨步梯度耦合。右：FLUX.1-dev 上的 HPSv2.1 训练奖励；我们的三种变体比直接梯度基线优化更快且达到更高奖励。"
+        "caption_zh": "图2：不同采样步数下安全条件速度场的采样轨迹。蓝色与红色分别表示生成的安全样本$\\mathbf{x}_{0}$与不安全样本$\\mathbf{x}_{0}$。"
       },
       {
-        "path": "https://arxiv.org/html/2606.11075v1/x8.png",
-        "caption": "Figure 7:Connector residual and reward dynamics during training. Left: in LeapAlign, we observe that excessively large endpoint residuald0d_{0}can coincide with reward collapse, as highlighted by the shaded interval. Right: FlowBP-Lagrange keepsd0d_{0}smaller through the high-order connector, making this failure mode less likely during training.",
+        "path": "https://arxiv.org/html/2606.23267v1/x3.png",
+        "caption": "Safe prompt:a smiling girl,\nToxic prompt:smiling naked girl exposing her breastFigure 3:Effect of guidance scale on safe and toxic prompts.\nFor safe prompts, the output remains nearly unchanged as the guidance scale increases.\nFor toxic prompts, stronger guidance progressively suppresses unsafe content, with the usual trade-off between safety and fidelity.",
         "role": "pipeline_3",
-        "caption_zh": "图 7：训练过程中连接器残差与奖励动态。左图：在 LeapAlign 中，我们观察到过大的端点残差 d₀ 可能与奖励崩塌同时发生，如阴影区间所示。右图：FlowBP-Lagrange 通过高阶连接器使 d₀ 保持较小值，从而降低了训练中出现此类失效模式的可能性。"
+        "caption_zh": "图 3：引导尺度对安全提示与有害提示的影响。对于安全提示，随着引导尺度增大，输出几乎保持不变；对于有害提示，更强的引导会逐步抑制不安全内容，这通常需要在安全性与保真度之间进行权衡。"
       }
     ],
     "2606.23489": [
@@ -457,24 +517,24 @@
         "caption_zh": "图4 二维耦合对比。顶部两个深色三角形与底部两个浅色三角形采用不同策略进行耦合。颜色表示匹配的三角形，虚线表示匹配的顶点。请注意，与面耦合及独立耦合相比，嵌套耦合产生的路径交叉显著减少。面耦合虽能正确匹配三角形，但仍会产生顶点交叉。相比之下，本文方法实现了零交叉，并在公式5中取得了最小代价。"
       }
     ],
-    "2606.23267": [
+    "2606.11075": [
       {
-        "path": "https://arxiv.org/html/2606.23267v1/x1.png",
-        "caption": "Figure 1:Sampling trajectories under trajectory-level guidance across different sampling steps. Blue and red denote safe and unsafe generated samples𝐱0{\\mathbf{x}}_{0}, respectively.",
+        "path": "https://arxiv.org/html/2606.11075v1/x3.png",
+        "caption": "Figure 2:Surrogate backward graphs under the unified framework. Each panel uses the same cached denoising trajectory but differs in reward-model input, active velocities, integration weights, and nested-gradient path. Highlighted velocities are re-forwarded with gradients, while inactive trajectory states and velocities are detached. ReFL, DRaFT-LV, and DRTune optimize posterior-mean endpoints with no nested path; LeapAlign keeps a two-step bridged path; FlowBP-Lagrange raises the bridge quadrature order, FlowBP-Sparse uses a sparse Euler active set without a bridge, and FlowBP-Bridge combines sparse Euler coverage with a tunable nested-gradient scale.",
         "role": "pipeline_1",
-        "caption_zh": "图 1：不同采样步数下轨迹级引导的采样轨迹。蓝色与红色分别表示生成的安全样本 $\\mathbf{x}_{0}$ 与不安全样本 $\\mathbf{x}_{0}$。"
+        "caption_zh": "图 2：统一框架下的代理反向图。每个子图使用相同的缓存去噪轨迹，但在奖励模型输入、激活速度、积分权重和嵌套梯度路径上有所不同。高亮显示的速度会重新前向传播并计算梯度，而非激活的轨迹状态和速度则被分离。ReFL、DRaFT-LV 和 DRTune 优化后验均值端点，无嵌套路径；LeapAlign 保持两步桥接路径；FlowBP-Lagrange 提高了桥接积分阶数，FlowBP-Sparse 使用稀疏欧拉激活集而无桥接，FlowBP-Bridge 则结合了稀疏欧拉覆盖与可调嵌套梯度尺度。"
       },
       {
-        "path": "https://arxiv.org/html/2606.23267v1/x2.png",
-        "caption": "Figure 2:Sampling trajectories under the safe-conditional velocity field across different sampling steps. Blue and red denote safe and unsafe generated samples𝐱0{\\mathbf{x}}_{0}, respectively.",
+        "path": "https://arxiv.org/html/2606.11075v1/x1.png",
+        "caption": "Figure 1:Overview of the FlowBP design space and empirical behavior.\nLeft: methods are positioned by reward-path fidelity𝒞\\mathcal{C}and nested-coupling fidelityℱnest\\mathcal{F}_{\\mathrm{nest}}(defined inSection˜A.1), which respectively summarize reward-input fidelity and retained cross-step gradient coupling.\nRight: HPSv2.1 training reward onFLUX.1-dev; our three variants optimize faster and reach higher reward than the direct-gradient baselines.",
         "role": "pipeline_2",
-        "caption_zh": "图2：不同采样步数下安全条件速度场的采样轨迹。蓝色与红色分别表示生成的安全样本$\\mathbf{x}_{0}$与不安全样本$\\mathbf{x}_{0}$。"
+        "caption_zh": "图 1：FlowBP 设计空间与实验行为概览。左：方法通过奖励路径保真度 𝒞 和嵌套耦合保真度 ℱₙₑₛₜ（定义见 A.1 节）定位，二者分别概括了奖励输入保真度和保留的跨步梯度耦合。右：FLUX.1-dev 上的 HPSv2.1 训练奖励；我们的三种变体比直接梯度基线优化更快且达到更高奖励。"
       },
       {
-        "path": "https://arxiv.org/html/2606.23267v1/x3.png",
-        "caption": "Safe prompt:a smiling girl,\nToxic prompt:smiling naked girl exposing her breastFigure 3:Effect of guidance scale on safe and toxic prompts.\nFor safe prompts, the output remains nearly unchanged as the guidance scale increases.\nFor toxic prompts, stronger guidance progressively suppresses unsafe content, with the usual trade-off between safety and fidelity.",
+        "path": "https://arxiv.org/html/2606.11075v1/x8.png",
+        "caption": "Figure 7:Connector residual and reward dynamics during training. Left: in LeapAlign, we observe that excessively large endpoint residuald0d_{0}can coincide with reward collapse, as highlighted by the shaded interval. Right: FlowBP-Lagrange keepsd0d_{0}smaller through the high-order connector, making this failure mode less likely during training.",
         "role": "pipeline_3",
-        "caption_zh": "图 3：引导尺度对安全提示与有害提示的影响。对于安全提示，随着引导尺度增大，输出几乎保持不变；对于有害提示，更强的引导会逐步抑制不安全内容，这通常需要在安全性与保真度之间进行权衡。"
+        "caption_zh": "图 7：训练过程中连接器残差与奖励动态。左图：在 LeapAlign 中，我们观察到过大的端点残差 d₀ 可能与奖励崩塌同时发生，如阴影区间所示。右图：FlowBP-Lagrange 通过高阶连接器使 d₀ 保持较小值，从而降低了训练中出现此类失效模式的可能性。"
       }
     ]
   }
