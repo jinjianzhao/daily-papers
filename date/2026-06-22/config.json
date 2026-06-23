@@ -1,0 +1,254 @@
+{
+  "base_info": {
+    "2606.17480": {
+      "title": "GeneralVLA-2: Geometry-Aware Reconstruction and Governed Memory for Robot Planning",
+      "abstract": "Generalist vision-language-action systems need object-centric 3D evidence and reusable manipulation experience to plan reliable robot trajectories. GeneralVLA provides a hierarchical interface for converting language and RGB-D observations into 3D end-effector paths, but two bottlenecks remain. First, monocular SAM3D-style object reconstruction can hallucinate pose and unseen geometry, while manipulation benefits from stable object shape when calibrated multi-view observations are available. Second, the original KnowledgeBank mainly retrieves semantically similar snippets and appends new knowledge, which makes it difficult to control memory quality, conflicts, confidence, and geometric relevance. To address the first challenge, we introduce GeoFuse-MV3D, a geometry-prior-guided MV-SAM3D reconstruction branch that verifies external geometry cues with input-view masks, applies soft visual-hull support, performs axis-wise refinement, and fuses only geometry while preserving appearance. To address the second challenge, we upgrade KnowledgeBank into a governed long-term memory system with explicit quality, confidence, lifecycle, verifier, and conflict metadata, together with precision-oriented retrieval. Finally, we evaluate the reconstruction branch on GSO-30 and the memory module on Terminal-Bench 2.0 and SWE-Bench Verified; GeoFuse-MV3D improves over the MV-SAM3D baseline by reducing CD and LPIPS by 2.20% and 2.02% while increasing PSNR and SSIM by 2.36% and 1.03%, and KnowledgeBank improves over ReasoningBank by 4.53% on Terminal-Bench SR and 3.73% on SWE-Bench resolve rate, while reducing AS by 4.95% and 5.65%, respectively. Code:this https URL. Website:this https URL.",
+      "abstract_zh": "通用视觉-语言-行动系统需要以物体为中心的三维证据与可复用的操作经验来规划可靠的机器人轨迹。GeneralVLA提供了一个分层接口，可将语言与RGB-D观测转换为三维末端执行器路径，但仍存在两个瓶颈。首先，单目SAM3D式物体重建可能产生位姿幻觉与不可见几何结构，而在已校准多视角观测可用时，操作任务受益于稳定的物体形状。其次，原始知识库（KnowledgeBank）主要检索语义相似的片段并追加新知识，这导致难以控制记忆质量、冲突、置信度与几何关联性。\n\n针对第一个挑战，我们提出了GeoFuse-MV3D——一种几何先验引导的多视角SAM3D（MV-SAM3D）重建分支，该分支通过输入视角掩码验证外部几何线索，应用软视觉外壳支撑，执行轴向精细化处理，并仅融合几何信息同时保留外观特征。针对第二个挑战，我们将知识库升级为具备明确质量、置信度、生命周期、验证器与冲突元数据，以及精准导向检索机制的受治理长期记忆系统。\n\n最后，我们在GSO-30数据集上评估重建分支，在Terminal-Bench 2.0与SWE-Bench Verified上评估记忆模块：GeoFuse-MV3D相较MV-SAM3D基线，通过将倒角距离（CD）与学习感知图像块相似度（LPIPS）分别降低2.20%和2.02%，同时将峰值信噪比（PSNR）与结构相似性指数（SSIM）提升2.36%和1.03%；知识库在Terminal-Bench成功解决率（SR）上较推理库（ReasoningBank）提升4.53%，在SWE-Bench问题解决率上提升3.73%，同时分别将平均步骤数（AS）降低4.95%与5.65%。代码：此https URL。网站：此https URL。",
+      "hf_link": "https://huggingface.co/papers/2606.17480"
+    },
+    "2606.15659": {
+      "title": "SpatialAvatar-0: High-Quality 4D Head Avatar with Multi-Stage Reconstruction",
+      "abstract": "High-quality 4D head avatars from one or a few source portraits are central to telepresence, AR/VR, and digital-human interaction. 3D Gaussian Splatting (3DGS) has emerged as the dominant representation, with two complementary regimes (generalizable feed-forward predictors and per-subject refiners) maturing in parallel. However, existing feed-forward predictors are trained on a single dataset family with a hard-coded source count, inheriting the corresponding domain bias. Per-subject refiners require 300K--600K iterations and rely on adaptive densification that destroys upstream Gaussian layouts, preventing the two regimes from sharing a representation end-to-end. To bridge both regimes we propose SpatialAvatar-0 on a shared FLAME-mesh-bound Gaussian representation: a feed-forward generator with a parameter-free K-source mean-pool and a monocular-temporal to multi-view-spatial two-phase schedule that anchors against identity-prior collapse onto the smaller multi-view set. We further introduce a 10K-iter layout-preserving per-subject refinement loop that freezes the FLAME-binding and Gaussian count and replaces densification with a three-component anti-spike regularization. On VFHQ/HDTF cross-domain zero-shot we surpass the in-domain leader GAGAvatar by +1.5 dB PSNR despite never training on either test domain, and on the SplattingAvatar monocular benchmark we lead every reported metric, surpassing the 300K-iter GeoAvatar by +1.3 dB PSNR at up to 60x shorter per-subject schedule than common SOTA baselines. Website:this https URL.",
+      "abstract_zh": "从单张或多张源肖像生成高质量4D头部化身是远程呈现、增强现实/虚拟现实（AR/VR）以及数字人交互的核心技术。3D高斯泼溅（3D Gaussian Splatting, 3DGS）已成为主流表示方法，其两种互补范式（通用前馈预测器与逐对象优化器）正并行发展成熟。然而，现有前馈预测器均在单一数据集家族上训练，且采用固定数量的源输入，从而继承了相应的领域偏差。逐对象优化器需要30万至60万次迭代，并依赖破坏上游高斯布局的自适应致密化策略，导致两种范式无法端到端共享统一表示。为弥合这两种范式，我们基于共享的FLAME网格绑定高斯表示提出SpatialAvatar-0系统：该系统包含采用无参数K源均值池化的前馈生成器，以及从单目时序到多视角空间的两阶段训练方案，该方案通过锚定身份先验防止模型在小规模多视角集上坍缩。我们进一步引入了万次迭代级的布局保持型逐对象优化循环，该循环冻结FLAME绑定与高斯数量，并以三组分抗尖峰正则化替代致密化操作。在VFHQ/HDTF跨领域零样本测试中，尽管从未在任一测试领域训练，我们的方法仍以+1.5 dB峰值信噪比（PSNR）超越领域内领先的GAGAvatar；在SplattingAvatar单目基准测试中，我们在所有报告指标上均保持领先，以+1.3 dB PSNR优势超越需30万次迭代的GeoAvatar，且逐对象优化耗时较当前主流SOTA基线缩短高达60倍。项目网站：此 https URL。",
+      "hf_link": "https://huggingface.co/papers/2606.15659"
+    },
+    "2606.19651": {
+      "title": "BrainG3N: A Dual-Purpose Tokenizer for Controllable 3D Brain MRI Generation",
+      "abstract": "Three-dimensional (3D) brain MRI is central to clinical neurology and neuro-oncology, where generative models could augment under-represented cohorts, simulate disease trajectories, and support privacy-preserving data sharing. Latent diffusion has been the go-to solution for modeling imaging data, but it places two competing demands on the tokenizer: encoder embeddings must retain the clinical information that downstream tasks act on, and the decoder must reconstruct anatomically faithful volumes. Existing reconstruction-driven tokenizers achieve the second at the expense of the first. To address this, we introduce a fully volumetric masked-autoencoder (MAE) based tokenizer for 3D brain MRI latent diffusion, decoupling encoder and decoder: a frozen 3D MAE encoder produces clinically informative embeddings, while a dedicated CNN decoder reconstructs voxels from a linear projection of those embeddings. We pretrain the encoder on 35,309 volumes from 18 public cohorts spanning four modalities, ten disease categories, and 200+ acquisition sites, and demonstrate its dual utility in two settings. First, on a 23-task linear-probing benchmark, the encoder outperforms or matches SOTA models (i.e., BrainIAC, BrainSegFounder, and MedicalNet) on 21 of 23 tasks. Second, a conditional diffusion transformer (DiT) trained on these clinically informative embeddings supports both conditional generation across six variables and patient-specific longitudinal forecasting. Together these results establish a single 3D brain-MRI embedding space capable of both downstream clinical tasks and controllable generation.",
+      "abstract_zh": "三维(3D)脑部磁共振成像(MRI)在临床神经病学与神经肿瘤学中具有核心地位，生成模型在此领域可扩充代表性不足的队列、模拟疾病发展轨迹，并支持隐私保护的数据共享。潜在扩散模型已成为影像数据建模的主流方案，但其对分词器提出了两项相互竞争的要求：编码器嵌入必须保留下游任务所依赖的临床信息，而解码器必须重建解剖结构精确的脑部体积数据。现有基于重建的分词器虽满足第二项要求，却往往牺牲了第一项。为此，我们提出了一种基于全体积掩码自编码器(MAE)的分词器，专为3D脑部MRI潜在扩散设计，实现了编码器与解码器的解耦：冻结的3D MAE编码器生成包含临床信息的嵌入向量，而专用的卷积神经网络(CNN)解码器则通过这些嵌入向量的线性投影来重建体素。我们在涵盖四种模态、十类疾病及200多个采集站点的18个公共队列共35,309个体积数据上对编码器进行预训练，并通过两种应用场景验证其双重效用。首先，在包含23项任务的线性探测基准测试中，该编码器在21项任务上表现优于或匹配当前最先进模型（如BrainIAC、BrainSegFounder和MedicalNet）。其次，基于这些临床信息嵌入训练的条件扩散变换器(DiT)能够支持跨六个变量的条件生成及患者特异性的纵向预测。这些成果共同确立了一个统一的3D脑部MRI嵌入空间，既能服务于下游临床任务，又可实现可控生成。",
+      "hf_link": "https://huggingface.co/papers/2606.19651"
+    },
+    "2606.19534": {
+      "title": "PerceptionDLM: Parallel Region Perception with Multimodal Diffusion Language Models",
+      "abstract": "Multimodal large language models (MLLMs) have achieved remarkable progress in visual understanding tasks. However, most existing MLLMs rely on autoregressive generation, which limits their efficiency for perception tasks that require captioning multiple regions. In this work, we propose PerceptionDLM, a multimodal diffusion language model optimized for efficient parallel region perception. Built upon PerceptionDLM-Base, a strong foundational baseline that achieves state-of-the-art performance among open-source diffusion MLLMs, our architecture fully leverages the parallel decoding nature of DLMs. Specifically, we introduce efficient prompting and structured attention masking to enable simultaneous perception of multiple masked regions, allowing the model to generate region descriptions in parallel at both the sequence and token levels. This design significantly improves inference efficiency compared with existing approaches that process regions sequentially. To systematically evaluate the parallelism property of visual perception capability for DLMs, we construct a new Parallel Detailed Localized Captioning Benchmark (ParaDLC-Bench) by scaling the DLC-Bench to include multiple region masks per image, enabling joint evaluation of both caption quality and inference efficiency. Experiments demonstrate that PerceptionDLM maintains competitive performance in region captioning while achieving substantial speed improvements for multi-region perception tasks. Our results highlight the potential of multimodal diffusion language models for efficient, parallel visual perception. To the best of our knowledge, we are the first to achieve parallel region caption and perception by leveraging the advantages of diffusion language models. Code, models, and datasets are released.",
+      "abstract_zh": "多模态大语言模型(MLLMs)在视觉理解任务上取得了显著进展。然而，现有大多数MLLMs依赖自回归生成方式，这限制了其在需要对多个区域进行描述（captioning）的感知任务中的效率。本研究中，我们提出PerceptionDLM——一种为高效并行区域感知优化的多模态扩散语言模型。该架构基于PerceptionDLM-Base（一个在开源扩散MLLMs中达到最先进性能的强大基础基线）构建，充分运用了扩散语言模型(DLMs)的并行解码特性。具体而言，我们引入了高效提示机制与结构化注意力掩码，以支持对多个掩码区域的同步感知，使模型能在序列和词元(token)两个层级并行生成区域描述。与现有串行处理区域的方法相比，该设计显著提升了推理效率。为系统评估扩散语言模型视觉感知能力的并行特性，我们通过扩展DLC-Bench构建了新的并行精细化局部描述基准(ParaDLC-Bench)，使每张图像包含多个区域掩码，从而实现对描述质量和推理效率的联合评估。实验表明，PerceptionDLM在保持区域描述竞争力的同时，为多区域感知任务带来了显著的加速效果。我们的研究结果凸显了多模态扩散语言模型在高效并行视觉感知方面的潜力。据我们所知，这是首次通过利用扩散语言模型优势实现并行区域描述与感知的研究。相关代码、模型及数据集均已公开。",
+      "hf_link": "https://huggingface.co/papers/2606.19534"
+    },
+    "2606.17162": {
+      "title": "MemSlides: A Hierarchical Memory Driven Agent Framework for Personalized Slide Generation with Multi-turn Local Revision",
+      "abstract": "Personalized presentation generation requires more than conditioning on a current prompt or template: agents must preserve stable user preferences across tasks, retain newly introduced preferences and constraints during multi-turn revision, and carry out local edits reliably. We propose MemSlides, a hierarchical memory framework for personalized presentation agents that separates long-term memory from working memory and further divides long-term memory into user profile memory and tool memory. User profile memory stores intent-conditioned profiles for round-0 personalization, working memory carries active preferences and session constraints across revision rounds, and tool memory stores reusable execution experience for reliable localized editing. MemSlides pairs this memory design with scoped slide-local revision, so targeted updates act on the smallest affected region instead of repeatedly regenerating the full deck. In controlled experiments, user profile memory improves persona-alignment judgments on a multi-persona, multi-intent profile bank, tool-memory injection improves closed-loop modify behavior in diagnostic matched-pair settings, and qualitative cases illustrate working memory's ability to carryover preferences. Taken together, these results suggest that effective personalization in presentation authoring depends on separating persistent user profiles, session-level working memory, and reusable execution experience across generation and localized revision.",
+      "abstract_zh": "个性化演示文稿生成不仅依赖于当前提示或模板的条件设定：智能体必须能够跨任务保持稳定的用户偏好，在多轮修订过程中保留新引入的偏好与约束条件，并可靠地执行局部编辑。我们提出了MemSlides——一种面向个性化演示文稿生成智能体的分层记忆框架，该框架将长期记忆与工作记忆分离，并将长期记忆进一步划分为用户画像记忆与工具记忆。用户画像记忆存储基于意图条件化的用户画像，用于初始轮次的个性化定制；工作记忆负责在修订轮次间传递活跃偏好与会话约束；工具记忆则存储可重复使用的执行经验，以实现可靠的局部编辑。MemSlides将这一记忆设计与局部幻灯片范围修订机制相结合，使针对性更新仅作用于最小受影响区域，而非重复重新生成整个演示文稿。在受控实验中，用户画像记忆提升了基于多角色、多意图画像库的角色一致性判断；工具记忆注入改善了诊断性配对设置中的闭环修改行为；定性案例展示了工作记忆在跨轮次偏好传递方面的能力。综合而言，这些结果表明，演示文稿创作中有效的个性化取决于对持久性用户画像、会话级工作记忆以及可复用执行经验的分离管理，并贯穿于整体生成与局部修订的全过程。",
+      "hf_link": "https://huggingface.co/papers/2606.17162"
+    },
+    "2606.18829": {
+      "title": "GateMem: Benchmarking Memory Governance in Multi-Principal Shared-Memory Agents",
+      "abstract": "Memory benchmarks for LLM agents largely assume single-user settings, leaving shared assistants for hospitals, workplaces, campuses, and households understudied. In these deployments, multiple principals write to a common memory pool and query it under different roles, scopes, and relationships, so memory quality requires governance as well as recall. We introduce GateMem, a benchmark for multi-principal shared-memory agents. GateMem jointly evaluates utility for legitimate long-horizon requests with state updates, access control across contextual authorization boundaries, and agent-facing active forgetting after explicit deletion requests. It spans medical, office, education, and household domains, with long-form multi-party episodes, incremental memory injection, hidden checkpoints, structured judging, and leak-target annotations. Across diverse baselines and backbone models, no method simultaneously achieves strong utility, robust access control, and reliable forgetting. Long-context prompting often yields the best governance score at high token cost, while retrieval-based and external-memory methods reduce cost yet still leak unauthorized or deleted information. These results show current memory agents remain far from reliable shared institutional deployment.",
+      "abstract_zh": "面向LLM（大语言模型）智能体的记忆基准测试主要假设单用户场景，导致针对医院、工作场所、校园及家庭等场景的共享助手研究不足。在这些实际部署中，多个主体（principals）向公共记忆池写入信息，并以不同角色、范围和关系进行查询，因此记忆质量不仅需要检索能力，更需治理机制。我们提出GateMem，一个面向多主体共享记忆智能体的基准测试框架。GateMem综合评估以下能力：支持状态更新的合法长期请求效用、跨情境授权边界的访问控制（access control），以及响应显式删除请求后面向智能体的主动遗忘（active forgetting）。该基准覆盖医疗、办公、教育和家庭领域，包含长篇多参与方情景序列、渐进式记忆注入、隐藏检查点、结构化评判和泄露目标标注。在对多种基线方法和骨干模型的测试中，现有方法均无法同时实现高效用、强访问控制和可靠遗忘。长上下文提示（long-context prompting）通常以高昂的token成本获得最佳治理评分，而基于检索（retrieval-based）和外部记忆（external-memory）的方法虽能降低成本，仍会泄露未授权或已删除的信息。这些结果表明，当前的记忆智能体距离可靠的共享机构部署仍存在显著差距。",
+      "hf_link": "https://huggingface.co/papers/2606.18829"
+    },
+    "2606.18508": {
+      "title": "MCompassRAG: Topic Metadata as a Semantic Compass for Paragraph-Level Retrieval",
+      "abstract": "Retrieval-augmented generation (RAG) systems depend critically on how documents are chunked and searched. Fine-grained chunks can improve retrieval precision but expand the search space, increasing latency and cost; larger chunks reduce the number of candidates but make dense similarity less reliable, as the representation for each chunk mixes multiple topics and introduces more semantic noise. This trade-off becomes especially limiting in deep research tasks, where retrieval must be both fast and precise across large, heterogeneous corpora. We introduce MCompassRAG, a metadata-guided retrieval framework that uses topic-level signals as a semantic compass for selecting relevant evidence. Instead of relying only on cosine similarity between queries and noisy chunk embeddings, MCompassRAG enriches chunk representations with topic metadata in the same embedding space and trains a lightweight retriever through LLM-teacher distillation. At inference time, MCompassRAG performs topic-aware retrieval without additional LLM calls, improving both efficiency and evidence quality. Across six complex retrieval benchmarks, MCompassRAG improves information efficiency (IE) by 8.24% on average with over 5 times lower latency than the strongest efficient RAG baselines. Code is available onthis https URL.",
+      "abstract_zh": "检索增强生成（Retrieval-augmented generation, RAG）系统的性能在很大程度上取决于文档的分块与搜索方式。细粒度的分块虽能提升检索精度，但会扩大搜索空间，增加延迟与成本；而较大的分块虽可减少候选数量，却会降低稠密相似度的可靠性，因为每个分块的表示混合了多个主题并引入了更多语义噪声。这一权衡在深度研究任务中尤为受限，因为此类任务需要在庞大且异构的语料库中实现快速且精确的检索。我们提出了MCompassRAG，一种基于元数据引导的检索框架，该框架利用主题级信号作为语义指南，以选择相关证据。相较于仅依赖查询与含噪声的分块嵌入之间的余弦相似度，MCompassRAG在同一嵌入空间中通过主题元数据增强了分块表示，并通过大语言模型教师蒸馏训练了一个轻量级检索器。在推理阶段，MCompassRAG无需额外调用大语言模型即可实现主题感知检索，从而同时提升了效率与证据质量。在六项复杂检索基准测试中，MCompassRAG平均将信息效率（Information Efficiency, IE）提高了8.24%，且延迟比当前最高效的RAG基线方法降低了五倍以上。代码发布于this https URL。",
+      "hf_link": "https://huggingface.co/papers/2606.18508"
+    },
+    "2606.16700": {
+      "title": "Multi-Turn Reflective Masking Elicits Reasoning in Mask Diffusion Models",
+      "abstract": "While reasoning on autoregressive (AR) models is often performed by chain-of-thought reasoning and reflection, their refinement of previous outputs still relies on fully sequential generation, even when only local edits are needed. In contrast, the masking mechanism in Mask Diffusion Models (MDMs) naturally supports explicit local edits on previous outputs, allowing selective refinement without discarding previous answers and generating another from scratch. While this property more closely aligns with how humans correct mistakes by iterative local refinement, existing MDMs do not support multi-turn masking and denoising. We propose Reflective Masking (RM), which elicits such an intrinsic reasoning capability in MDMs via lightweight post-training. RM provides a native test-time scaling, where an MDM iteratively revisits and revises its prior outputs based on evolving context. To exploit insights from previous turns like AR reasoning, we further introduce History Reference, a parameter-free mechanism that leverages intermediate denoising states during revision. Our approach requires no architectural changes and is easily applicable to existing MDMs. Across diverse tasks and modalities, including text generation, Sudoku, and image editing, Reflective Masking consistently outperforms standard masking-based baselines and demonstrates strong generality, positioning RM as a fundamental primitive for reasoning on MDMs.",
+      "abstract_zh": "自回归模型中的推理通常通过思维链式推理与反思进行，但其对先前输出的修正仍然依赖完全顺序生成，即使仅需局部编辑时也不例外。相比之下，掩码扩散模型的掩蔽机制天然支持对先前输出进行显式的局部编辑，允许选择性优化而无需完全舍弃已有答案并从头生成新内容。尽管这一特性更贴近人类通过迭代局部修正来纠正错误的方式，但现有掩码扩散模型并不支持多轮掩蔽与去噪。我们提出反射性掩蔽方法，该方法通过轻量级后训练激发掩码扩散模型的内在推理能力。反射性掩蔽提供了原生测试时扩展机制，使掩码扩散模型能基于动态变化的上下文迭代检视并修订其先前的输出。为借鉴自回归推理中利用历史信息的思路，我们进一步引入历史参照机制——这是一种无需参数的策略，可在修订过程中利用中间去噪状态信息。我们的方法无需改变模型架构，且易于应用于现有掩码扩散模型。在文本生成、数独求解和图像编辑等跨领域任务与多模态场景中，反射性掩蔽方法始终优于基于标准掩码的基线模型，并展现出强大的泛化能力，这使反射性掩蔽成为掩码扩散模型推理的基础原语。",
+      "hf_link": "https://huggingface.co/papers/2606.16700"
+    },
+    "2606.18381": {
+      "title": "SproutRAG: Attention-Guided Tree Search with Progressive Embeddings for Long-Document RAG",
+      "abstract": "Retrieval-augmented generation (RAG) systems must balance retrieval granularity with contextual coherence, a challenge that existing methods address through LLM-guided chunking, single-level context expansion, or hierarchical summarization. These approaches variously depend on costly LLM calls during indexing or retrieval, limit context aggregation to a single granularity level, or introduce information loss through summarization. We present SproutRAG, an attention-guided hierarchical RAG framework that addresses this trade-off by organizing sentence-level chunks into progressively larger but semantically coherent units, using learned inter-sentence attention to construct a binary chunking tree. Unlike prior approaches that rely on external LLMs, fixed context expansion, or lossy summarization, SproutRAG learns which attention heads and layers best capture semantic document structure, enabling multi-granularity retrieval without additional LLM calls or compressed summaries. At retrieval time, SproutRAG uses hierarchical beam search to retrieve candidates at multiple granularities, capturing multi-sentence relevance beyond flat retrieval. The framework is trained end-to-end with a joint objective that improves both embeddings and tree structure. Experiments across four benchmarks spanning scientific, legal, and open-domain settings demonstrate that SproutRAG improves information efficiency (IE) by 6.1% on average over the strongest baseline. Code is available onthis https URL.",
+      "abstract_zh": "检索增强生成（RAG）系统必须在检索粒度与上下文连贯性之间取得平衡，现有方法通过大语言模型（LLM）引导的文本块分割、单级上下文扩展或层次化摘要等方式应对这一挑战。这些方法要么在索引或检索时依赖代价高昂的大语言模型调用，要么将上下文聚合限制在单一粒度层级，要么通过摘要引入信息损失。我们提出了SproutRAG——一种注意力引导的层次化RAG框架，通过将句子级文本块组织成渐次扩大但语义连贯的单元，利用学习得到的句间注意力构建二进制分块树，从而解决这一权衡问题。与以往依赖外部大语言模型、固定上下文扩展或有损摘要的方法不同，SproutRAG通过学习确定哪些注意力头和层级最能捕捉文档的语义结构，实现多粒度检索而无需额外的大语言模型调用或压缩摘要。在检索阶段，SproutRAG采用层次化束搜索在多个粒度上检索候选内容，捕获超越平面检索的多句子相关性。该框架通过联合目标进行端到端训练，同步优化嵌入表示与树形结构。在涵盖科学、法律及开放领域设置的四个基准测试中，实验表明SproutRAG的信息效率（IE）相较于最强基线平均提升6.1%。代码可通过此链接获取：https URL。",
+      "hf_link": "https://huggingface.co/papers/2606.18381"
+    },
+    "2606.18847": {
+      "title": "WorldLines: Benchmarking and Modeling Long-Horizon Stateful Embodied Agents",
+      "abstract": "To assist humans over extended periods in real homes, embodied agents must remember user routines, world states, and past interactions. Existing long-term memory benchmarks mainly evaluate language-centric retrieval and question answering, while embodied benchmarks often focus on short-horizon task execution without testing long-term memory use in dynamic environments. We introduce WorldLines, a project-driven benchmark for long-horizon embodied household assistance. It constructs temporally extended household traces with dialogues, actions, execution feedback, object and device state changes, and converts them into evidence-linked samples for Memory QA and Embodied Task Planning. We further propose ObsMem, an observer-grounded memory framework that maintains visibility-aware memories and action-native state trails for state-aware decisions. Experiments reveal persistent challenges in partial observability, overwritten world states, and translating long-term memory into embodied plans, while ObsMem offers a stronger reference architecture for this setting.",
+      "abstract_zh": "为在真实家庭环境中长期协助人类，具身智能体（embodied agents）必须能够记忆用户习惯、世界状态及过往互动经历。现有的长期记忆基准（benchmarks）主要评估以语言为中心的检索与问答能力，而具身基准则多聚焦于短期任务执行，缺乏对动态环境中长期记忆运用的检验。我们推出WorldLines，一个面向长期具身家庭助手的项目驱动型基准。它通过构建包含对话、行动、执行反馈、物体与设备状态变化的时间延伸型家庭轨迹，并将其转化为证据关联样本，用于记忆问答（Memory QA）与具身任务规划（Embodied Task Planning）。我们进一步提出ObsMem，一种基于观察者的记忆框架，该框架维护具备可见性感知的记忆系统以及面向行动的状态轨迹，以支持基于状态感知的决策。实验结果表明，在部分可观测性、世界状态覆盖以及将长期记忆转化为具身规划等方面仍存在持续挑战，而ObsMem为此场景提供了更具参考价值的架构方案。",
+      "hf_link": "https://huggingface.co/papers/2606.18847"
+    },
+    "2606.19468": {
+      "title": "Characterizing Narrative Content in Web-scale LLM Pretraining Data",
+      "abstract": "The narrative composition of web-scale LLM pretraining corpora remains largely unexplored even though narrative is a fundamental mode of human communication. We present the first fine-grained study of narrative features in Dolma, a 3-trillion-token open pretraining corpus. Drawing on narrative theory, we design a framework spanning three core narrative elements (agency, setting, and events) operationalized as 11 interpretable dimensions. After sampling and annotating a diverse set of 400 passages, we finetune and validate NarraBERT, a RoBERTa-based model for fine-grained narrative prediction. We apply NarraBERT to 3M passages, resulting in a new dataset, NarraDolma. We find (i) narrative structure is measurable at scale across extremely heterogeneous data, (ii) we uncover a continuous, multidimensional narrative structure underlying web text, and (iii) narrative qualities are unequally distributed across pretraining sources and topics in ways that current curation practices neither measure nor account for. Our framework, dataset, and analyses provide a foundation for understanding how narrative qualities are distributed in LLM pretraining data and for studying how data composition affects narrative reasoning tasks. We publicly release NarraDolma and NarraBERT.",
+      "abstract_zh": "网络规模大语言模型（LLM）预训练语料库的叙事构成迄今仍未得到充分探索，尽管叙事是人类交流的基本模式。本研究首次对开放预训练语料库Dolma（包含3万亿词元）的叙事特征进行了细粒度分析。借鉴叙事学理论，我们构建了一个涵盖三大核心叙事要素（能动性、场景设定与事件）的分析框架，并将其具体化为11个可解释维度。通过对400篇多样化文本段落进行采样标注，我们微调并验证了NarraBERT——一个基于RoBERTa的细粒度叙事预测模型。将NarraBERT应用于300万段文本后，我们构建了新的数据集NarraDolma。研究发现：（一）叙事结构在高度异质的数据中具备大规模可测性；（二）网络文本背后存在连续、多维的叙事结构；（三）叙事特质在预训练数据源与主题间呈不均衡分布，现有数据筛选方法既未测量也未考虑这种差异。我们的分析框架、数据集及研究成果为理解LLM预训练数据中的叙事特质分布、探究数据构成如何影响叙事推理任务奠定了基础。我们已公开发布NarraDolma数据集与NarraBERT模型。",
+      "hf_link": "https://huggingface.co/papers/2606.19468"
+    },
+    "2606.15641": {
+      "title": "Distilling Examples into Task Instructions: Enhanced In-Context Learning for Real-World B2B Conversations",
+      "abstract": "In-context learning (ICL) is the standard method for low-resource classification, yet its efficacy in specialized domains remains largely unexplored. We address the challenge of classifying semantically complex, multi-party B2B conversations, where traditional ICL encounters significant limitations, especially as context length increases due to the concatenation of multiple few-shot examples. We introduce the \\texttt{Call Playbook} dataset, featuring five classification tasks derived from real-world B2B conversations targeting core sales concepts. To bridge the gap between performance and practical utility, we propose novel knowledge extraction methods that distill verbose examples into compact, interpretable representations of structured classification criteria and precise task descriptions. Our approach achieves a 99\\% reduction in token usage and improves macro-averaged AUC by up to 7\\% over traditional ICL. Notably, it remains robust as context grows, unlike advanced token compression baselines which degrade by over 9 F1 points. Importantly, our framework enables direct refinement of classification logic, addressing critical needs for transparency, efficiency, and user interaction in real-world NLP applications.",
+      "abstract_zh": "情境学习（In-context learning，ICL）是低资源分类的标准方法，但其在专业领域的有效性仍未得到充分探索。本文针对语义复杂、多方参与的企业对企业（B2B）对话分类的挑战展开研究，传统ICL方法在此类任务中面临显著局限，尤其当因串联多个少样本示例而导致上下文长度增加时。我们推出了\\texttt{Call Playbook}数据集，其中包含源自真实B2B对话、针对核心销售概念的五项分类任务。为弥合性能与实际效用之间的差距，我们提出了新颖的知识提取方法，将冗长的示例提炼为紧凑且可解释的结构化分类标准与精确任务描述表示。该方法实现了99%的令牌使用量缩减，并将宏平均AUC（曲线下面积）较传统ICL提升最高达7%。值得注意的是，随着上下文增长，该方法仍保持稳健性能，而先进的令牌压缩基线方法则出现超过9个F1分数的性能下降。更重要的是，我们的框架支持直接优化分类逻辑，满足了现实世界自然语言处理（NLP）应用中对透明性、效率与用户交互的关键需求。",
+      "hf_link": "https://huggingface.co/papers/2606.15641"
+    },
+    "2606.19827": {
+      "title": "When, Where, and How: Adaptive Binning for Tabular Self-Supervised Learning",
+      "abstract": "Medical tabular data are ubiquitous in clinical research, but deep learning for tables remains underexplored because reliable labels often require costly expert adjudication, even though structured clinical variables are routinely available in tabular form. Self-supervised learning can leverage these unlabeled tables, and recent binning-based pretexts offer a promising inductive bias, but existing objectives fix a single global quantile discretization and apply feature-agnostic supervision. We propose Adaptive Binning, a training-adaptive discretization pretext for tabular SSL that couples discretization to learning through a feature-wise coarse-to-fine curriculum. Motivated by the spectral bias of neural networks and the principles of curriculum learning, our method progressively refines discretization per feature upon plateau detection and selects representation-aware splits to jointly improve value-space concentration and representation-space coherence. A heterogeneity-aware objective unifies categorical reconstruction with ordinal supervision for numerical features, and experiments on public medical tabular datasets under unified evaluation protocols show consistent gains for linear probing and fine-tuning without dataset-specific discretization tuning. We further introduce a medical tabular SSL benchmark with standardized protocols to support reproducible progress in this underexplored domain. Our code is available atthis https URL.",
+      "abstract_zh": "医学表格数据在临床研究中无处不在，但针对表格的深度学习研究仍显不足，这是因为尽管结构化临床变量通常以表格形式提供，但可靠的标签往往需要耗费高昂成本进行专家裁定。自监督学习可以利用这些未标记的表格数据，而近期基于分箱的预训练任务提供了有前景的归纳偏置，但现有方法采用固定的全局分位数离散化策略并施加特征无关的监督。我们提出自适应分箱方法，这是一种训练自适应的离散化预训练任务，用于表格自监督学习，它通过特征维度上由粗到细的课程设计将离散化过程与学习相耦合。受神经网络谱偏置和课程学习原理的启发，我们的方法在检测到学习平台期后，对每个特征逐步细化离散化，并选择表征感知的分割点，以共同提升值空间集中度与表征空间一致性。一个异质性感知的目标函数将分类特征重构与数值特征的序数监督相统一，在公共医学表格数据集上按照统一评估协议进行的实验表明，该方法在线性探测和微调任务中均取得了稳定提升，且无需针对具体数据集调整离散化策略。我们进一步引入了一个包含标准化协议的医学表格自监督学习基准，以支持这一尚未充分探索领域内可复现的研究进展。代码发布于此 https URL。",
+      "hf_link": "https://huggingface.co/papers/2606.19827"
+    },
+    "2606.20527": {
+      "title": "StylisticBias: A Few Human Visual Cues Drive Most Social Biases in MLLMs",
+      "abstract": "Multimodal large language models (MLLMs) are increasingly deployed in personally and societally consequential settings, yet the visual cues that shape how these models judge people remain poorly understood. Prior work often compares different (groups of) individuals, making it difficult to separate appearance effects from identity differences. We introduce StylisticBias, a controlled benchmark for evaluating attribute-level social bias in MLLMs. We generate 500 photorealistic base faces and create about 50 single-attribute variations per face, producing about 25K images. This design keeps identity fixed and changes one visual attribute at a time. It lets us measure how specific cues shift model judgments. We evaluate six MLLMs across 25 binary social judgment scenarios. We find that age and body type dominate identity-level effects, while fashion style and other visual cues drive the largest attribute-level shifts. We further find that about 15 attributes account for nearly 80\\% of the total variation, showing that bias is concentrated in a small set of visual cues. Sensitivity is strongest in judgments that are semantically aligned with appearance, especially socioeconomic and style-related judgments. We release StylisticBias as a benchmark for fine-grained bias evaluation in multimodal models. Code and dataset:this https URLandthis https URL.",
+      "abstract_zh": "多模态大语言模型（MLLMs）正日益部署在影响个人和社会的关键场景中，然而塑造这些模型评判人群的视觉线索却仍未得到充分理解。现有研究通常比较不同（群体中的）个体，这难以将外观效应与身份差异区分开来。我们提出StylisticBias——一个用于评估MLLMs中属性层面社会偏见的受控基准。我们生成了500张具有照片真实感的基础人脸，并为每张人脸创建约50种单属性变体，共产生约2.5万张图像。该设计保持身份恒定，每次仅改变一个视觉属性，从而能够测量特定线索如何影响模型判断。我们在25个二元社会判断场景中评估了六个MLLMs，发现年龄和体型主导身份层面的影响，而时尚风格与其他视觉线索则引发最大的属性层面判断偏移。进一步研究发现，约15个属性解释了近80%的总变异，表明偏见集中体现在少量视觉线索中。在语义上与外貌特征关联紧密的判断中——尤其是社会经济和风格相关判断——模型敏感性最为显著。我们发布StylisticBias作为多模态模型中细粒度偏见评估的基准平台。代码与数据集详见：this https URL 及 this https URL。",
+      "hf_link": "https://huggingface.co/papers/2606.20527"
+    }
+  },
+  "hf_votes": {
+    "2606.19534": 0,
+    "2606.17162": 0,
+    "2606.18829": 0,
+    "2606.18508": 0,
+    "2606.16700": 0,
+    "2606.18381": 0,
+    "2606.19651": 0,
+    "2606.18847": 0,
+    "2606.19468": 0,
+    "2606.17480": 0,
+    "2606.15659": 0,
+    "2606.15641": 0,
+    "2606.19827": 0,
+    "2606.20527": 0
+  },
+  "focus_sections": {
+    "3D生成与重建": [
+      "2606.19651",
+      "2606.17480",
+      "2606.15659"
+    ],
+    "视频生成": [],
+    "图像生成": [
+      "2606.19651"
+    ]
+  },
+  "summaries": {
+    "2606.17480": {
+      "short_zh": "多视角三维重建与可控记忆提升机器人规划",
+      "tags": "机器人;机器人规划与学习;具身智能三维感知与记忆",
+      "body_summary": "通用视觉语言动作系统需要物体级三维证据和可复用的操控经验来规划可靠的机器人轨迹。\n针对三维重建的几何幻觉问题，提出了多视角几何融合重建模块；针对记忆质量难以控制的问题，升级了带有元数据管理的受控长期记忆系统。"
+    },
+    "2606.15659": {
+      "short_zh": "高质量四维头部化身重建",
+      "tags": "计算机图形学;三维重建与建模;头部数字人化身",
+      "body_summary": "背景/任务：从单张或多张肖像图创建高质量4D头部化身是沉浸式通信和数字人交互的关键任务，现有基于3D高斯分布的通用预测器和单主体优化器存在域偏差大、训练耗时长、表示不统一的问题。\n做了什么：提出了SpatialAvatar-0，使用共享的FLAME网格绑定高斯表示，结合通用多源预测器和快速布局保持优化器，在跨域零样本和单目基准上取得了更优性能与效率。"
+    },
+    "2606.19651": {
+      "short_zh": "三维脑MRI可控生成与临床任务通用表征",
+      "tags": "医学图像处理;三维脑磁共振成像;可控生成与临床表征学习",
+      "body_summary": "三维脑MRI在临床中至关重要，但现有生成模型的表征难以兼顾临床信息保留与高质量重建。\n提出一种解耦的体素级掩码自编码器作为分词器，其编码器表征可用于临床任务，解码器重建用于训练能进行多条件可控生成和纵向预测的扩散模型。"
+    },
+    "2606.19534": {
+      "short_zh": "并行感知多区域扩散视觉模型",
+      "tags": "计算机视觉;多模态学习;并行区域感知描述",
+      "body_summary": "现有多模态大模型依赖自回归生成，处理多区域描述时效率低。\n提出扩散语言模型PerceptionDLM，通过并行解码实现多区域同时感知，提升推理速度并构建评测基准。"
+    },
+    "2606.17162": {
+      "short_zh": "个性化幻灯片生成与编辑记忆框架",
+      "tags": "自然语言处理;文档生成;个性化演示文稿生成",
+      "body_summary": "个性化演示文稿生成需在生成和修订中稳定保持用户偏好并实现可靠局部编辑。\n提出分层记忆框架MemSlides，分离长时与工作记忆以存储用户偏好和工具经验，结合局部修订机制提升个性化效果。"
+    },
+    "2606.18829": {
+      "short_zh": "多用户共享记忆代理评估",
+      "tags": "自然语言处理;智能代理;记忆治理与评估",
+      "body_summary": "现有智能代理记忆基准多针对单用户，而忽略了医院、家庭等多用户共享场景下的记忆治理需求。\n论文提出了GateMem基准，用于评估多用户共享记忆代理在长期任务效用、访问控制与主动遗忘三方面的综合能力，发现现有方法难以兼顾。"
+    },
+    "2606.18508": {
+      "short_zh": "用话题元数据提升检索效率",
+      "tags": "自然语言处理;检索增强生成;段落检索优化",
+      "body_summary": "检索增强生成系统面临检索粒度与效率的权衡难题\n提出话题元数据引导框架，提升检索精度与速度"
+    },
+    "2606.16700": {
+      "short_zh": "增强掩码扩散模型推理能力",
+      "tags": "生成式人工智能；扩散模型；掩码扩散模型",
+      "body_summary": "传统的自回归模型通过链式推理和反思进行推理，但其改进依赖完全顺序生成，而掩码扩散模型则天然支持对先前输出的显式局部编辑。\n我们提出反射掩码方法，通过轻量级后训练，在掩码扩散模型中引导出多轮掩码与去噪的推理能力，并引入历史参考机制来利用先前轮次的洞察。"
+    },
+    "2606.18381": {
+      "short_zh": "用注意力指导分块检索长文档",
+      "tags": "自然语言处理;检索增强生成;长文档多粒度检索",
+      "body_summary": "现有检索增强生成系统在检索精度和上下文连贯性上难以兼顾。\n我们提出了SproutRAG框架，通过注意力构建层次化文档树，实现无需大模型调用的多粒度检索。"
+    },
+    "2606.18847": {
+      "short_zh": "长时状态具身智能体评测建模",
+      "tags": "具身智能;长期记忆;家庭助手长时任务评测",
+      "body_summary": "现有具身智能评测多关注短期任务，缺乏对动态环境中长期记忆利用的测试。\n我们提出了WorldLines评测基准和ObsMem记忆框架，以应对长时家庭任务中的部分可观测性和状态跟踪挑战。"
+    },
+    "2606.19468": {
+      "short_zh": "测量大模型预训练语料叙事特征",
+      "tags": "自然语言处理;大语言模型;预训练数据叙事分析",
+      "body_summary": "大模型预训练语料的叙事构成未被充分研究。\n我们提出一个叙事分析框架测量数据叙事特征，发现叙事属性分布不均匀。"
+    },
+    "2606.15641": {
+      "short_zh": "提炼示例为指令的上下文学习方法",
+      "tags": "自然语言处理;上下文学习;企业对话分类",
+      "body_summary": "在资源有限的场景下，传统的上下文学习方法对复杂、多方的企业对话分类效果不佳。\n提出新方法，将冗长示例提炼为紧凑的指令和结构化标准，显著减少计算量并提升分类效果。"
+    },
+    "2606.19827": {
+      "short_zh": "自适应分箱训练提升表格自监督学习",
+      "tags": "机器学习;自监督学习;表格数据自监督学习",
+      "body_summary": "针对医疗表格数据标签稀缺的问题，自监督学习可利用其无标签数据进行预训练，但现有基于分箱的方法存在离散化固定、监督方式单一等局限。\n本文提出自适应分箱方法，通过特征层面的由粗到细课程，动态调整离散化并与学习过程耦合，引入异质性感知目标统一分类与序数监督，在公共医疗表格数据集上取得性能提升并建立了标准化评测基准。"
+    },
+    "2606.20527": {
+      "short_zh": "视觉属性如何影响多模态大模型的社会偏见评估",
+      "tags": "多模态大语言模型;社会偏见评估;视觉属性与社会偏见",
+      "body_summary": "多模态大语言模型在诸多重要场景中应用，但其判断背后的视觉依据尚不清晰。\n构建了一个名为StylisticBias的基准，通过控制单一视觉属性变化，揭示了少数视觉线索主导了模型的社会偏见。"
+    }
+  },
+  "deep_analysis": {
+    "2606.17480": "这篇论文是 **GeneralVLA-2**，主要研究如何让机器人更好地理解和规划复杂任务。下面我用简单的语言为你解释它的核心内容。\n\n---\n\n### (1) 任务是什么？\n\n**任务输入：**\n- **视觉输入**：机器人通过摄像头看到的**多视角彩色图像（RGB）和深度图（RGB-D）**。\n- **语言指令**：用户用自然语言描述的任务，例如“把杯子放到桌子上”。\n- **历史经验**：机器人之前执行类似任务时记录下的成功或失败经验。\n\n**任务输出：**\n- **机器人运动轨迹**：规划出机器人的末端执行器（如机械手）在三维空间中的一系列移动路径，以完成指定任务。\n\n**任务功能：**\n让机器人成为一个**通用型的视觉-语言-动作系统**，能够理解复杂指令、感知三维环境、利用过去的经验，并规划出安全可靠的执行路径。\n\n---\n\n### (2) 想解决什么问题？\n\n作者发现现有系统存在两个主要瓶颈：\n\n1.  **三维重建不可靠**：\n    - 现有的方法（如SAM3D）通常只用**单张图片**来推测物体的三维形状。\n    - 这很容易出错，比如猜错物体的背面形状或者摆放角度。对于机器人抓取来说，形状或角度稍有偏差就可能导致任务失败。\n\n2.  **经验记忆管理混乱**：\n    - 机器人会记录过去的操作经验（存在“知识库”里），但现有的知识库只是简单地存储和检索文本片段。\n    - 它无法判断一条经验是否**过时、相互矛盾、可信度低，或者是否适用于当前的场景几何**。这可能导致机器人被错误或过时的经验误导。\n\n---\n\n### (3) 贡献是什么？\n\n针对上述两个问题，作者提出了两大核心改进：\n\n1.  **GeoFuse-MV3D（几何感知的多视角三维重建模块）**：\n    - 利用机器人环绕物体拍摄的**多张图片**，结合几何先验知识，生成更准确、更稳定的物体三维模型。它通过“软视觉外壳”和轴向细化等技术，减少了形状和姿态的猜测错误。\n\n2.  **受治理的知识库**：\n    - 把原来的“经验记事本”升级成一个**智能的、受管控的长期记忆系统**。\n    - 每条经验都带有“元数据”，比如：质量评分、可信度、有效期、是否与其他经验冲突、适用于什么几何场景等。\n    - 检索时，不仅看语义相似度，还要看这些元数据，确保找到的经验是**高质量、可信且适用**的。\n\n---\n\n### (4) 整体思路与模型结构\n\n**基模**：这篇工作的基础是之前的 **GeneralVLA** 系统。它本身是一个分层系统，将任务分解为**感知 -> 三维空间推理（3DAgent） -> 底层控制**。\n\n**GeneralVLA-2的整体流程：**\n\n1.  **输入**：机器人接收到语言指令（如“拿起红色的杯子”）和多视角的RGB-D图像。\n\n2.  **第一步：三维场景感知与重建**\n    - 系统先用类似 **SAM** 的模型，从图像中分割出任务相关的物体（如“红色的杯子”），并得到其二维掩码。\n    - 然后，新加入的 **GeoFuse-MV3D模块** 开始工作：\n        - **几何先验验证**：它不盲目相信任何一个单视角的3D猜测，而是利用多视角信息互相验证。\n        - **软视觉外壳与细化**：用多个视角的物体轮廓（像剥橘子皮一样）共同约束出物体的粗略三维形状，然后沿着不同坐标轴进行精细优化。\n        - **保守的几何融合**：只融合最可信的几何部分，保留原始图像的外观信息，防止颜色和形状失真。\n    - **输出**：得到一个更可靠的目标物体的**三维点云模型**。\n\n3.  **第二步：经验检索与任务规划**\n    - 语言指令和重建出的三维物体信息，一起输入给核心的规划模块 **3DAgent**。\n    - 在规划前，3DAgent会去查询**受治理的知识库**：\n        - **精准检索**：根据当前任务和三维场景的几何特征，去知识库中寻找**高质量、高置信度、无冲突且场景匹配**的历史经验片段。\n        - 例如，知识库可能会返回：“上次成功拿起圆柱形杯子的轨迹是…，该经验已验证3次，成功率95%”。\n    - **综合规划**：3DAgent结合当前的三维证据（来自GeoFuse-MV3D）和检索到的可靠经验，在三维空间中进行推理，规划出一条安全、可行的机器人手臂运动轨迹。\n\n4.  **第三步：执行与记忆更新**\n    - 底层控制器执行规划好的轨迹。\n    - 任务完成后，如果这是一个新的成功经验，系统会以**受治理**的方式将其存入知识库：为其评估质量、打上置信度标签、检查与已有经验的冲突，并记录其适用的场景几何特征。\n\n---\n\n### (5) 结果怎么样？\n\n论文在多个标准数据集上进行了测试，结果都显示新方法更优：\n\n1.  **三维重建（GSO-30数据集）**：\n    - **GeoFuse-MV3D** 在所有关键指标上都超过了之前的MV-SAM3D基线模型。\n    - 具体来说，它降低了**倒角距离（CD，衡量形状差异）和感知差异（LPIPS）**，提高了**图像质量（PSNR）和结构相似性（SSIM）**。这意味着重建的物体更精确、更逼真。\n\n2.  **知识库与规划（Terminal-Bench 2.0 和 SWE-Bench Verified 基准测试）**：\n    - **受治理的知识库**比之前的方法（如ReasoningBank）表现更好。\n    - 在任务成功率（SR/Resolve Rate）上提升了约 **4-5%**。\n    - 更重要的是，它显著降低了**平均步数（AS）**，这意味着机器人规划效率更高，能用更少的步骤完成任务，说明其决策更精准、更少被误导。\n\n**总结**：GeneralVLA-2 通过引入**更可靠的三维重建**和**更智能的经验记忆系统**，让机器人能更准确理解当前环境，并更明智地利用过去经验，从而规划出更高效、更安全的运动轨迹。这向构建更通用、更可靠的机器人迈出了坚实的一步。",
+    "2606.15659": "好的，没问题！我们来用通俗易懂的语言，把这个关于“数字人头”的论文拆解一下。你可以把它想象成一个高级的“捏脸”或“数字替身”生成技术。\n\n### (1) 任务是什么？\n*   **任务功能**：从一张或几张**静态人像照片**，生成一个可以**动起来、能从不同角度看**的高质量3D数字人头模型（也叫“头像”或“Avatar”）。这就像给你拍了几张照片，然后就能生成一个能在虚拟世界里说话、做表情的“数字版你”。\n*   **任务输入**：一张或多张同一个人（同一个身份）的正面或侧面肖像照片。\n*   **任务输出**：一个**可动画的、3D的、高画质的**数字人头模型。这个模型基于“3D高斯泼溅”技术，可以实时渲染出逼真的、带表情和不同视角的图像。\n\n### (2) 想解决什么问题？\n目前做这种“数字人头”主要有两种技术路线，但它们各有各的“毛病”，而且互相不兼容：\n1.  **“通用生成型”**：用一个训练好的大模型，看一眼你的照片，立刻生成你的3D头像。**问题**：这种模型通常只在它训练时见过的某种特定数据（比如全是正面视频，或者全是实验室多角度拍摄数据）上表现好，换一种风格的照片（比如网络自拍）效果就变差。而且，模型结构是固定的，只能处理固定数量的输入照片（比如只能输入1张或只能输入4张），不灵活。\n2.  **“单人物优化型”**：针对你一个人的一小段视频，用优化算法慢慢“雕刻”出你的专属3D头像。**问题**：这个过程非常**慢**（要优化几十万步，耗时数小时），而且优化过程中会改变3D模型的基本结构（点云布局），导致最开始用“通用生成型”模型生成的初始结果被完全破坏，无法实现“先生成、再微调”的流畅流程。\n\n**核心矛盾**：这两种好用的技术无法“强强联合”，形成一个**又快（通用生成）又好（专属优化）** 的完整流水线。\n\n### (3) 贡献是什么？\n这篇论文提出了 **SpatialAvatar-0** 系统，主要贡献是**搭建了一座桥**，把上面两条技术路线统一了起来：\n1.  **一个更强大、更灵活的“通用生成器”**：\n    *   设计了能**灵活处理任意数量输入照片**的网络结构（用简单的“平均池化”来融合多张照片的信息）。\n    *   用**创新的两阶段训练法**：先在大规模的单人视频数据上学习（获得丰富的身份先验），再在高质量的多视角数据上微调（获得准确的3D几何）。同时用了一些技巧防止模型“忘记”第一阶段学到的广泛身份特征。\n    *   结果是，这个生成器**跨领域泛化能力极强**，即使在从未训练过的数据上（如网络视频），也能生成很好的初始3D头像。\n2.  **一个“布局保持”的快速优化器**：\n    *   针对单个人做专属优化时，**冻结**3D模型的基本结构和点数量（这是“通用生成器”给的好的初始布局）。\n    *   **不再使用**会破坏布局的“点云增密”操作，而是设计了新的“抗尖刺”正则化方法，来防止优化过程中3D高斯点变形失控。\n    *   结果是，优化速度**提升了几十倍**（从30-60万步减少到1万步），且能完美继承并细化通用生成器给出的初始结果。\n\n### (4) 整体思路与模型结构\n**基模**：论文使用了两个重要的基础模型/表示：\n1.  **3D高斯泼溅**：这是目前渲染3D场景最快、质量最高的显式表示方法之一。你可以把它理解为用无数个微小的、椭球形的“彩色云雾团”来组成一个3D物体。\n2.  **FLAME模型**：一个参数化的3D人脸网格模型。通过调整它的参数（如形状、表情、姿态），可以控制人脸的各种变化。\n\n**整体流程**：\n1.  **输入与编码**：\n    *   输入一张或多张源照片。\n    *   用一个图像编码器（如CNN）从每张照片中提取特征。\n    *   如果有多张照片，就用**参数无关的平均池化**把它们的特征融合成一个统一的身份特征向量。\n2.  **生成3D高斯模型**：\n    *   论文的核心是一个**“前馈生成网络”**。\n    *   这个网络以FLAME人脸模型的参数（驱动表情和姿态）和上一步得到的身份特征向量为条件。\n    *   它不是在空白中生成3D高斯点，而是在**FLAME网格的每个三角形面上**，“附着”一组预定义的高斯点。这些高斯点的**位置**由网格决定，但它们的**颜色、透明度、旋转和缩放**等属性，则由网络根据身份特征和表情来预测一个“残差”（即在基础值上的调整量）。\n    *   这样，生成的3D高斯人头就天然和FLAME模型**绑定**在一起了：FLAME控制头的宏观形状和动作，高斯点负责渲染微观的皮肤、毛发等细节。\n3.  **渲染与训练**：\n    *   有了这个绑定在FLAME上的高斯模型，给定任何目标表情和摄像机视角，就可以用3DGS的标准流程进行**快速光栅化渲染**，得到一张2D图片。\n    *   训练时，通过比较渲染出的图片和真实图片的差异（计算PSNR、LPIPS等损失），来反向优化整个生成网络。\n4.  **快速专属优化（可选）**：\n    *   当需要对某个特定人物追求极致效果时，启动“布局保持优化”。\n    *   **锁定**：固定住高斯点的数量以及它们与FLAME网格的绑定关系（即布局不变）。\n    *   **优化**：只对每个高斯点的颜色、透明度等属性进行微调，并使用新的“抗尖刺”损失来防止它们变形。\n    *   **输入**：使用该人物的一段短视频（多帧）作为监督信号。\n    *   这个过程非常快，因为不需要从头开始探索3D结构，只是在已有的好结构上“精雕细琢”。\n\n### (5) 结果怎么样？\n论文的实验结果表明，SpatialAvatar-0在**质量和效率上都是领先的**：\n*   **“通用生成”模式（零样本跨域）**：在它**从未训练过**的VFHQ和HDTF数据集上测试，其渲染图像的质量（PSNR指标）比那些在对应数据集上训练过的当前最好方法（如GAGAvatar）还要**高1.5 dB**。这说明它的泛化能力非常强。\n*   **“专属优化”模式**：在需要针对单人优化的任务上，它的结果在PSNR等所有指标上都领先。尤其惊人的是**效率**：它只用**1万步**优化就能达到甚至超过其他方法**30-60万步**优化的效果，速度提升了**60倍**，同时保证了多视角渲染的一致性。\n\n**简单总结**：这篇论文提出了一个“两头都强”的数字人头生成系统。它的一阶段模型（SpatialAvatar-0）像一个“万能初始捏脸师”，看一眼你的照片就能生成很棒的3D初稿；它的二阶段优化像一个“高效专属雕刻家”，能在短时间内把这个初稿打磨成专属精品。两者无缝衔接，又快又好。",
+    "2606.19651": "好的，没问题。我会用通俗易懂的语言，为你梳理这篇论文的核心内容。\n\n### (1) 任务是什么？\n*   **任务输入**：三维的、未经处理的脑部核磁共振（MRI）扫描图像（体积数据）。\n*   **任务输出**：\n    1.  **表征学习**：从输入图像中提取出**富含临床信息**的低维向量表示（即“嵌入”）。这些嵌入能用于预测各种临床指标。\n    2.  **可控生成**：根据给定的临床条件（如年龄、性别、疾病类型），生成**逼真的、符合条件的三维脑部MRI图像**。\n*   **任务功能**：创造一个“一石二鸟”的模型，既能作为强大的**医学图像特征提取器**，又能作为**高质量、可控制的医学图像生成器**，用于数据增强、疾病模拟等。\n\n### (2) 想解决什么问题？\n在医学图像生成领域，尤其是使用“潜在扩散模型”（一种强大的生成模型）时，需要一个“分词器”来先将高分辨率图像压缩成低维的“潜在表示”，然后再让扩散模型去学习生成这些表示。\n\n**核心矛盾**：传统的分词器（如AE、VAE）主要目标是**高质量地重建图像像素**。但为了完美重建，它可能会丢弃一些对临床诊断至关重要的、细微的“语义信息”（比如微小的病变特征、组织纹理）。这就导致：\n1.  **下游任务差**：从这些潜在表示中，很难准确地预测出年龄、疾病、基因突变等临床信息。\n2.  **生成控制弱**：基于这种“像素导向”的潜在空间去训练扩散模型，很难精确地控制生成图像的具体临床属性（比如生成一个“70岁患有阿尔茨海默症”的特定大脑）。\n\n**一句话**：现有的方法在“图像重建逼真度”和“保留临床语义信息”之间无法两全。这篇论文就想解决这个矛盾。\n\n### (3) 贡献是什么？\n1.  **提出了一个“双用途分词器”**：基于**掩码自编码器（MAE）** 设计了一个新架构，将**编码器**和**解码器**的功能解耦。\n    *   **编码器** 被训练来理解图像的“临床语义”，并且训练后就被**冻结**（参数不再改变）。\n    *   一个独立的、轻量的**解码器** 负责将编码器的输出转换回图像。\n2.  **创建了大规模、多样的预训练数据集**：收集并标准化了超过3.5万个脑部MRI扫描，涵盖多种疾病、模态和年龄，为训练一个通用的脑部模型打下了坚实基础。\n3.  **验证了“临床语义”编码器的强大性能**：在23项临床预测任务（如预测年龄、性别、肿瘤基因突变）的测评中，他们冻结的编码器在大部分任务上**打败或追平了**当时最先进的脑部MRI预训练模型。\n4.  **实现了高质量的可控生成**：证明了用他们这个“富含临床信息”的潜在空间去训练扩散模型，可以非常精确地根据条件（如年龄、疾病）生成大脑图像，并且能模拟单个病人随时间的病情发展（纵向预测）。\n\n### (4) 整体思路和模型结构\n**整体思路**：分两步走。\n1.  **第一阶段**：用MAE的方式，在大规模无标签数据上预训练一个3D视觉Transformer作为**编码器**。MAE通过随机遮盖大部分图像块并让模型学习重建，迫使编码器学习图像的整体结构和语义。\n2.  **第二阶段**：\n    *   将这个训练好的编码器**冻结**，作为固定的“特征提取器”。\n    *   训练一个简单的**CNN解码器**，它只做一件事：把编码器输出的特征，通过一个线性投影后，重建出原始图像。\n    *   用编码器提取出的所有训练数据的特征，去训练一个**条件扩散变换器（Conditional DiT）**。这个DiT学习在潜在空间里，根据给定的临床标签（条件）去生成新的、合理的特征。\n\n**基模**：核心基模是 **Masked Autoencoder (MAE)** 和 **Diffusion Transformer (DiT)**。\n\n**流程图解析（从输入到输出）**：\n*   **训练分词器（图1a）**：\n    1.  **输入**：一个3D脑部MRI图像。\n    2.  **编码**：图像被切成小块，大部分块被随机遮盖（丢弃）。剩下的可见块送入**3D MAE编码器**（一个ViT），产生一组特征向量。\n    3.  **解码**：将所有特征向量（包括一个可学习的“掩码标记”来代表被遮盖的部分）通过一个**线性投影层**，然后送入一个**3D CNN解码器**。\n    4.  **输出/目标**：解码器的目标是**重建出完整的原始图像**。通过这个任务，编码器学会了理解大脑的解剖结构和语义。\n*   **训练与运行生成模型（图1b）**：\n    1.  **特征提取**：用**冻结的MAE编码器**处理所有训练图像，得到它们的“临床语义嵌入”作为扩散模型的训练数据。\n    2.  **扩散训练**：训练一个**条件DiT**。它学习的过程是：给一个带噪声的嵌入和一个临床条件（如“65岁，男性，患胶质瘤”），去预测应该去除多少噪声，以得到干净的目标嵌入。\n    3.  **条件生成**：\n        *   **输入**：一个随机的噪声嵌入 + 你想要的临床条件（如“生成一个30岁健康女性的大脑”）。\n        *   **过程**：条件DiT根据这个条件，一步步地对噪声嵌入去噪。\n        *   **输出**：得到一个干净的、符合条件的“语义嵌入”。\n        *   **图像合成**：将这个生成的嵌入，通过之前训练好的**线性投影层和CNN解码器**，最终**输出**一张完整、逼真的3D脑部MRI图像。\n\n### (5) 结果怎么样？\n结果非常出色，从两个方面得到了验证：\n\n1.  **表征能力（临床预测）**：\n    *   在23项临床任务测评中，**在21项上优于或持平**当时的顶尖模型（BrainIAC, BrainSegFounder等）。\n    *   具体例子：预测脑瘤的`IDH1`基因突变（关键指标），AUC达到**0.937**（接近完美）；预测年龄，平均误差只有**4.43岁**；预测性别，AUC高达**0.967**。这说明它的嵌入确实“懂”临床。\n\n2.  **生成能力（可控与真实）**：\n    *   **可控性高**：生成的图像能精确响应条件。例如，要求生成不同年龄的大脑，生成图像的预测年龄与实际要求年龄的相关系数高达 **r=0.93**。\n    *   **真实性高**：用真实数据训练的临床分类器，去分类他们生成的图像，准确率依然很高。这说明生成图像不仅看起来真实，其内部的“临床特征”也是真实可信的。\n    *   **能模拟病情发展**：模型可以根据一个病人的基线扫描，模拟出其未来可能的脑部变化（如年龄增长或疾病进展），模拟结果与真实趋势吻合较好（相关系数 **r=0.72**）。\n\n**总结**：这篇论文成功打造了一个名为 **BrainG3N** 的通用脑部MRI模型。它像一把“瑞士军刀”，**刀身（编码器）** 是顶尖的医学图像特征分析工具，**刀柄（整个生成框架）** 又能变成一台可根据医生指令“定制”合成大脑的生成器，在医学研究和临床辅助应用上潜力很大。"
+  },
+  "figures": {
+    "2606.17480": [
+      {
+        "path": "https://arxiv.org/html/2606.17480v1/x1.png",
+        "caption": "Figure 1:Overview of GeneralVLA-2 for robot manipulation. When calibrated multi-view object observations are available, GeoFuse-MV3D converts the views, masks, and camera poses into refined object-centric 3D evidence; the 3D-capable planning agent combines this evidence with governed KnowledgeBank retrieval; and the robot execution module follows the resulting multi-stage end-effector trajectory.",
+        "role": "pipeline_1",
+        "caption_zh": "图 1：用于机器人操作的 GeneralVLA-2 概述。当经过标定的多视角物体观测可用时，GeoFuse-MV3D 将视角、掩码和相机位姿转换为精细的以物体为中心的三维证据；具备三维能力的规划智能体将此证据与受管理的 KnowledgeBank 检索结果相结合；机器人执行模块则遵循由此生成的多阶段末端执行器轨迹。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.17480v1/x2.png",
+        "caption": "Figure 2:GeoFuse-MV3D reconstruction branch in GeneralVLA-2. The branch keeps the same multi-view inputs, masks, and poses as MV-SAM3D, then refines the baseline with two complementary geometry sources and conservative geometry-only fusion.",
+        "role": "pipeline_2",
+        "caption_zh": "图 2：GeneralVLA-2 中的 GeoFuse-MV3D 重建分支。该分支保持与 MV-SAM3D 相同的多视图输入、掩码和位姿，随后通过两个互补的几何源和保守的纯几何融合对基线进行优化。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.17480v1/x3.png",
+        "caption": "Figure 3:Architecture of the governed KnowledgeBank module used by GeneralVLA-2. The module writes verifier-labeled memories, retrieves high-quality records, and manages their lifecycle before conditioning the 3DAgent planner.",
+        "role": "pipeline_3",
+        "caption_zh": "图3：GeneralVLA-2所采用的受监管知识库模块架构。该模块写入由验证器标记的记忆、检索高质量记录，并在其生命周期管理后为3DAgent规划器提供条件化输入。"
+      }
+    ],
+    "2606.15659": [
+      {
+        "path": "https://arxiv.org/html/2606.15659v1/figures/method.png",
+        "caption": "Figure 1:Overview of our two-stage avatar reconstruction pipeline.",
+        "role": "pipeline_1",
+        "caption_zh": "图1：本文两阶段数字人重建流程概览。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.15659v1/figures/qual_xdom_vfhq.png",
+        "caption": "(a) Self-reenactment samples from VFHQ(b) Self-reenactment samples from HDTFFigure 2:Feed-forward qualitative comparison on self-reenactment\n(Tabs.1–2).\nThe source is set to the first frame and the target to a held-out\nframe from the same video. (a) Samples from VFHQ; (b) samples from\nHDTF. We compare against GAGAvatar(Chu and Harada,2024),\nCVTHead(Maet al.,2023a), GPAvatar(Chuet al.,2024),\nand Portrait4D-v2(Denget al.,2024); our method is\nhighlighted in yellow.",
+        "role": "pipeline_2",
+        "caption_zh": "(a) VFHQ 数据集的自驱动重演样本 (b) HDTF 数据集的自驱动重演样本\n图 2：自驱动重演的前馈定性比较（表 1–2）。源图像设置为视频第一帧，目标图像设置为同一视频中留出的帧。(a) VFHQ 数据集样本；(b) HDTF 数据集样本。我们与 GAGAvatar（Chu 与 Harada，2024）、CVTHead（Ma 等人，2023a）、GPAvatar（Chu 等人，2024）以及 Portrait4D-v2（Deng 等人，2024）进行对比；我们的方法以黄色高亮显示。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.15659v1/figures/F5_montage_paper_final.png",
+        "caption": "Figure 3:Per-subject monocular qualitative comparison\n(visualization sample of44subjects; full numerics in\nTab.4).Each row shows one held-out target\nframe; columns are GT, GeoAvatar[43],\nGaussianAvatars[48],\nSplattingAvatar[52],\nINSTA[78],\nFlashAvatar[62],\nandOurs+S3(highlighted).",
+        "role": "pipeline_3",
+        "caption_zh": "图 3：按被试者个体的单目定性比较（44 名被试者的可视化样本；完整数值见 Tab.4）。每一行显示一个留出的目标帧；各列依次为：真实值（GT）、GeoAvatar[43]、GaussianAvatars[48]、SplattingAvatar[52]、INSTA[78]、FlashAvatar[62] 以及 本文方法 + S3（高亮显示）。"
+      }
+    ],
+    "2606.19651": [
+      {
+        "path": "https://arxiv.org/html/2606.19651v1/figures/fig_tokenizer.png",
+        "caption": "(a) Two-phase tokenizer\\phantomcaption(b) Conditional flow-matching DiT\\phantomcaptionFigure 1:Architecture.(a)Phase 1 pretrains a 3D MAE encoder on 70% masked-patch reconstruction; Phase 2 freezes the encoder and trains a linear projectionP∈ℝ1152×32P{\\in}\\mathbb{R}^{1152{\\times}32}+ 3D CNN decoder under voxelℓ1\\ell_{1}. The same frozen feature spacez′=z​Pz^{\\prime}{=}zPis consumed by the probe and produced by the DiT.(b)Noised tokens𝐱t\\mathbf{x}_{t}pass through a 12-block DiT stack with adaLN-Zero modulation by a conditioning vector𝐜\\mathbf{c}, producing the 32-channel velocity𝐯^\\hat{\\mathbf{v}}. Categorical conditions use embedding lookups with aK+1stK{+}1^{\\text{st}}null slot for CFG dropout; age uses a sinusoidal++MLP head.",
+        "role": "pipeline_1",
+        "caption_zh": "(a) Two-phase tokenizer\\phantomcaption(b) Conditional flow-matching DiT\\phantomcaptionFigure 1:Architecture.(a)Phase 1 pretrains a 3D MAE encoder on 70% masked-patch reconstruction; Phase 2 freezes the encoder and trains a linear projectionP∈ℝ1152×32P{\\in}\\mathbb{R}^{1152{\\times}32}+ 3D CNN decoder under voxelℓ1\\ell_{1}. The same frozen feature spacez′=z​Pz^{\\prime}{=}zPis consumed by the probe and produced by the DiT.(b)Noised tokens𝐱t\\mathbf{x}_{t}pass through a 12-block DiT stack with adaLN-Zero modulation by a conditioning vector𝐜\\mathbf{c}, producing the 32-channel velocity𝐯^\\hat{\\mathbf{v}}. Categorical conditions use embedding lookups with aK+1stK{+}1^{\\text{st}}null slot for CFG dropout; age uses a sinusoidal++MLP head."
+      },
+      {
+        "path": "https://arxiv.org/html/2606.19651v1/figures/fig_tokenizer.png",
+        "caption": "(a) Two-phase tokenizer\\phantomcaption",
+        "role": "pipeline_2",
+        "caption_zh": "(a) Two-phase tokenizer\\phantomcaption"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.19651v1/figures/fig_dit.png",
+        "caption": "(b) Conditional flow-matching DiT\\phantomcaption",
+        "role": "pipeline_3",
+        "caption_zh": "(b) 基于条件流匹配的扩散变换器"
+      }
+    ]
+  }
+}
