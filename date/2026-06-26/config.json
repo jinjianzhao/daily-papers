@@ -1,0 +1,253 @@
+{
+  "base_info": {
+    "2606.27377": {
+      "title": "DanceOPD: On-Policy Generative Field Distillation",
+      "abstract": "Modern image generation demands a single model that unifies diverse capabilities, including text-to-image (T2I), local editing, and global editing. However, these capabilities are rarely naturally aligned and often conflict. For instance, editing tends to degrade T2I performance, while global and local editing interfere with each other. Consequently, effectively composing these capabilities has become a central challenge for image generation model training. To tackle this, we introduce DanceOPD, an on-policy generative field distillation framework for flow-matching models that routes each sample to one capability field, queries one low-noise student-induced state, and trains with a simple velocity MSE objective. With each capability source defined as a velocity field over the shared flow state space, the student learns from fields queried on its own rollout states to compose expert capabilities. This formulation also absorbs operator-defined fields such as classifier-free guidance. Comprehensive experiments on T2I, editing, realism-field absorption, and CFG absorption show that our approach improves multi-capability composition, strengthening target capabilities while preserving anchor generation quality. We believe this work establishes a practical route for generative field distillation in flow-matching models.",
+      "abstract_zh": "现代图像生成需要一种能够统一多样化能力的单一模型，包括文本到图像生成(text-to-image, T2I)、局部编辑和全局编辑。然而，这些能力很少自然对齐，且常常相互冲突。例如，编辑操作往往会降低T2I性能，而全局编辑与局部编辑之间也会相互干扰。因此，如何有效整合这些能力已成为图像生成模型训练的核心挑战。为此，我们提出了DanceOPD——一种面向流匹配模型的在线策略生成场蒸馏框架。该框架将每个样本路由至一个能力场，查询一个低噪声学生诱导状态，并以简单的速度均方误差目标进行训练。通过将每个能力源定义为共享流状态空间上的速度场，学生模型能够基于其自身演化状态查询的场来学习组合专家能力。该框架还可吸收操作者定义的场，例如无分类器引导(classifier-free guidance, CFG)。在T2I、编辑、真实感场吸收及CFG吸收等方面的综合实验表明，我们的方法提升了多能力组合效果，在增强目标能力的同时保持了锚定生成质量。我们相信这项工作为流匹配模型中的生成场蒸馏提供了一条实用路径。",
+      "hf_link": "https://huggingface.co/papers/2606.27377"
+    },
+    "2606.27313": {
+      "title": "ViQ: Text-Aligned Visual Quantized Representations at Any Resolution",
+      "abstract": "A unified representation for text and vision is a natural pursuit, as it enables simpler multimodal modeling and more efficient training. However, representing images as discrete signals in the same way as text inevitably introduces severe information loss. Existing work struggles to balance low-level details and high-level semantics in discrete representations: reconstruction-oriented representations often lack semantic information, whereas semantically stronger features typically suffer from severe loss of detail. We present ViQ, a Visual Quantized Representations framework, which is designed to balance semantics and details in discrete representations while supporting inputs at native resolutions, thereby enabling it to serve as a unified and general discrete representation for arbitrary visual inputs. Our approach structures quantization learning into two stages: text-aligned pre-training and feature discretization. With text-aligned pre-training, we enhance the visual encoder semantic-rich supervision from the pretrained language model and enable it to process native-resolution visual inputs. During discretization, we propose a proximal representation learning strategy to progressively compact the feature space, along with a position-aware head-wise quantization mechanism that enables flexible processing of arbitrary resolutions. Extensive experiments on multimodal tasks demonstrate that ViQ achieves competitive performance compared to state-of-the-art multimodal vision encoders with continuous and high-dimensional visual features, while maintaining high precision in low-level reconstruction. We also show that multimodal training with visual quantized representations largely improves efficiency, yielding up to 20\\%-70\\% acceleration with different base LLMs and training recipes.",
+      "abstract_zh": "文本与视觉的统一表征是一种自然的追求，因为它能够简化多模态建模并提升训练效率。然而，以与文本相同的方式将图像表示为离散信号不可避免地会引入严重的信息损失。现有工作难以在离散表征中平衡低层细节与高层语义：重建导向的表征往往缺乏语义信息，而语义较强的特征则通常会损失大量细节。我们提出了ViQ（Visual Quantized Representations，视觉量化表征框架），旨在平衡离散表征中的语义与细节，同时支持原生分辨率的输入，从而使其能够作为任意视觉输入的统一通用离散表征。我们的方法将量化学习结构化为两个阶段：文本对齐预训练与特征离散化。通过文本对齐预训练，我们利用预训练语言模型为视觉编码器提供语义丰富的监督，并使其能够处理原生分辨率的视觉输入。在离散化阶段，我们提出了近端表征学习策略以逐步压缩特征空间，同时结合位置感知的分头量化机制，实现对任意分辨率的灵活处理。在多模态任务上的大量实验表明，ViQ相比使用连续高维视觉特征的最先进多模态视觉编码器取得了具有竞争力的性能，同时在低层重建中保持了高精度。我们还证明，使用视觉量化表征进行多模态训练显著提升了效率，在不同基础大语言模型和训练方案下实现了20%至70%的加速。",
+      "hf_link": "https://huggingface.co/papers/2606.27313"
+    },
+    "2606.26907": {
+      "title": "Qwen-Image-Agent: Bridging the Context Gap in Real-World Image Generation",
+      "abstract": "While text-to-image (T2I) models have achieved remarkable progress, they struggle with real-world requests that are often underspecified, implicit, or dependent on up-to-date knowledge. We identify this challenge as the Context Gap: the mismatch between the user context and the sufficient generation context for T2I models. To bridge this gap, we propose Qwen-Image-Agent, a unified agentic framework that integrates plan, reason, search, memory and feedback in a context-centric manner. Qwen-Image-Agent treats user input as partial context and progressively constructs the generation context through Context-Aware Planning and Context Grounding. Specifically, Context-Aware Planning identifies missing context and plans how it should be acquired and used, while Context Grounding gathers this context from reason, search, memory, and feedback. To evaluate agentic image generation, we further introduce Image Agent Bench (IA-Bench), a benchmark covering four core image agent capabilities: Plan, Reason, Search, and Memory. Experiments on IA-Bench, Mindbench and WISE-Verified show that Qwen-Image-Agent outperforms strong baselines and achieves state-of-the-art performance.",
+      "abstract_zh": "尽管文本到图像（Text-to-Image，T2I）模型已取得显著进展，但在处理现实世界需求时仍面临挑战——这些需求往往定义不完整、隐含或依赖于最新知识。我们将这一挑战定义为\"语境差距\"：即用户语境与T2I模型充分生成所需语境之间的不匹配。为弥合此差距，我们提出Qwen-Image-Agent——一个以语境为核心、融合规划、推理、搜索、记忆与反馈的统一智能体框架。该框架将用户输入视为局部语境，通过\"语境感知规划\"和\"语境锚定\"逐步构建生成语境。具体而言，\"语境感知规划\"负责识别缺失语境并规划其获取与使用方式，而\"语境锚定\"则通过推理、搜索、记忆及反馈机制收集所需语境。为评估智能体图像生成能力，我们进一步构建了Image Agent Bench（IA-Bench）基准测试集，涵盖规划、推理、搜索、记忆四项核心图像智能体能力。在IA-Bench、Mindbench和WISE-Verified数据集上的实验表明，Qwen-Image-Agent显著超越现有基线模型，取得了最先进的性能表现。",
+      "hf_link": "https://huggingface.co/papers/2606.26907"
+    },
+    "2606.26790": {
+      "title": "OPID: On-Policy Skill Distillation for Agentic Reinforcement Learning",
+      "abstract": "Outcome-based reinforcement learning provides a stable optimization backbone for language agents, but its sparse trajectory-level rewards provide little guidance on which intermediate decisions should be reinforced or suppressed. On-policy self-distillation offers dense token-level supervision, yet existing skill-conditioned variants often rely on external skill memories or retrieved privileged context, which are costly to maintain and can be mismatched with the state distribution induced by the current policy in multi-turn interaction. We propose \\textbf{OPID} (\\textbf{O}n-\\textbf{P}olicy Sk\\textbf{i}ll \\textbf{D}istillation), a framework that extracts skill supervision directly from completed on-policy trajectories. OPID represents trajectory hindsight as hierarchical skills: episode-level skills capture global workflows or failure-avoidance rules, while step-level skills capture local decision knowledge at critical timesteps. A critical-first routing mechanism uses step-level skills when critical decisions are identified and falls back to episode-level skills as default guidance otherwise. The selected skill is injected into the interaction history, allowing the old policy to re-score the same sampled response under both original and skill-augmented contexts. The resulting log-probability shift yields a token-level self-distillation advantage, which is combined with the outcome advantage for policy optimization. OPID thus preserves RL as the primary training objective while introducing dense, distribution-matched hindsight supervision. Experiments on ALFWorld, WebShop and Search-based QA demonstrate that OPID generally improves agent performance, sample efficiency, and robustness over outcome-only RL and existing skill-distillation baselines. Our code is available atthis https URL.",
+      "abstract_zh": "基于结果的强化学习为语言智能体提供了稳定的优化框架，但稀疏的轨迹级奖励难以为应强化或抑制哪些中间决策提供有效指引。基于策略的自我蒸馏可提供密集的词元级监督，但现有技能条件化变体常依赖外部技能记忆库或检索的特权上下文——这些方法维护成本高昂，且在多轮交互中可能与当前策略诱导的状态分布不匹配。我们提出\\textbf{OPID}（基于策略的技能蒸馏）框架，该框架直接从已完成的策略轨迹中提取技能监督。OPID将轨迹后见知识表征为层次化技能：情节级技能捕捉全局工作流程或避免失败的规则，而步骤级技能则在关键时间步捕获局部决策知识。关键优先路由机制在识别到关键决策时调用步骤级技能，其余情况则默认回退至情节级技能作为指导。所选技能被注入交互历史中，使旧策略能在原始上下文和技能增强上下文中对同一采样响应重新评分。由此产生的对数概率偏移可生成词元级自我蒸馏优势值，该优势值与结果优势值结合后用于策略优化。因此，OPID在保留强化学习作为主要训练目标的同时，引入了密集且分布匹配的后见监督。在ALFWorld、WebShop和基于搜索的问答任务上的实验表明，相较于仅使用结果的强化学习方法及现有技能蒸馏基线，OPID普遍提升了智能体的性能、样本效率和鲁棒性。代码发布于此https网址。",
+      "hf_link": "https://huggingface.co/papers/2606.26790"
+    },
+    "2606.26300": {
+      "title": "The Verification Horizon: No Silver Bullet for Coding Agent Rewards",
+      "abstract": "A classical intuition holds that verifying a solution is easier than producing one. For today's coding agents, this intuition is being inverted: as foundation models develop stronger reasoning capabilities and engineering harnesses grow more sophisticated, generating complex candidate solutions is no longer difficult -- reliably verifying them has become the harder problem. Every verifier we can build is only a proxy for human intent, never the intent itself. This makes verification subject to a twofold difficulty: first, intent is underspecified by nature, making it inherently hard to faithfully check whether it has been fulfilled; second, during model training, optimization widens the gap between proxy and intent -- manifesting as reward hacking or signal saturation. To address this, we characterize the quality of verification signals along three dimensions -- scalability, faithfulness, and robustness -- and argue that achieving all three simultaneously is the central challenge. We further study four reward constructions: a test verifier for general coding tasks, a rubric verifier for frontend tasks, the user as verifier for real-world agent tasks, and an automated agent verifier for long-horizon tasks. Across different task types and policy capability levels, we conduct in-depth analysis and experiments on the core challenges of reward design and how to more effectively leverage reward signals. Experiments show that targeted verification design can effectively suppress reward hacking, improve task completion quality, and achieve significant gains across multiple internal and public benchmarks. These experiences collectively point to a core observation: no fixed reward function can remain effective as policy capability continues to grow; and verification must co-evolve with the generator.",
+      "abstract_zh": "传统观点认为，验证解决方案比生成解决方案更为容易。然而对于当今的代码智能体而言，这一认知正在发生逆转：随着基础模型推理能力日益增强、工程工具链日趋成熟，生成复杂的候选解决方案已非难事——可靠地验证这些方案反而成为更严峻的挑战。我们所构建的任何验证器都只是人类意图的代理，永远无法等同于意图本身。这使得验证面临双重困境：首先，意图本身具有天然的不完备性，导致难以忠实检验其是否被满足；其次，在模型训练过程中，优化过程会加剧代理与真实意图间的鸿沟——表现为奖励破解或信号饱和现象。为应对这一挑战，我们从三个维度——可扩展性、忠实性与鲁棒性——对验证信号质量进行界定，并论证同时实现三者是当前的核心难题。我们进一步研究了四种奖励构建方案：面向通用编程任务的测试验证器、针对前端任务的细则验证器、真实世界智能体任务中的用户验证机制，以及面向长周期任务的自动化智能体验证器。在不同任务类型与策略能力水平下，我们对奖励设计的核心挑战及如何更有效利用奖励信号进行了深度分析与实验。实验表明，定向验证设计能有效抑制奖励破解，提升任务完成质量，并在多个内部及公开基准测试中取得显著增益。这些实践经验共同指向一个核心观察：随着策略能力持续提升，任何固定的奖励函数都无法保持长期有效；验证机制必须与生成器协同演进。",
+      "hf_link": "https://huggingface.co/papers/2606.26300"
+    },
+    "2606.18394": {
+      "title": "JetSpec: Breaking the Scaling Ceiling of Speculative Decoding with Parallel Tree Drafting",
+      "abstract": "Speculative decoding (SD) accelerates autoregressive Large Language Models (LLMs) by drafting multiple tokens and verifying them in parallel, but it faces a scaling limitation: increasing the draft budget improves speed only when acceptance remains high and drafting overhead stays low. This ceiling has been difficult to break because prior head-based SD methods face a causality-efficiency dilemma. Autoregressive drafters produce path-conditioned candidates that are effective for tree speculative decoding with higher acceptance length, but their drafting cost grows with tree depth. Bidirectional block-diffusion drafters generate all positions in one pass, but their branch-agnostic marginals can form individually plausible yet mutually inconsistent trees, wasting budget and reducing acceptance. We propose JetSpec, a head-based SD framework that combines one-forward drafting efficiency with branch-wise causal conditioning. JetSpec trains a causal parallel draft head over fused hidden states from the frozen target model, producing candidate trees whose scores align with the target model's autoregressive factorization. This enables JetSpec to convert larger draft budgets into longer accepted prefixes and higher end-to-end speedup. Across math, coding, and chat benchmarks on dense and MoE Qwen3 models, JetSpec consistently outperforms bidirectional-head and tree-based SD baselines. On H100 GPUs, JetSpec achieves up to 9.64x speedup on MATH-500 and 4.58x on open-ended conversational workloads, with further latency gains demonstrated through vLLM integration under realistic serving loads. Our code and models are available atthis https URL.",
+      "abstract_zh": "推测解码（Speculative Decoding，SD）通过并行草拟多个令牌并进行验证的方式加速自回归大语言模型（Large Language Models，LLMs），但其面临规模扩展的局限：仅当接受率保持高位且草拟开销较低时，增加草拟预算才能提升速度。这一瓶颈难以突破，因为先前基于头部的SD方法面临因果性与效率的两难困境。自回归草拟器生成的路径条件候选适用于具有更高接受长度的树状推测解码，但其草拟成本随树深度增加。双向块扩散草拟器可一次性生成所有位置，但其分支无关的边缘概率可能形成个体合理但相互矛盾的树结构，导致预算浪费和接受率下降。我们提出JetSpec，一种基于头部的SD框架，将单次前向传递的草拟效率与分支级因果条件化相结合。JetSpec在冻结目标模型的融合隐藏状态上训练因果并行草拟头，生成其评分与目标模型自回归分解对齐的候选树。这使得JetSpec能够将更大的草拟预算转化为更长的接受前缀和更高的端到端加速比。在密集与混合专家（MoE）Qwen3模型的数学、代码与对话基准测试中，JetSpec始终优于基于双向头部和树结构的SD基线。在H100 GPU上，JetSpec在MATH-500上实现高达9.64倍的加速，在开放式对话任务中达到4.58倍，并通过实际服务负载下的vLLM集成进一步展示了延迟增益。我们的代码与模型可通过此链接获取：https://...",
+      "hf_link": "https://huggingface.co/papers/2606.18394"
+    },
+    "2606.26027": {
+      "title": "Why Multi-Step Tool-Use Reinforcement Learning Collapses and How Supervisory Signals Fix It",
+      "abstract": "Tool use enables large language models (LLMs) to perform complex tasks, and recent agentic reinforcement learning (RL) methods show promise for enhancing model capabilities. However, RL alone often leads to instability or limited gains in tool-use tasks. In our experiments, some models exhibit catastrophic collapse, where performance abruptly drops and tool-invocation structures fail. The analysis reveals that these failures stem from unexpected probability spikes in specific control tokens, disrupting structured execution, yet the underlying tool-use capability remains intact, merely obscured by specific formats. To address this, we systematically investigate a diverse set of supervisory signals, including off-policy supervision, hint-based guidance, erroneous example supervision, and others, applied under both synchronous and interleaved training schemes. We find that interleaving supervised fine-tuning (SFT) with RL substantially improves stability, but exhibits degraded performance under format and content out-of-distribution (OOD) evaluation. We also analyze the impact of learning rates and generalization across settings. These results highlight the importance of understanding RL failures and demonstrate how diverse supervisory signals can guide exploratory learning, enabling robust training of LLMs for complex, multi-step tool-use tasks. Our Code is available atthis https URL.",
+      "abstract_zh": "工具使用使得大语言模型能够执行复杂任务，而近期发展的智能体强化学习方法展现出增强模型能力的潜力。然而，单独使用强化学习往往导致工具使用任务中的不稳定或增益有限。在我们的实验中，某些模型表现出灾难性崩溃现象——性能突然下降且工具调用结构失效。分析表明，这些故障源于特定控制令牌出现意外的概率峰值，从而破坏了结构化执行流程，但底层工具使用能力实际上并未丧失，只是被特定格式所掩盖。为解决这一问题，我们系统性地研究了多种监督信号，包括离策略监督、提示引导、错误示例监督等，并在同步与交错训练方案下进行应用。我们发现：将监督微调与强化学习交错进行可显著提升稳定性，但在格式与内容分布外评估中表现出性能下降。我们还分析了学习率的影响及不同设置间的泛化特性。这些结果凸显了理解强化学习失败机制的重要性，并展示了多样化的监督信号如何引导探索性学习，从而实现对大语言模型进行复杂多步骤工具使用任务的稳健训练。代码发布于此 https URL。",
+      "hf_link": "https://huggingface.co/papers/2606.26027"
+    },
+    "2606.26904": {
+      "title": "Confidence-Aware Tool Orchestration for Robust Video Understanding",
+      "abstract": "Video reasoning language models implicitly assume that every input frame is equally reliable. This leads to what we term the Blind Trust Problem: under realistic perturbations such as motion blur, glare, or occlusion, frontier video reasoning models can suffer 15-30%p accuracy drops on real-world embodied benchmarks, while remaining unaware that their visual evidence has been degraded. To address this challenge, we propose Robust-TO, an agentic video understanding framework that explicitly integrates per-frame trustworthiness into every stage of reasoning. Robust-TO organizes heterogeneous visual perception tools under a unified evidence interface. Each tool receives a sub-query derived from the original question and a set of trustworthy frames selected by the reliability-relevance score. It returns evidence in a shared format: a concrete prediction (e.g., a bounding box, motion trajectory, recognized text, or action label), temporal grounding, and a calibrated reliability score. During reasoning, these calibrated scores guide evidence weighting in a three-tier synthesis process (high/medium/low) and define a confidence-cost GRPO reward that jointly optimizes correctness, evidence reliability, and efficiency. On two video reasoning benchmarks spanning eight tasks, Robust-TO achieves 56.4% average accuracy on clean inputs, surpassing the strongest open-source baseline by 10.6%p and outperforming Gemini-2.5-Pro (46.2%). Under five realistic corruption types, Robust-TO maintains 54.3% average accuracy, 5.8%p above the strongest open-source baseline, while exhibiting the smallest clean-to-corrupted accuracy drop among all compared methods.",
+      "abstract_zh": "视频推理语言模型隐含地假设每一帧输入都同等可靠。这导致了我们称之为\"盲目信任问题\"的现象：在运动模糊、眩光或遮挡等现实干扰下，前沿视频推理模型在真实世界具身基准测试中的准确率会下降15-30%，而模型本身却未能意识到其视觉证据已受损。为应对这一挑战，我们提出Robust-TO——一个将逐帧可信度显式整合到推理各阶段的智能体视频理解框架。Robust-TO在统一的证据接口下组织异构视觉感知工具，每个工具接收源自原始问题的子查询以及由可靠性-相关性评分筛选的可信帧集合，并以标准化格式返回证据：具体预测（如边界框、运动轨迹、识别文本或动作标签）、时序定位和校准后的可靠性分数。在推理过程中，这些校准分数通过三层合成机制（高/中/低可信度）指导证据加权，并定义了同时优化正确性、证据可靠性与效率的置信度-成本GRPO奖励函数。在涵盖八项任务的两个视频推理基准测试中，Robust-TO在清晰输入下达到56.4%的平均准确率，超越最强开源基线10.6个百分点，并优于Gemini-2.5-Pro（46.2%）。在五种现实干扰类型下，Robust-TO保持54.3%的平均准确率，较最强开源基线高出5.8个百分点，且在所有对比方法中表现出最小的清晰至干扰准确率降幅。",
+      "hf_link": "https://huggingface.co/papers/2606.26904"
+    },
+    "2606.24551": {
+      "title": "GUI vs. CLI: Execution Bottlenecks in Screen-Only and Skill-Mediated Computer-Use Agents",
+      "abstract": "Computer-use agents can execute software tasks through either graphical interfaces or programmatic command interfaces, but existing evaluations confound interaction modality with differences in tasks, initial states, verifiers, and permitted actions. We introduce a matched execution-layer benchmark of 440 desktop tasks across 18 applications and 12 workflow categories, where screen-only GUI agents and skill-mediated CLI agents receive identical goals, states, and final-state verifiers while being restricted to modality-native actions. In this controlled setting, the strongest GUI agent reaches a 59.1% full pass rate, outperforming the strongest original-skill CLI agent at 48.2%; however, verifier-guided skill augmentation raises CLI success to 69.3%, showing that much of the CLI deficit comes from incomplete skill coverage rather than model capability alone. These results suggest that GUI and CLI expose different execution bottlenecks: GUI agents are limited by reliable grounded interaction over long-horizon workflows, whereas CLI agents are limited by the coverage and scalability of their skill interfaces.",
+      "abstract_zh": "计算机使用代理可通过图形界面或程序化命令接口执行软件任务，但现有评估将交互方式与任务差异、初始状态、验证器及允许操作之间的差异相混淆。我们引入了一个包含440个桌面任务的匹配执行层基准测试，覆盖18个应用程序和12个工作流类别。在该测试中，纯屏幕图形用户界面（GUI）代理与技能中介命令行界面（CLI）代理接收完全相同的目标、状态和最终状态验证器，同时被限制只能执行其对应交互模式的原生操作。在此受控环境中，最强的GUI代理达到59.1%的完全通过率，优于最强的原始技能CLI代理（48.2%）；然而，通过验证器引导的技能增强可将CLI成功率提升至69.3%，这表明CLI的性能差距主要源于技能覆盖不完整，而非仅受模型能力限制。这些结果表明，GUI与CLI暴露了不同的执行瓶颈：GUI代理受限于长流程工作流中可靠的具身交互能力，而CLI代理则受限于其技能接口的覆盖范围与可扩展性。",
+      "hf_link": "https://huggingface.co/papers/2606.24551"
+    },
+    "2606.14397": {
+      "title": "Running the Gauntlet: Re-evaluating the Capabilities of Agents Beyond Familiar Environments",
+      "abstract": "As agentic systems continue to evolve and are widely deployed in real-world scenarios, there is a growing demand to faithfully evaluate their capabilities. However, current benchmarks are typically built on popular applications with relatively simple tasks and focus on a narrow set of capabilities while overlooking broader dimensions, resulting in saturated performance on modern agents and failing to probe their limitations. To this end, we introduce GauntletBench, a web-based benchmark for evaluating agent generalisation in challenging scenarios, focusing on three underexplored capabilities (temporal perception, graphical understanding, and 3D reasoning), across five less-covered professional applications (Video Editor, Workflow Builder, 3D Modeller, Flight Analyser, and Circuit Designer), each with 20 vision-intensive tasks (100 in total). Our benchmark provides a modular pipeline that comprises an environment compatible with both open- and closed-source agent frameworks, a controlled web-based application, a well-structured task suite, and an automated evaluation engine with diverse metrics. Contrary to widespread expectations, our empirical results reveal that frontier agentic systems remain far from achieving human-level performance. Even the state-of-the-art agent achieves only a 19.1% success rate on our GauntletBench, highlighting the limitations in these overlooked capabilities and generalisation. By comparison, non-expert human annotators achieve over 80% success on our challenging yet feasible tasks, revealing the substantial gap between current agent capabilities and those required for complex real-world scenarios.",
+      "abstract_zh": "随着智能体系统不断发展并在现实场景中广泛部署，人们对其能力进行忠实评估的需求日益增长。然而，现有基准测试通常基于任务相对简单的流行应用，且仅关注有限的能力维度，忽视了更广泛的能力范畴，导致现代智能体在这些测试中表现趋于饱和，无法有效探测其能力边界。为此，我们提出GauntletBench——一个基于网络的基准测试平台，用于评估智能体在挑战性场景中的泛化能力。该基准聚焦于三个尚未充分探索的能力维度（时序感知、图形理解与三维推理），涵盖五个较少被覆盖的专业应用领域（视频编辑器、工作流构建器、三维建模器、飞行分析仪与电路设计器），每个领域包含20项视觉密集型任务（总计100项）。我们的基准平台提供模块化流程，包含兼容开源与闭源智能体框架的运行环境、受控的网络应用环境、结构化的任务集，以及配备多维指标的自动化评估引擎。与普遍预期相反，实证结果表明前沿智能体系统仍远未达到人类水平性能。即使当前最先进的智能体在GauntletBench中也仅取得19.1%的成功率，凸显了其在被忽视能力维度与泛化方面的局限。相比之下，非专业人类标注者在这些具有挑战性但可行的任务中取得了超过80%的成功率，这揭示了当前智能体能力与复杂现实场景所需能力之间存在的显著差距。",
+      "hf_link": "https://huggingface.co/papers/2606.14397"
+    },
+    "2606.26025": {
+      "title": "In-Context World Modeling for Robotic Control",
+      "abstract": "Modern Vision-Language-Action (VLA) models often fail to generalize to novel setups, such as altered camera viewpoints or robot morphologies, because they are typically conditioned only on current observations and language instructions. By ignoring the underlying system configuration as a variable, these models implicitly assume a fixed execution context encountered during training, necessitating data-intensive fine-tuning for any new environment. In this work, we introduce In-Context World Modeling (ICWM), a framework that treats system identification as an in-context adaptation problem. ICWM enables robot policies to autonomously infer essential system variables from a short history of self-generated, task-agnostic interactions. Unlike traditional In-Context Learning that uses demonstrations to specify what task to perform, ICWM leverages the context window to understand how the system operates. By processing these interactions before task execution, the model implicitly captures the world dynamics of the current system, enabling adaptation to novel configurations without parameter updates. Extensive experiments in simulation and on real-world robot platforms demonstrate that ICWM significantly outperforms standard VLA baselines on novel camera viewpoints.",
+      "abstract_zh": "现代视觉-语言-行动模型通常难以泛化到新的设置，例如变化的相机视角或机器人形态，因为这些模型通常仅以当前观察和语言指令为条件。通过忽略基础系统配置作为变量，这些模型隐含地假设了训练期间遇到的固定执行上下文，导致任何新环境都需要数据密集型的微调。本研究提出了情境世界建模框架，该系统将系统识别视为情境自适应问题。ICWM使机器人策略能够从短暂的自生成、任务无关交互历史中自主推断关键系统变量。与传统的情境学习不同，后者使用演示来指定执行何种任务，ICWM则利用情境窗口来理解系统如何运作。通过在任务执行前处理这些交互，模型隐式地捕捉当前系统的世界动态，从而无需参数更新即可适应新的配置。在模拟环境和真实机器人平台上的大量实验表明，ICWM在新型相机视角下的表现显著优于标准VLA基线模型。",
+      "hf_link": "https://huggingface.co/papers/2606.26025"
+    },
+    "2606.16613": {
+      "title": "CoffeeBench: Benchmarking Long-Horizon LLM Agents in Heterogeneous Multi-Agent Economies",
+      "abstract": "As LLM agents become capable of increasingly long-horizon tasks, evaluating their performance in economic systems is becoming increasingly important. Unlike existing benchmarks that primarily evaluate a single agent interacting with a passive environment, economic systems are inherently multi-agent, requiring autonomous agents to communicate, negotiate, and transact while pursuing their own objectives over extended periods. We introduce CoffeeBench, a benchmark for evaluating LLM agents in a long-horizon multi-agent economy composed of heterogeneous firms. In CoffeeBench, two farmers, two roasters, and two retailers autonomously operate their businesses over a 90-day simulation, each seeking to maximize cumulative net income through communication and transactions while managing cash, inventory, and pricing. The evaluated model controls one coffee roaster, while the remaining firms are controlled by fixed reference agents. Across several recent open-weight and proprietary LLMs, all models outperform a passive baseline that takes no actions, with most achieving positive net income. Analysis of agent behavior reveals substantial differences in long-horizon economic interaction: higher-performing models communicate more actively with other firms, whereas Claude~Haiku~4.5 exhibits an idle-drift failure mode, repeatedly choosing inaction despite producing coherent assessments and plans. We release our code and agent trajectories to support future research.",
+      "abstract_zh": "随着大语言模型（LLM）智能体处理长周期任务的能力日益增强，评估其在经济系统中的表现变得愈发重要。现有基准测试主要评估单个智能体与被动环境的交互，而经济系统本质上是多智能体的，要求自主智能体在长期追求自身目标的过程中进行交流、协商和交易。我们提出了CoffeeBench，这是一个用于评估异构企业构成的长周期多智能体经济中LLM智能体的基准测试。在CoffeeBench中，两名咖啡种植者、两名烘焙商和两名零售商通过90天的模拟自主运营各自业务，每方都力求通过沟通与交易实现累计净收入最大化，同时管理现金流、库存和定价。被评估的模型控制一家咖啡烘焙商，其余企业则由固定的参考智能体控制。在多个近期开源权重和专有LLM的测试中，所有模型的表现均优于不采取任何行动的被动基线，且大多数模型实现了正净收入。对智能体行为的分析揭示了其在长周期经济互动中的显著差异：表现更优的模型与其他企业进行更积极的沟通，而Claude~Haiku~4.5则表现出闲置漂移失败模式——尽管能生成连贯的评估与计划，却反复选择不作为。我们公开了代码和智能体行为轨迹以支持未来研究。",
+      "hf_link": "https://huggingface.co/papers/2606.16613"
+    },
+    "2606.26217": {
+      "title": "Fast LeWorldModel",
+      "abstract": "Joint-Embedding Predictive Architectures (JEPAs), including recent LeWorldModel (LeWM), have become a promising foundation for reconstruction-free visual world models. For visual planning, however, LeWM evaluates candidate action sequences by repeatedly applying a local one-step latent transition model. This autoregressive rollout makes planning computationally expensive and exposes the predicted trajectory to accumulated latent errors as the horizon grows. We propose Fast LeWorldModel (Fast-LeWM), a fast latent world model that replaces repeated local rollout with action-prefix prediction. Given the current latent and a candidate action sequence, Fast-LeWM encodes its prefixes and predicts the future latents reached after executing those prefixes in parallel. By making action prefixes the basic prediction unit, Fast-LeWM directly models action effects accumulated to different extents over multiple horizons. This prefix-level supervision forces the model to learn how states continuously evolve under different action prefixes, rather than only fitting one-step state transitions. During planning, the predictor can use the last prefix token from the encoded action sequence to evaluate the corresponding future latent without explicitly rolling through each intermediate imagined state. Across multiple tasks, Fast-LeWM improves average success over LeWM while substantially reducing planning time, achieving lower open-loop latent loss whose growth becomes significantly slower as the rollout horizon increases.",
+      "abstract_zh": "联合嵌入预测架构（Joint-Embedding Predictive Architectures，简称JEPAs），包括近期提出的LeWorldModel（LeWM），已成为无重构视觉世界模型中极具前景的基础框架。然而，在视觉规划任务中，LeWM通过反复应用局部的单步潜在状态转移模型来评估候选动作序列。这种自回归式的推演使得规划过程计算成本高昂，并且随着预测时长的增加，预测轨迹会因潜在误差的累积而受到影响。我们提出快速LeWorldModel（Fast-LeWM），这是一种快速的潜在世界模型，它通过动作前缀预测取代了重复的局部推演。给定当前潜在状态及候选动作序列，Fast-LeWM对其前缀进行编码，并并行预测执行这些前缀后所达到的未来潜在状态。通过将动作前缀作为基本预测单元，Fast-LeWM直接建模了动作在不同时间跨度上累积产生的效应。这种前缀级别的监督迫使模型学习状态如何在不同动作前缀下持续演化，而非仅拟合单步状态转移。在规划过程中，预测器可以利用编码动作序列的最后一个前缀标记来评估相应的未来潜在状态，而无需显式地逐步推演每个中间想象状态。在多项任务中，Fast-LeWM在显著减少规划时间的同时，平均成功率超越了LeWM，并且实现了更低的开环潜在损失——其随推演时长增加而上升的幅度明显减缓。",
+      "hf_link": "https://huggingface.co/papers/2606.26217"
+    },
+    "2606.21795": {
+      "title": "Discretizing Reward Models",
+      "abstract": "Despite their widespread use, the role of reward models in shaping reinforcement learning is poorly understood. Reward models offer a tempting promise: they automatically estimate response quality in the absence of verifiers or human judges. Unlike \"verifiable rewards\" which typically produce binary scores, reward models typically produce continuous scores, allowing them to be sensitive to fine-grained differences in responses. However, we show this apparent strength is a serious weakness: many popular reward models are oversensitive, assigning different scores to equally good responses. Theoretically, we show that seemingly perfect reward models can be highly oversensitive; empirically, this oversensitivity can lead to bad policies. In place of existing notions of \"reward model accuracy,\" we propose evaluating reward models using distinct measures of \"discriminative ability\" and \"specificity\" (the complement of oversensitivity). As a solution, we describe a training-free algorithm that uses Monte Carlo dropout on any neural reward model to produce discrete reward clusters. Theoretically, we prove there exist discretizations that reduce oversensitivity at minimal expense of discriminative ability; empirically we show, in both controlled and natural RL settings, that discretizing rewards leads to less reward hacking and better policies than training on the original rewards.",
+      "abstract_zh": "尽管奖励模型被广泛使用，但其在强化学习中的具体作用仍未得到充分理解。奖励模型提供了一个诱人的承诺：即在缺乏验证器或人类评判者的情况下，它们能自动评估响应质量。与通常产生二元分数的\"可验证奖励\"不同，奖励模型通常输出连续分数，使其能够敏感地捕捉响应间的细微差异。然而，我们发现这种表面优势实则存在严重缺陷：许多常用奖励模型存在过度敏感性，会对质量相当的响应给出不同评分。理论上，我们证明了看似完美的奖励模型可能具有高度过度敏感性；实证研究表明，这种过度敏感可能导致策略性能恶化。我们提出用\"判别能力\"和\"特异性\"（作为过度敏感性的互补指标）这两个独立指标来评估奖励模型，以替代现有的\"奖励模型准确性\"概念。作为解决方案，我们提出一种免训练的算法，该算法通过在任何神经奖励模型上应用蒙特卡洛丢弃法来生成离散的奖励簇。理论上，我们证明了存在能在最小化判别能力损失的前提下降低过度敏感性的离散化方法；实证研究显示，在受控环境和自然强化学习场景中，相较于原始连续奖励，基于离散奖励进行训练能有效减少奖励操纵现象并产生更优策略。",
+      "hf_link": "https://huggingface.co/papers/2606.21795"
+    },
+    "2606.27364": {
+      "title": "PhysiFormer: Learning to Simulate Mechanics in World Space",
+      "abstract": "We present PhysiFormer, a diffusion transformer for physically-plausible 3D object motion. Unlike video world models that operate in view-dependent pixel space, PhysiFormer represents objects as 3D meshes expressed in world coordinates. Given the initial vertex positions and velocities, as well as object material type, rigid or elastic, the model samples future vertex trajectories. While related neural physics approaches build on ad-hoc latent spaces or explicitly enforce rigidity and causality, PhysiFormer shows that excellent results can be obtained without any such inductive biases, by casting vertex trajectory prediction as a single denoising diffusion process directly in world coordinates. The probabilistic formulation captures uncertainty in the learned dynamics, enabling diverse plausible futures from initial conditions, making this framework potentially useful for applications with unobserved uncertainty. The model features attention factorised over time, space, and objects for efficiency, enabling permutation-invariant multi-object reasoning without needing explicit object encoding. Trained on over 100k simulated trajectories, PhysiFormer generates rigid and elastic mechanics, and generalises to mixed-material settings, unseen real-world geometries, and larger object counts. It substantially outperforms autoregressive baselines in trajectory accuracy, rigidity preservation, and momentum-based physical consistency. Our results position coordinate-space diffusion as a promising step toward view-invariant, geometry-aware world modelling for robotics, graphics, and physical design. Visualisations, code, and models are available atthis https URL.",
+      "abstract_zh": "我们提出PhysiFormer，一种用于物理可塑性三维物体运动的扩散变换模型。与在视角相关的像素空间中运行的视频世界模型不同，PhysiFormer将对象表示为世界坐标系中的三维网格。给定初始顶点位置和速度，以及物体材料类型（刚性或弹性），该模型对未来的顶点轨迹进行采样。尽管相关的神经物理方法建立在特定隐空间或显式强制执行刚性和因果性的基础上，但PhysiFormer表明，通过将顶点轨迹预测直接在世界坐标系中构造为单一去噪扩散过程，无需任何此类归纳偏置即可获得优异结果。其概率化建模能够捕捉学习动力学中的不确定性，从而从初始条件生成多样化的合理未来场景，这使得该框架在存在未观测不确定性的应用中具有潜在价值。该模型采用时间、空间和对象因子化的注意力机制以提高效率，实现了无需显式对象编码的置换不变多对象推理。通过在超过10万条模拟轨迹上进行训练，PhysiFormer能够生成刚性和弹性力学行为，并可泛化至混合材料场景、未见过的真实世界几何结构以及更大规模的对象群体。在轨迹精度、刚性保持和基于动量的物理一致性方面，该模型显著优于自回归基线方法。我们的研究结果表明，坐标空间扩散方法为机器人学、图形学和物理设计领域实现视角不变、几何感知的世界建模迈出了重要一步。可视化效果、代码及模型可通过此链接获取：https URL。",
+      "hf_link": "https://huggingface.co/papers/2606.27364"
+    },
+    "2606.27288": {
+      "title": "When Does Combining Language Models Help? A Co-Failure Ceiling on Routing, Voting, and Mixture-of-Agents Across 67 Frontier Models",
+      "abstract": "Multi-model LLM systems such as routing, voting, cascades, fusion, and mixture-of-agents are used to beat single-model accuracy. We show that their gain is capped by a quantity the field rarely reports. For any policy whose output is one member model answer, accuracy cannot exceed one minus beta, where beta is the rate at which every model is wrong on the same query. In contrast, the usual diagnostic, average pairwise error correlation rho, cannot identify beta: error laws with identical marginals and pairwise correlations can have different all-wrong rates. A Clopper-Pearson bound on beta gives a finite-sample certificate on the largest gain any router, vote, or cascade could deliver before training a router.Across 67 models from 21 providers, a tetrachoric-calibrated single-factor model still underprices the all-wrong tail: on open-ended mathematics, observed beta is 0.052 versus 0.023 under the full 67-model Gaussian copula, about 2.5 times underpricing, with 90 percent CI 1.7 to 3.4 and k equals 17. The effect recurs on execution-graded code, where beta is 0.079. Re-asking the same GPQA-Diamond questions in free-response rather than multiple-choice form reopens the tail, with beta 0.127 and a five-judge panel with kappa 0.73 to 0.92, locating co-failure in answer format rather than subject. At matched quality, low-rho heterogeneous ensembles beat high-rho Self-MoA, but on checkable tasks in our pool, combining models rarely beats the single best model without a strong query-level routing signal. Gains come from models failing on different questions, not from adding more models.",
+      "abstract_zh": "多模型大语言模型系统，例如路由（routing）、投票（voting）、级联（cascades）、融合（fusion）以及智能体混合（mixture-of-agents），常用于超越单一模型的准确性。我们证明，其性能增益受限于一个该领域鲜少报告的量化指标。对于任何输出为单一成员模型答案的策略，其准确性无法超过（1 - β），其中β是每个模型在同一查询上均出错的比率。相比之下，常用的诊断指标——平均成对错误相关性ρ——无法识别β：具有相同边际分布和成对相关性的错误分布规律，其全错率可能各不相同。基于β的Clopper-Pearson置信界限为任何路由器、投票或级联在训练路由器前可能提供的最大增益提供了有限样本下的理论保证。通过对来自21个提供商的67个模型进行研究，我们发现，即便采用四格相关校准的单因子模型，仍然低估了全错尾部风险：在开放式数学问题上，观测到的β为0.052，而在完整的67模型高斯Copula模型下仅为0.023，低估程度约为2.5倍（90%置信区间为1.7至3.4，k=17）。这种现象在基于执行评分的代码任务中同样存在，β为0.079。当以自由回答形式而非多项选择形式重复询问相同的GPQA-Diamond问题时，尾部风险重现，β达到0.127，由五位评审员组成的专家组（kappa值在0.73至0.92之间）将共同失败归因于答案格式而非主题本身。在质量相当的条件下，低ρ的异构集成系统优于高ρ的自我智能体混合（Self-MoA）；但在我们研究范围内可验证的任务中，若缺乏强大的查询级路由信号，组合模型很少能超越单一最佳模型。性能增益来源于不同模型在不同问题上出错，而非仅仅增加模型数量。",
+      "hf_link": "https://huggingface.co/papers/2606.27288"
+    },
+    "2606.26299": {
+      "title": "COrigami: An AI Pipeline for Co-Designing Flat-Foldable Visually Recognisable Origami",
+      "abstract": "While generative AI has achieved remarkable success in solving problems with verifiable solutions, generating physical art that satisfies both strict geometric constraints and subjective visual aesthetics remains a challenge. This paper presents an approach to tackle these difficulties in the domain of computational origami, a mathematically rigid environment that grounds artistic design within the equations of flat foldability. We present COrigami, an end-to-end AI-driven pipeline that assists the design cycle by generating crease patterns from natural language. Our pipeline involves generating a semantic stick figure, computing a base packing, solving for a flat-foldable crease pattern, shaping the flat-folded crease pattern, and refining the generated model using reinforcement learning driven by an autonomous aesthetic evaluation loop. Our system acts as a highly effective collaborative assistant, generating structural starting points that human artists can further expand and shape. By integrating algorithmic optimisation with autonomous aesthetic critique, this work demonstrates how AI systems can satisfy multi-objective physical constraints to enable reliable, mathematically grounded co-creativity.",
+      "abstract_zh": "尽管生成式人工智能在解决可验证解的问题上取得了显著成就，但如何生成既满足严格几何约束又符合主观视觉美感的实体艺术品仍是一个挑战。本文提出了一种在计算折纸领域应对这些难题的方法，该领域作为数学上严密的创作环境，将艺术设计锚定在平面可折性方程之中。我们推出了COrigami——一个端到端的人工智能驱动流程，通过从自然语言生成折痕图案来辅助设计循环。我们的流程包含生成语义简图、计算基础排布、求解平面可折的折痕图案、塑形平面折叠状态下的折痕结构，并利用基于自主审美评估循环的强化学习对生成模型进行优化。本系统作为一种高效的协作助手，能够生成可供人类艺术家进一步拓展与塑形的结构性起点。通过将算法优化与自主审美批判相结合，这项工作展示了人工智能系统如何满足多目标的物理约束，从而实现可靠且数学根基扎实的协同创造力。",
+      "hf_link": "https://huggingface.co/papers/2606.26299"
+    },
+    "2606.21959": {
+      "title": "OpenBioRQ: Unsolved Biomedical Research Questions for Agents",
+      "abstract": "A working citation looks like proof -- but the fact that a link resolves does not mean the cited paper supports the claim. I find that current agentic models rarely fabricate citations (over $99\\%$ resolve), yet roughly $15.9\\%$ link to the wrong paper. Existing benchmarks miss this failure mode: when a question has a fixed answer key, a model can reproduce the expected source from that key rather than independently verifying that the source supports the claim. I introduce \\textbf{\\openbiorq{}}, a retrieval-grounded agentic benchmark of $12{,}553$ unsolved biomedical research questions across $12$ domains that treats open questions as a faithfulness-and-abstention probe. To my knowledge, this is the first biomedical benchmark to combine an agentic setting -- where the model must issue multiple tool calls -- with unsolved questions that have no answer key. Openness is verified against real follow-up evidence rather than a model's parametric knowledge. Difficulty is empirical: I anchor it on questions that three open-weight reference models fail to answer, rather than on subjective hardness labels. On this hardest subset, held-out models from the same lineage as the difficulty anchors solve only ~17%, while three independent frontier agents (Gemini-3-Pro, Opus-4.7, GPT-5.5) span a wide 29-60% range. The benchmark is thus hard, non-saturating (the best agent still leaves ~33-40\\% unsolved), and discriminating across capability tiers. Beyond difficulty, I observe agentic collapse on the hardest questions, where agents stop using their tools. For the most collapse-prone model, blocking tool access entirely barely changes its score -- so tools stop paying off exactly where they are needed most. A frozen per-question checklist raises inter-judge agreement from Spearman 0.35 to 0.82.",
+      "abstract_zh": "有效的引用看似具有证明力——但链接能够解析并不意味着被引用的论文支持其论点。当前智能体模型极少捏造引用（超过99%的链接可解析），然而大约15.9%的链接指向了错误的论文。现有基准测试未能捕捉到这种失败模式：当问题存在固定答案时，模型可能直接从答案库中复现预期来源，而非独立验证该来源是否支持其声称的结论。我引入了 \\textbf{\\openbiorq{}}，这是一个基于检索的智能体基准测试，包含跨越12个生物医学领域的12,553个未解科学问题，并将开放性问题视为忠实性与弃权判断的探测工具。据我所知，这是首个将智能体环境（模型必须进行多次工具调用）与无答案标准的未解问题相结合的生物医学基准测试。其开放性通过真实后续证据而非模型的参数化知识进行验证。难度具有实证基础：我以三个开源权重参考模型无法回答的问题作为难度锚点，而非依赖主观的难度标签。在此最困难子集上，与难度锚点同源的留出模型仅能解决约17%的问题，而三个独立的尖端智能体（Gemini-3-Pro、Opus-4、GPT-4o）的表现则分布在29%-60%的较宽区间。因此该基准测试具有高难度、非饱和性（最佳智能体仍有约33%-40%未解决问题）和跨能力层级的区分度。除难度外，我在最困难问题上观察到智能体崩溃现象，即智能体停止使用其工具。对于最易崩溃的模型，完全阻断其工具访问仅使其得分产生微弱变化——这意味着工具恰恰在最需要发挥作用的场景中失去了效用。采用固定的逐题检查清单可将评估者间一致性从斯皮尔曼系数0.35提升至0.82。",
+      "hf_link": "https://huggingface.co/papers/2606.21959"
+    },
+    "2606.27326": {
+      "title": "Hallucination in World Models is Predictable and Preventable",
+      "abstract": "Modern generative world models render increasingly realistic action-controllable futures, yet they frequently hallucinate: rollouts remain visually fluent while drifting from the ground-truth dynamics. We hypothesize that hallucination concentrates in low-coverage regions of the state-action space, where lightweight data-centric signals can both detect it and guide mitigation. To test this, we introduce MMBench2, a 427-hour, 210-task dataset for visual world modeling with ground-truth actions, rewards, and live simulators, and train a 350M-parameter world model on it. We identify three distinct hallucination modes: perceptual, action-marginalized, and scene-diverging -- each anchored to a different stage of the pipeline, and develop three signals that accurately predict where the model will fail. To close coverage gaps at training time, we develop a coverage-aware sampling technique; to close them online, our hallucination predictors serve as curiosity rewards for targeted data collection, yielding a data-efficient finetuning recipe that adapts the pretrained world model to entirely unseen environments with as few as 50 real environment trajectories. Overall, our findings reveal that hallucination in world models is inherently a data coverage issue, and that the same signals used to detect it can also be used for mitigation.An interactive web version of our paper is available atthis https URL",
+      "abstract_zh": "现代生成式世界模型能够生成日益逼真且可操控动作的未来场景，但它们常常出现幻觉现象：推演过程在保持视觉流畅性的同时偏离了真实动态规律。我们假设幻觉主要集中在状态-动作空间的低覆盖区域，而轻量级的数据驱动信号既能检测这种现象，又能指导其缓解策略。为验证这一假设，我们引入了MMBench2——一个包含427小时视频、210项任务的视觉世界建模数据集，该数据集提供真实动作、奖励信号及实时模拟器，并基于此训练了一个3.5亿参数的世界模型。我们识别出三种不同的幻觉模式：感知型幻觉、动作边缘化幻觉与场景发散型幻觉——每种模式分别对应建模流程的不同阶段，并开发出三种能准确预测模型失效位置的信号指标。为在训练阶段填补覆盖空白，我们开发了覆盖感知采样技术；为在在线运行时填补空白，我们的幻觉预测器可作为定向数据收集的探索性奖励，从而形成一种数据高效的微调方案，使预训练世界模型仅需50条真实环境轨迹即可适应完全陌生的环境。总体而言，我们的研究结果表明世界模型中的幻觉本质上是数据覆盖问题，而用于检测幻觉的相同信号也可用于缓解该问题。本文交互式网页版本可通过此链接访问：https URL。",
+      "hf_link": "https://huggingface.co/papers/2606.27326"
+    },
+    "2606.16517": {
+      "title": "How Post-Training Shapes Biological Reasoning Models",
+      "abstract": "Scientific reasoning models for biology combine language models with foundation models trained on multimodal biological data, including DNA, RNA, and proteins. These models are built through post-training, yet how each stage shapes reasoning and generalization remains poorly understood. We study when post-training improves performance and when it induces over-specialization. Across genomics, transcriptomics, and proteins, we train and evaluate more than 100 biological reasoning models under controlled variation in backbone, continued pre-training (CPT), supervised fine-tuning (SFT), and reinforcement learning (RL), measuring both in-domain (ID) and out-of-domain (OOD) performance. We find that each post-training stage reshapes generalization in a distinct way rather than contributing uniform gains. CPT improves downstream performance by aligning models with biological language. SFT consistently increases ID performance but causes OOD performance to peak early and decline as models fit the training distribution. RL, when applied to strong SFT checkpoints with aligned rewards, improves OOD performance and partially recovers generalization. These results show that biological reasoning does not improve monotonically with additional supervision or compute. Instead, performance depends on how training stages are composed. Under fixed post-training budgets, the strongest ID-OOD trade-off comes from brief SFT, larger RL allocations, and asymmetric adaptation capacity across stages.",
+      "abstract_zh": "生物学科学推理模型将语言模型与基于多模态生物数据（包括DNA、RNA和蛋白质）训练的基础模型相结合。这些模型通过后训练构建而成，但每个训练阶段如何影响推理与泛化能力仍不甚明晰。本研究探讨后训练何时提升性能、何时导致过度专门化。我们在基因组学、转录组学和蛋白质领域，通过控制主干网络、持续预训练（continued pre-training, CPT）、监督微调（supervised fine-tuning, SFT）与强化学习（reinforcement learning, RL）的变量条件，训练并评估了100多个生物推理模型，同时测量其领域内（in-domain, ID）与领域外（out-of-domain, OOD）性能。研究发现，每个后训练阶段都以独特方式重塑泛化能力，而非产生均匀增益。CPT通过使模型与生物语言对齐来提升下游性能；SFT能持续提高ID性能，但会导致OOD性能在早期达到峰值后随模型对训练分布的拟合而下降；当RL应用于具有对齐奖励机制的强SFT检查点时，可提升OOD性能并部分恢复泛化能力。这些结果表明，生物推理能力并非随额外监督或算力增加而单调提升，其性能取决于训练阶段的组合方式。在固定后训练预算下，最佳的ID-OOD权衡来自短周期SFT、更大比例的RL资源配置以及各阶段间非对称的适应能力。",
+      "hf_link": "https://huggingface.co/papers/2606.16517"
+    }
+  },
+  "hf_votes": {
+    "2606.27377": 0,
+    "2606.27313": 0,
+    "2606.26907": 0,
+    "2606.26790": 0,
+    "2606.26300": 0,
+    "2606.18394": 0,
+    "2606.26027": 0,
+    "2606.26904": 0,
+    "2606.24551": 0,
+    "2606.14397": 0,
+    "2606.26025": 0,
+    "2606.16613": 0,
+    "2606.26217": 0,
+    "2606.21795": 0,
+    "2606.27364": 0,
+    "2606.27288": 0,
+    "2606.26299": 0,
+    "2606.21959": 0,
+    "2606.27326": 0,
+    "2606.16517": 0
+  },
+  "focus_sections": {
+    "3D生成与重建": []
+  },
+  "summaries": {
+    "2606.27377": {
+      "short_zh": "流匹配模型多能力整合",
+      "tags": "计算机视觉;图像生成;生成场蒸馏",
+      "body_summary": "现代图像生成需要统一文本到图像、局部编辑和全局编辑等多样能力，但这些能力常相互冲突。\n提出DanceOPD框架，通过基于策略的生成场蒸馏，将样本路由到不同能力场并查询学生状态来组合专家能力，从而提升多能力组合效果。"
+    },
+    "2606.27313": {
+      "short_zh": "视觉与文本统一量化表征",
+      "tags": "计算机视觉;多模态学习;视觉量化表征",
+      "body_summary": "设计兼顾语义与细节的视觉离散表征以实现多模态统一建模\n提出两阶段量化框架和位置感知量化机制，支持任意分辨率输入并提升多模态训练效率"
+    },
+    "2606.26907": {
+      "short_zh": "填补图像生成上下文缺口",
+      "tags": "计算机视觉;图像生成;上下文感知图像生成",
+      "body_summary": "现有文本到图像模型难以处理信息不全、依赖最新知识的真实世界生成请求。\n提出Qwen-Image-Agent框架，通过规划、搜索等方法构建完整生成上下文，并创建新基准验证其有效性。"
+    },
+    "2606.26790": {
+      "short_zh": "策略技能蒸馏提升智能体学习效率",
+      "tags": "强化学习;智能体强化学习;语言智能体决策优化",
+      "body_summary": "语言智能体强化学习存在稀疏奖励问题，而现有技能蒸馏方法依赖外部记忆或产生分布不匹配。\n提出OPID框架，直接从已完成的策略轨迹中提取分层技能监督，结合稀疏奖励与密集自蒸馏优势进行策略优化。"
+    },
+    "2606.26300": {
+      "short_zh": "验证代码智能体的挑战与优化",
+      "tags": "机器学习;智能体奖励设计;代码生成验证",
+      "body_summary": "随着代码生成能力提升，验证生成结果是否满足人类意图成为关键难题。\n提出了从可扩展性等三个维度评估验证信号，并通过多种验证器设计抑制奖励攻击、提升任务质量。"
+    },
+    "2606.18394": {
+      "short_zh": "并行树推测解码打破加速瓶颈",
+      "tags": "自然语言处理;大语言模型推理加速;推测解码",
+      "body_summary": "现有推测解码方法面临“因果性与效率两难”的扩展瓶颈。\n提出JetSpec，训练一个因果并行起草头，在保持高效单次前向生成的同时，生成与目标模型概率对齐的候选树，从而将更大的起草预算转化为更长的接受前缀和更高的端到端加速。"
+    },
+    "2606.26027": {
+      "short_zh": "多步工具使用强化学习崩溃分析与修复强化学习稳定性问题；工具增强语言模型；多步工具使用任务强化学习崩溃了，问题出在特定控制令牌的概率异常上，但工具能力未被破坏。通过系统研究多种监督信号和交织训练方案，找到了显著提升稳定性的方法，并分析了学习率和泛化影响。",
+      "tags": "",
+      "body_summary": ""
+    },
+    "2606.26904": {
+      "short_zh": "基于帧可靠性的视频理解工具协同",
+      "tags": "视频理解;鲁棒性视频理解;视频理解的证据可靠性",
+      "body_summary": "现有视频推理模型假设所有输入帧都同样可靠，导致其在真实扰动下性能显著下降且不自知。\n我们提出了Robust-TO框架，它通过统一接口组织视觉工具，为每帧评估可信度，并指导证据融合与决策，显著提升了视频理解的鲁棒性和准确性。"
+    },
+    "2606.24551": {
+      "short_zh": "比较GUI和CLI智能体执行效率瓶颈",
+      "tags": "人机交互;智能体与界面交互;计算机使用智能体评估",
+      "body_summary": "现有评估混杂了交互方式与其他因素，难以公平比较GUI与CLI智能体。\n研究者创建了一个匹配的基准测试，控制变量后发现GUI智能体表现更好，但CLI智能体通过技能增强可超越前者，揭示了二者不同的瓶颈。"
+    },
+    "2606.14397": {
+      "short_zh": "评估智能体在陌生环境的能力",
+      "tags": "智能体系统;能力评估;场景泛化测试",
+      "body_summary": "现有智能体评估基准存在任务简单、能力维度窄、在流行应用上性能饱和的问题，难以真实反映其在复杂现实场景中的局限。\n我们提出了GauntletBench，一个基于Web的、包含100个视觉密集任务的基准测试，聚焦于三个被忽视的能力和五个专业应用，以评估智能体在挑战性场景中的泛化能力，结果显示最先进的智能体成功率仅为19.1%，远低于人类水平。"
+    },
+    "2606.26025": {
+      "short_zh": "机器人情境适应世界建模",
+      "tags": "机器人;机器人控制;视觉语言动作模型",
+      "body_summary": "现代视觉语言动作模型因忽视系统配置变化，在新环境中泛化能力差。\n提出情境世界建模框架，让机器人通过自主交互推断系统变量，无需调参即可适应新配置。"
+    },
+    "2606.16613": {
+      "short_zh": "评估大模型代理长期经济交互",
+      "tags": "多智能体系统;LLM代理;长期多智能体经济基准",
+      "body_summary": "随着大模型代理能处理更长期任务，需要评估其在多主体经济系统中的表现。\n本文提出了一个包含异质企业的多智能体经济模拟基准，用于评估大模型在长期交互中的沟通、谈判和交易能力。"
+    },
+    "2606.26217": {
+      "short_zh": "快速视觉世界模型并行规划",
+      "tags": "视觉世界模型；模型预测控制；动作序列前缀预测",
+      "body_summary": "现有视觉世界模型通过自回归逐步预测规划，计算成本高且误差累积。\n提出Fast-LeWM模型，通过并行预测动作前缀效果来加速规划并提升准确性。"
+    },
+    "2606.21795": {
+      "short_zh": "奖励模型离散化提升强化学习效果",
+      "tags": "机器学习;强化学习;奖励模型优化",
+      "body_summary": "奖励模型在强化学习中应用广泛但作用不明，其连续评分易导致对同等优质回复的过度敏感，进而影响策略学习。\n本文提出用判别力与特异性评估奖励模型，并设计无需训练、基于蒙特卡洛丢弃的离散化方法，理论证明其可降低过度敏感且几乎不损失判别力，实验表明能减少奖励破解并得到更优策略。"
+    },
+    "2606.27364": {
+      "short_zh": "物理世界三维物体运动模拟",
+      "tags": "计算机图形学;物理模拟;三维物体轨迹扩散预测",
+      "body_summary": "现有视频世界模型依赖视角空间，而物理模拟需在三维世界坐标系中预测物体运动轨迹。\n提出PhysiFormer模型，通过扩散变换器直接在三维坐标空间学习预测刚性与弹性物体的运动轨迹，无需引入归纳偏置，能生成多样物理合理的未来运动。"
+    },
+    "2606.27288": {
+      "short_zh": "多模型组合增益上限分析",
+      "tags": "自然语言处理;大语言模型;模型组合策略",
+      "body_summary": "研究多模型组合系统的性能提升是否被模型共同错误率限制\n提出新指标量化增益上限并实验验证组合策略的实际效益"
+    },
+    "2606.26299": {
+      "short_zh": "AI辅助设计可平面折叠的视觉折纸",
+      "tags": "计算机图形学;计算折纸;多目标约束折纸生成",
+      "body_summary": "生成式AI在解决可验证答案的问题上成就显著，但在满足严格几何约束与主观视觉美感的物理艺术生成上仍有挑战，尤其在计算折纸领域。\n我们提出了COrigami全流程AI系统，它从自然语言出发生成语义简图、计算基形排布、求解可平面折叠折痕图、塑形，并通过强化学习驱动的自主审美评估循环优化模型，作为有效的协作助手为艺术家提供结构起点。"
+    },
+    "2606.21959": {
+      "short_zh": "提出评估智能体解决未解生物医学问题的基准",
+      "tags": "智能代理与基准测试;检索增强型智能体评测;生物医学未解问题评测",
+      "body_summary": "当前智能体在引用文献时存在“错链”问题，现有基准难以有效评测其真实性。\n开发了首个基于未解生物医学问题的智能体评测基准，用于评估智能体的真实性与工具使用能力，并揭示了智能体在难题上的工具失效现象。"
+    },
+    "2606.27326": {
+      "short_zh": "世界模型幻觉可预测与预防",
+      "tags": "机器学习;强化学习;视觉世界建模",
+      "body_summary": "现代生成式世界模型能渲染逼真可控的未来，但常产生偏离真实动态的幻觉。\n研究发现幻觉源于数据覆盖不足，提出检测信号和采样方法进行预防，并用少量轨迹适应新环境。"
+    },
+    "2606.16517": {
+      "short_zh": "生物推理模型后训练的影响分析",
+      "tags": "自然语言处理;生物信息学;生物推理模型后训练",
+      "body_summary": "研究生物推理模型如何通过预训练、微调等后训练阶段影响其推理和泛化能力。\n系统训练了100多个模型，发现各阶段对性能提升和泛化有不同影响，最优性能取决于各阶段的组合方式。"
+    }
+  },
+  "deep_analysis": {},
+  "figures": {}
+}
