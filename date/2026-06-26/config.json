@@ -42,6 +42,12 @@
       "abstract_zh": "工具使用使得大语言模型能够执行复杂任务，而近期发展的智能体强化学习方法展现出增强模型能力的潜力。然而，单独使用强化学习往往导致工具使用任务中的不稳定或增益有限。在我们的实验中，某些模型表现出灾难性崩溃现象——性能突然下降且工具调用结构失效。分析表明，这些故障源于特定控制令牌出现意外的概率峰值，从而破坏了结构化执行流程，但底层工具使用能力实际上并未丧失，只是被特定格式所掩盖。为解决这一问题，我们系统性地研究了多种监督信号，包括离策略监督、提示引导、错误示例监督等，并在同步与交错训练方案下进行应用。我们发现：将监督微调与强化学习交错进行可显著提升稳定性，但在格式与内容分布外评估中表现出性能下降。我们还分析了学习率的影响及不同设置间的泛化特性。这些结果凸显了理解强化学习失败机制的重要性，并展示了多样化的监督信号如何引导探索性学习，从而实现对大语言模型进行复杂多步骤工具使用任务的稳健训练。代码发布于此 https URL。",
       "hf_link": "https://huggingface.co/papers/2606.26027"
     },
+    "2606.14397": {
+      "title": "Running the Gauntlet: Re-evaluating the Capabilities of Agents Beyond Familiar Environments",
+      "abstract": "As agentic systems continue to evolve and are widely deployed in real-world scenarios, there is a growing demand to faithfully evaluate their capabilities. However, current benchmarks are typically built on popular applications with relatively simple tasks and focus on a narrow set of capabilities while overlooking broader dimensions, resulting in saturated performance on modern agents and failing to probe their limitations. To this end, we introduce GauntletBench, a web-based benchmark for evaluating agent generalisation in challenging scenarios, focusing on three underexplored capabilities (temporal perception, graphical understanding, and 3D reasoning), across five less-covered professional applications (Video Editor, Workflow Builder, 3D Modeller, Flight Analyser, and Circuit Designer), each with 20 vision-intensive tasks (100 in total). Our benchmark provides a modular pipeline that comprises an environment compatible with both open- and closed-source agent frameworks, a controlled web-based application, a well-structured task suite, and an automated evaluation engine with diverse metrics. Contrary to widespread expectations, our empirical results reveal that frontier agentic systems remain far from achieving human-level performance. Even the state-of-the-art agent achieves only a 19.1% success rate on our GauntletBench, highlighting the limitations in these overlooked capabilities and generalisation. By comparison, non-expert human annotators achieve over 80% success on our challenging yet feasible tasks, revealing the substantial gap between current agent capabilities and those required for complex real-world scenarios.",
+      "abstract_zh": "随着智能体系统不断发展并在现实场景中广泛部署，人们对其能力进行忠实评估的需求日益增长。然而，现有基准测试通常基于任务相对简单的流行应用，且仅关注有限的能力维度，忽视了更广泛的能力范畴，导致现代智能体在这些测试中表现趋于饱和，无法有效探测其能力边界。为此，我们提出GauntletBench——一个基于网络的基准测试平台，用于评估智能体在挑战性场景中的泛化能力。该基准聚焦于三个尚未充分探索的能力维度（时序感知、图形理解与三维推理），涵盖五个较少被覆盖的专业应用领域（视频编辑器、工作流构建器、三维建模器、飞行分析仪与电路设计器），每个领域包含20项视觉密集型任务（总计100项）。我们的基准平台提供模块化流程，包含兼容开源与闭源智能体框架的运行环境、受控的网络应用环境、结构化的任务集，以及配备多维指标的自动化评估引擎。与普遍预期相反，实证结果表明前沿智能体系统仍远未达到人类水平性能。即使当前最先进的智能体在GauntletBench中也仅取得19.1%的成功率，凸显了其在被忽视能力维度与泛化方面的局限。相比之下，非专业人类标注者在这些具有挑战性但可行的任务中取得了超过80%的成功率，这揭示了当前智能体能力与复杂现实场景所需能力之间存在的显著差距。",
+      "hf_link": "https://huggingface.co/papers/2606.14397"
+    },
     "2606.26904": {
       "title": "Confidence-Aware Tool Orchestration for Robust Video Understanding",
       "abstract": "Video reasoning language models implicitly assume that every input frame is equally reliable. This leads to what we term the Blind Trust Problem: under realistic perturbations such as motion blur, glare, or occlusion, frontier video reasoning models can suffer 15-30%p accuracy drops on real-world embodied benchmarks, while remaining unaware that their visual evidence has been degraded. To address this challenge, we propose Robust-TO, an agentic video understanding framework that explicitly integrates per-frame trustworthiness into every stage of reasoning. Robust-TO organizes heterogeneous visual perception tools under a unified evidence interface. Each tool receives a sub-query derived from the original question and a set of trustworthy frames selected by the reliability-relevance score. It returns evidence in a shared format: a concrete prediction (e.g., a bounding box, motion trajectory, recognized text, or action label), temporal grounding, and a calibrated reliability score. During reasoning, these calibrated scores guide evidence weighting in a three-tier synthesis process (high/medium/low) and define a confidence-cost GRPO reward that jointly optimizes correctness, evidence reliability, and efficiency. On two video reasoning benchmarks spanning eight tasks, Robust-TO achieves 56.4% average accuracy on clean inputs, surpassing the strongest open-source baseline by 10.6%p and outperforming Gemini-2.5-Pro (46.2%). Under five realistic corruption types, Robust-TO maintains 54.3% average accuracy, 5.8%p above the strongest open-source baseline, while exhibiting the smallest clean-to-corrupted accuracy drop among all compared methods.",
@@ -53,12 +59,6 @@
       "abstract": "Computer-use agents can execute software tasks through either graphical interfaces or programmatic command interfaces, but existing evaluations confound interaction modality with differences in tasks, initial states, verifiers, and permitted actions. We introduce a matched execution-layer benchmark of 440 desktop tasks across 18 applications and 12 workflow categories, where screen-only GUI agents and skill-mediated CLI agents receive identical goals, states, and final-state verifiers while being restricted to modality-native actions. In this controlled setting, the strongest GUI agent reaches a 59.1% full pass rate, outperforming the strongest original-skill CLI agent at 48.2%; however, verifier-guided skill augmentation raises CLI success to 69.3%, showing that much of the CLI deficit comes from incomplete skill coverage rather than model capability alone. These results suggest that GUI and CLI expose different execution bottlenecks: GUI agents are limited by reliable grounded interaction over long-horizon workflows, whereas CLI agents are limited by the coverage and scalability of their skill interfaces.",
       "abstract_zh": "计算机使用代理可通过图形界面或程序化命令接口执行软件任务，但现有评估将交互方式与任务差异、初始状态、验证器及允许操作之间的差异相混淆。我们引入了一个包含440个桌面任务的匹配执行层基准测试，覆盖18个应用程序和12个工作流类别。在该测试中，纯屏幕图形用户界面（GUI）代理与技能中介命令行界面（CLI）代理接收完全相同的目标、状态和最终状态验证器，同时被限制只能执行其对应交互模式的原生操作。在此受控环境中，最强的GUI代理达到59.1%的完全通过率，优于最强的原始技能CLI代理（48.2%）；然而，通过验证器引导的技能增强可将CLI成功率提升至69.3%，这表明CLI的性能差距主要源于技能覆盖不完整，而非仅受模型能力限制。这些结果表明，GUI与CLI暴露了不同的执行瓶颈：GUI代理受限于长流程工作流中可靠的具身交互能力，而CLI代理则受限于其技能接口的覆盖范围与可扩展性。",
       "hf_link": "https://huggingface.co/papers/2606.24551"
-    },
-    "2606.14397": {
-      "title": "Running the Gauntlet: Re-evaluating the Capabilities of Agents Beyond Familiar Environments",
-      "abstract": "As agentic systems continue to evolve and are widely deployed in real-world scenarios, there is a growing demand to faithfully evaluate their capabilities. However, current benchmarks are typically built on popular applications with relatively simple tasks and focus on a narrow set of capabilities while overlooking broader dimensions, resulting in saturated performance on modern agents and failing to probe their limitations. To this end, we introduce GauntletBench, a web-based benchmark for evaluating agent generalisation in challenging scenarios, focusing on three underexplored capabilities (temporal perception, graphical understanding, and 3D reasoning), across five less-covered professional applications (Video Editor, Workflow Builder, 3D Modeller, Flight Analyser, and Circuit Designer), each with 20 vision-intensive tasks (100 in total). Our benchmark provides a modular pipeline that comprises an environment compatible with both open- and closed-source agent frameworks, a controlled web-based application, a well-structured task suite, and an automated evaluation engine with diverse metrics. Contrary to widespread expectations, our empirical results reveal that frontier agentic systems remain far from achieving human-level performance. Even the state-of-the-art agent achieves only a 19.1% success rate on our GauntletBench, highlighting the limitations in these overlooked capabilities and generalisation. By comparison, non-expert human annotators achieve over 80% success on our challenging yet feasible tasks, revealing the substantial gap between current agent capabilities and those required for complex real-world scenarios.",
-      "abstract_zh": "随着智能体系统不断发展并在现实场景中广泛部署，人们对其能力进行忠实评估的需求日益增长。然而，现有基准测试通常基于任务相对简单的流行应用，且仅关注有限的能力维度，忽视了更广泛的能力范畴，导致现代智能体在这些测试中表现趋于饱和，无法有效探测其能力边界。为此，我们提出GauntletBench——一个基于网络的基准测试平台，用于评估智能体在挑战性场景中的泛化能力。该基准聚焦于三个尚未充分探索的能力维度（时序感知、图形理解与三维推理），涵盖五个较少被覆盖的专业应用领域（视频编辑器、工作流构建器、三维建模器、飞行分析仪与电路设计器），每个领域包含20项视觉密集型任务（总计100项）。我们的基准平台提供模块化流程，包含兼容开源与闭源智能体框架的运行环境、受控的网络应用环境、结构化的任务集，以及配备多维指标的自动化评估引擎。与普遍预期相反，实证结果表明前沿智能体系统仍远未达到人类水平性能。即使当前最先进的智能体在GauntletBench中也仅取得19.1%的成功率，凸显了其在被忽视能力维度与泛化方面的局限。相比之下，非专业人类标注者在这些具有挑战性但可行的任务中取得了超过80%的成功率，这揭示了当前智能体能力与复杂现实场景所需能力之间存在的显著差距。",
-      "hf_link": "https://huggingface.co/papers/2606.14397"
     },
     "2606.26025": {
       "title": "In-Context World Modeling for Robotic Control",
@@ -129,9 +129,9 @@
     "2606.26300": 0,
     "2606.18394": 0,
     "2606.26027": 0,
+    "2606.14397": 0,
     "2606.26904": 0,
     "2606.24551": 0,
-    "2606.14397": 0,
     "2606.26025": 0,
     "2606.16613": 0,
     "2606.26217": 0,
@@ -182,6 +182,11 @@
       "tags": "",
       "body_summary": ""
     },
+    "2606.14397": {
+      "short_zh": "评估智能体在陌生环境的能力",
+      "tags": "智能体系统;能力评估;场景泛化测试",
+      "body_summary": "现有智能体评估基准存在任务简单、能力维度窄、在流行应用上性能饱和的问题，难以真实反映其在复杂现实场景中的局限。\n我们提出了GauntletBench，一个基于Web的、包含100个视觉密集任务的基准测试，聚焦于三个被忽视的能力和五个专业应用，以评估智能体在挑战性场景中的泛化能力，结果显示最先进的智能体成功率仅为19.1%，远低于人类水平。"
+    },
     "2606.26904": {
       "short_zh": "基于帧可靠性的视频理解工具协同",
       "tags": "视频理解;鲁棒性视频理解;视频理解的证据可靠性",
@@ -191,11 +196,6 @@
       "short_zh": "比较GUI和CLI智能体执行效率瓶颈",
       "tags": "人机交互;智能体与界面交互;计算机使用智能体评估",
       "body_summary": "现有评估混杂了交互方式与其他因素，难以公平比较GUI与CLI智能体。\n研究者创建了一个匹配的基准测试，控制变量后发现GUI智能体表现更好，但CLI智能体通过技能增强可超越前者，揭示了二者不同的瓶颈。"
-    },
-    "2606.14397": {
-      "short_zh": "评估智能体在陌生环境的能力",
-      "tags": "智能体系统;能力评估;场景泛化测试",
-      "body_summary": "现有智能体评估基准存在任务简单、能力维度窄、在流行应用上性能饱和的问题，难以真实反映其在复杂现实场景中的局限。\n我们提出了GauntletBench，一个基于Web的、包含100个视觉密集任务的基准测试，聚焦于三个被忽视的能力和五个专业应用，以评估智能体在挑战性场景中的泛化能力，结果显示最先进的智能体成功率仅为19.1%，远低于人类水平。"
     },
     "2606.26025": {
       "short_zh": "机器人情境适应世界建模",
