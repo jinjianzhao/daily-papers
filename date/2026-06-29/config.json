@@ -1,0 +1,194 @@
+{
+  "base_info": {
+    "2606.28276": {
+      "title": "SimFoundry: Modular and Automated Scene Generation for Policy Learning and Evaluation",
+      "abstract": "Training and evaluating robot policies in the real world is costly and difficult to scale. We introduce SimFoundry, a modular and automated system for zero-shot real-to-sim scene construction from a video. SimFoundry generates sim-ready digital twins and supports object, scene, and task editing, enabling the automated generation of diverse digital cousins: affordance-preserving variations of reconstructed real-world scenes. Policies trained on SimFoundry data transfer zero-shot to challenging real tasks involving multi-step manipulation, articulated object interaction, and bimanual interaction, and its digital cousins (variations of the original scene, objects, and tasks) facilitate generalization to new real-world conditions. Across 7 manipulation tasks and 5 policy architectures, SimFoundry simulation evaluations strongly predict real-world performance, with mean Pearson correlation 0.911 and mean maximum ranking violation 0.018. When evaluating sim-trained policies zero-shot in the real world, policies trained with object, scene, and task cousins in simulation show average task success rate improvements of 17%, 21%, and 40%, respectively. Additional details atthis https URL.",
+      "abstract_zh": "在现实世界中训练和评估机器人策略成本高昂且难以规模化。我们推出SimFoundry——一个模块化、自动化的零样本(zero-shot)从视频到仿真场景构建系统。该系统能够生成可直接用于仿真的数字孪生体，并支持对物体、场景和任务进行编辑，从而自动化生成多样化的数字衍生体(digital cousins)：即重建现实场景中保持功能可供性(affordance)的变体。基于SimFoundry数据训练的策略能够零样本迁移到涉及多步操作、关节物体交互及双手交互的复杂现实任务中，其数字衍生体（对原始场景、物体及任务的变体）有助于提升策略对新现实场景的泛化能力。在7项操作任务和5种策略架构的测试中，SimFoundry的仿真评估能强力预测现实世界表现，平均皮尔逊相关系数达0.911，平均最大排序违例仅0.018。当在现实世界中对仿真训练的策略进行零样本评估时，在仿真中加入物体、场景及任务衍生体进行训练的策略，其平均任务成功率分别提升了17%、21%和40%。更多细节详见此链接：https://此网址已省略。",
+      "hf_link": "https://huggingface.co/papers/2606.28276"
+    },
+    "2606.28128": {
+      "title": "PhysisForcing: Physics Reinforced World Simulator for Robotic Manipulation",
+      "abstract": "Video generation models have emerged as a promising paradigm for embodied world simulation. However, both general-domain video generators and robot-specific data fine-tuned models can still produce physically implausible manipulations, including discontinuous motion trajectories and inconsistent robot-object interactions, which limits their reliability as world simulators. Through extensive experiments, we find that such physical instability mainly arises from two factors: deformation of moving objects and implausible spatio-temporal correlations among interacting entities, particularly during contact. Building on this observation, we propose PhysisForcing, a scalable training framework that strengthens physical consistency by focusing supervision on physics-informative regions through joint optimization of pixel-level and semantic-level features. The framework consists of a pixel-level trajectory alignment loss, which supervises DiT features using reference point trajectories, and a semantic-level relational alignment loss, which aligns DiT features with inter-region relations extracted from a frozen video understanding encoder. Extensive experiments on R-Bench, PAI-Bench, and EZS-Bench show that PhysisForcing consistently improves embodied video generation over strong baselines, improving the Wan2.2-I2V-A14B and Cosmos3-Nano base models on R-Bench by 22.3\\% and 9.2\\% (7.1\\% and 3.7\\% over vanilla finetuning), with the Cosmos3-Nano variant attaining the best overall score. Beyond generation, as a world model under the WorldArena action-planner protocol it raises the closed-loop success rate from 16.0\\% to 24.0\\% and further improves downstream policy success, indicating that physically aligned video models yield stronger representations for robotic manipulation.",
+      "abstract_zh": "视频生成模型已成为具身世界模拟的一种前景广阔的研究范式。然而，通用领域视频生成器及机器人专用数据微调模型仍可能产生物理上不可行的操作，包括不连续的运动轨迹与不一致的机器人-物体交互，这限制了其作为世界模拟器的可靠性。通过大量实验，我们发现此类物理不稳定性主要源于两个因素：运动物体的形变以及交互实体间（尤其在接触过程中）不可信的时空关联性。基于此观察，我们提出PhysisForcing——一种可扩展的训练框架，其通过联合优化像素级与语义级特征、将监督聚焦于物理信息丰富的区域，从而增强物理一致性。该框架包含像素级轨迹对齐损失（通过参考点轨迹监督DiT特征）与语义级关系对齐损失（将DiT特征与冻结视频理解编码器提取的区域间关系进行对齐）。在R-Bench、PAI-Bench和EZS-Bench上的大量实验表明，PhysisForcing能持续提升强基线模型的具身视频生成效果：在R-Bench上将Wan2.2-I2V-A14B与Cosmos3-Nano基模型的性能分别提升22.3%和9.2%（相较于普通微调分别提升7.1%和3.7%），其中Cosmos3-Nano变体获得了最佳综合评分。除生成任务外，作为WorldArena行动规划协议下的世界模型，它将闭环成功率从16.0%提升至24.0%，并进一步改善了下游策略的成功率，这表明物理对齐的视频模型能为机器人操作任务提供更强的表征能力。",
+      "hf_link": "https://huggingface.co/papers/2606.28128"
+    },
+    "2606.28133": {
+      "title": "Translation as a Bridging Action: Transferring Manipulation Skills from Humans to Robots",
+      "abstract": "We study whether we can learn novel manipulation skills from human actions to a bi-manual robot with parallel grippers. Human action data is cheap, abundant, and diverse, making it one of the most promising resources for scaling up robot learning. Yet transferring skills from humans to robots remains hard: most prior work treats humans as just another bi-manual 6DoF embodiment, where hand-pose estimates are noisy and the contact patterns of human fingers differ fundamentally from those of a parallel gripper. We argue that learning rotation-inclusive action signals from human data is therefore sub-optimal, and instead propose a bridging action representation: the relative wrist translation within the initial head-camera frame, an action space shared by humans and robots. To handle the potential absence of certain action components in different embodiments, we build a $\\pi_0$-like vision-language-action model with interleaved action tokens and attention masking. On a suite of novel bi-manual manipulation tasks, our bridging action transfers human manipulation knowledge to robots far more effectively than noisy 6DoF human actions and scales with the amount of human data.",
+      "abstract_zh": "本研究探讨了是否能够从人类动作中学习新颖的操作技能，并将其迁移至配备平行夹爪的双臂机器人。人类动作数据获取成本低、数量庞大且种类多样，是扩展机器人学习最具前景的资源之一。然而，将技能从人类迁移到机器人仍面临挑战：先前研究大多仅将人类视为另一种六自由度双臂实体，但人类手部姿态估计存在噪声，且人类手指的接触模式与平行夹爪存在本质差异。我们认为，直接从人类数据中学习包含旋转信息的动作信号并非最优方案，因此提出一种桥接动作表征方法：在初始头部相机坐标系下的相对手腕平移，这是一个人类与机器人共有的动作空间。为了处理不同实体可能缺失特定动作组件的问题，我们构建了一个类似$\\pi_0$的视觉-语言-动作模型，该模型采用交错的动作标记和注意力掩码机制。在一系列新颖的双臂操作任务中，相比噪声严重的六自由度人类动作，我们的桥接动作表征能更有效地将人类操作知识迁移至机器人，并且其性能随人类数据量的增加而提升。",
+      "hf_link": "https://huggingface.co/papers/2606.28133"
+    },
+    "2606.27608": {
+      "title": "Qwen-Image-2.0-RL Technical Report",
+      "abstract": "We present Qwen-Image-2.0-RL, a post-training pipeline that applies reinforcement learning from human feedback (RLHF) and on-policy distillation (OPD) to improve both the visual quality and instruction-following capability of the Qwen-Image-2.0 diffusion model. To provide reliable reward signals, we construct task-specific composite reward models by fine-tuning vision-language models with a pointwise scoring paradigm and chain-of-thought reasoning. For text-to-image generation, the reward models cover alignment, aesthetics, and portrait fidelity dimensions. For image editing tasks, the reward system addresses instruction-following accuracy and face identity preservation. Building on this reward system, we develop a scalable GRPO-based RL training framework, incorporating a hybrid classifier-free guidance (CFG) strategy to preserve pre-trained knowledge, prompt curation via intra-group reward range filtering, and per-category reward weight calibration. To merge the task-specialized RL policies for T2I and editing, we propose on-policy distillation as the final training stage, which consolidates multiple teachers into a single student model through trajectory-level velocity matching. Extensive evaluation shows that Qwen-Image-2.0-RL achieves 57.84 overall score on Qwen-Image-Bench (+2.61 over the base model), Elo ratings of 1193 in text-to-image arena (+78) and 1349 in image edit arena (+93), demonstrating consistent gains in aesthetic quality, prompt adherence, and editing accuracy.",
+      "abstract_zh": "本文提出Qwen-Image-2.0-RL——一种基于人类反馈强化学习（Reinforcement Learning from Human Feedback, RLHF）与同策略蒸馏（On-Policy Distillation, OPD）的后训练流程，旨在提升Qwen-Image-2.0扩散模型的视觉质量与指令遵循能力。为提供可靠的奖励信号，我们通过点式评分范式与思维链（Chain-of-Thought）推理对视觉语言模型进行微调，构建了面向特定任务的复合奖励模型。针对文本到图像生成任务，奖励模型涵盖对齐度、美学质量与人像保真度三个维度；对于图像编辑任务，奖励系统则关注指令遵循准确性与人脸身份保持。基于该奖励系统，我们开发了可扩展的基于组相对策略优化（GRPO）的强化学习训练框架，融合了混合无分类器引导（Classifier-Free Guidance, CFG）策略以保留预训练知识、通过组内奖励范围筛选进行提示词优化，以及按类别进行奖励权重校准。为整合文本到图像与编辑任务的专业强化学习策略，我们提出将同策略蒸馏作为最终训练阶段，通过轨迹层面的速度匹配将多个教师模型的知识融合至单一学生模型。大量评估表明，Qwen-Image-2.0-RL在Qwen-Image-Bench上获得57.84的综合得分（较基础模型提升2.61），在文本到图像竞技场中Elo评级达1193分（提升78分），在图像编辑竞技场中达1349分（提升93分），在美学质量、提示词遵循度与编辑准确性方面均实现稳定提升。",
+      "hf_link": "https://huggingface.co/papers/2606.27608"
+    },
+    "2606.22873": {
+      "title": "2606.22873",
+      "abstract": "",
+      "abstract_zh": "",
+      "hf_link": "https://huggingface.co/papers/2606.22873"
+    },
+    "2606.27974": {
+      "title": "ProMSA:Progressive Multimodal Search Agents for Knowledge-Based Visual Question Answering",
+      "abstract": "Knowledge-based Visual Question Answering (KB-VQA) requires models to combine image understanding with external knowledge. Most prior methods use a fixed retrieve-then-generate pipeline with a pre-selected retriever and a static top-k setting, which is not adaptive during reasoning. We propose ProMSA, a progressive multimodal search agent for KB-VQA. Given an image-question pair, the agent iteratively chooses image search, text search, or stop, under explicit tool-call budgets and with deduplication to avoid redundant retrieval. For training, we first use rejection-sampling SFT to learn valid tool-use formats, then optimize the agent with TN-GSPO, a sequence-level RL objective that normalizes updates by both generation length and tool-interaction depth. Experiments on E-VQA and InfoSeek show consistent gains over strong RAG and agent baselines, and improved retrieval and end-to-end accuracy. The code is available atthis https URL.",
+      "abstract_zh": "基于知识的视觉问答（Knowledge-based Visual Question Answering，KB-VQA）要求模型将图像理解与外部知识相结合。先前多数方法采用固定的“检索-生成”流程，依赖预选的检索器与静态的top-k设置，在推理过程中缺乏适应性。我们提出ProMSA，一种用于KB-VQA的渐进式多模态搜索智能体。给定图像-问题对，该智能体在明确的工具调用预算约束下，通过去重机制避免冗余检索，迭代选择图像搜索、文本搜索或停止操作。在训练中，我们首先采用基于拒绝采样的监督微调来学习有效的工具使用格式，随后通过TN-GSPO——一种在生成长度与工具交互深度上对更新进行归一化的序列级强化学习目标——对智能体进行优化。在E-VQA与InfoSeek数据集上的实验表明，相较于强检索增强生成（RAG）与智能体基线方法，本方法在检索性能与端到端准确率上均取得稳定提升。代码发布于此https URL。",
+      "hf_link": "https://huggingface.co/papers/2606.27974"
+    },
+    "2606.27378": {
+      "title": "Formalizing Latent Thoughts: Four Axioms of Thought Representation in LLMs",
+      "abstract": "We introduce an axiomatic evaluation framework for latent thought representations in LLMs, comprising metrics that are independent of downstream benchmark scores and reveal representational failures that benchmark accuracy masks. Existing evaluations conflate representation quality with model capacity. Therefore, failures cannot be attributed to the representation rather than to the model that processes it. We formalize four functional axioms (Causality, Minimality, Separability, and Stability) and define a quantitative measure for each, computed directly on the representation independently of downstream accuracy. We audit open-weight LLMs across 23 reasoning tasks (e.g., Spatial Reasoning, Factual QA). We find that no candidate satisfies all four axioms simultaneously, that the representations distinguish task type reliably but cannot distinguish between two questions within the same task, and that the representations encode little information beyond what is already present in the input embedding. The failure is consistent across dense, reasoning-distilled, and RL-trained model families, indicating that the gap is structural rather than a property of model size or training procedure.",
+      "abstract_zh": "我们为大型语言模型中的潜在思维表征引入了一套公理化评估框架，该框架包含的评估指标独立于下游基准测试得分，并能揭示基准测试准确率所掩盖的表征缺陷。现有评估方法将表征质量与模型能力混为一谈，导致无法将缺陷归因于表征本身而非处理该表征的模型。我们形式化了四项功能公理（因果性、最小性、可分离性与稳定性），并为每项公理定义了量化度量标准，这些度量可直接基于表征本身计算，独立于下游任务准确率。我们在23项推理任务（如空间推理、事实问答）上对开源权重的大型语言模型进行了系统性审计。研究发现：所有候选模型均无法同时满足全部四项公理；其表征能可靠区分任务类型，却无法区分同一任务内的两个具体问题；且表征所编码的信息基本未超出输入嵌入已有的内容。这种缺陷在稠密模型、推理蒸馏模型和强化学习训练模型家族中普遍存在，表明该问题是结构性缺陷，而非模型规模或训练流程的特性所致。",
+      "hf_link": "https://huggingface.co/papers/2606.27378"
+    },
+    "2606.27595": {
+      "title": "Ko-WideSearch: A Korean Breadth-Search Benchmark for Exhaustive Set Enumeration by Web Agents",
+      "abstract": "Web-agent benchmarks overwhelmingly measure depth -- pinning one obscure answer behind a chain of constraints -- while breadth, exhaustively enumerating a closed set and filling each item's attributes, is barely evaluated, especially outside English. Breadth is also hard to build: certifying that a gold set is complete and every cell correct is far costlier than checking a single answer. I introduce \\textsc{Ko-WideSearch}, a Korean breadth-search benchmark built by an automated synthesize-and-verify pipeline. Each task names a set-parent entity -- a TV season, a dynasty, a league, an administrative region, an election -- and asks for its full membership plus a per-item attribute table, graded by Item-, Column-, and Row-F1. It spans 228 tables over 190 entities and sixteen categories across three difficulty tiers, set by two structural knobs I dial independently -- table width and a 2-D composite key -- so cross-product membership climbs from 0\\% to 100\\% across the tiers. A single normalization-aware comparator is shared between gold construction and grading, so stable date and count columns are not over-dropped on formatting alone. Across twenty web agents, the failure is consistent: agents recover the set but not the rows (e.g.\\ Item-F1 92.8 against Row-F1 53.7), accuracy falls steadily as the knobs harden, and neither more search nor more spend closes the gap. Broken down by cell, the hard part is finding the right value, not formatting it: open-ended free-text cells fail most, while cells with a standard answer such as a date or a name usually come out right.",
+      "abstract_zh": "当前针对网络智能体（web-agent）的评测基准普遍侧重深度——即通过一系列约束条件来锁定一个冷门答案——而对于广度，即穷举一个封闭集合并填充每个项目的属性，却鲜有评估，尤其是在英语之外的语言环境中。广度的构建同样困难：确保基准答案集完整且每个单元格准确无误的成本，远高于检查单一答案。为此，我提出了\\textsc{Ko-WideSearch}，这是一个韩语广度搜索基准，通过自动化合成与验证流程构建而成。每个任务指定一个集合父实体——如电视剧季、朝代、联赛、行政区划、选举——并要求列出其全部成员以及每个项目的属性表，评分采用项目F1、列F1和行F1。该基准涵盖190个实体、16个类别下的228张表格，分为三个难度层级，通过两个独立调节的结构性旋钮——表格宽度和二维复合键——使得跨层级组合的成员覆盖率从0%逐步提升至100%。在基准构建与评分过程中共享同一支持规范化的比较器，因此日期和计数等稳定列不会仅因格式差异而被过度剔除。在对二十个网络智能体的测试中，失败模式一致：智能体能恢复集合但无法正确填充行数据（例如项目F1达92.8，而行F1仅为53.7）；随着旋钮难度增加，准确率持续下降；增加搜索量或资源投入均无法弥补差距。按单元格细分，难点在于找到正确的值而非格式化：开放式自由文本单元格的失败率最高，而具有标准答案（如日期或名称）的单元格通常能正确输出。",
+      "hf_link": "https://huggingface.co/papers/2606.27595"
+    },
+    "2606.27163": {
+      "title": "Learning to Fold: prizewinning solution at LeHome Challenge 2026 (1st place online, 2nd offline)",
+      "abstract": "I describe my solution to the LeHome Challenge 2026, an ICRA 2026 competition on bimanual garment folding. The system placed 1st of 62 teams in the online (simulation) round and 2nd in the real-world final. It improves a vision-language-action (VLA) policy with a reinforcement-learning loop. The policy is its own value function: the same network that predicts actions also predicts success, progress, and a few task-relevant future quantities, and those predictions drive advantage estimation, live failure detection, and candidate selection. The work mostly recombines existing RL ideas with engineering and optimization contributions that can be used together as one recipe or individually: AWR + RECAP combined for flow-matching VLA; an asynchronous distributed training / rollout pipeline through HuggingFace Hub; inference-time hyperparameters optimization via Thompson sampling; a sim-to-real recipe with camera-alignment tooling, heavy augmentation and DAgger-like HIL data collection.",
+      "abstract_zh": "我介绍了针对LeHome挑战赛2026的解决方案，该赛事是ICRA 2026关于双手衣物折叠的竞赛。该系统在线上（仿真）轮次中位列62支队伍之首，并在现实世界决赛中获得第二名。该系统通过强化学习循环对视觉-语言-动作（Vision-Language-Action, VLA）策略进行了改进。该策略自身即为其价值函数：同一网络既预测动作，也预测成功率、进度以及若干与任务相关的未来状态量，这些预测驱动着优势估计、实时故障检测和候选方案选择。本研究主要将现有强化学习思想与工程及优化贡献相结合，这些贡献既可整合为一种完整方案，亦可独立使用：结合AWR与RECAP方法实现流匹配VLA；通过HuggingFace Hub构建异步分布式训练/ rollout流程；借助汤普森采样进行推理时超参数优化；以及包含相机对齐工具、强数据增强和类DAgger人机交互数据收集的仿真到现实迁移方案。",
+      "hf_link": "https://huggingface.co/papers/2606.27163"
+    },
+    "2606.27771": {
+      "title": "2606.27771",
+      "abstract": "",
+      "abstract_zh": "",
+      "hf_link": "https://huggingface.co/papers/2606.27771"
+    },
+    "2606.28277": {
+      "title": "Towards Automating Scientific Review with Google's Paper Assistant Tool",
+      "abstract": "Artificial intelligence is driving a revolution in scientific discovery, accelerating everything from hypothesis generation to mathematical theorem proving. However, this rapid acceleration is creating a systemic challenge: traditional human peer review cannot scale to match the influx of AI-assisted science. Ultimately, to resolve this tension, we must also deploy AI to accelerate the verification and review process itself. To frame the discussion around this transition, we propose a taxonomy consisting of four progressive levels of AI-human collaboration in scientific evaluation, and discuss various trade-offs involved with each.As a step toward this future, we introduce the Paper Assistant Tool (PAT), an agentic AI framework built for deep scientific review and verification. PAT ingests full scientific manuscripts and produces a comprehensive evaluation, checking theoretical results, validating experiments, suggesting improvements, and identifying potential flaws. By utilizing inference scaling techniques, PAT is able to identify deeper issues than a single model call alone, achieving a 34% improvement over zero-shot recall on mathematical errors in the SPOT benchmark. Pilot deployments of PAT as a pre-submission tool for authors at two major Computer Science conferences -- STOC and ICML -- demonstrate its ability to identify critical errors and suggest substantive improvements to research papers. By catching errors early, PAT eases the cognitive burden placed on referees, while preserving their control over the outcomes of the review process.",
+      "abstract_zh": "人工智能正在推动科学发现领域的革命，从假说生成到数学定理证明的各个环节都在加速。然而，这种快速加速正引发系统性挑战：传统的人工同行评审无法跟上人工智能辅助科学成果的涌入速度。从根本上解决这一矛盾，我们必须同样部署人工智能以加速验证与评审流程本身。为探讨这一转型，我们提出了一种分类框架，将科学评估中人工智能与人类的协作划分为四个渐进层次，并讨论了各层次所涉及的不同权衡。\n\n作为迈向这一未来的一步，我们介绍了论文助手工具（Paper Assistant Tool，简称PAT），这是一个为深度科学评审与验证构建的智能体人工智能框架。PAT能够完整读取科学手稿，并生成全面评价，包括检验理论结果、验证实验、提出改进建议以及识别潜在缺陷。通过运用推理扩展技术，PAT能够发现比单一模型调用更深层次的问题，在SPOT基准测试中，其数学错误零样本召回率提升了34%。作为作者预投稿工具的PAT在计算机科学两大顶级会议——STOC（计算理论年度研讨会）和ICML（国际机器学习大会）——的试点部署表明，该工具能够有效识别研究论文中的关键错误，并提出实质性改进建议。通过早期捕捉错误，PAT减轻了审稿人的认知负担，同时保留了其对评审结果的控制权。",
+      "hf_link": "https://huggingface.co/papers/2606.28277"
+    },
+    "2606.26519": {
+      "title": "What the LLM Should Not Say: Boundary-Aware Context Grounding for A Seven-Channel EEG Agent",
+      "abstract": "Large language models (LLMs) can make scientific software easier to use. However, a general model does not automatically know which measurements a particular sensor can support, which algorithms are implemented in the current software, or which conclusions are justified by a computed result. These distinctions are especially important for low-channel electroencephalography (EEG), where sparse spatial coverage and variable signal quality make plausible but unsupported interpretations easy to produce. We present NeuraDock Agent, an open-source architecture that separates a deterministic local EEG engine from a hardware-aware language layer. The numerical engine parses recordings, performs quality control, executes reviewed spectral workflows, and writes machine-readable artifacts. The LLM receives only a compact, allowlisted summary and a versioned context pack. The context describes the seven-channel hardware, reviewed workflows, result fields, implementation boundaries, scientific limits, and reference cases. Raw EEG and dense per-sample arrays remain localWe evaluate the system at three levels. First, 12 recordings produced identical structured results over ten numerical repetitions, and a complete Rest/Task run produced identical result, report, and figure hashes over three repetitions. Second, request-capture and failure-injection experiments confirmed the tested data boundary and preservation of local artifacts under HTTP, malformed-output, and connection failures. Third, a boundary-awareness benchmark tested 36 ordinary and adversarial questions under four context ablations and two LLMs, yielding 288this http URLresults support hardware- and implementation-aware grounding as a practical mechanism for calibrating what an EEG agent accepts, qualifies, or refuses; they do not establish clinical validity or a validated absolute cognitive-load index.",
+      "abstract_zh": "大型语言模型（LLMs）能够使科学软件更易于使用。然而，通用模型无法自动知晓特定传感器支持哪些测量、当前软件实现了哪些算法，或者计算结果能够支持何种结论。这些区分对于低通道脑电图（EEG）尤为重要，因为稀疏的空间覆盖和多变的信号质量容易产生看似合理但缺乏支持的解读。我们提出了NeuraDock Agent，一种开源架构，它将确定性的本地EEG引擎与硬件感知的语言层相分离。数值引擎负责解析记录、执行质量控制、运行经过审阅的频谱工作流，并生成机器可读的中间文件。而LLM仅接收一份紧凑的、经允许列表筛选的摘要和一个版本化的上下文包。该上下文描述了七通道硬件、已审阅的工作流、结果字段、实现边界、科学限制以及参考案例。原始EEG数据及密集的逐样本阵列均保留在本地。我们在三个层面评估了该系统。首先，12条记录在十次数值重复中产生了一致的结构化结果，且一次完整的静息/任务运行在三次重复中产生了完全相同的结果、报告和图像哈希值。其次，请求捕获与故障注入实验证实了在HTTP故障、格式错误输出及连接中断情况下，测试数据边界得以维持，且本地中间文件得以保留。第三，通过边界感知基准测试，在四种上下文消融和两种LLM下对36个常规及对抗性问题进行了评估，共计288次测试。结果支持以硬件感知和实现感知的接地作为一种实用机制，用于校准EEG代理接受、限定或拒绝的内容；但这并不确立临床有效性或经过验证的绝对认知负荷指数。",
+      "hf_link": "https://huggingface.co/papers/2606.26519"
+    },
+    "2606.18953": {
+      "title": "Object-Centric Residual RL for Zero-Shot Sim-to-Real VLA Enhancement",
+      "abstract": "Vision-Language-Action (VLA) models can generalize across diverse manipulation tasks, but their imitation-learning-based policies remain brittle in precise physical interactions due to compounding execution errors; Can a reinforcement learning policy trained purely in simulation improve the robustness of real-world VLAs zero-shot? Residual RL, which learns a corrective policy on top of a frozen VLA, offers a natural framework, but existing approaches face a fundamental sim-to-real dilemma: privileged-state methods require lossy distillation for deployment; image-based methods suffer from the visual domain gap; and real-world RL is costly and unsafe. We propose an object-centric residual RL framework that refines VLA actions using object poses, enabling a compact observation space that transfers consistently between simulation and reality. To align the two domains, we additionally replay the same teleoperation demonstrations in simulation to train a sim counterpart of the real-world VLA. The residual RL policy is trained only in simulation with pose noise injection and dropout, and transfers zero-shot to the real robot. Across five manipulation tasks on a real Franka Research 3 (FR3) robot, our method improves the success rate from 42% to 76% zero-shot, and the improved rollouts can be further reused to retrain the base VLA for self-improvement without additional teleoperation. Project page:this https URL",
+      "abstract_zh": "视觉-语言-动作（Vision-Language-Action, VLA）模型能够在多种操作任务中实现泛化，但其基于模仿学习的策略在精确物理交互中仍因执行误差累积而表现脆弱；能否通过纯仿真训练出的强化学习策略，以零样本方式提升真实世界VLA的鲁棒性？残差强化学习（Residual RL）通过在冻结的VLA之上学习校正策略提供了天然框架，但现有方法面临根本性的仿真到现实困境：基于特权状态的方法需通过有损蒸馏才能部署；基于图像的方法受限于视觉域差异；而现实世界的强化学习则成本高昂且不安全。我们提出一种以物体为中心的残差强化学习框架，利用物体位姿优化VLA动作，构建了一个在仿真与现实间保持一致的紧凑观测空间。为实现两域对齐，我们额外在仿真环境中回放相同的遥操作演示数据，以训练与真实世界VLA对应的仿真版本。残差强化学习策略仅在仿真环境中通过位姿噪声注入和随机失活进行训练，并以零样本方式迁移至真实机器人。在真实Franka Research 3（FR3）机器人上进行的五项操作任务中，我们的方法将成功率从42%零样本提升至76%，且改进后的执行轨迹可进一步用于重新训练基础VLA，实现无需额外遥操作的自迭代优化。项目页面：此https网址",
+      "hf_link": "https://huggingface.co/papers/2606.18953"
+    }
+  },
+  "hf_votes": {
+    "2606.28128": 0,
+    "2606.28133": 0,
+    "2606.27608": 0,
+    "2606.22873": 0,
+    "2606.27974": 0,
+    "2606.28276": 0,
+    "2606.27378": 0,
+    "2606.27595": 0,
+    "2606.27163": 0,
+    "2606.27771": 0,
+    "2606.28277": 0,
+    "2606.26519": 0,
+    "2606.18953": 0
+  },
+  "focus_sections": {
+    "3D生成与重建": [
+      "2606.28276"
+    ]
+  },
+  "summaries": {
+    "2606.28276": {
+      "short_zh": "自动构建仿真场景用于机器人策略训练与评估",
+      "tags": "机器人;具身智能;仿真场景生成",
+      "body_summary": "在真实世界训练和评估机器人策略成本高、难扩展\n开发SimFoundry系统，从视频零样本构建可编辑仿真场景并生成多样化变体，提升策略泛化能力与仿真评估预测性"
+    },
+    "2606.28128": {
+      "short_zh": "物理增强机器人仿真视频生成",
+      "tags": "机器人;具身模拟;视频生成模型",
+      "body_summary": "现有视频生成模型在机器人操控仿真中常出现物理不合理现象。\n提出训练框架，通过像素轨迹与语义关系对齐增强物理一致性，提升仿真质量。"
+    },
+    "2606.28133": {
+      "short_zh": "人类动作指导机器人双手操作",
+      "tags": "机器人学；机器人模仿学习；双手操作技能迁移",
+      "body_summary": "利用丰富的人类动作数据教会机器人执行新的双手操作任务\n提出基于腕部平移的动作表示法和视觉-语言-动作模型，有效将人类操作技能迁移到机器人"
+    },
+    "2606.27608": {
+      "short_zh": "图像生成模型强化训练",
+      "tags": "计算机图形学;生成模型;扩散模型后训练",
+      "body_summary": "我们针对Qwen-Image-2.0扩散模型，构建了一个基于人类反馈的强化学习后训练流程。我们通过复合奖励模型提供反馈，并应用强化学习与策略蒸馏，显著提升了模型在图像生成与编辑任务中的视觉质量和指令遵循能力。"
+    },
+    "2606.22873": {
+      "short_zh": "为多模态大模型提供动态安全护栏",
+      "tags": "自然语言处理;大语言模型安全;多模态内容审核",
+      "body_summary": "当前多模态大语言模型面临内容安全风险，需要适应不同安全策略的防护机制。\n提出SingGuard系统，通过整合开源数据、合成策略数据及动态推理报告，实现策略自适应的多模态大模型安全护栏。"
+    },
+    "2606.27974": {
+      "short_zh": "渐进式多模态视觉问答代理",
+      "tags": "多模态学习;视觉问答;知识增强视觉问答",
+      "body_summary": "知识增强视觉问答需要结合图像理解和外部知识，现有固定检索流程缺乏适应性。\n我们提出ProMSA代理，它能迭代选择工具进行搜索，并通过序列级强化学习优化其决策。"
+    },
+    "2606.27378": {
+      "short_zh": "构建大语言模型思维评估框架",
+      "tags": "自然语言处理;大语言模型;思维表示评估",
+      "body_summary": "现有评估混淆表示质量与模型能力，难以定位表示本身的缺陷。\n提出四项表示功能公理并量化，独立于下游任务评估多模型在23个任务中的表现，发现存在结构性缺陷。"
+    },
+    "2606.27595": {
+      "short_zh": "韩国网页代理广度搜索基准构建",
+      "tags": "自然语言处理;网页智能体;基准构建与评估",
+      "body_summary": "现有网页智能体基准主要评估深度推理，而忽略了广度枚举能力，尤其是在英语之外的语言中。\n本文构建了一个韩语广度搜索基准Ko-WideSearch，用于系统评估网页代理枚举封闭集合并填充属性表格的能力。"
+    },
+    "2606.27163": {
+      "short_zh": "使用强化学习改进机器人叠衣策略",
+      "tags": "机器人学;机器人操作;双手机器人衣物折叠",
+      "body_summary": "本文针对ICRA 2026竞赛中的机器人衣物折叠任务，提出了一种系统解决方案。\n该方法通过强化学习循环改进视觉语言动作策略，并融合了多种工程优化技术，在仿真和真实比赛中均取得了优异成绩。"
+    },
+    "2606.27771": {
+      "short_zh": "强化学习中的规范约束",
+      "tags": "强化学习;生成模型微调;奖励过优化",
+      "body_summary": "在强化学习微调生成模型时，奖励函数过优化可能导致模型输出质量下降。\n提出了NormGuard方法，在流匹配强化学习中引入并保持规范约束以缓解此问题。"
+    },
+    "2606.28277": {
+      "short_zh": "AI辅助科学审稿工具",
+      "tags": "科学知识工程;自动化审稿;论文深度验证",
+      "body_summary": "传统人工同行评审无法应对AI加速科研带来的海量论文审核挑战。\n我们提出AI协助科学评估的分类，并开发了Paper Assistant Tool，能深入核查论文理论、实验并提出改进，在试点中有效发现错误、减轻审稿负担。"
+    },
+    "2606.26519": {
+      "short_zh": "七通道脑电代理的边界感知方法",
+      "tags": "自然语言处理;人机交互;脑电信号分析",
+      "body_summary": "背景/任务：大模型虽能辅助科研软件，但缺乏对特定脑电硬件、算法边界和结果解释的专业知识，易产生错误解读。\n做了什么：提出一个将确定性本地脑电引擎与硬件感知语言层分离的架构，通过限定上下文确保模型回答的可靠性，并进行了系统评估。"
+    },
+    "2606.18953": {
+      "short_zh": "用物体位姿增强视觉语言动作模型",
+      "tags": "机器人;强化学习;零仿真到现实迁移",
+      "body_summary": "背景/任务是视觉语言动作模型在真实物理交互中因误差累积而表现脆弱。\n我们提出一种仅在仿真中训练、利用物体位姿的强化学习框架，能零样本提升真实机器人任务成功率。"
+    }
+  },
+  "deep_analysis": {
+    "2606.28276": "### (1) 这篇论文所在的任务是什么：任务输入、任务输出、任务功能\n- **任务输入**：一段现实世界中的视频（例如，机器人操作场景的视频）。\n- **任务输出**：一个**可交互的、模拟就绪的数字孪生场景**（即虚拟环境），包含场景中的物体、布局和物理属性，并且可以生成多样化的**数字变体**（称为“数字表亲”）。\n- **任务功能**：  \n  1. **真实到模拟（Real-to-Sim）**：将真实场景自动转换为高保真仿真环境，用于机器人策略的评估。  \n  2. **模拟到真实（Sim-to-Real）**：利用生成的仿真环境训练机器人策略，并直接迁移到真实世界。\n\n---\n\n### (2) 这篇论文想解决什么问题？\n- **问题1**：在真实世界中训练和评估机器人策略成本高、难以规模化。  \n- **问题2**：手动构建仿真环境非常耗时，且难以与真实场景在视觉、几何和动力学上对齐。  \n- **问题3**：现有仿真环境缺乏多样性，导致训练的机器人策略泛化能力差。\n\n---\n\n### (3) 这篇论文的贡献是什么？\n1. **提出SimFoundry系统**：一个**模块化、自动化**的流程，能够从单段视频中零样本重建可交互的仿真场景。  \n2. **生成“数字表亲”**：通过编辑物体、场景布局和任务，自动生成多样化的场景变体，提升策略的泛化能力。  \n3. **支持两种核心应用**：  \n   - **真实到模拟评估**：仿真评估结果与真实世界表现高度相关（相关性达0.911）。  \n   - **模拟到真实训练**：在仿真中训练的策略能零样本迁移到真实世界，并通过“数字表亲”进一步提升性能。  \n4. **实验验证全面**：在7种操作任务和5种策略架构上验证了系统的有效性。\n\n---\n\n### (4) 论文的整体思路和模型结构\n#### 整体思路：\n1. **从视频重建数字孪生**：利用计算机视觉和基础模型，从视频中提取物体、几何和物理信息，构建仿真环境。  \n2. **生成数字表亲**：通过编辑物体、场景布局和任务定义，生成大量多样化的场景变体。  \n3. **应用于策略训练与评估**：利用生成的仿真环境进行策略训练和性能评估。\n\n#### 模型结构与流程：\n虽然论文没有给出单一的“模型结构图”，但流程可以概括为以下步骤：\n\n##### 步骤1：场景重建\n- **输入**：一段真实场景视频。  \n- **关键模块**：  \n  - **基础模型**：用于物体检测、语义分割和姿态估计（例如，使用类似SAM的模型进行3D分割）。  \n  - **3D重建**：从视频中恢复场景的几何结构（如使用神经辐射场或高斯溅射技术）。  \n  - **物理参数估计**：推断物体的质量、摩擦系数等物理属性。  \n- **输出**：一个包含物体、背景和物理属性的仿真场景（数字孪生）。\n\n##### 步骤2：数字表亲生成\n- **物体表亲**：替换场景中的物体为相似功能的物体（如将“马克杯”替换为“玻璃杯”）。  \n- **场景表亲**：调整物体布局或背景（如改变桌面上物体的位置）。  \n- **任务表亲**：修改任务目标或步骤（如从“打开柜门”变为“关闭柜门”）。  \n- **输出**：大量多样化的仿真场景，用于增强策略训练。\n\n##### 步骤3：策略训练与评估\n- **训练**：在生成的仿真场景中训练机器人策略（使用模仿学习或强化学习）。  \n- **评估**：  \n  - **真实到模拟**：将真实世界的策略直接在仿真中测试，验证仿真评估与真实表现的相关性。  \n  - **模拟到真实**：将仿真中训练的策略零样本部署到真实机器人上，测试其成功率。\n\n---\n\n### (5) 结果怎么样？\n1. **真实到模拟评估**：  \n   - 仿真评估结果与真实世界表现**高度相关**（平均皮尔逊相关系数达0.911）。  \n   - 在多项任务中，仿真评估的排名与真实世界基本一致（排名误差仅0.018）。  \n2. **模拟到真实训练**：  \n   - 仅使用仿真数据训练的策略，在真实世界中达到**零样本迁移**，平均任务成功率显著提升。  \n   - 通过“数字表亲”增强后，性能进一步提升：  \n     - **物体表亲**：平均任务成功率提升17%。  \n     - **场景表亲**：平均任务成功率提升21%。  \n     - **任务表亲**：平均任务成功率提升40%。  \n3. **系统优势**：  \n   - 优于现有仿真评估框架（如PolaRiS），且对场景假设更少。  \n   - 支持多种复杂任务（多步操作、关节物体交互、双手操作等）。\n\n---\n\n### 总结\nSimFoundry是一个**自动化工具**，能够快速将真实场景转换为仿真环境，并通过生成多样化变体提升机器人策略的泛化能力。它在**降低真实世界实验成本**的同时，保持了仿真与真实世界的高度一致性，为机器人学习提供了可扩展的解决方案。"
+  },
+  "figures": {
+    "2606.28276": [
+      {
+        "path": "https://arxiv.org/html/2606.28276v1/x2.png",
+        "caption": "Figure 2:Method Overview.SimFoundry extracts per-object relevant information (segmentation masks, depth, etc.), generates 3D visual meshes via 2D-to-3D generation models, and compiles the final output scene by annotating relevant physical parameters and sanity checking the overall scene configuration in a physics simulator. SimFoundry additionally supports diverse simulated augmentations along these axes of variation on object, scene, and task:object cousinscan be generated by modifying input objects in their image space and re-generating corresponding 3D meshes;scene cousinscan augment the configuration of objects; andtask cousinscan propose viable interactions within the scene.",
+        "role": "pipeline_1",
+        "caption_zh": "图 2：方法总览。SimFoundry 提取每个对象的相关信息（分割掩码、深度等），通过 2D 到 3D 生成模型生成 3D 视觉网格，并通过在物理模拟器中标注相关物理参数以及对整体场景配置进行合理性检查，最终编译输出场景。此外，SimFoundry 支持沿对象、场景和任务这些变化维度进行多样化的模拟增强：对象变体可通过在图像空间修改输入对象并重新生成对应的 3D 网格来生成；场景变体可增强对象的配置方式；任务变体则可在场景中提出可行的交互方案。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.28276v1/x6.png",
+        "caption": "Figure E.1:Articulation and 3DGS Background Pipeline Overview.SimFoundry generates articulated objects by first decomposing a pre-existing mesh into subsequent parts, which are then annotated with relevant joint types, locations, and ranges via a VLM. SimFoundry also can automatically generate a high-fidelity 3DGS background by first generating a synthetic video with removed foreground, extracting extrinsics, and training a 3DDGS to reconstruct the scene geometry.",
+        "role": "pipeline_2",
+        "caption_zh": "图 E.1：关节化与 3DGS 背景处理流程概览。SimFoundry 通过将现有网格模型分解为多个部件来生成关节化物体，随后利用视觉语言模型（VLM）为这些部件标注相关的关节类型、位置及活动范围。同时，SimFoundry 可自动生成高保真 3D 高斯泼溅（3DGS）背景，其流程包括：首先生成移除前景的合成视频，提取相机外参，并训练三维动态高斯泼溅（3DDGS）以重建场景几何。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.28276v1/x3.png",
+        "caption": "Figure 4:Tasks and Real-to-Sim Policy Evaluation correlations.(Left) We apply SimFoundry to a DROID setup using a single Franka arm (top two rows), and a bimanual setup with two YAM arms (bottom row). Our tasks span multiple types of manipulation, including multi-step, articulated object interaction, and bimanual coordination (Clear Tablenot shown, more details in AppendixI). (Right) SimFoundry outperforms the state-of-the-art baseline PolaRiS[32]in simulation-based evaluation correlations. Each marker shape represents a different task from the left. Additional details in AppendixGandFigure G.1.",
+        "role": "pipeline_3",
+        "caption_zh": "图 4：任务与“真实到仿真”策略评估相关性。（左）我们将 SimFoundry 应用于单台 Franka 机械臂的 DROID 设置（上两行），以及双 YAM 机械臂的双手设置（最下行）。我们的任务涵盖多种操作类型，包括多步骤操作、铰接物体交互和双手协调（“清理桌面”任务未展示，详见附录 I）。（右）在基于仿真的评估相关性中，SimFoundry 优于最先进的基线方法 PolaRiS[32]。每个标记形状代表左侧的一项不同任务。更多细节见附录 G 与图 G.1。"
+      }
+    ]
+  }
+}
