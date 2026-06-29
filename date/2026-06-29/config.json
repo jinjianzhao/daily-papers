@@ -24,6 +24,12 @@
       "abstract_zh": "本文提出Qwen-Image-2.0-RL——一种基于人类反馈强化学习（Reinforcement Learning from Human Feedback, RLHF）与同策略蒸馏（On-Policy Distillation, OPD）的后训练流程，旨在提升Qwen-Image-2.0扩散模型的视觉质量与指令遵循能力。为提供可靠的奖励信号，我们通过点式评分范式与思维链（Chain-of-Thought）推理对视觉语言模型进行微调，构建了面向特定任务的复合奖励模型。针对文本到图像生成任务，奖励模型涵盖对齐度、美学质量与人像保真度三个维度；对于图像编辑任务，奖励系统则关注指令遵循准确性与人脸身份保持。基于该奖励系统，我们开发了可扩展的基于组相对策略优化（GRPO）的强化学习训练框架，融合了混合无分类器引导（Classifier-Free Guidance, CFG）策略以保留预训练知识、通过组内奖励范围筛选进行提示词优化，以及按类别进行奖励权重校准。为整合文本到图像与编辑任务的专业强化学习策略，我们提出将同策略蒸馏作为最终训练阶段，通过轨迹层面的速度匹配将多个教师模型的知识融合至单一学生模型。大量评估表明，Qwen-Image-2.0-RL在Qwen-Image-Bench上获得57.84的综合得分（较基础模型提升2.61），在文本到图像竞技场中Elo评级达1193分（提升78分），在图像编辑竞技场中达1349分（提升93分），在美学质量、提示词遵循度与编辑准确性方面均实现稳定提升。",
       "hf_link": "https://huggingface.co/papers/2606.27608"
     },
+    "2606.27378": {
+      "title": "Formalizing Latent Thoughts: Four Axioms of Thought Representation in LLMs",
+      "abstract": "We introduce an axiomatic evaluation framework for latent thought representations in LLMs, comprising metrics that are independent of downstream benchmark scores and reveal representational failures that benchmark accuracy masks. Existing evaluations conflate representation quality with model capacity. Therefore, failures cannot be attributed to the representation rather than to the model that processes it. We formalize four functional axioms (Causality, Minimality, Separability, and Stability) and define a quantitative measure for each, computed directly on the representation independently of downstream accuracy. We audit open-weight LLMs across 23 reasoning tasks (e.g., Spatial Reasoning, Factual QA). We find that no candidate satisfies all four axioms simultaneously, that the representations distinguish task type reliably but cannot distinguish between two questions within the same task, and that the representations encode little information beyond what is already present in the input embedding. The failure is consistent across dense, reasoning-distilled, and RL-trained model families, indicating that the gap is structural rather than a property of model size or training procedure.",
+      "abstract_zh": "我们为大型语言模型中的潜在思维表征引入了一套公理化评估框架，该框架包含的评估指标独立于下游基准测试得分，并能揭示基准测试准确率所掩盖的表征缺陷。现有评估方法将表征质量与模型能力混为一谈，导致无法将缺陷归因于表征本身而非处理该表征的模型。我们形式化了四项功能公理（因果性、最小性、可分离性与稳定性），并为每项公理定义了量化度量标准，这些度量可直接基于表征本身计算，独立于下游任务准确率。我们在23项推理任务（如空间推理、事实问答）上对开源权重的大型语言模型进行了系统性审计。研究发现：所有候选模型均无法同时满足全部四项公理；其表征能可靠区分任务类型，却无法区分同一任务内的两个具体问题；且表征所编码的信息基本未超出输入嵌入已有的内容。这种缺陷在稠密模型、推理蒸馏模型和强化学习训练模型家族中普遍存在，表明该问题是结构性缺陷，而非模型规模或训练流程的特性所致。",
+      "hf_link": "https://huggingface.co/papers/2606.27378"
+    },
     "2606.22873": {
       "title": "2606.22873",
       "abstract": "",
@@ -36,17 +42,17 @@
       "abstract_zh": "基于知识的视觉问答（Knowledge-based Visual Question Answering，KB-VQA）要求模型将图像理解与外部知识相结合。先前多数方法采用固定的“检索-生成”流程，依赖预选的检索器与静态的top-k设置，在推理过程中缺乏适应性。我们提出ProMSA，一种用于KB-VQA的渐进式多模态搜索智能体。给定图像-问题对，该智能体在明确的工具调用预算约束下，通过去重机制避免冗余检索，迭代选择图像搜索、文本搜索或停止操作。在训练中，我们首先采用基于拒绝采样的监督微调来学习有效的工具使用格式，随后通过TN-GSPO——一种在生成长度与工具交互深度上对更新进行归一化的序列级强化学习目标——对智能体进行优化。在E-VQA与InfoSeek数据集上的实验表明，相较于强检索增强生成（RAG）与智能体基线方法，本方法在检索性能与端到端准确率上均取得稳定提升。代码发布于此https URL。",
       "hf_link": "https://huggingface.co/papers/2606.27974"
     },
-    "2606.27378": {
-      "title": "Formalizing Latent Thoughts: Four Axioms of Thought Representation in LLMs",
-      "abstract": "We introduce an axiomatic evaluation framework for latent thought representations in LLMs, comprising metrics that are independent of downstream benchmark scores and reveal representational failures that benchmark accuracy masks. Existing evaluations conflate representation quality with model capacity. Therefore, failures cannot be attributed to the representation rather than to the model that processes it. We formalize four functional axioms (Causality, Minimality, Separability, and Stability) and define a quantitative measure for each, computed directly on the representation independently of downstream accuracy. We audit open-weight LLMs across 23 reasoning tasks (e.g., Spatial Reasoning, Factual QA). We find that no candidate satisfies all four axioms simultaneously, that the representations distinguish task type reliably but cannot distinguish between two questions within the same task, and that the representations encode little information beyond what is already present in the input embedding. The failure is consistent across dense, reasoning-distilled, and RL-trained model families, indicating that the gap is structural rather than a property of model size or training procedure.",
-      "abstract_zh": "我们为大型语言模型中的潜在思维表征引入了一套公理化评估框架，该框架包含的评估指标独立于下游基准测试得分，并能揭示基准测试准确率所掩盖的表征缺陷。现有评估方法将表征质量与模型能力混为一谈，导致无法将缺陷归因于表征本身而非处理该表征的模型。我们形式化了四项功能公理（因果性、最小性、可分离性与稳定性），并为每项公理定义了量化度量标准，这些度量可直接基于表征本身计算，独立于下游任务准确率。我们在23项推理任务（如空间推理、事实问答）上对开源权重的大型语言模型进行了系统性审计。研究发现：所有候选模型均无法同时满足全部四项公理；其表征能可靠区分任务类型，却无法区分同一任务内的两个具体问题；且表征所编码的信息基本未超出输入嵌入已有的内容。这种缺陷在稠密模型、推理蒸馏模型和强化学习训练模型家族中普遍存在，表明该问题是结构性缺陷，而非模型规模或训练流程的特性所致。",
-      "hf_link": "https://huggingface.co/papers/2606.27378"
+    "2606.26015": {
+      "title": "2606.26015",
+      "abstract": "",
+      "abstract_zh": "",
+      "hf_link": "https://huggingface.co/papers/2606.26015"
     },
-    "2606.27595": {
-      "title": "Ko-WideSearch: A Korean Breadth-Search Benchmark for Exhaustive Set Enumeration by Web Agents",
-      "abstract": "Web-agent benchmarks overwhelmingly measure depth -- pinning one obscure answer behind a chain of constraints -- while breadth, exhaustively enumerating a closed set and filling each item's attributes, is barely evaluated, especially outside English. Breadth is also hard to build: certifying that a gold set is complete and every cell correct is far costlier than checking a single answer. I introduce \\textsc{Ko-WideSearch}, a Korean breadth-search benchmark built by an automated synthesize-and-verify pipeline. Each task names a set-parent entity -- a TV season, a dynasty, a league, an administrative region, an election -- and asks for its full membership plus a per-item attribute table, graded by Item-, Column-, and Row-F1. It spans 228 tables over 190 entities and sixteen categories across three difficulty tiers, set by two structural knobs I dial independently -- table width and a 2-D composite key -- so cross-product membership climbs from 0\\% to 100\\% across the tiers. A single normalization-aware comparator is shared between gold construction and grading, so stable date and count columns are not over-dropped on formatting alone. Across twenty web agents, the failure is consistent: agents recover the set but not the rows (e.g.\\ Item-F1 92.8 against Row-F1 53.7), accuracy falls steadily as the knobs harden, and neither more search nor more spend closes the gap. Broken down by cell, the hard part is finding the right value, not formatting it: open-ended free-text cells fail most, while cells with a standard answer such as a date or a name usually come out right.",
-      "abstract_zh": "当前针对网络智能体（web-agent）的评测基准普遍侧重深度——即通过一系列约束条件来锁定一个冷门答案——而对于广度，即穷举一个封闭集合并填充每个项目的属性，却鲜有评估，尤其是在英语之外的语言环境中。广度的构建同样困难：确保基准答案集完整且每个单元格准确无误的成本，远高于检查单一答案。为此，我提出了\\textsc{Ko-WideSearch}，这是一个韩语广度搜索基准，通过自动化合成与验证流程构建而成。每个任务指定一个集合父实体——如电视剧季、朝代、联赛、行政区划、选举——并要求列出其全部成员以及每个项目的属性表，评分采用项目F1、列F1和行F1。该基准涵盖190个实体、16个类别下的228张表格，分为三个难度层级，通过两个独立调节的结构性旋钮——表格宽度和二维复合键——使得跨层级组合的成员覆盖率从0%逐步提升至100%。在基准构建与评分过程中共享同一支持规范化的比较器，因此日期和计数等稳定列不会仅因格式差异而被过度剔除。在对二十个网络智能体的测试中，失败模式一致：智能体能恢复集合但无法正确填充行数据（例如项目F1达92.8，而行F1仅为53.7）；随着旋钮难度增加，准确率持续下降；增加搜索量或资源投入均无法弥补差距。按单元格细分，难点在于找到正确的值而非格式化：开放式自由文本单元格的失败率最高，而具有标准答案（如日期或名称）的单元格通常能正确输出。",
-      "hf_link": "https://huggingface.co/papers/2606.27595"
+    "2606.27163": {
+      "title": "Learning to Fold: prizewinning solution at LeHome Challenge 2026 (1st place online, 2nd offline)",
+      "abstract": "I describe my solution to the LeHome Challenge 2026, an ICRA 2026 competition on bimanual garment folding. The system placed 1st of 62 teams in the online (simulation) round and 2nd in the real-world final. It improves a vision-language-action (VLA) policy with a reinforcement-learning loop. The policy is its own value function: the same network that predicts actions also predicts success, progress, and a few task-relevant future quantities, and those predictions drive advantage estimation, live failure detection, and candidate selection. The work mostly recombines existing RL ideas with engineering and optimization contributions that can be used together as one recipe or individually: AWR + RECAP combined for flow-matching VLA; an asynchronous distributed training / rollout pipeline through HuggingFace Hub; inference-time hyperparameters optimization via Thompson sampling; a sim-to-real recipe with camera-alignment tooling, heavy augmentation and DAgger-like HIL data collection.",
+      "abstract_zh": "我介绍了针对LeHome挑战赛2026的解决方案，该赛事是ICRA 2026关于双手衣物折叠的竞赛。该系统在线上（仿真）轮次中位列62支队伍之首，并在现实世界决赛中获得第二名。该系统通过强化学习循环对视觉-语言-动作（Vision-Language-Action, VLA）策略进行了改进。该策略自身即为其价值函数：同一网络既预测动作，也预测成功率、进度以及若干与任务相关的未来状态量，这些预测驱动着优势估计、实时故障检测和候选方案选择。本研究主要将现有强化学习思想与工程及优化贡献相结合，这些贡献既可整合为一种完整方案，亦可独立使用：结合AWR与RECAP方法实现流匹配VLA；通过HuggingFace Hub构建异步分布式训练/ rollout流程；借助汤普森采样进行推理时超参数优化；以及包含相机对齐工具、强数据增强和类DAgger人机交互数据收集的仿真到现实迁移方案。",
+      "hf_link": "https://huggingface.co/papers/2606.27163"
     },
     "2606.28187": {
       "title": "2606.28187",
@@ -54,11 +60,17 @@
       "abstract_zh": "",
       "hf_link": "https://huggingface.co/papers/2606.28187"
     },
-    "2606.27163": {
-      "title": "Learning to Fold: prizewinning solution at LeHome Challenge 2026 (1st place online, 2nd offline)",
-      "abstract": "I describe my solution to the LeHome Challenge 2026, an ICRA 2026 competition on bimanual garment folding. The system placed 1st of 62 teams in the online (simulation) round and 2nd in the real-world final. It improves a vision-language-action (VLA) policy with a reinforcement-learning loop. The policy is its own value function: the same network that predicts actions also predicts success, progress, and a few task-relevant future quantities, and those predictions drive advantage estimation, live failure detection, and candidate selection. The work mostly recombines existing RL ideas with engineering and optimization contributions that can be used together as one recipe or individually: AWR + RECAP combined for flow-matching VLA; an asynchronous distributed training / rollout pipeline through HuggingFace Hub; inference-time hyperparameters optimization via Thompson sampling; a sim-to-real recipe with camera-alignment tooling, heavy augmentation and DAgger-like HIL data collection.",
-      "abstract_zh": "我介绍了针对LeHome挑战赛2026的解决方案，该赛事是ICRA 2026关于双手衣物折叠的竞赛。该系统在线上（仿真）轮次中位列62支队伍之首，并在现实世界决赛中获得第二名。该系统通过强化学习循环对视觉-语言-动作（Vision-Language-Action, VLA）策略进行了改进。该策略自身即为其价值函数：同一网络既预测动作，也预测成功率、进度以及若干与任务相关的未来状态量，这些预测驱动着优势估计、实时故障检测和候选方案选择。本研究主要将现有强化学习思想与工程及优化贡献相结合，这些贡献既可整合为一种完整方案，亦可独立使用：结合AWR与RECAP方法实现流匹配VLA；通过HuggingFace Hub构建异步分布式训练/ rollout流程；借助汤普森采样进行推理时超参数优化；以及包含相机对齐工具、强数据增强和类DAgger人机交互数据收集的仿真到现实迁移方案。",
-      "hf_link": "https://huggingface.co/papers/2606.27163"
+    "2606.27595": {
+      "title": "Ko-WideSearch: A Korean Breadth-Search Benchmark for Exhaustive Set Enumeration by Web Agents",
+      "abstract": "Web-agent benchmarks overwhelmingly measure depth -- pinning one obscure answer behind a chain of constraints -- while breadth, exhaustively enumerating a closed set and filling each item's attributes, is barely evaluated, especially outside English. Breadth is also hard to build: certifying that a gold set is complete and every cell correct is far costlier than checking a single answer. I introduce \\textsc{Ko-WideSearch}, a Korean breadth-search benchmark built by an automated synthesize-and-verify pipeline. Each task names a set-parent entity -- a TV season, a dynasty, a league, an administrative region, an election -- and asks for its full membership plus a per-item attribute table, graded by Item-, Column-, and Row-F1. It spans 228 tables over 190 entities and sixteen categories across three difficulty tiers, set by two structural knobs I dial independently -- table width and a 2-D composite key -- so cross-product membership climbs from 0\\% to 100\\% across the tiers. A single normalization-aware comparator is shared between gold construction and grading, so stable date and count columns are not over-dropped on formatting alone. Across twenty web agents, the failure is consistent: agents recover the set but not the rows (e.g.\\ Item-F1 92.8 against Row-F1 53.7), accuracy falls steadily as the knobs harden, and neither more search nor more spend closes the gap. Broken down by cell, the hard part is finding the right value, not formatting it: open-ended free-text cells fail most, while cells with a standard answer such as a date or a name usually come out right.",
+      "abstract_zh": "当前针对网络智能体（web-agent）的评测基准普遍侧重深度——即通过一系列约束条件来锁定一个冷门答案——而对于广度，即穷举一个封闭集合并填充每个项目的属性，却鲜有评估，尤其是在英语之外的语言环境中。广度的构建同样困难：确保基准答案集完整且每个单元格准确无误的成本，远高于检查单一答案。为此，我提出了\\textsc{Ko-WideSearch}，这是一个韩语广度搜索基准，通过自动化合成与验证流程构建而成。每个任务指定一个集合父实体——如电视剧季、朝代、联赛、行政区划、选举——并要求列出其全部成员以及每个项目的属性表，评分采用项目F1、列F1和行F1。该基准涵盖190个实体、16个类别下的228张表格，分为三个难度层级，通过两个独立调节的结构性旋钮——表格宽度和二维复合键——使得跨层级组合的成员覆盖率从0%逐步提升至100%。在基准构建与评分过程中共享同一支持规范化的比较器，因此日期和计数等稳定列不会仅因格式差异而被过度剔除。在对二十个网络智能体的测试中，失败模式一致：智能体能恢复集合但无法正确填充行数据（例如项目F1达92.8，而行F1仅为53.7）；随着旋钮难度增加，准确率持续下降；增加搜索量或资源投入均无法弥补差距。按单元格细分，难点在于找到正确的值而非格式化：开放式自由文本单元格的失败率最高，而具有标准答案（如日期或名称）的单元格通常能正确输出。",
+      "hf_link": "https://huggingface.co/papers/2606.27595"
+    },
+    "2511.07397": {
+      "title": "Thinking While Speaking: Inference-Time Knowledge Transfer for Responsive and Intelligent Conversational Voice Agents",
+      "abstract": "Voice agents face a fundamental tension: the reasoning, retrieval, and tool use that make foundation models capable are iterative and slow, while conversational interaction demands responses on a millisecond timescale. Smaller, real-time models meet the latency bar but cannot match foundation models on complex tasks, leaving current voice agents to trade away either responsiveness or capability. We introduce conversational infill, where a small talker model both immediately generates contextually grounded responses to hide the latency of an external reasoner model and fluently integrates streamed reasoner knowledge into its responses during inference. We curate a 290,571-example synthetic dataset spanning six domains and demonstrate that this task is learnable across seven widely used small language models ranging from 135M to 1.7B parameters. Our system implementation, ConvFill, sustains millisecond-level time-to-first-response while closing the accuracy gap to within 6.3% of the corresponding frontier reasoner performance. In a live user study (n=18) with talker deployments running on an Apple M2 SoC, participants rank ConvFill on par with frontier models overall, prefer it for retrieval-heavy tasks, and rate it significantly more responsive. These results show that conversational infill unlocks a new point on the latency-capability Pareto frontier, offering a practical path toward voice agents that are both responsive and highly capable. Code, models, and datasets are available atthis https URL.",
+      "abstract_zh": "语音智能体面临一个根本性矛盾：使基础模型具备强大能力的推理、检索和工具调用过程本质上是迭代且缓慢的，而对话交互却要求毫秒级的响应速度。较小的实时模型虽能满足延迟要求，但在复杂任务上无法匹敌基础模型，导致当前语音智能体不得不在响应速度与能力之间做出取舍。我们提出对话填充（conversational infill）方法，其中一个小型对话模型既能即时生成基于上下文的响应以掩盖外部推理模型的延迟，又能在推理过程中流畅地将实时流式传输的推理知识整合到其响应中。我们构建了一个涵盖六个领域、包含290,571条样本的合成数据集，并证明该任务可在七种广泛使用的小型语言模型（参数规模从1.35亿到17亿）中有效学习。我们的系统实现ConvFill在保持毫秒级首次响应时间的同时，将准确率差距缩小至对应前沿推理模型性能的6.3%以内。在一项采用苹果M2 SoC部署对话模型的现场用户研究（n=18）中，参与者认为ConvFill整体表现与前沿模型相当，在检索密集型任务中更受青睐，并显著评价其响应更为迅速。这些结果表明，对话填充技术在延迟-能力帕累托边界上实现了新突破，为构建兼具高响应性与强能力的语音智能体提供了可行路径。代码、模型及数据集可通过此链接获取：this https URL。",
+      "hf_link": "https://huggingface.co/papers/2511.07397"
     },
     "2606.27771": {
       "title": "2606.27771",
@@ -72,34 +84,36 @@
       "abstract_zh": "人工智能正在推动科学发现领域的革命，从假说生成到数学定理证明的各个环节都在加速。然而，这种快速加速正引发系统性挑战：传统的人工同行评审无法跟上人工智能辅助科学成果的涌入速度。从根本上解决这一矛盾，我们必须同样部署人工智能以加速验证与评审流程本身。为探讨这一转型，我们提出了一种分类框架，将科学评估中人工智能与人类的协作划分为四个渐进层次，并讨论了各层次所涉及的不同权衡。\n\n作为迈向这一未来的一步，我们介绍了论文助手工具（Paper Assistant Tool，简称PAT），这是一个为深度科学评审与验证构建的智能体人工智能框架。PAT能够完整读取科学手稿，并生成全面评价，包括检验理论结果、验证实验、提出改进建议以及识别潜在缺陷。通过运用推理扩展技术，PAT能够发现比单一模型调用更深层次的问题，在SPOT基准测试中，其数学错误零样本召回率提升了34%。作为作者预投稿工具的PAT在计算机科学两大顶级会议——STOC（计算理论年度研讨会）和ICML（国际机器学习大会）——的试点部署表明，该工具能够有效识别研究论文中的关键错误，并提出实质性改进建议。通过早期捕捉错误，PAT减轻了审稿人的认知负担，同时保留了其对评审结果的控制权。",
       "hf_link": "https://huggingface.co/papers/2606.28277"
     },
-    "2606.26519": {
-      "title": "What the LLM Should Not Say: Boundary-Aware Context Grounding for A Seven-Channel EEG Agent",
-      "abstract": "Large language models (LLMs) can make scientific software easier to use. However, a general model does not automatically know which measurements a particular sensor can support, which algorithms are implemented in the current software, or which conclusions are justified by a computed result. These distinctions are especially important for low-channel electroencephalography (EEG), where sparse spatial coverage and variable signal quality make plausible but unsupported interpretations easy to produce. We present NeuraDock Agent, an open-source architecture that separates a deterministic local EEG engine from a hardware-aware language layer. The numerical engine parses recordings, performs quality control, executes reviewed spectral workflows, and writes machine-readable artifacts. The LLM receives only a compact, allowlisted summary and a versioned context pack. The context describes the seven-channel hardware, reviewed workflows, result fields, implementation boundaries, scientific limits, and reference cases. Raw EEG and dense per-sample arrays remain localWe evaluate the system at three levels. First, 12 recordings produced identical structured results over ten numerical repetitions, and a complete Rest/Task run produced identical result, report, and figure hashes over three repetitions. Second, request-capture and failure-injection experiments confirmed the tested data boundary and preservation of local artifacts under HTTP, malformed-output, and connection failures. Third, a boundary-awareness benchmark tested 36 ordinary and adversarial questions under four context ablations and two LLMs, yielding 288this http URLresults support hardware- and implementation-aware grounding as a practical mechanism for calibrating what an EEG agent accepts, qualifies, or refuses; they do not establish clinical validity or a validated absolute cognitive-load index.",
-      "abstract_zh": "大型语言模型（LLMs）能够使科学软件更易于使用。然而，通用模型无法自动知晓特定传感器支持哪些测量、当前软件实现了哪些算法，或者计算结果能够支持何种结论。这些区分对于低通道脑电图（EEG）尤为重要，因为稀疏的空间覆盖和多变的信号质量容易产生看似合理但缺乏支持的解读。我们提出了NeuraDock Agent，一种开源架构，它将确定性的本地EEG引擎与硬件感知的语言层相分离。数值引擎负责解析记录、执行质量控制、运行经过审阅的频谱工作流，并生成机器可读的中间文件。而LLM仅接收一份紧凑的、经允许列表筛选的摘要和一个版本化的上下文包。该上下文描述了七通道硬件、已审阅的工作流、结果字段、实现边界、科学限制以及参考案例。原始EEG数据及密集的逐样本阵列均保留在本地。我们在三个层面评估了该系统。首先，12条记录在十次数值重复中产生了一致的结构化结果，且一次完整的静息/任务运行在三次重复中产生了完全相同的结果、报告和图像哈希值。其次，请求捕获与故障注入实验证实了在HTTP故障、格式错误输出及连接中断情况下，测试数据边界得以维持，且本地中间文件得以保留。第三，通过边界感知基准测试，在四种上下文消融和两种LLM下对36个常规及对抗性问题进行了评估，共计288次测试。结果支持以硬件感知和实现感知的接地作为一种实用机制，用于校准EEG代理接受、限定或拒绝的内容；但这并不确立临床有效性或经过验证的绝对认知负荷指数。",
-      "hf_link": "https://huggingface.co/papers/2606.26519"
-    },
     "2606.18953": {
       "title": "Object-Centric Residual RL for Zero-Shot Sim-to-Real VLA Enhancement",
       "abstract": "Vision-Language-Action (VLA) models can generalize across diverse manipulation tasks, but their imitation-learning-based policies remain brittle in precise physical interactions due to compounding execution errors; Can a reinforcement learning policy trained purely in simulation improve the robustness of real-world VLAs zero-shot? Residual RL, which learns a corrective policy on top of a frozen VLA, offers a natural framework, but existing approaches face a fundamental sim-to-real dilemma: privileged-state methods require lossy distillation for deployment; image-based methods suffer from the visual domain gap; and real-world RL is costly and unsafe. We propose an object-centric residual RL framework that refines VLA actions using object poses, enabling a compact observation space that transfers consistently between simulation and reality. To align the two domains, we additionally replay the same teleoperation demonstrations in simulation to train a sim counterpart of the real-world VLA. The residual RL policy is trained only in simulation with pose noise injection and dropout, and transfers zero-shot to the real robot. Across five manipulation tasks on a real Franka Research 3 (FR3) robot, our method improves the success rate from 42% to 76% zero-shot, and the improved rollouts can be further reused to retrain the base VLA for self-improvement without additional teleoperation. Project page:this https URL",
       "abstract_zh": "视觉-语言-动作（Vision-Language-Action, VLA）模型能够在多种操作任务中实现泛化，但其基于模仿学习的策略在精确物理交互中仍因执行误差累积而表现脆弱；能否通过纯仿真训练出的强化学习策略，以零样本方式提升真实世界VLA的鲁棒性？残差强化学习（Residual RL）通过在冻结的VLA之上学习校正策略提供了天然框架，但现有方法面临根本性的仿真到现实困境：基于特权状态的方法需通过有损蒸馏才能部署；基于图像的方法受限于视觉域差异；而现实世界的强化学习则成本高昂且不安全。我们提出一种以物体为中心的残差强化学习框架，利用物体位姿优化VLA动作，构建了一个在仿真与现实间保持一致的紧凑观测空间。为实现两域对齐，我们额外在仿真环境中回放相同的遥操作演示数据，以训练与真实世界VLA对应的仿真版本。残差强化学习策略仅在仿真环境中通过位姿噪声注入和随机失活进行训练，并以零样本方式迁移至真实机器人。在真实Franka Research 3（FR3）机器人上进行的五项操作任务中，我们的方法将成功率从42%零样本提升至76%，且改进后的执行轨迹可进一步用于重新训练基础VLA，实现无需额外遥操作的自迭代优化。项目页面：此https网址",
       "hf_link": "https://huggingface.co/papers/2606.18953"
+    },
+    "2606.26519": {
+      "title": "What the LLM Should Not Say: Boundary-Aware Context Grounding for A Seven-Channel EEG Agent",
+      "abstract": "Large language models (LLMs) can make scientific software easier to use. However, a general model does not automatically know which measurements a particular sensor can support, which algorithms are implemented in the current software, or which conclusions are justified by a computed result. These distinctions are especially important for low-channel electroencephalography (EEG), where sparse spatial coverage and variable signal quality make plausible but unsupported interpretations easy to produce. We present NeuraDock Agent, an open-source architecture that separates a deterministic local EEG engine from a hardware-aware language layer. The numerical engine parses recordings, performs quality control, executes reviewed spectral workflows, and writes machine-readable artifacts. The LLM receives only a compact, allowlisted summary and a versioned context pack. The context describes the seven-channel hardware, reviewed workflows, result fields, implementation boundaries, scientific limits, and reference cases. Raw EEG and dense per-sample arrays remain localWe evaluate the system at three levels. First, 12 recordings produced identical structured results over ten numerical repetitions, and a complete Rest/Task run produced identical result, report, and figure hashes over three repetitions. Second, request-capture and failure-injection experiments confirmed the tested data boundary and preservation of local artifacts under HTTP, malformed-output, and connection failures. Third, a boundary-awareness benchmark tested 36 ordinary and adversarial questions under four context ablations and two LLMs, yielding 288this http URLresults support hardware- and implementation-aware grounding as a practical mechanism for calibrating what an EEG agent accepts, qualifies, or refuses; they do not establish clinical validity or a validated absolute cognitive-load index.",
+      "abstract_zh": "大型语言模型（LLMs）能够使科学软件更易于使用。然而，通用模型无法自动知晓特定传感器支持哪些测量、当前软件实现了哪些算法，或者计算结果能够支持何种结论。这些区分对于低通道脑电图（EEG）尤为重要，因为稀疏的空间覆盖和多变的信号质量容易产生看似合理但缺乏支持的解读。我们提出了NeuraDock Agent，一种开源架构，它将确定性的本地EEG引擎与硬件感知的语言层相分离。数值引擎负责解析记录、执行质量控制、运行经过审阅的频谱工作流，并生成机器可读的中间文件。而LLM仅接收一份紧凑的、经允许列表筛选的摘要和一个版本化的上下文包。该上下文描述了七通道硬件、已审阅的工作流、结果字段、实现边界、科学限制以及参考案例。原始EEG数据及密集的逐样本阵列均保留在本地。我们在三个层面评估了该系统。首先，12条记录在十次数值重复中产生了一致的结构化结果，且一次完整的静息/任务运行在三次重复中产生了完全相同的结果、报告和图像哈希值。其次，请求捕获与故障注入实验证实了在HTTP故障、格式错误输出及连接中断情况下，测试数据边界得以维持，且本地中间文件得以保留。第三，通过边界感知基准测试，在四种上下文消融和两种LLM下对36个常规及对抗性问题进行了评估，共计288次测试。结果支持以硬件感知和实现感知的接地作为一种实用机制，用于校准EEG代理接受、限定或拒绝的内容；但这并不确立临床有效性或经过验证的绝对认知负荷指数。",
+      "hf_link": "https://huggingface.co/papers/2606.26519"
     }
   },
   "hf_votes": {
     "2606.28128": 0,
     "2606.28133": 0,
     "2606.27608": 0,
+    "2606.27378": 0,
     "2606.22873": 0,
     "2606.27974": 0,
+    "2606.26015": 0,
     "2606.28276": 0,
-    "2606.27378": 0,
-    "2606.27595": 0,
-    "2606.28187": 0,
     "2606.27163": 0,
+    "2606.28187": 0,
+    "2606.27595": 0,
+    "2511.07397": 0,
     "2606.27771": 0,
     "2606.28277": 0,
-    "2606.26519": 0,
-    "2606.18953": 0
+    "2606.18953": 0,
+    "2606.26519": 0
   },
   "focus_sections": {
     "3D生成与重建": [
@@ -127,6 +141,11 @@
       "tags": "计算机图形学;生成模型;扩散模型后训练",
       "body_summary": "我们针对Qwen-Image-2.0扩散模型，构建了一个基于人类反馈的强化学习后训练流程。我们通过复合奖励模型提供反馈，并应用强化学习与策略蒸馏，显著提升了模型在图像生成与编辑任务中的视觉质量和指令遵循能力。"
     },
+    "2606.27378": {
+      "short_zh": "构建大语言模型思维评估框架",
+      "tags": "自然语言处理;大语言模型;思维表示评估",
+      "body_summary": "现有评估混淆表示质量与模型能力，难以定位表示本身的缺陷。\n提出四项表示功能公理并量化，独立于下游任务评估多模型在23个任务中的表现，发现存在结构性缺陷。"
+    },
     "2606.22873": {
       "short_zh": "为多模态大模型提供动态安全护栏",
       "tags": "自然语言处理;大语言模型安全;多模态内容审核",
@@ -137,25 +156,30 @@
       "tags": "多模态学习;视觉问答;知识增强视觉问答",
       "body_summary": "知识增强视觉问答需要结合图像理解和外部知识，现有固定检索流程缺乏适应性。\n我们提出ProMSA代理，它能迭代选择工具进行搜索，并通过序列级强化学习优化其决策。"
     },
-    "2606.27378": {
-      "short_zh": "构建大语言模型思维评估框架",
-      "tags": "自然语言处理;大语言模型;思维表示评估",
-      "body_summary": "现有评估混淆表示质量与模型能力，难以定位表示本身的缺陷。\n提出四项表示功能公理并量化，独立于下游任务评估多模型在23个任务中的表现，发现存在结构性缺陷。"
+    "2606.26015": {
+      "short_zh": "优化大模型推理过程",
+      "tags": "自然语言处理;大语言模型;推理优化",
+      "body_summary": "大语言模型推理过程冗余且低效，需提升其计算效率。\n提出动态计算分配方法，在推理中跳过不必要计算，实现高效推理。"
     },
-    "2606.27595": {
-      "short_zh": "韩国网页代理广度搜索基准构建",
-      "tags": "自然语言处理;网页智能体;基准构建与评估",
-      "body_summary": "现有网页智能体基准主要评估深度推理，而忽略了广度枚举能力，尤其是在英语之外的语言中。\n本文构建了一个韩语广度搜索基准Ko-WideSearch，用于系统评估网页代理枚举封闭集合并填充属性表格的能力。"
+    "2606.27163": {
+      "short_zh": "使用强化学习改进机器人叠衣策略",
+      "tags": "机器人学;机器人操作;双手机器人衣物折叠",
+      "body_summary": "本文针对ICRA 2026竞赛中的机器人衣物折叠任务，提出了一种系统解决方案。\n该方法通过强化学习循环改进视觉语言动作策略，并融合了多种工程优化技术，在仿真和真实比赛中均取得了优异成绩。"
     },
     "2606.28187": {
       "short_zh": "梯度优化多智能体系统",
       "tags": "自然语言处理；多智能体系统；多智能体系统优化",
       "body_summary": "当前多智能体系统优化存在效率瓶颈。\n提出基于梯度的连接方法用于优化智能体网络结构。"
     },
-    "2606.27163": {
-      "short_zh": "使用强化学习改进机器人叠衣策略",
-      "tags": "机器人学;机器人操作;双手机器人衣物折叠",
-      "body_summary": "本文针对ICRA 2026竞赛中的机器人衣物折叠任务，提出了一种系统解决方案。\n该方法通过强化学习循环改进视觉语言动作策略，并融合了多种工程优化技术，在仿真和真实比赛中均取得了优异成绩。"
+    "2606.27595": {
+      "short_zh": "韩国网页代理广度搜索基准构建",
+      "tags": "自然语言处理;网页智能体;基准构建与评估",
+      "body_summary": "现有网页智能体基准主要评估深度推理，而忽略了广度枚举能力，尤其是在英语之外的语言中。\n本文构建了一个韩语广度搜索基准Ko-WideSearch，用于系统评估网页代理枚举封闭集合并填充属性表格的能力。"
+    },
+    "2511.07397": {
+      "short_zh": "语音助手实时推理知识融合",
+      "tags": "自然语言处理;对话系统;实时语音对话推理",
+      "body_summary": "语音助手面临推理能力与响应速度的权衡难题。\n提出推理时知识填充方法，让小模型即时生成响应并流畅整合大模型的流式推理结果。"
     },
     "2606.27771": {
       "short_zh": "强化学习中的规范约束",
@@ -167,15 +191,15 @@
       "tags": "科学知识工程;自动化审稿;论文深度验证",
       "body_summary": "传统人工同行评审无法应对AI加速科研带来的海量论文审核挑战。\n我们提出AI协助科学评估的分类，并开发了Paper Assistant Tool，能深入核查论文理论、实验并提出改进，在试点中有效发现错误、减轻审稿负担。"
     },
-    "2606.26519": {
-      "short_zh": "七通道脑电代理的边界感知方法",
-      "tags": "自然语言处理;人机交互;脑电信号分析",
-      "body_summary": "背景/任务：大模型虽能辅助科研软件，但缺乏对特定脑电硬件、算法边界和结果解释的专业知识，易产生错误解读。\n做了什么：提出一个将确定性本地脑电引擎与硬件感知语言层分离的架构，通过限定上下文确保模型回答的可靠性，并进行了系统评估。"
-    },
     "2606.18953": {
       "short_zh": "用物体位姿增强视觉语言动作模型",
       "tags": "机器人;强化学习;零仿真到现实迁移",
       "body_summary": "背景/任务是视觉语言动作模型在真实物理交互中因误差累积而表现脆弱。\n我们提出一种仅在仿真中训练、利用物体位姿的强化学习框架，能零样本提升真实机器人任务成功率。"
+    },
+    "2606.26519": {
+      "short_zh": "七通道脑电代理的边界感知方法",
+      "tags": "自然语言处理;人机交互;脑电信号分析",
+      "body_summary": "背景/任务：大模型虽能辅助科研软件，但缺乏对特定脑电硬件、算法边界和结果解释的专业知识，易产生错误解读。\n做了什么：提出一个将确定性本地脑电引擎与硬件感知语言层分离的架构，通过限定上下文确保模型回答的可靠性，并进行了系统评估。"
     }
   },
   "deep_analysis": {
