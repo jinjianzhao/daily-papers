@@ -48,6 +48,12 @@
       "abstract_zh": "当前针对网络智能体（web-agent）的评测基准普遍侧重深度——即通过一系列约束条件来锁定一个冷门答案——而对于广度，即穷举一个封闭集合并填充每个项目的属性，却鲜有评估，尤其是在英语之外的语言环境中。广度的构建同样困难：确保基准答案集完整且每个单元格准确无误的成本，远高于检查单一答案。为此，我提出了\\textsc{Ko-WideSearch}，这是一个韩语广度搜索基准，通过自动化合成与验证流程构建而成。每个任务指定一个集合父实体——如电视剧季、朝代、联赛、行政区划、选举——并要求列出其全部成员以及每个项目的属性表，评分采用项目F1、列F1和行F1。该基准涵盖190个实体、16个类别下的228张表格，分为三个难度层级，通过两个独立调节的结构性旋钮——表格宽度和二维复合键——使得跨层级组合的成员覆盖率从0%逐步提升至100%。在基准构建与评分过程中共享同一支持规范化的比较器，因此日期和计数等稳定列不会仅因格式差异而被过度剔除。在对二十个网络智能体的测试中，失败模式一致：智能体能恢复集合但无法正确填充行数据（例如项目F1达92.8，而行F1仅为53.7）；随着旋钮难度增加，准确率持续下降；增加搜索量或资源投入均无法弥补差距。按单元格细分，难点在于找到正确的值而非格式化：开放式自由文本单元格的失败率最高，而具有标准答案（如日期或名称）的单元格通常能正确输出。",
       "hf_link": "https://huggingface.co/papers/2606.27595"
     },
+    "2606.28187": {
+      "title": "2606.28187",
+      "abstract": "",
+      "abstract_zh": "",
+      "hf_link": "https://huggingface.co/papers/2606.28187"
+    },
     "2606.27163": {
       "title": "Learning to Fold: prizewinning solution at LeHome Challenge 2026 (1st place online, 2nd offline)",
       "abstract": "I describe my solution to the LeHome Challenge 2026, an ICRA 2026 competition on bimanual garment folding. The system placed 1st of 62 teams in the online (simulation) round and 2nd in the real-world final. It improves a vision-language-action (VLA) policy with a reinforcement-learning loop. The policy is its own value function: the same network that predicts actions also predicts success, progress, and a few task-relevant future quantities, and those predictions drive advantage estimation, live failure detection, and candidate selection. The work mostly recombines existing RL ideas with engineering and optimization contributions that can be used together as one recipe or individually: AWR + RECAP combined for flow-matching VLA; an asynchronous distributed training / rollout pipeline through HuggingFace Hub; inference-time hyperparameters optimization via Thompson sampling; a sim-to-real recipe with camera-alignment tooling, heavy augmentation and DAgger-like HIL data collection.",
@@ -88,6 +94,7 @@
     "2606.28276": 0,
     "2606.27378": 0,
     "2606.27595": 0,
+    "2606.28187": 0,
     "2606.27163": 0,
     "2606.27771": 0,
     "2606.28277": 0,
@@ -139,6 +146,11 @@
       "short_zh": "韩国网页代理广度搜索基准构建",
       "tags": "自然语言处理;网页智能体;基准构建与评估",
       "body_summary": "现有网页智能体基准主要评估深度推理，而忽略了广度枚举能力，尤其是在英语之外的语言中。\n本文构建了一个韩语广度搜索基准Ko-WideSearch，用于系统评估网页代理枚举封闭集合并填充属性表格的能力。"
+    },
+    "2606.28187": {
+      "short_zh": "梯度优化多智能体系统",
+      "tags": "自然语言处理；多智能体系统；多智能体系统优化",
+      "body_summary": "当前多智能体系统优化存在效率瓶颈。\n提出基于梯度的连接方法用于优化智能体网络结构。"
     },
     "2606.27163": {
       "short_zh": "使用强化学习改进机器人叠衣策略",
