@@ -1,0 +1,242 @@
+{
+  "base_info": {
+    "2606.30673": {
+      "title": "PolyFlow: Continuous Topology Embedding Flow Matching for Artist-style Mesh Generation",
+      "abstract": "Autoregressive Transformers dominate high-quality mesh generation by producing artist-worthy topologies, yet their inherent sequential decoding induces substantial computational overhead, falling orders of magnitude slower than parallel generative models. On the other hand, while continuous diffusion and flow-matching methods support efficient parallel synthesis across a variety of domains, they cannot be directly applied to meshes: mesh connectivity is inherently discrete and incompatible with standard continuous noise injection and denoising operations. To resolve this fundamental incompatibility, we introduce a compact topology embedder that projects discrete mesh vertex positions and normals into continuous per-vertex embeddings, where the original discrete adjacency information can be faithfully recovered via spacetime distance thresholding. After pretraining and freezing this embedder, any raw mesh can be fully converted into a continuous per-vertex state space unifying position, normal, and implicit topological attributes. Built upon this novel continuous mesh representation, we present PolyFlow, a Transformer-based flow-matching framework that achieves fully parallel vertex state denoising conditioned on extracted point-cloud features. During inference, our model completes generation rapidly via an ODE solver, and supports explicit, precise control over output mesh resolution by directly specifying the target vertex count. Extensive evaluations on the Toys4K benchmark demonstrate that PolyFlow surpasses state-of-the-art autoregressive baselines in both Chamfer Distance and Hausdorff Distance.",
+      "abstract_zh": "自回归变换器通过生成具有艺术水准的拓扑结构，主导了高质量网格生成领域，但其固有的顺序解码机制带来了巨大的计算开销，其速度比并行生成模型慢数个数量级。另一方面，尽管连续扩散和流匹配方法支持跨多种领域的高效并行合成，却无法直接应用于网格：网格连接性本质上是离散的，与标准的连续噪声注入和去噪操作不相容。为解决这一根本性不兼容问题，我们引入了一种紧凑的拓扑嵌入器，将离散的网格顶点位置与法线映射为连续的逐顶点嵌入，其中原始离散的邻接信息可通过时空距离阈值处理得以忠实还原。在对该嵌入器进行预训练并冻结参数后，任何原始网格均可完全转换为统一的连续逐顶点状态空间，该空间融合了位置、法线与隐式拓扑属性。基于这一新颖的连续网格表示方法，我们提出了PolyFlow——一个基于变换器的流匹配框架，该框架在提取点云特征的条件下实现了完全并行的顶点状态去噪。在推理过程中，我们的模型通过常微分方程求解器快速完成生成，并支持通过直接指定目标顶点数量来对输出网格分辨率进行显式、精确的控制。在Toys4K基准测试上的大量实验表明，PolyFlow在倒角距离（Chamfer Distance）和豪斯多夫距离（Hausdorff Distance）两项指标上均超越了当前最先进的自回归基线模型。",
+      "hf_link": "https://huggingface.co/papers/2606.30673"
+    },
+    "2606.30534": {
+      "title": "2606.30534",
+      "abstract": "",
+      "abstract_zh": "",
+      "hf_link": "https://huggingface.co/papers/2606.30534"
+    },
+    "2606.28436": {
+      "title": "Dockerless: Environment-Free Program Verifier for Coding Agents",
+      "abstract": "Program verifiers play a central role in training coding agents, including selecting trajectories for supervised fine-tuning (SFT) and providing rewards for reinforcement learning (RL). Standard execution-based verification requires running unit tests inside per-repository environments such as Docker images, incurring substantial environment setup costs. We propose Dockerless, an environment-free agentic patch verifier that evaluates generated code patches without executing them. Rather than simply matching candidate patches to references, Dockerless judges patch correctness using evidence gathered through agentic repository exploration. On a verifier evaluation benchmark, Dockerless outperforms the strongest open-source verifier by 14.3 AUC points. Using Dockerless as both the SFT trajectory filter and the RL reward enables a fully environment-free post-training pipeline. The resulting model reaches 62.0%, 50.0%, and 35.2% resolve rate on SWE-bench Verified, Multilingual, and Pro, respectively. It surpasses the Qwen3.5-9B baseline by 2.4, 8.7, and 2.9 points, matching environment-based post-training.",
+      "abstract_zh": "程序验证器在训练编码智能体中发挥着核心作用，包括为监督微调（SFT）选择轨迹以及为强化学习（RL）提供奖励。标准的基于执行的验证需要在每个代码库环境（如Docker镜像）中运行单元测试，这会带来高昂的环境配置成本。我们提出了Dockerless，一种无需环境的智能补丁验证器，能够在无需执行代码的情况下评估生成的补丁。Dockerless并非简单地将候选补丁与参考版本进行匹配，而是通过智能化的代码库探索收集证据来判断补丁的正确性。在验证器评估基准测试中，Dockerless的表现优于最强的开源验证器，其AUC值高出14.3个百分点。使用Dockerless同时作为SFT轨迹筛选器和RL奖励机制，可实现完全无需环境的训练后流程。基于此方法训练的模型在SWE-bench Verified、Multilingual和Pro三项测试中的解决率分别达到62.0%、50.0%和35.2%，相比Qwen3.5-9B基线模型分别提升2.4、8.7和2.9个百分点，其效果与基于环境配置的训练后方法相当。",
+      "hf_link": "https://huggingface.co/papers/2606.28436"
+    },
+    "2606.31315": {
+      "title": "BlockPilot: Instance-Adaptive Policy Learning for Diffusion-based Speculative Decoding",
+      "abstract": "Speculative decoding accelerates inference by using a lightweight draft model to generate candidate tokens in parallel, and are then verified by the target model, enabling lossless acceleration. Recently, diffusion-based speculative decoding further improves parallelism by generating multiple tokens per forward pass via block-level diffusion, achieving state-of-the-art (SOTA) performance. However, existing methods adopt a fixed inference block size and assume a uniform optimal decoding strategy across all inputs. In this paper, we show that this assumption is suboptimal, as the optimal block size varies across samples and plays a critical role in speculative decoding performance. Moreover, these values exhibit a clear local structure, concentrating around the training block size, which reduces the problem to a low-dimensional and structured decision space. Based on these insights, we propose BlockPilot, a sample-adaptive policy that predicts the optimal block size from the prefilling representation. Specifically, we formulate block size selection as a lightweight policy learning problem and propose an instance-adaptive decision mechanism that predicts the optimal block size based on the representation of the prefilling stage. The prediction is performed only once after prefilling, allowing for seamless integration. Extensive experiments demonstrate that our method is plug-and-play, introduces minimal overhead, and consistently improves efficiency, achieving an acceptance length of 5.92 and a 4.20$\\times$ speedup on Qwen3-4B under temperature $T=1$.",
+      "abstract_zh": "推测解码采用轻量级草稿模型并行生成候选标记，再通过目标模型进行验证，从而实现无损加速推理。近年来，基于扩散的推测解码通过块级扩散机制在前向传播中生成多个标记，进一步提升了并行化程度，取得了最先进的性能表现。然而，现有方法采用固定的推理块大小，并假设所有输入均遵循统一的最优解码策略。本文指出该假设存在次优性：最优块大小随样本动态变化，且对推测解码性能具有关键影响。此外，这些最优值呈现出清晰的局部结构特征，集中于训练块大小附近，从而将问题简化为一个低维度、结构化的决策空间。基于此，我们提出BlockPilot——一种能够根据预填充表示预测最优块大小的样本自适应策略。具体而言，我们将块大小选择问题形式化为轻量级策略学习任务，设计了一种基于预填充阶段表示的实例自适应决策机制，用于预测最优块大小。该预测仅在预填充阶段后执行一次，可实现无缝集成。大量实验表明，所提方法具备即插即用特性，引入的开销极小，并能持续提升推理效率：在Qwen3-4B模型温度参数T=1的设置下，实现了5.92的接受长度和4.20倍的加速比。",
+      "hf_link": "https://huggingface.co/papers/2606.31315"
+    },
+    "2606.30626": {
+      "title": "DOPD: Dual On-policy Distillation",
+      "abstract": "On-policy distillation (OPD) offers superior capacity transfer by supervising student-sampled trajectories with dense token-level signals. To furnish high-quality supervision sources and thereby elevate the performance frontier of distillation, an intuitive direction is to infuse privileged information to either teacher or student itself. However, this additional input induces a potential failure mode we dub privilege illusion: a pattern that conflates the transferable capability gap that students are meant to close, and the information asymmetry gap that can only be mimicked but never replicated. This issue is further amplified by the inherent non-uniformity of token-level supervision, where only a small subset of tokens carries pivotal capability-bearing signals. To this end, we propose DOPD, an advantage-aware dual distillation paradigm that dynamically routes token-level supervision between privileged teacher and privileged student policies based on their advantage gap and relative probabilities. Each token receives supervision of different strength, objective, and strategy from either teacher or student itself, which transfers credible capability while simultaneously receiving auxiliary signals, to alleviate privilege illusion. Extensive experiments on both large language model (LLM) and vision-language model (VLM) settings demonstrate that DOPD consistently outperforms Vanilla OPD and other counterparts. Further results on stability, robustness, continual learning, and out-of-distribution tasks validate its superiority.",
+      "abstract_zh": "在线策略蒸馏（OPD）通过利用密集的令牌级信号监督学生模型采样的轨迹，提供了卓越的能力迁移效果。为提供高质量的监督源，进而提升蒸馏的性能边界，一个直观的方向是向教师或学生模型本身注入特权信息。然而，这种额外输入引发了一种我们称为\"特权幻觉\"的潜在失效模式：该模式混淆了学生本应弥补的可迁移能力差距，与只能模仿而无法复现的信息不对称差距。令牌级监督固有的非均匀性进一步加剧了这一问题，即只有少量关键令牌携带决定性的能力信号。为此，我们提出DOPD——一种基于优势感知的双重蒸馏范式，该范式根据特权教师策略与特权学生策略之间的优势差距及相对概率，动态分配令牌级监督。每个令牌从教师或学生自身获得不同强度、目标和策略的监督，在迁移可靠能力的同时接收辅助信号，从而缓解特权幻觉问题。在大语言模型（LLM）和视觉语言模型（VLM）场景下的大量实验表明，DOPD始终优于传统在线策略蒸馏及其他对比方法。在稳定性、鲁棒性、持续学习和分布外任务上的进一步结果验证了其优越性。",
+      "hf_link": "https://huggingface.co/papers/2606.30626"
+    },
+    "2606.32039": {
+      "title": "GEAR: Guided End-to-End AutoRegression for Image Synthesis",
+      "abstract": "Visual generative models are typically trained in two stages. A tokenizer is first trained for reconstruction and then frozen, after which a generator is trained on its discrete indices or continuous latents. This decoupling leaves the tokenizer unaware of what the generator finds easy to model. We present GEAR (Guided End-to-end AutoRegression), which trains a vector-quantized (VQ) tokenizer and an autoregressive (AR) generator jointly and end-to-end, guided by representation alignment. The key obstacle is that the VQ index fed to the AR model is non-differentiable, so gradients cannot reach the tokenizer, and a straight-through estimator collapses. GEAR resolves this with a dual read-out of the codebook assignment. A hard, one-hot branch trains the AR with next-token prediction, while a differentiable soft branch carries a representation-alignment loss that flows back to guide only the tokenizer. The AR model thereby steers its tokenizer toward an index distribution it can predict more easily. This shifts the alignment burden from the tokenizer to the AR: the tokenizer's own features become less DINOv2-like while the AR's become more so, the opposite of diffusion-side recipes that make the latent itself semantic. GEAR speeds up ImageNet gFID convergence by up to 10x relative to the strong LlamaGen-REPA baseline, learns markedly better patch-level and spatially-coherent features, and generalizes across quantizers (VQVAE, LFQ, IBQ) and to text-to-image generation.",
+      "abstract_zh": "视觉生成模型通常采用两阶段训练方式。首先训练一个用于重建的分词器(tokenizer)并固定其参数，随后基于其离散索引或连续潜在表示训练生成器。这种解耦设计导致分词器无法感知生成器易于建模的内容。我们提出GEAR（引导式端到端自回归）方法，通过表征对齐的引导，以端到端方式联合训练向量量化(VQ)分词器与自回归(AR)生成器。核心挑战在于输入AR模型的VQ索引不可微分，导致梯度无法回传至分词器，而直通估计器会引发训练崩溃。GEAR通过双路读取码本分配解决该问题：采用硬分配的独热分支通过下一标记预测训练AR模型，同时可微分的软分支承载表征对齐损失，该损失仅回传至分词器进行引导。由此AR模型能引导其分词器转向更易于预测的索引分布。这将对齐负担从分词器转移至AR模型：分词器自身特征变得较少类似DINOv2，而AR特征则更趋近之，这与扩散模型方案中使潜在表示本身语义化的做法相反。相较于强大的LlamaGen-REPA基线，GEAR将ImageNet gFID收敛速度提升高达10倍，学习到显著更优的块级特征与空间连贯特征，并在不同量化器（VQVAE、LFQ、IBQ）及文生图任务中展现出良好泛化能力。",
+      "hf_link": "https://huggingface.co/papers/2606.32039"
+    },
+    "2606.31734": {
+      "title": "MemLearner: Learning to Query Context memory for Video World Models",
+      "abstract": "Video World Models are interactive video generation models that predict future world states based on user actions and history video frames. A critical challenge in video world models is the lack of memory, causing inconsistent generated scenes over extended durations. Previous methods explored rule-based context frame retrieval as memory, but they fail to generalize in scenarios with scene occlusions and dynamic objects. We propose MemLearner, a learning-based adaptive context query method using query tokens to bridge context and predicted tokens. By leveraging the video generation model itself for context querying, MemLearner exploits pre-trained visual priors without training additional modules from scratch, and incorporates efficient strategies for training and inference. We collect a dataset of long videos with scene occlusions and dynamic objects, paired with camera pose annotations, and propose a multi-dataset training strategy leveraging both annotated rendered and unannotated real-world videos. Extensive experiments demonstrate that MemLearner significantly outperforms prior video world models in terms of scene consistency and memory, particularly under challenging occlusion and dynamic scenarios.",
+      "abstract_zh": "视频世界模型（Video World Models）是一种交互式视频生成模型，其能够根据用户操作和历史视频帧预测未来的世界状态。当前视频世界模型面临的关键挑战在于缺乏记忆机制，导致生成长时视频时场景出现不一致。先前的研究探索了基于规则的上下文帧检索作为记忆手段，但这类方法在场景遮挡（scene occlusions）和动态物体（dynamic objects）存在的情况下泛化能力不足。我们提出MemLearner，一种基于学习的自适应上下文查询方法，通过查询标记（query tokens）连接上下文与预测标记（predicted tokens）。MemLearner利用视频生成模型自身进行上下文查询，无需从头训练额外模块即可充分利用预训练的视觉先验，并整合了高效的训练与推理策略。我们收集了一个包含场景遮挡和动态物体的长视频数据集，配以相机姿态标注，并提出了一种综合利用带标注的渲染视频与无标注的真实世界视频的多数据集训练策略。大量实验表明，MemLearner在场景一致性和记忆能力方面显著优于先前的视频世界模型，尤其在具有挑战性的遮挡和动态场景下表现突出。",
+      "hf_link": "https://huggingface.co/papers/2606.31734"
+    },
+    "2606.29082": {
+      "title": "Evolution Fine-Tuning: Learning to Discover Across 371 Optimization Tasks",
+      "abstract": "Would experience designing faster GPU kernels also help close in on a long-standing open mathematical conjecture? Large Language Models (LLMs) integrated into evolutionary search have recently produced state-of-the-art solutions on optimization tasks, including open mathematical conjectures, GPU kernel design, scientific law discovery, and combinatorial puzzles. To achieve this, prior work applied search scaffolds to one target task at a time, so every new problem is approached from scratch and the experience accumulated during search is discarded once the model finishes its attempt. This leaves the capability of iteratively evolving a solution (e.g., knowing which part to mutate and how, deciding when to backtrack) entirely in the scaffold rather than in the model itself. Whether the model itself could acquire this capability and reuse it across different tasks has been largely unexamined. To address this, we introduce Evolution Fine-Tuning (EFT), a mid-training paradigm that teaches LLMs to evolve solutions across tasks by converting evolutionary search trajectories into supervision. We construct Finch Collection, a 156K-trajectory dataset spanning 10 domains and 371 optimization tasks, and fine-tune open-source LLMs from 2B to 9B parameters. Empirically, EFT confers cross-task generalization: across 22 held-out tasks, our models surpass their base counterparts by 10.22% on average. Furthermore, when paired with test-time RL, our model matches state-of-the-art performance on two circle-packing tasks and outperforms its base-model counterpart on the Erdős minimum-overlap problem. EFT thus serves as a \"practice phase\" for general-purpose discovery agents that do not solve new problems from scratch.",
+      "abstract_zh": "设计更快的GPU内核的经验是否也有助于逼近一个长期悬而未决的数学猜想？集成进化搜索的大语言模型（LLMs）近期已在优化任务中取得前沿成果，涵盖开放数学猜想、GPU内核设计、科学规律发现和组合谜题等领域。为实现这一目标，先前的研究每次仅将搜索框架应用于单一目标任务，因此每个新问题的解决都需从零开始，且模型完成尝试后，搜索过程中积累的经验便被丢弃。这使得迭代演化解决方案的能力（例如知道突变哪个部分及如何突变、决定何时回溯）完全依赖于框架而非模型自身。模型本身能否获取这种能力并将其跨任务复用，目前尚未得到充分探究。针对这一问题，我们提出进化微调（Evolution Fine-Tuning，EFT）——一种通过将进化搜索轨迹转化为监督信号来教导大语言模型跨任务演化解决方案的中期训练范式。我们构建了芬奇数据集（Finch Collection），包含跨越10个领域、371个优化任务的15.6万条轨迹，并对参数规模从20亿到90亿的开源大语言模型进行微调。实验表明，EFT赋予了模型跨任务泛化能力：在22个保留测试任务中，我们的模型平均超越其基础版本10.22%。此外，当与测试时强化学习结合时，我们的模型在两个圆形填充任务上达到前沿性能水平，并在埃尔德什最小重叠问题（Erdős minimum-overlap problem）上超越其基础模型。因此，EFT为无需从零开始解决新问题的通用发现智能体提供了一个“实践阶段”。",
+      "hf_link": "https://huggingface.co/papers/2606.29082"
+    },
+    "2606.30062": {
+      "title": "Little Brains, Big Feats: Exploring Compact Language Models",
+      "abstract": "While large language models have been dominating the research landscape recently, small language models remain highly relevant across various domains; yet, they receive far less attention. In this study, we investigate how smaller language models perform during the generation stage within a Retrieval-Augmented Generation (RAG) system. To benchmark these models effectively, we utilised both open-source and proprietary datasets covering diverse subject areas and question types. Our findings demonstrate that a RAG system with small language models can be executed directly on-device without requiring any GPU hardware within a reasonable time. The experimental code and links to the supplementary materials can be accessed through the GitHub repository:this https URL.",
+      "abstract_zh": "尽管大型语言模型近来主导了研究领域，但小型语言模型在众多应用场景中仍至关重要，却鲜少受到关注。本研究探讨了在检索增强生成（Retrieval-Augmented Generation，简称RAG）系统中，小型语言模型在生成阶段的表现。为了有效评估这些模型，我们使用了涵盖多学科主题与问题类型的开源及专有数据集进行基准测试。研究结果表明，搭载小型语言模型的RAG系统无需GPU硬件即可直接在设备上运行，且能在合理时间内完成生成任务。实验代码及相关补充材料可通过GitHub仓库访问：此https URL。",
+      "hf_link": "https://huggingface.co/papers/2606.30062"
+    },
+    "2606.32032": {
+      "title": "Reinforcement Learning with Metacognitive Feedback Elicits Faithful Uncertainty Expression in LLMs",
+      "abstract": "Metacognition is a critical component of intelligence that describes the ability to monitor and regulate one's own cognitive processes. Yet LLMs exhibit systemic deficiencies in key metacognitive faculties: they hallucinate with high confidence, fail to recognize knowledge boundaries, and misrepresent their internal uncertainty--undermining trustworthiness and reliability. Since monitoring task performance and adapting behavior accordingly are central to metacognition, we posit that models capable of accurately judging their own performance are better positioned to improve it. We operationalize this idea via two novel mechanisms: reinforcement learning with metacognitive feedback (RLMF), a paradigm to refine completion rankings during preference optimization based on the quality of a model's self-judgments of performance, and metacognitive data selection, which uses similar self-judgments to identify high-value training examples, outperforming naive active learning. We apply these innovations to the problem of faithful calibration (FC), a task that is itself fundamentally metacognitive: the goal is to align expressed with intrinsic uncertainty, difficult even for frontier LLMs. We adopt a two-stage, decoupled approach, first using these methods to calibrate the faithfulness of models' self-reported confidence scores, then mapping to natural, context-adaptable linguistic uncertainty via targeted output editing. Extensive experiments show RLMF achieves generalizable, state-of-the-art FC on diverse tasks while preserving accuracy. Further, RLMF surpasses standard RL by up to 63% while enhancing models' ability to assess and express their own capability limits. This positions RLMF as a promising paradigm to enhance LLM metacognition toward improved abilities and alignment, and suggests metacognitive performance as an effective RL signal to overcome limits of prior intrinsic feedback methods.",
+      "abstract_zh": "元认知（Metacognition）是智能的关键组成部分，指对自身认知过程进行监控与调节的能力。然而，大型语言模型在关键元认知能力上表现出系统性缺陷：它们常以高置信度产生幻觉、无法识别知识边界、并错误呈现其内部不确定性——这些缺陷削弱了其可信度与可靠性。鉴于监控任务表现并相应调整行为是元认知的核心，我们认为能够准确评判自身表现的模型更有潜力改进其表现。我们通过两种新型机制将这一理念具体化：基于元认知反馈的强化学习，该范式利用模型对自身表现质量的判断，在偏好优化过程中优化完成结果的排序；以及元认知数据选择，它运用类似的自评估机制识别高价值训练样本，其效果优于简单的主动学习。我们将这些创新应用于忠实校准这一本质上属于元认知范畴的任务：其目标是使模型表达的不确定性与内在不确定性保持一致，这对前沿大型语言模型而言仍具挑战性。我们采用两阶段解耦方法，首先运用上述机制校准模型自报告置信度的忠实性，随后通过定向输出编辑将其映射为自然、适应语境的语言不确定性。大量实验表明，基于元认知反馈的强化学习在多种任务上实现了可泛化的、领先的忠实校准效果，同时保持了准确性。此外，该方法相较标准强化学习性能提升最高达63%，并增强了模型评估与表达自身能力局限的能力。这使基于元认知反馈的强化学习成为一种有前景的范式，可提升大型语言模型的元认知能力以改进其性能与对齐性，同时表明元认知表现可作为有效的强化学习信号，以克服先前内在反馈方法的局限性。",
+      "hf_link": "https://huggingface.co/papers/2606.32032"
+    },
+    "2606.31410": {
+      "title": "Xiaomi-GUI-0 Technical Report",
+      "abstract": "Graphical user interface (GUI) agents build on vision-language models to complete user tasks end-to-end in real applications through interface actions such as tapping, swiping, text entry, and navigation. However, existing GUI agents are trained and evaluated largely on offline trajectories, simulated environments, and standardized benchmarks. These differ substantially from real applications in interface layout, interaction logic, and abnormal-state distribution, and cannot faithfully characterize execution stability in real-world use, where account states, permission dialogs, payment authentication, and risk control continually reshape the state distribution and open a persistent gap between benchmark scores and real usability. To close this gap, we propose Xiaomi-GUI-0, a native multimodal GUI agent for real mobile environments, trained and evaluated within a real-device closed loop. At its core is a real-device-dominant hybrid infrastructure, where physical devices are the primary execution environment and sandboxes provide auxiliary support, so that data collection, training, rollout, and evaluation share an execution distribution close to real deployment. We construct multi-source training data spanning high-frequency head tasks, high-generalization data for long-tail intents, and capability-enhancement data for reflection and memory, and introduce an error-driven data flywheel that turns failure trajectories into corrected actions, reflective explanations, and recovery demonstrations. The model is trained through a progressive three-stage pipeline of supervised fine-tuning, step-level reinforcement learning, and agentic reinforcement learning. Evaluated on public benchmarks and our in-house RealMobile, Xiaomi-GUI-0 achieves 72.0% success on RealMobile and 78.9% on AndroidWorld, while substantially improving execution stability and abnormal-state recognition in real-world tasks.",
+      "abstract_zh": "图形用户界面（Graphical User Interface, GUI）智能体基于视觉语言模型，通过点击、滑动、文本输入与导航等界面操作，在真实应用中端到端地完成用户任务。然而，现有的GUI智能体主要基于离线轨迹、模拟环境和标准化基准进行训练与评估。这些场景在界面布局、交互逻辑和异常状态分布方面与真实应用存在显著差异，无法准确反映实际使用中的执行稳定性——真实世界中账户状态、权限弹窗、支付验证及风险控制等因素持续重塑状态分布，导致基准测试分数与实际可用性之间存在持续差距。为弥合这一差距，我们提出了Xiaomi-GUI-0，一款面向真实移动环境的原生多模态GUI智能体，在真实设备闭环中进行训练与评估。其核心是基于真实设备主导的混合基础设施：物理设备作为主要执行环境，沙箱提供辅助支持，从而确保数据收集、训练、部署与评估共享接近真实部署的执行分布。我们构建了多源训练数据，涵盖高频头部任务、面向长尾意图的高泛化数据，以及用于反思与记忆的能力增强数据，并引入错误驱动的数据飞轮机制，将失败轨迹转化为修正动作、反思说明和恢复演示。模型通过渐进式三阶段流程进行训练：监督微调、步骤级强化学习和智能体强化学习。在公开基准及我们自建的RealMobile平台上进行评估，Xiaomi-GUI-0在RealMobile上达到72.0%的成功率，在AndroidWorld上达到78.9%，同时在真实任务中显著提升了执行稳定性与异常状态识别能力。",
+      "hf_link": "https://huggingface.co/papers/2606.31410"
+    },
+    "2606.29215": {
+      "title": "Multi-Block Diffusion Language Models",
+      "abstract": "Block Diffusion Language Models (BD-LMs) improve diffusion-based text generation with KV caching and flexible-length generation. A natural next step is to extend them from Single-Block Diffusion (SingleBD) to Multi-Block Diffusion (MultiBD), where a running-set of consecutive blocks is decoded concurrently for inter-block parallelism. However, existing BD-LMs are mostly trained under teacher forcing, where the model observes only one noisy block conditioned on a clean prefix. While the recent diffusion forcing strategy introduces visibility among multiple noisy blocks, its training states still differ from MultiBD inference, where decoding operates on a bounded running-set with heterogeneous slot-wise noise patterns. To bridge this gap, we propose Multi-Block Diffusion Language Models (MBD-LMs), obtained by post-training BD-LMs with Multi-block Teacher Forcing (MultiTF). MultiTF integrates teacher forcing and diffusion forcing by training on bounded noise-groups conditioned on clean prefixes, with randomized noise-schedulers that better match MultiBD inference states. To make MultiBD practically executable, we further introduce an optimized decoding algorithm based on the Block Buffer mechanism that preserves prefix-cache reuse, keeps input shapes static, and translates increased decoding parallelism into wall-clock acceleration. Empirically, MBD-LLaDA2-Mini increases average Tokens Per Forward pass (TPF) from 3.47 to 6.19 and improves average accuracy from 79.95% to 81.03%; when combined with DMax, MBD-LLaDA2-Mini-DMax reaches an average TPF of 9.34 with only a 1.02% accuracy drop on math and code benchmarks.",
+      "abstract_zh": "区块扩散语言模型（Block Diffusion Language Models，BD-LMs）通过KV缓存和可变长度生成改进了基于扩散的文本生成。一个自然的下一步是将它们从单区块扩散（Single-Block Diffusion，SingleBD）扩展到多区块扩散（Multi-Block Diffusion，MultiBD），其中一组连续的运行区块被并行解码以实现区块间并行。然而，现有的BD-LM大多在教师强制（teacher forcing）下训练，模型仅观测到基于干净前缀的一个噪声区块。尽管近期的扩散强制（diffusion forcing）策略引入了多个噪声区块之间的可见性，但其训练状态仍与MultiBD推理不同——在MultiBD推理中，解码操作在具有异质槽位噪声模式的有界运行集上进行。为弥合这一差距，我们提出了多区块扩散语言模型（Multi-Block Diffusion Language Models，MBD-LMs），通过对BD-LM进行多区块教师强制（Multi-block Teacher Forcing，MultiTF）的后训练获得。MultiTF通过在有界噪声组上基于干净前缀进行训练，整合了教师强制和扩散强制，并采用随机化噪声调度器以更好地匹配MultiBD推理状态。为使MultiBD实际可执行，我们进一步提出了基于区块缓冲（Block Buffer）机制的优化解码算法，该算法保留前缀缓存复用、保持输入形状静态，并将增加的解码并行性转化为实际时钟加速。实验表明，MBD-LLaDA2-Mini将平均单前向传递生成词元数（Tokens Per Forward pass，TPF）从3.47提升至6.19，平均准确率从79.95%提高至81.03%；当与DMax结合时，MBD-LLaDA2-Mini-DMax在数学和代码基准测试中实现了9.34的平均TPF，准确率仅下降1.02%。",
+      "hf_link": "https://huggingface.co/papers/2606.29215"
+    },
+    "2606.30811": {
+      "title": "AVTok: 1D Unified Tokenization for Holistic Audio-Video Generation",
+      "abstract": "Audio-video generation has recently gained unprecedented research attention, aiming to synthesize high-quality sounding video content with fine-grained synchronization and semantic alignment between the auditory and visual components. The preceding methods predominantly adopt a dual-branch design with separate tokenization and generation modules per modality, neglecting the representation gap while necessitating intensive computational resources for proper training. Inspired by recent advancements in one-dimensional visual tokenization, we present \\textbf{AVTok}, a novel unified tokenizer designated for holistic audio-video generation. AVTok features a dual-stream transformer-based architecture with shared encoder-decoder and modal-specific learnable queries to efficiently and effectively encode an audio-video pair into a compact one-dimensional latent representation with a unified codebook. To cope with the heterogeneous information imbalance that hinders AVTok from exploiting aligned audio-visual information, we devise a hierarchical training strategy to progressively realize reconstruction capabilities for each modality. Extensive experiments demonstrate that AVTok excels both in audio-video reconstruction and when integrated into downstream pipelines for audio-to-video, video-to-audio, and class-conditional joint audio-video generation. AVTok paves the way for the challenge of joint audio-video tokenization and provides a potential direction to build unified large multimodal models for audio-video generation.",
+      "abstract_zh": "视听生成技术近期获得了前所未有的研究关注，其目标在于合成具有高质量音效的视频内容，实现听觉与视觉组件间的细粒度同步与语义对齐。现有方法主要采用双分支设计，即各模态配备独立的标记化与生成模块，这不仅忽略了表征间隙，还需要密集的计算资源才能完成充分训练。受一维视觉标记化最新进展的启发，我们提出\\textbf{AVTok}——一种专为整体视听生成设计的新型统一标记器。AVTok采用基于双流Transformer的架构，其共享编码器-解码器与模态特定的可学习查询机制，能高效地将音视频对编码至紧凑的一维潜表征空间，并采用统一码本进行管理。针对异质信息不均衡阻碍AVTok利用对齐视听信息的问题，我们设计了分层训练策略，逐步实现对各模态的重建能力。大量实验表明，AVTok不仅在视听重建任务中表现卓越，在集成至下游音频到视频、视频到音频及类别条件联合视听生成流程时同样展现出优异性能。AVTok为联合视听标记化这一挑战开辟了新路径，并为构建统一的视听生成多模态大模型提供了潜在方向。",
+      "hf_link": "https://huggingface.co/papers/2606.30811"
+    },
+    "2606.30968": {
+      "title": "PhotoQuilt: Training-Free Arbitrary-Resolution Photomosaics via Bootstrapped Tiled Denoising",
+      "abstract": "Photomosaics are large images whose local regions are seen as independent tiles while their overall arrangement forms a coherent scene. Generating them at high resolution, with every tile convincing in its own right, is computationally expensive, since the canvas must hold many detailed tiles at once. We present PhotoQuilt, a training-free framework that generates photomosaics at arbitrary resolution. Diffusion models struggle to satisfy both scales at once, as direct high-resolution generation is costly and tends toward one smooth image rather than a mosaic, while patch-based tiling keeps local detail but loses global structure. PhotoQuilt resolves this with a bootstrapped tiled denoising procedure. We first produce a global composition at low resolution to fix the layout, then upscale it in latent space and re-inject noise to restore generative capacity. Denoising proceeds within fixed tiles, so each forms its own image while the shared global structure holds them in one layout. Because tile generation is handled separately, PhotoQuilt scales to large canvases without quadratic attention cost. Experiments show that PhotoQuilt outperforms current baselines on both global structure and local realism.",
+      "abstract_zh": "照片马赛克（Photomosaics）是一种大型图像，其局部区域可视为独立图块，而整体排列则构成连贯的场景。由于画布必须同时容纳大量细节丰富的图块，生成高分辨率且每块图块自身都具备说服力的照片马赛克在计算上成本高昂。本文提出PhotoQuilt，一种无需训练即可生成任意分辨率照片马赛克的框架。扩散模型难以同时满足两种尺度需求：直接生成高分辨率图像成本高昂，且易趋于生成平滑图像而非马赛克；而基于图块的拼贴方法虽能保持局部细节，却会丢失全局结构。PhotoQuilt通过一种自举式分块去噪流程解决了这一问题。我们首先在低分辨率下生成全局构图以确定布局，随后在潜在空间中进行上采样并重新注入噪声以恢复生成能力。去噪过程在固定图块内进行，因此每个图块各自形成独立图像，同时共享的全局结构将其统一于同一布局中。由于图块生成是独立处理的，PhotoQuilt能够扩展至大幅画布，而无需承担注意力机制的二次方计算成本。实验表明，PhotoQuilt在全局结构与局部真实感方面均优于当前基线方法。",
+      "hf_link": "https://huggingface.co/papers/2606.30968"
+    },
+    "2606.30319": {
+      "title": "BrainJanus: A Unified Model for Understanding and Generation across Brain, Vision, and Language",
+      "abstract": "Modeling the bidirectional correspondence between external sensory stimuli and internal neural activity has emerged as a critical frontier in neuroscience. However, existing approaches predominantly treat brain encoding and decoding as isolated tasks, relying heavily on unimodal alignment and external priors while overlooking the brain's intrinsic nature as a multimodal integration system. To address these limitations, we propose BrainJanus, the first unified brain model that integrates brain, vision, and language within a single framework. Specifically, we introduce a Unified Brain Tokenizer to quantize continuous neural dynamics into discrete tokens aligned with visual and linguistic representations in a shared Omni space. Building on this, we utilize an All-in-One autoregressive architecture that leverages next-token prediction to enable seamless any-to-any generation, which encompasses image-to-brain and text-to-brain encoding, and brain-to-image and brain-to-text decoding. Extensive experiments demonstrate that BrainJanus achieves superior performance across diverse benchmarks. Furthermore, our framework exhibits zero-shot generalization and preserves interpretable biological topography, highlighting its potential as a general-purpose brain modeling paradigm. The code is available at \\href{this https URL}{GitHub}.",
+      "abstract_zh": "对外部感觉刺激与内部神经活动之间的双向对应关系进行建模，已成为神经科学领域的一个关键前沿。然而，现有方法主要将大脑编码和解码视为孤立的任务，严重依赖单模态对齐和外部先验知识，同时忽略了大脑作为多模态整合系统的内在特性。为应对这些局限，我们提出了BrainJanus，这是首个将大脑、视觉和语言整合在单一框架内的统一大脑模型。具体而言，我们引入了一个统一大脑标记器（Unified Brain Tokenizer），将连续的神经动态量化为离散标记，并在共享的全能空间（Omni space）中与视觉和语言表征对齐。在此基础上，我们采用一种“一体式”自回归架构，利用下一标记预测来实现无缝的任意到任意生成，涵盖图像到大脑和文本到大脑的编码，以及大脑到图像和大脑到文本的解码。大量实验表明，BrainJanus在多种基准测试中均取得了卓越性能。此外，我们的框架展现出零样本泛化能力，并保留了可解释的生物学拓扑结构，凸显了其作为通用大脑建模范式的潜力。代码发布于\\href{this https URL}{GitHub}。",
+      "hf_link": "https://huggingface.co/papers/2606.30319"
+    },
+    "2606.31029": {
+      "title": "TerraDiT-$Ω$: Unified Spatial Control for Satellite Image Synthesis with Any Geospatial Primitive",
+      "abstract": "Generative models have achieved remarkable progress, yet applying them to satellite imagery remains challenging. Unlike natural imagery, satellite scenes are structured by spatially complex and semantically distinct geometries. Prior work addresses this complexity by adapting natural image frameworks using dense rasters or sparse prompts, trading off annotation cost and fidelity while breaking compatibility with vector primitives commonly used to represent geographic information. We introduce TerraDiT-$\\Omega$, a unified spatial control framework that generates satellite imagery directly from any native geospatial primitive. By jointly leveraging precise annotations (polygons, polylines) and coarser ones (bounding boxes, points), the model supports controllable layouts across varying annotation budgets, broadening applicability to design tasks such as urban planning while remaining naturally compatible with end-to-end GeoAI workflows. To effectively leverage these primitives during generation, we propose Geometry-Aware Local Attention, a conditioning mechanism that injects explicit geometric cues into the attention space. Across all conditioning formats, our approach consistently outperforms both dense-control and sparse-control baselines. Furthermore, this flexibility enables controllable synthetic data augmentation using a single generative model, improving downstream performance on land-cover segmentation, object detection, road graph extraction, and scene classification. Code, data, and weights are available atthis https URL.",
+      "abstract_zh": "生成式模型已取得显著进展，然而将其应用于卫星影像领域仍面临挑战。与自然图像不同，卫星场景由空间结构复杂且语义分明的几何要素构成。先前研究通过采用密集栅格或稀疏提示来调整自然图像框架以应对这种复杂性，但需要在标注成本与保真度之间进行权衡，同时破坏了与通常用于表示地理信息的矢量基元之间的兼容性。我们提出了TerraDiT-$\\Omega$——一个统一的空间控制框架，能够直接从任何原生地理空间基元生成卫星影像。该模型通过协同利用精确标注（多边形、折线）和粗略标注（边界框、点），支持在不同标注预算下实现可控布局，从而将适用性拓展至城市规划等设计任务，同时保持与端到端地理人工智能（GeoAI）工作流程的自然兼容性。为了在生成过程中有效利用这些基元，我们提出了几何感知局部注意力机制，这是一种将显式几何线索注入注意力空间的条件控制方法。在所有条件控制形式下，我们的方法一致优于密集控制和稀疏控制的基线模型。此外，这种灵活性使得单个生成模型能够实现可控的合成数据增强，从而显著提升下游任务性能，包括土地覆盖分割、目标检测、道路图提取及场景分类。代码、数据和模型权重可通过此https链接获取。",
+      "hf_link": "https://huggingface.co/papers/2606.31029"
+    },
+    "2606.30697": {
+      "title": "LUMOS: A Semantic Operating-System Layer for Accessibility-Grounded AI Agents",
+      "abstract": "Current operating systems expose interfaces optimized for human users but not for AI agents. Humans benefit from pixels, icons, windows, visual grouping, mouse movement, and keyboard shortcuts; AI agents instead need compact semantic state, grounded actions, and reliable feedback. As a result, many computer-use agents are forced to interpret screenshots, OCR output, and visual crops, introducing high token costs, visual ambiguity, latency, and coordinate uncertainty. This paper introduces LUMOS (Language Model Unified Machine-Readable Operating-System Semantics), a semantic interaction layer between AI agents and operating systems. LUMOS converts native accessibility metadata and browser UI structures into machine readable semantic blueprints with stable identifiers, roles, names, values, bounds, and action affordances. It also supports live semantic pointer grounding by querying the UI element under or near the cursor through operating-system automation APIs. An LLM then acts through an accessibility grounded observe act loop using constrained visible-UI primitives rather than application-specific scripts. LUMOS does not claim to replace visual agents; instead, it reduces dependence on screenshots when operating systems already provide semantic structure. These results suggest a path toward AI-native operating systems and machine-readable interaction layers.",
+      "abstract_zh": "当前操作系统提供的交互界面主要面向人类用户优化，而非针对AI智能体。人类用户受益于像素、图标、窗口、视觉分组、鼠标移动和键盘快捷键；而AI智能体需要的则是紧凑的语义状态、具象化操作和可靠反馈。因此，众多计算机使用智能体被迫依赖屏幕截图、OCR（光学字符识别）输出和视觉裁剪进行交互，这导致了高昂的令牌成本、视觉歧义、操作延迟及坐标定位不确定性。本文提出LUMOS（语言模型统一机器可读操作系统语义层）——一种介于AI智能体与操作系统之间的语义交互层。LUMOS将原生无障碍元数据与浏览器UI结构转化为具备稳定标识符、角色属性、名称、数值、边界范围和操作映射的机器可读语义蓝图。该系统还通过操作系统自动化API（应用程序编程接口）支持实时语义指针定位，可查询光标下方或附近的UI元素。随后，大型语言模型通过基于无障碍技术的\"观察-执行\"循环，使用受约束的可见界面基础操作而非特定应用程序脚本来实施交互。需要强调的是，LUMOS并非旨在取代视觉智能体，而是在操作系统已提供语义结构的情况下，降低对屏幕截图的依赖。这些研究成果为构建AI原生操作系统和机器可读交互层指明了发展方向。",
+      "hf_link": "https://huggingface.co/papers/2606.30697"
+    }
+  },
+  "hf_votes": {
+    "2606.30534": 0,
+    "2606.28436": 0,
+    "2606.31315": 0,
+    "2606.30626": 0,
+    "2606.32039": 0,
+    "2606.31734": 0,
+    "2606.29082": 0,
+    "2606.30062": 0,
+    "2606.32032": 0,
+    "2606.31410": 0,
+    "2606.29215": 0,
+    "2606.30811": 0,
+    "2606.30673": 0,
+    "2606.30968": 0,
+    "2606.30319": 0,
+    "2606.31029": 0,
+    "2606.30697": 0
+  },
+  "focus_sections": {
+    "3D生成与重建": [
+      "2606.30673"
+    ]
+  },
+  "summaries": {
+    "2606.30673": {
+      "short_zh": "并行生成艺术家风格三维网格",
+      "tags": "计算机图形学;三维形状生成;艺术家风格网格生成",
+      "body_summary": "自回归Transformer生成高质量网格但计算慢，连续扩散方法难以直接处理离散的网格连接关系。\n我们提出将网格嵌入连续空间并用基于Transformer的流匹配框架进行并行生成，实现快速可控的高质量网格生成。"
+    },
+    "2606.30534": {
+      "short_zh": "提升大语言模型推理能力",
+      "tags": "自然语言处理;大语言模型;推理能力提升",
+      "body_summary": "大语言模型在处理复杂推理任务时准确性有待提高\n提出一种新的大型语言模型训练方法"
+    },
+    "2606.28436": {
+      "short_zh": "无环境验证代码助编程",
+      "tags": "软件工程;程序分析与验证;代码补丁验证",
+      "body_summary": "程序验证器在训练代码智能体时至关重要，但传统基于执行的方法需要耗费大量环境搭建成本。\n本文提出Dockerless，一种无须执行代码的环境无关验证器，它通过智能探索代码仓库来评估补丁正确性，并成功用于完全无环境的训练流程。"
+    },
+    "2606.31315": {
+      "short_zh": "自适应分块加速推测解码",
+      "tags": "自然语言处理;大语言模型推理加速;推测解码分块优化",
+      "body_summary": "推测解码通过草稿模型并行生成候选词以加速推理，现有方法采用固定分块策略，但最优分块大小因输入而异。\n本文提出BlockPilot，通过学习预填充表示自适应预测最优分块大小，实现无额外开销的高效加速。"
+    },
+    "2606.30626": {
+      "short_zh": "双重策略蒸馏改进模型蒸馏",
+      "tags": "机器学习;模型蒸馏;大模型能力迁移",
+      "body_summary": "在策略蒸馏中，特权信息可能导致学生模型混淆能力鸿沟与信息鸿沟，且令牌级监督信号分布不均。\n提出DOPD方法，根据优势差距和相对概率动态分配教师或学生自身的监督信号，以缓解特权幻觉并提升蒸馏性能。"
+    },
+    "2606.32039": {
+      "short_zh": "联合优化视觉生成模型",
+      "tags": "计算机视觉;图像生成;视觉自回归模型",
+      "body_summary": "视觉生成模型通常分两阶段训练，导致分词器与生成器目标不一致。\n提出GEAR，通过表征对齐引导，联合端到端训练量化分词器和自回归生成器，提升生成效率与特征质量。"
+    },
+    "2606.31734": {
+      "short_zh": "学习查询记忆提升视频世界模型一致性",
+      "tags": "计算机视觉;视频生成;视频世界模型",
+      "body_summary": "视频世界模型缺乏记忆机制导致生成长视频时场景不一致。\n提出MemLearner，用学习式查询桥接上下文与预测，利用预训练模型实现自适应记忆检索。"
+    },
+    "2606.29082": {
+      "short_zh": "大模型进化微调技术",
+      "tags": "机器学习;强化学习;进化优化",
+      "body_summary": "大模型结合进化搜索已在多个优化任务上取得突破，但每次解决新问题都需从头开始，模型未能积累和复用进化经验。\n本文提出进化微调方法，通过大规模优化任务轨迹数据集训练模型，使其能跨任务泛化进化能力，并在多个任务上超越基准模型。"
+    },
+    "2606.30062": {
+      "short_zh": "小模型在检索增强生成中的性能评估",
+      "tags": "自然语言处理;语言模型;检索增强生成",
+      "body_summary": "近期大语言模型主导研究，但小模型在诸多领域仍很重要，却较少被关注。\n本研究评估小模型在检索增强生成系统中的生成表现，发现其可在无GPU的设备上合理时间内运行。"
+    },
+    "2606.32032": {
+      "short_zh": "用元认知反馈强化学习校准大模型不确定性",
+      "tags": "自然语言处理;大语言模型;不确定性校准",
+      "body_summary": "大语言模型存在系统性元认知缺陷，如高自信幻觉、无法识别知识边界、无法准确表达内在不确定性。\n提出了基于元认知反馈的强化学习和数据选择方法，以校准模型自我报告置信度并映射为自然语言表达，在多种任务上取得了最先进的忠实校准效果。"
+    },
+    "2606.31410": {
+      "short_zh": "训练手机界面智能体提升实用稳定性",
+      "tags": "人机交互;图形用户界面;移动端智能体",
+      "body_summary": "现有图形用户界面智能体在模拟环境训练评估，与真实应用存在差距。\n构建了基于真机的闭环系统收集数据并训练，显著提升了真实任务执行稳定性。"
+    },
+    "2606.29215": {
+      "short_zh": "多区块扩散语言模型",
+      "tags": "自然语言处理;文本生成;扩散语言模型",
+      "body_summary": "现有扩散语言模型推理时并行解码多个区块的需求与训练时状态存在差距。\n提出多区块训练方法缩小差距，并设计高效解码算法提升生成速度与质量。"
+    },
+    "2606.30811": {
+      "short_zh": "音频视频统一表征学习",
+      "tags": "多模态生成;音视频生成;联合音视频表征",
+      "body_summary": "现有音视频生成方法使用双分支设计，存在表征差距且计算成本高。\n本文提出统一表征模型AVTok，通过分层训练实现高效联合编码，提升下游生成质量。"
+    },
+    "2606.30968": {
+      "short_zh": "训练自由的任意分辨率照片马赛克",
+      "tags": "计算机图形学;图像生成;照片马赛克生成",
+      "body_summary": "照片马赛克生成任务需要同时满足全局布局与局部细节，但现有方法难以兼顾且高分辨率生成计算成本高。\n提出PhotoQuilt框架，通过引导式分块去噪，先低分辨率确定布局再升维分块细化，实现无需训练的高质量任意分辨率生成。"
+    },
+    "2606.30319": {
+      "short_zh": "统一脑视觉语言模型",
+      "tags": "计算神经科学;脑信号建模;脑视觉语言多模态对齐",
+      "body_summary": "现有方法将脑编码与解码视为孤立任务，忽视脑作为多模态整合系统的本质。\n提出首个统一模型BrainJanus，通过共享空间量化脑信号实现视觉、语言和脑信号的任意互生成。"
+    },
+    "2606.31029": {
+      "short_zh": "卫星图像生成统一空间控制",
+      "tags": "计算机视觉;图像生成;卫星图像可控生成",
+      "body_summary": "生成模型在卫星图像合成中面临空间结构复杂且与地理信息工具不兼容的挑战。\n提出TerraDiT-Ω框架，利用任何地理空间基元实现可控生成，并提出几何感知注意力机制提升效果，能用于下游任务数据增强。"
+    },
+    "2606.30697": {
+      "short_zh": "为AI智能体提供语义化操作系统层",
+      "tags": "人机交互;智能体交互;操作系统语义化",
+      "body_summary": "当前操作系统界面为人类设计，不便于AI智能体理解与操作。\n提出LUMOS层，将可访问性元数据转为机器可读语义蓝图，支持AI通过语义指令直接操作。"
+    }
+  },
+  "deep_analysis": {
+    "2606.30673": "好的，没问题。我用通俗易懂的方式为你解读一下这篇名为 **《PolyFlow: Continuous Topology Embedding Flow Matching for Artist-style Mesh Generation》** 的论文。\n\n你可以把这篇论文看作是在3D建模领域做“**AI版自动布线/重拓扑**”的工作。\n\n### (1) 任务是什么？\n*   **任务输入**：一个粗糙的、仅有位置信息的**点云**（或者可以从单张图片、文本生成的点云）。\n*   **任务输出**：一个**高质量、可直接用于生产**的3D多边形网格。\n    *   **高质量**：指网格的**拓扑结构**（即顶点、边、面的连接方式）清晰、有条理，像专业艺术家手工制作的模型那样。\n    *   **可直接用于生产**：意味着网格的**顶点数量可控**（例如，你可以要求生成一个5000个顶点的模型），并且生成速度很快。\n*   **任务功能**：自动将无序的点云，转换成结构优良的3D网格模型。\n\n### (2) 想解决什么问题？\n当前AI生成网格的主流方法是**自回归模型**（比如MeshGPT）。这种方法虽然质量高，但有一个致命缺点：**生成极慢**。因为它必须像生成文字一样，一个接一个地“吐出”顶点和面，生成一个模型可能需要几分钟甚至更久。\n\n**核心矛盾**：人们希望有像**扩散模型**（如Stable Diffusion）那样**并行、快速**的生成方式。但传统扩散/流匹配模型处理的是**连续数据**（如图像像素值），而网格的**拓扑连接关系**（边是存在还是不存在）是**离散的、二元的**。直接应用这些方法会“水土不服”。\n\n**所以，论文的核心问题就是**：**如何让快速、并行的生成方法（流匹配）也能应用于需要处理离散拓扑结构的网格生成任务？**\n\n### (3) 贡献是什么？\n1.  **提出“拓扑编码器”**：这是一个巧妙的桥梁。它学习将**离散的网格连接关系**，编码成一个**连续的、低维的向量**（即“拓扑嵌入”）。这样，原本的“有无连接”的离散问题，就转化成了向量空间中的“距离远近”的连续问题。\n2.  **构建“连续网格状态”**：将每个顶点的**位置**、**法线**和**拓扑嵌入向量**拼接在一起，形成一个完整的、连续的“顶点状态”。整个网格就变成了一个“顶点状态集合”。\n3.  **提出PolyFlow模型**：基于上述连续表示，设计了一个**基于Transformer的流匹配模型**。它可以**并行地**对这个“顶点状态集合”进行去噪和生成，速度极快。\n4.  **实现顶点数可控**：在推理时，你可以直接指定想要的顶点数量，模型会生成对应数量的顶点状态，然后自动恢复出网格。\n\n### (4) 整体思路与流程\n论文的流程分为**两个核心阶段**：**训练拓扑编码器** 和 **训练流匹配生成模型**。模型结构图可以概括如下：\n\n**阶段一：训练“拓扑编码器”（一个轻量级网络，后续会被冻结）**\n*   **输入**：从真实艺术家制作的网格中，提取每个顶点的**位置**和**法线**。\n*   **过程**：编码器为每个顶点计算一个**连续的嵌入向量**。\n*   **训练目标**：让这个嵌入向量空间满足一个性质——**在真实网格中相连的两个顶点，它们的嵌入向量在“时空距离”（一种结合了位置和向量差异的度量）上非常接近；不相连的顶点则距离较远。**\n*   **输出**：一个训练好的编码器。**任何**网格，经过它都能得到一个“拓扑嵌入向量场”，这个场隐含了原始的连接信息。\n\n**阶段二：训练“流匹配模型”（PolyFlow主体，一个Transformer）**\n1.  **构建训练数据**：对于一个真实网格，先用阶段一训练好的编码器得到所有顶点的“拓扑嵌入”，然后与顶点位置、法线拼接，得到“干净”的连续顶点状态 `Z_clean`。\n2.  **添加噪声**：对这个干净的状态 `Z_clean` 添加随机噪声，得到一个“嘈杂”的顶点状态 `Z_noisy`。同时，从输入的点云中提取全局特征。\n3.  **模型学习**：将 `Z_noisy` 和点云特征一起输入PolyFlow（一个Transformer模型）。模型的任务是**预测一个“速度场”**，这个速度场指明了如何从 `Z_noisy` 一步步“流”回到 `Z_clean`。\n4.  **训练目标**：最小化预测的速度与真实速度之间的差异。这本质上是在学习整个数据分布的“流动”规律。\n\n**推理（生成新网格）流程：**\n1.  **指定顶点数N**：用户输入想要的顶点数量。\n2.  **从噪声开始**：随机初始化N个顶点的“嘈杂状态”（位置、法线、拓扑嵌入都是随机的）。\n3.  **并行去噪**：将这批噪声顶点和**条件点云的特征**输入PolyFlow。PolyFlow**一次性、并行地**预测所有顶点的“速度”，然后用ODE求解器（一种数学积分工具）沿着这个速度场，一步或几步就将所有顶点的状态从噪声更新到干净状态。**这是速度快的核心原因！**\n4.  **解码网格**：\n    *   **恢复边**：根据生成的顶点“拓扑嵌入”，计算它们之间的“时空距离”。距离小于某个阈值的两个顶点，就认为它们之间应该有一条**边**。\n    *   **生成面**：在恢复出的边的基础上，通过寻找三角形（三角化）来**生成面**。\n    *   **修正法向**：用一个后处理步骤，确保所有三角形的朝向（法线）一致。\n5.  **输出**：一个顶点数恰好为N、拓扑结构清晰、贴合输入点云的完整3D网格。\n\n### (5) 结果怎么样\n论文在Toys4K数据集上进行了测试。\n*   **定量结果**：在衡量几何精度的**倒角距离**和衡量最差误差的**豪斯多夫距离**上，PolyFlow都**超越了**当前最好的自回归模型（如MeshGPT、BPT等）。这说明其生成质量更高。\n*   **定性结果**：生成的网格**拓扑非常干净、有规律**，几乎没有杂乱的面片，视觉效果很像艺术家作品。\n*   **速度**：这是最大亮点。PolyFlow生成一个网格仅需**几秒钟**，而自回归模型需要**几十秒到几分钟**，实现了**数量级**的提速。\n*   **可控性**：成功实现了对输出网格顶点数量的精确控制。\n\n**总结一下**：这篇论文通过发明“拓扑编码器”这个巧妙的工具，将离散的网格连接问题“连续化”，从而成功地将快速的“流匹配”生成范式引入了网格生成领域，在**质量、速度、可控性**上都取得了很好的效果，是一个很有价值的突破。"
+  },
+  "figures": {
+    "2606.30673": [
+      {
+        "path": "https://arxiv.org/html/2606.30673v1/x1.png",
+        "caption": "Figure 2:Overview of the PolyFlow pipeline.Left—Training:Given a 3D mesh, we sample a point cloud and encode it into condition features via a frozen condition encoder.\nVertex positions(x,y,z)(x,y,z), surface normals, and topology embeddings produced by a frozen topology embedder are concatenated to form the joint flow state𝐳=[xyz,normals,emb]\\mathbf{z}=[\\mathrm{xyz},\\,\\mathrm{normals},\\,\\mathrm{emb}]of shape(B,V,D)(B,V,D).\nA Flow Transformer is trained to denoise𝐳\\mathbf{z}from Gaussian noise𝐱0∼𝒩​(𝟎,𝐈)\\mathbf{x}_{0}\\sim\\mathcal{N}(\\mathbf{0},\\mathbf{I}), conditioned on the point-cloud features.Right—Inference:The user specifies an expected vertex countV^\\hat{V}; we initializeV^\\hat{V}tokens from noise of shape(B,V^,D)(B,\\hat{V},D)and denoise them in parallel with the EMA copy of the Flow Transformer.\nThe denoised output is split into three channel groups—➀ vertex positions, ➁ surface normals, and ➂ topology embeddings—from which edges and faces are decoded via spacetime distance thresholding to produce the final mesh.",
+        "role": "pipeline_1",
+        "caption_zh": "图 2：PolyFlow 流程概览。左半部分——训练阶段：给定一个三维网格，我们对其点云采样，并通过一个冻结的条件编码器将其编码为条件特征。顶点位置（x, y, z）、表面法向量以及由冻结的拓扑嵌入器生成的拓扑嵌入被拼接起来，构成联合流状态 𝐳 = [xyz, normals, emb]，其形状为 (B, V, D)。流动 Transformer 被训练用于从高斯噪声 𝐱₀ ∼ 𝒩(𝟎, 𝐈) 中对 𝐳 进行去噪，并以点云特征为条件。右半部分——推理阶段：用户指定期望的顶点数量 V̂；我们从形状为 (B, V̂, D) 的噪声中初始化 V̂ 个令牌，并使用 Flow Transformer 的指数移动平均（EMA）副本并行地对它们进行去噪。去噪后的输出被分成三个通道组——➀ 顶点位置、➁ 表面法向量和 ➂ 拓扑嵌入——随后通过时空距离阈值解码出边和面，从而生成最终的网格。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.30673v1/figs/teaser.png",
+        "caption": "Figure 1:PolyFlow generates meshes with clean, artist-like topology conditioned on point clouds. By denoising vertex positions, normals, and continuous topology embeddings in parallel via flow matching, PolyFlow produces high-quality meshes in seconds with exact vertex-count control.",
+        "role": "pipeline_2",
+        "caption_zh": "图1：PolyFlow基于点云生成具有整洁、类艺术家风格拓扑结构的网格。通过流匹配并行去噪顶点位置、法向量及连续拓扑嵌入，PolyFlow可在数秒内生成高质量网格，并实现精确的顶点数量控制。"
+      },
+      {
+        "path": "https://arxiv.org/html/2606.30673v1/x2.png",
+        "caption": "Figure 3:Visualization of the denoising process. Top: vertex positions at selected ODE steps (colored by spatial coordinate). Bottom: meshes decoded from the corresponding topology embeddings. The flow model progressively resolves global shape, local details, and clean connectivity over 50 Euler steps.",
+        "role": "pipeline_3",
+        "caption_zh": "图 3：去噪过程的可视化。上方：选定 ODE 步骤下的顶点位置（按空间坐标着色）。下方：从对应拓扑嵌入解码得到的网格。该流模型在 50 个欧拉步骤中逐步重建整体形状、局部细节与清晰连接性。"
+      }
+    ]
+  }
+}
