@@ -1,0 +1,278 @@
+{
+  "base_info": {
+    "2607.02517": {
+      "title": "WorldDirector: Building Controllable World Simulators with Persistent Dynamic Memory",
+      "abstract": "We present WorldDirector, a highly controllable video world model framework designed for persistent dynamic object memory and unrestricted viewpoint exploration. Unlike existing world models that entangle physical dynamics with pixel rendering and rely on continuous visual observation to sustain motion, our framework explicitly decouples semantic motion orchestration from visual generation. By leveraging an LLM to coordinate 3D trajectories with camera movements and subsequently employing these orchestrated trajectories as control signals for video generation, our approach ensures strict physical logic and appearance stability, successfully preserving the exact visual identities of dynamic entities even when they re-enter the scene after prolonged periods out of view. Experimental results demonstrate that our method supports the synthesis of complex and extended events with unprecedented controllability and persistent dynamic object memory. Project Page:this https URL",
+      "abstract_zh": "我们提出WorldDirector，这是一个高度可控的视频世界模型框架，旨在实现持续动态对象记忆与无约束视点探索。与现有世界模型将物理动力学与像素渲染纠缠、并依赖连续视觉观测来维持运动不同，我们的框架明确将语义运动编排与视觉生成解耦。通过利用大语言模型（LLM）协调三维轨迹与摄像机运动，并随后将这些编排的轨迹作为视频生成的控制信号，我们的方法确保了严格的物理逻辑与外观稳定性，即使动态实体在长时间离开视野后重新进入场景，也能成功保持其精确的视觉特征。实验结果表明，我们的方法支持合成复杂且延展的事件，具有前所未有的可控性和持续的动态对象记忆能力。项目页面：this https URL",
+      "hf_link": "https://huggingface.co/papers/2607.02517"
+    },
+    "2607.02512": {
+      "title": "Program-as-Weights: A Programming Paradigm for Fuzzy Functions",
+      "abstract": "Many everyday programming tasks resist clean rule-based implementation, such as alerting on important log lines, repairing malformed JSON, or ranking search results by intent, and are increasingly outsourced to large language model APIs at the cost of locality, reproducibility, and price. We propose fuzzy-function programming: compiling such a function from a natural-language specification into a compact, locally-executable neural artifact. We instantiate this paradigm with Program-as-Weights (PAW), in which a 4B compiler trained on FuzzyBench, a 10M-example dataset we release, emits parameter-efficient adapters for a frozen, lightweight interpreter. A 0.6B Qwen3 interpreter executing PAW programs matches the performance of direct prompting of Qwen3-32B, while using roughly one fiftieth of the inference memory and running at 30 tokens/s on a MacBook M3. PAW reframes the foundation model from a per-input problem solver into a tool builder: invoked once per function definition, it produces a small reusable artifact whose subsequent calls per function application are cheap and offline.",
+      "abstract_zh": "许多日常编程任务难以通过简洁的基于规则的方式实现，例如对重要日志行进行告警、修复格式错误的JSON，或根据意图对搜索结果进行排序。这类任务正日益被外包给大型语言模型API，代价是牺牲了本地性、可复现性与成本控制。我们提出模糊函数编程：将此类函数从自然语言描述编译成紧凑、可在本地执行的神经产物。我们通过“权重即程序”模式实现这一范式——该模式基于我们发布的包含1000万样本的FuzzyBench数据集训练出一个40亿参数的编译器，使其能为一个冻结的轻量级解释器生成参数高效的适配器。由6亿参数的Qwen3解释器执行PAW程序时，其性能与直接提示320亿参数的Qwen3模型相当，同时推理内存占用减少约五十分之一，并在MacBook M3上达到每秒30个令牌的处理速度。PAW将基础模型重新定位为工具构建者而非逐输入求解器：每个函数定义仅需调用一次模型，即可生成小型可复用产物，此后每次函数调用的开销极低且可离线执行。",
+      "hf_link": "https://huggingface.co/papers/2607.02512"
+    },
+    "2607.02255": {
+      "title": "AgenticSTS: A Bounded-Memory Testbed for Long-Horizon LLM Agents",
+      "abstract": "Memory for a long-horizon LLM agent is a contract about what each future decision is allowed to see. The simplest contract appends past observations, tool calls, and reflections to every prompt, which makes prior context easy to access but also turns it into a jumbled mixture in which the effect of any single memory component is hard to isolate. We introduce and instrument an alternative bounded contract: every decision is made from a fresh user message assembled by typed retrieval, with no raw cross-decision transcript appended. The prompt thus stays bounded across runs of any length, and any single layer can be ablated in isolation. We instantiate the contract in Slay the Spire 2, a closed-rule stochastic deck-building game whose runs require hundreds of tactical and strategic decisions. A public online benchmark of frontier LLMs on the same game reports zero wins at the lowest difficulty across five configurations, and the developer-reported human win rate at the same difficulty is 16%; the task is hard but not saturated. Within our harness, a fixed-A0 ablation shows the largest observed difference when triggered strategic skills are enabled: the no-store baseline wins 3/10 games and adding the skill layer 6/10. At this sample size the comparison is directional rather than statistically decisive (Fisher exact p\\approx0.37); a cross-backbone probe and public accumulating-context baselines are reported as operational comparisons rather than controlled tests of the contract variable itself. We release a reproducible testbed: 298 completed trajectories with condition tags, frozen memory/skill snapshots, prompt records, and analysis scripts -- an agent design and a validated, reusable methodology for studying how explicit memory layers shape long-horizon LLM-agent decisions.",
+      "abstract_zh": "对于一个长期视野的LLM智能体而言，记忆是关于允许每次未来决策查看何种信息的契约。最简单的契约是将过去的观察、工具调用及反思结果附加至每个提示中，这使得先前的上下文易于获取，但也使其变为混杂的混合体——其中任何单个记忆成分的效果都难以被单独识别。我们提出并构建了一种替代性的有界契约：每个决策都基于通过类型化检索组装而成的新用户消息作出，且不附加任何原始的跨决策记录文本。因此，无论运行长度如何，提示始终保持有界状态，且任何单层记忆均可被独立消融。我们在《杀戮尖塔2》这一封闭规则、随机卡牌构筑游戏中实例化了该契约，其单局游戏需要数百次战术与战略决策。同一游戏的公开在线基准测试显示，前沿LLM在五种配置下最低难度级别的胜率为零，而开发者报告的同难度人类胜率为16%；该任务具有挑战性但尚未达到性能饱和。在我们的测试框架中，固定架构的消融实验表明，当触发的战略技能层被启用时观察到最大差异：无存储基线在10局游戏中获胜3次，而添加技能层后胜率提升至6次。在此样本规模下，该比较具有方向性而非统计确定性（费希尔精确检验 p≈0.37）；跨骨干模型探针实验与公开的累积上下文基线结果作为操作对比呈现，而非对契约变量本身的受控检验。我们发布了一个可复现的测试平台：包含298条带条件标签的完整轨迹、冻结的记忆/技能快照、提示记录及分析脚本——这既是一种智能体设计方案，也是一套经过验证、可复用的方法论，用于研究显式记忆层如何塑造长期视野LLM智能体的决策过程。",
+      "hf_link": "https://huggingface.co/papers/2607.02255"
+    },
+    "2607.02440": {
+      "title": "EvoPolicyGym: Evaluating Autonomous Policy Evolution in Interactive Environments",
+      "abstract": "Autonomous agents are increasingly expected to improve executable policies through feedback, yet existing evaluations often collapse this process into a final score or confound it with open-ended software-engineering progress. We introduce Autonomous Policy Evolution, a controlled evaluation setting in which a harness-model agent repeatedly edits an executable policy system under a fixed interaction budget. We instantiate this setting in EvoPolicyGym, a benchmark built from compact interactive RL environments that evaluates how agents iteratively improve explored policies. On the EvoPolicyGym suite, GPT-5.5 achieves the strongest aggregate rank score and top-two performance on all 16 environments. Beyond leaderboard results, EvoPolicyGym also provides trajectory-level diagnostics that distinguish how agents allocate budget, convert feedback into parametric tuning. These analyses show that strong autonomous policy evolution depends not only on isolated task wins, but on discovering task-appropriate mechanisms and refining policies under bounded feedback.",
+      "abstract_zh": "自主智能体（autonomous agents）正日益被期待通过反馈改进可执行策略（executable policies），但现有评估常将这一过程简化为最终得分，或将其与开放式软件工程进展相混淆。我们提出自主策略演化（Autonomous Policy Evolution），这是一种受控评估框架，其中由约束模型（harness-model）构建的智能体在固定交互预算下反复编辑可执行策略系统。我们将该框架实例化为EvoPolicyGym——一个基于紧凑交互式强化学习（RL）环境构建的基准测试平台，用于评估智能体如何迭代改进已探索策略。在EvoPolicyGym测试集中，GPT-5.5取得了最强的综合排名得分，并在全部16个环境中均位列前两名。除排行榜结果外，EvoPolicyGym还提供轨迹级诊断工具，可区分智能体如何分配预算、将反馈转化为参数调优（parametric tuning）。这些分析表明，强大的自主策略演化不仅取决于孤立的任务胜利，更依赖于发现适用于任务的机制（task-appropriate mechanisms），并在有限反馈条件下持续优化策略。",
+      "hf_link": "https://huggingface.co/papers/2607.02440"
+    },
+    "2606.30562": {
+      "title": "Morphing into Hybrid Attention Models",
+      "abstract": "Hybrid attention models improve long-context efficiency by retaining only a subset of full-attention layers and replacing the remaining layers with linear attention. However, the effectiveness of Transformer-to-hybrid conversion critically depends on which layers preserve full attention. Existing hybrid layer selection methods typically rely on heuristic strategies such as fixed placement patterns or layerwise scoring, implicitly treating layer importance as isolated and overlooking the interdependent layer effect under a global hybrid configuration. In this work, we formulate hybrid layer selection as a budget-constrained subset optimization problem. We further propose FlashMorph (Fast LAyer Selection for Hybrid MORPHing), an effective, efficient and scalable layer selection method for Transformer-to-hybrid conversion. FlashMorph first constructs a morphable model by equipping each full-attention layer with a converted linear-attention branch. It then freezes all model weights and jointly optimizes layerwise gates on synthetic long-context retrieval data, with a linearization regularization that encourages the model to rely on linear attention for efficiency. The learned gates are discretized under a preset full-attention budget to instantiate the hybrid architecture, followed by standard logits distillation and long-context finetuning. Extensive experiments show that FlashMorph discovers more effective hybrid configurations, preserves strong long-context recall and general benchmark performance while substantially reducing layer selection cost compared with existing layer selection methods, demonstrating its effectiveness, efficiency, and scalability.",
+      "abstract_zh": "混合注意力模型通过仅保留部分全注意力层，并将剩余层替换为线性注意力（linear attention），从而提升了长上下文处理效率。然而，Transformer到混合模型的转换效果关键取决于哪些层保留了全注意力。现有的混合层选择方法通常依赖启发式策略，例如固定位置模式或逐层评分，这些方法隐含地将层重要性视为独立因素，忽略了全局混合配置下各层间的相互依赖效应。本研究将混合层选择构建为一个预算约束的子集优化问题，并进一步提出了FlashMorph（面向混合形态转换的快速层选择方法），这是一种针对Transformer到混合模型转换的高效、可扩展的层选择方法。FlashMorph首先通过为每个全注意力层配备一个可转换的线性注意力分支，构建一个可形态化模型；随后冻结所有权重，在合成的长上下文检索数据上联合优化各层的门控机制，并通过线性化正则化促使模型依赖线性注意力以提升效率。在预设的全注意力预算下，学习到的门控值被离散化以实例化混合架构，随后进行标准的对数蒸馏（logits distillation）和长上下文微调。大量实验表明，与现有层选择方法相比，FlashMorph能发现更有效的混合配置，在显著降低层选择成本的同时，保持了强大的长上下文召回能力和通用基准性能，验证了其有效性、高效性和可扩展性。",
+      "hf_link": "https://huggingface.co/papers/2606.30562"
+    },
+    "2607.01647": {
+      "title": "AgenticDataBench: A Comprehensive Benchmark for Data Agents",
+      "abstract": "Data science aims to derive actionable insights from heterogeneous raw data, unlocking the value of the massive amounts of data generated in modern society. Automating this process is essential to reducing labor-intensive efforts for data scientists and enabling scalable data-driven applications. Recently, large language model (LLM)-based data agents have emerged as a promising solution to automate data science workflows. However, the field lacks comprehensive benchmarks to rigorously evaluate these agents across diverse scenarios with fine-grained granularity. To address this gap, we propose AgenticDataBench, a comprehensive benchmark featuring realistic tasks spanning diverse domains with fine-grained ground-truth labels. This enables evaluations to capture the diversity and complexity of data science workflows and the detailed performance of agents. First, to cover diverse domains, we collect real datasets and tasks from 15 vertical domains, including 5 real-world B2B use cases from a leading fintech company. Second, to remove redundancy in real-world tasks and generate high-quality tasks for domains lacking real data, we introduce data science skills, recurring data-centric operational patterns, and quantify benchmark coverage by the number of skills included. Representative skills are extracted from large-scale task solutions on Stack Overflow using skill-aligned hierarchical clustering. Third, for real-world business tasks, we select task-solution pairs that maximize diversity in skill composition, ensuring broad coverage of practical scenarios. Fourth, to generate realistic tasks for devise domains without real tasks, we propose a systematic LLM-based task generation approach to create workflows and tasks based on these skills. Finally, we evaluate state-of-the-art data agents using our annotated benchmark and open-sourced testbed, providing detailed skill-level insights.",
+      "abstract_zh": "数据科学旨在从异构原始数据中提取可操作的洞察，从而释放现代社会中海量数据所蕴含的价值。自动化这一过程对于减轻数据科学家劳动密集型工作、实现可扩展的数据驱动应用至关重要。近期，基于大语言模型的数据智能体已成为自动化数据科学工作流程的一种前景广阔的解决方案。然而，该领域目前缺乏全面的基准测试体系，难以在不同场景下以细粒度方式对这些智能体进行严格评估。为填补这一空白，我们提出了AgenticDataBench——一个涵盖多领域真实任务、具有细粒度真实标签的综合基准测试框架。该框架能够评估数据科学工作流程的多样性和复杂性，并精准衡量智能体的详细性能表现。\n\n首先，为覆盖多领域场景，我们从15个垂直领域收集真实数据集与任务，其中包括来自一家领先金融科技公司的5个真实B2B用例。其次，为消除实际任务中的冗余性，并为缺乏真实数据的领域生成高质量任务，我们引入了数据科学技能（即数据导向的重复性操作模式），并通过包含的技能数量量化基准测试的覆盖范围。代表性技能通过技能对齐的层次聚类方法，从Stack Overflow平台的大规模任务解决方案中提取。第三，针对真实商业任务，我们筛选出技能组合多样性最大化的任务-解决方案对，确保广泛覆盖实际应用场景。第四，为缺乏真实任务的特定领域生成仿真任务，我们提出了一种基于大语言模型的系统性任务生成方法，依据既定技能构建工作流程与任务。最后，我们利用标注完成的基准测试框架和开源测试平台，对前沿数据智能体进行评估，并提供细粒度的技能层级分析洞察。",
+      "hf_link": "https://huggingface.co/papers/2607.01647"
+    },
+    "2607.01642": {
+      "title": "Multi-Resolution Flow Matching: Training-Free Diffusion Acceleration via Staged Sampling",
+      "abstract": "Hardware-agnostic strategies for accelerating text-to-image diffusion, such as timestep distillation and feature caching, can reduce inference time without custom kernels or system-level optimization. Among them, multi-resolution generation strategies have recently received broad attention, attaining more than 5x speedup without any training. However, the design of performing upsampling in the latent space, together with the selective modification of partial regions, causes these methods to exhibit noticeable blurring or artifacts. To this end, we propose MrFlow, a training-free multi-resolution acceleration strategy for pretrained flow-matching models built upon a staged low-to-high-resolution pipeline. MrFlow first rapidly generates the main structure at low resolution, then performs super-resolution in the pixel space using a lightweight pretrained GAN-based model, subsequently injects low-strength noise to enable high-frequency resampling, and finally refines the details at high resolution. Quantitative and qualitative results on FLUX.1-dev and Qwen-Image show that MrFlow exploits the quadratic token reduction and reduced step requirement of low-resolution sampling to achieve 10x end-to-end acceleration while keeping OneIG within a 1% gap relative to that before acceleration, significantly surpassing other training-free acceleration strategies, and requiring no training or runtime dynamic identification whatsoever. MrFlow can further be directly combined orthogonally with pre-trained timestep distillation strategies, achieving even higher generation acceleration of up to 25x.",
+      "abstract_zh": "硬件无关的文本到图像扩散加速策略，如时间步蒸馏（timestep distillation）和特征缓存（feature caching），无需定制内核或系统级优化即可减少推理时间。其中，多分辨率生成策略近期受到广泛关注，在无需任何训练的情况下实现了超过5倍的加速。然而，在潜在空间执行上采样的设计，加之对部分区域的选择性修改，导致这些方法出现明显的模糊或伪影。为此，我们提出MrFlow，一种基于分阶段低分辨率到高分辨率流程构建的、适用于预训练流匹配模型的无训练多分辨率加速策略。MrFlow首先在低分辨率下快速生成主体结构，随后使用轻量级预训练的基于生成对抗网络的模型在像素空间执行超分辨率，接着注入低强度噪声以实现高频重采样，最后在高分辨率下细化细节。在FLUX.1-dev和Qwen-Image上的定量与定性结果表明，MrFlow利用低分辨率采样的二次令牌减少和步数需求降低特性，实现了10倍的端到端加速，同时将OneIG（图像生成质量评估指标）相对于加速前的差距保持在1%以内，显著超越了其他无训练加速策略，且无需任何训练或运行时动态识别。MrFlow还可进一步与预训练的时间步蒸馏策略直接正交结合，实现高达25倍的更高生成加速。",
+      "hf_link": "https://huggingface.co/papers/2607.01642"
+    },
+    "2607.02291": {
+      "title": "Optimizing Visual Generative Models via Distribution-wise Rewards",
+      "abstract": "Conventional reinforcement learning strategies for visual generation typically employ sample-wise reward functions, yet this practice frequently results in reward hacking that degrades image diversity and introduces visual anomalies. To address these limitations, we present a novel framework that finetunes generative models using distribution-wise rewards, ensuring better alignment with real-world data distributions. Unlike rewards that evaluate samples individually, distribution-wise reward accounts for the data distribution of the samples, mitigating the mode collapse problem that occurs when all samples optimize towards the same direction independently. To overcome the prohibitive computational cost of estimating these rewards, we introduce a subset-replace strategy that efficiently provides reward signals by updating only a small subset of a generated reference set. Additionally, we apply RL to optimize post-hoc model merging coefficients, potentially mitigating the train-inference inconsistency caused by introducing stochastic differential equation (SDE) in regular RL practices. Extensive experiments show our approach significantly improves FID-50K across various base models, from 8.30 to 5.77 for SiT and from 3.74 to 3.52 for EDM2. Qualitative evaluation also confirms that our method enhances perceptual quality while preserving sample diversity.",
+      "abstract_zh": "传统的视觉生成强化学习策略通常采用样本级奖励函数，但这种方法常导致奖励破解问题，从而降低图像多样性并引入视觉异常。为解决这些局限性，我们提出了一种新颖框架，通过分布级奖励对生成模型进行微调，确保与真实世界数据分布更好对齐。与单独评估样本的奖励机制不同，分布级奖励考量样本的数据分布特性，缓解了所有样本独立朝相同方向优化时出现的模式崩溃问题。为克服估算此类奖励带来的过高计算成本，我们引入了子集替换策略——通过仅更新生成参考集中的小型子集来高效提供奖励信号。此外，我们应用强化学习优化事后模型融合系数，有望缓解常规强化学习实践中引入随机微分方程（SDE）导致的训练-推断不一致性。大量实验表明，该方法在不同基础模型上显著提升了FID-50K指标：SiT模型从8.30改善至5.77，EDM2模型从3.74提升至3.52。定性评估同时证实，我们的方法在保持样本多样性的同时有效提升了感知质量。",
+      "hf_link": "https://huggingface.co/papers/2607.02291"
+    },
+    "2607.02508": {
+      "title": "From SRA to Self-Flow: Data Augmentation or Self-Supervision?",
+      "abstract": "Representation alignment has become an effective way to accelerate diffusion transformer training and improve generation quality. Recent self-alignment methods, such as SRA and Self-Flow, further remove the dependency on external pretrained encoders by constructing alignment within the diffusion model itself. However, the mechanism behind the improvement from SRA to Self-Flow, dual-time scheduling, remains under-examined: Self-Flow attributes its gain to interactions between tokens at different noise levels, where cleaner tokens help infer noisier ones. In this work, we revisit this explanation and ask whether the gain instead comes from data augmentation along the noise dimension. To disentangle these factors, we introduce Attention Separation, which preserves the same dual-timestep input as Self-Flow while blocking attention between tokens assigned to different noise levels. Surprisingly, removing such interaction does not degrade performance and can even improve it, suggesting that the improvement from SRA to Self-Flow mainly comes from data augmentation. Furthermore,We show that Attention Separation itself provides an augmentation effect by splitting a single image into multiple effective training parts to expand the training data. Based on these observations, we combine self-representation alignment with dual-timestep and attention-separation augmentation, and demonstrate the effectiveness of this design on ImageNet.",
+      "abstract_zh": "表征对齐已成为加速扩散变换器训练并提升生成质量的有效途径。近期的自对齐方法，如SRA和Self-Flow，通过在扩散模型内部构建对齐关系，进一步消除了对外部预训练编码器的依赖。然而，从SRA到Self-Flow的性能提升机制——双时间调度策略——尚未得到充分检验：Self-Flow将其增益归因于不同噪声级别下token间的交互作用，即较纯净的token有助于推断噪声较高的token。本研究重新审视了这一解释，并探究其增益是否实际源于噪声维度的数据增强。为区分这两种因素，我们提出了注意力分离机制，该方法在保留与Self-Flow相同的双时间步输入的同时，阻止了分配给不同噪声级别的token之间的注意力交互。令人惊讶的是，消除此类交互不仅未降低性能，甚至能带来提升，这表明从SRA到Self-Flow的改进主要源于数据增强。此外，我们发现注意力分离机制本身通过将单张图像分割为多个有效训练部分来扩展训练数据，从而产生增强效应。基于这些观察，我们将自表征对齐与双时间步及注意力分离增强相结合，并在ImageNet数据集上验证了该设计的有效性。",
+      "hf_link": "https://huggingface.co/papers/2607.02508"
+    },
+    "2606.31825": {
+      "title": "Breaking Failure Cascades: Step-Aware Reinforcement Learning for Medical Multimodal Reasoning",
+      "abstract": "Recent multimodal large language models have shown great promise in clinical image reasoning, but existing post-training pipelines remain predominantly outcome-centric, relying on final answer correctness or sequence-level preferences. This suffers from sparse credit assignment, making it difficult to optimize the reasoning process essential for clinical applications. Our analysis reveals that cascading errors from early-stage reasoning failures are a leading cause of incorrect predictions in medical visual question answering (VQA) benchmarks. Motivated by this, we propose Medical Reasoning-aware Policy Optimization (MRPO), an RL algorithm that incorporates step-wise process rewards. When the final answer is incorrect, MRPO assigns exponentially larger penalties to tokens in earlier invalid reasoning steps, breaking failure cascades without compromising successful paths. Across three multimodal LLM backbones, MRPO consistently outperforms standard GRPO and a recent RL baseline, and on Qwen3-VL-8B-Instruct even surpasses substantially larger medical MLLMs such as HuatuoGPT-Vision-34B by 2.79 points. Moreover, MRPO reduces early-stage reasoning failures from 64.0% to 13.0%, showing that targeted mitigation of cascading failures improves both reasoning quality and final answer accuracy. Our code is available atthis https URL",
+      "abstract_zh": "近年来，多模态大语言模型在临床图像推理领域展现出巨大潜力，但现有的后训练流程仍主要以结果为中心，依赖于最终答案的正确性或序列级偏好。这种方法存在信用分配稀疏的问题，难以优化对临床应用至关重要的推理过程。我们的分析表明，早期推理阶段失败引发的级联错误是导致医疗视觉问答基准测试中出现错误预测的主要原因。基于此，我们提出医疗推理感知策略优化——一种融入分步过程奖励的强化学习算法。当最终答案错误时，MRPO会对早期无效推理步骤中的标记施加指数级增长的惩罚，从而在不影响成功路径的前提下阻断失败级联。在三种多模态大语言模型骨干网络上，MRPO始终优于标准GRPO和近期强化学习基线，在Qwen3-VL-8B-Instruct模型上甚至显著超越HuatuoGPT-Vision-34B等更大规模的医疗多模态大语言模型，提升了2.79个百分点。此外，MRPO将早期推理失败率从64.0%降低至13.0%，表明针对性缓解级联失败能同步提升推理质量与最终答案准确率。代码发布于https://this URL。",
+      "hf_link": "https://huggingface.co/papers/2606.31825"
+    },
+    "2607.02269": {
+      "title": "AnyGroundBench: A Specialized-Domain Benchmark for Video Grounding in Vision-Language Models",
+      "abstract": "Vision-Language Models (VLMs) have demonstrated immense promise in Spatio-Temporal Video Grounding (STVG). However, current evaluation protocols are largely confined to zero-shot assessments on general, daily-life benchmarks. This creates a critical disconnect from real-world applications in specialized fields, where models inevitably encounter rare visual concepts and complex spatio-temporal dynamics. Since exhaustive pre-training across infinite data distributions is infeasible, the ability to adapt to novel domains is essential. To bridge this gap, we introduce AnyGroundBench, a domain-adaptation benchmark designed to shift the STVG evaluation paradigm from static zero-shot testing to rigorous domain adaptation. Targeting five specialized domains (animal, industry, sports, surgery, and public security), AnyGroundBench pairs newly captured videos such as expert-annotated mouse behaviors with established datasets, unifying them through dense, high-fidelity spatio-temporal annotations. Crucially, the benchmark provides dedicated training subsets to systematically measure domain adaptability. We extensively evaluate 15 state-of-the-art VLMs, assessing their zero-shot generalization and In-Context Learning (ICL) capabilities under practical computational constraints. Ultimately, our findings reveal that current models fail in both zero-shot and ICL-based adaptation when confronted with specialized domains, exposing critical flaws in spatio-temporal reasoning that future research must address.",
+      "abstract_zh": "视觉-语言模型（Vision-Language Models，VLMs）在时空视频定位（Spatio-Temporal Video Grounding，STVG）领域展现出巨大潜力。然而，当前的评估方案主要局限于对通用日常生活基准的零样本（zero-shot）测试。这导致其与专业领域的实际应用之间存在显著脱节，因为在现实场景中模型不可避免地会遭遇罕见视觉概念与复杂的时空动态变化。由于无法通过无限数据分布进行详尽预训练，模型适应新领域的能力至关重要。为弥合这一差距，我们提出AnyGroundBench——一个旨在将STVG评估范式从静态零样本测试转向严格领域适应（domain adaptation）的基准测试平台。该基准聚焦五个专业领域（动物、工业、体育、手术与公共安全），将新采集的视频（如专家标注的小鼠行为视频）与既有数据集相结合，并通过密集、高保真的时空标注进行统一整合。关键之处在于，该基准提供了专用的训练子集，以系统化地衡量领域适应能力。我们在实际计算约束下对15个前沿VLM进行了全面评估，检验其零样本泛化能力与上下文学习（In-Context Learning，ICL）性能。最终结果表明，在面对专业领域时，现有模型在零样本和基于ICL的适应任务上均表现不佳，暴露出时空推理能力存在严重缺陷，这必须成为未来研究的重点攻关方向。",
+      "hf_link": "https://huggingface.co/papers/2607.02269"
+    },
+    "2607.01874": {
+      "title": "SkillCoach: Self-Evolving Rubrics for Evaluating and Enhancing Agentic Skill-Use",
+      "abstract": "Skills are becoming a reusable operational layer for LLM agents, encoding SOPs, domain rules, tool workflows, scripts, and validation routines. In realistic skill repositories, overlapping skills make reliable skill-use difficult. Final verifier success is too coarse for both evaluation and training, since an agent may pass through trial and error while selecting distractor skills, skipping required steps, composing workflows incorrectly or omitting final checks. We introduce SkillCoach, a self-evolving rubric framework for evaluating and enhancing agentic skill-use. SkillCoach derives skill-grounded process rubrics from real rollouts and evaluates trajectories along four dimensions: skill selection, skill following, skill composition, and skill-grounded reflection. It keeps the external verifier as a separate outcome signal, allowing process quality to be distinguished from accidental task success. The evolved rubrics further serve as process supervision for selecting high-quality training trajectories. Experiments show that evolved rubrics substantially improve evaluation quality, expose failures hidden by final accuracy, and provide stronger supervision signals than outcome-only filtering for enhancing agentic skill-use.",
+      "abstract_zh": "技能正成为大语言模型（LLM）智能体可复用的操作层，其编码了标准操作规程（SOPs）、领域规则、工具工作流程、脚本及验证程序。在实际的技能库中，技能重叠使得可靠使用技能变得困难。最终验证器的成功对于评估和训练而言过于粗略，因为智能体可能通过试错选择干扰性技能、跳过必要步骤、错误组合工作流程或忽略最终检查。我们引入SkillCoach，一个用于评估和提升智能体技能使用的自演进评价框架。SkillCoach从实际运行轨迹中推导出基于技能的过程评价标准，并从四个维度评估轨迹：技能选择、技能遵循、技能组合以及基于技能的反思。该框架将外部验证器保留为独立的结果信号，从而将过程质量与偶然的任务成功区分开来。演进后的评价标准进一步作为过程监督，用于筛选高质量的训练轨迹。实验表明，演进后的评价标准显著提升了评估质量，揭示了被最终准确率掩盖的失败案例，并为提升智能体技能使用提供了比仅依赖结果筛选更强的监督信号。",
+      "hf_link": "https://huggingface.co/papers/2607.01874"
+    },
+    "2607.01436": {
+      "title": "Discrete Diffusion Language Models for Interactive Radiology Report Drafting",
+      "abstract": "Diffusion language models, which generate text by denoising a token canvas bidirectionally instead of emitting tokens left to right, have become competitive with autoregressive (AR) generation. Medical foundation models, however, remain almost entirely autoregressive. We adapt a mixture-of-experts diffusion language model, DiffusionGemma-26B, and benchmark it against its same-size AR sibling Gemma-4-26B under an identical LoRA recipe on medical visual question answering datasets, scored by a verbosity-robust LLM judge. Diffusion matches or exceeds AR on all of them, and the finetuned model (3.8B active) is competitive with frontier vision-language models; its decoding is also 3.5-4.4x faster. Beyond this parity, the diffusion model offers a drafting capability AR lacks: any-order infill. Because the canvas is denoised bidirectionally, a radiologist can fix report fragments and have the model fill the text between them, an operation inherent to diffusion but not to autoregression, which is subpar at it. This suits real reports, which are often terse or inconsistent across clinicians and institutions.",
+      "abstract_zh": "扩散语言模型通过双向去噪生成文本而非从左到右顺序输出词元，其性能已可与自回归生成模型相媲美。然而，医学基础模型领域仍几乎完全采用自回归架构。本研究采用专家混合架构的扩散语言模型DiffusionGemma-26B，在医学视觉问答数据集上，通过统一配置的低秩自适应微调方案，与其同等规模的自回归姊妹模型Gemma-4-26B进行对比评估，并采用抗冗余性评估的大语言模型进行评分。实验表明扩散模型在所有数据集上均达到或超越自回归模型性能，且微调后的模型（激活参数38亿）在性能上可与前沿视觉语言模型竞争，其解码速度更是提升3.5-4.4倍。除性能持平外，扩散模型还具备自回归模型缺乏的文本草拟能力：任意顺序的文本填充。由于画布采用双向去噪机制，放射科医生可固定报告片段并让模型填充其间的文本——这种操作天然契合扩散模型架构，而自回归模型在此方面表现欠佳。该特性尤其适用于实际医疗报告场景，因其常存在表述简略或不同临床机构间描述不一致的情况。",
+      "hf_link": "https://huggingface.co/papers/2607.01436"
+    },
+    "2607.02375": {
+      "title": "Representation Distribution Matching for One-Step Visual Generation",
+      "abstract": "We elucidate the design space of Representation Distribution Matching (RDM), our name for the paradigm that trains a one-step image generator by matching generated and reference feature distributions under frozen pretrained encoders. We identify two design axes, how the distributions are compared and the representations they are compared in, and controlled studies along them yield three findings. First, the classical MMD, which could not train convincing generators a decade ago, becomes a strong and scalable objective once estimated right. Second, the generated batch is then the operative variable, with an optimum above 2048, far beyond customary batch sizes. Third, any single representation can be gamed, driven below the real score while images stay visibly fake, so we match against a balanced battery of encoders and evaluate with SW_r14, a Sliced-Wasserstein distance over 14 encoders that is independent of the training loss and resists gaming. Combining the preferred choices yields improved RDM (iRDM): it sets the one-step state of the art on ImageNet at SW_r14 1.30, corroborated by PickScore, a human-preference proxy our objective never optimizes, which prefers it over the prior best one-step generator on 71.2% of matched samples. The same recipe post-trains the four-step FLUX.2 [klein] into a one-step generator, surpassing the four-step version on GenEval, 0.826 to 0.794, and on PickScore, 22.76 to 22.58, in 90 H200 GPU-hours. Project page:this https URL.",
+      "abstract_zh": "我们阐明表征分布匹配（Representation Distribution Matching，RDM）的设计空间，该范式通过在冻结的预训练编码器下匹配生成特征与参考特征的分布来训练一步式图像生成器。我们识别出两个设计维度：分布比较的方式以及进行比较的表征空间，并沿此开展受控研究，获得三项发现。首先，经典的核最大平均差异（MMD）方法在十年前无法训练出令人信服的生成器，但经过正确估计后，现已成为一种强大且可扩展的目标函数。其次，生成批次大小成为关键变量，其最优值超过2048，远超常规批次规模。第三，单一表征容易被操控——即使生成图像在视觉上仍显虚假，其评分仍可被压低至低于真实图像水平，因此我们采用一组平衡的编码器进行匹配，并使用SW_r14进行评估：这是一种基于14个编码器的切片瓦瑟斯坦距离（Sliced-Wasserstein distance），独立于训练损失且能有效抵抗操控。结合优选方案，我们得到改进型RDM（iRDM）：该方法在ImageNet上取得一步式生成器的最佳性能，SW_r14得分为1.30，这一结果得到人类偏好代理指标PickScore的佐证——尽管我们的目标函数从未优化该指标，但在71.2%的匹配样本中，iRDM优于此前最佳的一步式生成器。相同方案对四步式模型FLUX.2 [klein]进行后训练，可将其转化为一步式生成器，在GenEval指标上超越原四步版本（0.826对0.794），PickScore得分亦更高（22.76对22.58），整个训练过程仅需90个H200 GPU小时。项目页面：此 https URL。",
+      "hf_link": "https://huggingface.co/papers/2607.02375"
+    },
+    "2607.01763": {
+      "title": "Denser $\\neq$ Better: Limits of On-Policy Self-Distillation for Continual Post-Training",
+      "abstract": "Continual post-training enables foundation models to acquire new knowledge while preserving existing capabilities. Recent work suggests that on-policy learning can mitigate forgetting, with on-policy self-distillation emerging as a particularly attractive approach. In this work, we revisit this optimistic view through self-distillation policy optimization (SDPO). Our experiments show that SDPO can accelerate in-domain specialization when teacher signals are stable and well aligned, but it struggles to generalize to out-of-distribution scenarios. In continual post-training, SDPO exhibits stronger forgetting and can even collapse, whereas on-policy reinforcement learning methods such as GRPO adapt more conservatively and better preserve prior capabilities. Further analyses reveal that denser self-distillation induces larger drift in both parameter space and response space, and can amplify high-frequency formatting artifacts through a self-reinforcing teacher--student loop. These findings suggest that on-policy data alone is insufficient for continual learning. Dense self-distillation can accelerate specialization when teacher targets are stable and token-level supervision is reliable, but it should not be treated as a default stabilizer for continual post-training. Our code is available atthis https URL.",
+      "abstract_zh": "持续后训练使基础模型能够在获取新知识的同时保留现有能力。近期研究表明，在线策略学习能够缓解遗忘现象，其中在线策略自蒸馏已成为一种极具吸引力的方法。本研究通过自蒸馏策略优化重新审视这一乐观观点。实验表明，当教师信号稳定且高度对齐时，SDPO能够加速领域内专业化进程，但其在分布外场景的泛化能力较弱。在持续后训练中，SDPO表现出更强的遗忘性甚至可能崩溃，而如GRPO等在线策略强化学习方法则采取更保守的适应策略，能更好地保持原有能力。进一步分析表明，密集的自蒸馏会导致参数空间和响应空间产生更大漂移，并通过自我强化的师生循环放大高频格式伪影。这些发现说明，仅依靠在线策略数据不足以实现持续学习。当教师目标稳定且词元级监督可靠时，密集自蒸馏可加速专业化进程，但不应将其视为持续后训练的默认稳定器。代码发布于此https URL。",
+      "hf_link": "https://huggingface.co/papers/2607.01763"
+    },
+    "2606.27669": {
+      "title": "When Search Agents Should Ask: DiscoBench for Clarification-Aware Deep Search",
+      "abstract": "Search agents powered by large language models (LLMs) are increasingly used to solve complex information-seeking tasks, requiring multi-step retrieval and reasoning to fulfill user goals. However, existing benchmarks often assume that user queries are complete and explicit, overlooking the fact that real-world search requests are frequently vague, underspecified, or even factually incorrect. In deep search scenarios, such ambiguity can propagate along multi-step reasoning chains and lead agents toward incorrect search trajectories. To address this gap, we introduce DiscoBench, a benchmark for clarification-aware deep search, designed to evaluate whether search agents can proactively identify ambiguity, ask effective clarification questions, and recover correct reasoning paths through user interaction. DiscoBench contains 211 samples and 463 ambiguity instances across 11 real-world domains, covering four ambiguity types. We further design a user simulator for multi-turn interaction and evaluate model performance from four perspectives: task utility, ambiguity detection, interaction strategy, and cost efficiency. Experiments on representative LLMs show that ambiguity detection and effective clarification are distinct capabilities, and that repeatedly searching instead of asking for clarification often performs worse than direct guessing, highlighting a critical gap between retrieval ability and interactive problem-solving in current search agents.",
+      "abstract_zh": "基于大型语言模型（LLM）的搜索代理正日益被用于解决复杂的信息检索任务，这些任务需要多步检索与推理以实现用户目标。然而，现有基准测试通常假设用户查询是完整且明确的，忽视了现实世界中搜索请求往往模糊、表述不完整甚至包含事实错误的现象。在深度搜索场景中，此类模糊性可能会沿着多步推理链传递，导致代理走向错误的搜索轨迹。为弥补这一空白，我们提出了DiscoBench——一个面向澄清感知的深度搜索基准，旨在评估搜索代理能否主动识别模糊性、提出有效的澄清问题，并通过用户交互恢复正确的推理路径。DiscoBench涵盖11个现实领域，包含211个样本和463个模糊实例，覆盖四种模糊类型。我们进一步设计了一个用于多轮交互的用户模拟器，并从四个维度评估模型性能：任务效用、模糊性检测、交互策略与成本效率。对代表性大型语言模型的实验表明，模糊性检测与有效澄清是两种不同的能力，而重复搜索而非请求澄清的表现往往比直接猜测更差，这凸显了当前搜索代理在检索能力与交互式问题解决之间存在关键差距。",
+      "hf_link": "https://huggingface.co/papers/2606.27669"
+    },
+    "2607.02032": {
+      "title": "PACE: A Proxy for Agentic Capability Evaluation",
+      "abstract": "Evaluating LLM agents on benchmarks like SWE-Bench and GAIA can be expensive, time-consuming, and requires complex infrastructure. A single evaluation can cost thousands of dollars and take days to complete. In contrast, non-agentic LLM benchmarks that test individual capabilities (e.g., reasoning, code generation) are fast and cheap to run. In this paper, we investigate whether performance on expensive agentic benchmarks can be accurately predicted by the performance on a small, carefully selected subset of atomic evaluation instances. We introduce PACE, a framework that constructs proxy benchmarks by selecting instances from existing non-agentic evaluations whose aggregate scores most reliably predict model performances on agentic benchmarks. Given a pool of candidate instances spanning atomic capabilities, PACE fits a regression that maps a model's scores on a compact subset of source instances to its score on the target agentic benchmark. The subset itself is curated by combining two complementary instance-selection strategies, target-relevance local selection and globally informative global selection. We apply PACE to the 4 target agentic benchmarks in this paper, which yields PACE-Bench, the concrete proxy benchmark that we evaluate in the paper. Experiments across 14 models, 4 agentic benchmarks, and 19 non-agentic benchmarks show that PACE-Bench predicts agentic scores with leave-one-out cross-validation (LOOCV) mean absolute error (MAE) under 4%, Spearman correlation above 0.80, and pairwise model-ranking accuracy around 85%, all at much less than 1% of the full agentic evaluation cost. We further analyze the selected proxy instances, revealing which skills each agentic benchmark uniquely demands. PACE enables practitioners to obtain reliable estimates of agentic performance during model development, selection, and routing, without the overhead of full agent evaluation.",
+      "abstract_zh": "在诸如SWE-Bench和GAIA等基准测试上评估大型语言模型（LLM）智能体成本高昂、耗时久且需要复杂的基础设施。单次评估可能花费数千美元并耗时数日完成。相比之下，测试单项能力（如推理、代码生成）的非智能体化LLM基准测试则运行快速且成本低廉。本文探讨能否通过小型且精心挑选的原子评估实例子集的性能表现，来准确预测昂贵智能体基准测试的性能。我们提出PACE框架，该框架通过从现有非智能体评估中筛选实例构建代理基准测试，这些实例的聚合分数能最可靠地预测模型在智能体基准测试上的表现。给定涵盖原子能力的候选实例池，PACE通过拟合回归模型，将模型在精选源实例子集上的得分映射到其在目标智能体基准测试的得分。该子集通过结合两种互补的实例选择策略构建：目标相关性局部选择与全局信息全局选择。本文将PACE应用于四个目标智能体基准测试，由此生成PACE-Bench这一具体代理基准测试用于实验评估。通过对14个模型、4个智能体基准测试和19个非智能体基准测试的实验表明，PACE-Bench能够以低于4%的留一交叉验证（LOOCV）平均绝对误差（MAE）、高于0.8的斯皮尔曼相关系数以及约85%的成对模型排序准确率预测智能体得分，而所需成本不到完整智能体评估的1%。我们进一步分析了所选代理实例，揭示了每个智能体基准测试独特需求的技能维度。PACE使实践者能在模型开发、选择与路由过程中获得可靠的智能体性能预估，而无需承担完整智能体评估的系统开销。",
+      "hf_link": "https://huggingface.co/papers/2607.02032"
+    },
+    "2607.02466": {
+      "title": "Learning to Move Before Learning to Do: Task-Agnostic pretraining for VLAs",
+      "abstract": "Vision-Language-Action (VLA) models are fundamentally bottlenecked by the scarcity of expert demonstrations -- triplets of observations, instructions, and actions that are costly to collect at scale. We argue that this bottleneck stems from conflating two distinct learning objectives: acquiring physical competence (how to move) and acquiring semantic alignment (what to do). Crucially, only the latter requires language supervision. Building on this Decomposition Hypothesis, we propose Task-Agnostic Pretraining (TAP), a two-stage framework that first learns transferable motor priors from cheap, unlabeled interaction data -- including discarded off-task trajectories and autonomous robot play -- via a self-supervised Inverse Dynamics objective. A lightweight second stage then grounds these priors in language using minimal expert data. On the SIMPLER benchmark, TAP matches models trained on over 1M expert trajectories while using orders of magnitude less labeled data, yielding a 10% absolute gain over standard behavior cloning. On a real-world WidowX platform, TAP retains 25% success under camera perturbations where internet-scale baselines collapse to 0%, demonstrating that task-agnostic pretraining produces robust, transferable physical representations and offers a scalable path forward for Embodied AI.",
+      "abstract_zh": "视觉-语言-动作模型（Vision-Language-Action，简称VLA）从根本上受限于专家演示数据的稀缺性——这些包含观察、指令与动作的三元组数据需要高昂成本才能大规模收集。我们认为这一瓶颈源于对两个不同学习目标的混淆：获取物理操作能力（如何运动）与获取语义对齐（执行何种任务）。关键在于，只有后者需要语言监督。基于这一“分解假设”，我们提出任务无关预训练（Task-Agnostic Pretraining，简称TAP）框架。该框架分为两个阶段：首先通过自监督的逆动力学目标，从廉价的无标签交互数据（包括被丢弃的非任务轨迹与自主机器人探索数据）中学习可迁移的运动先验知识；随后在轻量级第二阶段中，使用极少量的专家数据将这些先验知识基于语言进行对齐。在SIMPLER基准测试中，TAP仅使用数量级更少的标注数据，就达到了需要超过100万条专家轨迹训练模型的效果，且相比标准行为克隆方法获得10%的绝对性能提升。在真实世界的WidowX机器人平台上，当面临相机扰动时，基于互联网规模数据的基线方法成功率降至0%，而TAP仍能保持25%的成功率。这表明任务无关预训练能够产生鲁棒且可迁移的物理表征，为具身人工智能提供了一条可扩展的发展路径。",
+      "hf_link": "https://huggingface.co/papers/2607.02466"
+    },
+    "2606.31924": {
+      "title": "InstanceControl: Controllable Complex Image Generation without Instance Labeling",
+      "abstract": "Controllable image generation methods, such as ControlNet, have demonstrated a remarkable capacity to introduce visual conditions(e.g., depth maps) to guide image generation. However, these methods often struggle with complex multi-instance scenes, frequently leading to attribute confusion among instances. While recent approaches attempt to mitigate this via manual instance labeling, such requirements are labor-intensive. In this paper, we propose InstanceControl, a novel multi-instance controllable generation method that eliminates the need for instance labeling. We identify the primary bottleneck in existing methods as the inability to accurately associate instance descriptions with their corresponding regions within visual conditions. To address this, we leverage the Vision-Language Model (VLM) to establish instance-level correspondences between text prompts and visual conditions. Specifically, the VLM automatically parses instance descriptions from the text prompts and simultaneously predicts instance masks based on the visual conditions. Furthermore, since the predicted masks may contain noise, we introduce an adaptive mask refinement strategy that dynamically refines these instance masks during the generation process. Extensive experiments demonstrate that our approach outperforms state-of-the-art methods, achieving superior fidelity and precise instance-level control.",
+      "abstract_zh": "可控图像生成方法，如ControlNet，已展现出通过引入视觉条件（例如深度图）来引导图像生成的卓越能力。然而，这些方法在处理复杂多实例场景时往往表现不佳，经常导致实例间的属性混淆。尽管近期研究尝试通过手动实例标注来缓解此问题，但此类需求需耗费大量人力。本文提出InstanceControl，一种无需实例标注的新型多实例可控生成方法。我们发现现有方法的主要瓶颈在于无法准确地将实例描述与视觉条件中的对应区域相关联。为解决此问题，我们利用视觉语言模型（Vision-Language Model，VLM）在文本提示与视觉条件之间建立实例级对应关系。具体而言，VLM自动从文本提示中解析实例描述，并同时基于视觉条件预测实例掩码。此外，由于预测的掩码可能包含噪声，我们引入一种自适应掩码优化策略，在生成过程中动态优化这些实例掩码。大量实验表明，我们的方法优于现有先进技术，实现了更高的生成保真度与精确的实例级控制。",
+      "hf_link": "https://huggingface.co/papers/2606.31924"
+    },
+    "2606.25178": {
+      "title": "Transferability for General Reasoning: An Automated Curriculum for Multi-Domain RLVR",
+      "abstract": "Reinforcement learning with verifiable rewards (RLVR) has been extended from single-domain training to multi-domain reasoning suites spanning mathematics, programming, and science. However, the training curriculum (how often each domain is sampled) is typically fixed or hand-tuned, even though reasoning skills transfer unevenly across domains. Existing learnability-based curricula adapt to where the policy is currently improving, but are blind to whether a gradient step on the selected domain benefits the remaining domains. In this paper, we propose Transfer-Aware Curriculum (TAC), a bandit-style online curriculum that prioritizes domains whose updates broadly benefit the rest of the training suite. TAC repurposes signals already produced by RL training: per-domain advantages capture local learnability, and projected gradients, taken from the GRPO step being computed, estimate cross-domain transferability via gradient-geometry alignment, at negligible cost (<1% wall-clock overhead). Across a six-domain reasoning suite, TAC achieves the best macro-averaged accuracy on both Qwen3-1.7B and Llama3.2-3B, outperforming proportional random sampling, a hand-designed schedule, and a learnability-only bandit, and improving over the last of these by up to 2.8 points (10% relative). Ablations show performance degrades sharply when the transferability term is removed, and TAC remains robust on imbalanced training mixtures where learnability-only curricula over-commit to dominant domains. Our findings establish cross-domain transferability as a key signal for curriculum design in multi-domain RLVR.",
+      "abstract_zh": "可验证奖励的强化学习(RLVR)已从单领域训练扩展到涵盖数学、编程和科学的跨领域推理套件。然而，即使推理能力在不同领域间的迁移效果不均衡，训练课程(各领域被采样的频率)通常仍是固定或手动调整的。现有的基于可学习性的课程能根据策略当前改进的领域进行自适应，但无法判断所选领域的梯度更新是否对剩余领域有益。本文提出迁移感知课程(TAC)，这是一种老虎机风格的在线课程方法，优先选择那些更新能广泛惠及整个训练套件的领域。TAC重新利用了RL训练中已产生的信号：各领域优势度捕获局部可学习性，而取自正在计算的GRPO步骤的投影梯度则通过梯度几何对齐以可忽略的成本(<1%的挂钟开销)估计跨领域可迁移性。在包含六个领域的推理套件中，TAC在Qwen3-1.7B和Llama3.2-3B模型上均实现了最佳的宏观平均准确率，优于比例随机采样、手动设计的调度方案以及仅考虑可学习性的老虎机方法，相对最后一种方法提升了高达2.8个百分点(相对提升10%)。消融实验表明，当移除可迁移性项时性能急剧下降，且在训练数据分布不均衡时——当仅考虑可学习性的课程过度集中于主导领域时——TAC仍保持稳健性。我们的研究确立了跨领域可迁移性作为多领域RLVR课程设计的关键信号。",
+      "hf_link": "https://huggingface.co/papers/2606.25178"
+    }
+  },
+  "hf_votes": {
+    "2607.02512": 0,
+    "2607.02255": 0,
+    "2607.02440": 0,
+    "2606.30562": 0,
+    "2607.01647": 0,
+    "2607.01642": 0,
+    "2607.02517": 0,
+    "2607.02291": 0,
+    "2607.02508": 0,
+    "2606.31825": 0,
+    "2607.02269": 0,
+    "2607.01874": 0,
+    "2607.01436": 0,
+    "2607.02375": 0,
+    "2607.01763": 0,
+    "2606.27669": 0,
+    "2607.02032": 0,
+    "2607.02466": 0,
+    "2606.31924": 0,
+    "2606.25178": 0
+  },
+  "focus_sections": {
+    "3D生成与重建": [
+      "2607.02517"
+    ]
+  },
+  "summaries": {
+    "2607.02517": {
+      "short_zh": "构建可控视频世界模型",
+      "tags": "计算机视觉;视频生成;世界模型",
+      "body_summary": "现有世界模型将物理动态与像素渲染耦合，依赖持续视觉观察维持运动\n提出了WorldDirector，通过大语言模型协调三维轨迹与摄像机运动，再将其作为控制信号生成视频，实现了物理逻辑与外观稳定，支持复杂长时事件合成"
+    },
+    "2607.02512": {
+      "short_zh": "让大模型为模糊任务生成本地小模型",
+      "tags": "自然语言处理;大语言模型应用;模糊函数编程",
+      "body_summary": "许多日常编程任务难以用清晰规则实现，常需调用大语言模型API，但存在成本高、本地不可用等问题。\n提出模糊函数编程范式，训练编译器将自然语言描述编译成高效的本地神经程序，其生成的小型适配器在轻量解释器上运行，能以极低资源达到大模型性能。"
+    },
+    "2607.02255": {
+      "short_zh": "构建长程智能体记忆测试平台",
+      "tags": "智能体与强化学习;大语言模型智能体;长程决策记忆合约",
+      "body_summary": "现有长程大语言模型智能体将所有交互历史拼接到提示中，导致记忆混乱且影响难以分析。\n本文提出一种有界记忆合约，通过类型化检索组装新消息，并基于卡牌游戏构建可复现测试平台，以研究显式记忆层对决策的影响。"
+    },
+    "2607.02440": {
+      "short_zh": "评估自主策略进化",
+      "tags": "自主智能体;策略学习;交互环境策略进化",
+      "body_summary": "现有评估常将智能体通过反馈改进策略的过程简化为最终得分，难以衡量其持续优化能力。\n本文提出了自主策略进化的评估框架并构建了EvoPolicyGym基准，用于评测智能体如何迭代改进策略并分析其优化机制。"
+    },
+    "2606.30562": {
+      "short_zh": "快速选择混合注意力层",
+      "tags": "自然语言处理;高效Transformer;混合注意力层选择",
+      "body_summary": "现有混合注意力模型中全注意力层的选择依赖启发式策略，未能考虑全局层间依赖。\n提出FlashMorph方法，通过联合优化层门控和线性化正则化，高效自动地选出关键全注意力层，实现高性能低成本的Transformer到混合模型的转换。"
+    },
+    "2607.01647": {
+      "short_zh": "数据智能体综合评测基准",
+      "tags": "数据科学；数据工作流自动化；基于大语言模型的数据智能体",
+      "body_summary": "数据科学旨在从异构原始数据中提取可操作的见解，而自动化该过程对降低数据科学家劳动强度至关重要，但缺乏全面评估此类数据智能体的基准。\n为此，提出了一个涵盖多领域真实任务与细粒度标签的综合基准，通过收集真实数据集、定义数据科学技能、筛选多样化任务并生成模拟任务，构建了评测体系并对主流数据智能体进行了详细评估。"
+    },
+    "2607.01642": {
+      "short_zh": "无需训练加速图像生成",
+      "tags": "计算机视觉；图像生成；扩散模型加速",
+      "body_summary": "现有无需训练的多分辨率扩散加速方法在潜在空间进行上采样和局部修改，易导致模糊或伪影。\n提出了MrFlow，一种基于分阶段低到高分辨率的流程匹配模型加速策略，结合轻量级GAN上采样和噪声注入重采样，实现10倍加速且质量接近原模型。"
+    },
+    "2607.02291": {
+      "short_zh": "优化视觉生成模型奖励机制",
+      "tags": "计算机视觉;视觉生成;分布奖励强化学习",
+      "body_summary": "传统视觉生成强化学习使用样本级奖励导致多样性下降和视觉异常\n提出用分布级奖励微调生成模型并设计高效子集替换策略以降低计算成本"
+    },
+    "2607.02508": {
+      "short_zh": "从SRA到自流的改进机制辨析",
+      "tags": "计算机视觉;生成模型;扩散模型表示对齐",
+      "body_summary": "研究了扩散模型中从SRA到Self-Flow方法的改进机制。\n通过引入注意力分离等方法，发现其性能提升主要源于数据增强而非时序交互。"
+    },
+    "2606.31825": {
+      "short_zh": "医学多模态推理的强化学习优化",
+      "tags": "机器学习;多模态学习;医学视觉问答",
+      "body_summary": "现有医学多模态大模型在临床图像推理中存在因早期推理错误导致连锁失败的问题。\n提出一种引入分步奖励的强化学习算法，通过惩罚早期错误步骤来阻断错误链，提升了推理质量和最终答案准确性。"
+    },
+    "2607.02269": {
+      "short_zh": "评估视频定位模型跨领域能力",
+      "tags": "计算机视觉;视觉语言模型;时空视频定位",
+      "body_summary": "当前视觉语言模型在专业领域视频定位任务中缺乏有效评估\n构建跨领域视频定位基准并测试模型泛化与适应能力"
+    },
+    "2607.01874": {
+      "short_zh": "评估提升智能体技能使用质量",
+      "tags": "大语言模型智能体;技能评估与训练;过程监督与质量优化",
+      "body_summary": "在真实技能库中，技能重叠等问题使得智能体可靠使用技能变得困难，仅靠最终任务成功率评估过于粗糙。\n提出了SkillCoach框架，通过从实际执行轨迹中推导并自演进的评分规则，从技能选择、遵循、组合和反思四个维度评估过程质量，并将其作为过程监督信号来筛选高质量训练数据，有效提升评估与训练效果。"
+    },
+    "2607.01436": {
+      "short_zh": "离散扩散模型辅助书写放射报告",
+      "tags": "自然语言处理;文本生成;医疗报告生成",
+      "body_summary": "现有医学大模型主要基于自回归生成，本研究探索扩散语言模型在医疗领域的应用。\n微调后的扩散模型在多项评估中匹配或超越自回归模型，并支持报告片段间的灵活填充。"
+    },
+    "2607.02375": {
+      "short_zh": "单步图像生成的特征分布匹配",
+      "tags": "计算机视觉;图像生成;分布匹配损失",
+      "body_summary": "设计并优化单步图像生成器的训练方法，通过匹配生成图像与真实图像在预训练编码器中的特征分布来训练模型。\n提出改进的RDM方法，通过优化分布比较方式和多编码器匹配策略，在ImageNet上实现了单步生成的新最优性能，并能高效地将多步模型后训练为高性能单步模型。"
+    },
+    "2607.01763": {
+      "short_zh": "密集蒸馏非最优解",
+      "tags": "机器学习;持续学习;持续后训练",
+      "body_summary": "持续后训练旨在让基础模型学习新知识的同时保留原有能力，其中同策略自蒸馏被视为有潜力的方法。\n研究发现同策略自蒸馏虽能加速领域内专精，但会加剧遗忘、损害泛化，其自身强化循环可能放大模型漂移，因此不适合作为持续后训练的默认稳定器。"
+    },
+    "2606.27669": {
+      "short_zh": "搜索代理主动请求澄清",
+      "tags": "自然语言处理;智能信息检索;对话式搜索",
+      "body_summary": "现有搜索基准假设查询明确，忽视了真实搜索请求的模糊与错误问题，这会误导多步推理。\n我们构建了关注澄清的深度搜索基准DiscoBench，并评估模型在识别模糊性、提问澄清和通过交互恢复正确推理路径方面的能力。"
+    },
+    "2607.02032": {
+      "short_zh": "构建代理能力评估的廉价替代",
+      "tags": "自然语言处理;大语言模型;能力评估代理化",
+      "body_summary": "评估大语言模型代理能力成本高昂且耗时，需要一种廉价高效的预测方法。\n提出了PACE框架，通过选取少量原子能力测试题构建代理基准，能以极低成本高精度预测模型的实际代理性能。"
+    },
+    "2607.02466": {
+      "short_zh": "先学动作再学任务视觉语言动作模型预训练",
+      "tags": "机器人;具身智能;视觉语言动作模型",
+      "body_summary": "视觉语言动作模型受限于专家标注数据稀缺，且学习物理技能和语义对齐两个目标被混淆。\n提出了任务无关预训练框架，先用无标签交互数据学习通用运动先验，再用少量专家数据对齐语言，显著提升了数据效率和模型鲁棒性。"
+    },
+    "2606.31924": {
+      "short_zh": "无需实例标注的复杂图像可控生成",
+      "tags": "计算机视觉;图像生成;多实例可控生成",
+      "body_summary": "现有可控图像生成方法在处理复杂多实例场景时容易出现属性混淆，需要手动标注实例。\n提出InstanceControl方法，利用视觉语言模型建立文本与视觉条件的实例级对应，并引入自适应掩码优化策略提升生成质量。"
+    },
+    "2606.25178": {
+      "short_zh": "多领域推理训练课程设计",
+      "tags": "强化学习；可验证奖励强化学习；跨领域技能迁移",
+      "body_summary": "多领域可验证奖励强化学习训练中，不同领域技能迁移不均，现有课程采样方法未能考虑跨领域收益。\n提出一种能感知跨领域收益的在线课程学习方法，通过利用训练中已有的信号来优先选择对整体训练有益的领域，在多个模型和数据集上取得了最佳平均性能。"
+    }
+  },
+  "deep_analysis": {
+    "2607.02517": "好的，我们先来简单梳理一下这篇论文。  \n\n---\n\n## 1. 论文所在的任务是什么\n\n- **任务名称**：可控的世界模拟（Controllable World Simulation）或视频世界建模（Video World Modeling）。\n- **任务输入**：  \n  1. **用户指令**（自然语言描述，例如“一个蓝色的汽车向左转，然后消失在建筑物后面，10秒后从右侧出现”）。  \n  2. **初始视频帧**或**静态场景图像**（用于提供初始场景外观）。\n- **任务输出**：  \n  一段**长时程、多目标、视角可自由变化**的视频，其中动态物体（如汽车、人物）的运动符合物理规律，并且在离开画面后再出现时，外观、位置与之前的状态严格连续。\n- **任务功能**：  \n  模拟一个具有持久记忆的虚拟世界，动态物体可以独立于摄像机视野而持续运动，用户可以精细控制不同物体的行为、外观和摄像机路径。\n\n---\n\n## 2. 这篇论文想解决什么问题\n\n当前视频生成模型或世界模型存在两个主要局限：\n\n1. **动态物体记忆缺失**：  \n   如果一个物体离开摄像机视野（out-of-view），模型容易**忘记**它的存在或状态，等它再出现时位置、外观可能出错（例如颜色变了、运动不连续）。\n2. **控制能力不足**：  \n   同时控制多个物体的独立行为、摄像机运动、长时间的事件发展很困难，现有方法要么显式跟踪计算量大，要么靠模型内部隐式推理，容易出错。\n\n这篇论文想构建一个**具有持久动态记忆且高度可控**的世界模拟器，确保：\n- 物体即使不在画面中，也按物理规律持续运动。\n- 物体再次出现时，外观严格一致。\n- 用户可以用语言灵活控制各个物体和摄像机。\n\n---\n\n## 3. 这篇论文的贡献是什么\n\n1. **提出一种解耦架构**：  \n   将**语义级的 3D 运动编排**与**视频像素生成**分开，用大语言模型（LLM）做“世界导演”，规划物体 3D 轨迹和相机路径，再将规划结果作为条件输入视频生成模型。\n2. **外观绑定机制**：  \n   当物体离开画面再回来时，通过保存并复用其**RGB 外观特征**，确保视觉身份不变。\n3. **空间感知的文本控制**：  \n   将不同物体的文本描述通过空间注意力绑定到对应区域，实现多物体独立控制。\n4. **因果分块自回归生成**：  \n   支持生成长视频，保持时间上的因果连贯性。\n5. **整体框架 WorldDirector**：  \n   实验证明能在复杂长时程场景中实现严格的动态物体记忆和灵活控制。\n\n---\n\n## 4. 整体思路与模型结构\n\n### 整体思路\n1. 不让视频生成模型自己“猜”物体离开画面后的运动，而是**先用 LLM 规划好所有物体和摄像机的 3D 轨迹**。\n2. 把规划好的 3D 轨迹投影成 2D 边界框序列，作为位置条件输入视频生成模型。\n3. 视频生成时，额外注入物体外观特征，保证重入画面时样子不变。\n4. 按时间分块生成，每一块依赖前一块的结果，形成自回归的长视频生成。\n\n### 模型结构（简化流程）\n\n- **基模**：  \n  视频生成部分基于扩散模型或类似潜在视频模型，但没有指定具体哪个模型，可适配 Sora 类架构。LLM 用于规划，也不是新训练，而是利用其代码生成/推理能力。\n\n- **步骤**：\n  1. **用户指令**输入到 **LLM 编排器**。\n  2. LLM 输出 **3D 边界框轨迹**（每个物体）和 **摄像机轨迹**。\n  3. 将 3D 轨迹投影为 **2D 边界框序列**（在每一帧的位置）。\n  4. **视频生成模型**接收：\n     - 2D 边界框（位置条件）\n     - 物体外观特征（从之前出现时提取的 RGB 特征）\n     - 空间感知的文本提示（每个物体对应不同文本）\n     - 摄像机参数\n  5. 通过**空间交叉注意力**把不同物体的文本描述约束到对应边界框区域。\n  6. 自回归生成：  \n     先生成一段视频块，提取其中物体的外观特征保存到**动态记忆池**，再生成下一块时，若该物体再次出现，就从记忆池取出外观特征注入，确保一致性。\n  7. 最终输出长视频。\n\n---\n\n## 5. 结果怎么样\n\n论文通过实验表明：\n\n- **在动态物体记忆方面**：  \n  比现有方法（如显式监控或隐式估计的方法）更能保持物体离开画面后的运动连续性，并且再次出现时外观几乎不变。\n- **在控制灵活性方面**：  \n  可以同时控制多个物体的行为、摄像机运动，生成复杂的长时程事件。\n- **在视频质量与一致性上**：  \n  在模拟物理规律、视角切换、物体交互方面表现更好。\n\n---\n\n**总结**：  \n这篇论文本质上是在视频生成模型上加了一个 **“LLM 规划层”** 和 **“外观记忆模块”**，把物体运动和外观的一致性通过显式条件控制起来，从而实现了更可信、更可控的世界模拟。"
+  },
+  "figures": {
+    "2607.02517": [
+      {
+        "path": "https://arxiv.org/html/2607.02517v1/x2.png",
+        "caption": "Figure 2:Overview ofWorldDirector.An LLM orchestrates 3D trajectories that are projected into 2D Location Conditions for causal chunk generation. Location (ℬ\\mathcal{B}) and Appearance (𝒜\\mathcal{A}) conditions are channel-concatenated with the noisy latent, while historical Context (ℳ\\mathcal{M}) is sequence-concatenated. During generation,temporal dropis applied and an asymmetric attention routing prevents noise from polluting the context memory.",
+        "role": "pipeline_1",
+        "caption_zh": "图 2：WorldDirector 概述。一个大语言模型（LLM）编排 3D 轨迹，并将其投影为 2D 位置条件以生成因果片段。位置条件（ℬ）和外观条件（𝒜）与含噪隐变量进行通道拼接，而历史上下文（ℳ）则进行序列拼接。在生成过程中，应用了时间丢弃机制，并通过非对称注意力路由来防止噪声污染上下文记忆。"
+      },
+      {
+        "path": "https://arxiv.org/html/2607.02517v1/x6.png",
+        "caption": "Figure S1:Ablation on Dynamic Context and Appearance Condition Drop Mechanism. We highly recommend viewing the video results on ourproject pagefor a more intuitive demonstration.",
+        "role": "pipeline_2",
+        "caption_zh": "图 S1：动态上下文与外观条件丢弃机制的消融实验。强烈建议访问我们的项目页面观看视频结果以获得更直观的演示。"
+      },
+      {
+        "path": "https://arxiv.org/html/2607.02517v1/x4.png",
+        "caption": "Figure 4:Ablation on Appearance Condition. We conduct experiments on a case involving complex character movements and multiple pose changes. The findings highlight the significance of the Appearance Condition for preserving dynamic consistency.",
+        "role": "pipeline_3",
+        "caption_zh": "图 4：外观条件消融实验。我们在一个涉及复杂角色动作和多次姿态变化的案例上进行实验。结果凸显了外观条件对于保持动态一致性的重要性。"
+      }
+    ]
+  }
+}
