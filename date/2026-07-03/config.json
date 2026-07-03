@@ -48,23 +48,17 @@
       "abstract_zh": "传统的视觉生成强化学习策略通常采用样本级奖励函数，但这种方法常导致奖励破解问题，从而降低图像多样性并引入视觉异常。为解决这些局限性，我们提出了一种新颖框架，通过分布级奖励对生成模型进行微调，确保与真实世界数据分布更好对齐。与单独评估样本的奖励机制不同，分布级奖励考量样本的数据分布特性，缓解了所有样本独立朝相同方向优化时出现的模式崩溃问题。为克服估算此类奖励带来的过高计算成本，我们引入了子集替换策略——通过仅更新生成参考集中的小型子集来高效提供奖励信号。此外，我们应用强化学习优化事后模型融合系数，有望缓解常规强化学习实践中引入随机微分方程（SDE）导致的训练-推断不一致性。大量实验表明，该方法在不同基础模型上显著提升了FID-50K指标：SiT模型从8.30改善至5.77，EDM2模型从3.74提升至3.52。定性评估同时证实，我们的方法在保持样本多样性的同时有效提升了感知质量。",
       "hf_link": "https://huggingface.co/papers/2607.02291"
     },
-    "2607.02508": {
-      "title": "From SRA to Self-Flow: Data Augmentation or Self-Supervision?",
-      "abstract": "Representation alignment has become an effective way to accelerate diffusion transformer training and improve generation quality. Recent self-alignment methods, such as SRA and Self-Flow, further remove the dependency on external pretrained encoders by constructing alignment within the diffusion model itself. However, the mechanism behind the improvement from SRA to Self-Flow, dual-time scheduling, remains under-examined: Self-Flow attributes its gain to interactions between tokens at different noise levels, where cleaner tokens help infer noisier ones. In this work, we revisit this explanation and ask whether the gain instead comes from data augmentation along the noise dimension. To disentangle these factors, we introduce Attention Separation, which preserves the same dual-timestep input as Self-Flow while blocking attention between tokens assigned to different noise levels. Surprisingly, removing such interaction does not degrade performance and can even improve it, suggesting that the improvement from SRA to Self-Flow mainly comes from data augmentation. Furthermore,We show that Attention Separation itself provides an augmentation effect by splitting a single image into multiple effective training parts to expand the training data. Based on these observations, we combine self-representation alignment with dual-timestep and attention-separation augmentation, and demonstrate the effectiveness of this design on ImageNet.",
-      "abstract_zh": "表征对齐已成为加速扩散变换器训练并提升生成质量的有效途径。近期的自对齐方法，如SRA和Self-Flow，通过在扩散模型内部构建对齐关系，进一步消除了对外部预训练编码器的依赖。然而，从SRA到Self-Flow的性能提升机制——双时间调度策略——尚未得到充分检验：Self-Flow将其增益归因于不同噪声级别下token间的交互作用，即较纯净的token有助于推断噪声较高的token。本研究重新审视了这一解释，并探究其增益是否实际源于噪声维度的数据增强。为区分这两种因素，我们提出了注意力分离机制，该方法在保留与Self-Flow相同的双时间步输入的同时，阻止了分配给不同噪声级别的token之间的注意力交互。令人惊讶的是，消除此类交互不仅未降低性能，甚至能带来提升，这表明从SRA到Self-Flow的改进主要源于数据增强。此外，我们发现注意力分离机制本身通过将单张图像分割为多个有效训练部分来扩展训练数据，从而产生增强效应。基于这些观察，我们将自表征对齐与双时间步及注意力分离增强相结合，并在ImageNet数据集上验证了该设计的有效性。",
-      "hf_link": "https://huggingface.co/papers/2607.02508"
-    },
     "2606.31825": {
       "title": "Breaking Failure Cascades: Step-Aware Reinforcement Learning for Medical Multimodal Reasoning",
       "abstract": "Recent multimodal large language models have shown great promise in clinical image reasoning, but existing post-training pipelines remain predominantly outcome-centric, relying on final answer correctness or sequence-level preferences. This suffers from sparse credit assignment, making it difficult to optimize the reasoning process essential for clinical applications. Our analysis reveals that cascading errors from early-stage reasoning failures are a leading cause of incorrect predictions in medical visual question answering (VQA) benchmarks. Motivated by this, we propose Medical Reasoning-aware Policy Optimization (MRPO), an RL algorithm that incorporates step-wise process rewards. When the final answer is incorrect, MRPO assigns exponentially larger penalties to tokens in earlier invalid reasoning steps, breaking failure cascades without compromising successful paths. Across three multimodal LLM backbones, MRPO consistently outperforms standard GRPO and a recent RL baseline, and on Qwen3-VL-8B-Instruct even surpasses substantially larger medical MLLMs such as HuatuoGPT-Vision-34B by 2.79 points. Moreover, MRPO reduces early-stage reasoning failures from 64.0% to 13.0%, showing that targeted mitigation of cascading failures improves both reasoning quality and final answer accuracy. Our code is available atthis https URL",
       "abstract_zh": "近年来，多模态大语言模型在临床图像推理领域展现出巨大潜力，但现有的后训练流程仍主要以结果为中心，依赖于最终答案的正确性或序列级偏好。这种方法存在信用分配稀疏的问题，难以优化对临床应用至关重要的推理过程。我们的分析表明，早期推理阶段失败引发的级联错误是导致医疗视觉问答基准测试中出现错误预测的主要原因。基于此，我们提出医疗推理感知策略优化——一种融入分步过程奖励的强化学习算法。当最终答案错误时，MRPO会对早期无效推理步骤中的标记施加指数级增长的惩罚，从而在不影响成功路径的前提下阻断失败级联。在三种多模态大语言模型骨干网络上，MRPO始终优于标准GRPO和近期强化学习基线，在Qwen3-VL-8B-Instruct模型上甚至显著超越HuatuoGPT-Vision-34B等更大规模的医疗多模态大语言模型，提升了2.79个百分点。此外，MRPO将早期推理失败率从64.0%降低至13.0%，表明针对性缓解级联失败能同步提升推理质量与最终答案准确率。代码发布于https://this URL。",
       "hf_link": "https://huggingface.co/papers/2606.31825"
     },
-    "2607.02269": {
-      "title": "AnyGroundBench: A Specialized-Domain Benchmark for Video Grounding in Vision-Language Models",
-      "abstract": "Vision-Language Models (VLMs) have demonstrated immense promise in Spatio-Temporal Video Grounding (STVG). However, current evaluation protocols are largely confined to zero-shot assessments on general, daily-life benchmarks. This creates a critical disconnect from real-world applications in specialized fields, where models inevitably encounter rare visual concepts and complex spatio-temporal dynamics. Since exhaustive pre-training across infinite data distributions is infeasible, the ability to adapt to novel domains is essential. To bridge this gap, we introduce AnyGroundBench, a domain-adaptation benchmark designed to shift the STVG evaluation paradigm from static zero-shot testing to rigorous domain adaptation. Targeting five specialized domains (animal, industry, sports, surgery, and public security), AnyGroundBench pairs newly captured videos such as expert-annotated mouse behaviors with established datasets, unifying them through dense, high-fidelity spatio-temporal annotations. Crucially, the benchmark provides dedicated training subsets to systematically measure domain adaptability. We extensively evaluate 15 state-of-the-art VLMs, assessing their zero-shot generalization and In-Context Learning (ICL) capabilities under practical computational constraints. Ultimately, our findings reveal that current models fail in both zero-shot and ICL-based adaptation when confronted with specialized domains, exposing critical flaws in spatio-temporal reasoning that future research must address.",
-      "abstract_zh": "视觉-语言模型（Vision-Language Models，VLMs）在时空视频定位（Spatio-Temporal Video Grounding，STVG）领域展现出巨大潜力。然而，当前的评估方案主要局限于对通用日常生活基准的零样本（zero-shot）测试。这导致其与专业领域的实际应用之间存在显著脱节，因为在现实场景中模型不可避免地会遭遇罕见视觉概念与复杂的时空动态变化。由于无法通过无限数据分布进行详尽预训练，模型适应新领域的能力至关重要。为弥合这一差距，我们提出AnyGroundBench——一个旨在将STVG评估范式从静态零样本测试转向严格领域适应（domain adaptation）的基准测试平台。该基准聚焦五个专业领域（动物、工业、体育、手术与公共安全），将新采集的视频（如专家标注的小鼠行为视频）与既有数据集相结合，并通过密集、高保真的时空标注进行统一整合。关键之处在于，该基准提供了专用的训练子集，以系统化地衡量领域适应能力。我们在实际计算约束下对15个前沿VLM进行了全面评估，检验其零样本泛化能力与上下文学习（In-Context Learning，ICL）性能。最终结果表明，在面对专业领域时，现有模型在零样本和基于ICL的适应任务上均表现不佳，暴露出时空推理能力存在严重缺陷，这必须成为未来研究的重点攻关方向。",
-      "hf_link": "https://huggingface.co/papers/2607.02269"
+    "2607.02508": {
+      "title": "From SRA to Self-Flow: Data Augmentation or Self-Supervision?",
+      "abstract": "Representation alignment has become an effective way to accelerate diffusion transformer training and improve generation quality. Recent self-alignment methods, such as SRA and Self-Flow, further remove the dependency on external pretrained encoders by constructing alignment within the diffusion model itself. However, the mechanism behind the improvement from SRA to Self-Flow, dual-time scheduling, remains under-examined: Self-Flow attributes its gain to interactions between tokens at different noise levels, where cleaner tokens help infer noisier ones. In this work, we revisit this explanation and ask whether the gain instead comes from data augmentation along the noise dimension. To disentangle these factors, we introduce Attention Separation, which preserves the same dual-timestep input as Self-Flow while blocking attention between tokens assigned to different noise levels. Surprisingly, removing such interaction does not degrade performance and can even improve it, suggesting that the improvement from SRA to Self-Flow mainly comes from data augmentation. Furthermore,We show that Attention Separation itself provides an augmentation effect by splitting a single image into multiple effective training parts to expand the training data. Based on these observations, we combine self-representation alignment with dual-timestep and attention-separation augmentation, and demonstrate the effectiveness of this design on ImageNet.",
+      "abstract_zh": "表征对齐已成为加速扩散变换器训练并提升生成质量的有效途径。近期的自对齐方法，如SRA和Self-Flow，通过在扩散模型内部构建对齐关系，进一步消除了对外部预训练编码器的依赖。然而，从SRA到Self-Flow的性能提升机制——双时间调度策略——尚未得到充分检验：Self-Flow将其增益归因于不同噪声级别下token间的交互作用，即较纯净的token有助于推断噪声较高的token。本研究重新审视了这一解释，并探究其增益是否实际源于噪声维度的数据增强。为区分这两种因素，我们提出了注意力分离机制，该方法在保留与Self-Flow相同的双时间步输入的同时，阻止了分配给不同噪声级别的token之间的注意力交互。令人惊讶的是，消除此类交互不仅未降低性能，甚至能带来提升，这表明从SRA到Self-Flow的改进主要源于数据增强。此外，我们发现注意力分离机制本身通过将单张图像分割为多个有效训练部分来扩展训练数据，从而产生增强效应。基于这些观察，我们将自表征对齐与双时间步及注意力分离增强相结合，并在ImageNet数据集上验证了该设计的有效性。",
+      "hf_link": "https://huggingface.co/papers/2607.02508"
     },
     "2607.01874": {
       "title": "SkillCoach: Self-Evolving Rubrics for Evaluating and Enhancing Agentic Skill-Use",
@@ -72,11 +66,17 @@
       "abstract_zh": "技能正成为大语言模型（LLM）智能体可复用的操作层，其编码了标准操作规程（SOPs）、领域规则、工具工作流程、脚本及验证程序。在实际的技能库中，技能重叠使得可靠使用技能变得困难。最终验证器的成功对于评估和训练而言过于粗略，因为智能体可能通过试错选择干扰性技能、跳过必要步骤、错误组合工作流程或忽略最终检查。我们引入SkillCoach，一个用于评估和提升智能体技能使用的自演进评价框架。SkillCoach从实际运行轨迹中推导出基于技能的过程评价标准，并从四个维度评估轨迹：技能选择、技能遵循、技能组合以及基于技能的反思。该框架将外部验证器保留为独立的结果信号，从而将过程质量与偶然的任务成功区分开来。演进后的评价标准进一步作为过程监督，用于筛选高质量的训练轨迹。实验表明，演进后的评价标准显著提升了评估质量，揭示了被最终准确率掩盖的失败案例，并为提升智能体技能使用提供了比仅依赖结果筛选更强的监督信号。",
       "hf_link": "https://huggingface.co/papers/2607.01874"
     },
-    "2607.01436": {
-      "title": "Discrete Diffusion Language Models for Interactive Radiology Report Drafting",
-      "abstract": "Diffusion language models, which generate text by denoising a token canvas bidirectionally instead of emitting tokens left to right, have become competitive with autoregressive (AR) generation. Medical foundation models, however, remain almost entirely autoregressive. We adapt a mixture-of-experts diffusion language model, DiffusionGemma-26B, and benchmark it against its same-size AR sibling Gemma-4-26B under an identical LoRA recipe on medical visual question answering datasets, scored by a verbosity-robust LLM judge. Diffusion matches or exceeds AR on all of them, and the finetuned model (3.8B active) is competitive with frontier vision-language models; its decoding is also 3.5-4.4x faster. Beyond this parity, the diffusion model offers a drafting capability AR lacks: any-order infill. Because the canvas is denoised bidirectionally, a radiologist can fix report fragments and have the model fill the text between them, an operation inherent to diffusion but not to autoregression, which is subpar at it. This suits real reports, which are often terse or inconsistent across clinicians and institutions.",
-      "abstract_zh": "扩散语言模型通过双向去噪生成文本而非从左到右顺序输出词元，其性能已可与自回归生成模型相媲美。然而，医学基础模型领域仍几乎完全采用自回归架构。本研究采用专家混合架构的扩散语言模型DiffusionGemma-26B，在医学视觉问答数据集上，通过统一配置的低秩自适应微调方案，与其同等规模的自回归姊妹模型Gemma-4-26B进行对比评估，并采用抗冗余性评估的大语言模型进行评分。实验表明扩散模型在所有数据集上均达到或超越自回归模型性能，且微调后的模型（激活参数38亿）在性能上可与前沿视觉语言模型竞争，其解码速度更是提升3.5-4.4倍。除性能持平外，扩散模型还具备自回归模型缺乏的文本草拟能力：任意顺序的文本填充。由于画布采用双向去噪机制，放射科医生可固定报告片段并让模型填充其间的文本——这种操作天然契合扩散模型架构，而自回归模型在此方面表现欠佳。该特性尤其适用于实际医疗报告场景，因其常存在表述简略或不同临床机构间描述不一致的情况。",
-      "hf_link": "https://huggingface.co/papers/2607.01436"
+    "2607.02271": {
+      "title": "AGVBench: A Reliability-Oriented Benchmark of Data Augmentation for Vein Recognition",
+      "abstract": "Vein recognition is a secure biometric technology often constrained by limited annotated data and imaging variations. While data augmentation mitigates this, strategies designed for natural images may disrupt the fine-grained topology and textures essential for identity discrimination. We present AGVBench, which evaluates 30 representative augmentation strategies on five public palm- and finger-vein datasets with seven backbone architectures, covering classic CNNs, vision transformers, and vein-specific recognition models. Our results show that multi-image mixing methods (e.g., MixUp, PuzzleMix, StarMixup) generally provide the strongest recognition performance. However, they are often poorly calibrated and vulnerable to adversarial perturbations, revealing a clear inconsistency between clean accuracy and adversarial security. We also find that severe geometric transformations frequently degrade recognition, which is potentially due to feature misalignment or spatial cropping, and that augmentation effectiveness varies across palm and finger vein datasets. These findings prove that accuracy-centric evaluation is insufficient for biometric augmentation. AGVBench provides standardized protocols to support reproducible research and guide the design of reliable, secure, and robust vein recognition systems. Our codebase is available atthis https URL.",
+      "abstract_zh": "静脉识别作为一种安全的生物特征识别技术，常受限于标注数据不足和成像条件变化。数据增强虽能缓解此问题，但针对自然图像设计的增强策略可能会破坏身份判别所依赖的细粒度拓扑结构与纹理特征。本文提出AGVBench评估框架，在五个公开的手掌与指静脉数据集上，以七种骨干网络架构（涵盖经典卷积神经网络、视觉Transformer以及静脉专用识别模型）对30种代表性增强策略进行了系统性评估。结果表明，多图像混合方法（如MixUp、PuzzleMix、StarMixup）通常能提供最强的识别性能，但其置信度校准性较差且易受对抗扰动攻击，揭示出清洁准确率与对抗安全性之间存在明显的不一致性。同时发现，剧烈的几何变换常导致识别性能下降，这可能源于特征错位或空间裁剪；增强策略的有效性在手掌与指静脉数据集间存在差异。这些发现证明，仅以准确率为中心的评估对生物特征增强技术是不充分的。AGVBench通过标准化评估协议支持可复现研究，并为设计可靠、安全、鲁棒的静脉识别系统提供指导。代码库已发布于https://github.com/AGVBench/。",
+      "hf_link": "https://huggingface.co/papers/2607.02271"
+    },
+    "2607.02269": {
+      "title": "AnyGroundBench: A Specialized-Domain Benchmark for Video Grounding in Vision-Language Models",
+      "abstract": "Vision-Language Models (VLMs) have demonstrated immense promise in Spatio-Temporal Video Grounding (STVG). However, current evaluation protocols are largely confined to zero-shot assessments on general, daily-life benchmarks. This creates a critical disconnect from real-world applications in specialized fields, where models inevitably encounter rare visual concepts and complex spatio-temporal dynamics. Since exhaustive pre-training across infinite data distributions is infeasible, the ability to adapt to novel domains is essential. To bridge this gap, we introduce AnyGroundBench, a domain-adaptation benchmark designed to shift the STVG evaluation paradigm from static zero-shot testing to rigorous domain adaptation. Targeting five specialized domains (animal, industry, sports, surgery, and public security), AnyGroundBench pairs newly captured videos such as expert-annotated mouse behaviors with established datasets, unifying them through dense, high-fidelity spatio-temporal annotations. Crucially, the benchmark provides dedicated training subsets to systematically measure domain adaptability. We extensively evaluate 15 state-of-the-art VLMs, assessing their zero-shot generalization and In-Context Learning (ICL) capabilities under practical computational constraints. Ultimately, our findings reveal that current models fail in both zero-shot and ICL-based adaptation when confronted with specialized domains, exposing critical flaws in spatio-temporal reasoning that future research must address.",
+      "abstract_zh": "视觉-语言模型（Vision-Language Models，VLMs）在时空视频定位（Spatio-Temporal Video Grounding，STVG）领域展现出巨大潜力。然而，当前的评估方案主要局限于对通用日常生活基准的零样本（zero-shot）测试。这导致其与专业领域的实际应用之间存在显著脱节，因为在现实场景中模型不可避免地会遭遇罕见视觉概念与复杂的时空动态变化。由于无法通过无限数据分布进行详尽预训练，模型适应新领域的能力至关重要。为弥合这一差距，我们提出AnyGroundBench——一个旨在将STVG评估范式从静态零样本测试转向严格领域适应（domain adaptation）的基准测试平台。该基准聚焦五个专业领域（动物、工业、体育、手术与公共安全），将新采集的视频（如专家标注的小鼠行为视频）与既有数据集相结合，并通过密集、高保真的时空标注进行统一整合。关键之处在于，该基准提供了专用的训练子集，以系统化地衡量领域适应能力。我们在实际计算约束下对15个前沿VLM进行了全面评估，检验其零样本泛化能力与上下文学习（In-Context Learning，ICL）性能。最终结果表明，在面对专业领域时，现有模型在零样本和基于ICL的适应任务上均表现不佳，暴露出时空推理能力存在严重缺陷，这必须成为未来研究的重点攻关方向。",
+      "hf_link": "https://huggingface.co/papers/2607.02269"
     },
     "2607.02375": {
       "title": "Representation Distribution Matching for One-Step Visual Generation",
@@ -84,11 +84,11 @@
       "abstract_zh": "我们阐明表征分布匹配（Representation Distribution Matching，RDM）的设计空间，该范式通过在冻结的预训练编码器下匹配生成特征与参考特征的分布来训练一步式图像生成器。我们识别出两个设计维度：分布比较的方式以及进行比较的表征空间，并沿此开展受控研究，获得三项发现。首先，经典的核最大平均差异（MMD）方法在十年前无法训练出令人信服的生成器，但经过正确估计后，现已成为一种强大且可扩展的目标函数。其次，生成批次大小成为关键变量，其最优值超过2048，远超常规批次规模。第三，单一表征容易被操控——即使生成图像在视觉上仍显虚假，其评分仍可被压低至低于真实图像水平，因此我们采用一组平衡的编码器进行匹配，并使用SW_r14进行评估：这是一种基于14个编码器的切片瓦瑟斯坦距离（Sliced-Wasserstein distance），独立于训练损失且能有效抵抗操控。结合优选方案，我们得到改进型RDM（iRDM）：该方法在ImageNet上取得一步式生成器的最佳性能，SW_r14得分为1.30，这一结果得到人类偏好代理指标PickScore的佐证——尽管我们的目标函数从未优化该指标，但在71.2%的匹配样本中，iRDM优于此前最佳的一步式生成器。相同方案对四步式模型FLUX.2 [klein]进行后训练，可将其转化为一步式生成器，在GenEval指标上超越原四步版本（0.826对0.794），PickScore得分亦更高（22.76对22.58），整个训练过程仅需90个H200 GPU小时。项目页面：此 https URL。",
       "hf_link": "https://huggingface.co/papers/2607.02375"
     },
-    "2607.01763": {
-      "title": "Denser $\\neq$ Better: Limits of On-Policy Self-Distillation for Continual Post-Training",
-      "abstract": "Continual post-training enables foundation models to acquire new knowledge while preserving existing capabilities. Recent work suggests that on-policy learning can mitigate forgetting, with on-policy self-distillation emerging as a particularly attractive approach. In this work, we revisit this optimistic view through self-distillation policy optimization (SDPO). Our experiments show that SDPO can accelerate in-domain specialization when teacher signals are stable and well aligned, but it struggles to generalize to out-of-distribution scenarios. In continual post-training, SDPO exhibits stronger forgetting and can even collapse, whereas on-policy reinforcement learning methods such as GRPO adapt more conservatively and better preserve prior capabilities. Further analyses reveal that denser self-distillation induces larger drift in both parameter space and response space, and can amplify high-frequency formatting artifacts through a self-reinforcing teacher--student loop. These findings suggest that on-policy data alone is insufficient for continual learning. Dense self-distillation can accelerate specialization when teacher targets are stable and token-level supervision is reliable, but it should not be treated as a default stabilizer for continual post-training. Our code is available atthis https URL.",
-      "abstract_zh": "持续后训练使基础模型能够在获取新知识的同时保留现有能力。近期研究表明，在线策略学习能够缓解遗忘现象，其中在线策略自蒸馏已成为一种极具吸引力的方法。本研究通过自蒸馏策略优化重新审视这一乐观观点。实验表明，当教师信号稳定且高度对齐时，SDPO能够加速领域内专业化进程，但其在分布外场景的泛化能力较弱。在持续后训练中，SDPO表现出更强的遗忘性甚至可能崩溃，而如GRPO等在线策略强化学习方法则采取更保守的适应策略，能更好地保持原有能力。进一步分析表明，密集的自蒸馏会导致参数空间和响应空间产生更大漂移，并通过自我强化的师生循环放大高频格式伪影。这些发现说明，仅依靠在线策略数据不足以实现持续学习。当教师目标稳定且词元级监督可靠时，密集自蒸馏可加速专业化进程，但不应将其视为持续后训练的默认稳定器。代码发布于此https URL。",
-      "hf_link": "https://huggingface.co/papers/2607.01763"
+    "2607.01436": {
+      "title": "Discrete Diffusion Language Models for Interactive Radiology Report Drafting",
+      "abstract": "Diffusion language models, which generate text by denoising a token canvas bidirectionally instead of emitting tokens left to right, have become competitive with autoregressive (AR) generation. Medical foundation models, however, remain almost entirely autoregressive. We adapt a mixture-of-experts diffusion language model, DiffusionGemma-26B, and benchmark it against its same-size AR sibling Gemma-4-26B under an identical LoRA recipe on medical visual question answering datasets, scored by a verbosity-robust LLM judge. Diffusion matches or exceeds AR on all of them, and the finetuned model (3.8B active) is competitive with frontier vision-language models; its decoding is also 3.5-4.4x faster. Beyond this parity, the diffusion model offers a drafting capability AR lacks: any-order infill. Because the canvas is denoised bidirectionally, a radiologist can fix report fragments and have the model fill the text between them, an operation inherent to diffusion but not to autoregression, which is subpar at it. This suits real reports, which are often terse or inconsistent across clinicians and institutions.",
+      "abstract_zh": "扩散语言模型通过双向去噪生成文本而非从左到右顺序输出词元，其性能已可与自回归生成模型相媲美。然而，医学基础模型领域仍几乎完全采用自回归架构。本研究采用专家混合架构的扩散语言模型DiffusionGemma-26B，在医学视觉问答数据集上，通过统一配置的低秩自适应微调方案，与其同等规模的自回归姊妹模型Gemma-4-26B进行对比评估，并采用抗冗余性评估的大语言模型进行评分。实验表明扩散模型在所有数据集上均达到或超越自回归模型性能，且微调后的模型（激活参数38亿）在性能上可与前沿视觉语言模型竞争，其解码速度更是提升3.5-4.4倍。除性能持平外，扩散模型还具备自回归模型缺乏的文本草拟能力：任意顺序的文本填充。由于画布采用双向去噪机制，放射科医生可固定报告片段并让模型填充其间的文本——这种操作天然契合扩散模型架构，而自回归模型在此方面表现欠佳。该特性尤其适用于实际医疗报告场景，因其常存在表述简略或不同临床机构间描述不一致的情况。",
+      "hf_link": "https://huggingface.co/papers/2607.01436"
     },
     "2606.27669": {
       "title": "When Search Agents Should Ask: DiscoBench for Clarification-Aware Deep Search",
@@ -96,17 +96,17 @@
       "abstract_zh": "基于大型语言模型（LLM）的搜索代理正日益被用于解决复杂的信息检索任务，这些任务需要多步检索与推理以实现用户目标。然而，现有基准测试通常假设用户查询是完整且明确的，忽视了现实世界中搜索请求往往模糊、表述不完整甚至包含事实错误的现象。在深度搜索场景中，此类模糊性可能会沿着多步推理链传递，导致代理走向错误的搜索轨迹。为弥补这一空白，我们提出了DiscoBench——一个面向澄清感知的深度搜索基准，旨在评估搜索代理能否主动识别模糊性、提出有效的澄清问题，并通过用户交互恢复正确的推理路径。DiscoBench涵盖11个现实领域，包含211个样本和463个模糊实例，覆盖四种模糊类型。我们进一步设计了一个用于多轮交互的用户模拟器，并从四个维度评估模型性能：任务效用、模糊性检测、交互策略与成本效率。对代表性大型语言模型的实验表明，模糊性检测与有效澄清是两种不同的能力，而重复搜索而非请求澄清的表现往往比直接猜测更差，这凸显了当前搜索代理在检索能力与交互式问题解决之间存在关键差距。",
       "hf_link": "https://huggingface.co/papers/2606.27669"
     },
+    "2607.01763": {
+      "title": "Denser $\\neq$ Better: Limits of On-Policy Self-Distillation for Continual Post-Training",
+      "abstract": "Continual post-training enables foundation models to acquire new knowledge while preserving existing capabilities. Recent work suggests that on-policy learning can mitigate forgetting, with on-policy self-distillation emerging as a particularly attractive approach. In this work, we revisit this optimistic view through self-distillation policy optimization (SDPO). Our experiments show that SDPO can accelerate in-domain specialization when teacher signals are stable and well aligned, but it struggles to generalize to out-of-distribution scenarios. In continual post-training, SDPO exhibits stronger forgetting and can even collapse, whereas on-policy reinforcement learning methods such as GRPO adapt more conservatively and better preserve prior capabilities. Further analyses reveal that denser self-distillation induces larger drift in both parameter space and response space, and can amplify high-frequency formatting artifacts through a self-reinforcing teacher--student loop. These findings suggest that on-policy data alone is insufficient for continual learning. Dense self-distillation can accelerate specialization when teacher targets are stable and token-level supervision is reliable, but it should not be treated as a default stabilizer for continual post-training. Our code is available atthis https URL.",
+      "abstract_zh": "持续后训练使基础模型能够在获取新知识的同时保留现有能力。近期研究表明，在线策略学习能够缓解遗忘现象，其中在线策略自蒸馏已成为一种极具吸引力的方法。本研究通过自蒸馏策略优化重新审视这一乐观观点。实验表明，当教师信号稳定且高度对齐时，SDPO能够加速领域内专业化进程，但其在分布外场景的泛化能力较弱。在持续后训练中，SDPO表现出更强的遗忘性甚至可能崩溃，而如GRPO等在线策略强化学习方法则采取更保守的适应策略，能更好地保持原有能力。进一步分析表明，密集的自蒸馏会导致参数空间和响应空间产生更大漂移，并通过自我强化的师生循环放大高频格式伪影。这些发现说明，仅依靠在线策略数据不足以实现持续学习。当教师目标稳定且词元级监督可靠时，密集自蒸馏可加速专业化进程，但不应将其视为持续后训练的默认稳定器。代码发布于此https URL。",
+      "hf_link": "https://huggingface.co/papers/2607.01763"
+    },
     "2607.02032": {
       "title": "PACE: A Proxy for Agentic Capability Evaluation",
       "abstract": "Evaluating LLM agents on benchmarks like SWE-Bench and GAIA can be expensive, time-consuming, and requires complex infrastructure. A single evaluation can cost thousands of dollars and take days to complete. In contrast, non-agentic LLM benchmarks that test individual capabilities (e.g., reasoning, code generation) are fast and cheap to run. In this paper, we investigate whether performance on expensive agentic benchmarks can be accurately predicted by the performance on a small, carefully selected subset of atomic evaluation instances. We introduce PACE, a framework that constructs proxy benchmarks by selecting instances from existing non-agentic evaluations whose aggregate scores most reliably predict model performances on agentic benchmarks. Given a pool of candidate instances spanning atomic capabilities, PACE fits a regression that maps a model's scores on a compact subset of source instances to its score on the target agentic benchmark. The subset itself is curated by combining two complementary instance-selection strategies, target-relevance local selection and globally informative global selection. We apply PACE to the 4 target agentic benchmarks in this paper, which yields PACE-Bench, the concrete proxy benchmark that we evaluate in the paper. Experiments across 14 models, 4 agentic benchmarks, and 19 non-agentic benchmarks show that PACE-Bench predicts agentic scores with leave-one-out cross-validation (LOOCV) mean absolute error (MAE) under 4%, Spearman correlation above 0.80, and pairwise model-ranking accuracy around 85%, all at much less than 1% of the full agentic evaluation cost. We further analyze the selected proxy instances, revealing which skills each agentic benchmark uniquely demands. PACE enables practitioners to obtain reliable estimates of agentic performance during model development, selection, and routing, without the overhead of full agent evaluation.",
       "abstract_zh": "在诸如SWE-Bench和GAIA等基准测试上评估大型语言模型（LLM）智能体成本高昂、耗时久且需要复杂的基础设施。单次评估可能花费数千美元并耗时数日完成。相比之下，测试单项能力（如推理、代码生成）的非智能体化LLM基准测试则运行快速且成本低廉。本文探讨能否通过小型且精心挑选的原子评估实例子集的性能表现，来准确预测昂贵智能体基准测试的性能。我们提出PACE框架，该框架通过从现有非智能体评估中筛选实例构建代理基准测试，这些实例的聚合分数能最可靠地预测模型在智能体基准测试上的表现。给定涵盖原子能力的候选实例池，PACE通过拟合回归模型，将模型在精选源实例子集上的得分映射到其在目标智能体基准测试的得分。该子集通过结合两种互补的实例选择策略构建：目标相关性局部选择与全局信息全局选择。本文将PACE应用于四个目标智能体基准测试，由此生成PACE-Bench这一具体代理基准测试用于实验评估。通过对14个模型、4个智能体基准测试和19个非智能体基准测试的实验表明，PACE-Bench能够以低于4%的留一交叉验证（LOOCV）平均绝对误差（MAE）、高于0.8的斯皮尔曼相关系数以及约85%的成对模型排序准确率预测智能体得分，而所需成本不到完整智能体评估的1%。我们进一步分析了所选代理实例，揭示了每个智能体基准测试独特需求的技能维度。PACE使实践者能在模型开发、选择与路由过程中获得可靠的智能体性能预估，而无需承担完整智能体评估的系统开销。",
       "hf_link": "https://huggingface.co/papers/2607.02032"
-    },
-    "2607.02466": {
-      "title": "Learning to Move Before Learning to Do: Task-Agnostic pretraining for VLAs",
-      "abstract": "Vision-Language-Action (VLA) models are fundamentally bottlenecked by the scarcity of expert demonstrations -- triplets of observations, instructions, and actions that are costly to collect at scale. We argue that this bottleneck stems from conflating two distinct learning objectives: acquiring physical competence (how to move) and acquiring semantic alignment (what to do). Crucially, only the latter requires language supervision. Building on this Decomposition Hypothesis, we propose Task-Agnostic Pretraining (TAP), a two-stage framework that first learns transferable motor priors from cheap, unlabeled interaction data -- including discarded off-task trajectories and autonomous robot play -- via a self-supervised Inverse Dynamics objective. A lightweight second stage then grounds these priors in language using minimal expert data. On the SIMPLER benchmark, TAP matches models trained on over 1M expert trajectories while using orders of magnitude less labeled data, yielding a 10% absolute gain over standard behavior cloning. On a real-world WidowX platform, TAP retains 25% success under camera perturbations where internet-scale baselines collapse to 0%, demonstrating that task-agnostic pretraining produces robust, transferable physical representations and offers a scalable path forward for Embodied AI.",
-      "abstract_zh": "视觉-语言-动作模型（Vision-Language-Action，简称VLA）从根本上受限于专家演示数据的稀缺性——这些包含观察、指令与动作的三元组数据需要高昂成本才能大规模收集。我们认为这一瓶颈源于对两个不同学习目标的混淆：获取物理操作能力（如何运动）与获取语义对齐（执行何种任务）。关键在于，只有后者需要语言监督。基于这一“分解假设”，我们提出任务无关预训练（Task-Agnostic Pretraining，简称TAP）框架。该框架分为两个阶段：首先通过自监督的逆动力学目标，从廉价的无标签交互数据（包括被丢弃的非任务轨迹与自主机器人探索数据）中学习可迁移的运动先验知识；随后在轻量级第二阶段中，使用极少量的专家数据将这些先验知识基于语言进行对齐。在SIMPLER基准测试中，TAP仅使用数量级更少的标注数据，就达到了需要超过100万条专家轨迹训练模型的效果，且相比标准行为克隆方法获得10%的绝对性能提升。在真实世界的WidowX机器人平台上，当面临相机扰动时，基于互联网规模数据的基线方法成功率降至0%，而TAP仍能保持25%的成功率。这表明任务无关预训练能够产生鲁棒且可迁移的物理表征，为具身人工智能提供了一条可扩展的发展路径。",
-      "hf_link": "https://huggingface.co/papers/2607.02466"
     },
     "2606.31924": {
       "title": "InstanceControl: Controllable Complex Image Generation without Instance Labeling",
@@ -119,6 +119,12 @@
       "abstract": "Reinforcement learning with verifiable rewards (RLVR) has been extended from single-domain training to multi-domain reasoning suites spanning mathematics, programming, and science. However, the training curriculum (how often each domain is sampled) is typically fixed or hand-tuned, even though reasoning skills transfer unevenly across domains. Existing learnability-based curricula adapt to where the policy is currently improving, but are blind to whether a gradient step on the selected domain benefits the remaining domains. In this paper, we propose Transfer-Aware Curriculum (TAC), a bandit-style online curriculum that prioritizes domains whose updates broadly benefit the rest of the training suite. TAC repurposes signals already produced by RL training: per-domain advantages capture local learnability, and projected gradients, taken from the GRPO step being computed, estimate cross-domain transferability via gradient-geometry alignment, at negligible cost (<1% wall-clock overhead). Across a six-domain reasoning suite, TAC achieves the best macro-averaged accuracy on both Qwen3-1.7B and Llama3.2-3B, outperforming proportional random sampling, a hand-designed schedule, and a learnability-only bandit, and improving over the last of these by up to 2.8 points (10% relative). Ablations show performance degrades sharply when the transferability term is removed, and TAC remains robust on imbalanced training mixtures where learnability-only curricula over-commit to dominant domains. Our findings establish cross-domain transferability as a key signal for curriculum design in multi-domain RLVR.",
       "abstract_zh": "可验证奖励的强化学习(RLVR)已从单领域训练扩展到涵盖数学、编程和科学的跨领域推理套件。然而，即使推理能力在不同领域间的迁移效果不均衡，训练课程(各领域被采样的频率)通常仍是固定或手动调整的。现有的基于可学习性的课程能根据策略当前改进的领域进行自适应，但无法判断所选领域的梯度更新是否对剩余领域有益。本文提出迁移感知课程(TAC)，这是一种老虎机风格的在线课程方法，优先选择那些更新能广泛惠及整个训练套件的领域。TAC重新利用了RL训练中已产生的信号：各领域优势度捕获局部可学习性，而取自正在计算的GRPO步骤的投影梯度则通过梯度几何对齐以可忽略的成本(<1%的挂钟开销)估计跨领域可迁移性。在包含六个领域的推理套件中，TAC在Qwen3-1.7B和Llama3.2-3B模型上均实现了最佳的宏观平均准确率，优于比例随机采样、手动设计的调度方案以及仅考虑可学习性的老虎机方法，相对最后一种方法提升了高达2.8个百分点(相对提升10%)。消融实验表明，当移除可迁移性项时性能急剧下降，且在训练数据分布不均衡时——当仅考虑可学习性的课程过度集中于主导领域时——TAC仍保持稳健性。我们的研究确立了跨领域可迁移性作为多领域RLVR课程设计的关键信号。",
       "hf_link": "https://huggingface.co/papers/2606.25178"
+    },
+    "2607.02466": {
+      "title": "Learning to Move Before Learning to Do: Task-Agnostic pretraining for VLAs",
+      "abstract": "Vision-Language-Action (VLA) models are fundamentally bottlenecked by the scarcity of expert demonstrations -- triplets of observations, instructions, and actions that are costly to collect at scale. We argue that this bottleneck stems from conflating two distinct learning objectives: acquiring physical competence (how to move) and acquiring semantic alignment (what to do). Crucially, only the latter requires language supervision. Building on this Decomposition Hypothesis, we propose Task-Agnostic Pretraining (TAP), a two-stage framework that first learns transferable motor priors from cheap, unlabeled interaction data -- including discarded off-task trajectories and autonomous robot play -- via a self-supervised Inverse Dynamics objective. A lightweight second stage then grounds these priors in language using minimal expert data. On the SIMPLER benchmark, TAP matches models trained on over 1M expert trajectories while using orders of magnitude less labeled data, yielding a 10% absolute gain over standard behavior cloning. On a real-world WidowX platform, TAP retains 25% success under camera perturbations where internet-scale baselines collapse to 0%, demonstrating that task-agnostic pretraining produces robust, transferable physical representations and offers a scalable path forward for Embodied AI.",
+      "abstract_zh": "视觉-语言-动作模型（Vision-Language-Action，简称VLA）从根本上受限于专家演示数据的稀缺性——这些包含观察、指令与动作的三元组数据需要高昂成本才能大规模收集。我们认为这一瓶颈源于对两个不同学习目标的混淆：获取物理操作能力（如何运动）与获取语义对齐（执行何种任务）。关键在于，只有后者需要语言监督。基于这一“分解假设”，我们提出任务无关预训练（Task-Agnostic Pretraining，简称TAP）框架。该框架分为两个阶段：首先通过自监督的逆动力学目标，从廉价的无标签交互数据（包括被丢弃的非任务轨迹与自主机器人探索数据）中学习可迁移的运动先验知识；随后在轻量级第二阶段中，使用极少量的专家数据将这些先验知识基于语言进行对齐。在SIMPLER基准测试中，TAP仅使用数量级更少的标注数据，就达到了需要超过100万条专家轨迹训练模型的效果，且相比标准行为克隆方法获得10%的绝对性能提升。在真实世界的WidowX机器人平台上，当面临相机扰动时，基于互联网规模数据的基线方法成功率降至0%，而TAP仍能保持25%的成功率。这表明任务无关预训练能够产生鲁棒且可迁移的物理表征，为具身人工智能提供了一条可扩展的发展路径。",
+      "hf_link": "https://huggingface.co/papers/2607.02466"
     }
   },
   "hf_votes": {
@@ -130,18 +136,19 @@
     "2607.01642": 0,
     "2607.02517": 0,
     "2607.02291": 0,
-    "2607.02508": 0,
     "2606.31825": 0,
-    "2607.02269": 0,
+    "2607.02508": 0,
     "2607.01874": 0,
-    "2607.01436": 0,
+    "2607.02271": 0,
+    "2607.02269": 0,
     "2607.02375": 0,
-    "2607.01763": 0,
+    "2607.01436": 0,
     "2606.27669": 0,
+    "2607.01763": 0,
     "2607.02032": 0,
-    "2607.02466": 0,
     "2606.31924": 0,
-    "2606.25178": 0
+    "2606.25178": 0,
+    "2607.02466": 0
   },
   "focus_sections": {
     "3D生成与重建": [
@@ -189,55 +196,55 @@
       "tags": "计算机视觉;视觉生成;分布奖励强化学习",
       "body_summary": "传统视觉生成强化学习使用样本级奖励导致多样性下降和视觉异常\n提出用分布级奖励微调生成模型并设计高效子集替换策略以降低计算成本"
     },
-    "2607.02508": {
-      "short_zh": "从SRA到自流的改进机制辨析",
-      "tags": "计算机视觉;生成模型;扩散模型表示对齐",
-      "body_summary": "研究了扩散模型中从SRA到Self-Flow方法的改进机制。\n通过引入注意力分离等方法，发现其性能提升主要源于数据增强而非时序交互。"
-    },
     "2606.31825": {
       "short_zh": "医学多模态推理的强化学习优化",
       "tags": "机器学习;多模态学习;医学视觉问答",
       "body_summary": "现有医学多模态大模型在临床图像推理中存在因早期推理错误导致连锁失败的问题。\n提出一种引入分步奖励的强化学习算法，通过惩罚早期错误步骤来阻断错误链，提升了推理质量和最终答案准确性。"
     },
-    "2607.02269": {
-      "short_zh": "评估视频定位模型跨领域能力",
-      "tags": "计算机视觉;视觉语言模型;时空视频定位",
-      "body_summary": "当前视觉语言模型在专业领域视频定位任务中缺乏有效评估\n构建跨领域视频定位基准并测试模型泛化与适应能力"
+    "2607.02508": {
+      "short_zh": "从SRA到自流的改进机制辨析",
+      "tags": "计算机视觉;生成模型;扩散模型表示对齐",
+      "body_summary": "研究了扩散模型中从SRA到Self-Flow方法的改进机制。\n通过引入注意力分离等方法，发现其性能提升主要源于数据增强而非时序交互。"
     },
     "2607.01874": {
       "short_zh": "评估提升智能体技能使用质量",
       "tags": "大语言模型智能体;技能评估与训练;过程监督与质量优化",
       "body_summary": "在真实技能库中，技能重叠等问题使得智能体可靠使用技能变得困难，仅靠最终任务成功率评估过于粗糙。\n提出了SkillCoach框架，通过从实际执行轨迹中推导并自演进的评分规则，从技能选择、遵循、组合和反思四个维度评估过程质量，并将其作为过程监督信号来筛选高质量训练数据，有效提升评估与训练效果。"
     },
-    "2607.01436": {
-      "short_zh": "离散扩散模型辅助书写放射报告",
-      "tags": "自然语言处理;文本生成;医疗报告生成",
-      "body_summary": "现有医学大模型主要基于自回归生成，本研究探索扩散语言模型在医疗领域的应用。\n微调后的扩散模型在多项评估中匹配或超越自回归模型，并支持报告片段间的灵活填充。"
+    "2607.02271": {
+      "short_zh": "数据增强对静脉识别可靠性评测",
+      "tags": "计算机视觉;生物特征识别;静脉识别可靠增强",
+      "body_summary": "静脉识别因标注数据有限和成像变化受限，现有自然图像数据增强方法可能破坏静脉的细粒度拓扑与纹理。\n本文提出了AGVBench基准，系统性评估了30种增强方法在五大数据集和七种骨干网络上的性能，发现混合增强方法精度高但校准差且对抗脆弱，几何变换常降低性能，且增强效果在掌/指静脉数据间存在差异。"
+    },
+    "2607.02269": {
+      "short_zh": "评估视频定位模型跨领域能力",
+      "tags": "计算机视觉;视觉语言模型;时空视频定位",
+      "body_summary": "当前视觉语言模型在专业领域视频定位任务中缺乏有效评估\n构建跨领域视频定位基准并测试模型泛化与适应能力"
     },
     "2607.02375": {
       "short_zh": "单步图像生成的特征分布匹配",
       "tags": "计算机视觉;图像生成;分布匹配损失",
       "body_summary": "设计并优化单步图像生成器的训练方法，通过匹配生成图像与真实图像在预训练编码器中的特征分布来训练模型。\n提出改进的RDM方法，通过优化分布比较方式和多编码器匹配策略，在ImageNet上实现了单步生成的新最优性能，并能高效地将多步模型后训练为高性能单步模型。"
     },
-    "2607.01763": {
-      "short_zh": "密集蒸馏非最优解",
-      "tags": "机器学习;持续学习;持续后训练",
-      "body_summary": "持续后训练旨在让基础模型学习新知识的同时保留原有能力，其中同策略自蒸馏被视为有潜力的方法。\n研究发现同策略自蒸馏虽能加速领域内专精，但会加剧遗忘、损害泛化，其自身强化循环可能放大模型漂移，因此不适合作为持续后训练的默认稳定器。"
+    "2607.01436": {
+      "short_zh": "离散扩散模型辅助书写放射报告",
+      "tags": "自然语言处理;文本生成;医疗报告生成",
+      "body_summary": "现有医学大模型主要基于自回归生成，本研究探索扩散语言模型在医疗领域的应用。\n微调后的扩散模型在多项评估中匹配或超越自回归模型，并支持报告片段间的灵活填充。"
     },
     "2606.27669": {
       "short_zh": "搜索代理主动请求澄清",
       "tags": "自然语言处理;智能信息检索;对话式搜索",
       "body_summary": "现有搜索基准假设查询明确，忽视了真实搜索请求的模糊与错误问题，这会误导多步推理。\n我们构建了关注澄清的深度搜索基准DiscoBench，并评估模型在识别模糊性、提问澄清和通过交互恢复正确推理路径方面的能力。"
     },
+    "2607.01763": {
+      "short_zh": "密集蒸馏非最优解",
+      "tags": "机器学习;持续学习;持续后训练",
+      "body_summary": "持续后训练旨在让基础模型学习新知识的同时保留原有能力，其中同策略自蒸馏被视为有潜力的方法。\n研究发现同策略自蒸馏虽能加速领域内专精，但会加剧遗忘、损害泛化，其自身强化循环可能放大模型漂移，因此不适合作为持续后训练的默认稳定器。"
+    },
     "2607.02032": {
       "short_zh": "构建代理能力评估的廉价替代",
       "tags": "自然语言处理;大语言模型;能力评估代理化",
       "body_summary": "评估大语言模型代理能力成本高昂且耗时，需要一种廉价高效的预测方法。\n提出了PACE框架，通过选取少量原子能力测试题构建代理基准，能以极低成本高精度预测模型的实际代理性能。"
-    },
-    "2607.02466": {
-      "short_zh": "先学动作再学任务视觉语言动作模型预训练",
-      "tags": "机器人;具身智能;视觉语言动作模型",
-      "body_summary": "视觉语言动作模型受限于专家标注数据稀缺，且学习物理技能和语义对齐两个目标被混淆。\n提出了任务无关预训练框架，先用无标签交互数据学习通用运动先验，再用少量专家数据对齐语言，显著提升了数据效率和模型鲁棒性。"
     },
     "2606.31924": {
       "short_zh": "无需实例标注的复杂图像可控生成",
@@ -248,6 +255,11 @@
       "short_zh": "多领域推理训练课程设计",
       "tags": "强化学习；可验证奖励强化学习；跨领域技能迁移",
       "body_summary": "多领域可验证奖励强化学习训练中，不同领域技能迁移不均，现有课程采样方法未能考虑跨领域收益。\n提出一种能感知跨领域收益的在线课程学习方法，通过利用训练中已有的信号来优先选择对整体训练有益的领域，在多个模型和数据集上取得了最佳平均性能。"
+    },
+    "2607.02466": {
+      "short_zh": "先学动作再学任务视觉语言动作模型预训练",
+      "tags": "机器人;具身智能;视觉语言动作模型",
+      "body_summary": "视觉语言动作模型受限于专家标注数据稀缺，且学习物理技能和语义对齐两个目标被混淆。\n提出了任务无关预训练框架，先用无标签交互数据学习通用运动先验，再用少量专家数据对齐语言，显著提升了数据效率和模型鲁棒性。"
     }
   },
   "deep_analysis": {
