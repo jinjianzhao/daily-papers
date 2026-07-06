@@ -1,0 +1,73 @@
+{
+  "base_info": {
+    "2606.29526": {
+      "title": "The Mirage of Optimizing Training Policies: Monotonic Inference Policies as the Real Objective for LLM Reinforcement Learning",
+      "abstract": "Reinforcement learning (RL) has gained growing attention in large language model (LLM) post-training, yet RL training remains fragile and can suffer from instability or collapse. One vital cause is training-inference mismatch: LLM adopts separate inference and training engines for generation efficiency and training precision, which in practice exhibits inconsistent probabilities for the same trajectories on training and inference sides, even with synchronized model parameters. This naturally induces a special type of off-policyness ever existing and poisoning the training. Prior works have made various efforts in addressing the off-policyness to stabilize the training policies under the mismatch. In this paper, we point out the objective misalignment neglected by existing works that an effective update to the policy in the training engine not necessarily ensures the improvement of the inference policy, i.e., the one used in deployment. To this end, we propose a new policy optimization objective for LLM RL, named Monotonic Inference Policy Improvement (MIPI). Following this principle, we introduce Monotonic Inference Policy Update (MIPU), a two-step LLM RL framework that constructs sampler-referenced candidate updates and selectively accepts synchronized candidates using an inference-side gap proxy. Experiments conducted on two model scales under high mismatch show that MIPU improves average reasoning performance and training stability.",
+      "abstract_zh": "强化学习（Reinforcement Learning, RL）在大语言模型（Large Language Model, LLM）的后训练中日益受到关注，然而RL训练仍较为脆弱，可能出现不稳定甚至崩溃的情况。一个重要原因是训练-推断不匹配：LLM出于生成效率与训练精度的考虑，分别采用了独立的推断引擎和训练引擎，这导致在实践中，即使模型参数已同步，同一轨迹在训练侧与推断侧所呈现的概率仍存在不一致。这一现象自然引入了一种持续存在并损害训练的特殊类型离轨性。先前的研究已针对此不匹配下的离轨性问题，提出了多种稳定训练策略的尝试。本文指出，现有工作忽略了一个目标失配问题：即使训练引擎中对策略进行了有效更新，也未必能保证推断策略——即实际部署中所使用的策略——得到改进。为此，我们提出了一种名为单调推断策略改进（Monotonic Inference Policy Improvement, MIPI）的LLM RL策略优化目标。基于这一原则，我们引入了单调推断策略更新（Monotonic Inference Policy Update, MIPU），这是一个两步式的LLM RL框架，通过构建基于采样器参考的候选更新，并利用推断侧差距代理有选择地接受同步候选。在高不匹配条件下对两种模型规模进行的实验表明，MIPU能够提升平均推理性能并增强训练稳定性。",
+      "hf_link": "https://huggingface.co/papers/2606.29526"
+    },
+    "2607.01804": {
+      "title": "VLA-Corrector: Lightweight Detect-and-Correct Inference for Adaptive Action Horizon",
+      "abstract": "Vision-Language-Action (VLA) foundation models have recently achieved strong progress in embodied intelligence. To reduce policy-call frequency while preserving temporal coherence, most generative policies adopt an action chunk mechanism, executing multiple future actions in an open-loop manner under a fixed action horizon. However, this \"predict-then-blindly-execute\" paradigm sacrifices closed-loop reactivity: in contact-rich physical interactions, even small local perturbations can rapidly amplify within the open-loop blind spot, leading to compounding errors and ultimately task failure. To address this limitation, we propose VLA-Corrector, a lightweight corrective inference framework for action-chunked VLA policies. Without modifying the backbone policy weights, VLA-Corrector introduces a lightweight Latent-space Vision Monitor (LVM) that continuously compares predicted and actual visual feature evolution, enabling online detection of visual dynamics deviations. Once persistent deviation is detected, the system triggers a truncation event, discards the remaining stale actions, and invokes corrective replanning via Online Gradient Guidance (OGG). The detect-and-correct mechanism of VLA-Corrector naturally induces an event-triggered adaptive action horizon: it preserves long-horizon execution when the current chunk remains reliable, and invokes short-horizon corrective replanning when execution begins to drift. In doing so, VLA-Corrector mitigates the trade-off imposed by static horizons between execution robustness and policy-call frequency. It can be integrated into different VLA models without further retraining the VLA backbone, interrupting compounding errors while preserving much of the efficiency benefit of action chunking and substantially improving robustness in long-horizon, contact-rich robotic manipulation tasks.",
+      "abstract_zh": "视觉-语言-动作（Vision-Language-Action，VLA）基础模型近期在具身智能领域取得了显著进展。为降低策略调用频率并保持时序连贯性，多数生成式策略采用动作块机制，在固定的动作视界内以开环方式执行多个未来动作。然而，这种“预测后盲目执行”范式牺牲了闭环反应性：在接触密集的物理交互中，即使微小的局部扰动也能在开环盲区内迅速放大，导致误差累积并最终引发任务失败。为克服这一局限，我们提出VLA-Corrector——一种面向动作块式VLA策略的轻量级校正推理框架。无需修改主干策略权重，VLA-Corrector引入轻量级的潜在空间视觉监视器（Latent-space Vision Monitor，LVM），持续对比预测与实际视觉特征的演化过程，实现在线检测视觉动态偏差。当检测到持续性偏差时，系统触发截断事件，丢弃剩余的失效动作，并通过在线梯度引导（Online Gradient Guidance，OGG）启动校正重规划。VLA-Corrector的检测-校正机制自然形成了事件触发式自适应动作视界：在当前动作块保持可靠时维持长视界执行，而在执行开始偏离时启动短视界校正重规划。由此，VLA-Corrector缓解了静态视界在执行鲁棒性与策略调用频率之间强加的权衡关系。该框架可集成至不同VLA模型中而无需重训主干网络，在保留动作块机制大部分效率优势的同时阻断误差累积，显著提升了长视界、接触密集型机器人操作任务的鲁棒性。",
+      "hf_link": "https://huggingface.co/papers/2607.01804"
+    },
+    "2607.02501": {
+      "title": "Embodied.cpp: A Portable Inference Runtime of Embodied AI Models on Heterogeneous Robots",
+      "abstract": "Embodied AI models now span vision-language-action (VLA) models and world-action models (WAMs), but practical deployment remains fragmented across model-specific Python stacks, backend assumptions, and robot-side glue code, especially on heterogeneous edge devices. Existing inference runtimes are designed mainly for request-response serving and therefore do not satisfy the runtime contract of embodied deployment: multi-rate execution inside closed-loop control, latency-first batch-1 inference on heterogeneous hardware, and extensible embodied interfaces beyond fixed token I/O. We presentthis http URL, a portable C++ inference runtime for embodied models. Based on an architectural analysis of representative VLA models and WAMs,this http URLcaptures a shared execution path and organizes it into five layers: input adapters, sequence builders, backbone execution, head plugins, and deployment adapters. The runtime provides modular multi-rate execution, latency-first fused inference, and extensible operator and I/O support, enabling deployment across heterogeneous devices, robots, and simulators through one backend abstraction. We evaluatethis http URLon two VLA models, HY-VLA and pi0.5, and on a preliminary WAM benchmark using a LingBot-VA Transformer block. The VLA deployments achieve successful closed-loop execution with 100.0% and 91.0% task success rates, respectively. The WAM benchmark reduces block memory from 312.2 MiB to 88.1 MiB. These results show thatthis http URLimproves deployment efficiency while preserving high accuracy across diverse embodied model architectures.",
+      "abstract_zh": "具身人工智能模型现已涵盖视觉-语言-动作模型与世界-动作模型，但实际部署仍分散于各模型专用的Python技术栈、后端假设以及机器人端胶水代码中，尤其在异构边缘设备上更为突出。现有推理运行时主要针对请求-响应服务设计，无法满足具身部署的运行时契约需求：闭环控制内的多速率执行、异构硬件上延迟优先的批量1推理，以及超越固定令牌输入/输出的可扩展具身接口。我们推出this http URL——一个面向具身模型的便携式C++推理运行时。基于对代表性视觉-语言-动作模型与世界-动作模型的架构分析，this http URL提炼出共享执行路径并将其组织为五个层级：输入适配器、序列构建器、主干网络执行、头部插件及部署适配器。该运行时提供模块化多速率执行、延迟优先的融合推理，以及可扩展的算子和输入/输出支持，通过单一后端抽象实现跨异构设备、机器人及仿真器的统一部署。我们在两个视觉-语言-动作模型（HY-VLA与pi0.5）及基于LingBot-VA Transformer模块的初步世界-动作模型基准测试中评估this http URL。视觉-语言-动作模型部署分别实现了100.0%与91.0%任务成功率的闭环执行。世界-动作模型基准测试将模块内存从312.2 MiB降低至88.1 MiB。这些结果表明，this http URL在保持跨多样具身模型架构高精度的同时，显著提升了部署效率。",
+      "hf_link": "https://huggingface.co/papers/2607.02501"
+    },
+    "2606.31227": {
+      "title": "Securing the AI Agent: A Unified Framework for Multi-Layer Agent Red Teaming",
+      "abstract": "The fast growth of open-source AI infrastructure, from model serving engines and agent platforms to the Model Context Protocol (MCP) ecosystem and the language models themselves, has outpaced the security tooling available to defend it. We present AI-Infra-Guard, an open-source framework that organizes AI red teaming around a single observation: the attack surface of an AI agent is stratified across layers (infrastructure, protocol/tool, agent behavior, and model), and no single detection paradigm fits all of them. The framework therefore matches a paradigm to each layer, from deterministic rule matching over 75+ AI components and 1{,}400+ vulnerability rules, through LLM-driven agentic auditing of MCP servers and agent-skill packages and multi-turn black-box agent red teaming, to a jailbreak harness with 26+ attack operators over sixteen datasets. To our knowledge it is the only open-source framework to span all of these, including supply-chain auditing of the agent skills that increasingly extend AI agents. We release AI-Infra-Guard as open source so that \\emph{layer-paradigm matching} can serve as a practical foundation for agent security and a shared base for the community to build on.",
+      "abstract_zh": "开源人工智能基础设施的迅猛发展——从模型服务引擎与智能体平台，到模型上下文协议（Model Context Protocol，MCP）生态系统及语言模型本身——已超出了当前可用于防护的安全工具的发展速度。本文提出AI-Infra-Guard，这是一个开源框架，其围绕一个核心观察来组织人工智能红队测试：智能体的攻击面分布于不同层级（基础设施、协议/工具、智能体行为及模型），且没有任何单一的检测范式能够适用于所有层级。因此，该框架为每一层级匹配了相应的检测范式：从覆盖75个以上AI组件和1,400多条漏洞规则的确定性规则匹配，到对MCP服务器与智能体技能包的基于大语言模型的智能审计，再到多轮黑盒智能体红队测试，直至涵盖26种以上攻击算子、跨越十六个数据集的越狱测试工具。据我们所知，这是唯一一个涵盖所有这些层面的开源框架，包括对日益扩展智能体功能的智能体技能进行供应链审计。我们将AI-Infra-Guard以开源形式发布，使**层级-范式匹配**能够成为智能体安全的实践基础，并为社区提供一个可共同构建的共享基石。",
+      "hf_link": "https://huggingface.co/papers/2606.31227"
+    },
+    "2607.00052": {
+      "title": "AGE: Adaptive-masking for Graph Embedding in Graph Retrieval-Augmented Generation",
+      "abstract": "GraphRAG is an extension of retrieval-augmented generation (RAG) that supports large language models (LLMs) by referring to graph-structured data as external knowledge. While this technique ideally captures intricate relationships, it often struggles with graph representations for LLMs, particularly for frozen LLMs, due to the misalignment between graph-based and text-based latent features. We tackle this issue by introducing the {\\it Adaptive-masking for Graph Embedding (AGE)}. AGE employs a Transformer in a mask-based self-supervised learning (SSL) approach. We designed the architecture similar to text embedding encoders, addressing the latent feature misalignment. In contrast to natural language texts, graphs are concise representations, and there exist {\\it key nodes} that hold dominant contextual information, which are challenging to predict from their surroundings. Masking such key nodes leads to inefficiency in the SSL process. Therefore, AGE focuses on predicting nodes apart from key nodes, utilizing a learnable node sampler. Our experimental results indicate that AGE significantly improves approaches using non-parametric search component in GraphQA tasks, achieving superior accuracy across four benchmark datasets with distinct characteristics.",
+      "abstract_zh": "GraphRAG是检索增强生成（Retrieval-Augmented Generation, RAG）的一种扩展技术，它通过引用图结构数据作为外部知识来支持大语言模型（Large Language Models, LLMs）。虽然这种方法在理想情况下能够捕捉复杂的关系，但由于基于图的潜在特征与基于文本的潜在特征之间存在不对齐问题，它在为大语言模型（尤其是冻结参数的大语言模型）构建图表示时常常面临困难。我们通过引入**自适应掩码图嵌入（Adaptive-masking for Graph Embedding, AGE）**来解决这一问题。AGE采用基于掩码的自监督学习（Self-Supervised Learning, SSL）方法，利用Transformer架构进行训练。我们设计了与文本嵌入编码器相似的架构，以应对潜在特征不对齐的挑战。与自然语言文本相比，图是简洁的表示形式，且图中存在**关键节点（key nodes）**——这些节点承载着主导性的上下文信息，仅从其周围环境预测这些节点十分困难。若在SSL过程中掩码此类关键节点，会导致学习效率低下。因此，AGE利用可学习的节点采样器，侧重于预测除关键节点之外的其他节点。我们的实验结果表明，在GraphQA任务中，AGE显著改进了使用非参数检索组件的方法，在四个具有不同特征的基准数据集上均实现了更高的准确率。",
+      "hf_link": "https://huggingface.co/papers/2607.00052"
+    }
+  },
+  "hf_votes": {
+    "2606.29526": 0,
+    "2607.01804": 0,
+    "2607.02501": 0,
+    "2606.31227": 0,
+    "2607.00052": 0
+  },
+  "focus_sections": {
+    "3D生成与重建": []
+  },
+  "summaries": {
+    "2606.29526": {
+      "short_zh": "优化大语言模型推理策略",
+      "tags": "自然语言处理;语言模型对齐;大语言模型强化学习",
+      "body_summary": "现有大语言模型强化学习中，训练策略与部署时推理策略存在差异，导致训练不稳定或失败。\n提出单调推理策略改进原则及相应算法，确保训练更新能有效提升实际推理策略。"
+    },
+    "2607.01804": {
+      "short_zh": "轻量纠错推理框架提升机器人动作连贯性",
+      "tags": "机器人;具身智能;视觉语言动作模型",
+      "body_summary": "现有视觉语言动作模型采用固定动作块执行策略，在复杂接触任务中因开环盲区易累积误差。\n提出轻量检测纠正框架，实时监控并修正视觉动态偏差，实现事件触发式自适应动作规划。"
+    },
+    "2607.02501": {
+      "short_zh": "跨平台具身智能模型推理引擎",
+      "tags": "机器人;具身智能;模型部署",
+      "body_summary": "现有具身AI模型部署存在碎片化问题，缺乏满足闭环控制等实时性需求的统一推理运行时。\n提出了一个便携式C++推理运行时，通过分层架构实现高效部署，并在不同模型上验证了其有效性与性能优势。"
+    },
+    "2606.31227": {
+      "short_zh": "AI代理安全测试框架",
+      "tags": "人工智能安全;智能体安全;多层防御测试",
+      "body_summary": "开源AI基础设施快速发展，但安全防护工具跟不上。\n提出了AI-Infra-Guard框架，针对AI代理不同攻击层匹配不同测试范式，并开源。"
+    },
+    "2607.00052": {
+      "short_zh": "图检索增强生成优化",
+      "tags": "自然语言处理;检索增强生成;图结构知识检索",
+      "body_summary": "现有图检索增强生成方法因图与文本特征不匹配，在处理图数据时效果不佳。\n提出自适应掩码图嵌入方法，通过自监督学习对齐特征并优化关键节点预测，提升了多个基准数据集上的问答准确率。"
+    }
+  },
+  "deep_analysis": {},
+  "figures": {}
+}
