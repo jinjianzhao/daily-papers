@@ -18,11 +18,35 @@
       "abstract_zh": "具身人工智能模型现已涵盖视觉-语言-动作模型与世界-动作模型，但实际部署仍分散于各模型专用的Python技术栈、后端假设以及机器人端胶水代码中，尤其在异构边缘设备上更为突出。现有推理运行时主要针对请求-响应服务设计，无法满足具身部署的运行时契约需求：闭环控制内的多速率执行、异构硬件上延迟优先的批量1推理，以及超越固定令牌输入/输出的可扩展具身接口。我们推出this http URL——一个面向具身模型的便携式C++推理运行时。基于对代表性视觉-语言-动作模型与世界-动作模型的架构分析，this http URL提炼出共享执行路径并将其组织为五个层级：输入适配器、序列构建器、主干网络执行、头部插件及部署适配器。该运行时提供模块化多速率执行、延迟优先的融合推理，以及可扩展的算子和输入/输出支持，通过单一后端抽象实现跨异构设备、机器人及仿真器的统一部署。我们在两个视觉-语言-动作模型（HY-VLA与pi0.5）及基于LingBot-VA Transformer模块的初步世界-动作模型基准测试中评估this http URL。视觉-语言-动作模型部署分别实现了100.0%与91.0%任务成功率的闭环执行。世界-动作模型基准测试将模块内存从312.2 MiB降低至88.1 MiB。这些结果表明，this http URL在保持跨多样具身模型架构高精度的同时，显著提升了部署效率。",
       "hf_link": "https://huggingface.co/papers/2607.02501"
     },
+    "2607.02461": {
+      "title": "OrbitQuant: Data-Agnostic Quantization for Image and Video Diffusion Transformers",
+      "abstract": "Diffusion transformers (DiTs) achieve state-of-the-art image and video generation, but their multi-step sampling and growing parameter count make inference expensive. Post-training quantization (PTQ) is the natural remedy, yet DiT activations shift across timesteps, prompts, and guidance branches, forcing prior methods to re-fit calibration data for every new checkpoint or modality. We present OrbitQuant, a data-agnostic weight-activation quantizer that bypasses range estimation by quantizing in a normalized, rotated basis. In this basis, a randomized permuted block-Hadamard (RPBH) rotation concentrates each coordinate around one fixed, known marginal regardless of the input, so a single Lloyd-Max codebook serves all timesteps, prompts, and layers of a given input dimension. We extend the same quantizer to weight rows offline, absorbing the rotation into the weights so that it cancels inside each linear layer and only a forward rotation on the activations remains at runtime. The same recipe transfers from image to video with no per-modality tuning. Across FLUX.1, Z-Image-Turbo, Wan 2.1, and CogVideoX, it sets the state of the art for PTQ at several low-bit settings. It also pushes PTQ of image diffusion transformers to W2A4 with usable generation quality.",
+      "abstract_zh": "扩散变换器（Diffusion transformers，DiTs）在图像和视频生成方面达到了最先进的水平，但其多步采样过程与不断增长的参数量使得推理成本高昂。训练后量化（Post-training quantization，PTQ）作为自然的解决方案，却面临 DiT 的激活值会随时间步、提示词以及引导分支的不同而发生偏移，这迫使先前的方法必须针对每个新检查点或模态重新拟合校准数据。我们提出了 OrbitQuant，这是一种数据无关的权重-激活量化器，它通过在归一化且旋转后的基中进行量化，从而绕过了范围估计。在此基中，随机置换的分块哈达玛（Randomized Permuted Block-Hadamard，RPBH）旋转将每个坐标集中在单一固定且已知的边际附近，而与输入无关，因此单个 Lloyd-Max 码本即可服务于给定输入维度下的所有时间步、提示词及网络层。我们将相同的量化器离线应用于权重行，将旋转吸收到权重中，使其在每个线性层内部抵消，仅需在运行时对激活进行一次前向旋转。该方案无需针对不同模态进行调优，即可从图像领域迁移至视频领域。在 FLUX.1、Z-Image-Turbo、Wan 2.1 和 CogVideoX 等模型上，OrbitQuant 在多个低比特设置下为 PTQ 确立了最新的技术水平，并将图像扩散变换器的 PTQ 推进到 W2A4 比特配置，同时保持了可用的生成质量。",
+      "hf_link": "https://huggingface.co/papers/2607.02461"
+    },
+    "2606.28551": {
+      "title": "DataComp-VLM: Improved Open Datasets for Vision-Language Models",
+      "abstract": "Building performant Vision-Language Models (VLMs) requires carefully curating large-scale training datasets, yet the community lacks systematic benchmarks for evaluating such curation strategies. We introduce DataComp for VLMs (DCVLM), a benchmark for controlled data-centric experiments to improve VLM training. As part of DCVLM, we collect 160 datasets spanning four data types -- image-caption pairs, multimodal interleaved documents, text-only, and instruction-tuning data -- into a corpus of 6T multimodal tokens. DCVLM allows participants to test curation strategies (filtering, mixing, formatting, sampling) across 1B-8B models and 6.25B-200B token budgets. Models are then evaluated on a carefully selected suite of up to 52 downstream benchmarks across 9 domains. We conduct extensive experiments on DCVLM and find that data mixing, not filtering, is key to a high-quality training dataset: instruction-heavy mixtures scale better than caption-heavy ones, with gains widening at larger scales. The resulting dataset, DCVLM-Baseline, enables training an 8B VLM to 63.6% accuracy on our 33-task core suite with 200B training tokens. Compared to FineVision, the state-of-the-art open VLM training dataset, this represents an improvement of +5.4pp. DCVLM and all accompanying artifacts will be made publicly available atthis https URL.",
+      "abstract_zh": "构建高性能视觉-语言模型（Vision-Language Models, VLMs）需要精心策划大规模训练数据集，然而学术界目前缺乏系统性基准来评估此类数据策展策略。我们提出了面向VLMs的数据竞赛（DataComp for VLMs, DCVLM），这是一个通过受控的数据中心实验来改进VLM训练的基准平台。作为DCVLM的组成部分，我们汇集了涵盖四种数据类型——图像-文本对、多模态交错文档、纯文本数据及指令调优数据——的160个数据集，构建出总规模达6万亿多模态标记的语料库。DCVLM允许参与者在10亿至80亿参数规模的模型以及62.5亿至2000亿标记的训练预算范围内，测试包括数据过滤、混合、格式化和采样在内的策展策略。训练完成的模型将在涵盖9个领域、多达52项下游任务的精选基准套件上进行评估。通过对DCVLM开展大量实验，我们发现数据混合而非过滤是构建高质量训练数据集的关键：富含指令数据的混合方案比以描述文本为主的方案具有更好的扩展性，且规模越大优势越显著。基于此产生的数据集DCVLM-Baseline，能够在2000亿训练标记条件下将80亿参数的VLM训练至在我们33项核心任务套件上达到63.6%的准确率。相较于当前最先进的开源VLM训练数据集FineVision，这实现了+5.4个百分点的性能提升。DCVLM及所有相关资源将通过此https链接公开发布。",
+      "hf_link": "https://huggingface.co/papers/2606.28551"
+    },
     "2606.31227": {
       "title": "Securing the AI Agent: A Unified Framework for Multi-Layer Agent Red Teaming",
       "abstract": "The fast growth of open-source AI infrastructure, from model serving engines and agent platforms to the Model Context Protocol (MCP) ecosystem and the language models themselves, has outpaced the security tooling available to defend it. We present AI-Infra-Guard, an open-source framework that organizes AI red teaming around a single observation: the attack surface of an AI agent is stratified across layers (infrastructure, protocol/tool, agent behavior, and model), and no single detection paradigm fits all of them. The framework therefore matches a paradigm to each layer, from deterministic rule matching over 75+ AI components and 1{,}400+ vulnerability rules, through LLM-driven agentic auditing of MCP servers and agent-skill packages and multi-turn black-box agent red teaming, to a jailbreak harness with 26+ attack operators over sixteen datasets. To our knowledge it is the only open-source framework to span all of these, including supply-chain auditing of the agent skills that increasingly extend AI agents. We release AI-Infra-Guard as open source so that \\emph{layer-paradigm matching} can serve as a practical foundation for agent security and a shared base for the community to build on.",
       "abstract_zh": "开源人工智能基础设施的迅猛发展——从模型服务引擎与智能体平台，到模型上下文协议（Model Context Protocol，MCP）生态系统及语言模型本身——已超出了当前可用于防护的安全工具的发展速度。本文提出AI-Infra-Guard，这是一个开源框架，其围绕一个核心观察来组织人工智能红队测试：智能体的攻击面分布于不同层级（基础设施、协议/工具、智能体行为及模型），且没有任何单一的检测范式能够适用于所有层级。因此，该框架为每一层级匹配了相应的检测范式：从覆盖75个以上AI组件和1,400多条漏洞规则的确定性规则匹配，到对MCP服务器与智能体技能包的基于大语言模型的智能审计，再到多轮黑盒智能体红队测试，直至涵盖26种以上攻击算子、跨越十六个数据集的越狱测试工具。据我们所知，这是唯一一个涵盖所有这些层面的开源框架，包括对日益扩展智能体功能的智能体技能进行供应链审计。我们将AI-Infra-Guard以开源形式发布，使**层级-范式匹配**能够成为智能体安全的实践基础，并为社区提供一个可共同构建的共享基石。",
       "hf_link": "https://huggingface.co/papers/2606.31227"
+    },
+    "2607.02471": {
+      "title": "Interpretation-Oriented Cloud Removal via Observation-Anchored Residual Flow with Geo-Contextual Alignment",
+      "abstract": "Cloud removal (CR) is essential for optical remote sensing, serving as a prerequisite for reliable downstream interpretation, such as semantic segmentation and change detection. However, existing CR approaches often prioritize visual realism while overlooking their impact on subsequent analytical tasks, leading to semantic drift and degraded downstream performance. To address this issue, we propose Geo-Anchored Cloud Removal (GACR), a unified framework that jointly ensures faithful reconstruction and robust interpretability. At its core, GACR incorporates Observation-Anchored Residual Flow (OAR-Flow), which reformulates CR as a physically grounded residual inversion process. By anchoring the generative trajectory to the cloudy observation rather than pure noise, OAR-Flow enables fast, stable, and faithful reconstruction. To further preserve semantic structures critical for downstream interpretation, GACR integrates Geo-Contextual Prior Alignment (GCPA) to constrain the reconstruction within a semantic manifold induced by a Vision Foundation Model (VFM). Consequently, GACR strictly maintains the spatial-semantic integrity of complex landscapes. Extensive experiments across six CR datasets and twelve downstream tasks demonstrate that GACR produces superior reconstruction quality while consistently improving downstream task accuracy. The code is available atthis https URL.",
+      "abstract_zh": "云去除(Cloud Removal, CR)是光学遥感领域的关键技术，为语义分割和变化检测等下游可靠解译提供必要前提。然而，现有CR方法往往侧重视觉真实性，却忽视其对后续分析任务的影响，导致语义漂移和下游性能下降。为解决此问题，我们提出地理锚定云去除(Geo-Anchored Cloud Removal, GACR)——一个确保重建保真度与解译鲁棒性的统一框架。其核心是观测锚定残差流(Observation-Anchored Residual Flow, OAR-Flow)，该方法将CR重新定义为基于物理机理的残差反演过程。通过将生成轨迹锚定于含云观测而非纯噪声，OAR-Flow实现了快速、稳定且忠实的数据重建。为保护对下游解译至关重要的语义结构，GACR进一步集成地理上下文先验对齐(Geo-Contextual Prior Alignment, GCPA)，通过视觉基础模型(Vision Foundation Model, VFM)引导的语义流形约束重建过程，从而严格保持复杂地景的空间-语义完整性。在六个CR数据集和十二项下游任务上的大量实验表明，GACR在提升重建质量的同时，持续提高下游任务精度。代码可通过此链接获取：this https URL。",
+      "hf_link": "https://huggingface.co/papers/2607.02471"
+    },
+    "2607.01420": {
+      "title": "MultAttnAttrib: Training-Free Multimodal Attribution in Long Document Question Answering",
+      "abstract": "As grounded QA systems are increasingly deployed in AI assistants, accurately attributing generated answers to evidence is critical for user trust and model safety. While unimodal attributions have been explored in depth, the multimodal setting remains relatively under-researched. As a result, we introduce MultAttnAttrib, a training-free attribution-generation method that leverages a model's prefill pass, selected attention heads, and calibrated thresholds to locate source evidence within a document. To establish baseline results for the method, we introduce MultAttrEval, a complementary benchmark dataset annotated with fine-grained, ground-truth attributions for answer components grounded in multimodal source documents. To our knowledge, this is the first evaluation dataset designed specifically for multimodal attribution in long-form documents. Experimental results show that MultAttnAttrib consistently outperforms a variety of attribution-generation methods, including several strong prompting-based approaches and matches the latest frontier models such as GPT 5.4. Our method not only substantially improves attribution accuracy for both unimodal and multimodal attribution types, but also produces attributions at up to one-seventh of the direct inference latency compared to prompting on the same base model.",
+      "abstract_zh": "随着基于事实的问答系统在人工智能助手中的应用日益广泛，准确将生成的答案归因于证据来源对于用户信任和模型安全至关重要。尽管单模态归因已得到深入研究，但多模态情境下的归因研究仍相对不足。为此，我们提出MultAttnAttrib（多模态注意力归因）——一种无需训练的归因生成方法，该方法利用模型的预填充过程、精选的注意力头以及校准阈值，在文档中定位来源证据。为了建立该方法的基准结果，我们构建了MultAttrEval（多模态归因评估）基准数据集，该数据集对基于多模态源文档生成的答案成分提供了细粒度的真实归因标注。据我们所知，这是首个专门针对长文档多模态归因任务设计的评估数据集。实验结果表明，MultAttnAttrib在各类归因生成方法中表现稳定优异，其性能超越了多种基于提示的强基线方法，并可与GPT-5.4等前沿模型相媲美。我们的方法不仅显著提升了单模态与多模态归因类型的准确性，而且在相同基础模型上，其生成归因的推理延迟可降至直接提示方法的七分之一。",
+      "hf_link": "https://huggingface.co/papers/2607.01420"
     },
     "2607.00052": {
       "title": "AGE: Adaptive-masking for Graph Embedding in Graph Retrieval-Augmented Generation",
@@ -35,7 +59,11 @@
     "2606.29526": 0,
     "2607.01804": 0,
     "2607.02501": 0,
+    "2607.02461": 0,
+    "2606.28551": 0,
     "2606.31227": 0,
+    "2607.02471": 0,
+    "2607.01420": 0,
     "2607.00052": 0
   },
   "focus_sections": {
@@ -57,10 +85,30 @@
       "tags": "机器人;具身智能;模型部署",
       "body_summary": "现有具身AI模型部署存在碎片化问题，缺乏满足闭环控制等实时性需求的统一推理运行时。\n提出了一个便携式C++推理运行时，通过分层架构实现高效部署，并在不同模型上验证了其有效性与性能优势。"
     },
+    "2607.02461": {
+      "short_zh": "扩散模型量化免校准",
+      "tags": "计算机视觉;生成模型;图像视频扩散模型量化",
+      "body_summary": "扩散Transformer模型生成效果好但推理成本高，后训练量化是主要方法，但其激活值分布受时间步和提示词影响，传统量化需反复校准。\n提出OrbitQuant方法，通过归一化与旋转将数据集中到固定分布，无需输入数据校准即可实现权重与激活值量化，并能适配图像和视频模型，在多个模型上实现低比特率下的先进量化效果。"
+    },
+    "2606.28551": {
+      "short_zh": "构建高质量视觉语言模型训练数据集",
+      "tags": "计算机视觉;多模态学习;视觉语言模型训练数据集构建",
+      "body_summary": "当前缺乏评估视觉语言模型训练数据管理方法的系统基准。\n我们提出了DataComp-VLM基准，并创建了一个包含6万亿多模态词元的语料库，通过实验发现数据混合比过滤更重要，最终数据集性能优于现有最佳公开数据集。"
+    },
     "2606.31227": {
       "short_zh": "AI代理安全测试框架",
       "tags": "人工智能安全;智能体安全;多层防御测试",
       "body_summary": "开源AI基础设施快速发展，但安全防护工具跟不上。\n提出了AI-Infra-Guard框架，针对AI代理不同攻击层匹配不同测试范式，并开源。"
+    },
+    "2607.02471": {
+      "short_zh": "遥感云去除兼保语义",
+      "tags": "计算机视觉;遥感图像处理;遥感图像云去除",
+      "body_summary": "云去除是光学遥感图像可靠下游解译的前提，但现有方法常因追求视觉真实而忽略对后续任务的影响。\n提出通过观测锚定残差流和地理上下文对齐的联合框架，在保证重建质量的同时提升下游任务的准确性。"
+    },
+    "2607.01420": {
+      "short_zh": "多模态长文档答案归因方法",
+      "tags": "自然语言处理;问答系统;多模态答案归因",
+      "body_summary": "随着基于文档的问答系统被广泛应用，准确将答案归因至多模态证据源对可信度至关重要。\n本文提出无需训练的归因方法及评测基准，显著提升了归因精度和效率。"
     },
     "2607.00052": {
       "short_zh": "图检索增强生成优化",
