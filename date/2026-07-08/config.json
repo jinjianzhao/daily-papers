@@ -1,0 +1,416 @@
+{
+  "base_info": {
+    "2607.02515": {
+      "title": "PointDiT: Pixel-Space Diffusion for Monocular Geometry Estimation",
+      "abstract": "State-of-the-art single-image 3D reconstruction methods often rely on complex hybrid architectures and loss functions, or compress geometry into latent spaces in order to leverage pre-trained latent diffusion models. In this work, we show that such architectural overhead and intricate loss formulations are unnecessary. We introduce a minimalist pixel-space Diffusion Transformer, built on a plain ViT, that operates directly on raw 3D point map patches and is conditioned on image tokens from a pre-trained DINOv3. Unlike existing latent diffusion approaches, we train our diffusion backbone entirely from scratch, eliminating the need for point map tokenizers. Despite its simplicity, our approach surpasses complex latent-based diffusion models while remaining significantly simpler than hybrid alternatives. Notably, it produces sharper geometric structure and is more robust in highly ambiguous regions, such as transparent objects.",
+      "abstract_zh": "当前最先进的单图像三维重建方法通常依赖于复杂的混合架构与损失函数，或将几何结构压缩至隐空间以利用预训练的隐扩散模型。在本研究中，我们证明此类架构冗余与复杂的损失函数设计并非必需。我们提出了一种极简的像素空间扩散Transformer，该模型基于朴素视觉Transformer构建，直接在原始三维点图块上操作，并以预训练DINOv3提取的图像令牌作为条件。与现有隐扩散方法不同，我们的扩散主干网络完全从零开始训练，无需点图令牌化器的参与。尽管设计简洁，我们的方法在性能上超越了复杂的隐空间扩散模型，同时比混合架构方案更为轻量化。值得注意的是，该方法能生成更清晰的几何结构，并在高度模糊区域（如透明物体）表现出更强的鲁棒性。",
+      "hf_link": "https://huggingface.co/papers/2607.02515"
+    },
+    "2607.03819": {
+      "title": "CGGS: Consistency-Augmented Geometric Gaussian Splatting for Ego-centric 3D Scene Generation",
+      "abstract": "Challenges remain in ego-centric 3D scene generation due to limited view overlap and the dominant influence of individual perspectives on scene interpretation. These factors hinder the creation of viewpoint-consistent and semantically aligned visual content, as well as the construction of accurate geometric structures. In this paper, we propose CGGS, a text-to-3D framework aiming to enhance 3D-content-awareness and address geometric distortions in ego-centric scene generation. Firstly, the Ego-centric Generator is proposed by fine-tuning a Multi-View Latent Diffusion Model with consistency-augmented loss to generate consistent, high-fidelity 2D content aligned with textual descriptions. Then, Layout Decorator leverages optical flow and point-track correspondence to estimate depth, therefore producing dense point clouds as coarse layouts from the ego-centric 2D priors. Building on this initialization, Geometric Refiner is proposed to enhance 3D Gaussian reconstruction via an entropy-based Mutual Information Depth Loss (MID) combined with a hierarchical optimization scheme for improving visual quality and geometric structure. Comprehensive experiments demonstrate that CGGS outperforms previous methods in generating coherent and accurate text-driven 3D scenes. Project page: [this https URL](this https URL).",
+      "abstract_zh": "在以自我为中心的3D场景生成中，由于视角重叠有限以及个体视角对场景解读的主导影响，仍存在诸多挑战。这些因素阻碍了视角一致且语义对齐的视觉内容的生成，以及精确几何结构的构建。本文提出CGGS——一种文本到3D的生成框架，旨在增强以自我为中心场景生成中的三维内容感知能力并解决几何失真问题。首先，我们提出自我中心生成器，通过对多视角潜在扩散模型进行微调，引入一致性增强损失函数，从而生成与文本描述对齐、具有一致性的高保真二维内容。随后，布局装饰器利用光流与点轨迹对应关系进行深度估计，从而基于自我中心的二维先验生成稠密点云作为粗粒度布局。在此初始化基础上，我们提出几何优化器，通过结合基于熵的互信息深度损失与分层优化方案，提升三维高斯重建的质量，以改善视觉表现与几何结构。综合实验表明，CGGS在生成连贯且准确的文本驱动三维场景方面优于现有方法。项目页面：[此链接](此链接)。",
+      "hf_link": "https://huggingface.co/papers/2607.03819"
+    },
+    "2607.06559": {
+      "title": "RynnWorld-4D: 4D Embodied World Models for Robotic Manipulation",
+      "abstract": "Robotic manipulation in the open world requires not only recognizing what a scene looks like, but also anticipating how its 3D structure moves under interaction. We argue that synchronized RGB, depth, and optical flow, namely RGB-DF, provide a physically grounded representation that captures the underlying 4D dynamics of a scene. Compared to 2D pixel videos, this multi-modal synergy aligns visual appearance with geometric structure and temporal motion, creating a representation space significantly closer to the low-level end-effector actions demanded by robotic systems, thereby narrowing the gap between world prediction and policy learning. Building on this insight, we introduce RynnWorld-4D, a generative model that co-produces future RGB frames, depth maps, and optical flow from a single RGB-D image and a language instruction within one unified diffusion process. This 4D world model features a tri-branch architecture that integrates cross-modal attention with frame-wise 3D RoPE, ensuring that appearance, geometry, and motion evolve consistently. To supply training data at scale, we curate Rynn4DDataset 1.0, a massive dataset of over 254.4 million frames across egocentric human and robotic manipulation videos with high-quality pseudo-labels for depth and optical flow. We further propose RynnWorld-4D-Policy, an inverse dynamics head that consumes the internal 4D representations of RynnWorld-4D in a single forward pass, bypassing expensive multi-step denoising, to output robot actions in a closed-loop manner. Experiments show that RynnWorld-4D produces temporally and spatially coherent 4D predictions, and that RynnWorld-4D-Policy achieves state-of-the-art performance on real-world dexterous bimanual manipulation tasks, particularly excelling in tasks demanding spatial precision and temporal coordination.",
+      "abstract_zh": "开放世界的机器人操作不仅需要识别场景外观，更需预测其三维结构在交互作用下的运动规律。我们认为同步获取的RGB图像、深度信息与光流（即RGB-DF）构成了一种物理基础的表征方式，能够捕捉场景底层的四维动态特性。相较于二维像素视频，这种多模态协同机制将视觉外观与几何结构、时序运动相统一，创造出的表征空间更贴近机器人系统所需的低层级末端执行器动作，从而缩小了世界预测与策略学习之间的鸿沟。基于此洞见，我们提出RynnWorld-4D——一个在统一扩散过程中，从单帧RGB-D图像和语言指令协同生成未来RGB帧、深度图与光流的生成模型。该四维世界模型采用三支路架构，通过跨模态注意力与帧级三维旋转位置编码（3D RoPE）的融合，确保外观、几何与运动演化的内在一致性。为提供大规模训练数据，我们构建了Rynn4DDataset 1.0数据集，其中包含超过2.544亿帧的人类第一视角与机器人操作视频，并为深度与光流提供了高质量伪标签。我们进一步提出RynnWorld-4D-Policy，这是一个逆向动力学头部模块，通过单次前向传播即可利用RynnWorld-4D的内部四维表征（无需昂贵多步去噪过程），以闭环方式输出机器人动作。实验表明，RynnWorld-4D能生成时空连贯的四维预测，且RynnWorld-4D-Policy在真实世界灵巧双手操作任务中实现了最先进的性能，尤其在需要空间精度与时序协调的任务中表现突出。",
+      "hf_link": "https://huggingface.co/papers/2607.06559"
+    },
+    "2607.05765": {
+      "title": "Image2Sim: Scaling Embodied Navigation via Generative Neural Simulator",
+      "abstract": "Embodied navigation aims to build agents that interpret multimodal goals, reason in 3D space, and reach target destinations reliably in the real world. However, progress remains constrained by the lack of scalable, high-fidelity, and physically grounded interactive environments. Although real-world scanned datasets offer visual realism, they are limited by scale. In contrast, synthetic simulators scale more easily but often exhibit large sim-to-real gaps. We introduce Image2Sim, a real-time neural simulation framework that constructs high-quality interactive environments from posed RGB-D image sequences. The central idea is to decouple 3D spatial anchoring from photorealistic observation synthesis. For scene construction, Image2Sim uses a feed-forward feature Gaussian model that lifts posed RGB-D observations into a 3D feature-Gaussian representation in a single pass. For rendering, we propose a Geometry-Aware One-Step Pixel Flow model that transforms sparse and noisy Gaussian projections into high-quality panoramic RGB-D observations. Image2Sim also serves as a fully automated embodied data engine that generates high-fidelity observations, executable actions, and diverse navigation instructions at scale. It converts large collections of videos and images into nearly 20K interactive scenes and synthesizes more than 10 million navigation training samples. Navigation models trained entirely in these neural environments achieve strong improvements on major benchmarks and transfer effectively to real-world zero-shot settings. These results suggest that scalable neural simulation can serve as a practical training substrate for embodied navigation at scale.",
+      "abstract_zh": "具身导航旨在构建能够理解多模态目标、在三维空间中推理并在现实世界中可靠抵达目的地的智能体。然而，由于缺乏可扩展、高保真且基于物理的交互环境，该领域的进展仍受到限制。尽管真实世界扫描数据集提供了视觉真实性，但其规模有限。相比之下，合成仿真器虽更易扩展，却常存在较大的仿真到现实差距。本文提出Image2Sim，一种从位姿已知的RGB-D图像序列构建高质量交互环境的实时神经仿真框架。其核心思想是将三维空间锚定与逼真观测合成进行解耦。在场景构建方面，Image2Sim采用前馈特征高斯模型，通过单次处理将位姿已知的RGB-D观测提升为三维特征-高斯表示。在渲染方面，我们提出几何感知单步像素流模型，将稀疏且含噪声的高斯投影转化为高质量全景RGB-D观测。Image2Sim同时作为全自动具身数据引擎，可规模化生成高保真观测、可执行动作及多样化导航指令。该框架将大量视频与图像转换为近2万个交互场景，并合成超过1000万个导航训练样本。完全在这些神经环境中训练的导航模型在主流基准测试中取得显著提升，并能有效迁移至真实世界的零样本场景。这些结果表明，可扩展神经仿真能够作为规模化具身导航的实用训练基础。",
+      "hf_link": "https://huggingface.co/papers/2607.05765"
+    },
+    "2607.06291": {
+      "title": "AlayaWorld: Long-Horizon and Playable Video World Generation",
+      "abstract": "Game worlds have traditionally been built through labor-intensive production pipelines, making them costly to develop, difficult to customization, and expensive to modify after deployment. Recent advances in video world models offer a fundamentally different paradigm. Rather than explicitly authoring every component of a virtual environment, these models autoregressively synthesize future observations conditioned on the current world state and user interactions, enabling playable worlds to be generated online. Trained on both gameplay recordings and real-world videos, they can capture diverse visual appearances and physical dynamics, opening new opportunities for interactive applications beyond gaming, including embodied intelligence. In this paper, we present \\textbf{AlayaWorld}, a full-stack open-source framework for building interactive generative worlds. AlayaWorld enables open-ended real-time interaction, allowing users to freely navigate and perform diverse actions such as combat, spell casting, and monster summoning. The framework unifies the complete development-from data preparation model architecture, model training, inference acceleration, and deployment-within a modular and extensible architecture. Alongside the framework, we release reproducible pipelines, reference implementations, evaluation tools, and comprehensive documentation, establishing a practical foundation for future research and real-time applications of generative world models.",
+      "abstract_zh": "游戏世界的构建传统上依赖于劳动密集型的生产流程，这使得开发成本高昂、定制困难，且在部署后修改代价巨大。视频世界模型的最新进展提供了一种根本性的新范式。这些模型无需显式地设计虚拟环境的每一个组成部分，而是能够基于当前世界状态与用户交互，以自回归方式合成未来的观测结果，从而实现在线生成可游玩的动态世界。通过对游戏录像和真实世界视频进行训练，此类模型能够捕捉多样的视觉外观与物理动态，为游戏之外的交互式应用（包括具身智能）开辟了新的可能性。本文介绍了**AlayaWorld**——一个用于构建交互式生成世界的全栈开源框架。AlayaWorld支持开放式的实时交互，允许用户自由探索并执行多样化的行动，例如战斗、施法和召唤怪物。该框架将完整的开发流程——从数据准备、模型架构、模型训练、推理加速到部署——统一于模块化且可扩展的架构之中。伴随框架的发布，我们同时提供了可复现的流程管道、参考实现、评估工具及完整的文档，为生成式世界模型的未来研究与实时应用奠定了实用基础。",
+      "hf_link": "https://huggingface.co/papers/2607.06291"
+    },
+    "2607.06560": {
+      "title": "Vision as Unified Multimodal Generation",
+      "abstract": "We formulate computer vision as unified multimodal generation, where heterogeneous visual tasks are expressed in the native text and image generation spaces of a unified multimodal model, without task-specific architectures. Under this formulation, SenseNova-Vision uses natural-language instructions and optional visual prompts to specify tasks, target regions or views, and decoding conventions, and generates responses as text for symbolic outputs, images for dense spatial predictions, or mixed text-and-image outputs for compositional tasks. To support large-scale training, we convert diverse computer vision annotations into instruction-response examples compatible with these generation spaces, resulting in the SenseNova-Vision Corpus, a computer-vision instruction-response corpus spanning text, image, and mixed targets. Starting from an off-the-shelf pretrained unified multimodal model, SenseNova-Vision is trained primarily on this corpus, with auxiliary multimodal data used as a capability-preserving mixture, and requires no task-specific prediction heads or architectural modifications. The resulting model covers a broad range of vision tasks, including detection, OCR, keypoint estimation, segmentation, depth estimation, surface normal prediction, point maps, and camera pose estimation, while supporting language-defined variants that combine category, color, region, and other visual cues. Experiments show that a single unified model can match leading task-specialized systems across structured visual understanding, dense geometric prediction, segmentation, and multi-view visual geometry. These results suggest unified multimodal generation as a scalable route for integrating computer vision capabilities into general-purpose foundation models. The model and corpus are publicly available.",
+      "abstract_zh": "我们将计算机视觉表述为统一的多模态生成任务，其中异构视觉任务通过统一多模态模型的原生文本与图像生成空间来表达，无需任务特定的架构。在这一框架下，SenseNova-Vision使用自然语言指令和可选的视觉提示来指定任务、目标区域或视角以及解码规则，并以文本形式生成符号化输出、以图像形式生成密集空间预测、或以图文混合形式生成组合性任务的响应。为支持大规模训练，我们将多样化的计算机视觉标注转换为与此类生成空间兼容的指令-响应样本，从而构建了SenseNova-Vision语料库——一个涵盖文本、图像及混合目标的大规模计算机视觉指令-响应数据集。基于现成的预训练统一多模态模型，SenseNova-Vision主要在此语料库上进行训练，辅以辅助多模态数据作为能力保持的混合训练素材，且无需任何任务特定的预测头或架构修改。最终模型覆盖了广泛的视觉任务，包括检测、OCR（光学字符识别）、关键点估计、分割、深度估计、表面法向预测、点云地图和相机姿态估计，同时支持通过语言定义结合类别、颜色、区域等视觉线索的任务变体。实验表明，单一的统一模型在结构化视觉理解、密集几何预测、分割以及多视角视觉几何等任务上，能够媲美领先的专用任务系统。这些结果表明，统一多模态生成为将计算机视觉能力整合到通用基础模型提供了一条可扩展的路径。模型与语料库均已公开。",
+      "hf_link": "https://huggingface.co/papers/2607.06560"
+    },
+    "2607.05511": {
+      "title": "Light-Omni: Reflex over Reasoning in Agentic Video Understanding with Long-Term Memory",
+      "abstract": "Agentic video understanding equips models with long-term memory to autonomously process and respond to continuous, long-horizon multimodal streams. However, advanced video agents often rely on ``detective-style'' iterative reasoning for action control (e.g., $\\mathtt{search}$) and evidence aggregation, incurring prohibitive costs and latency. We argue that such heavy reasoning primarily compensates for the lack of global context and semantic misalignment in retrieval. This paper introduces Light-Omni, a multimodal agent framework for reflexive and lightweight video understanding. It achieves this through dual contextual states that instantly build the required context in a single forward pass. First, we maintain a global state, a finite-sized multimodal script continuously consolidated from episodic memory, serving as the global context for Light-Omni. Through hierarchical merging, it preserves recent details while summarizing past events. Second, conditioned on this global context, we generate a parametric latent state that directly drives autonomous actions and produces retrieval embeddings, with minimal latency. Benefiting from this coupled design, Light-Omni achieves semantically aligned retrieval and reflexive responses while avoiding iterative reasoning. Extensive experiments validate the effectiveness of Light-Omni across multiple video benchmarks. Notably, it outperforms M3-Agent with an average 2.4% accuracy gain, a 12.1$\\times$ speedup, and a 2.6$\\times$ improvement in GPU memory efficiency. Furthermore, it serves as a memory system to enhance both the performance and efficiency of existing MLLMs. Project page:this https URL.",
+      "abstract_zh": "智能体视频理解赋予模型长期记忆能力，使其能够自主处理并响应持续、长周期的多模态数据流。然而，先进的视频智能体通常依赖“侦探式”迭代推理来实现动作控制（如$\\mathtt{search}$）与证据聚合，这会带来极高的计算成本和延迟。我们认为，这种繁重的推理过程主要是为了弥补检索中全局上下文缺失和语义错位的问题。本文提出Light-Omni——一个用于反射式轻量化视频理解的多模态智能体框架。该框架通过双重上下文状态在单次前向传播中即时构建所需上下文，从而实现高效理解。首先，我们维护一个全局状态，即从情景记忆中持续整合形成的有限规模多模态脚本，作为Light-Omni的全局上下文。通过分层合并机制，该状态既能保留近期细节，又能概括过往事件。其次，基于此全局上下文，我们生成参数化潜状态，直接驱动自主行动并产生检索嵌入向量，且延迟极低。得益于这种耦合设计，Light-Omni在实现语义对齐检索与反射式响应的同时，避免了迭代推理过程。大量实验验证了Light-Omni在多个视频基准测试中的有效性。值得注意的是，其性能超越M3-Agent，平均准确率提升2.4%，速度加快12.1倍，GPU内存效率提高2.6倍。此外，它可作为记忆系统增强现有多模态大语言模型（MLLMs）的性能与效率。项目页面：this https URL。",
+      "hf_link": "https://huggingface.co/papers/2607.05511"
+    },
+    "2607.02963": {
+      "title": "Parallelized Autoregressive Decoding for Omni-Modal Dense Video Captioning",
+      "abstract": "Dense video captioning aims to generate temporally grounded descriptions of video events, benefiting both event-level video understanding and generation. In this domain, autoregressive video large language models have emerged as a prevalent paradigm due to their strong generative and cross-modal modeling capacity. However, generating dense captions under the token-by-token paradigm severely limits inference efficiency and hinders scalability as video length and event density increase. In this work, we propose a parallelized autoregressive framework that not only improves generation efficiency but also enhances temporally grounded captioning performance. Our key insight is to exploit the weak local dependencies across temporally distinct events to restructure the causal dependency graph, thereby enabling lossless parallel generation. Specifically, tokens with weak cross-event dependencies can be decoded in parallel, while tightly coupled tokens within each event retain sequential decoding to preserve local semantic coherence. To realize this insight, we introduce two key components for lossless parallel decoding: (1) a latent global planning mechanism that automatically learns the event-level structure and produces compact tokens encoding global inter-event causality while adaptively aggregating event-level audio-visual semantics, guiding subsequent dependency restructuring and parallel decoding; and (2) an event-factorized parallel decoding mechanism that effectively balances local focus with global inter-event awareness. Experiments on various benchmarks demonstrate the clear advantage of our approach in both efficiency and performance in omni-modal event grounding and captioning. Project website:this https URL.",
+      "abstract_zh": "密集视频描述任务旨在生成具有时间定位的视频事件描述，这有助于事件级视频理解与生成。在该领域中，自回归视频大语言模型因其强大的生成能力和跨模态建模优势已成为主流范式。然而，在逐token生成的范式下，密集描述生成严重限制了推理效率，并随着视频长度和事件密度的增加而影响可扩展性。本研究提出一种并行化自回归框架，不仅能提升生成效率，还能增强时间定位描述性能。我们的核心思路是利用时间上离散事件间的弱局部依赖性，重构因果依赖图，从而实现无损并行生成。具体而言，跨事件依赖较弱的token可并行解码，而每个事件内部紧密耦合的token则保留顺序解码以维持局部语义连贯性。为实现这一构想，我们引入两个关键组件以实现无损并行解码：（1）潜在全局规划机制，该机制能自动学习事件级结构，生成编码全局事件间因果关系的紧凑token，同时自适应聚合事件级视听语义，指导后续依赖关系重构与并行解码；（2）事件因子化并行解码机制，该机制能有效平衡局部聚焦与全局事件间感知能力。在多个基准测试上的实验表明，我们的方法在全模态事件定位与描述任务中，其效率与性能均具有显著优势。项目网站：this https URL。",
+      "hf_link": "https://huggingface.co/papers/2607.02963"
+    },
+    "2607.03451": {
+      "title": "SkillOpt-Lite: Better and Faster Agent Self-evolution via One Line of Vibe",
+      "abstract": "While skill optimization for autonomous agents has gained traction, existing methods rely on complex pipelines. This leaves a fundamental question unaddressed: What constitutes a minimal viable pipeline for skill optimization, where every component is justified by theory or empirical necessity? We formalize skill optimization via Zeroth-Order (ZO) optimization, mapping classical counterparts (central difference, trust regions) to recent literature. Noting that unlike blind numerical perturbations in classical ZO, skill trajectories serve as interpretable debugging feedback. Grounded in Claude Code philosophy and PAC learning, we establish three principles for convergence and generalization: file-system-based trajectory exploration, consensus attribute mining, and independent validation gating. Eliminating redundancies, we propose SkillOpt-Lite. It accelerates convergence and outperforms full SkillOpt: improving LiveMath by +8.8 points on GPT-5.5 and +25.4 points on GPT-5.4-nano, allowing the nano model to surpass standard GPT-5.4 optimized by SkillOpt. Finally, we integrate our framework into production coding agents like VSCode Copilot, enabling developers to evolve agent skills via one line of vibe. Because our framework treats all agent components simply as standard editable code, this minimal pipeline naturally generalizes to full harness optimization (HarnessOpt). On SpreadsheetBench, HarnessOpt enables GPT-5.4-nano to achieve 0.7758 accuracy, outperforming the larger GPT-5.5 running standard pipelines (0.7620). Code is available atthis https URL.",
+      "abstract_zh": "尽管自主智能体的技能优化已获得广泛关注，但现有方法依赖于复杂的流程框架。这留下了一个尚未解决的根本性问题：技能优化的最小可行流程框架应当如何构成，其中每个组件都需有理论或实证依据？我们通过零阶（Zeroth-Order, ZO）优化对技能优化进行形式化建模，将经典方法（中心差分、置信域）与近期研究建立对应关系。值得注意的是，与经典零阶优化中盲目的数值扰动不同，技能轨迹可作为可解释的调试反馈。基于克劳德代码哲学与可能近似正确（PAC）学习理论，我们确立了收敛性与泛化性的三项原则：基于文件系统的轨迹探索、共识属性挖掘以及独立验证门控机制。通过消除冗余组件，我们提出了SkillOpt-Lite框架。该框架不仅加速收敛，且性能超越完整版SkillOpt：在GPT-5.5上将LiveMath性能提升8.8个点，在GPT-5.4-nano模型上提升25.4个点，使得该轻量模型能够超越经完整SkillOpt优化的标准GPT-5.4模型。最后，我们将该框架集成至VSCode Copilot等生产级编码智能体中，使开发者能够通过单行指令即可演进智能体技能。由于本框架将所有智能体组件均视为可编辑的标准代码，这一最小化流程自然可泛化至完整装备优化（HarnessOpt）。在SpreadsheetBench基准测试中，HarnessOpt使GPT-5.4-nano模型达到0.7758的准确率，优于运行标准流程的大型GPT-5.5模型（0.7620）。代码发布于https://此网址。",
+      "hf_link": "https://huggingface.co/papers/2607.03451"
+    },
+    "2607.02980": {
+      "title": "Hierarchical Sparse Attention Done Right: Toward Infinite Context Modeling",
+      "abstract": "Scaling modern large language models (LLMs) to long contexts is limited by the quadratic computation cost, and poor length extrapolation of dense attention. Chunk-wise sparse attention offers a promising alternative, but all existing methods fall short of full attention because of their inaccurate chunk selection. We propose Hierarchical Landmark Sparse (HiLS) Attention, a chunk-wise sparse attention mechanism that learns chunk selection end-to-end under the language-modeling (LM) loss. HiLS factorizes attention hierarchically: each query performs attention independently with each retrieved chunk to extract chunk-specific information, and the resulting outputs are fused according to chunk retrieval scores. By incorporating retrieval scores into the forward attention computation, HiLS optimizes them directly with the LM loss, enabling end-to-end retrieval learning and native sparse training. Experimental results show that HiLS-Attention achieves performance comparable to, and in some cases better than, full attention at in-domain context lengths. Meanwhile, HiLS-Attention extrapolates more than $64\\times$ the training context length with 90% retrieval accuracy, far beyond full attention. Moreover, existing full-attention models can be converted to HiLS-Attention with lightweight continued pretraining, preserving in-domain performance while acquiring ultra-long-context extrapolation. Together with its sparse KV access and computation, HiLS-Attention breaks the usual efficiency-performance trade-off, enabling long-context LLMs that are both more efficient and more effective on general long-context tasks than their full-attention counterparts.",
+      "abstract_zh": "将现代大型语言模型扩展至长上下文时，主要受到二次计算成本和高密度注意力机制的长度外推能力不足的限制。分块稀疏注意力提供了一种有前景的替代方案，但现有方法因其不精确的块选择机制而无法完全达到全注意力的效果。我们提出了一种分层地标稀疏注意力机制（HiLS Attention），这是一种分块稀疏注意力机制，可在语言建模损失下实现端到端的块选择学习。HiLS采用分层分解的注意力机制：每个查询独立地与每个检索到的块进行注意力计算以提取特定块的信息，随后根据块检索得分融合所得输出。通过将检索得分纳入前向注意力计算，HiLS能够直接通过语言建模损失优化这些得分，从而实现端到端的检索学习和原生稀疏训练。实验结果表明，在领域内上下文长度下，HiLS注意力的性能与全注意力机制相当，甚至在部分情况下表现更优。同时，HiLS注意力能够外推超过训练上下文长度64倍以上，且保持90%的检索准确率，远超全注意力机制。此外，现有的全注意力模型可通过轻量级的持续预训练转换为HiLS注意力，在保持领域内性能的同时获得超长上下文外推能力。结合其稀疏的键值访问与计算特性，HiLS注意力打破了传统的效率-性能权衡关系，使得长上下文大型语言模型在通用长上下文任务中既比全注意力模型更高效，又更具效果。",
+      "hf_link": "https://huggingface.co/papers/2607.02980"
+    },
+    "2607.02770": {
+      "title": "Gemma 4 Technical Report",
+      "abstract": "We introduce Gemma 4, a new generation of open-weight, natively multimodal language models in the Gemma model family. Designed to advance compute efficiency and reasoning, the Gemma 4 model suite features dense and Mixture-of-Experts architectures, ranging from 2.3B to 31B parameters. Alongside improved vision and audio encoders for all model sizes, we propose a unified, encoder-free architecture for our 12B model, which ingests raw audio and image patches. Furthermore, we integrate a thinking mode, enabling Gemma models to generate reasoning traces prior to responding. We improve inference speed, memory, and compute efficiency, as well as long-context abilities through critical design choices. Gemma 4 establishes a leap in performance across STEM, multimodal, and long-context benchmarks, and rivals larger, frontier open models in human-rated tasks.",
+      "abstract_zh": "我们推出Gemma 4，这是Gemma模型家族中新一代开放权重的原生多模态语言模型。该模型套件旨在提升计算效率与推理能力，采用稠密结构和专家混合架构，参数量覆盖23亿至310亿范围。在全面提升所有规模模型的视觉与音频编码器性能的同时，我们为120亿参数模型提出了无需独立编码器的统一架构，可直接处理原始音频和图像块。此外，我们集成了思维模式，使Gemma模型能够在生成回答前先产生推理轨迹。通过关键设计优化，我们提升了推理速度、内存效率、计算效能以及长上下文处理能力。Gemma 4在STEM学科、多模态和长上下文基准测试中实现性能飞跃，在人工评估任务中可与规模更大的前沿开放模型相媲美。",
+      "hf_link": "https://huggingface.co/papers/2607.02770"
+    },
+    "2607.03530": {
+      "title": "MentalThink: Shaping Thoughts in Mental SVG World",
+      "abstract": "We introduce MentalThink, a visual-symbolic reasoning paradigm that equips Multimodal LLMs (MLLMs) with an executable mechanism for \"mental\" visualization. The core of MentalThink is a think-with-SVG pipeline, where the model learns to generate, render, and interpret scalable vector graphics (SVG) code as an intermediate visual representation for multi-turn reasoning. By creating structured vector sketches, the model can externalize spatial hypotheses, inspect them through deterministic rendering, and reason within a constrained geometric space, effectively mimicking the human process of mental imagery. We instantiate this paradigm through a two-stage training framework, combining Supervised Fine-Tuning (SFT) for SVG syntactic alignment with multi-turn Reinforcement Learning (RL) to encourage iterative inspection, revision, and refinement of intermediate visual hypotheses. Extensive evaluations demonstrate that MentalThink achieves superior performance on spatial understanding and reasoning benchmarks (e.g., 55.1% on VSIBench, 76.0% on MindCube), showing that executable vector graphics provide a verifiable visual workspace for dynamic perspective taking, visual reflection, and compositional scene construction.",
+      "abstract_zh": "我们提出MentalThink，一种视觉-符号推理范式，该范式为多模态大语言模型（MLLMs）配备了可执行的\"心理\"可视化机制。MentalThink的核心是\"基于SVG的思考\"流程，模型通过学习生成、渲染并解读可缩放矢量图形（SVG）代码，将其作为多轮推理的中间视觉表征。通过创建结构化矢量草图，模型能够外化空间假设、通过确定性渲染进行检视，并在受限几何空间中进行推理，从而有效模拟人类心理意象的生成过程。我们通过两阶段训练框架实现这一范式：首先采用监督微调（SFT）实现SVG语法对齐，随后通过多轮强化学习（RL）激励模型对中间视觉假设进行迭代检视、修正与优化。大量实验评估表明，MentalThink在空间理解与推理基准测试中（如VSIBench达55.1%，MindCube达76.0%）取得显著优势，证明可执行矢量图形为动态视角采择、视觉反思及组合式场景构建提供了可验证的视觉工作空间。",
+      "hf_link": "https://huggingface.co/papers/2607.03530"
+    },
+    "2607.05804": {
+      "title": "TurnOPD: Making On-Policy Distillation Turn-Aware for Efficient Long-Horizon Agent Training",
+      "abstract": "On-policy distillation (OPD) trains a student policy by matching a stronger teacher on the student's own trajectories, offering a promising framework for language agent training. However, its application to long-horizon agentic tasks remains insufficiently explored. We identify two key inefficiencies in vanilla agent OPD: (1) full-horizon rollouts often waste wall-clock resources on tail turns that provide weak and noisy KL supervision, and (2) trajectory-level KL objectives concentrate most of the loss on shallow tokens, leaving deeper decision turns under-trained once initial behaviors are aligned. To address these challenges, we propose TurnOPD, a turn-level budgeting strategy for efficient on-policy distillation of long-horizon agents. TurnOPD consists of two budget controllers: adaptive rollout-depth budgeting, which uses probe-based turn statistics to determine rollout length, and progressive turn-normalized loss budgeting, which gradually shifts KL weighting from token-level to turn-balanced supervision. Experiments on ALFWorld, WebShop, and Multi-Hop Search with task-specialized teacher models show that TurnOPD achieves superior validation accuracy under equal wall-clock training budgets and advances the accuracy--time frontier beyond vanilla OPD.",
+      "abstract_zh": "同策略蒸馏(on-policy distillation, OPD)通过让学生在自身轨迹上匹配更强的教师策略来训练学生策略，为语言智能体训练提供了一个前景广阔的框架。然而，该方法在长视野智能体任务中的应用仍缺乏充分探索。我们发现传统智能体OPD存在两个关键低效问题：(1) 全视野轨迹展开常消耗大量时钟资源在尾部轮次上，这些轮次仅能提供微弱且嘈杂的KL监督；(2) 轨迹级KL目标使损失主要集中在浅层标记上，一旦初始行为对齐后，深层决策轮次将得不到充分训练。针对这些挑战，我们提出TurnOPD——一种面向长视野智能体高效同策略蒸馏的轮次级预算策略。TurnOPD包含两个预算控制器：自适应展开深度预算器（基于探测的轮次统计数据确定展开长度）与渐进式轮次归一化损失预算器（逐步将KL加权从标记级监督转向轮次均衡监督）。在ALFWorld、WebShop和Multi-Hop Search任务中使用专业教师模型的实验表明：在等量时钟训练预算下，TurnOPD实现了更优的验证准确率，并将准确率-时间边界推进至传统OPD方法之上。",
+      "hf_link": "https://huggingface.co/papers/2607.05804"
+    },
+    "2607.05147": {
+      "title": "DSpark: Confidence-Scheduled Speculative Decoding with Semi-Autoregressive Generation",
+      "abstract": "Speculative decoding accelerates Large Language Model (LLM) inference by decoupling draft generation from target verification. While recent parallel drafters efficiently propose long token sequences in a single forward pass, they suffer from rapid acceptance decay due to a lack of inter-token dependencies. Furthermore, indiscriminately verifying these extended blocks wastes critical batch capacity on tokens with high rejection risks, severely degrading throughput in high-concurrency serving systems. We introduce DSpark, a speculative decoding framework that unifies high-throughput parallel generation with adaptive, load-aware verification. To maintain draft quality, DSpark utilizes a semi-autoregressive architecture, coupling a parallel backbone with a lightweight sequential module, to introduce intra-block dependency modeling and mitigate suffix decay. To optimize system efficiency, DSpark employs confidence-scheduled verification, dynamically tailoring the verification length for each request based on estimated prefix survival probabilities and engine-specific throughput profiles. On offline benchmarks across diverse domains, DSpark substantially improves the accepted length over state-of-the-art autoregressive and parallel drafters. When deployed within the DeepSeek-V4 serving system under live user traffic, DSpark successfully mitigates verification waste. Compared to the established production baseline (MTP-1), DSpark accelerates per-user generation speeds by 60 to 85 percent at matched throughput levels. More importantly, by preventing severe throughput degradation under strict interactivity constraints, it enables performance tiers that were previously unattainable, shifting the Pareto frontier of our serving system.",
+      "abstract_zh": "推测解码通过将草稿生成与目标验证解耦，加速了大语言模型的推理过程。尽管近期提出的并行起草器能在单次前向传播中高效生成长令牌序列，但由于缺乏令牌间依赖性，其接受率会迅速衰减。此外，无差别地验证这些扩展区块会浪费宝贵的批次容量在高拒绝风险的令牌上，严重降低了高并发服务系统的吞吐量。我们提出了DSpark——一个统一的推测解码框架，将高吞吐量的并行生成与自适应、负载感知的验证机制相结合。为保持草稿质量，DSpark采用半自回归架构，将并行主干网络与轻量级序列模块耦合，引入区块内依赖性建模以缓解后缀衰减。为优化系统效率，DSpark采用置信度调度验证机制，根据预估的前缀存活概率和引擎特定的吞吐量曲线，动态定制每个请求的验证长度。在跨领域离线基准测试中，DSpark相较于最先进的自回归及并行起草器显著提升了接受长度。当部署在承载真实用户流量的DeepSeek-V4服务系统中时，DSpark有效减少了验证浪费。相较于成熟的生产基线，在相同吞吐量水平下，DSpark将单用户生成速度提升了60%至85%。更重要的是，通过在严格交互性约束下防止吞吐量急剧下降，该系统实现了此前无法达成的性能层级，从而推动了服务系统帕累托边界的整体提升。",
+      "hf_link": "https://huggingface.co/papers/2607.05147"
+    },
+    "2607.05339": {
+      "title": "TREK: Distill to Explore, Reinforce to Refine",
+      "abstract": "Group Relative Policy Optimization (GRPO) is effective when the current policy already samples useful reasoning trajectories, but it stalls on hard prompts whose correct solution modes lie outside the student's on-policy support. We propose TREK (Teacher-Routed Exploration via Forward KL), a simple staged procedure that uses distillation not for imitation but for exploration support expansion. A key advantage of TREK is its generality: because it only consumes verified output trajectories, it can use an external black-box teacher, a white-box teacher, or the same model given additional inference-time context, and it can efficiently identify which hard-prompt samples are most worth consolidating even when teacher internals are unavailable. TREK first identifies prompts where the unaided student has very low pass rate, queries a proposal source to produce verified candidate solutions, keeps the top-$r$ proposals ranked by current student likelihood, applies a short forward-KL phase to pull those verified modes into the student's support, and then returns to standard on-policy GRPO refinement. On mathematical reasoning, TREK with DeepSeek-V4 proposals improves Qwen3 models across all tested scales on AIME 2024 and AIME 2025; for Qwen3-8B, it improves AIME 2025 from 36.9 to 40.3 and AIME 2024 from 47.9 to 51.1 (avg@16), while the self-context variant reaches 38.5 and 49.6 without an external teacher. On agentic tasks, TREK raises ALFWorld success rate from 75.8 to 82.8 and ScienceWorld success rate from 12.5 to 26.7; notably, on the hardest task types, TREK achieves high success rates early in training while unaided GRPO requires substantially more optimization steps to reach comparable levels.",
+      "abstract_zh": "当当前策略已能采样有效推理轨迹时，群体相对策略优化（Group Relative Policy Optimization，GRPO）表现良好，但在困难提示词上会陷入停滞——这些提示的正确解模式处于学生策略的当前支持集之外。我们提出TREK（基于前向KL的教师路由探索），这是一种简单的分阶段方法，其利用蒸馏并非为了模仿，而是为了扩展探索支持集。TREK的一个关键优势在于其通用性：由于它仅使用已验证的输出轨迹，因此可以利用外部黑盒教师、白盒教师，或在提供额外推理时上下文的同一模型；即使教师内部参数不可用，它也能高效识别哪些困难提示样本最值得巩固。TREK首先识别学生独立解题通过率极低的提示，向提案源查询以生成已验证的候选解，按当前学生似然值保留前r个提案，通过短期前向KL阶段将这些已验证模式拉入学生支持集，随后回归标准的在线GRPO精炼。在数学推理任务中，采用DeepSeek-V4提案的TREK在不同规模Qwen3模型上均提升了AIME 2024与AIME 2025的表现：对于Qwen3-8B模型，其在AIME 2025的得分从36.9提升至40.3，在AIME 2024从47.9提升至51.1（avg@16），而其自上下文变体在不依赖外部教师的情况下亦达到38.5和49.6。在智能体任务中，TREK将ALFWorld成功率从75.8提升至82.8，将ScienceWorld成功率从12.5提升至26.7；值得注意的是，在最困难的任务类型上，TREK在训练早期即实现高成功率，而无辅助的GRPO则需要更多优化步骤才能达到可比水平。",
+      "hf_link": "https://huggingface.co/papers/2607.05339"
+    },
+    "2607.05722": {
+      "title": "Nemotron-Labs-Diffusion: A Tri-Mode Language Model Unifying Autoregressive, Diffusion, and Self-Speculation Decoding",
+      "abstract": "We introduce Nemotron-Labs-Diffusion, a tri-mode language model (LM) that unifies AR, diffusion, and self-speculation decoding within a single architecture. Trained with a joint AR-diffusion objective, Nemotron-Labs-Diffusion can switch modes to sustain high throughput across deployment settings and concurrency levels. Our study shows that (1) AR and diffusion objectives are complementary: diffusion improves lookahead planning, while AR provides left-to-right linguistic priors. (2) In self-speculation mode, diffusion drafts while AR verifies, outperforming multi-token prediction (MTP) methods in both acceptance rate and real-device efficiency. (3) A speed-of-light analysis further demonstrates diffusion's long-term potential, with up to 76.5% more tokens per forward pass than self-speculation under an optimal sampler. Scaling to 3B, 8B, and 14B parameters, our Nemotron-Labs-Diffusion family, including base, instruct, and vision-language models, consistently outperforms state-of-the-art open-source AR and diffusion LMs in both accuracy and speed. For example, Nemotron-Labs-Diffusion-8B decodes 6x more tokens per forward than Qwen3-8B with comparable accuracy, translating to 4x higher throughput on SPEED-Bench with SGLang on a GB200 GPU.",
+      "abstract_zh": "我们推出Nemotron-Labs-Diffusion，这是一种三模态语言模型（LM），将自回归（AR）、扩散模型和自推测解码统一于单一架构中。通过联合AR-扩散目标进行训练，Nemotron-Labs-Diffusion能够切换模态以在不同部署场景和并发水平下维持高吞吐量。我们的研究表明：（1）AR与扩散目标具有互补性：扩散模型提升了前瞻规划能力，而AR提供了从左至右的语言先验。（2）在自推测模式下，扩散模型负责草稿生成而AR进行验证，其在接受率和实际设备效率上均优于多令牌预测（MTP）方法。（3）光速分析进一步揭示了扩散模型的长期潜力——在最优采样器条件下，其单次前向传递生成的令牌数比自推测模式最多可提升76.5%。通过将参数量扩展至30亿、80亿和140亿，我们的Nemotron-Labs-Diffusion系列（包含基础模型、指令模型和视觉语言模型）在准确性与速度上均持续领先当前最先进的开源AR和扩散语言模型。例如，在保持相当准确度的前提下，Nemotron-Labs-Diffusion-8B单次前向传递解码的令牌数量是Qwen3-8B的6倍，这意味着在GB200 GPU上使用SGLang运行时，SPEED-Bench测得的吞吐量提升了4倍。",
+      "hf_link": "https://huggingface.co/papers/2607.05722"
+    },
+    "2607.06558": {
+      "title": "RynnWorld-Teleop: An Action-Conditioned World Model for Digital Teleoperation",
+      "abstract": "Scaling robot learning requires massive, diverse trajectory data, yet collection is currently bottlenecked by physical teleoperation, where every demonstration binds operator time to specific hardware and workspaces. We introduce digital teleoperation, a paradigm that decouples data collection from physical constraints by replacing the real robot with a generative world model. In this framework, an operator's hand-pose stream drives a robot-centric generative world model to synthesize high-fidelity egocentric videos from a single reference image. The recorded pose stream serves as an embodiment-agnostic action label transferable to any target robot via standard retargeting, yielding complete state-action trajectories for imitation learning independent of physical hardware. We instantiate this paradigm in RynnWorld-Teleop, a system that integrates depth-aware skeletal conditioning, progressive human-to-robot training on a video Diffusion Transformer, and streaming autoregressive distillation. This pipeline compresses the generative process into a single-pass inference, enabling 40+ FPS, real-time interactive generation on a single H100 GPU. Policies trained exclusively on RynnWorld-Teleop-generated data achieve effective zero-shot Sim2Real transfer across dexterous and diverse bimanual tasks. Moreover, augmenting real-world datasets with our digitally teleoperated data consistently improves success rates, demonstrating that RynnWorld-Teleop serves as a high-fidelity, scalable data engine for the next generation of robotic agents.",
+      "abstract_zh": "规模化机器人学习需要海量且多样化的轨迹数据，然而当前的数据收集受限于物理遥操作范式，该模式下每个演示都将操作者的时间绑定于特定硬件与工作空间。我们提出数字遥操作这一新范式，通过用生成式世界模型替代真实机器人，将数据收集与物理约束解耦。在该框架中，操作者的手部姿态流驱动以机器人为中心的生成式世界模型，仅凭单张参考图像即可合成高保真度的第一人称视角视频。记录下的姿态流可作为与具体形态无关的动作标签，通过标准重定向方法迁移至任意目标机器人，从而产生完全独立于物理硬件的状态-动作轨迹以支持模仿学习。我们在RynnWorld-Teleop系统中实现了该范式，该系统集成了深度感知骨骼条件控制、基于视频扩散Transformer的渐进式人机协同训练以及流式自回归蒸馏技术。该流程将生成过程压缩至单次推理，在单个H100 GPU上实现了超过40 FPS的实时交互式生成。仅使用RynnWorld-Teleop生成数据训练的策略，在灵巧且多样化的双手操作任务中实现了有效的零样本仿真到真实迁移。此外，将数字遥操作数据与真实世界数据集结合使用时，任务成功率均获得持续提升，这表明RynnWorld-Teleop可作为下一代机器人代理的高保真、可扩展数据引擎。",
+      "hf_link": "https://huggingface.co/papers/2607.06558"
+    },
+    "2607.05803": {
+      "title": "Quantifying and Expanding the Theoretical Capacity of Late-Interaction Retrieval Models",
+      "abstract": "Late-interaction retrieval models that use the MaxSim similarity function have shown strong empirical performance, often outperforming single-vector dense and sparse retrieval models. Despite these empirical findings, little is known about the theoretical representation power of MaxSim and how it compares to other retrieval approaches. This paper shows by construction that MaxSim similarity can exactly replicate the inner product between any two non-negative k-sparse vectors with possibly infinite dimension, requiring only O(k) representation space. Moreover, there exist similarities that MaxSim can express while standard vector inner products with the same representation space cannot. Leveraging our theoretical framework, we introduce Signed MaxSim which allows late-interaction models to exactly replicate any real-valued inner product, something we prove standard MaxSim is not capable of. We also show that MaxSim can act as an aggregation of soft-OR operations and as an evaluator of logical expressions in positive Conjunctive Normal Form. Our findings show that MaxSim is at least as capable as standard vector inner products for any non-negative vectors and our extension, Signed MaxSim, is as capable for any vectors. Both similarities possess additional capabilities that inner product cannot replicate, marking one of the first theoretical justifications and quantifications of late-interaction methods. Our theoretical findings are supported empirically: on a retrieval task featuring queries with negations, Signed MaxSim improves out-of-domain performance significantly over a standard ColBERT/MaxSim baseline with nDCG@10 increasing from 0.597 to 1.000 under a vocabulary shift and from 0.008 to 0.788 on negation-only queries.",
+      "abstract_zh": "采用MaxSim相似度函数的后期交互检索模型已展现出强大的实证性能，通常优于单向量稠密检索与稀疏检索模型。尽管存在这些实证发现，关于MaxSim的理论表示能力及其与其他检索方法的比较，目前仍缺乏深入认知。本文通过构造性证明表明：对于任意两个可能无限维的非负k稀疏向量，MaxSim相似度能够精确复现其内积，且仅需O(k)的表示空间。此外，MaxSim能够表达的某些相似关系，是相同表示空间下的标准向量内积所无法实现的。基于我们的理论框架，我们提出了带符号MaxSim（Signed MaxSim），使得后期交互模型能够精确复现任意实值内积——这一点我们已证明标准MaxSim无法实现。我们还证明MaxSim可作为软逻辑或（soft-OR）运算的聚合器，并可用于评估正合取范式（positive Conjunctive Normal Form）的逻辑表达式。研究结果表明：对于任意非负向量，MaxSim的能力至少与标准向量内积相当；而我们拓展的带符号MaxSim则适用于任意向量。这两种相似度度量均具备内积无法复现的额外能力，这为后期交互方法提供了首批理论依据与量化分析。我们的理论发现得到了实证支持：在一项包含否定查询的检索任务中，带符号MaxSim显著提升了跨域性能——在词汇迁移场景下nDCG@10从0.597提升至1.000，在纯否定查询中从0.008提升至0.788。",
+      "hf_link": "https://huggingface.co/papers/2607.05803"
+    },
+    "2607.03509": {
+      "title": "Flex-Forcing: Towards a Unified Autoregressive and Bidirectional Video Diffusion Model",
+      "abstract": "Recent progress in large-scale generative models has substantially advanced video generation, yet existing methods remain constrained by a rigid inference paradigm. Bidirectional diffusion models excel at global coherence and visual fidelity but suffer from slow inference, while autoregressive models offer efficient and streaming generation at the cost of long-range consistency and exposure bias. We introduce Flex-Forcing, a unified training and inference framework that enables a video diffusion model to seamlessly operate under both bidirectional and autoregressive generation regimes. The core idea is a flexible chunking mechanism jointly defined over the temporal axis and denoising steps. This design allows the model to (1) perform flexible chunking according to different device budgets, (2) perform bidirectional inference across chunks for global structure planning, while generating frames autoregressively within each chunk for efficient and fine-grained synthesis, and (3) perform any-order, any-timestep autoregressive generation without the strict causal constraint. Extensive experiments on multiple video generation benchmarks demonstrate that Flex-Forcing achieves consistently better video quality, long-video stability than strong baselines with a rigid inference schedule, while offering faster inference.",
+      "abstract_zh": "大规模生成模型的最新进展显著推动了视频生成技术的发展，然而现有方法仍受限于僵化的推理范式。双向扩散模型在全局连贯性与视觉保真度方面表现优异，但存在推理速度缓慢的问题；而自回归模型虽能实现高效流式生成，却以牺牲长程一致性和面临曝光偏差为代价。我们提出了Flex-Forcing——一种统一的训练与推理框架，使视频扩散模型能够无缝适应双向与自回归两种生成模式。其核心理念是基于时间轴和去噪步骤联合定义的灵活分块机制。该设计使模型能够：（1）根据不同设备算力进行灵活分块处理；（2）在分块间执行双向推理以实现全局结构规划，同时在每个分块内以自回归方式生成帧序列，从而实现高效细粒度合成；（3）无需严格因果约束即可执行任意顺序、任意时间步的自回归生成。在多个视频生成基准测试上的大量实验表明：相较于采用固定推理流程的强基线模型，Flex-Forcing在保持更快推理速度的同时，持续实现了更优的视频质量与长视频稳定性。",
+      "hf_link": "https://huggingface.co/papers/2607.03509"
+    },
+    "2607.00394": {
+      "title": "When Classic Cache Policies Fail: Learning-Augmented Replacement for Semantic Retrieval Buffers",
+      "abstract": "LLM agents increasingly rely on retrieval buffers to store and reuse past experience, yet the cache management policies governing these buffers remain largely ad-hoc. We formalize this as an online semantic cache replacement problem with switching costs, where items are matched by embedding similarity and hit quality is continuous rather than binary. Through experiments on two datasets from MemoryBench-Full (LoCoMo, DialSim) with 8 replacement policies, we reveal a surprising finding: classic heuristics (LRU, LFU) \\emph{consistently underperform} the naive FIFO baseline on semantic workloads, due to the absence of temporal locality and frequency concentration. We propose SOLAR, a learning-augmented framework that derives modification timing from regret accumulation (achieving $\\sim$17\\% modification rate) and content selection from Bayesian online learning over implicit retrieval feedback. We prove SOLAR achieves a constant competitive ratio $\\leq 3$, independent of cache size and horizon (vs.\\ $\\Omega(K)$ for FIFO), and eviction regret $O(\\sqrt{KT\\log T})$, matching the $\\Omega(\\sqrt{KT})$ lower bound up to logarithmic factors. Experiments demonstrate 5--75\\% relative improvement over FIFO at tight cache sizes, with a clearly characterized phase transition at the working set boundary. Synthetic experiments with 5000-item pools further reveal an inverted-U relationship between pool size and retrieval quality, justifying capacity constraints as a retrieval noise phenomenon rather than a storage limitation.",
+      "abstract_zh": "随着大型语言模型代理日益依赖检索缓冲区来存储和重用过往经验，这些缓冲区所依赖的缓存管理策略在很大程度上仍是临时性的。本研究将此问题形式化为一个带切换成本的在线语义缓存替换问题，其中条目通过嵌入相似度进行匹配，且命中质量是连续的而非二元的。通过在 MemoryBench-Full 中的两个数据集（LoCoMo、DialSim）上对八种替换策略进行实验，我们揭示了一个令人惊讶的发现：在语义工作负载中，经典启发式策略（LRU、LFU）*持续逊色于*简单的先进先出基线策略，其原因在于时间局部性和频率集中性的缺失。我们提出了 SOLAR——一个学习增强型框架，该框架从遗憾累积中推导修改时机（达到约 17% 的修改率），并通过基于隐式检索反馈的贝叶斯在线学习进行内容选择。我们证明 SOLAR 实现了恒定的竞争比（≤ 3），该比值独立于缓存大小和时间范围（而先进先出策略为 Ω(K)），其逐出遗憾为 O(√(KT log T))，在忽略对数因子下匹配了 Ω(√(KT)) 的下界。实验表明，在严格的缓存容量下，相较于先进先出策略，SOLAR 能取得 5% 至 75% 的相对性能提升，并在工作集边界处呈现出清晰表征的相变。通过对包含 5000 个条目的池进行合成实验，进一步揭示了池大小与检索质量之间存在倒U型关系，从而将容量约束合理阐释为一种检索噪声现象，而非存储限制。",
+      "hf_link": "https://huggingface.co/papers/2607.00394"
+    },
+    "2606.31329": {
+      "title": "3D HAMSTER: Bridging Planning and Control in Hierarchical Vision Language Action Models through 3D Trajectory Guidance",
+      "abstract": "Hierarchical Vision-Language-Action (VLA) models decouple high-level planning from low-level control to improve generalization in robot manipulation. Recent work in this paradigm uses 2D end-effector trajectories predicted by a Vision-Language Model (VLM) as explicit guidance for a downstream policy. However, state-of-the-art low-level policies operate in 3D metric space on point clouds, and feeding them 2D guidance that lacks depth forces each waypoint to be assigned the depth of whatever scene surface lies beneath it, producing geometrically distorted trajectories. We propose 3D HAMSTER, a hierarchical framework that closes this gap by having the planner directly output metrically reliable 3D trajectories. We augment a VLM with a dedicated depth encoder and a dense depth reconstruction objective to predict 3D waypoint sequences, which are directly integrated into a pointcloudbased low-level policy. Across 3D trajectory prediction, simulation, and real-world manipulation, 3D HAMSTER consistently outperforms proprietary VLMs and 2D-guided baselines, with the largest gains under appearance-altering shifts and unseen language, spatial, and visual conditions. The project page is available atthis https URL.",
+      "abstract_zh": "分层视觉-语言-动作模型通过将高层规划与低层控制解耦，以提升机器人操作中的泛化能力。该范式下的近期研究采用视觉语言模型预测的2D末端执行器轨迹作为下游策略的显式指导。然而，最先进的低层策略在点云的三维度量空间中运行，向其输入缺乏深度信息的2D指导时，每个路径点将被迫赋予其下方场景表面的深度值，从而导致几何失真的轨迹。我们提出3D HAMSTER框架，通过让规划器直接输出度量可靠的三维轨迹来弥合这一差距。我们为视觉语言模型增加了专用深度编码器和稠密深度重建目标，使其能够预测三维路径点序列，并将其直接集成到基于点云的低层策略中。在三维轨迹预测、仿真和真实世界操作任务中，3D HAMSTER始终优于专有视觉语言模型及基于2D指导的基线方法，在表观变化偏移以及未见过的语言、空间与视觉条件下提升尤为显著。项目页面详见此https URL。",
+      "hf_link": "https://huggingface.co/papers/2606.31329"
+    },
+    "2606.30026": {
+      "title": "MuseBench: Benchmarking Intent-Level Audiovisual Arts Understanding in MLLMs",
+      "abstract": "Audiovisual arts encompass diverse creative disciplines, including cinema, visual arts, stage performance, and game design, where artistic meaning arises from deliberate combinations of visual, auditory, and narrative elements (e.g., fear amplified through claustrophobic framing, or grief conveyed through silence and lingering close-ups). True artistic understanding extends beyond recognizing what is depicted to reasoning about why it is expressed through particular creative choices. Despite the strong progress of multimodal large language models (MLLMs), this critical aspect of artistic understanding remains underexplored, as existing benchmarks largely measure perceptual recognition while overlooking reasoning about creative intent. To address this gap, we introduce Musebench, a comprehensive benchmark designed to evaluate MLLMs on nuanced artistic understanding. It comprises 4,016 questions spanning cinematic arts, static visual arts, stage performing arts, and game arts, distilled from over 10K candidate video essays that pair professional commentary with visual demonstration. To capture the open-ended nature of artistic analysis at scale, the benchmark combines single-select and variable-option multi-select questions. All questions are generated and refined through a four-phase iterative pipeline combining shortcut filtering, adversarial distractors, and expert validation. Comprehensive zero-shot evaluation of 28 state-of-the-art MLLMs reveals that even the best-performing model achieves only 48.29% accuracy, substantially below human expert performance of 87.18%, exposing a significant gap in current models' creative domain expertise.",
+      "abstract_zh": "视听艺术涵盖电影、视觉艺术、舞台表演和游戏设计等多元创意学科，其艺术意义产生于视觉、听觉与叙事元素的刻意组合（例如通过幽闭式构图放大的恐惧，或借助静默与延续特写传递的哀伤）。真正的艺术理解不仅在于识别所描绘的内容，更需推理为何通过特定的创作选择进行表达。尽管多模态大语言模型（MLLMs）已取得显著进展，艺术理解的这一关键维度仍未得到充分探索——现有基准大多衡量感知识别能力，却忽略了对创作意图的推理。为填补这一空白，我们推出Musebench：一个用于评估MLLMs在细微艺术理解能力的综合基准。该基准包含4,016道问题，涵盖电影艺术、静态视觉艺术、舞台表演艺术与游戏艺术，这些问题从超过10,000个候选视频论文（融合专业评述与视觉演示）中提炼而成。为在规模化评估中捕捉艺术分析的开放性本质，基准结合了单选题和可变选项多选题。所有问题均通过四阶段迭代流程生成并优化，该流程融合了捷径过滤、对抗性干扰项和专家验证机制。对28个前沿MLLMs的全面零样本评估显示，即使最优模型也仅达到48.29%的准确率，显著低于人类专家87.18%的表现，这揭示了当前模型在创意领域专业知识方面存在显著差距。",
+      "hf_link": "https://huggingface.co/papers/2606.30026"
+    },
+    "2607.06403": {
+      "title": "From Foundation to Application: Improving VLA Models in Practice",
+      "abstract": "Despite recent progress of VLA foundation models, the disparity between laboratory conditions and real-world applications continues to impede their practical implementation. To bridge this gap, we present LingBot-VLA 2.0, which advances LingBot-VLA through improvements in three functional domains. (1) Generalization across tasks and embodiments. Compared to the previous version, we revamp the data processing pipeline and curate around 60,000 hours of data for pretraining, including 50,000 hours of robot trajectories spanning 20 robot configurations and 10,000 hours of egocentric human videos. (2) Expanded action space in addition to dual-arm hardware platforms. In particular, our system accommodates degrees of freedom for the heads, waists, mobile bases, and dexterous hands, thereby empowering the robots to tackle more complex tasks in practical scenarios. (3) Predictive dynamics modeling for improved temporal reasoning. Specifically, we formulate future prediction as a proxy task, facilitated by a video representation model for semantic priors and a depth estimation model for geometric cues. Evaluations on the GM-100 benchmark, conducted in a generalist setting, validate the beneficial impact of these proposed modifications. Furthermore, benefiting from the expanded pretraining data that covers whole-body degrees of freedom, LingBot-VLA-2.0 demonstrates strong cross-embodiment long-horizon mobile manipulation capability across the two robotic platforms.",
+      "abstract_zh": "尽管视觉语言动作（VLA）基础模型近期取得了进展，但实验室条件与现实应用之间的差距仍阻碍着其实际部署。为弥合这一鸿沟，我们提出LingBot-VLA 2.0，通过在三个功能领域的改进实现了对LingBot-VLA的全面升级。（1）跨任务与跨具身形态的泛化能力。相较于先前版本，我们重构了数据处理流程，并精心构建了约6万小时的预训练数据，其中包含覆盖20种机器人构型的5万小时机器人轨迹数据，以及1万小时的第一人称人类视频数据。（2）在双臂硬件平台基础上拓展动作空间。本系统特别增加了对头部、腰部、移动底盘及灵巧手自由度的支持，使机器人能够应对实际场景中更为复杂的任务。（3）基于预测动力学模型的时间推理增强。我们通过将未来预测构建为代理任务来实现这一目标，该任务由提供语义先验的视频表征模型与提供几何线索的深度估计模型共同支持。在通用设置下对GM-100基准测试的评估验证了这些改进的有效性。此外，得益于覆盖全身自由度的扩展预训练数据，LingBot-VLA 2.0在两个机器人平台上均展现出强大的跨具身形态长程移动操作能力。",
+      "hf_link": "https://huggingface.co/papers/2607.06403"
+    },
+    "2607.05992": {
+      "title": "PluraMath: Extending Mathematical Reasoning Evaluation Beyond High-Resource Languages",
+      "abstract": "Mathematical reasoning has become a central task for evaluating and tuning reasoning Large Language Models (LLMs), yet existing benchmarks remain heavily biased toward high-resource languages, with English and Chinese dominating both pre-training corpora and evaluation suites. The recently released PolyMath (Wang et al., 2025) dataset represents a significant step forward, yet its coverage is still limited to 18 only high-resource languages. To address this gap, we introduce PluraMath, an extension of PolyMath to 18 additional {underrepresented languages spanning 6 language families -- ranging from mid-resource to extreme low-resource settings. We constructed the dataset through a human-curated pipeline, where native speakers thoroughly validated pre-computed translations. Using PluraMath, we then benchmark 27 reasoning LLMs across four model scales -- small, mid-size, large, and closed-source ensembles -- probing the multilingual mathematical reasoning capabilities of state-of-the-art models under diverse linguistic conditions. Our fine-grained analysis confirms a persistent gap in mathematical reasoning performance between high-resource and underrepresented languages, with stronger results largely associated with better instruction-following ability. We fully open-source our dataset, data acquisition pipeline, and evaluation framework, with the goal of lowering the barrier to multilingual benchmark development for underrepresented communities.",
+      "abstract_zh": "数学推理已成为评估和调优推理大语言模型（LLMs）的核心任务，然而现有基准测试仍严重偏向高资源语言，其中英语和中文在预训练语料库和评估套件中占据主导地位。近期发布的PolyMath（Wang等人，2025）数据集虽标志着重要进展，但其覆盖范围仍仅限于18种高资源语言。为弥补这一空白，我们提出了PluraMath——将PolyMath扩展至涵盖6个语系的18种新增弱势语言，覆盖从中等资源到极低资源的多类场景。我们通过人工策展流程构建该数据集，由母语者对预计算翻译结果进行全面验证。基于PluraMath，我们系统评估了27个推理大语言模型，涵盖小规模、中等规模、大规模及闭源集成模型四大尺度，深入探究前沿模型在多样化语言条件下的多语言数学推理能力。我们的细粒度分析证实：高资源语言与弱势语言在数学推理性能上存在持续差距，更强的结果主要与更好的指令遵循能力相关。我们完整开源了数据集、数据采集流程及评估框架，旨在为弱势语言社区降低多语言基准测试的开发门槛。",
+      "hf_link": "https://huggingface.co/papers/2607.05992"
+    },
+    "2607.06442": {
+      "title": "SIEVE: Structure-Aware Data Selection for Imitation Learning with VLA Models",
+      "abstract": "Vision-Language-Action (VLA) models are typically trained by imitation learning on large-scale robot demonstration datasets, but more data does not necessarily yield better policies due to redundancy, noise, and uneven coverage. Existing data selection methods often assess demonstrations at either the trajectory or state-action level, missing the reusable structures that compose long-horizon behaviors. In this paper, we propose SIEVE, a structure-aware data selection method for VLA imitation learning. SIEVE views demonstrations as compositions of reusable primitives and transition interfaces. It first discovers visuo-motor primitives from segmented trajectories, then allocates selection budgets to composition patterns by maximizing reuse-aware structural exposure under diminishing returns. Finally, it selects medoid trajectories within each composition-pattern bucket to retain central, stable, and imitation-friendly demonstrations. Experiments across multiple datasets, benchmarks, and VLA models show that SIEVE consistently outperforms competitive data selection baselines. Notably, SIEVE can surpass full-data training while using only 50% of demonstrations and 50% of training steps, suggesting that reusable structure, captured through primitives and transitions, is an important signal for efficient VLA imitation learning.",
+      "abstract_zh": "视觉-语言-动作（Vision-Language-Action，VLA）模型通常通过在大规模机器人演示数据集上进行模仿学习来训练，但由于数据冗余、噪声及覆盖不均等问题，更多数据未必能带来更优的策略。现有数据选择方法多在轨迹或状态-动作层面评估演示，忽略了构成长期行为中可复用的结构。本文提出SIEVE，一种面向VLA模仿学习的结构感知数据选择方法。SIEVE将演示数据视为可重用基元与过渡接口的组合。该方法首先从分割后的轨迹中发现视觉-运动基元，随后依据收益递减原则，通过最大化复用感知的结构暴露度来为不同组合模式分配选择预算。最后，在每个组合模式类别中选取中心轨迹，以保留核心、稳定且易于模仿的演示数据。在多个数据集、基准测试及VLA模型上的实验表明，SIEVE始终优于其他数据选择基线方法。值得注意的是，仅使用50%的演示数据和50%的训练步骤，SIEVE即可超越全数据训练的效果，这表明通过基元与过渡所捕获的可复用结构是高效VLA模仿学习的关键信号。",
+      "hf_link": "https://huggingface.co/papers/2607.06442"
+    },
+    "2607.02920": {
+      "title": "Layer-wise Cross-Lingual Depression Detection from Speech: Analysis with Contrastive Alignment",
+      "abstract": "Significant disparities exist in the diagnosis and clinical presentation of depression across different linguistic populations. Speech-based depression detection performs well monolingually, but cross-lingual generalization remains an open challenge. A key reason is that prior work uses segment-level random splits without speaker grouping, leading to identity leakage that inflates reported metrics. We propose CLeaD, a supervised contrastive alignment framework that maps WavLM embeddings from English and Mandarin into a shared clinical space, without parallel data or target-language fine-tuning. Evaluating 52 Mandarin speakers, contrastive alignment modestly outperforms the baseline (F1: 0.640 vs. 0.622) under leave-one-speaker-out evaluation. It also improves depressed-class recall at intermediate layers (7-8), though the small test set limits generalizability. Two findings remain robust: model scaling degrades cross-lingual performance while improving monolingual English, and speaker identity leakage artificially inflated previously reported Mandarin F1 scores to 0.954, an artifact we reproduce and quantify.",
+      "abstract_zh": "不同语言群体在抑郁症的诊断和临床表现方面存在显著差异。基于语音的抑郁检测在单语环境下表现良好，但跨语言泛化仍是一个悬而未决的挑战。一个关键原因是先前的研究采用片段级随机划分而未进行说话人分组，导致身份信息泄漏，从而虚高了报告的各项指标。我们提出了CLeaD（监督对比对齐框架），该框架将WavLM嵌入从英语和普通话映射到一个共享的临床空间，无需平行数据或目标语言微调。在52名普通话使用者的评估中，对比对齐框架在留一说话人交叉验证下的表现略优于基线模型（F1分数：0.640对比0.622）。该框架还提升了中间层（第7-8层）对抑郁类别的召回率，但较小的测试集限制了其泛化能力。两项发现仍然稳健：模型缩放会降低跨语言性能，同时提升英语单语性能；说话人身份泄漏导致先前报告的普通话F1分数被人为虚高至0.954，我们重现并量化了这一人为偏差。",
+      "hf_link": "https://huggingface.co/papers/2607.02920"
+    }
+  },
+  "hf_votes": {
+    "2607.06291": 0,
+    "2607.06560": 0,
+    "2607.05511": 0,
+    "2607.02963": 0,
+    "2607.03451": 0,
+    "2607.02980": 0,
+    "2607.02770": 0,
+    "2607.03530": 0,
+    "2607.05804": 0,
+    "2607.05147": 0,
+    "2607.05339": 0,
+    "2607.05722": 0,
+    "2607.06558": 0,
+    "2607.06559": 0,
+    "2607.05803": 0,
+    "2607.03509": 0,
+    "2607.02515": 0,
+    "2607.00394": 0,
+    "2606.31329": 0,
+    "2606.30026": 0,
+    "2607.06403": 0,
+    "2607.05992": 0,
+    "2607.06442": 0,
+    "2607.03819": 0,
+    "2607.02920": 0,
+    "2607.05765": 0
+  },
+  "focus_sections": {
+    "3D生成与重建": [
+      "2607.02515",
+      "2607.06559",
+      "2607.03819",
+      "2607.05765"
+    ]
+  },
+  "summaries": {
+    "2607.02515": {
+      "short_zh": "单图三维重建用像素扩散实现",
+      "tags": "计算机视觉;三维场景理解;单图像三维重建",
+      "body_summary": "现有单图三维重建方法依赖复杂架构或潜在扩散模型，压缩了几何信息。\n我们提出一个极简的像素空间扩散Transformer，直接在原始三维点云块上操作，无需潜在表示和复杂损失，实现了更清晰、更鲁棒的重建。"
+    },
+    "2607.03819": {
+      "short_zh": "增强文本到以自我为中心的3D场景生成",
+      "tags": "计算机图形学；三维场景生成；面向自我中心视角的文本到三维生成",
+      "body_summary": "挑战在于自我中心3D场景生成存在视点重叠少、视角单一导致几何扭曲和内容不一致的问题。\n提出了CGGS框架，通过改进的扩散模型生成一致2D图像，利用光流估计深度布局，并优化3D高斯重建以实现高质量文本驱动3D场景。"
+    },
+    "2607.06559": {
+      "short_zh": "构建四维具身世界模型用于机器人操作",
+      "tags": "机器人技术;具身智能;世界模型与操作策略",
+      "body_summary": "机器人操作需预测三维场景的动态变化，而RGB-DF多模态数据能更好地表征4D动态信息。\n提出统一模型生成未来多模态序列及动作策略，并用大规模数据集与闭环策略实现灵巧操作。"
+    },
+    "2607.05765": {
+      "short_zh": "图像构建交互仿真环境",
+      "tags": "具身智能;具身导航;神经仿真器",
+      "body_summary": "具身导航研究受限于缺乏可扩展、高保真且物理真实的交互环境训练数据。\n提出Image2Sim框架，从图像序列构建高质量神经仿真环境并自动生成海量导航训练数据，在此环境训练的模型在多个基准测试上表现优异。"
+    },
+    "2607.06291": {
+      "short_zh": "生成式交互世界框架",
+      "tags": "计算机图形学;生成式模型;视频世界模型",
+      "body_summary": "传统游戏世界构建成本高、难定制，视频世界模型提供新范式\n开源AlayaWorld框架，支持实时交互与多样动作，提供完整开发工具"
+    },
+    "2607.06560": {
+      "short_zh": "视觉任务统一为多模态生成",
+      "tags": "计算机视觉;多模态学习;视觉任务统一建模",
+      "body_summary": "计算机视觉任务通常依赖特定架构，难以统一处理。\n将视觉任务统一表达为多模态生成，构建指令数据集训练单一模型，实现多种任务。"
+    },
+    "2607.05511": {
+      "short_zh": "轻量视频代理记忆与理解",
+      "tags": "多模态智能体;视频理解;长时记忆高效推理",
+      "body_summary": "现有视频智能体依赖耗时推理补偿检索缺陷。\n提出双态框架实现单次前向的快速视频理解。"
+    },
+    "2607.02963": {
+      "short_zh": "并行解码提升密集视频描述效率",
+      "tags": "计算机视觉;视频理解与生成;密集视频描述",
+      "body_summary": "密集视频描述任务旨在为视频事件生成时间定位的详细描述，但传统自回归模型存在推理效率低下的问题。\n本文提出一种并行化自回归框架，通过重构因果依赖图实现无损并行解码，显著提升了生成效率和描述性能。"
+    },
+    "2607.03451": {
+      "short_zh": "优化智能体技能的单行代码方案",
+      "tags": "机器学习;智能体优化;技能轨迹探索",
+      "body_summary": "现有智能体技能优化方法复杂且缺乏理论支撑，需构建高效实用方案。\n我们提出SkillOpt-Lite框架，通过三个原则简化流程并加速收敛，在多个任务上超越原方法，且能扩展至全系统优化。"
+    },
+    "2607.02980": {
+      "short_zh": "高效长上下文大模型注意力机制",
+      "tags": "自然语言处理；大语言模型；稀疏注意力",
+      "body_summary": "现代大语言模型在处理长上下文时面临计算成本高和长度外推能力差的问题。\n提出了端到端可学习的分层稀疏注意力方法，在保持性能的同时显著提升了效率与外推能力。"
+    },
+    "2607.02770": {
+      "short_zh": "Gemma多模态大模型技术报告",
+      "tags": "多模态大模型;模型架构设计;高效多模态推理",
+      "body_summary": "Gemma模型家族推出了新一代开放权重的多模态大语言模型Gemma 4。\n新模型通过引入统一编码器、思维模式等设计，提升了效率、推理和长上下文能力，在多项评测中性能领先。"
+    },
+    "2607.03530": {
+      "short_zh": "为多模态大模型添加可执行心理可视化",
+      "tags": "多模态学习;视觉推理;可执行向量图形推理范式",
+      "body_summary": "当前多模态大模型缺乏可执行的中间视觉表示来进行空间推理。\n提出MentalThink框架，通过生成和渲染SVG代码作为可验证的视觉工作空间，并利用两阶段训练提升其在空间理解任务上的性能。"
+    },
+    "2607.05804": {
+      "short_zh": "让长任务智能体训练更高效",
+      "tags": "机器学习;强化学习;智能体蒸馏",
+      "body_summary": "背景/任务：在长视界智能体任务中，直接应用策略蒸馏存在训练效率低、深层决策步监督弱的问题。\n做了什么：提出了TurnOPD方法，通过自适应的回合深度预算和渐进式回合归一化损失预算，来更高效地实施策略蒸馏，并在多个任务上验证了其优越性。"
+    },
+    "2607.05147": {
+      "short_zh": "高效加速大语言模型推理",
+      "tags": "自然语言处理;语言模型推理;推测解码优化",
+      "body_summary": "推测解码用于加速大语言模型推理，但并行草稿方法存在接受率衰减和验证资源浪费问题。\n提出DSpark框架，结合半自回归生成提升草稿质量，并基于置信度调度验证以优化系统效率。"
+    },
+    "2607.05339": {
+      "short_zh": "蒸馏探索强化求精",
+      "tags": "强化学习;策略优化;数学推理",
+      "body_summary": "当前策略优化方法在难题上易停滞，需要引入外部知识扩展探索能力\n提出TREK方法，先蒸馏外部正确解以扩展策略覆盖，再强化优化，显著提升数学推理与智能体任务效果"
+    },
+    "2607.05722": {
+      "short_zh": "统一三种模式的语言模型",
+      "tags": "自然语言处理;语言模型;多模式语言模型",
+      "body_summary": "现有语言模型在生成效率和规划能力上存在局限，需要兼顾速度与质量。\n我们提出了一个同时支持自回归、扩散和自推测解码的三模式模型，它在准确性和速度上均优于现有开源模型。"
+    },
+    "2607.06558": {
+      "short_zh": "数字遥操作生成机器人训练数据",
+      "tags": "机器人;模仿学习;世界模型",
+      "body_summary": "机器人学习需要大量轨迹数据，但物理遥操作收集数据效率低、受硬件限制。\n我们提出数字遥操作范式，用世界模型合成高保真视频，将人手动作转换为机器人动作数据用于训练。"
+    },
+    "2607.05803": {
+      "short_zh": "探究后交互检索模型理论能力",
+      "tags": "自然语言处理;信息检索;后交互模型理论",
+      "body_summary": "后交互检索模型虽表现优异但其理论表达能力尚不明确，本文旨在量化并扩展此类模型的理论能力。\n理论证明并扩展了其核心相似度函数的表达能力，引入新方法提升其处理复杂查询的能力。"
+    },
+    "2607.03509": {
+      "short_zh": "统一视频扩散模型的双向与自回归生成",
+      "tags": "计算机图形学;视频生成;视频扩散模型",
+      "body_summary": "现有视频生成模型在推理范式上存在局限：双向扩散模型全局连贯但推理慢，自回归模型高效但长程一致性差。\n提出Flex-Forcing框架，通过灵活分块机制，使模型能根据设备预算灵活选择推理模式，兼顾全局规划与高效细粒度生成，提升视频质量与推理速度。"
+    },
+    "2607.00394": {
+      "short_zh": "大模型缓存策略优化",
+      "tags": "自然语言处理;检索增强生成;语义缓存替换",
+      "body_summary": "大模型智能体依赖检索缓冲区复用经验，但现有缓存管理策略效率低下。\n提出学习增强缓存框架，理论证明其优越性，实验验证性能显著提升。"
+    },
+    "2606.31329": {
+      "short_zh": "3D轨迹引导的分层视觉语言动作模型",
+      "tags": "机器人;机器人操作;3D轨迹规划与执行",
+      "body_summary": "分层视觉-语言-动作模型将高层规划与低层控制解耦以提升机器人操作泛化能力，但现有方法使用缺乏深度信息的2D轨迹指导3D策略会产生几何失真。\n我们提出3D HAMSTER框架，通过增强视觉语言模型直接预测度量可靠的3D轨迹，并将其直接集成到基于点云的低层策略中，在多项任务中超越现有方法。"
+    },
+    "2606.30026": {
+      "short_zh": "MuseBench评估多模态大模型艺术理解",
+      "tags": "多模态人工智能;多模态理解与推理;视听艺术创作意图评估",
+      "body_summary": "现有多模态大模型在视听艺术领域的深层创作意图理解能力评估不足。\n构建MuseBench基准，包含4016个涉及创作意图的问题，评估28个模型发现其性能远低于人类专家。"
+    },
+    "2607.06403": {
+      "short_zh": "提升机器人视觉语言模型实用性能",
+      "tags": "机器人;视觉语言与具身智能;长视野移动操作任务",
+      "body_summary": "视觉语言动作模型实验室表现与现实应用存在差距，阻碍了其实用化。\n我们提出了LingBot-VLA 2.0，通过扩充预训练数据、扩展机器人动作空间和引入预测性动态建模来提升模型在复杂任务中的泛化与执行能力。"
+    },
+    "2607.05992": {
+      "short_zh": "扩展低资源语言数学推理评测",
+      "tags": "自然语言处理;大语言模型评测;多语言数学推理",
+      "body_summary": "现有数学推理评测集偏重高资源语言，缺乏对低资源语言的覆盖。\n构建了覆盖18种低资源语言的评测集，并评估了不同规模模型的多语言数学推理能力。"
+    },
+    "2607.06442": {
+      "short_zh": "基于结构筛选模仿学习数据",
+      "tags": "机器人;机器人学习;视觉语言动作模型模仿学习",
+      "body_summary": "视觉语言动作模型通常通过模仿大规模机器人演示数据集来训练，但数据冗余和覆盖不均会影响策略性能。\n提出SIEVE方法，将演示分解为可重用基元和过渡接口，通过最大化结构复用性来筛选数据，在减少数据和训练步骤的情况下超越全数据训练效果。"
+    },
+    "2607.02920": {
+      "short_zh": "跨语言语音抑郁检测",
+      "tags": "语音处理;语音情感识别;跨语言抑郁检测",
+      "body_summary": "跨语言抑郁检测面临性能虚高和泛化难题。\n对比学习对齐编码提升跨语言检测鲁棒性并量化了身份泄漏影响。"
+    }
+  },
+  "deep_analysis": {
+    "2607.02515": "好的，没问题。我们来用简单的语言拆解一下这篇名为 **PointDiT** 的论文。\n\n---\n\n### (1) 任务是什么？\n\n*   **任务输入**：一张普通的彩色图片（RGB图像）。\n*   **任务输出**：一张“3D点图”。你可以把它想象成一张和输入图片尺寸一样的“特殊图片”，但每个像素点不再存储颜色（R, G, B），而是存储一个3D空间坐标（X, Y, Z）。也就是说，输出直接告诉你图片中每个像素在相机坐标系下的3D位置。\n*   **任务功能**：从一张2D图片，推测出整个场景的3D几何结构。这比只预测“深度”（每个像素距离相机的远近）更直接，因为它直接给出了3D点云，不需要知道相机的内部参数（如焦距）。\n\n### (2) 想解决什么问题？\n\n从2D图片猜3D结构，本身就是一个“病态问题”——一张图片可能对应无数种3D场景。现有方法各有缺点：\n\n1.  **确定性回归模型**：像普通神经网络一样，直接预测一个确定的3D点图。它们倾向于预测“平均”或“最可能”的结果，导致预测出的3D结构过于平滑，缺乏清晰的边缘和细节（比如窗户的栏杆、细小的物体）。\n2.  **潜在扩散模型**：先用一个编码器把3D点图压缩成一个“潜变量”，再用扩散模型在潜变量空间里生成，最后解码回3D点图。但问题在于：\n    *   为3D数据（坐标范围无限）设计一个好的压缩/解压器（VAE）非常困难，重建过程会丢失很多细节。\n    *   压缩和解压本身就会引入误差，这从根本上限制了最终3D重建的质量。\n\n**简单说，作者想解决：如何既能生成细节丰富的3D结构，又能避免复杂的、会损失信息的潜变量压缩过程？**\n\n### (3) 贡献是什么？\n\n这篇论文的核心贡献是 **“大道至简”** ，提出了一个非常简洁有效的解决方案：\n\n1.  **“像素空间”扩散**：他们抛弃了复杂的潜变量压缩，直接让扩散模型在**原始的3D点图数据**上学习。就像图像生成模型直接在像素上操作一样，他们直接在（X, Y, Z）坐标上操作。这避免了信息损失。\n2.  **简单的架构**：模型主干就是一个朴素的 **Vision Transformer**，没有任何花哨的混合结构（如CNN+Transformer）。它接收被切成小块的3D点图作为输入。\n3.  **强大的条件引导**：为了给这个简单的模型注入“常识”（知道图片里是什么），他们使用了**预训练好的DINOv3模型**来提取图像特征，作为条件输入给扩散模型。这相当于用强大的视觉识别能力来指导3D几何的生成。\n4.  **有效的训练目标**：他们采用了 **x-prediction** 目标（直接预测干净的3D点图），而不是更常见的v-prediction。论文发现这对几何数据效果更好，能生成更准确的结构。\n\n### (4) 整体思路与模型结构\n\n**核心思路**：训练一个 **条件扩散模型**。这个模型学习的是 **“如何将一个充满噪声的3D点图，逐步去噪，还原成一个干净的、与输入图片匹配的3D点图”**。\n\n**模型结构（PointDiT）**：\n*   **基模**：模型主干是一个 **朴素的Vision Transformer**。\n*   **条件模型**：图像特征提取器是 **预训练的DINOv3**（不参与训练，只提供特征）。\n\n**整体流程（从输入到输出）**：\n\n1.  **输入准备**：\n    *   **图像侧**：输入RGB图片通过 **DINOv3** 模型，得到一系列图像特征令牌。\n    *   **点图侧**：在训练时，我们有一个真实的3D点图（真值）。我们会按照扩散过程，随机选择一个时间步 `t`，向这个干净的点图中添加噪声，得到一个带噪点图。\n\n2.  **模型处理**：\n    *   将带噪的3D点图也切成小块（**Patchify**），转换成令牌序列。\n    *   将 **点图令牌** 和 **DINOv3图像令牌** 一起输入给 **PointDiT主干（ViT）**。\n    *   在ViT内部，图像令牌作为条件信息，通过交叉注意力等方式与点图令牌进行融合，指导去噪过程。\n\n3.  **预测与输出**：\n    *   ViT模型的核心任务是：根据带噪点图和图像条件，**直接预测出那个干净的、无噪声的3D点图**（这就是x-prediction）。\n    *   在**训练时**，将这个预测值与真实的干净点图比较，计算损失，更新模型。\n    *   在**推理（生成）时**：\n        *   我们从一张**完全随机噪声**的3D点图开始。\n        *   将这张噪声点图和输入图片的条件，一起输入训练好的PointDiT。\n        *   模型预测出一个“去噪后”的点图。我们不会直接用这个预测结果，而是根据扩散模型的采样算法（如DDIM），计算出一个“噪声稍少”的点图，作为下一步的输入。\n        *   重复这个过程多次（如1步或更多步），噪声被一步步移除，最终生成一个与输入图片内容匹配的、细节清晰的3D点图。\n\n**流程图简化版**：\n`输入图片 -> DINOv3提取特征 -> 作为条件`\n`随机噪声 -> PointDiT（在条件引导下逐步去噪）-> 干净的3D点图`\n\n### (5) 结果怎么样？\n\n论文结果表明，这个简单的方法效果非常好：\n\n1.  **性能领先**：在多个标准数据集上，PointDiT超越了之前需要复杂潜变量编码的扩散模型（如GeometryCrafter），并且与那些结构复杂、使用混合损失函数的确定性回归模型表现相当甚至更好。\n2.  **细节更锐利**：生成的3D点图具有更清晰的几何边界和结构细节（如窗框、椅子腿），克服了确定性模型“过度平滑”的问题。\n3.  **鲁棒性强**：在处理具有高度视觉模糊性的区域时（例如**透明物体**，玻璃杯、窗户），表现出更强的鲁棒性，能更好地推断其后的几何结构。\n4.  **效率高**：即使只使用 **1步** 扩散采样（最快模式），也能得到极具竞争力的结果；增加采样步数可以进一步提升细节。\n\n**总结**：PointDiT证明，对于3D几何估计任务，一个在原始数据上训练的、结构简单的条件扩散模型，可以绕过复杂潜变量设计的难题，直接生成高质量、细节丰富的3D重建结果，为3D视觉任务提供了一个更简洁有力的新工具。",
+    "2607.03819": "好的，咱们来用大白话聊聊这篇论文。它研究的领域是“文本生成3D场景”，属于计算机视觉与计算机图形学的交叉前沿。\n\n### 1. 论文所在的任务是什么？\n*   **任务输入**：一句或一段文本描述。例如：“一个现代化的客厅，有柔软的沙发、木制茶几和墙上挂着几幅抽象画。”\n*   **任务输出**：一个**以自我（观察者）为中心**的**3D场景**。想象你戴上VR头盔，站在这个场景正中央，可以360度环顾四周。这个3D场景不是静态图片，而是你可以“走进去”看的立体空间。\n*   **任务功能**：根据文字描述，自动生成一个逼真、连贯、几何结构合理的沉浸式3D环境。\n\n### 2. 这篇论文想解决什么问题？\n生成“以自我为中心的3D场景”面临两大核心难题：\n*   **一致性难题**：如果先生成多张不同角度的2D图片，再把它们拼成3D，这些图片之间容易“对不上号”。比如，沙发的纹理在左边看是一个样，右边看突然变了，或者墙上的画凭空消失了。\n*   **几何失真难题**：如果为了省事，直接生成一张360度全景图，再“卷”成3D，图像在南北极附近会严重拉伸变形（就像世界地图上格陵兰岛看起来比非洲还大一样）。这种变形会破坏3D重建的几何结构，导致天花板扭曲、地板断裂（就像论文图1里断掉的树干）。\n\n### 3. 这篇论文的贡献是什么？\n这篇论文提出了一个叫 **CGGS** 的完整框架，主要贡献有三点：\n1.  **一致性增强的2D视图生成器**：改进了一个能同时生成多视角图片的模型，让它生成的图片不仅在内容上符合文字描述，而且不同视角之间的内容（如物体形状、纹理）能保持一致。\n2.  **基于光流的“草图”布局生成**：提出了一种新方法，利用图片之间的“光流”（像素点移动信息）来估算深度，从而直接得到场景的3D点云“草图”。这比传统方法（需要大量重叠视图）更适合从有限视角生成3D布局。\n3.  **几何优化的3D高斯重建**：在把“草图”优化成精细3D模型（使用“3D高斯泼溅”技术）时，引入了一个新的**互信息深度损失（MID）**，并配合分层优化策略。这能有效减少几何错误，让生成的3D模型结构更合理、更逼真。\n\n### 4. 论文的整体思路与模型结构\n**基模**：论文的基模是 **Stable Diffusion**（一个强大的文本生成图像模型），以及 **3D Gaussian Splatting（3DGS）**（一种新的、高效的3D场景表示和渲染技术）。\n\n**整体流程**（对照论文的流程图，分为三大模块）：\n\n1.  **第一模块：以自我为中心的生成器**\n    *   **输入**：文本描述。\n    *   **过程**：论文不是直接用Stable Diffusion，而是用一个叫 **CAA** 的模块对它进行精调。这个CAA模块能让模型同时“思考”多个视角。为了让不同视角更一致，论文在训练时额外加了一个 **“一致性增强损失”** 来约束模型。\n    *   **输出**：一组（比如8张）围绕中心点、不同朝向的2D图片。这些图片内容符合文字描述，且彼此间一致性较好。\n\n2.  **第二模块：布局装饰器**\n    *   **输入**：上一步生成的一组2D图片。\n    *   **过程**：分析这些图片之间的**光流**（即一个点在相邻两幅图上的位置变化）和**点跟踪**信息，来估算每个像素点的深度（距离观察者的远近）。\n    *   **输出**：一个粗糙的**3D点云**。这就像是给整个场景搭了一个由无数小点构成的“骨架”或“草图”，标出了墙壁、家具等大致的形状和位置。\n\n3.  **第三模块：几何优化器**\n    *   **输入**：粗糙的3D点云（作为初始布局），以及生成的那组2D图片（作为监督信号）。\n    *   **过程**：这是核心优化阶段。论文用 **3D高斯泼溅（3DGS）** 来表示场景。\n        *   **初始化**：将粗糙点云转换成初始的3D高斯分布（可以理解为带位置、大小、颜色、透明度属性的“小泡泡”集合）。\n        *   **优化**：通过渲染这些“小泡泡”来生成2D图片，并与最初生成的2D图片进行比较，计算损失来反向优化“小泡泡”的属性。\n        *   **关键创新**：在优化过程中，除了常见的颜色、密度损失，论文引入了 **互信息深度损失（MID）**。这个损失函数鼓励渲染出来的深度图与图片本身的纹理、结构信息保持强关联，从而避免产生不合理的、漂浮的几何体，让3D结构更符合物理规律。\n        *   **分层策略**：优化时先关注大结构（低频），再逐步优化细节（高频），使得结果更稳定。\n    *   **输出**：最终优化好的、高质量的 **3D高斯场景模型**。这个模型可以被快速渲染，从任意角度观看，形成以自我为中心的沉浸式3D场景。\n\n### 5. 结果怎么样？\n根据论文的实验部分：\n*   **定性结果（肉眼观察）**：CGGS生成的3D场景在细节丰富度、多视角一致性、几何合理性（如没有漂浮物、断裂结构）上都比之前的方法（如DreamScene360）要好。\n*   **定量结果（用数字衡量）**：在多个评测指标上（如衡量图像质量的LPIPS、FID，衡量几何准确性的深度误差指标），CGGS都取得了更优或相当有竞争力的分数。\n*   **消融实验**：论文验证了它提出的三个核心模块（一致性增强损失、光流布局、MID损失）各自都有效果，组合起来效果最好。\n*   **泛化性**：模型在未见过的、更复杂的文本描述上也能生成合理的3D场景，显示出较好的泛化能力。\n\n**总结一下**：这篇论文就像是设计了一个高效的“3D场景工厂流水线”。它先用一个“一致性绘图师”根据文字画出多张协调的蓝图，再用一个“结构估算师”根据蓝图推算出3D草图，最后用一个“几何精修师”结合新技巧把草图打磨成精美的3D模型，成功解决了以往方法在一致性和几何真实性上的痛点。",
+    "2607.06559": "好的，没问题。我们用简单的语言来梳理一下这篇论文的核心内容。\n\n### (1) 任务是什么？\n*   **任务输入**：一张**当前的RGB-D图像**（即同时包含彩色信息和深度/距离信息的图片） + 一段**文本指令**（例如“拿起红色的杯子”）。\n*   **任务输出**：一段**同步生成的视频**。这个视频不是普通的彩色视频，而是同时包含未来时刻的：\n    *   **RGB帧**：看起来是什么样子（颜色、纹理）。\n    *   **深度帧**：每个像素点离摄像头有多远（三维几何结构）。\n    *   **光流帧**：像素点从上一帧移动到这一帧的二维运动方向。\n*   **任务功能**：**4D世界模型**。它的核心功能是 **“想象”或“预测”** 。给定当前看到的场景和一个指令，它能在脑子里“模拟”出未来一段时间场景会如何变化。这就像你看到桌子上有个杯子，想到“我要拿起它”，你大脑里会瞬间模拟出手伸过去、抓住杯子、杯子被拿起来的整个过程。\n\n### (2) 想解决什么问题？\n当前机器人控制领域的一个核心难题：**如何让机器人像人一样，理解三维世界的物理规律并进行精准操作？**\n具体来说：\n1.  **2D视频模型的局限**：之前很多基于2D像素视频的“世界模型”，预测的画面可能很逼真，但缺乏三维空间感。比如，它们预测的物体大小可能会忽大忽小，形状会不自然地扭曲，这导致机器人无法从中精确计算出该把手伸到哪里、用多大力度。\n2.  **3D/4D模型的局限**：一些基于3D点云或神经辐射场的方法虽然能重建三维场景，但要么计算太慢（只能针对特定场景优化），要么难以生成复杂场景的未来状态，更难以从单张图片出发进行预测。\n3.  **数据稀缺**：没有现成的大规模数据集，里面既有彩色视频，又有精确的深度和光流信息（即“4D”数据），可以用来训练这样的模型。\n\n### (3) 贡献是什么？\n这篇论文做了三件主要的事情：\n1.  **提出了“4D”表示法**：他们主张用**同步的RGB、深度(D)、光流(F)** 视频作为核心表示。深度提供了三维信息，光流提供了运动信息，两者结合可以推导出更精确的“3D场景流”（物体在真实三维空间中的运动）。这种表示既保留了2D视频易于处理、生成能力强的优点，又显式地包含了三维几何和运动信息。\n2.  **构建了大规模数据集 Rynn4DDataset 1.0**：为了解决数据问题，他们收集并处理了大量人类第一视角和机器人操作的视频，然后用算法生成了高质量的深度和光流伪标签，最终得到了一个超过2.5亿帧的巨型数据集。\n3.  **设计了模型 RynnWorld-4D 及其策略版本**：\n    *   **RynnWorld-4D**：一个能根据单张RGB-D图和指令，一次性生成未来RGB、深度、光流视频的扩散模型。\n    *   **RynnWorld-4D-Policy**：在RynnWorld-4D模型内部“插入”的一个小模块。它不需要让模型完整地“想象”出整个视频（那很慢），而是直接利用模型在“想象”过程中产生的中间特征，快速预测出机器人当前应该执行的动作（如机械臂各关节的角度），从而实现实时控制。\n\n### (4) 整体思路与模型结构\n**核心思路**：**站在巨人的肩膀上，进行“三头六臂”的改造。**\n1.  **基模（巨人）**：他们使用了一个强大的、预训练好的**视频扩散模型**（论文中用的是W.A.N模型）。这个基模已经非常擅长从噪声中生成逼真的2D RGB视频。\n2.  **模型改造（三头六臂）**：\n    *   他们将这个基模的Transformer部分复制成了**三个分支（三个“头”）**，分别负责生成**RGB、深度、光流**。\n    *   这三个分支的Transformer**参数是独立**的，这样它们可以各自学习擅长自己模态的特征（例如深度分支专注几何结构）。\n    *   但关键来了：他们在这些分支之间加入了 **“联合跨模态注意力”模块**。这就像一个**协调会议**，让三个分支在生成过程中不断交换信息，确保它们“想象”出的彩色画面、几何形状和运动方向是互相匹配、不矛盾的。比如，RGB分支“想”让杯子变红，深度分支“想”让杯子变远，光流分支“想”让杯子向左移动，它们需要通过这个会议协商出一致的结果。\n    *   此外，他们还在模型中引入了 **“帧间3D RoPE”** 技术，这有助于模型更好地理解视频帧与帧之间在三维空间中的连续关系。\n3.  **训练流程**：\n    *   **阶段一（模态适应）**：先用RGB-D数据对基模进行微调，让它习惯接收深度图作为输入。\n    *   **阶段二（冻结主干联合注意力）**：固定住基模的大部分参数（保护它原有的强大生成能力），只训练新加的“联合跨模态注意力”模块和三个分支的输出层，让它们学会协同工作。\n    *   **阶段三（全参数微调）**：最后，用整个Rynn4DDataset数据集，对所有参数进行一轮精细的微调，使模型达到最佳性能。\n4.  **从输入到输出的流程**：\n    *   **输入**：当前RGB-D图 + 文本指令。\n    *   **过程**：模型将输入编码后，与一段随机噪声（扩散模型典型做法）一起，送入改造后的“三头六臂”Transformer。\n    *   **内部协调**：三个分支的Transformer各自处理信息，并通过“联合跨模态注意力”模块不断沟通协商。\n    *   **输出**：经过多轮去噪迭代后，三个分支分别输出一组清晰的、时间上连贯的**RGB视频帧、深度视频帧、光流视频帧**。\n\n### (5) 结果怎么样？\n根据论文中的实验：\n1.  **生成质量**：RynnWorld-4D生成的4D（RGB+深度+光流）视频，在视觉质量、几何准确性和运动一致性上都优于之前的基线模型。它预测的未来场景更符合物理规律，物体不会乱飘或变形。\n2.  **机器人控制性能**：**RynnWorld-4D-Policy在真实的双手灵巧操作任务上取得了最先进的性能。** 特别是在需要**高空间精度**（比如把一个小零件精准插入孔中）和**良好时序协调**（比如两只手配合打开一个盒子）的任务上，它的优势非常明显。这证明了其内部“想象”出的4D世界表征，确实能帮助机器人更好地规划动作。\n\n**简单总结**：这篇论文的核心是让AI不仅“看到”现在的2D画面，还能“想象”出未来在3D空间中如何运动。他们通过改造一个视频生成模型，让它能同步预测颜色、形状和运动，并用这个能力来驱动机器人更精准地操作物体。他们同时还造了一个很大的数据集来支持这个想法。",
+    "2607.05765": "这篇论文《Image2Sim: Scaling Embodied Navigation via Generative Neural Simulator》主要研究**具身导航（Embodied Navigation）**，我来为你通俗地解释一下。\n\n---\n\n### 1. 论文所在的任务是什么？\n*   **任务名称：** 具身导航（Embodied Navigation）。\n*   **任务输入：**\n    *   **视觉输入：** 机器人的第一视角图像（RGB-D，即彩色图+深度图）。\n    *   **目标描述：** 一个语言指令，比如“去厨房拿一杯水”。\n*   **任务输出：** 机器人执行的一系列动作序列（例如“向前走”、“左转”、“停下”），最终到达指令指定的目标位置。\n*   **任务功能：** 让AI智能体（如机器人）能够理解多模态（视觉+语言）的指令，在真实的3D物理环境中进行推理和移动，并可靠地完成任务。\n\n### 2. 这篇论文想解决什么问题？\n核心问题是：**缺乏足够多、高质量、逼真且可交互的3D环境数据来训练具身导航AI模型。**\n\n*   **现有数据的缺陷：**\n    *   **真实世界扫描数据（如Matterport3D）：** 视觉逼真，但采集成本极高，难以大规模获取。\n    *   **合成仿真器（如Habitat, iGibson）：** 容易生成大量数据，但里面的物体、布局、光影往往不真实，导致训练出的模型在真实世界表现不佳（“仿真到现实的鸿沟”）。\n    *   **生成式视频模型（如Sora）：** 能生成逼真视频，但难以保持3D几何一致性（物体形状、位置不能乱变），也没有明确的碰撞物理信息，无法用于需要精确交互的导航训练。\n\n简单说，就是**“数据不够真”**和**“数据不够多”**的矛盾。\n\n### 3. 这篇论文的贡献是什么？\n论文提出了一个名为 **Image2Sim** 的全新框架来解决上述问题，主要贡献有三点：\n\n1.  **一个“几何感知”的神经仿真器：** 它能把一小段真实世界拍摄的RGB-D视频，快速（实时）构建成一个逼真、可交互的3D虚拟场景。关键创新在于将**3D几何构建**和**逼真图像渲染**这两个步骤解耦了。\n2.  **一个“一键式像素流”渲染器：** 这是核心渲染技术。传统方法需要多步迭代才能从3D表示中生成一张图，而Image2Sim只用一步就能合成出高质量的360度全景RGB-D图像，速度极快。\n3.  **一个全自动的具身数据生成引擎：** Image2Sim不只是个“看”的仿真器，它还能自动生成导航训练所需的一切：\n    *   **逼真的视觉观察：** 从任意角度渲染图像。\n    *   **可执行的动作：** 基于场景的几何结构，规划出物理上合理、不会撞墙的移动路径。\n    *   **多样化的语言指令：** 使用大语言模型，为每条路径自动生成对应的、自然的导航指令（如“去沙发左边的桌子”）。\n\n最终，他们用这个引擎，把大量公开的室内视频和图像，转化成了近 **2万个** 可交互场景，生成了超过 **1000万条** 导航训练样本。\n\n### 4. 论文的整体思路与模型结构\n**核心思想：** 我们不从零开始“幻想”一个不真实的3D世界，而是**把真实世界拍摄的片段，快速“升级”成一个高保真、可交互的仿真环境**。\n\n**模型结构与流程：**\n你可以把Image2Sim想象成一个三阶段的工厂流水线：\n\n**第一阶段：从视频到3D场景（“打地基”）**\n*   **输入：** 一小段由相机拍摄的、带有位姿（相机位置和朝向）的RGB-D图像序列。\n*   **过程：**\n    1.  使用一个**前馈特征高斯模型**，像“3D打印机”一样，一次性（单次前向传播）把这些2D图像“提升”成3D空间中的一堆“特征高斯球”。\n    2.  这些高斯球带有颜色、位置、尺寸、透明度和语义特征，共同构成了一个**显式的3D场景表示**。这就像用乐高积木搭建了一个场景的几何和语义骨架。\n\n**第二阶段：从3D场景到逼真图像（“精装修”）**\n*   **输入：** 上面得到的3D高斯表示，以及一个想要的相机视角。\n*   **过程（核心创新）：**\n    1.  先把3D高斯球投影到2D图像平面，得到一张稀疏、粗糙的“草图”（包含颜色、深度、语义等信息）。\n    2.  将这个“草图”和可能的其他视觉先验（如单张图像特征）一起，输入到**几何感知的一步像素流渲染器**。\n    3.  这个渲染器**不是**一步步去噪生成图像，而是**学习一个直接的映射**：根据3D草图，一次性预测出每个像素点应该如何“流动”到最终高质量图像中的正确位置和颜色。\n    4.  它受到3D高斯球提供的透明度（Alpha）图的强烈指导，确保渲染结果与底层3D几何对齐。\n*   **输出：** 在指定视角下的、高保真度的全景RGB-D图像。\n\n**第三阶段：生成导航数据（“编排剧情”）**\n*   **输入：** 构建好的可交互3D场景。\n*   **过程：**\n    1.  **提取可行走区域：** 根据3D几何，计算出机器人能走的地面区域，并去噪。\n    2.  **构建导航图：** 把这些可走区域连成一个图，节点是位置，边表示可以通行。\n    3.  **规划路径：** 在图上的不同节点间随机采样起点和终点，用运动学模拟规划出平滑、不碰撞的物理轨迹。\n    4.  **生成指令：** 使用大型视觉-语言模型，分析轨迹起点、终点和沿途看到的物体，自动生成一条自然语言导航指令（如“从卧室门口出发，经过书架，到窗边的椅子旁停下”）。\n*   **输出：** 一条完整的导航训练样本，包括：`{起点图像， 语言指令， 动作序列（路径）， 终点图像}`。\n\n**关于基模：**\n*   论文中提到的“特征高斯模型”思想源于**3D Gaussian Splatting (3DGS)**，这是一种新兴的、高效的3D场景表示方法。Image2Sim对其进行了扩展，加入了语义特征。\n*   渲染器部分是一种新的条件生成模型设计，灵感来源于概率流和扩散模型，但将其简化为一步完成。\n*   指令生成使用了现有的大型视觉-语言模型（如GPT-4V）。\n\n### 5. 结果怎么样？\n论文进行了全面实验，结果非常积极：\n\n1.  **新视角合成质量高：** 在标准数据集上评测，Image2Sim渲染出的新视角图像，在保真度（PSNR、SSIM）和感知质量（LPIPS）上优于或媲美其他先进的神经渲染方法。\n2.  **导航性能提升显著：**\n    *   在**未见过的仿真器**（如从HM3D数据集构建的场景，到Gibson仿真器）中进行“零样本”测试，用Image2Sim数据训练的导航模型，性能远超用原始仿真数据训练的模型。\n    *   这证明了Image2Sim生成的数据**泛化能力更强**，能帮助模型更好地适应新环境。\n3.  **数据规模效应明显：** 随着使用Image2Sim生成的数据量从100万增加到1000万，导航模型的性能持续稳定提升，证明了其**可扩展性**。\n4.  **真实世界迁移有效：** 在真实的移动机器人上进行零样本测试（模型只在Image2Sim虚拟环境中训练过），能够成功完成复杂的导航任务，证明了其**缩小“仿真到现实鸿沟”的能力**。\n\n**总结来说，** Image2Sim 提出了一种巧妙的方法，通过“升级”真实世界视频片段来大规模生成高保真、可交互的导航训练数据。实验表明，用这些数据训练的导航AI，不仅在虚拟测试中表现更好，还能更有效地转移到真实的机器人上。这为突破具身智能的数据瓶颈提供了一条很有前景的路径。"
+  },
+  "figures": {
+    "2607.02515": [
+      {
+        "path": "https://arxiv.org/html/2607.02515v1/x1.png",
+        "caption": "Figure 1:PointDiT.A minimalist pixel-space Diffusion Transformer operating directly on raw point map patches, conditioned on image tokens from a pre-trained DINOv3. The 3D point map (H×W×3H\\times W\\times 3) is visualized as an RGB image, with color encoding the spatial(X,Y,Z)(X,Y,Z)coordinates.",
+        "role": "pipeline_1",
+        "caption_zh": "图1：PointDiT。一种极简的像素空间扩散变换器，直接处理原始点云图块，并以预训练DINOv3的图像标记为条件。三维点云图（H×W×3）以RGB图像形式可视化，其颜色编码了空间(X,Y,Z)坐标。"
+      },
+      {
+        "path": "https://arxiv.org/html/2607.02515v1/x4.png",
+        "caption": "Figure 3:Different diffusion sampling steps.Our single-step diffusion already significantly outperforms prior works, and increasing the sampling steps further enhances reconstruction details (see the zoomed-in region).",
+        "role": "pipeline_2",
+        "caption_zh": "图3：不同扩散采样步数对比。我们的单步扩散模型已显著超越先前工作，增加采样步数则能进一步提升重建细节质量（参见局部放大区域）。"
+      },
+      {
+        "path": "https://arxiv.org/html/2607.02515v1/x6.png",
+        "caption": "(a)Validation curves.(b)Structural details and transparent objects.Figure 5:Generative flow matchingvs.deterministic regression.(a) The deterministic regressor converges faster at first but soon overfits, while the generative model trains stably and reaches lower error. (b) The generative model recovers sharper boundaries, thin structures, and transparent objects than the deterministic regressor. Overall, the generative formulation improves the boundary metric BF1 from10.9010.90to13.9213.92under this controlled comparison.",
+        "role": "pipeline_3",
+        "caption_zh": "(a)验证曲线。(b)结构细节与透明物体。图5：生成式流匹配与确定性回归对比。(a)确定性回归器初始收敛更快，但很快过拟合，而生成式模型训练稳定且达到更低误差。(b)生成式模型比确定性回归器恢复了更锐利的边界、更细的结构及透明物体。总体而言，在此控制对比下，生成式建模将边界指标BF1从10.90提升至13.92。"
+      }
+    ],
+    "2607.03819": [
+      {
+        "path": "https://arxiv.org/html/2607.03819v2/x3.png",
+        "caption": "Figure 3:Pipeline of CGGS. It primarily comprises the Consistency-Augmented MV-LDM as Ego-centric Generator, the Flow-Depth Estimator as Layout Decorator, and the 3D Gaussian Optimization combined with MID Loss and the hierarchical optimization strategy, serving as Geometric Refiner.",
+        "role": "pipeline_1",
+        "caption_zh": "图 3：CGGS 的流程。其主要包括作为以自我中心生成器的一致性增强多视角潜在扩散模型（Consistency-Augmented MV-LDM）、作为布局装饰器的光流-深度估计器（Flow-Depth Estimator），以及结合 MID 损失与分层优化策略作为几何细化器的 3D 高斯优化（3D Gaussian Optimization）。"
+      },
+      {
+        "path": "https://arxiv.org/html/2607.03819v2/x2.png",
+        "caption": "Figure 2:With text prompts as input,CGGSemploys three core components: the Ego-centric Generator creates ego-centric 2D priors, the Layout Decorator proposes additional scene details, and the Geometric Refiner further enhances the geometric structure and visual quality.",
+        "role": "pipeline_2",
+        "caption_zh": "图 2：以文本提示作为输入，CGGS 采用三个核心组件：以自我为中心的生成器创建以自我为中心的二维先验，布局装饰器提出额外的场景细节，几何优化器则进一步改善几何结构与视觉质量。"
+      },
+      {
+        "path": "https://arxiv.org/html/2607.03819v2/x4.png",
+        "caption": "Figure 4:Generation results ofCGGSfor ego-centric multi-view priors, gaussian point clouds, novel view synthesis, and depth maps. Our method generates harmonious, domain-free 3D scenes from ego-centric views, highly aligned with complex textual descriptions.",
+        "role": "pipeline_3",
+        "caption_zh": "图4：CGGS在自我中心多视角先验、高斯点云、新视角合成与深度图上的生成结果。本方法从自我中心视角生成协调且与复杂文本描述高度对齐的、无领域限制的三维场景。"
+      }
+    ],
+    "2607.06559": [
+      {
+        "path": "https://arxiv.org/html/2607.06559v1/x6.png",
+        "caption": "Figure 4:Overview of RynnWorld-4D.Our pipeline leverages the large-scale Rynn4DDataset 1.0 dataset to train a generative model capable of predicting future 4D sequences. Given a single RGB-D observation and a language instruction, RynnWorld-4D co-generates future RGB frames, depth maps, and optical flow. These predictive 4D representations are then aggregated by RynnWorld-4D-Policy to derive the final robot actions.",
+        "role": "pipeline_1",
+        "caption_zh": "图 4：RynnWorld-4D 概览。我们的流程利用大规模 Rynn4DDataset 1.0 数据集，训练一个能够预测未来 4D 序列的生成模型。给定单次 RGB-D 观测和一条语言指令，RynnWorld-4D 协同生成未来的 RGB 帧、深度图和光流。这些预测性的 4D 表征随后由 RynnWorld-4D-Policy 聚合，以推导出最终的机器人动作。"
+      },
+      {
+        "path": "https://arxiv.org/html/2607.06559v1/x5.png",
+        "caption": "Figure 3:Data Curation Pipeline.The video data is collected from diverse sources and partitioned into short clips during data preprocessing. Each clip undergoes a multi-modal annotation process: (1)Video Captioning: Qwen3-VL(bai2025qwen3)generates\ndetailed natural language descriptions of the video content; (2)Optical Flow Estimation: DPFlow(morimitsu2025dpflow)computes dense per-frame motion fields, which are visualized and saved as flow videos; (3)Depth Estimation: Depth Anything\n3(lin2025depth)produces monocular depth predictions, which are upsampled to the original resolution and saved as depth videos with a global depth range of[0.0,5.0][0.0,5.0]meters.",
+        "role": "pipeline_2",
+        "caption_zh": "图3：数据整理流程。视频数据从多种来源采集，在数据预处理阶段被分割为短视频片段。每个片段经过多模态标注处理：(1) 视频字幕生成：Qwen3-VL (bai2025qwen3) 生成视频内容的详细自然语言描述；(2) 光流估计：DPFlow (morimitsu2025dpflow) 计算稠密的逐帧运动场，将其可视化并保存为光流视频；(3) 深度估计：Depth Anything 3 (lin2025depth) 生成单目深度预测，将其上采样至原始分辨率并保存为深度视频，其全局深度范围设定为[0.0, 5.0]米。"
+      },
+      {
+        "path": "https://arxiv.org/html/2607.06559v1/x3.png",
+        "caption": "Figure 1:Given an input RGB-D image and description, RynnWorld-4D generates RGB, depth, and optical flow videos synchronously, which can be further lifted into 3D scene flow (right).",
+        "role": "pipeline_3",
+        "caption_zh": "图1：给定输入RGB-D图像及描述，RynnWorld-4D可同步生成RGB、深度与光流视频，并可进一步提升为三维场景流（右图）。"
+      }
+    ],
+    "2607.05765": [
+      {
+        "path": "https://arxiv.org/html/2607.05765v1/x1.png",
+        "caption": "Figure 1:Comparison of (a) traditional navigation data pipeline and (b) our Image2Sim framework.",
+        "role": "pipeline_1",
+        "caption_zh": "图 1：(a) 传统导航数据流水线与 (b) 本文 Image2Sim 框架的对比。"
+      },
+      {
+        "path": "https://arxiv.org/html/2607.05765v1/x2.png",
+        "caption": "Figure 2:Framework of the feed-forward GS encoder and one-step pixel flow model.",
+        "role": "pipeline_2",
+        "caption_zh": "图2：前馈式GS编码器与单步像素流模型的框架示意图。"
+      },
+      {
+        "path": "https://arxiv.org/html/2607.05765v1/x3.png",
+        "caption": "Figure 3:Framework of the motion simulation engine and automated instruction generation.",
+        "role": "pipeline_3",
+        "caption_zh": "图 3：运动仿真引擎与自动化指令生成框架。"
+      }
+    ]
+  }
+}
