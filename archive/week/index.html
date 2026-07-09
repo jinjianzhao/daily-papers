@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Paper Daily - 周度归档</title>
+    <link rel="stylesheet" href="../../tailwind.css">
+    <link rel="stylesheet" href="../assets/archive.css">
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif; }
+        .glass {
+            background: rgba(255, 255, 255, 0.86);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body data-archive-mode="week" data-date-index="../../date/config.json" data-date-base="../../date/" class="min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50/30 to-slate-100">
+    <header class="glass sticky top-0 z-50 border-b border-slate-200/60">
+        <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
+            <div>
+                <h1 class="text-lg font-extrabold tracking-tight text-slate-900">周度归档</h1>
+                <p id="archive-subtitle" class="text-xs text-slate-500"></p>
+            </div>
+            <nav class="flex items-center gap-4 text-sm font-semibold">
+                <a href="../" class="text-slate-500 hover:text-indigo-700">归档入口</a>
+                <a href="../../date/" class="text-slate-500 hover:text-indigo-700">每日论文</a>
+                <a href="../month/" class="text-slate-500 hover:text-indigo-700">月度归档</a>
+                <a href="../../" class="text-indigo-600 hover:text-indigo-800">首页</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+        <section class="mb-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <div class="mb-4 flex flex-wrap items-center justify-between gap-3">
+                <div>
+                    <p class="text-xs font-bold uppercase tracking-wide text-slate-400">当前范围</p>
+                    <p id="range-label" class="mt-1 text-2xl font-black text-slate-900">加载中</p>
+                </div>
+                <a href="../month/" class="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-600 hover:border-indigo-300 hover:text-indigo-700">查看月度</a>
+            </div>
+            <div id="period-buttons" class="flex gap-2 pb-1"></div>
+        </section>
+
+        <section id="loading" class="mb-6 rounded-2xl border border-slate-200 bg-white p-5">
+            <div class="mb-3 flex items-center justify-between text-sm font-semibold text-slate-500">
+                <span id="progress-text">正在加载</span>
+            </div>
+            <div class="h-2 overflow-hidden rounded-full bg-slate-100">
+                <div id="progress-bar" class="h-full w-0 rounded-full bg-indigo-600 transition-all"></div>
+            </div>
+        </section>
+
+        <section id="stats" class="mb-8 grid grid-cols-2 gap-3 lg:grid-cols-4"></section>
+
+        <section id="empty" class="hidden rounded-2xl border border-dashed border-slate-300 bg-white p-10 text-center text-slate-400">
+            当前周暂无 3D 重点论文
+        </section>
+
+        <section id="error" class="hidden mb-6 rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4 text-sm text-amber-800">
+            <span id="error-text"></span>
+        </section>
+
+        <section id="paper-list"></section>
+    </main>
+
+    <script src="../assets/archive.js"></script>
+</body>
+</html>
