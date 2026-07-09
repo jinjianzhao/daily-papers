@@ -130,6 +130,8 @@
         let groups = new Map();
         let activeKey = '';
         let pageIndex = 0;
+        let loadSeq = 0;
+        let activeAbort = null;
         const pageSize = mode === 'month' ? 12 : 18;
 
         function keyLabel(key, dates) {
@@ -302,8 +304,8 @@
             }).join('');
         }
 
-        async function fetchDateConfig(date) {
-            const resp = await fetch(dateConfigPath(date), { cache: 'no-store' });
+        async function fetchDateConfig(date, signal) {
+            const resp = await fetch(dateConfigPath(date), { cache: 'no-store', signal });
             if (!resp.ok) throw new Error(`failed to load ${date}`);
             return resp.json();
         }
@@ -318,6 +320,14 @@
         }
 
         async function loadPeriod(key) {
+            const seq = loadSeq + 1;
+            loadSeq = seq;
+            if (activeAbort) {
+                activeAbort.abort();
+            }
+            activeAbort = new AbortController();
+            const signal = activeAbort.signal;
+
             activeKey = key;
             const keys = [...groups.keys()].sort((a, b) => b.localeCompare(a));
             renderButtons(keys, true);
@@ -338,7 +348,8 @@
 
             for (const date of dates) {
                 try {
-                    const cfg = await fetchDateConfig(date);
+                    const cfg = await fetchDateConfig(date, signal);
+                    if (seq !== loadSeq) return;
                     const focus = cfg.focus_sections && Array.isArray(cfg.focus_sections[FOCUS_SECTION])
                         ? cfg.focus_sections[FOCUS_SECTION]
                         : [];
@@ -367,13 +378,17 @@
                         });
                     }
                 } catch (err) {
+                    if (seq !== loadSeq || (err && err.name === 'AbortError')) return;
                     failedDates.push(date);
                 } finally {
-                    done += 1;
-                    setProgress(done, dates.length);
+                    if (seq === loadSeq) {
+                        done += 1;
+                        setProgress(done, dates.length);
+                    }
                 }
             }
 
+            if (seq !== loadSeq) return;
             els.loading.classList.add('hidden');
             renderStats(items, dates, failedDates);
             if (items.length === 0) {
@@ -385,6 +400,9 @@
             if (failedDates.length > 0) {
                 els.error.classList.remove('hidden');
                 els.errorText.textContent = `以下日期读取失败：${failedDates.join('、')}`;
+            }
+            if (seq === loadSeq) {
+                activeAbort = null;
             }
         }
 
