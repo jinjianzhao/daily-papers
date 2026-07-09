@@ -78,7 +78,7 @@
 
     function weekDisplayLabel(weekKey) {
         const monday = isoWeekMondayDate(weekKey);
-        return monday ? `${weekKey}（周一 ${monday.slice(5)}）` : weekKey;
+        return monday ? `${weekKey}（${monday.slice(5)}）` : weekKey;
     }
 
     async function loadDateIndex(path) {
