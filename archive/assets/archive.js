@@ -129,6 +129,8 @@
 
         let groups = new Map();
         let activeKey = '';
+        let pageIndex = 0;
+        const pageSize = mode === 'month' ? 6 : 12;
 
         function keyLabel(key, dates) {
             if (mode === 'month') return key;
@@ -157,9 +159,18 @@
             els.progressBar.style.width = `${pct}%`;
         }
 
-        function renderButtons(keys) {
+        function renderButtons(keys, syncToActive) {
+            const totalPages = Math.max(1, Math.ceil(keys.length / pageSize));
+            const activeIndex = keys.indexOf(activeKey);
+            if (syncToActive && activeIndex >= 0) {
+                pageIndex = Math.floor(activeIndex / pageSize);
+            }
+            pageIndex = Math.min(pageIndex, totalPages - 1);
+            const start = pageIndex * pageSize;
+            const visibleKeys = keys.slice(start, start + pageSize);
+
             els.buttons.innerHTML = '';
-            for (const key of keys) {
+            for (const key of visibleKeys) {
                 const btn = document.createElement('button');
                 btn.type = 'button';
                 btn.dataset.key = key;
@@ -172,26 +183,45 @@
                 });
                 els.buttons.appendChild(btn);
             }
+
+            const pager = document.createElement('div');
+            pager.className = 'period-pager';
+            pager.innerHTML = `
+                <button type="button" class="pager-btn" data-page="prev" ${pageIndex === 0 ? 'disabled' : ''}>上一页</button>
+                <span class="pager-status">${pageIndex + 1} / ${totalPages} · 共 ${keys.length} 个${mode === 'month' ? '月份' : '周'}</span>
+                <button type="button" class="pager-btn" data-page="next" ${pageIndex >= totalPages - 1 ? 'disabled' : ''}>下一页</button>
+            `;
+            pager.querySelector('[data-page="prev"]').addEventListener('click', () => {
+                if (pageIndex <= 0) return;
+                pageIndex -= 1;
+                renderButtons(keys, false);
+            });
+            pager.querySelector('[data-page="next"]').addEventListener('click', () => {
+                if (pageIndex >= totalPages - 1) return;
+                pageIndex += 1;
+                renderButtons(keys, false);
+            });
+            els.buttons.appendChild(pager);
         }
 
         function renderStats(items, dates, failedDates) {
             const totalVotes = items.reduce((acc, item) => acc + item.votes, 0);
             els.stats.innerHTML = `
-                <div class="rounded-2xl px-5 py-4">
-                    <p class="text-xs font-semibold uppercase tracking-wide text-slate-400">覆盖日期</p>
-                    <p class="mt-1 text-2xl font-black text-slate-900">${dates.length}</p>
+                <div class="stat-card">
+                    <p class="stat-label">覆盖日期</p>
+                    <p class="stat-value">${dates.length}</p>
                 </div>
-                <div class="rounded-2xl px-5 py-4">
-                    <p class="text-xs font-semibold uppercase tracking-wide text-slate-400">重点论文</p>
-                    <p class="mt-1 text-2xl font-black text-slate-900">${items.length}</p>
+                <div class="stat-card">
+                    <p class="stat-label">重点论文</p>
+                    <p class="stat-value">${items.length}</p>
                 </div>
-                <div class="rounded-2xl px-5 py-4">
-                    <p class="text-xs font-semibold uppercase tracking-wide text-slate-400">HF Votes</p>
-                    <p class="mt-1 text-2xl font-black text-slate-900">${totalVotes}</p>
+                <div class="stat-card">
+                    <p class="stat-label">HF Votes</p>
+                    <p class="stat-value">${totalVotes}</p>
                 </div>
-                <div class="rounded-2xl px-5 py-4">
-                    <p class="text-xs font-semibold uppercase tracking-wide text-slate-400">读取失败</p>
-                    <p class="mt-1 text-2xl font-black text-slate-900">${failedDates.length}</p>
+                <div class="stat-card">
+                    <p class="stat-label">读取失败</p>
+                    <p class="stat-value">${failedDates.length}</p>
                 </div>
             `;
         }
@@ -277,7 +307,7 @@
         async function loadPeriod(key) {
             activeKey = key;
             const keys = [...groups.keys()].sort((a, b) => b.localeCompare(a));
-            renderButtons(keys);
+            renderButtons(keys, true);
 
             const dates = [...(groups.get(key) || [])].sort((a, b) => b.localeCompare(a));
             els.rangeLabel.textContent = keyLabel(key, dates);
@@ -355,7 +385,7 @@
                 const fromUrl = selectedFromUrl();
                 const initial = groups.has(fromUrl) ? fromUrl : keys[0];
                 activeKey = initial;
-                renderButtons(keys);
+                renderButtons(keys, true);
                 await loadPeriod(initial);
             } catch (err) {
                 els.loading.classList.add('hidden');
