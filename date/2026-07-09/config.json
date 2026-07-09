@@ -41,6 +41,18 @@
       "abstract": "Large Language Models (LLMs) unlocked new possibilities in automated code writing, becoming the backbone of most code completion tools. While LLMs excel in mainstream languages, they often lack support for the so-called low-resource languages where training data is scarce. As a result, these languages lag behind in the quality of code completion tooling available to their communities. A concrete example is Pharo, a Smalltalk-inspired language whose IDE currently offers only single-token completion. In this work, we report on our experience bringing LLM-based code completion to Pharo. First, we describe an end-to-end pipeline that combines Pharo-specific data curation, continued pre-training and fine-tuning of open code LLMs. Second, we introduce a set of Pharo code completion benchmarks designed to evaluate whether models (i) learn Pharo's syntax and (ii) accurately complete masked Pharo code from real-world GitHub repositories. Third, we show empirically that Pharo-specialized models substantially outperform their original base checkpoints and also exceed the accuracy of substantially larger code LLMs on Pharo completion. Overall, our case study demonstrates the feasibility of bringing strong LLM-based code completion to low-resource programming languages, with models small enough to provide ``real-time'' in-IDE support.",
       "abstract_zh": "大型语言模型(LLMs)为自动化代码编写开辟了新途径，已成为大多数代码补全工具的核心技术。尽管LLMs在主流编程语言中表现卓越，但对于训练数据稀缺的低资源语言往往缺乏支持。因此，这些语言在可用的代码补全工具质量上明显落后于主流生态。以Pharo为例，这种受Smalltalk启发的语言，其集成开发环境(IDE)目前仅支持单标记补全功能。本研究系统阐述了将基于LLM的代码补全技术引入Pharo的实践经验。首先，我们设计了一套端到端流程，整合了Pharo专属数据整理、持续预训练与开源代码LLMs的微调策略。其次，我们构建了Pharo代码补全基准测试集，用于评估模型是否能够：(i)掌握Pharo语法结构；(ii)准确补全来自真实GitHub仓库的掩码Pharo代码。再次，实验数据表明，经过Pharo专业优化的模型不仅显著超越原始基础检查点，在Pharo代码补全任务上的准确率甚至超过规模更大的通用代码LLMs。总体而言，本案例研究证实了为低资源编程语言引入高性能LLM代码补全的可行性，且优化后的模型体量足够轻量化，能够为IDE提供\"实时\"的代码辅助支持。",
       "hf_link": "https://huggingface.co/papers/2607.04939"
+    },
+    "2606.30111": {
+      "title": "Automating the Design of Embodied Agent Architectures",
+      "abstract": "Embodied agents are typically built as hand-designed compositions of perception, memory, planning, and action modules. This modularity exposes a large architectural design space, but current systems still rely on researcher intuition to choose where information is stored, how observations are processed, and how model calls are connected. Agent Architecture Search (AAS) automates such design for text-domain agents, but has not been systematically evaluated on perceptual embodied agents through simulator rollouts. We study this transfer. We introduce AgentCanvas, a typed-graph runtime that hosts embodied executors as editable node-and-wire programs with simulator-aware execution and episode-level logs, and KDLoop, a coding-agent search procedure that cycles through proposal, critique, experiment, and distillation, with triggered reflection after stalls. We evaluate three AAS variants across four embodied executors spanning vision-language navigation, embodied question answering, and language-conditioned manipulation. The resulting 3x4 matrix shows that architecture-level search can produce deployable and directional success-rate gains on embodied tasks, while one apparent high-scoring candidate is rejected as leak-bearing. At the same time, the experiments expose constraints that are muted in text-domain AAS: optimization signals can be masked by rollout noise, search can become trapped in local edit basins, and episode-level credit assignment only partially emerges even when detailed logs are available. These results characterize both the promise and the current limits of automated architecture search for embodied agents.",
+      "abstract_zh": "具身智能体通常构建为感知、记忆、规划与行动模块的人工设计组合。这种模块化架构揭示了一个广阔的设计空间，但现有系统仍依赖研究者直觉来决定信息存储位置、观测处理方式以及模型调用连接模式。智能体架构搜索（Agent Architecture Search, AAS）在文本领域已实现此类设计的自动化，但尚未通过模拟推演在感知型具身智能体上进行系统性评估。本研究聚焦这一迁移过程。我们提出了AgentCanvas——一个类型化图运行时系统，可将具身执行器实现为可编辑的节点-连线程序，支持模拟感知执行与事件级日志记录；同时开发了KDLoop——一种编码智能体搜索流程，循环执行提案、批判、实验与精炼步骤，并在停滞时触发反思机制。我们在四个具身执行器上评估了三种AAS变体，任务涵盖视觉语言导航、具身问答及语言条件操作。形成的3×4矩阵显示：架构级搜索能在具身任务上产生可部署且具方向性的成功率提升，同时识别出一个表面高分但存在信息泄露的候选方案。实验也揭示了在文本领域AAS中被弱化的约束：优化信号可能被推演噪声掩盖，搜索可能陷入局部编辑盆地，即便存在详细日志，事件级信用分配也只能部分实现。这些结果既揭示了自动化架构搜索对具身智能体的发展潜力，也勾勒出当前存在的技术边界。",
+      "hf_link": "https://huggingface.co/papers/2606.30111"
+    },
+    "2607.05966": {
+      "title": "Imagined Rollouts are Kinematic, Not Dynamic: A Diagnosis of Long-Horizon World-Model Failure",
+      "abstract": "Long-horizon failure in world models is conventionally attributed to compounding error, a generic framing that does not distinguish what kind of error compounds. We propose a kinematic-vs-dynamic reframing: world models tend to imagine kinematically rather than dynamically. We operationalize this as the imagined Kinematic-Consistency Error, a per-step diagnostic that measures how far a rollout departs from a closed-form kinematic null, paired with a perturbation protocol that tests whether iKCE responds when physical conditions cross a regime boundary. We instantiate the diagnostic on a released DreamerV3 checkpoint trained on DMC walker-walk, where imagined iKCE runs roughly two orders of magnitude above that of matched real-physics rollouts. Across a friction sweep that crosses the gait-collapse boundary, the model's iKCE stays statistically flat even as the trained policy's reward collapses through the same range, providing the kinematic-not-dynamic signature. The diagnostic distinguishes kinematic from dynamic imagination at horizons longer than the embodiment's gait period.",
+      "abstract_zh": "世界模型中长期预测的失效通常被归因于误差累积，这一通用框架并未区分何种误差在累积。我们提出动力学-运动学重构框架：世界模型往往倾向于进行运动学想象而非动力学想象。我们将其操作化为想象运动学一致性误差，这是一种逐步诊断指标，用于衡量推演轨迹偏离闭式运动学基准的程度，并配合扰动协议来测试当物理条件跨越状态边界时该误差是否产生响应。我们在已发布的DreamerV3检查点上实例化该诊断方法（该模型基于DMC步行者-行走环境训练），发现其想象运动学一致性误差比匹配的真实物理推演高出约两个数量级。在跨越步态崩溃边界的摩擦系数扫描实验中，即使训练策略的奖励在同一范围内崩溃，模型的想象运动学一致性误差仍保持统计意义上的平稳，这验证了运动学非动力学想象的特征。该诊断方法能在超过本体步态周期的时域上有效区分运动学想象与动力学想象。",
+      "hf_link": "https://huggingface.co/papers/2607.05966"
     }
   },
   "hf_votes": {
@@ -50,7 +62,9 @@
     "2607.07534": 0,
     "2607.04434": 0,
     "2607.06838": 0,
-    "2607.04939": 0
+    "2607.04939": 0,
+    "2606.30111": 0,
+    "2607.05966": 0
   },
   "focus_sections": {
     "3D生成与重建": [
@@ -92,6 +106,16 @@
       "short_zh": "提升低资源语言代码补全",
       "tags": "自然语言处理;代码生成;低资源编程语言代码补全",
       "body_summary": "主流代码大模型缺乏对低资源编程语言（如Pharo）的支持。\n提出数据整理与模型微调流程、建立评测基准，验证了专有模型能显著提升Pharo代码补全效果。"
+    },
+    "2606.30111": {
+      "short_zh": "自动化具身智能体架构设计",
+      "tags": "机器人学;具身智能;智能体架构搜索",
+      "body_summary": "当前具身智能体的模块化架构设计依赖人工经验，自动化设计方法在感知交互任务中尚未系统评估。\n研究者提出一个可编辑的图形化运行时和一种编码智能体搜索流程，在多个具身任务上验证了架构搜索的潜力和当前局限。"
+    },
+    "2607.05966": {
+      "short_zh": "世界模型长时推理失败诊断",
+      "tags": "机器人学;世界模型;长时程推演诊断",
+      "body_summary": "长时程世界模型失败通常归因于累积误差，但未区分误差类型。\n提出动态与运动学想象力框架，通过运动一致性误差诊断模型倾向于运动学而非动态想象，并在物理仿真环境中验证。"
     }
   },
   "deep_analysis": {
