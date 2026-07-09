@@ -19,6 +19,16 @@
             transform: translateY(-4px);
             box-shadow: 0 20px 30px -5px rgb(0 0 0 / 0.08);
         }
+        .home-entry-grid {
+            width: 100%;
+            max-width: 56rem;
+        }
+        .icon-sky-indigo {
+            background-image: linear-gradient(to bottom right, #0ea5e9, #4f46e5);
+        }
+        .icon-emerald-teal {
+            background-image: linear-gradient(to bottom right, #10b981, #0d9488);
+        }
     </style>
 </head>
 <body class="min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50/30 to-slate-100">
@@ -36,7 +46,7 @@
         </div>
 
         <!-- Entry Cards -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-4xl w-full mb-12">
+        <div class="home-entry-grid grid grid-cols-1 sm:grid-cols-2 gap-5 mb-12">
             <a href="./date/" class="hero-card block bg-white rounded-2xl border border-slate-200/70 px-6 py-6 hover:border-indigo-300">
                 <div class="flex items-center gap-4">
                     <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-sm">
@@ -53,7 +63,7 @@
 
             <a href="./archive/month/" class="hero-card block bg-white rounded-2xl border border-slate-200/70 px-6 py-6 hover:border-indigo-300">
                 <div class="flex items-center gap-4">
-                    <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-sky-500 to-indigo-600 flex items-center justify-center shadow-sm">
+                    <div class="icon-sky-indigo flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center shadow-sm">
                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h18M7 8h10M7 12h10M7 16h6M5 20h14a2 2 0 002-2V4H3v14a2 2 0 002 2z"/>
                         </svg>
@@ -67,7 +77,7 @@
 
             <a href="./archive/week/" class="hero-card block bg-white rounded-2xl border border-slate-200/70 px-6 py-6 hover:border-indigo-300">
                 <div class="flex items-center gap-4">
-                    <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-sm">
+                    <div class="icon-emerald-teal flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center shadow-sm">
                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-6h6v6M4 21h16M5 3h14a2 2 0 012 2v14H3V5a2 2 0 012-2z"/>
                         </svg>
