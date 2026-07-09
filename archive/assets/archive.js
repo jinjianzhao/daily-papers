@@ -64,6 +64,23 @@
         return `${d.getUTCFullYear()}-W${String(week).padStart(2, '0')}`;
     }
 
+    function isoWeekMondayDate(weekKey) {
+        const match = /^(\d{4})-W(\d{2})$/.exec(String(weekKey || ''));
+        if (!match) return '';
+        const year = Number(match[1]);
+        const week = Number(match[2]);
+        const jan4 = new Date(Date.UTC(year, 0, 4));
+        const jan4Day = jan4.getUTCDay() || 7;
+        const monday = new Date(jan4);
+        monday.setUTCDate(jan4.getUTCDate() - jan4Day + 1 + ((week - 1) * 7));
+        return monday.toISOString().slice(0, 10);
+    }
+
+    function weekDisplayLabel(weekKey) {
+        const monday = isoWeekMondayDate(weekKey);
+        return monday ? `${weekKey}（周一 ${monday.slice(5)}）` : weekKey;
+    }
+
     async function loadDateIndex(path) {
         const resp = await fetch(path, { cache: 'no-store' });
         if (!resp.ok) throw new Error('date index not found');
@@ -133,7 +150,7 @@
                     `<a class="archive-period-link" href="./month/?month=${encodeURIComponent(month)}">${escapeHtml(month)}</a>`
                 )).join('');
                 weeksEl.innerHTML = weeks.map((week) => (
-                    `<a class="archive-period-link" href="./week/?week=${encodeURIComponent(week)}">${escapeHtml(week)}</a>`
+                    `<a class="archive-period-link" href="./week/?week=${encodeURIComponent(week)}">${escapeHtml(weekDisplayLabel(week))}</a>`
                 )).join('');
 
                 latestMonth.href = `./month/?month=${encodeURIComponent(months[0])}`;
@@ -218,7 +235,7 @@
                 btn.type = 'button';
                 btn.dataset.key = key;
                 btn.className = key === activeKey ? 'period-btn is-active' : 'period-btn';
-                btn.textContent = key;
+                btn.textContent = mode === 'week' ? weekDisplayLabel(key) : key;
                 btn.addEventListener('click', () => {
                     if (key === activeKey) return;
                     updateUrl(key);
