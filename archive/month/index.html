@@ -17,48 +17,58 @@
 </head>
 <body data-archive-mode="month" data-date-index="../../date/config.json" data-date-base="../../date/" class="min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50/30 to-slate-100">
     <header class="glass sticky top-0 z-50 border-b border-slate-200/60">
-        <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
-            <div>
-                <h1 class="text-lg font-extrabold tracking-tight text-slate-900">月度归档</h1>
-                <p id="archive-subtitle" class="text-xs text-slate-500"></p>
+        <div class="archive-topbar mx-auto max-w-6xl px-4 py-4 sm:px-6">
+            <div class="archive-brand">
+                <div class="archive-brand-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h18M7 8h10M7 12h10M7 16h6M5 20h14a2 2 0 002-2V4H3v14a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-lg font-extrabold tracking-tight text-slate-900">月度归档</h1>
+                    <p id="archive-subtitle" class="text-xs text-slate-500"></p>
+                </div>
             </div>
-            <nav class="flex items-center gap-4 text-sm font-semibold">
-                <a href="../" class="text-slate-500 hover:text-indigo-700">归档入口</a>
-                <a href="../../date/" class="text-slate-500 hover:text-indigo-700">每日论文</a>
-                <a href="../week/" class="text-slate-500 hover:text-indigo-700">周度归档</a>
-                <a href="../../" class="text-indigo-600 hover:text-indigo-800">首页</a>
+            <nav class="archive-nav">
+                <a href="../">归档入口</a>
+                <a href="../../date/">每日论文</a>
+                <a href="../week/">周度归档</a>
+                <a href="../../" class="is-strong">首页</a>
             </nav>
         </div>
     </header>
 
-    <main class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
-        <section class="mb-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-            <div class="mb-4 flex flex-wrap items-center justify-between gap-3">
+    <main class="archive-shell">
+        <section class="archive-hero">
+            <div class="archive-hero-head">
                 <div>
-                    <p class="text-xs font-bold uppercase tracking-wide text-slate-400">当前范围</p>
-                    <p id="range-label" class="mt-1 text-2xl font-black text-slate-900">加载中</p>
+                    <p class="archive-kicker">当前范围</p>
+                    <p id="range-label" class="archive-title">加载中</p>
+                    <p class="archive-description">按月份聚合已有日报中的 3D 重点论文，保留原始日报链接、arXiv 链接、关键词和图示。</p>
                 </div>
-                <a href="../week/" class="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-600 hover:border-indigo-300 hover:text-indigo-700">查看周度</a>
+                <a href="../week/" class="archive-mode-link">查看周度</a>
             </div>
-            <div id="period-buttons" class="flex gap-2 pb-1"></div>
+            <div class="archive-period-panel">
+                <div id="period-buttons"></div>
+            </div>
         </section>
 
-        <section id="loading" class="mb-6 rounded-2xl border border-slate-200 bg-white p-5">
+        <section id="loading" class="archive-loading">
             <div class="mb-3 flex items-center justify-between text-sm font-semibold text-slate-500">
                 <span id="progress-text">正在加载</span>
             </div>
-            <div class="h-2 overflow-hidden rounded-full bg-slate-100">
-                <div id="progress-bar" class="h-full w-0 rounded-full bg-indigo-600 transition-all"></div>
+            <div class="archive-progress-track">
+                <div id="progress-bar"></div>
             </div>
         </section>
 
-        <section id="stats" class="mb-8 grid grid-cols-2 gap-3 lg:grid-cols-4"></section>
+        <section id="stats"></section>
 
-        <section id="empty" class="hidden rounded-2xl border border-dashed border-slate-300 bg-white p-10 text-center text-slate-400">
+        <section id="empty" class="archive-empty hidden">
             当前月份暂无 3D 重点论文
         </section>
 
-        <section id="error" class="hidden mb-6 rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4 text-sm text-amber-800">
+        <section id="error" class="archive-error hidden">
             <span id="error-text"></span>
         </section>
 

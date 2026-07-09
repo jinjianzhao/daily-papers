@@ -130,7 +130,7 @@
         let groups = new Map();
         let activeKey = '';
         let pageIndex = 0;
-        const pageSize = mode === 'month' ? 6 : 12;
+        const pageSize = mode === 'month' ? 12 : 18;
 
         function keyLabel(key, dates) {
             if (mode === 'month') return key;
@@ -208,19 +208,31 @@
             const totalVotes = items.reduce((acc, item) => acc + item.votes, 0);
             els.stats.innerHTML = `
                 <div class="stat-card">
-                    <p class="stat-label">覆盖日期</p>
+                    <div class="stat-top">
+                        <p class="stat-label">覆盖日期</p>
+                        <span class="stat-dot"></span>
+                    </div>
                     <p class="stat-value">${dates.length}</p>
                 </div>
                 <div class="stat-card">
-                    <p class="stat-label">重点论文</p>
+                    <div class="stat-top">
+                        <p class="stat-label">重点论文</p>
+                        <span class="stat-dot"></span>
+                    </div>
                     <p class="stat-value">${items.length}</p>
                 </div>
                 <div class="stat-card">
-                    <p class="stat-label">HF Votes</p>
+                    <div class="stat-top">
+                        <p class="stat-label">HF Votes</p>
+                        <span class="stat-dot"></span>
+                    </div>
                     <p class="stat-value">${totalVotes}</p>
                 </div>
                 <div class="stat-card">
-                    <p class="stat-label">读取失败</p>
+                    <div class="stat-top">
+                        <p class="stat-label">读取失败</p>
+                        <span class="stat-dot"></span>
+                    </div>
                     <p class="stat-value">${failedDates.length}</p>
                 </div>
             `;
@@ -229,10 +241,10 @@
         function paperCard(item) {
             const tags = splitTags(item.tags);
             const tagsHtml = tags.map((tag) => (
-                `<span class="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600">${escapeHtml(tag)}</span>`
+                `<span class="archive-tag">${escapeHtml(tag)}</span>`
             )).join('');
             const imageHtml = item.image
-                ? `<div class="mt-4 overflow-hidden rounded-xl border border-slate-200 bg-slate-100">
+                ? `<div class="archive-figure">
                         <img src="${escapeHtml(item.image)}" alt="" loading="lazy">
                    </div>`
                 : '';
@@ -240,25 +252,25 @@
             const detail = item.short && item.short !== intro ? item.short : firstTextLine(item.abstractZh || item.abstract || '');
 
             return `
-                <article>
-                    <div class="flex flex-wrap items-center gap-2 text-xs text-slate-400">
-                        <span class="font-mono">${escapeHtml(item.aid)}</span>
+                <article class="archive-paper-card">
+                    <div class="archive-paper-meta">
+                        <span class="archive-paper-id">${escapeHtml(item.aid)}</span>
                         <span>·</span>
                         <span>${escapeHtml(item.date)}</span>
                         <span>·</span>
                         <span>${item.votes} votes</span>
                     </div>
-                    <h3 class="mt-2 text-lg font-black leading-snug text-slate-950">
+                    <h3 class="archive-paper-title">
                         ${escapeHtml(item.title || item.aid)}
                     </h3>
-                    ${tagsHtml ? `<div class="mt-3 flex flex-wrap gap-2">${tagsHtml}</div>` : ''}
-                    ${intro ? `<p class="mt-4 text-sm leading-6 text-slate-700">${escapeHtml(firstTextLine(intro))}</p>` : ''}
-                    ${detail ? `<p class="mt-2 text-sm leading-6 text-slate-500">${escapeHtml(detail)}</p>` : ''}
+                    ${tagsHtml ? `<div class="archive-tag-list">${tagsHtml}</div>` : ''}
+                    ${intro ? `<p class="archive-paper-lead">${escapeHtml(firstTextLine(intro))}</p>` : ''}
+                    ${detail ? `<p class="archive-paper-detail">${escapeHtml(detail)}</p>` : ''}
                     ${imageHtml}
-                    <div class="mt-4 flex flex-wrap gap-3 text-sm font-semibold">
-                        <a class="text-indigo-600 hover:text-indigo-800" href="../../date/${escapeHtml(item.date)}/">查看日报</a>
-                        <a class="text-indigo-600 hover:text-indigo-800" href="https://arxiv.org/abs/${escapeHtml(item.aid)}" target="_blank" rel="noopener noreferrer">arXiv</a>
-                        <a class="text-indigo-600 hover:text-indigo-800" href="${escapeHtml(item.hfLink)}" target="_blank" rel="noopener noreferrer">HuggingFace</a>
+                    <div class="archive-paper-links">
+                        <a class="archive-paper-link" href="../../date/${escapeHtml(item.date)}/">查看日报</a>
+                        <a class="archive-paper-link" href="https://arxiv.org/abs/${escapeHtml(item.aid)}" target="_blank" rel="noopener noreferrer">arXiv</a>
+                        <a class="archive-paper-link" href="${escapeHtml(item.hfLink)}" target="_blank" rel="noopener noreferrer">HuggingFace</a>
                     </div>
                 </article>
             `;
@@ -275,11 +287,12 @@
             els.paperList.innerHTML = dates.map((date) => {
                 const cards = byDate.get(date).map(paperCard).join('');
                 return `
-                    <section class="mb-8">
-                        <div class="mb-4 flex items-center gap-3">
-                            <h2 class="text-xl font-black text-slate-950">${escapeHtml(date)}</h2>
-                            <span class="rounded-full bg-indigo-50 px-2.5 py-1 text-xs font-bold text-indigo-700">${byDate.get(date).length} 篇</span>
-                            <span class="h-px flex-1 bg-slate-200"></span>
+                    <section class="archive-date-section">
+                        <div class="archive-date-heading">
+                            <span class="archive-date-accent"></span>
+                            <h2 class="archive-date-title">${escapeHtml(date)}</h2>
+                            <span class="archive-date-count">${byDate.get(date).length} 篇</span>
+                            <span class="archive-date-line"></span>
                         </div>
                         <div class="paper-grid">
                             ${cards}

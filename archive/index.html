@@ -17,29 +17,51 @@
 </head>
 <body data-archive-entry data-date-index="../date/config.json" class="min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50/30 to-slate-100">
     <header class="glass sticky top-0 z-50 border-b border-slate-200/60">
-        <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
-            <div>
-                <h1 class="text-lg font-extrabold tracking-tight text-slate-900">归档</h1>
-                <p class="text-xs text-slate-500">按月或按周聚合已有日报中的 3D 重点论文</p>
+        <div class="archive-topbar mx-auto max-w-6xl px-4 py-4 sm:px-6">
+            <div class="archive-brand">
+                <div class="archive-brand-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h18M7 8h10M7 12h10M7 16h6M5 20h14a2 2 0 002-2V4H3v14a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-lg font-extrabold tracking-tight text-slate-900">归档</h1>
+                    <p class="text-xs text-slate-500">按月或按周聚合已有日报中的 3D 重点论文</p>
+                </div>
             </div>
-            <nav class="flex items-center gap-4 text-sm font-semibold">
-                <a href="../date/" class="text-slate-500 hover:text-indigo-700">每日论文</a>
-                <a href="../" class="text-indigo-600 hover:text-indigo-800">首页</a>
+            <nav class="archive-nav">
+                <a href="../date/">每日论文</a>
+                <a href="../" class="is-strong">首页</a>
             </nav>
         </div>
     </header>
 
-    <main class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+    <main class="archive-shell">
+        <section class="archive-hero">
+            <div class="archive-hero-head">
+                <div>
+                    <p class="archive-kicker">Archive</p>
+                    <h2 class="archive-title">论文归档聚合</h2>
+                    <p class="archive-description">从已经发布的每日论文里按时间聚合 3D 重点论文。月度适合回看方向变化，周度适合快速扫近期新增。</p>
+                </div>
+                <a href="../date/" class="archive-mode-link">每日论文</a>
+            </div>
+        </section>
+
         <section class="mb-8 grid gap-4 md:grid-cols-2">
             <a href="./month/" class="archive-entry-card block rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:border-indigo-300">
-                <p class="text-xs font-bold uppercase tracking-wide text-slate-400">Month</p>
-                <h2 class="mt-2 text-2xl font-black text-slate-950">月度归档</h2>
-                <p class="mt-2 text-sm leading-6 text-slate-500">按月份汇总已有日报中的 3D 重点论文。</p>
+                <div class="pl-3">
+                    <p class="text-xs font-bold uppercase tracking-wide text-slate-400">Month</p>
+                    <h2 class="mt-2 text-2xl font-black text-slate-950">月度归档</h2>
+                    <p class="mt-2 text-sm leading-6 text-slate-500">按月份汇总已有日报中的 3D 重点论文。</p>
+                </div>
             </a>
             <a href="./week/" class="archive-entry-card block rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:border-indigo-300">
-                <p class="text-xs font-bold uppercase tracking-wide text-slate-400">Week</p>
-                <h2 class="mt-2 text-2xl font-black text-slate-950">周度归档</h2>
-                <p class="mt-2 text-sm leading-6 text-slate-500">按 ISO 周汇总已有日报中的 3D 重点论文。</p>
+                <div class="pl-3">
+                    <p class="text-xs font-bold uppercase tracking-wide text-slate-400">Week</p>
+                    <h2 class="mt-2 text-2xl font-black text-slate-950">周度归档</h2>
+                    <p class="mt-2 text-sm leading-6 text-slate-500">按 ISO 周汇总已有日报中的 3D 重点论文。</p>
+                </div>
             </a>
         </section>
 
