@@ -11,6 +11,47 @@
             .replace(/'/g, '&#39;');
     }
 
+    function renderMarkdown(value) {
+        return String(value || '')
+            .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+            .replace(/^### (.+)$/gm, '<h4>$1</h4>')
+            .replace(/^## (.+)$/gm, '<h3>$1</h3>')
+            .replace(/^# (.+)$/gm, '<h2>$1</h2>')
+            .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\*(.+?)\*/g, '<em>$1</em>')
+            .replace(/`(.+?)`/g, '<code>$1</code>')
+            .replace(/^- (.+)$/gm, '<li>$1</li>')
+            .replace(/\n\n/g, '</p><p>')
+            .replace(/\n/g, '<br>');
+    }
+
+    function getSummaryParts(summary) {
+        if (!summary || typeof summary !== 'object') return { shortZh: '', tags: '', body: '' };
+        return {
+            shortZh: summary.short_zh || '',
+            tags: summary.tags || '',
+            body: summary.body_summary || '',
+        };
+    }
+
+    function formatKeywordLead(tags) {
+        const raw = String(tags == null ? '' : tags).trim();
+        return raw ? raw.replace(/[;；]/g, ' / ') : '';
+    }
+
+    function formatPaperHeadingHtml(tags, title) {
+        const keywordLead = formatKeywordLead(tags);
+        if (!keywordLead) return escapeHtml(title);
+        return (
+            '<span class="text-indigo-700/90 font-extrabold tracking-tight">' +
+            escapeHtml(keywordLead) +
+            '</span><span class="text-slate-400 font-semibold mx-1.5 select-none" aria-hidden="true">·</span>' +
+            '<span class="text-slate-900">' +
+            escapeHtml(title) +
+            '</span>'
+        );
+    }
+
     function normalizeDate(date) {
         return /^\d{4}-\d{2}-\d{2}$/.test(date) ? date : '';
     }
@@ -241,39 +282,95 @@
         }
 
         function paperCard(item) {
-            const tags = splitTags(item.tags);
-            const tagsHtml = tags.map((tag) => (
-                `<span class="archive-tag">${escapeHtml(tag)}</span>`
-            )).join('');
-            const imageHtml = item.image
-                ? `<div class="archive-figure">
-                        <img src="${escapeHtml(item.image)}" alt="" loading="lazy">
-                   </div>`
-                : '';
-            const intro = item.body || item.short || item.abstractZh || item.abstract || '';
-            const detail = item.short && item.short !== intro ? item.short : firstTextLine(item.abstractZh || item.abstract || '');
+            const figures = Array.isArray(item.figures) ? item.figures : [];
+            const imgHtml = figures.map((img) => {
+                const cap = img.caption || 'Figure from paper';
+                const displayCap = img.caption_zh || cap;
+                const pm = img.role && /^pipeline_(\d+)$/.exec(img.role);
+                const roleTag = pm
+                    ? (() => {
+                        const idx = parseInt(pm[1], 10);
+                        const palette = ['bg-indigo-600/90', 'bg-emerald-600/90', 'bg-amber-600/90', 'bg-rose-600/90', 'bg-violet-600/90', 'bg-cyan-600/90'];
+                        const bg = palette[(idx - 1) % palette.length];
+                        const circ = ['①', '②', '③', '④', '⑤', '⑥', '⑦', '⑧', '⑨'];
+                        const label = idx >= 1 && idx <= 9 ? ('相关' + circ[idx - 1]) : ('相关' + idx);
+                        return '<span class="absolute left-3 top-3 z-10 rounded-lg ' + bg + ' px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white shadow-sm">' + label + '</span>';
+                    })()
+                    : (img.role === 'task'
+                        ? '<span class="absolute left-3 top-3 z-10 rounded-lg bg-indigo-600/90 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white shadow-sm">任务</span>'
+                        : (img.role === 'flowchart'
+                            ? '<span class="absolute left-3 top-3 z-10 rounded-lg bg-emerald-600/90 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white shadow-sm">流程</span>'
+                            : ''));
+                return `
+                    <div class="group relative flex flex-col">
+                        <div class="relative aspect-video overflow-hidden rounded-2xl bg-slate-100 border border-slate-100">
+                            ${roleTag}
+                            <img src="${escapeHtml(img.path)}"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                 alt=""
+                                 loading="lazy"
+                                 onerror="this.src='https://placehold.co/600x400?text=Figure+Load+Failed'">
+                        </div>
+                        <p class="text-[11px] font-medium text-slate-700 mt-3 whitespace-pre-wrap break-words leading-relaxed">
+                            ${escapeHtml(displayCap)}
+                        </p>
+                    </div>`;
+            }).join('');
 
+            const summaryBlock = item.body
+                ? '<div class="md-summary md-content text-slate-600 mb-6 pl-4 border-l-2 border-indigo-100 whitespace-pre-line">' + escapeHtml(item.body) + '</div>'
+                : '';
+            const hfLink = item.hfLink || `https://huggingface.co/papers/${item.aid}`;
+            const dateLink = `../../date/${escapeHtml(item.date)}/`;
             return `
-                <article class="archive-paper-card">
-                    <div class="archive-paper-meta">
-                        <span class="archive-paper-id">${escapeHtml(item.aid)}</span>
-                        <span>·</span>
-                        <span>${escapeHtml(item.date)}</span>
-                        <span>·</span>
-                        <span>${item.votes} votes</span>
+                <article class="paper-card bg-white p-8 md:p-10 rounded-[2.5rem] border border-slate-200/60 relative scroll-mt-28">
+                    <div class="flex flex-wrap justify-between items-start gap-4 mb-8">
+                        <div class="flex flex-wrap items-center gap-3">
+                            <span class="bg-indigo-600 text-white px-4 py-1.5 rounded-xl text-xs font-bold font-mono shadow-md shadow-indigo-100 italic">
+                                arXiv:${escapeHtml(item.aid)}
+                            </span>
+                            <span class="rounded-xl bg-slate-100 px-3 py-1.5 text-xs font-bold text-slate-500">
+                                ${escapeHtml(item.date)}
+                            </span>
+                            <span class="flex items-center gap-1 text-slate-500 text-sm">
+                                <svg class="w-4 h-4 text-amber-500" fill="currentColor" viewBox="0 0 24 24"><path d="M5.19 2.67a.94.94 0 0 1 1.62 0l3.31 5.72a.94.94 0 0 1-.82 1.4H2.7a.94.94 0 0 1-.82-1.4l3.31-5.7v-.02Z"/></svg>
+                                <span class="font-semibold">${item.votes}</span>
+                            </span>
+                        </div>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="${dateLink}" class="text-slate-400 hover:text-indigo-600 transition-colors text-sm font-semibold flex items-center">
+                                日报 <span class="ml-1 text-[10px]">↗</span>
+                            </a>
+                            <a href="https://arxiv.org/abs/${escapeHtml(item.aid)}" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-red-500 transition-colors text-sm font-semibold flex items-center">
+                                ArXiv <span class="ml-1 text-[10px]">↗</span>
+                            </a>
+                            <a href="${escapeHtml(hfLink)}" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-600 transition-colors text-sm font-semibold flex items-center">
+                                HF Paper <span class="ml-1 text-[10px]">↗</span>
+                            </a>
+                            <a href="https://www.alphaxiv.org/zh/overview/${escapeHtml(item.aid)}" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-emerald-600 transition-colors text-sm font-semibold flex items-center">
+                                AlphaXiv <span class="ml-1 text-[10px]">↗</span>
+                            </a>
+                        </div>
                     </div>
-                    <h3 class="archive-paper-title">
-                        ${escapeHtml(item.title || item.aid)}
+
+                    <h3 class="text-2xl md:text-3xl font-extrabold mb-8 leading-[1.1] text-slate-900 tracking-tight">
+                        ${formatPaperHeadingHtml(item.tags, item.title || item.aid)}
                     </h3>
-                    ${tagsHtml ? `<div class="archive-tag-list">${tagsHtml}</div>` : ''}
-                    ${intro ? `<p class="archive-paper-lead">${escapeHtml(firstTextLine(intro))}</p>` : ''}
-                    ${detail ? `<p class="archive-paper-detail">${escapeHtml(detail)}</p>` : ''}
-                    ${imageHtml}
-                    <div class="archive-paper-links">
-                        <a class="archive-paper-link" href="../../date/${escapeHtml(item.date)}/">查看日报</a>
-                        <a class="archive-paper-link" href="https://arxiv.org/abs/${escapeHtml(item.aid)}" target="_blank" rel="noopener noreferrer">arXiv</a>
-                        <a class="archive-paper-link" href="${escapeHtml(item.hfLink)}" target="_blank" rel="noopener noreferrer">HuggingFace</a>
+
+                    ${summaryBlock}
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-6">
+                        ${imgHtml || '<div class="col-span-full text-center text-slate-300 text-xs py-4 italic">No key figures extracted</div>'}
                     </div>
+
+                    ${item.abstractZh ? '<details class="mb-6 rounded-xl border border-slate-100 bg-slate-50/60"><summary class="px-4 py-2 text-xs font-bold text-slate-500 cursor-pointer select-none">摘要</summary><p class="px-4 py-3 text-sm text-slate-700 leading-relaxed">' + escapeHtml(item.abstractZh) + '</p></details>' : ''}
+
+                    ${item.deepAnalysis ? '<details class="mb-6 rounded-xl border border-emerald-100 bg-emerald-50/40"><summary class="px-4 py-2 text-xs font-bold text-emerald-600 cursor-pointer select-none">Deep Analysis / 深度解读</summary><div class="md-content px-4 py-3 text-sm text-slate-700 leading-relaxed">' + renderMarkdown(item.deepAnalysis) + '</div></details>' : ''}
+
+                    <details class="mb-6 rounded-xl border border-indigo-100 bg-indigo-50/40" ontoggle="if(this.open){var f=this.querySelector('iframe');if(!f.src)f.src=f.dataset.src;}">
+                        <summary class="px-4 py-2 text-xs font-bold text-indigo-500 cursor-pointer select-none">AlphaXiv 解读 <span class="font-normal text-slate-400 ml-2">Ctrl+/ 隐藏工具栏</span></summary>
+                        <iframe data-src="https://www.alphaxiv.org/zh/overview/${escapeHtml(item.aid)}" style="width:100%;height:700px;border:none;border-radius:0 0 12px 12px;"></iframe>
+                    </details>
                 </article>
             `;
         }
@@ -296,7 +393,7 @@
                             <span class="archive-date-count">${byDate.get(date).length} 篇</span>
                             <span class="archive-date-line"></span>
                         </div>
-                        <div class="paper-grid">
+                        <div class="grid gap-12">
                             ${cards}
                         </div>
                     </section>
@@ -363,6 +460,7 @@
                         if (isExcludedPaper(info, summary)) continue;
                         const figures = (cfg.figures && cfg.figures[aid]) || [];
                         const votes = cfg.hf_votes && typeof cfg.hf_votes[aid] === 'number' ? cfg.hf_votes[aid] : 0;
+                        const summaryParts = getSummaryParts(summary);
                         items.push({
                             date,
                             aid,
@@ -370,10 +468,14 @@
                             abstract: info.abstract || '',
                             abstractZh: info.abstract_zh || '',
                             hfLink: info.hf_link || `https://huggingface.co/papers/${aid}`,
-                            short: summary.short_zh || '',
-                            tags: summary.tags || '',
-                            body: summary.body_summary || '',
-                            image: figures[0] && figures[0].path ? resolveFigurePath(figures[0].path, date) : '',
+                            short: summaryParts.shortZh,
+                            tags: summaryParts.tags,
+                            body: summaryParts.body,
+                            figures: figures.map((figure) => ({
+                                ...figure,
+                                path: resolveFigurePath(figure.path, date),
+                            })),
+                            deepAnalysis: cfg.deep_analysis && cfg.deep_analysis[aid] ? cfg.deep_analysis[aid] : '',
                             votes,
                         });
                     }
