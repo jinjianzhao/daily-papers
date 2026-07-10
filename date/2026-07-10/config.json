@@ -18,17 +18,17 @@
       "abstract_zh": "视频理解固有的复杂性使得难以判断Video-LLM基准测试的表现究竟源于视觉感知、语言推理还是知识先验。虽然当前已涌现出许多评估高级推理能力的基准测试，但衡量视频理解的共同标准却长期被忽视。相较于提出又一个新的基准，本研究选择退后一步，重新审视评估视频理解的标准体系。本文提出Video-Oasis——一个可持续的诊断套件，用于系统审计现有视频理解基准。审计结果表明，现有基准样本中55%的内容无需视觉输入或时序上下文即可求解。在过滤这些捷径样本后，剩余的视频原生挑战暴露出显著的能力差距：最先进模型的表现仅略高于随机猜测水平。基于这些发现，我们利用提炼出的挑战集作为试验平台，探究哪些算法设计选择有助于实现稳健的视频理解。本研究期望为构建严谨的视频基准测试和评估未来视频大语言模型提供实用基础。代码可通过此链接获取：https://[URL]",
       "hf_link": "https://huggingface.co/papers/2603.29616"
     },
-    "2607.08758": {
-      "title": "Ideas Have Genomes: Benchmarking Scientific Lineage Reasoning and Lineage-Grounded Idea Generation",
-      "abstract": "Scientific ideas rarely start from a blank page. They inherit mechanisms, repair known limitations, and recombine pieces of earlier work, much like biological genomes. Current benchmarks still say little about whether AI systems can follow this inheritance structure. We present IdeaGene-Bench (IG-Bench), a benchmark for scientific lineage reasoning and lineage-grounded idea generation. IG-Bench is organized around the IdeaGene framework: each paper or proposal is represented as a set of minimal, typed, evidence-grounded Idea Genome objects, and a GenomeDiff aligns these objects to record inheritance, mutation, loss, external import, and novel insertion under six operational evolutionary dynamics. The benchmark contains 1,961 golden lineage traces, 1,085 curated Idea Genome objects, and 920 pairwise GenomeDiff records across 10 scientific domains. It supports two evaluations. IG-Exam (42 task types, 1,029 instances) tests closed-form lineage reasoning across Idea Genome abstraction, inheritance tracing, evolutionary reasoning, and lineage verification. IG-Arena evaluates generation with a lineage-conditioned Population-Evolution Score(PES), asking whether a proposal can be inserted as a coherent descendant of a given lineage population: it should inherit the right Idea Genome objects, vary meaningfully from nearby work, and offer selection value for future research. Experiments on 14 LLM-based scientists expose a compositional bottleneck. The strongest system reaches only 27.3% exact accuracy on lineage reasoning, and structured lineage context reshuffles system rankings rather than helping every participant uniformly.",
-      "abstract_zh": "科学思想很少从零开始。它们继承既有机制、修正已知局限、重组先前工作的片段，这与生物基因组演化颇为相似。当前基准测试仍难以评估人工智能系统是否能遵循这种传承结构。我们提出IdeaGene-Bench（IG-Bench）——一个面向科学传承推理与传承锚定思想生成的基准测试框架。该基准围绕IdeaGene框架构建：每篇论文或研究提案被表征为一组最小化、类型化、证据支撑的Idea Genome（思想基因组）对象，而GenomeDiff（基因组差异）则通过六种操作性演化动态——继承、突变、缺失、外部引入与创新插入——对齐这些对象以记录传承关系。本基准包含1,961条黄金传承轨迹、1,085个精编Idea Genome对象及覆盖10个科学领域的920组成对GenomeDiff记录。它支持两类评估：IG-Exam（42种任务类型，1,029个实例）测试涵盖Idea Genome抽象化、传承溯源、演化推理与传承验证的封闭式传承推理能力；IG-Arena通过传承条件化群体演化评分（PES）评估生成质量，探究研究提案是否能作为给定传承群体的连贯后裔被嵌入——它应继承正确的Idea Genome对象、与邻近工作产生有意义的变异，并为未来研究提供选择价值。对14个基于大语言模型的科学智能系统的实验揭示了组合推理瓶颈：最优系统在传承推理任务上的精确匹配准确率仅为27.3%，且结构化传承语境会重塑系统排名而非均等提升所有参与者表现。",
-      "hf_link": "https://huggingface.co/papers/2607.08758"
-    },
     "2607.08768": {
       "title": "UniClawBench: A Universal Benchmark for Proactive Agents on Real-World Tasks",
       "abstract": "The rapid development of large language models and multimodal large language models has accelerated the emergence of proactive agents capable of operating everyday tools and assisting users in real-world environments. However, existing benchmarks struggle to evaluate such agents effectively, as they often rely on sandboxed environments and single-turn evaluation paradigms. Moreover, their scenario-based task taxonomies mix multiple model capabilities within the same task category, making it difficult to identify the root causes of agent failures. To address these limitations, we introduce UniClawBench, the first capability-driven benchmark designed to evaluate proactive agents in dynamic, real-world settings. UniClawBench is built around five foundational model capabilities: Skill Usage, Exploration, Long-Context Reasoning, Multimodal Understanding, and Cross-Platform Coordination. Based on these capabilities, we design 400 bilingual real-world tasks. Unlike previous benchmarks that rely on static, pre-recorded answers, our benchmark evaluates agents in live Docker containers using fine-grained, step-by-step completion checkpoints. Furthermore, we design a closed-loop evaluation strategy comprising an executor agent, a hidden supervisor agent, and a user agent to simulate realistic multi-turn human feedback without leaking grading criteria. To disentangle base model capabilities from framework-level design choices, we evaluate state-of-the-art models under multiple agent frameworks. Through comprehensive comparisons across both models and frameworks, we show how base model capabilities and agent framework designs jointly shape performance in real-world environments. To facilitate future research, we make our benchmark and code publicly available atthis https URL.",
       "abstract_zh": "大型语言模型与多模态大语言模型的快速发展，加速了能够操作日常工具并在真实环境中协助用户的主动式智能体（proactive agents）的出现。然而，现有基准测试（benchmarks）难以有效评估此类智能体，因为它们通常依赖于沙盒环境与单轮次评估范式。此外，其基于场景的任务分类体系往往在同一任务类别中混合了模型的多种能力，导致难以定位智能体失败的根本原因。为应对这些局限，我们提出了UniClawBench——首个能力驱动的基准测试，旨在动态、真实的环境中评估主动式智能体。UniClawBench围绕五大基础模型能力构建：技能使用（Skill Usage）、探索（Exploration）、长上下文推理（Long-Context Reasoning）、多模态理解（Multimodal Understanding）以及跨平台协调（Cross-Platform Coordination）。基于这些能力，我们设计了400项双语真实世界任务。与以往依赖静态预录制答案的基准不同，本基准通过在实时Docker容器中使用细粒度、分步骤的完成检查点来评估智能体。此外，我们设计了包含执行智能体、隐藏监督智能体与用户智能体的闭环评估策略，以模拟真实的多轮次人类反馈，同时避免评分标准泄露。为区分基础模型能力与框架层面的设计选择，我们在多种智能体框架下对前沿模型进行了评估。通过对模型与框架的全面比较，我们揭示了基础模型能力与智能体框架设计如何共同影响其在真实环境中的表现。为促进未来研究，我们已将基准测试与代码公开于此https URL。",
       "hf_link": "https://huggingface.co/papers/2607.08768"
+    },
+    "2607.08758": {
+      "title": "Ideas Have Genomes: Benchmarking Scientific Lineage Reasoning and Lineage-Grounded Idea Generation",
+      "abstract": "Scientific ideas rarely start from a blank page. They inherit mechanisms, repair known limitations, and recombine pieces of earlier work, much like biological genomes. Current benchmarks still say little about whether AI systems can follow this inheritance structure. We present IdeaGene-Bench (IG-Bench), a benchmark for scientific lineage reasoning and lineage-grounded idea generation. IG-Bench is organized around the IdeaGene framework: each paper or proposal is represented as a set of minimal, typed, evidence-grounded Idea Genome objects, and a GenomeDiff aligns these objects to record inheritance, mutation, loss, external import, and novel insertion under six operational evolutionary dynamics. The benchmark contains 1,961 golden lineage traces, 1,085 curated Idea Genome objects, and 920 pairwise GenomeDiff records across 10 scientific domains. It supports two evaluations. IG-Exam (42 task types, 1,029 instances) tests closed-form lineage reasoning across Idea Genome abstraction, inheritance tracing, evolutionary reasoning, and lineage verification. IG-Arena evaluates generation with a lineage-conditioned Population-Evolution Score(PES), asking whether a proposal can be inserted as a coherent descendant of a given lineage population: it should inherit the right Idea Genome objects, vary meaningfully from nearby work, and offer selection value for future research. Experiments on 14 LLM-based scientists expose a compositional bottleneck. The strongest system reaches only 27.3% exact accuracy on lineage reasoning, and structured lineage context reshuffles system rankings rather than helping every participant uniformly.",
+      "abstract_zh": "科学思想很少从零开始。它们继承既有机制、修正已知局限、重组先前工作的片段，这与生物基因组演化颇为相似。当前基准测试仍难以评估人工智能系统是否能遵循这种传承结构。我们提出IdeaGene-Bench（IG-Bench）——一个面向科学传承推理与传承锚定思想生成的基准测试框架。该基准围绕IdeaGene框架构建：每篇论文或研究提案被表征为一组最小化、类型化、证据支撑的Idea Genome（思想基因组）对象，而GenomeDiff（基因组差异）则通过六种操作性演化动态——继承、突变、缺失、外部引入与创新插入——对齐这些对象以记录传承关系。本基准包含1,961条黄金传承轨迹、1,085个精编Idea Genome对象及覆盖10个科学领域的920组成对GenomeDiff记录。它支持两类评估：IG-Exam（42种任务类型，1,029个实例）测试涵盖Idea Genome抽象化、传承溯源、演化推理与传承验证的封闭式传承推理能力；IG-Arena通过传承条件化群体演化评分（PES）评估生成质量，探究研究提案是否能作为给定传承群体的连贯后裔被嵌入——它应继承正确的Idea Genome对象、与邻近工作产生有意义的变异，并为未来研究提供选择价值。对14个基于大语言模型的科学智能系统的实验揭示了组合推理瓶颈：最优系统在传承推理任务上的精确匹配准确率仅为27.3%，且结构化传承语境会重塑系统排名而非均等提升所有参与者表现。",
+      "hf_link": "https://huggingface.co/papers/2607.08758"
     },
     "2607.08770": {
       "title": "LongE2V: Long-Horizon Event-based Video Reconstruction, Prediction, and Frame Interpolation with Video Diffusion Models",
@@ -60,6 +60,12 @@
       "abstract_zh": "现代大语言模型日益广泛地应用于长上下文场景，例如检索增强生成、仓库级代码编程以及智能体工作流。这些场景中累积的推理过程与工具调用轨迹，常常将输入长度推至超出预训练窗口一个数量级，使得零样本上下文扩展成为开放权重模型的主流部署路径。现有零样本方法大多预先固定单一缩放因子，导致激进因子会损害短上下文保真度，而保守因子则会在长上下文场景下失效。我们提出Jet-Long方法，这是一种无需调优的零样本方案，通过将局部RoPE保真窗口与长程窗口相结合，使后者的缩放因子能根据当前序列长度动态调整，从而在短输入时精确还原基础模型，在长输入时实现清晰外推。基于容斥原理的注意力融合机制与即时RoPE校正旋转，使得这种双焦点架构在推理时几乎无额外开销；通过融合至单一CuTe内核，长上下文预填充在H100上的吞吐量可达FA2的1.39倍（接近仅限Hopper架构的FA4），且单批次生成在任何长度下的额外开销均≤4%。在Qwen3-1.7B/4B/8B模型上进行的128K上下文测试中，Jet-Long在1.7B/4B/8B级别的最强基线基础上，将RULER指标分别提升了+4.79/+2.18/+2.03个百分点，在HELMET-RAG（被HELMET评估体系认定为最能有效预测下游长上下文性能的基准）上取得最佳综合准确率，并实现了最低的PG-19困惑度。Jet-Long还可泛化至混合注意力架构（如Jet-Nemotron），无需重新训练即可实现长上下文性能的进一步提升，且具备超参数鲁棒性以简化部署流程。",
       "hf_link": "https://huggingface.co/papers/2607.07740"
     },
+    "2607.07953": {
+      "title": "Linear Attention Architectures: Mechanisms, Trade-offs, and Cross-Layer Routing",
+      "abstract": "Self-attention lets each token retrieve information from the full context, but its quadratic cost in sequence length limits training and inference at long context. This paper presents a comparative study of softmax attention and four recent recurrent linear-attention architectures: DeltaNet, Gated DeltaNet, Kimi Delta Attention, and Gated DeltaNet-2. We express these mechanisms in a common recurrent-memory notation, making explicit how they differ in expressivity, memory decay, erase and write control, training throughput, and implementation complexity. Our experiments center on 350M-parameter models trained for 15B tokens, and include optimizer and learning-rate comparisons, hybrid-versus-pure stack comparisons, sequence-length runtime measurements, larger DeltaNet runs at 1.3B and 3B parameters, and a small set of downstream evaluations. The reported speed results measure training throughput and iteration time; we do not provide an empirical inference-speed benchmark. Within the reported 350M-parameter, 15B-token sweep, Kimi Delta Attention with Muon reaches the lowest final validation loss, a pure Gated DeltaNet stack trained with AdamW has the highest normalized training throughput, hybrid stacks generally improve loss at a throughput cost, and Muon consistently lowers final validation loss relative to AdamW in the matched architecture settings we evaluate. We introduce and evaluate lightweight cross-layer routing mechanisms for DeltaNet-style memories. The most natural DeltaNet-inspired formulation, forwarding a lower layer's delta-rule write error into the next layer's value target, does not improve over matched baselines. Routing into the aligned hidden stream and forwarding the write value instead yields a modest improvement in the matched runs we report: Cross-Layer Value Routing (CLVR) lowers final validation loss for both DeltaNet and Gated DeltaNet.",
+      "abstract_zh": "自注意力机制允许每个标记从完整上下文中检索信息，但其随序列长度呈二次方增长的计算成本限制了长上下文场景下的训练与推理。本文对softmax注意力与四种近期提出的循环线性注意力架构进行了比较研究：DeltaNet、门控DeltaNet、Kimi Delta注意力及门控DeltaNet-2。我们采用统一的循环记忆表示框架描述这些机制，明确揭示了它们在表达能力、记忆衰减、擦除与写入控制、训练吞吐量以及实现复杂度方面的差异。实验以训练15B标记的3.5亿参数模型为核心，涵盖优化器与学习率比较、混合架构与纯架构对比、序列长度运行时测量、1.3B与3B参数规模的DeltaNet扩展实验，以及少量下游任务评估。报告的速度结果主要衡量训练吞吐量与迭代时间，未提供经验性的推理速度基准测试。在已报告的3.5亿参数/15B标记实验范围内，采用Muon优化器的Kimi Delta注意力获得了最低的最终验证损失，使用AdamW训练的纯门控DeltaNet架构实现了最高的归一化训练吞吐量，混合架构通常以牺牲吞吐量为代价改善损失表现，而在我们评估的匹配架构设置中，Muon相较于AdamW持续降低了最终验证损失。我们提出并评估了适用于DeltaNet类记忆的轻量级跨层路由机制。最自然的DeltaNet衍生方案——将低层的delta规则写入误差传递至高层的值目标——在匹配的基线实验中未显现改进效果。而通过向对齐的隐藏流进行路由并转发写入值，在我们报告的匹配实验中取得了适度提升：跨层值路由机制（Cross-Layer Value Routing, CLVR）同时降低了DeltaNet与门控DeltaNet的最终验证损失。",
+      "hf_link": "https://huggingface.co/papers/2607.07953"
+    },
     "2607.04461": {
       "title": "Flash-BoN: Instant Drafts for Inference-Time Scaling in Diffusion Models",
       "abstract": "Inference-time scaling for text-to-image generation has progressed from simple Best-of-$N$ (BoN) sampling to guided search methods that verify and steer candidate trajectories at intermediate denoising steps. These approaches focus on when and how often to verify during denoising but largely treat the cost of generation itself as fixed. Moreover, the standard practice of comparing methods by number of function evaluations (NFEs) counts only denoising forward passes and ignores verifier overhead, which can distort efficiency rankings. We show that under wall-clock evaluation, simple BoN already matches or outperforms several guided search techniques, suggesting that compute is better spent on broader exploration than on repeated intermediate verification. This motivates Flash-BoN, which generates a large pool of inexpensive draft candidates by combining three complementary acceleration knobs: timestep truncation, layer skipping, and activation proxies into a single configuration optimized once per model. An efficient multi-stage verification procedure then identifies the most promising draft, which is refined at full quality. Across three benchmarks and three model scales, Flash-BoN consistently outperforms all baselines under fixed wall-clock budgets, with gains that grow at larger model scales (+8% AUC). We further show that our strategy combines well and improves existing orthogonal techniques such as reflection-based prompt optimization (+16% AUC). The gains correlate with increased candidate diversity, which also enables draft-guided selection to accelerate RL post-training convergence.",
@@ -71,6 +77,12 @@
       "abstract": "Semantic audio applications increasingly require controllable generation on commodity and embedded hardware rather than through framework-heavy datacenter stacks. We present \\textit{aria}, a dependency-free native runtime that runs the complete text-to-music pipeline of Stable Audio~3 (SA3) on ordinary GPUs, CPU-only machines, and a Raspberry~Pi~5, with no Python or deep-learning framework underneath. Our main contribution is a study of quantization: running the model at lower numerical precision to fit tight memory budgets, saving memory in place rather than adding to it. Because the runtime owns every internal tensor, it also exposes activation steering, a low-cost way to steer what the model generates. We judge the quality cost with three independent measures of the output (prompt adherence, overall audio quality, taste preservation), each compared against the ordinary variation between random seeds. Eight-bit precision shows no measurable quality loss on any measure while sharply cutting memory, and it is the fastest mode on the GPU; four-bit adds a small, bounded cost but shrinks the footprint enough to run the $1.2$-billion-parameter model on an $8$\\,GB Pi. Against the official implementation, aria matches or exceeds generation speed and starts about seven times faster. A case study of the steering interface generates music carrying taste associations (\\emph{sonic seasoning}), with genuine but bounded control for a subset of attributes. These results make a compact, quantized runtime with built-in control a practical basis for on-device semantic audio in Internet-of-Sounds settings. The \\textit{aria} runtime is released atthis https URL.",
       "abstract_zh": "随着语义音频应用日益需要在商用及嵌入式硬件上进行可控生成，而非依赖架构繁重的数据中心堆栈，我们推出了\\textit{aria}——一个无依赖的原生运行时，能够在普通GPU、纯CPU设备以及树莓派5（Raspberry Pi 5）上完整运行Stable Audio 3（SA3）的文本到音乐生成流程，且无需底层Python或深度学习框架支持。我们的核心贡献是对量化技术的研究：通过以较低数值精度运行模型以适应严格的内存限制，实现内存的就地节省而非额外占用。由于该运行时完全掌控所有内部张量，它还支持激活导向——一种低成本引导模型生成内容的方法。我们通过三项独立指标（提示词贴合度、整体音频质量、风格保持度）评估生成质量损失，每项均与随机种子间的常规变异进行对比。八位精度在显著降低内存占用的同时，在所有指标上均未显示可测量的质量损失，且在GPU上为最快运行模式；四位精度虽带来有限可控的质量损失，但足以将拥有12亿参数的模型压缩至可在8GB内存的树莓派上运行。与官方实现相比，aria在生成速度上持平或更优，且启动速度提升约七倍。通过操控界面的案例研究，我们生成了承载风味联想的音乐（\\emph{声学调味}），实现了对部分属性的真实而有限的控制。这些成果表明，内置控制功能的紧凑型量化运行时，为物联网音频场景下的设备端语义音频处理提供了实用基础。\\textit{aria}运行时已发布于https://github.com/microsoft/aria。",
       "hf_link": "https://huggingface.co/papers/2607.08526"
+    },
+    "2607.08404": {
+      "title": "DrugGen 2: A disease-aware language model for enhancing drug discovery",
+      "abstract": "Current computational approaches for drug design typically focus on generating molecules conditioned on specific targets or general molecular properties, often neglecting the influence of disease context on target behavior and therapeutic outcomes. To address this gap, we introduce DrugGen-2, a novel generative model that designs small molecules conditioned on both disease ontology and target protein sequences. DrugGen-2 was developed by fine-tuning a pre-trained GPT-2 model on a curated dataset of approved drugs linked to their diseases and targets, using a two-step strategy of supervised fine-tuning followed by reinforcement learning via group relative policy optimization (GRPO). This process was guided by reward functions optimizing for chemical validity, novelty, diversity, and high predicted binding affinity. When evaluated on five protein targets relevant to diabetic nephropathy, DrugGen-2 significantly outperformed baseline models (DrugGPT and DrugGen). It demonstrated a superior capacity to generate unique molecules, exhibited greater structural similarity to approved drugs, and achieved improved predicted binding affinities across all targets. Molecular docking analyses further supported these findings, identifying candidate ligands with strong binding potential, including compounds with predicted affinities (-9.917, -9.485, and -9.367) exceeding those of reference drugs such as enalapril for angiotensin-converting enzyme (-8.283). By integrating disease-specific context into molecular generation, DrugGen-2 advances AI-assisted drug discovery, offering a powerful tool for de novo design and drug repurposing that accounts for the complex interplay between diseases and molecular targets.",
+      "abstract_zh": "现有药物设计计算方法通常聚焦于针对特定靶点或一般分子属性生成分子，往往忽视了疾病背景对靶点行为及治疗结果的影响。为填补这一空白，我们提出了DrugGen-2——一种基于疾病本体论和靶点蛋白质序列生成小分子的新型生成模型。该模型通过对经过筛选的已批准药物数据集进行微调而开发，这些数据均关联其对应疾病与靶点；我们采用监督微调与基于组相对策略优化（GRPO）的强化学习两步策略，在预训练的GPT-2模型基础上进行优化。这一过程以优化化学有效性、新颖性、多样性及高预测结合亲和力为目标的奖励函数作为指导。在对糖尿病肾病相关的五个蛋白质靶点进行评估时，DrugGen-2显著超越了基线模型（DrugGPT和DrugGen），展现出生成独特分子的卓越能力，与已批准药物具有更高的结构相似性，并在所有靶点上实现了更优的预测结合亲和力。分子对接分析进一步支持了这些发现，鉴定出具有强结合潜力的候选配体，其中部分化合物的预测亲和力（-9.917、-9.485和-9.367）超越了如血管紧张素转换酶（ACE）抑制剂依那普利（-8.283）等参照药物。通过将疾病特异性背景整合到分子生成过程中，DrugGen-2推动了人工智能辅助药物发现的发展，为兼顾疾病与分子靶点间复杂相互作用的全新设计与药物重定位提供了强大工具。",
+      "hf_link": "https://huggingface.co/papers/2607.08404"
     },
     "2607.06987": {
       "title": "UP: Unbounded Positive Asymmetric Optimization for Breaking the Exploration-Stability Dilemma",
@@ -96,6 +108,12 @@
       "abstract_zh": "在交互式应用中实时生成逼真的三维人体运动，是动画、仿真与人形机器人领域的关键技术。当前，离线的运动生成方法虽能通过文本和运动学约束实现精确控制，但其推理速度无法满足交互场景的需求。反之，现有的在线方法虽能实现实时合成，却常因有限的上下文窗口而牺牲了可控性，或在处理复杂文本语义与长时程目标时表现欠佳。本文提出ARDY，一个流式生成框架，旨在弥合这一鸿沟，实现可通过在线文本提示与灵活运动学约束控制的高保真运动生成。ARDY采用了一种混合表征方式，将显式的根节点特征与潜在的身体嵌入相结合，在精确轨迹控制与高效生成学习之间取得平衡。我们设计了一个两阶段自回归变换器去噪器，其具备可变历史上下文特征，并支持对灵活、长时程的运动学约束进行条件建模。通过在大规模运动捕捉数据集上训练，并直接以从真实姿势采样的文本标签和运动学约束为条件，ARDY能够原生学习支持在线提示与灵活长时程目标的可控生成。在HumanML3D基准测试以及大规模、高保真的Bones Rigplay数据集上的广泛评估表明，ARDY具备优异的运动质量与约束遵循能力，验证了我们核心架构设计的有效性。最后，我们通过一个交互式演示展示了该方法的实际多功能性，包括动态文本控制、多样化关键帧姿势约束、路径跟随以及通过鼠标键盘实现的交互式运动控制。补充视频结果、代码及模型发布可访问此链接：https:// 。",
       "hf_link": "https://huggingface.co/papers/2607.08741"
     },
+    "2607.07816": {
+      "title": "A Sparse and Truncated State Vector Simulator for Peaked Circuits",
+      "abstract": "In a class of quantum circuits known as peaked circuits, the goal is to predict the most probable bit string at the output of the circuit. Since these circuits are designed to have a sharp peak in their output distribution, in principle it should be possible to simulate them using a truncated state vector with a limited number of terms, or a fraction of the total probability mass. This approximate simulation can be carried out on a classical computer with a sparse representation that stores only the nonzero amplitudes of the state vector, in contrast to the dense representations that are common in most quantum simulators. For efficiency, all operations on the state vector should be vectorized to the furthest possible extent and, if available, hardware acceleration can also be used. This work describes how these requirements were met in an open-source implementation, and discusses its performance and limitations.",
+      "abstract_zh": "在一类被称为峰值电路(peaked circuits)的量子电路中，其目标在于预测电路输出端出现概率最高的比特串。由于这类电路被设计为在其输出分布中具有尖锐的峰值，原则上应能通过使用有限项数的截断态向量，或总概率质量的一部分来模拟这些电路。与大多数量子模拟器中常见的密集表示方式不同，这种近似模拟可在经典计算机上通过稀疏表示实现——仅存储态向量的非零振幅。为提高效率，所有对态向量的操作应在最大程度上实现向量化，并在条件允许时利用硬件加速。本研究阐述了如何在开源实现中满足这些要求，并讨论了其性能与局限性。",
+      "hf_link": "https://huggingface.co/papers/2607.07816"
+    },
     "2607.03936": {
       "title": "Can Dialects Be Steered Like Languages? Sparse Neurons and Distributed Directions in Arabic LLMs",
       "abstract": "A key challenge in Arabic NLP is the scarcity of dialectal data relative to Modern Standard Arabic (MSA), causing LLMs to overproduce MSA and struggle with dialectally accurate generation. From an interpretability perspective, this raises a fundamental question: where and how are dialectal features encoded within model internals, and can these representations be leveraged to improve dialect generation without fine-tuning? This study investigates two complementary inference-time approaches that serve simultaneously as interpretability probes and control mechanisms. First, we conduct a neuron-level analysis, identifying sparse neuron populations that encode dialect-specific features and showing that amplifying or suppressing these neurons can steer model outputs toward target dialects. Second, motivated by the entanglement of dialectal features at the single-neuron level, we apply a vector-steering approach that extracts dialect-specific activation directions and injects them during inference. Together, these methods illuminate the geometry of dialectal knowledge in Arabic LLMs and offer a principled, interpretability-grounded framework for dialect control without requiring dialect-specific fine-tuning.",
@@ -107,19 +125,22 @@
     "2607.03118": 0,
     "2601.16211": 0,
     "2603.29616": 0,
-    "2607.08758": 0,
     "2607.08768": 0,
+    "2607.08758": 0,
     "2607.08770": 0,
     "2607.08765": 0,
     "2607.03803": 0,
     "2607.08763": 0,
     "2607.07740": 0,
+    "2607.07953": 0,
     "2607.04461": 0,
     "2607.08526": 0,
+    "2607.08404": 0,
     "2607.06987": 0,
     "2607.06238": 0,
     "2607.08093": 0,
     "2607.08741": 0,
+    "2607.07816": 0,
     "2607.03936": 0
   },
   "focus_sections": {
@@ -141,15 +162,15 @@
       "tags": "计算机视觉；视频理解；视频理解基准评估",
       "body_summary": "现有视频理解基准存在大量无需视觉或时序信息的捷径样本，导致模型真实能力难以衡量。\n本文提出诊断工具Video-Oasis，审计并过滤现有基准中的捷径样本，用提炼出的核心挑战测试模型，并探索提升视频理解的算法设计。"
     },
-    "2607.08758": {
-      "short_zh": "评估科学思想传承与生成",
-      "tags": "自然语言处理;科学文本处理;思想谱系推理与生成",
-      "body_summary": "当前AI在理解科学思想的传承结构方面缺乏评估基准。\n我们提出了一个包含思想谱系推理测试与生成评估的基准，并发现现有系统存在推理瓶颈。"
-    },
     "2607.08768": {
       "short_zh": "评测现实世界主动智能体",
       "tags": "智能体系统;智能体评测;现实世界任务评测",
       "body_summary": "现有评测方法难以有效评估能在现实世界环境中操作工具、辅助用户的主动智能体。\n我们提出了首个能力驱动的基准UniClawBench，包含400个双语任务，并在动态环境中使用闭环策略评估了多款前沿模型与框架。"
+    },
+    "2607.08758": {
+      "short_zh": "评估科学思想传承与生成",
+      "tags": "自然语言处理;科学文本处理;思想谱系推理与生成",
+      "body_summary": "当前AI在理解科学思想的传承结构方面缺乏评估基准。\n我们提出了一个包含思想谱系推理测试与生成评估的基准，并发现现有系统存在推理瓶颈。"
     },
     "2607.08770": {
       "short_zh": "用事件相机生成高质量视频",
@@ -176,6 +197,11 @@
       "tags": "自然语言处理;大语言模型;长上下文推理",
       "body_summary": "现代大语言模型越来越多地应用于需要处理长输入序列的场景，但零样本上下文扩展方法通常存在短上下文保真度与长上下文有效性难以兼顾的问题。\n本文提出了一种无需微调的零样本方法Jet-Long，它通过动态调整的长短双窗口设计和高效的注意力融合机制，在保持短上下文性能的同时，有效扩展了模型的上下文处理能力。"
     },
+    "2607.07953": {
+      "short_zh": "比较线性注意力机制优劣",
+      "tags": "自然语言处理;序列建模;注意力机制",
+      "body_summary": "自注意力机制在长上下文场景中因二次计算成本而受限，本文对多种线性注意力架构进行了比较研究。\n通过统一框架分析不同架构特性，并在多个规模模型上实验，评估了训练效率与性能，还提出并测试了跨层路由方法。"
+    },
     "2607.04461": {
       "short_zh": "快速生成多样候选图择优细化",
       "tags": "计算机图形学;图像生成;扩散模型推理加速",
@@ -185,6 +211,11 @@
       "short_zh": "端侧语义音频的量化原生运行时",
       "tags": "音频生成;模型部署与推理;量化运行时",
       "body_summary": "语义音频应用日益需要在普通硬件而非数据中心上实现可控生成。\n我们提出aria，一个依赖极少的原生运行时，能在CPU、普通GPU和树莓派5上完整运行SA3，并通过量化大幅降低内存，速度快且支持激活引导控制。"
+    },
+    "2607.08404": {
+      "short_zh": "疾病感知药物生成模型",
+      "tags": "药学信息学;药物设计;疾病感知分子生成",
+      "body_summary": "现有药物设计方法常忽略疾病背景对靶点行为的影响，无法生成针对特定疾病背景的分子。\n本文提出DrugGen-2模型，结合疾病本体和靶点序列生成小分子，并通过优化策略提升分子多样性和结合亲和力，在糖尿病肾病靶点上验证了其优势。"
     },
     "2607.06987": {
       "short_zh": "用正不对称优化破解强化学习探索困境",
@@ -205,6 +236,11 @@
       "short_zh": "实时可控人体运动生成",
       "tags": "计算机图形学;人体动画;交互式运动生成",
       "body_summary": "需为动画、仿真和人形机器人等应用生成实时可控的3D人体运动，现有方法在速度与控制性上存在矛盾。\n提出ARDY框架，使用混合表示和自回归变换器降噪器，实现通过在线文本和运动学约束进行高保真、长时程的交互式运动生成。"
+    },
+    "2607.07816": {
+      "short_zh": "实现峰值电路的稀疏截断模拟器",
+      "tags": "量子计算;量子电路模拟;峰值电路模拟",
+      "body_summary": "量子计算中有一类峰值电路，其输出分布具有明显峰值\n提出一种使用稀疏截断状态向量的近似模拟方法并用开源实现验证"
     },
     "2607.03936": {
       "short_zh": "阿拉伯方言在LLM中的控制机制",
