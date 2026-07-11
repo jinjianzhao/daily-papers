@@ -127,6 +127,75 @@
         return MEDICAL_EXCLUDE_RE.test(text);
     }
 
+    function setupFigureLightbox(container) {
+        if (!container) return;
+
+        let root = document.getElementById('img-lightbox');
+        if (!root) {
+            root = document.createElement('div');
+            root.id = 'img-lightbox';
+            root.className = 'archive-lightbox hidden';
+            root.setAttribute('role', 'dialog');
+            root.setAttribute('aria-modal', 'true');
+            root.setAttribute('aria-labelledby', 'img-lightbox-caption');
+            root.innerHTML = `
+                <div class="archive-lightbox-backdrop" data-lightbox-backdrop aria-hidden="true"></div>
+                <button type="button" id="img-lightbox-close" class="archive-lightbox-close" aria-label="关闭大图">×</button>
+                <div class="archive-lightbox-stage">
+                    <div class="archive-lightbox-image-wrap">
+                        <img id="img-lightbox-img" src="" alt="">
+                    </div>
+                    <p id="img-lightbox-caption" class="archive-lightbox-caption"></p>
+                </div>
+            `;
+            document.body.appendChild(root);
+        }
+
+        const fullImg = document.getElementById('img-lightbox-img');
+        const captionEl = document.getElementById('img-lightbox-caption');
+        const btnClose = document.getElementById('img-lightbox-close');
+        const backdrop = root.querySelector('[data-lightbox-backdrop]');
+        if (!fullImg || !captionEl || !btnClose || !backdrop) return;
+
+        function closeLightbox() {
+            root.classList.add('hidden');
+            fullImg.removeAttribute('src');
+            fullImg.alt = '';
+            captionEl.textContent = '';
+            document.body.style.overflow = '';
+        }
+
+        function openLightbox(src, captionText) {
+            if (!src) return;
+            fullImg.src = src;
+            fullImg.alt = captionText || '论文图示';
+            captionEl.textContent = captionText || '';
+            captionEl.classList.toggle('hidden', !captionText);
+            root.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        btnClose.addEventListener('click', (event) => {
+            event.stopPropagation();
+            closeLightbox();
+        });
+        backdrop.addEventListener('click', closeLightbox);
+        fullImg.addEventListener('click', (event) => event.stopPropagation());
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && !root.classList.contains('hidden')) {
+                closeLightbox();
+            }
+        });
+
+        container.addEventListener('click', (event) => {
+            const img = event.target.closest('img.paper-figure-thumb');
+            if (!img || !container.contains(img)) return;
+            const caption = img.getAttribute('data-caption') || '';
+            openLightbox(img.currentSrc || img.src, caption);
+        });
+    }
+
     function initEntryPage() {
         const body = document.body;
         if (!Object.prototype.hasOwnProperty.call(body.dataset, 'archiveEntry')) return false;
@@ -323,9 +392,10 @@
                         <div class="relative aspect-video overflow-hidden rounded-2xl bg-slate-100 border border-slate-100">
                             ${roleTag}
                             <img src="${escapeHtml(img.path)}"
-                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                 class="paper-figure-thumb w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                  alt=""
                                  loading="lazy"
+                                 data-caption="${escapeHtml(displayCap)}"
                                  onerror="this.src='https://placehold.co/600x400?text=Figure+Load+Failed'">
                         </div>
                         <p class="text-[11px] font-medium text-slate-700 mt-3 whitespace-pre-wrap break-words leading-relaxed">
@@ -557,6 +627,7 @@
                 : '按月聚合已有日报中的 3D 重点论文';
         }
 
+        setupFigureLightbox(els.paperList);
         init();
     }
 
