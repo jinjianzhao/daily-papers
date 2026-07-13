@@ -48,6 +48,12 @@
       "abstract_zh": "长文本处理对于大语言模型（LLM）的重要性日益凸显，但单纯扩展上下文窗口并不能保证模型能有效利用长输入。随着输入长度的增加，模型准确率往往会下降，这表明模型在识别和利用与问题最相关的证据方面仍存在困难。一种提升长文本利用率的有效途径是测试时训练（TTT），它将测试上下文视为训练样本，通过实例特定的参数调整来适应。然而，对整个长上下文应用TTT的计算成本极高，而在随机采样的片段上进行调整则会引入严重的噪声。由于长上下文中大部分片段与特定问题无关，在这些片段上训练甚至可能损害基础模型的性能。我们的初步研究表明，TTT对训练片段的质量极为敏感：在LongBench-v2上，基于随机采样片段的TTT会损害性能，而基于理想片段的TTT则能显著提升性能。受此启发，我们提出了一种简单的方法——自引导测试时训练（S-TTT）：在参数调整前，模型先识别出应从中学习的证据片段，随后仅在这些选定片段上应用标准的语言建模训练目标。在两个具有挑战性的长上下文推理基准测试——LongBench-v2和LongBench-Pro中，S-TTT显著提升了Qwen3-4B-Thinking-2507和Llama-3.1-8B-Instruct的准确率，实现了最高达15%的相对性能提升。",
       "hf_link": "https://huggingface.co/papers/2607.09415"
     },
+    "2607.06957": {
+      "title": "Flow-ERD: Agent-type Aware Flow Matching with Entropy-Regularized Distillation for Diverse Traffic Simulation",
+      "abstract": "Realistic and diverse traffic simulation is essential to autonomous driving development. Yet prevailing benchmarks predominantly reward realism, and recent methods have optimized accordingly, leaving diversity underexplored. We introduce \\textbf{Flow-ERD}, a multi-agent simulator that pursues realism and diversity jointly. Its backbone, \\textbf{Agent-Type Aware Flow Matching} (AFM), couples flow matching's multi-modal expressiveness with type-specific kinematic execution. It preserves fine-grained diversity while keeping motions consistent with each agent type. A second stage, \\textbf{Entropy-Regularized Distillation} (ERD), fine-tunes the closed-loop rollout distribution with an entropy-regularized reverse-KL objective. This mitigates covariate shift while explicitly preventing collapse onto high-density modes. We evaluate Flow-ERD with a log-free diversity metric alongside standard realism scores. Flow-ERD ranks first on the WOSAC test benchmark and dominates the realism--diversity Pareto front among reproducible baselines. Our project page is available \\href{this https URL}{here}.",
+      "abstract_zh": "真实且多样的交通仿真对自动驾驶发展至关重要。然而现有基准主要奖励真实性，近期方法也相应对此进行优化，导致多样性研究不足。我们提出**Flow-ERD**——一个同时追求真实性与多样性的多智能体仿真器。其核心架构**Agent-Type Aware Flow Matching**（AFM，智能体类型感知流匹配）将流匹配的多模态表达能力与类型特异性运动执行相结合，在保持各智能体类型运动一致性的同时保留了细粒度多样性。第二阶段**Entropy-Regularized Distillation**（ERD，熵正则化蒸馏）采用熵正则化反向KL目标对闭环推演分布进行微调，在缓解协变量偏移的同时显式防止模型坍缩到高密度模态。我们采用无需日志记录的多样性度量指标与标准真实性评分对Flow-ERD进行评估。在WOSAC测试基准中，Flow-ERD位列第一，并在可复现基线中主导了真实性-多样性帕累托前沿。项目页面可通过\\href{this https URL}{此链接}访问。",
+      "hf_link": "https://huggingface.co/papers/2607.06957"
+    },
     "2607.09020": {
       "title": "Phone Segmentation and Recognition through Phonological Activation Mapping",
       "abstract": "Phone segmentation and recognition are inherently related tasks, yet modern approaches typically model them separately. We argue that phonetic structure is already latent in the representations of self-supervised speech models (S3Ms), and one only needs to steer them to solve both tasks. We leverage S3M-based Phonological Activation Mapping (SPAM), which maps each S3M representation frame to a vector of phonological feature activations, such as voicing and nasality. On top of SPAM, we introduce two simple but effective lightweight, gradient-descent-free prediction heads: a recognition head and a segmentation head. Our method requires less than a minute of phonetic transcriptions, and generalizes to unseen phones during training. Across a diverse range of datasets, our approach attains strong segmentation and recognition performance.",
@@ -75,13 +81,14 @@
   },
   "hf_votes": {
     "2607.08964": 0,
-    "2607.09024": 0,
     "2607.09657": 0,
+    "2607.09024": 0,
     "2607.04751": 0,
     "2607.07964": 0,
     "2607.09661": 0,
     "2607.06553": 0,
     "2607.09415": 0,
+    "2607.06957": 0,
     "2607.09020": 0,
     "2607.08393": 0,
     "2607.09424": 0,
@@ -133,6 +140,11 @@
       "short_zh": "自导测试时训练优化长上下文利用",
       "tags": "自然语言处理;大语言模型;长上下文推理",
       "body_summary": "长上下文大语言模型常无法有效利用长输入中的关键信息，性能会随输入长度增加而下降。\n本文提出自导测试时训练，让模型在测试时先自动识别关键证据片段，并仅在这些片段上进行参数自适应，从而提升长上下文推理的准确率。"
+    },
+    "2607.06957": {
+      "short_zh": "多智能体交通仿真兼顾真实与多样",
+      "tags": "自动驾驶;交通仿真;多智能体轨迹生成",
+      "body_summary": "现有交通仿真方法过于追求真实感而忽略了交通行为的多样性。\n我们提出了Flow-ERD方法，通过类型感知流匹配保持细粒度多样性，并通过熵正则化蒸馏防止模式坍缩，在保证真实感的同时显著提升了仿真结果的多样性。"
     },
     "2607.09020": {
       "short_zh": "自监督语音模型的音素激活切分识别",
