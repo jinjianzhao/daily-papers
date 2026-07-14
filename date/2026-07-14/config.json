@@ -1,0 +1,204 @@
+{
+  "base_info": {
+    "2607.10623": {
+      "title": "LATO.2: Factorized 3D Mesh Generation with Vertex and Topology Flow",
+      "abstract": "Flow matching over carefully designed latent representations has recently emerged as a powerful paradigm for topology-aware mesh generation. Existing approaches, however, model vertices and connectivity jointly in a joint latent space, entangling continuous vertex geometry with discrete combinatorial structure; this complicates flow learning and manifests as drifting vertices and broken surfaces. We present LATO.2, a factorized flow matching framework that decomposes mesh generation into a vertex flow followed by a connectivity flow conditioned on the realized vertices, with both stages anchored to a shared coarse voxel scaffold. Dedicated VAEs underpin the two stages, recovering vertices at sub-voxel precision and embedding discrete connectivity into a continuous latent space. We demonstrate two advantages unique to this factorization: (i) part-wise generation, in which the scaffold is partitioned and each part synthesized at full latent capacity, yielding substantially higher-resolution meshes than a monolithic latent permits; and (ii) topology-adaptive editing, in which manipulating first-stage vertices induces the corresponding connectivity without re-optimization. Experiments show that LATO.2 surpasses state-of-the-art topology-aware mesh generators in geometric fidelity and connectivity quality.",
+      "abstract_zh": "在精心设计的潜在表示上进行流匹配最近已成为拓扑感知网格生成的有力范式。然而，现有方法将顶点和连接性在联合潜在空间中共同建模，这使得连续的顶点几何与离散的组合结构相互纠缠；这增加了流学习的复杂性，并表现为顶点漂移和表面破损。我们提出LATO.2——一个分解式流匹配框架，它将网格生成分解为先进行顶点流，再进行以已生成顶点为条件的连接性流，两个阶段均锚定在共享的粗糙体素支架上。专用的变分自编码器支撑这两个阶段，以亚体素精度重建顶点，并将离散连接性嵌入连续潜在空间。我们证明了这种分解方法独有的两个优势：（一）部件式生成，即支架被分割，每个部分以完整的潜在容量进行合成，从而生成比单一潜在空间所允许的网格分辨率显著更高的网格；（二）拓扑自适应编辑，即操纵第一阶段的顶点能直接诱导出相应的连接性，而无需重新优化。实验表明，LATO.2在几何保真度和连接质量上均超越了当前最先进的拓扑感知网格生成器。",
+      "hf_link": "https://huggingface.co/papers/2607.10623"
+    },
+    "2607.09125": {
+      "title": "4D Human-Scene Reconstruction from Low-Overlap Captures",
+      "abstract": "Existing volumetric capture of dynamic human performance achieves high fidelity with dense camera arrays. However, in real-world scenarios, only a handful of low-overlap cameras are available, which degrades the output quality and leaves large areas unobserved. Recent 4D reconstruction methods have focused on low-overlap settings, yet they still produce noticeable artifacts in under-observed regions. Video diffusion models have emerged as another option, but they show geometrically inconsistent results for humans. To address these limitations, we propose StudioRecon, a pipeline that reconstructs 4D human scenes from sparse, low-overlap cameras by decoupling background and humans. We densify background supervision by synthesizing hundreds of camera-controlled novel views with a video diffusion model. We also robustly initialize deformable Gaussian humans with cross-view identity association and triangulated multi-view keypoint fitting. Finally, our recursive enhancement module with motion-adaptive consistency injection harmonizes the composed output, thereby further avoiding remaining artifacts. We achieve state-of-the-art novel view synthesis across four real-world datasets and demonstrate applications such as novel trajectory rendering and human replacement.",
+      "abstract_zh": "现有基于密集相机阵列的动态人体表演体积捕捉技术已能实现高保真度。然而在真实场景中，通常仅能获取少量低重叠度的相机视角，这会导致输出质量下降并遗留大量未观测区域。近期的四维重建方法虽已聚焦于低重叠度场景，但在观测不足区域仍会产生明显伪影。视频扩散模型作为替代方案出现，但其生成的人体结果存在几何不一致问题。为突破这些局限，我们提出StudioRecon流程——通过解耦背景与人体，从稀疏低重叠相机中重建四维人体场景。我们利用视频扩散模型合成数百个相机控制的新视角，以此强化背景监督的密度。同时，通过跨视角身份关联与三角化多视图关键点拟合，我们实现了可变形高斯人体的稳健初始化。最后，搭载运动自适应一致性注入机制的递归增强模块协调合成输出，从而进一步消除残留伪影。我们在四个真实世界数据集上实现了最先进的新视角合成效果，并展示了包括新轨迹渲染与人体替换在内的应用场景。",
+      "hf_link": "https://huggingface.co/papers/2607.09125"
+    },
+    "2607.10383": {
+      "title": "ABot-N1: Toward a General Visual Language Navigation Foundation Model",
+      "abstract": "Visual Language Navigation foundation models aim to unify deep reasoning for grounded spatial decisions with broad versatility for diverse embodied tasks. Current approaches typically achieve this integration via monolithic policies that map observations directly to actions, yet they often suffer from coordinate drift and poor handling of long-tail semantics. Furthermore, these black-box mappings lack interpretability, hindering the simultaneous achievement of generality, robustness, and transparency. We present ABot-N1, a step toward a general Visual Language Navigation foundation model, that addresses these challenges by decoupling cognition from control via a slow-fast architecture guided by dual visual-language signals. More specifically, a slow vision-language reasoner performs explicit Chain-of-Thought reasoning while producing a pixel goal. This compact set of image-space anchor points serves as a universal interface for diverse tasks, including point-goal, object-goal, poi-goal, instruction-following, and person-following. Subsequently, a fast action expert leverages both the textual cues and the pixel guidance to generate continuous waypoints at the native control frequency. By bridging high-level intents and low-level control through pixel-grounded anchors paired with explicit linguistic traces, our approach ensures robust, generalizable, and interpretable navigation across simulation and real-world benchmarks. ABot-N1 establishes new state-of-the-art records, delivering massive gains specifically in urban-scale navigation: boosting POI arrival by 35.0% (to 77.3%) and achieving 95.4%/92.9% SR in complex indoor and outdoor scenes. It also maintains superior robustness across object-reaching, person-following, and instruction-following tasks. New Point-Goal/POI-Goal benchmarks are released as open source to advance the field of urban-scale navigation.",
+      "abstract_zh": "视觉语言导航基础模型旨在将基于空间感知的深度推理与多样化具身任务的广泛适应性相统一。当前方法通常通过将观测直接映射到动作的单体策略实现这种集成，但这些方法常受坐标漂移和长尾语义处理能力不足的困扰。此外，这类黑箱映射缺乏可解释性，阻碍了通用性、鲁棒性和透明性的同步实现。我们提出ABot-N1模型——这是通往通用视觉语言导航基础模型的重要一步，它通过受双重视觉-语言信号引导的慢-快架构，将认知与控制解耦以应对上述挑战。具体而言，慢速视觉-语言推理器执行显式的思维链推理，同时生成像素目标。这组紧凑的图像空间锚点构成了通用接口，可适配多样化任务，包括点目标导航、物体目标导航、兴趣点目标导航、指令跟随及人员跟随。随后，快速动作专家同时利用文本线索和像素引导，以原生控制频率生成连续路径点。通过将像素接地的锚点与显式语言轨迹相结合，我们的方法在高层意图与底层控制之间搭建了桥梁，从而确保了在仿真和现实场景基准测试中实现鲁棒、可泛化且可解释的导航。ABot-N1创造了多项最先进纪录，尤其在城市场景导航中实现显著提升：兴趣点到达率提高35.0%（达到77.3%），在复杂室内外场景中分别达到95.4%/92.9%的成功率。该模型在物体抵达、人员跟随和指令跟随任务中也保持卓越的鲁棒性。我们同步开源了新的点目标/兴趣点目标基准测试集，以推动城市场景导航领域的发展。",
+      "hf_link": "https://huggingface.co/papers/2607.10383"
+    },
+    "2607.10350": {
+      "title": "ABot-AgentOS: A General Robotic Agent OS with Lifelong Multi-modal Memory",
+      "abstract": "Recent VLM and VLA systems have improved robotic perception and action prediction, yet long-horizon embodied agents still require a general runtime layer for reasoning, memory, tool use, verification, and cross-embodiment execution. We present ABot-AgentOS, a general robotic Agent Operating System that sits above low-level controllers and provides a deliberative agent layer for scene-conditioned planning, context-isolated skill execution, multi-stage verification, multi-modal memory, and edge-cloud collaboration. To evaluate such systems, we introduce EmbodiedWorldBench, an executable benchmark with 16 indoor, outdoor, and hybrid scenes, four difficulty levels, and over 200 tasks involving navigation, object search, NPC dialogue, dynamic events, and trace-grounded scoring. ABot-AgentOS further introduces Universal Multi-modal Graph Memory, a persistent source-grounded substrate that converts dialogue, visual observations, spatial context, temporal relations, and task traces into typed nodes and edges. A failure-driven self-evolution loop converts diagnosed memory failures into gated runtime evo-assets that are promoted only to later evaluation splits, preventing current-split ground-truth leakage while enabling continual improvement. On an initial EmbodiedWorldBench subset, ABot-AgentOS improves over a single-controller baseline in both task success and goal completion. Across memory benchmarks, ABot-AgentOS Static achieves 87.5 on LoCoMo, 59.9 on OpenEQA EM-EQA, 88.6 on Mem-Gallery, and 76.5 Acc@All on NExT-QA; self-evolution further improves LoCoMo to 88.7, OpenEQA to 60.4, and Mem-Gallery to 89.0. These results suggest that a general Agent OS layer can improve long-horizon embodied execution while providing persistent, auditable memory for continual interaction.",
+      "abstract_zh": "尽管当前的视觉语言模型（VLM）与视觉语言动作（VLA）系统已提升了机器人感知与动作预测能力，但面向长视程的具身智能体仍需一个通用的运行时层来处理推理、记忆、工具使用、验证及跨具身执行等任务。本文提出ABot-AgentOS——一种通用的机器人智能体操作系统，该系统位于底层控制器之上，提供一个具备深思能力的智能体层，支持场景条件规划、上下文隔离的技能执行、多阶段验证、多模态记忆以及边云协同。为评估此类系统，我们引入了EmbodiedWorldBench，这是一个可执行的基准测试集，包含16个室内、室外及混合场景，四个难度等级，涵盖超过200项涉及导航、物体搜索、非玩家角色对话、动态事件及基于轨迹评分的任务。ABot-AgentOS进一步提出了通用多模态图记忆，这是一种持久的、基于来源的存储基底，能够将对话、视觉观测、空间上下文、时序关系及任务轨迹转化为带类型的节点与边。系统通过故障驱动的自主进化循环，将诊断出的记忆故障转化为门控运行时进化资产，这些资产仅被提升至后续评估划分中使用，从而避免了当前划分中真实答案的泄露，同时实现了持续改进。在EmbodiedWorldBench的初始子集上，ABot-AgentOS在任务成功率和目标完成度上均优于单一控制器基线。在多项记忆基准测试中，ABot-AgentOS静态版本在LoCoMo上获得87.5分，在OpenEQA EM-EQA上获得59.9分，在Mem-Gallery上获得88.6分，在NExT-QA上达到76.5 Acc@All；自主进化机制进一步将LoCoMo提升至88.7分，OpenEQA提升至60.4分，Mem-Gallery提升至89.0分。这些结果表明，通用的智能体操作系统层能够提升长视程具身执行能力，同时为持续交互提供持久、可审计的记忆支持。",
+      "hf_link": "https://huggingface.co/papers/2607.10350"
+    },
+    "2607.05394": {
+      "title": "Weak-to-Strong Generalization via Direct On-Policy Distillation",
+      "abstract": "Reinforcement learning with verifiable rewards (RLVR) is a powerful recipe for improving language-model reasoning, but it is expensive to repeat on every new strong model because the target model must generate many rollouts during training. As models scale, post-training itself becomes a bottleneck. We study a weak-to-strong alternative: run RL on a smaller model where rollouts are cheaper, then reuse what that RL run learned to improve a stronger target model. Directly distilling the post-RL weak teacher is not enough, because the teacher's final policy mixes useful RL gains with the limitations of the smaller model. We propose Direct On-Policy Distillation (Direct-OPD), which transfers the teacher's RL-induced policy shift instead. Direct-OPD compares the post-RL teacher with its own pre-RL reference and treats their log-ratio as a dense implicit reward for the student. In plain terms, the checkpoint pair tells us which actions RL made the weak model more or less likely to take, and Direct-OPD applies that signal on the stronger student's own on-policy states. This directly reuses the weak model's RL supervision signal without running sparse-reward RL on the target model. Empirically, Direct-OPD consistently leverages weaker teachers to improve stronger target models; notably, it boosts Qwen3-1.7B from 48.3% to 58.3% on AIME 2024 in just 4 hours on 8 A100 GPUs. It outperforms step-matched direct RL and enables the sequential composition of multiple policy shifts. Our results show that RL outcomes can be reused across model scales as implicit reward signals, not merely as final models to imitate.",
+      "abstract_zh": "可验证奖励强化学习（Reinforcement Learning with Verifiable Rewards，RLVR）是改进语言模型推理的有效方法，但由于训练过程中目标模型需生成大量轨迹，每次针对新强模型重复此过程成本高昂。随着模型规模扩大，后训练本身成为瓶颈。我们研究了一种弱到强的替代方案：在规模较小、轨迹生成成本较低的模型上运行强化学习，随后复用该强化学习过程所获知识以增强目标强模型。直接蒸馏强化学习后的弱教师模型并不充分，因为教师模型的最终策略混合了有用的强化学习增益与小规模模型的固有局限。我们提出直接同策略蒸馏（Direct On-Policy Distillation，Direct-OPD），该方法转移的是教师模型由强化学习引发的策略偏移。Direct-OPD 将强化学习后的教师模型与其自身强化学习前的参照模型进行对比，并将二者的对数概率比视为面向学生的密集隐式奖励。简言之，这对检查点揭示了强化学习使弱模型更倾向或更规避哪些行为，而 Direct-OPD 则在强学生模型自身的同策略状态上应用该信号。这直接复用了弱模型的强化学习监督信号，无需在目标模型上运行稀疏奖励的强化学习。实验表明，Direct-OPD 能持续利用弱教师模型提升强目标模型；特别地，该方法仅用 8 张 A100 GPU 在 4 小时内将 Qwen3-1.7B 在 AIME 2024 上的表现从 48.3% 提升至 58.3%。其效果优于步数匹配的直接强化学习方法，并支持多个策略偏移的序列组合。我们的研究表明，强化学习成果可作为隐式奖励信号跨模型规模复用，而不仅仅是作为最终模型供模仿。",
+      "hf_link": "https://huggingface.co/papers/2607.05394"
+    },
+    "2607.11487": {
+      "title": "LightMem-Ego: Your AI Memory for Everyday Life",
+      "abstract": "Personal AI assistants on mobile and wearable devices continuously perceive users' daily lives through visual and audio streams. However, answering queries about past experiences requires lightweight multimodal memory that can continuously accumulate, organize, and retrieve long-term experiences, which remains challenging. To address this challenge, we present LightMem-Ego, a lightweight streaming multimodal memory system for everyday-life assistance. The system continuously captures egocentric visual and audio streams, aligns them on a shared timeline, and organizes them into a hierarchical memory consisting of current, short-term, and long-term memory. Given a user query, LightMem-Ego dynamically routes retrieval to the appropriate memory level and generates answers grounded in multimodal evidence. The demonstration can be deployed on smartphones and AI glasses, supporting object finding, conversation recall, life summarization, routine discovery, and personalized assistance. Code is available atthis https URL.",
+      "abstract_zh": "移动与可穿戴设备上的个人人工智能（AI）助手通过视觉与音频流持续感知用户的日常生活。然而，回答关于过往经历的查询需要一种能够持续积累、组织并检索长期经验的轻量级多模态记忆（multimodal memory）系统，这仍具挑战性。为应对这一挑战，我们提出了LightMem-Ego，一个用于日常生活辅助的轻量级流式多模态记忆系统。该系统持续捕捉第一人称（egocentric）视角的视觉与音频流，将其在共享时间线上对齐，并组织成包含当前、短期与长期记忆的分层记忆结构。面对用户查询，LightMem-Ego动态地将检索路由至合适的记忆层级，并基于多模态证据生成回答。该演示系统可部署于智能手机与AI眼镜上，支持物品查找、对话回溯、生活总结、日常习惯发现及个性化辅助等功能。代码可通过此链接获取：https URL。",
+      "hf_link": "https://huggingface.co/papers/2607.11487"
+    },
+    "2607.11849": {
+      "title": "AdvancedMathBench: A Benchmark Suite for Advanced Mathematical Proof Generation and Verification",
+      "abstract": "Large language models (LLMs) have achieved remarkable performance on high-school and olympiad-style mathematics, yet their capabilities on advanced mathematics remain poorly understood. Existing benchmarks, however, fall short in both scope and evaluation granularity: they provide limited disciplinary coverage and often rely on final-answer correctness or coarse judgments, leaving the validity of the reasoning process inadequately assessed. To bridge this gap, we introduce AdvancedMathBench, a benchmark suite designed to evaluate advanced mathematical reasoning capabilities. Its core proof-generation benchmark, ProverBench, contains 296 problems spanning undergraduate and doctoral qualifying-exam levels. To provide reliable evaluation of the proofs, we develop a dedicated automatic verification pipeline trained on large-scale expert annotations to produce both correctness verdicts and fine-grained assessments of proof errors, which exhibits strong agreement with human experts on held-out proof trajectories. We further introduce VerifierBench, consisting of 888 model-generated proof trajectories paired with expert ground truth, to evaluate whether models can correctly judge proof validity and provide sound verification rationales. Experiments show that AdvancedMathBench remains challenging for frontier models. On proof generation, the best-performing model, GPT-5.5-xhigh, achieves only 75.8 and 66.1 on the UGD and QE splits, respectively, indicating substantial room for improvement on advanced mathematical proof construction. On proof verification, the best model attains a Balanced F1 of only 65.1, and models generally exhibit low true negative rates, suggesting that critical error detection remains a major bottleneck.",
+      "abstract_zh": "大语言模型（LLMs）在高中及奥林匹克风格的数学问题上已展现出卓越的性能，然而其在高等数学领域的能力仍不甚明晰。现有基准测试在覆盖范围和评估粒度上均存在不足：其学科覆盖面有限，且往往依赖最终答案的正确性或粗略判断，导致推理过程的有效性未能得到充分评估。为填补这一空白，我们推出了 AdvancedMathBench，一个旨在评估高等数学推理能力的基准测试套件。其核心证明生成基准测试——ProverBench，包含了 296 个横跨本科及博士资格考试级别的问题。为对证明过程提供可靠的评估，我们开发了一套专用的自动验证流程，该流程基于大规模专家标注数据进行训练，不仅能生成正确性判定，还能对证明错误进行细粒度评估，并在保留的证明轨迹上与人类专家判断高度一致。我们进一步引入了 VerifierBench，该测试集包含 888 条模型生成的证明轨迹及与之配对的专家标注真实结果，用于评估模型是否能正确判断证明有效性并提供可靠的验证依据。实验表明，AdvancedMathBench 对于前沿模型而言仍具挑战性。在证明生成方面，表现最佳的模型 GPT-5.5-xhigh 在 UGD 和 QE 子集上分别仅达到 75.8 和 66.1 分，这表明在高等数学证明构建方面仍有巨大的提升空间。在证明验证方面，最佳模型的平衡 F1 分数仅为 65.1，且模型普遍表现出较低的真阴性率，这表明关键性错误的检测仍然是主要的性能瓶颈。",
+      "hf_link": "https://huggingface.co/papers/2607.11849"
+    },
+    "2607.11881": {
+      "title": "Metacognition in LLMs: Foundations, Progress, and Opportunities",
+      "abstract": "Metacognition is a foundational component of intelligence critical to effective learning, problem solving, decision-making, communication, and more. In recent years, it has become increasingly recognized as a cornerstone of capable, transparent AI systems. Yet while LLMs have made significant progress across diverse real-world tasks, it is not yet clear when, how, or to what extent they can exhibit or be endowed with effective metacognitive abilities, nor how such abilities can be adapted to advance the fundamental capabilities, reliability, and intelligence of AI systems. This paper bridges this gap by presenting the first comprehensive overview of the current state of knowledge on metacognition for LLMs. We analyze and taxonomize the landscape of this emerging field and summarize recent technical advancements, including methods and benchmarks to measure and evaluate LLMs' metacognitive abilities, techniques to elicit, improve, and apply metacognition in LLMs, and findings and implications of ongoing research. We also discuss applications, open questions and challenges, and promising directions for future work. Our aim is to provide a detailed and up-to-date review of this topic and stimulate meaningful research and discussion. An organized list of papers can be found atthis https URL.",
+      "abstract_zh": "元认知（metacognition）是智能的基础组成部分，对高效学习、问题解决、决策制定、沟通等至关重要。近年来，它日益被视为构建能力强、透明度高的人工智能系统的基石。然而，尽管大语言模型（LLMs）在各种现实任务中取得了显著进展，但目前尚不清楚它们何时、如何或在何种程度上能够展现或被赋予有效的元认知能力，也不明确此类能力应如何适配以提升人工智能系统的核心能力、可靠性与智能水平。本文通过首次全面梳理关于大语言模型元认知的研究现状，填补了这一空白。我们分析并分类了这一新兴领域的研究图景，总结了近期的技术进展，包括评估大语言模型元认知能力的方法与基准、在大语言模型中激发、改进和应用元认知的技术，以及当前研究的发现与启示。同时，我们还探讨了相关应用、开放性问题与挑战，以及未来工作的潜在方向。本文旨在为该主题提供详尽且最新的综述，并推动有意义的研究与讨论。相关论文的系统列表可访问此链接：https://URL。",
+      "hf_link": "https://huggingface.co/papers/2607.11881"
+    },
+    "2607.11505": {
+      "title": "Proxy Exploration and Reusable Guidance: A Modular LLM Post-Training Paradigm via Proxy-Guided Update Signals",
+      "abstract": "Post-training is essential for refining the domain-specific capabilities of large language models (LLMs), yet existing reward optimization and distribution matching methods tightly couple policy exploration with distribution alignment. This coupling forces expensive exploration directly on the policy model and severely hinders the asynchronous generation, reuse, and cross-model transfer of optimization signals. In this paper, we propose Proxy-guided Update Signal Transfer (PUST), a novel post-training framework that fundamentally decouples update-signal exploration from distribution alignment. Instead of utilizing the primary model for costly exploration, PUST employs a lightweight proxy model as an efficient testbed to discover high-reward behaviors. We extract the relative improvement signal between the proxy's initial and optimized states, transferring this directional update to the primary model to guide its policy alignment. This decoupled pipeline, comprising proxy exploration, update-signal extraction, and signal transfer, significantly reduces computational overhead and enables optimization signals to be asynchronously generated, cached, and reused. Crucially, by transferring relative improvements rather than absolute policy distributions, PUST naturally supports weak-to-strong improvement and seamless cross-model transfer. Systematic evaluations on Qwen3-family models across math and code domains demonstrate that update signals extracted from substantially weaker proxies can robustly and adjustably enhance stronger primary models. Ultimately, PUST transforms post-training from a monolithic online optimization process into a highly modular, reusable, and cost-efficient paradigm.",
+      "abstract_zh": "后训练对于精炼大语言模型(LLM)的领域特定能力至关重要，然而现有的奖励优化与分布匹配方法将策略探索与分布对齐紧密耦合。这种耦合迫使策略模型直接进行昂贵的探索，严重阻碍了优化信号的异步生成、复用及跨模型迁移。本文提出代理引导的更新信号迁移(PUST)，这是一种新型后训练框架，从根本上将更新信号探索与分布对齐解耦。PUST不再使用主模型进行高成本探索，而是采用轻量级代理模型作为高效试验平台来发现高奖励行为。我们提取代理模型初始状态与优化状态之间的相对改进信号，将这种方向性更新迁移至主模型以指导其策略对齐。这种包含代理探索、更新信号提取和信号迁移的解耦流程，显著降低了计算开销，并使优化信号能够异步生成、缓存和复用。关键在于，通过迁移相对改进而非绝对策略分布，PUST天然支持弱到强改进与无缝跨模型迁移。在数学和代码领域对Qwen3系列模型的系统评估表明，从显著较弱的代理模型中提取的更新信号能够稳健且可调节地增强更强的主模型。最终，PUST将后训练从单一的整体在线优化过程，转变为高度模块化、可复用且高成本效益的范式。",
+      "hf_link": "https://huggingface.co/papers/2607.11505"
+    },
+    "2607.00397": {
+      "title": "NeuroCogMap Reveals Cognitive Organization of Large Language Models",
+      "abstract": "Understanding how complex cognitive functions are organized within artificial systems is central to interpreting large language models (LLMs) and relating them to biological cognition. Yet although LLMs exhibit broad cognitive-like behaviours, it remains unclear whether their internal representations form reproducible functional systems that explain behaviour, failure and links to human cognition. Here we present NeuroCogMap, a cognitive neuroscience-inspired framework that organizes internal features of LLMs into functional parcels and links them to interpretable functions, cognitive capabilities and a cognitive hierarchy. These parcels form a stable and semantically coherent organization that is partly conserved across models and functionally linked to model outputs. Within this organization, major LLM failures, including hallucination, bias, refusal failure and sycophancy, correspond to distinct disruptions in representational and behavioural-control systems, yielding internal signatures for mechanism-guided detection and targeted intervention. Beyond model behaviour, NeuroCogMap improves prediction of human cortical responses during naturalistic language comprehension, with the strongest correspondence in higher-order association cortex. At the cognitive level, its internal signatures expose latent strategies that guide refinements of classical models of human decision-making. Together, these findings establish NeuroCogMap as a system-level framework for mapping functional organization in artificial systems and for relating this organization to human cortical function and cognitive behaviour.",
+      "abstract_zh": "理解复杂认知功能如何在人工系统中组织，是解释大语言模型（LLMs）并将其与生物认知相联系的核心。然而，尽管LLMs展现出广泛的类认知行为，其内部表征是否形成了可复现的、能解释行为、失败以及与人类认知联系的功能系统，目前仍不清楚。本研究提出NeuroCogMap，这是一个受认知神经科学启发的框架，它将LLMs的内部特征组织为功能单元，并将其与可解释的功能、认知能力以及认知层次结构联系起来。这些单元形成了一个稳定且语义连贯的组织结构，该结构在不同模型间部分保守，并与模型输出在功能上相关联。在此组织结构内，LLMs的主要失败模式——包括幻觉（hallucination）、偏见（bias）、拒绝失败（refusal failure）和谄媚（sycophancy）——分别对应着表征系统与行为控制系统中不同的功能紊乱，从而为基于机制的检测和针对性干预提供了内在特征。除了模型行为分析，NeuroCogMap还提升了对人类在自然语言理解过程中皮层反应的预测能力，且其与高阶联合皮层的对应关系最强。在认知层面，其内部特征揭示了潜在的策略，这些策略指导着对人类决策经典模型的精细化修正。综上，这些发现确立了NeuroCogMap作为一个系统级框架，可用于映射人工系统的功能组织，并将此组织与人类皮层功能及认知行为联系起来。",
+      "hf_link": "https://huggingface.co/papers/2607.00397"
+    },
+    "2607.11644": {
+      "title": "Motion4Motion: Motion Transfer Across Subjects at Inference",
+      "abstract": "This work explores the motion transfer from one video to another, which is crucial in animation for diverse characters. Previously, video motion transfer has been largely explored between human and human-like characters, enabling a lot of applications in digital creation. However, these approaches encounter a main limitation. Specifically, related technical pipelines heavily rely on a predefined human skeleton structure and accordingly require skeleton-conditional model training. On the one hand, these methods are difficult to generalize to diverse characters, such as animals from different species, while preserving their unique motion styles. On the other hand, labeled data in diverse skeletons is limited, which additionally restricts the large-scale training for the task. In this paper, we jump out of the skeleton-based motion transfer framework and propose a training-free motion transfer framework, named Motion4Motion. Motion4Motionmodels the motion flow of the character in a video instead of skeletons, which makes motion transfer across species easier. Extensive experimental results and novel applications show our methods outperform baselines impressively. Project page is available atthis https URL.",
+      "abstract_zh": "本研究探讨了视频间的运动迁移技术，该技术在多样化角色动画创作中具有关键意义。以往的视频运动迁移研究主要集中于人类及类人角色之间，这为数字创作带来了诸多应用。然而，现有方法存在一个主要局限：相关技术流程严重依赖预定义的人体骨骼结构，并因此需要基于骨骼条件的模型训练。一方面，这些方法难以推广到多样化角色（如不同物种的动物）并同时保持其独特的运动风格；另一方面，多样化骨骼的标注数据有限，这进一步限制了大规模型练的可能性。本文跳出了基于骨骼的运动迁移框架，提出了一种免训练的运动迁移框架，命名为Motion4Motion。该框架通过建模视频中角色的运动流而非骨骼结构，实现了跨物种运动迁移的简化。大量实验结果及创新应用表明，我们的方法在性能上显著优于现有基线模型。项目页面详见此https网址。",
+      "hf_link": "https://huggingface.co/papers/2607.11644"
+    },
+    "2607.09362": {
+      "title": "CtrlVTON: Controllable Virtual Try-On via Visual-Instance-Prompt Segmentation",
+      "abstract": "Virtual try-on (VTO) has made significant progress in realistically transferring garments onto a target person. Yet most systems give the user little control over how a garment should be worn -- its size (loose or fitted), style (e.g., tucked in or untucked, open or closed), and spatial placement on the body. We address this gap with two complementary contributions. First, we define and solve Visual-Instance-Prompt Segmentation via VIP-SAM: given a flatlay image of a garment, segment that specific instance in a photograph of a person wearing it. This is an instance-level task, distinct from the typically studied category-level segmentation. Second, we introduce CtrlVTON, a controllable VTO framework that recasts try-on as an image editing problem and adds segmentation masks as pixel-level control over garment layout, including style, size, and spatial placement on the body. VIP-SAM and CtrlVTON each achieve state-of-the-art results on their respective tasks. In particular, CtrlVTON generates images that follow user-provided layouts far more faithfully than the strongest proprietary editing systems while matching them on garment fidelity.",
+      "abstract_zh": "虚拟试衣(Virtual try-on，VTO)技术在将服装真实地迁移到目标人物身上已取得显著进展。然而，大多数系统几乎未赋予用户对穿着方式的控制权——包括服装尺寸(宽松或合身)、穿着风格(例如下摆内扎或外放、敞开或闭合)以及在身体上的空间布局。我们通过两项互补性贡献来弥补这一不足。首先，我们通过VIP-SAM框架定义并解决了视觉实例提示分割任务：给定一件服装的平铺图像，在人物穿着该服装的实拍图中分割该特定实例。这是实例级任务，区别于通常研究的类别级分割。其次，我们提出可控虚拟试衣框架CtrlVTON，该框架将试衣重新定义为图像编辑问题，并引入分割掩模作为服装布局的像素级控制手段，涵盖穿着风格、尺寸及身体空间定位。VIP-SAM与CtrlVTON在各自任务中均取得了最先进的成果。特别值得注意的是，CtrlVTON生成图像在严格遵循用户提供布局的同时，其服装保真度与最强大的商业编辑系统相当，且在布局遵循度上显著优于现有系统。",
+      "hf_link": "https://huggingface.co/papers/2607.09362"
+    }
+  },
+  "hf_votes": {
+    "2607.10383": 0,
+    "2607.10350": 0,
+    "2607.05394": 0,
+    "2607.09125": 0,
+    "2607.11487": 0,
+    "2607.11849": 0,
+    "2607.11881": 0,
+    "2607.11505": 0,
+    "2607.00397": 0,
+    "2607.11644": 0,
+    "2607.09362": 0,
+    "2607.10623": 0
+  },
+  "focus_sections": {
+    "3D生成与重建": [
+      "2607.09125",
+      "2607.10623"
+    ]
+  },
+  "summaries": {
+    "2607.10623": {
+      "short_zh": "分解式三维网格生成方法",
+      "tags": "计算机图形学;三维几何处理;基于流匹配的网格生成",
+      "body_summary": "现有基于流匹配的联合生成方法会混淆顶点几何与拓扑结构，导致顶点漂移和表面破损。LATO.2提出一个分解式流匹配框架，将网格生成分解为先顶点流、后条件拓扑流，并共享粗粒度体素骨架，从而实现了高质量、可控的网格生成。"
+    },
+    "2607.09125": {
+      "short_zh": "低重叠相机重建动态人体场景",
+      "tags": "计算机图形学；三维重建；稀疏相机动态人体重建",
+      "body_summary": "现有密集相机阵列能高质量捕捉动态人体，但在真实场景中相机数量少且重叠低，导致重建质量下降。\n我们提出StudioRecon，通过背景扩散模型补全、人体高斯初始化及递归增强模块，实现了稀疏低重叠相机下的高质量4D人体场景重建。"
+    },
+    "2607.10383": {
+      "short_zh": "视觉与语言导航基础模型",
+      "tags": "机器人学;具身智能;视觉语言导航",
+      "body_summary": "现有视觉语言导航模型存在坐标漂移、长尾语义处理不佳及缺乏可解释性等问题。\n提出ABot-N1模型，通过慢-快架构分离认知与控制，实现鲁棒、通用且可解释的导航，在多项任务中取得最优性能。"
+    },
+    "2607.10350": {
+      "short_zh": "通用机器人智能体操作系统",
+      "tags": "机器人;具身智能;智能体操作系统",
+      "body_summary": "现有机器人系统缺乏支持长期任务执行的通用推理与记忆层\n提出了ABot-AgentOS操作系统与评估基准，通过多模态记忆与自进化机制提升任务成功率"
+    },
+    "2607.05394": {
+      "short_zh": "弱强化学习知识高效迁移大模型",
+      "tags": "强化学习;语言模型训练;策略蒸馏",
+      "body_summary": "强化学习与可验证奖励结合能提升语言模型推理能力，但直接在强大模型上训练成本过高。\n提出直接策略蒸馏方法，将小模型强化学习获得的知识作为隐式奖励信号迁移给大模型，高效提升其性能。"
+    },
+    "2607.11487": {
+      "short_zh": "轻量级个人生活记忆系统",
+      "tags": "人机交互；可穿戴计算与增强现实；第一人称记忆系统",
+      "body_summary": "个人AI助手需持续记录用户日常多模态信息并回答过往问题，但构建轻量、可长期累积和检索的记忆系统是挑战。\n本文提出LightMem-Ego系统，连续对齐视觉与音频流，构建分层记忆，并动态检索回答日常查询，可部署于手机和AI眼镜。"
+    },
+    "2607.11849": {
+      "short_zh": "评估大模型高等数学证明能力",
+      "tags": "自然语言处理;数学推理;高等数学证明生成与验证",
+      "body_summary": "现有基准对大模型在高等数学上的推理能力评估不足，缺乏覆盖范围和细粒度。\n提出了AdvancedMathBench基准，包含证明生成与验证任务，并建立了自动验证流程来评估大模型表现。"
+    },
+    "2607.11881": {
+      "short_zh": "大语言模型的元认知能力综述",
+      "tags": "自然语言处理;大语言模型;元认知评测与增强",
+      "body_summary": "元认知是智能系统实现高效学习和可靠决策的关键，但大语言模型是否具备及如何提升元认知能力尚不明确。\n本文首次系统梳理了大语言模型元认知的研究进展，包括能力评估方法、激发改进技术及应用前景，旨在推动该领域发展。"
+    },
+    "2607.11505": {
+      "short_zh": "大模型训练后调优新范式",
+      "tags": "自然语言处理;大语言模型;训练后调优",
+      "body_summary": "现有训练后调优方法将策略探索与分布对齐紧密耦合，导致计算成本高且优化信号难以复用。\n提出代理引导更新信号传递框架，用轻量代理模型探索高效行为，提取其相对改进信号并迁移至主模型，实现模块化、可重用且低成本的后训练。"
+    },
+    "2607.00397": {
+      "short_zh": "大模型功能组织映射",
+      "tags": "自然语言处理;大语言模型可解释性;模型内部功能组织映射",
+      "body_summary": "理解大语言模型复杂认知功能的内部组织方式\n提出NeuroCogMap框架，将模型内部特征映射为功能模块，解释模型行为与失败，并联系人类认知"
+    },
+    "2607.11644": {
+      "short_zh": "免训练视频运动迁移",
+      "tags": "计算机图形学;视频生成;跨主体运动迁移",
+      "body_summary": "本文研究如何将一段视频中的角色运动迁移到另一段不同角色的视频中，该任务在动画制作中至关重要。\n我们提出了一种免训练框架Motion4Motion，通过建模角色的运动流而非依赖预定义骨骼，实现了跨物种的运动迁移，超越了现有方法的局限性。"
+    },
+    "2607.09362": {
+      "short_zh": "可控虚拟试衣图像编辑",
+      "tags": "计算机视觉;图像生成与编辑;可控虚拟试衣",
+      "body_summary": "虚拟试衣技术缺乏对穿着样式、尺寸和空间位置的控制。\n提出VIP-SAM实例分割模型和CtrlVTON可控试衣框架，通过分割掩码实现像素级控制。"
+    }
+  },
+  "deep_analysis": {
+    "2607.10623": "### (1) 这篇论文所在的任务是什么\n*   **任务名称：** 3D网格生成（特别是**拓扑感知**的网格生成）。\n*   **任务输入：** 通常是一个条件信号，比如一张图片、一段文字描述，或者一个隐空间中的随机噪声（用于无条件生成）。这篇论文主要关注**无条件生成**，输入是随机噪声。\n*   **任务输出：** 一个**三维网格**。这不仅仅是一个“点云”，而是由**顶点**（三维空间中的点）和**面**（顶点间的连接关系，即**拓扑**）组成的结构。好的网格应该像艺术家制作的一样，顶点分布合理，面片连接干净、有序。\n*   **任务功能：** 自动生成高质量、可直接用于游戏、动画、影视等生产流程的3D模型。这些模型需要有“好的拓扑结构”，以便于后续的绑定、动画、渲染等操作。\n\n### (2) 这篇论文想解决什么问题\n论文想解决**现有方法在生成3D网格时，顶点位置和连接关系（拓扑）纠缠在一起**带来的问题。\n*   **核心矛盾：** 网格包含两种信息：**连续的顶点坐标**和**离散的连接关系**。之前的一些先进方法（比如LATO）用一个统一的“隐空间”同时编码这两种信息，然后用一个“流模型”来生成这个隐空间。\n*   **带来的问题：** 让一个模型同时学习两种性质完全不同的信息（连续位置 vs. 离散结构）非常困难。这会导致学习过程复杂，最终生成的网格出现**顶点漂移、表面破裂**等缺陷。\n*   **简单比喻：** 好比让你同时画出一个人的**精确长相（连续信息）** 和他的**社会关系网络图（离散连接信息）**，而且只用一个模型、一步完成，很容易出错。\n\n### (3) 这篇论文的贡献是什么\n这篇论文提出了 **LATO.2** 模型，核心贡献是 **“分解”** 的思想：\n1.  **“顶点流”和“拓扑流”分解：** 将网格生成过程拆分成两步：\n    *   **第一步（顶点流）：** 只负责生成顶点的精确位置。\n    *   **第二步（拓扑流）：** 在已经生成好的顶点基础上，再预测这些顶点之间应该如何连接。\n2.  **两大独特优势：**\n    *   **部件化生成：** 可以将一个复杂物体（如人体）的“骨架”分成几个部分（如头、躯干、四肢），然后分别用完整的模型容量生成每个部分的高分辨率顶点，最后拼接起来。这突破了单一隐空间对模型细节（分辨率）的限制。\n    *   **拓扑自适应编辑：** 如果用户手动修改了第一步生成的顶点位置，系统能**自动地、自适应地**调整连接关系（拓扑），而无需重新训练或优化。这使得编辑网格变得非常方便。\n3.  **性能提升：** 实验证明，LATO.2 在生成网格的**几何保真度**和**连接质量**上都超过了现有的先进方法。\n\n### (4) 论文的整体思路与模型结构\n**整体思路：** 与其用一个复杂的模型“一口吃成胖子”，不如“分而治之”。先解决“点放哪儿”的问题，再解决“点怎么连”的问题。两步都基于“流匹配”这种先进的生成模型技术。\n\n**模型结构（参照图1和论文描述）：**\n整个流程可以看作两步流水线，都建立在一个共享的**粗糙体素支架**上（可以理解为给物体画了一个低分辨率的3D网格框，用来指导生成范围）。\n\n**第一步：顶点生成（Vertex Flow, V-Flow）**\n1.  **输入：** 随机噪声。\n2.  **过程：**\n    *   论文使用了一个**顶点变分自编码器**来学习顶点位置的紧凑表示。\n    *   一个**顶点流模型**学习从噪声分布到真实顶点隐变量分布的映射。\n    *   解码时，模型不仅预测顶点位于哪个体素格子，还预测一个**微调向量**，将顶点从体素中心精确地调整到亚体素精度的位置，弥补了粗糙体素化的误差。\n3.  **输出：** 一组精确的**三维顶点坐标**。\n\n**第二步：拓扑生成（Topology Flow, T-Flow）**\n1.  **输入：** 第一步生成的**顶点坐标**。\n2.  **过程：**\n    *   根据这些顶点，为每个顶点计算一个特征向量。\n    *   一个**拓扑流模型**（以顶点为条件）负责生成这些顶点特征的隐变量。\n    *   一个解码器将这些特征解码成**顶点对之间的连接概率**（例如，通过计算每两个顶点特征之间的相关性），概率高的就连成边，进而组成三角面。\n3.  **输出：** 完整的**网格**（顶点+面）。\n\n**基模（Base Model）：** 这篇工作的基础是作者团队之前的工作 **LATO**。LATO.2 继承了 LATO 中用于顶点编码的VAE结构以及使用体素支架和流匹配的思想，但最关键的是**将LATO中统一的隐空间分解成了顶点和拓扑两个独立的流**。\n\n### (5) 结果怎么样\n论文通过定量和定性实验证明了LATO.2的有效性：\n*   **定量分析：** 在常用的3D形状数据集（如ShapeNet）上，使用网格生成领域标准的评价指标（如Chamfer Distance, F-Score等）进行测量，LATO.2的分数**优于或媲美当前最先进的方法**（如MeshFlow, LATO等），表明其生成的几何形状更准确。\n*   **定性分析（视觉对比）：**\n    *   **生成质量：** 生成的网格表面更光滑、连续，显著减少了顶点漂移和面片破裂的现象。\n    *   **顶点数可控性：** 通过调整体素支架的分辨率，可以灵活控制生成网格的顶点数量。\n    *   **部件化生成展示：** 论文展示了通过分别生成头部、身体等部件，再组合成一个**细节远超单一模型生成能力**的高分辨率人体网格。\n    *   **编辑演示：** 展示了拖动一个顶点后，周围的连接关系如何自然地跟随变化，验证了“拓扑自适应编辑”的能力。\n*   **消融实验：** 通过实验证明了“分解”策略（即分开的顶点流和拓扑流）是性能提升的关键，而不是其他次要改进。\n\n**总结：** LATO.2 通过一个清晰、符合直觉的“先顶点，后连接”的分解式框架，解决了之前方法中信息纠缠的难题，不仅生成了质量更高、结构更合理的3D网格，还带来了可扩展生成和便捷编辑两个非常实用的新功能。",
+    "2607.09125": "这篇论文《StudioRecon》是一篇关于**4D（动态三维）人-场景重建**的计算机视觉论文。让我为你用简单的语言拆解它的核心内容。\n\n### (1) 任务是什么\n*   **任务输入**： 从**少数几个（例如4个）相机**拍摄的**低重叠度**视频。这些相机可能摆放得很开，彼此看到的画面重叠部分很少，就像在体育馆或家里用几个手机从不同角度拍的一样。\n*   **任务输出**： 一个**高质量的动态三维虚拟场景**。这个场景里包含静态的背景和动态的人，并且可以从任意新的视角（比如一个虚拟的飞鸟视角）进行流畅、逼真的渲染。\n*   **任务功能**： 解决在**真实、非受控环境**中，用很少的相机也能实现专业级动态三维重建的问题。应用包括虚拟制片、体育分析、VR/AR等。\n\n### (2) 想解决什么问题\n现有的技术存在两个主要瓶颈：\n1.  **“少即是难”问题**： 专业系统需要几十上百个相机，而现实场景中往往只有几个。现有稀疏视角方法虽然能减少相机数量，但仍然要求相机之间有较大的重叠视野，否则在“没被看到”的区域会产生严重的**伪影和模糊**。\n2.  **“混合即混乱”问题**： 一些新方法尝试用**视频扩散模型**（类似强大的AI视频生成器）直接从少视角生成新视角。但这类模型在生成**动态人物**时，**几何上不一致**（比如人的动作在不同视角下对不上），尤其是在多人互动的复杂场景中。\n\n### (3) 核心贡献是什么\n这篇论文的主要贡献有四点：\n1.  **“分而治之”的重建策略**： 提出将**背景**和**人物**分开进行重建。背景用扩散模型的“脑补”能力，人物用人体模型的“骨骼”约束，避免了混合重建时错误互相传染。\n2.  **背景的“脑补”增强**： 利用**相机控制的视频扩散模型**，根据稀疏的输入视频，“脑补”生成成百上千个新视角的背景画面，为背景重建提供了密集的监督信号，弥补了相机覆盖不足的缺陷。\n3.  **人物的“骨架”初始化**： 设计了一个鲁棒的多视角人物姿态估计流程，能跨视角**关联不同人物身份**，并用三角测量等技术准确地拟合出3D人体骨架（SMPL模型），为后续的细节重建打下坚实基础。\n4.  **整体的“精修”模块**： 提出一个**递归增强模块**，将分别重建好的背景和人物合成后，再次利用扩散模型的先验知识进行**运动自适应的精修**，进一步消除残留的不自然痕迹，提升最终画面的整体和谐度与质量。\n\n### (4) 整体思路与流程\n论文的整体思路就像一个**高级的3D电影制作流水线**，分为四个主要步骤：\n\n**Step 1: 稀疏到密集的视角合成（预处理）**\n*   **输入**： 几个低重叠度的原始视频。\n*   **操作**： 使用一个**相机控制的视频扩散模型（如CAMUR）** 作为“基模”。这个模型能理解相机位姿。研究者设计了一些虚拟的相机轨迹，让这个模型根据输入视频，“想象”并生成大量从这些新视角看过去的背景视频。\n*   **输出**： 大量（数百个）合成的新视角背景视频，作为背景重建的“参考答案”。\n\n**Step 2: 多视角人体姿态估计**\n*   **目标**： 为每个视频帧中每个人建立一个准确的3D骨架。\n*   **流程**：\n    1.  **逐帧检测**： 在每个相机的每一帧里，用检测器找出所有人。\n    2.  **跨视角关联**： 这是一个关键步骤！算法会匹配不同相机里看到的同一个人，确保不会把张三和李四搞混。\n    3.  **3D三角测量**： 利用多个相机的2D关节点信息，通过几何计算得到精确的3D人体关节点位置。\n    4.  **拟合参数化模型**： 将3D关节点拟合到**SMPL模型**（一个广泛使用的参数化人体模型）上，得到每个人每时刻的体型、姿态参数。\n\n**Step 3: 解耦的高斯重建**\n*   **核心**： 使用“3D高斯溅射”技术分别重建背景和人物。\n    *   **背景重建**： 利用**Step 1**生成的海量合成视图作为监督，优化一组代表背景的3D高斯点云。过程中会迭代精修，提升质量。\n    *   **人物重建**：\n        *   为每个人建立一个**标准姿态下的高斯模型**（想象成一个静止的3D人偶）。\n        *   然后，利用**Step 2**得到的SMPL骨架，驱动这个人偶做出每一帧的动作（通过“线性混合蒙皮”技术）。\n        *   还有一个**时序变形网络**来捕捉骨架无法描述的细节变形（如衣服褶皱）。\n\n**Step 4: 递归增强模块（最终精修）**\n*   **输入**： 将Step 3重建好的背景高斯和人物高斯渲染成一个新视角的初步视频。\n*   **操作**： 再次请出**视频扩散模型**，但这次是作为一个“挑剔的质检员和精修师”。这个模块会分析初步视频中的运动，并**有选择地**将扩散模型强大的先验知识（关于真实世界画面应该如何）注入到那些看起来不自然、不一致的区域，进行细节修复和整体调优。\n*   **输出**： 最终高质量的、几何一致的新视角合成视频。\n\n**总结流程**： **少视角视频** → （扩散模型脑补）→ **密集背景监督** + （多视角关联与SMPL拟合）→ **准确3D人体骨架** → （解耦高斯溅射）→ **分离的背景3D模型 & 可驱动的人物3D模型** → （合成与递归增强）→ **高质量任意视角动态渲染**。\n\n### (5) 结果怎么样\n论文在四个真实的低重叠度多人物数据集上进行了测试，结果显示：\n*   **优于现有方法**： 在**新视角合成质量**的客观指标（如PSNR, SSIM, LPIPS）和主观视觉评估上，都达到了**最先进的（SOTA）水平**。生成的视频更清晰、伪影更少、人物运动更一致。\n*   **验证了有效性**： 通过大量消融实验证明了每个组件（如分而治之、扩散模型增强、递归精修）都是有效的。\n*   **展示了应用潜力**： 除了新视角渲染，还能实现“**人物替换**”（将场景中的一个人换成另一个人）等高级应用。\n*   **承认了局限性**： 比如对快速、剧烈运动的处理仍有挑战，重建非常精细的头发和透明物体比较困难，且整个流程计算量较大。\n\n总之，这篇论文通过巧妙结合**生成式AI（扩散模型）的“想象力”** 和**参数化模型（SMPL）的“结构约束力”** ，提出了一套系统性的解决方案，让用普通相机进行高质量动态三维重建变得更可行。"
+  },
+  "figures": {
+    "2607.10623": [
+      {
+        "path": "https://arxiv.org/html/2607.10623v1/image/pipeline.png",
+        "caption": "Figure 2:Overview ofLATO.2pipeline.LATO.2factorizes explicit mesh generation into vertex and topology synthesis. V-VAE learns sparse vertex latents and reconstructs high-resolution vertex positions with sub-voxel offsets, while T-VAE learns topology latents through vertex-aware attention. At inference, V-Flow generates vertices conditioned on images with controllable vertex counts, and T-Flow predicts connectivity conditioned on the generated vertices.",
+        "role": "pipeline_1",
+        "caption_zh": "图 2：LATO.2 流程总览。LATO.2 将显式网格生成分解为顶点合成与拓扑合成。V-VAE 学习稀疏顶点潜在表示，并通过亚体素偏移重建高分辨率顶点位置；T-VAE 通过顶点感知注意力学习拓扑潜在表示。在推理阶段，V-Flow 基于输入图像生成顶点（顶点数量可控），T-Flow 则根据生成的顶点预测连接关系。"
+      },
+      {
+        "path": "https://arxiv.org/html/2607.10623v1/image/multi-part_gen_pipeline.png",
+        "caption": "Figure 3:Part-wise generation pipeline.A controllable structure planner(Yanget al.,2025)augments the sparse structure generated from the image or point cloud condition with part-level bounding boxes. The resulting box-aware structure is encoded into part features and fused with image features via cross-attention between image tokens and part voxels. The structure decoder then predicts a part-aware sparse structure, from whichLATO.2generates vertices for each part. The T-Flow finally predicts connectivity either jointly over the union of all part vertices, or per part with the results composed via stitching.",
+        "role": "pipeline_2",
+        "caption_zh": "图3：部件化生成流程。可控结构规划器（Yang等人，2025年）通过部件层级的边界框，对来自图像或点云条件生成的稀疏结构进行增强。所得带框感知的结构被编码为部件特征，并通过图像标记与部件体素间的交叉注意力与图像特征融合。结构解码器随后预测部件感知的稀疏结构，LATO.2基于此生成每个部件的顶点。T-Flow最终对所有部件顶点的并集进行联合连接性预测，或对各部件分别预测并通过拼接组合结果。"
+      },
+      {
+        "path": "https://arxiv.org/html/2607.10623v1/x4.png",
+        "caption": "Figure 9:Vertex number controlled generation.The explicit vertex number condition of V-Flow enables controllable mesh resolution by specifying the target number of vertices. Given the same structure voxels, increasing the vertex budget from0.20.2K to44K produces progressively denser meshes with finer geometric details, while the topology flow automatically adapts connectivity to the generated vertex set and preserves the underlying shape structure.",
+        "role": "pipeline_3",
+        "caption_zh": "图 9：顶点数控制生成。V-Flow 的显式顶点数条件允许通过指定目标顶点数来控制网格分辨率。在相同结构体素输入下，将顶点预算从 0.2K 逐步增加至 4K 可生成逐渐稠密、几何细节更精细的网格，而拓扑流会自动适应生成的顶点集调整连接关系，并保持底层形状结构。"
+      }
+    ],
+    "2607.09125": [
+      {
+        "path": "https://arxiv.org/html/2607.09125v1/x2.png",
+        "caption": "Figure 2.Overview of the proposed StudioRecon. Our pipeline consists of four stages: (1) sparse-to-dense view synthesis using camera-controlled video diffusion, (2) multi-view human pose estimation, (3) decoupled Gaussian reconstruction for background and humans, and (4) a recursive enhancement module.Pipeline overview diagram showing the four stages of our method.",
+        "role": "pipeline_1",
+        "caption_zh": "图 2. 所提出的 StudioRecon 方法概览。我们的流程包含四个阶段：(1) 使用相机控制视频扩散进行稀疏到密集的视图合成，(2) 多视角人体姿态估计，(3) 针对背景与人体的解耦高斯重建，以及 (4) 递归增强模块。该流程概览图展示了我们方法的四个阶段。"
+      },
+      {
+        "path": "https://arxiv.org/html/2607.09125v1/x3.png",
+        "caption": "Figure 3.Overview of our recursive enhancement module (Sec.3.4).Diagram showing the recursive enhancement module pipeline: rendered composite and reference frame are input to a single-step diffusion model, with motion-adaptive consistency injection blending warped previous outputs via optical flow for temporal coherence.",
+        "role": "pipeline_2",
+        "caption_zh": "图3. 递归增强模块总览（第3.4节）。示意图展示了递归增强模块流程：渲染合成图与参考帧输入至单步扩散模型，通过运动自适应一致性注入融合经光流扭曲的先前输出，以保持时序一致性。"
+      },
+      {
+        "path": "https://arxiv.org/html/2607.09125v1/x4.png",
+        "caption": "Figure 4.Schematic of motion-adaptive consistency injection. For each frame, RAFT computes backward flow to warp previous enhanced outputs, which are blended with the current input via per-pixel confidence-weighted EMA before single-step diffusion.Schematic diagram of EMA consistency injection.",
+        "role": "pipeline_3",
+        "caption_zh": "图 4. 运动自适应一致性注入示意图。针对每一帧，RAFT 计算反向光流以扭曲先前增强的输出，这些输出在单步扩散前通过逐像素置信度加权的指数移动平均与当前输入进行融合。图为 EMA 一致性注入的示意图。"
+      }
+    ]
+  }
+}
