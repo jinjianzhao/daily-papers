@@ -60,17 +60,29 @@
       "abstract_zh": "理解复杂认知功能如何在人工系统中组织，是解释大语言模型（LLMs）并将其与生物认知相联系的核心。然而，尽管LLMs展现出广泛的类认知行为，其内部表征是否形成了可复现的、能解释行为、失败以及与人类认知联系的功能系统，目前仍不清楚。本研究提出NeuroCogMap，这是一个受认知神经科学启发的框架，它将LLMs的内部特征组织为功能单元，并将其与可解释的功能、认知能力以及认知层次结构联系起来。这些单元形成了一个稳定且语义连贯的组织结构，该结构在不同模型间部分保守，并与模型输出在功能上相关联。在此组织结构内，LLMs的主要失败模式——包括幻觉（hallucination）、偏见（bias）、拒绝失败（refusal failure）和谄媚（sycophancy）——分别对应着表征系统与行为控制系统中不同的功能紊乱，从而为基于机制的检测和针对性干预提供了内在特征。除了模型行为分析，NeuroCogMap还提升了对人类在自然语言理解过程中皮层反应的预测能力，且其与高阶联合皮层的对应关系最强。在认知层面，其内部特征揭示了潜在的策略，这些策略指导着对人类决策经典模型的精细化修正。综上，这些发现确立了NeuroCogMap作为一个系统级框架，可用于映射人工系统的功能组织，并将此组织与人类皮层功能及认知行为联系起来。",
       "hf_link": "https://huggingface.co/papers/2607.00397"
     },
+    "2607.09362": {
+      "title": "CtrlVTON: Controllable Virtual Try-On via Visual-Instance-Prompt Segmentation",
+      "abstract": "Virtual try-on (VTO) has made significant progress in realistically transferring garments onto a target person. Yet most systems give the user little control over how a garment should be worn -- its size (loose or fitted), style (e.g., tucked in or untucked, open or closed), and spatial placement on the body. We address this gap with two complementary contributions. First, we define and solve Visual-Instance-Prompt Segmentation via VIP-SAM: given a flatlay image of a garment, segment that specific instance in a photograph of a person wearing it. This is an instance-level task, distinct from the typically studied category-level segmentation. Second, we introduce CtrlVTON, a controllable VTO framework that recasts try-on as an image editing problem and adds segmentation masks as pixel-level control over garment layout, including style, size, and spatial placement on the body. VIP-SAM and CtrlVTON each achieve state-of-the-art results on their respective tasks. In particular, CtrlVTON generates images that follow user-provided layouts far more faithfully than the strongest proprietary editing systems while matching them on garment fidelity.",
+      "abstract_zh": "虚拟试衣(Virtual try-on，VTO)技术在将服装真实地迁移到目标人物身上已取得显著进展。然而，大多数系统几乎未赋予用户对穿着方式的控制权——包括服装尺寸(宽松或合身)、穿着风格(例如下摆内扎或外放、敞开或闭合)以及在身体上的空间布局。我们通过两项互补性贡献来弥补这一不足。首先，我们通过VIP-SAM框架定义并解决了视觉实例提示分割任务：给定一件服装的平铺图像，在人物穿着该服装的实拍图中分割该特定实例。这是实例级任务，区别于通常研究的类别级分割。其次，我们提出可控虚拟试衣框架CtrlVTON，该框架将试衣重新定义为图像编辑问题，并引入分割掩模作为服装布局的像素级控制手段，涵盖穿着风格、尺寸及身体空间定位。VIP-SAM与CtrlVTON在各自任务中均取得了最先进的成果。特别值得注意的是，CtrlVTON生成图像在严格遵循用户提供布局的同时，其服装保真度与最强大的商业编辑系统相当，且在布局遵循度上显著优于现有系统。",
+      "hf_link": "https://huggingface.co/papers/2607.09362"
+    },
     "2607.11644": {
       "title": "Motion4Motion: Motion Transfer Across Subjects at Inference",
       "abstract": "This work explores the motion transfer from one video to another, which is crucial in animation for diverse characters. Previously, video motion transfer has been largely explored between human and human-like characters, enabling a lot of applications in digital creation. However, these approaches encounter a main limitation. Specifically, related technical pipelines heavily rely on a predefined human skeleton structure and accordingly require skeleton-conditional model training. On the one hand, these methods are difficult to generalize to diverse characters, such as animals from different species, while preserving their unique motion styles. On the other hand, labeled data in diverse skeletons is limited, which additionally restricts the large-scale training for the task. In this paper, we jump out of the skeleton-based motion transfer framework and propose a training-free motion transfer framework, named Motion4Motion. Motion4Motionmodels the motion flow of the character in a video instead of skeletons, which makes motion transfer across species easier. Extensive experimental results and novel applications show our methods outperform baselines impressively. Project page is available atthis https URL.",
       "abstract_zh": "本研究探讨了视频间的运动迁移技术，该技术在多样化角色动画创作中具有关键意义。以往的视频运动迁移研究主要集中于人类及类人角色之间，这为数字创作带来了诸多应用。然而，现有方法存在一个主要局限：相关技术流程严重依赖预定义的人体骨骼结构，并因此需要基于骨骼条件的模型训练。一方面，这些方法难以推广到多样化角色（如不同物种的动物）并同时保持其独特的运动风格；另一方面，多样化骨骼的标注数据有限，这进一步限制了大规模型练的可能性。本文跳出了基于骨骼的运动迁移框架，提出了一种免训练的运动迁移框架，命名为Motion4Motion。该框架通过建模视频中角色的运动流而非骨骼结构，实现了跨物种运动迁移的简化。大量实验结果及创新应用表明，我们的方法在性能上显著优于现有基线模型。项目页面详见此https网址。",
       "hf_link": "https://huggingface.co/papers/2607.11644"
     },
-    "2607.09362": {
-      "title": "CtrlVTON: Controllable Virtual Try-On via Visual-Instance-Prompt Segmentation",
-      "abstract": "Virtual try-on (VTO) has made significant progress in realistically transferring garments onto a target person. Yet most systems give the user little control over how a garment should be worn -- its size (loose or fitted), style (e.g., tucked in or untucked, open or closed), and spatial placement on the body. We address this gap with two complementary contributions. First, we define and solve Visual-Instance-Prompt Segmentation via VIP-SAM: given a flatlay image of a garment, segment that specific instance in a photograph of a person wearing it. This is an instance-level task, distinct from the typically studied category-level segmentation. Second, we introduce CtrlVTON, a controllable VTO framework that recasts try-on as an image editing problem and adds segmentation masks as pixel-level control over garment layout, including style, size, and spatial placement on the body. VIP-SAM and CtrlVTON each achieve state-of-the-art results on their respective tasks. In particular, CtrlVTON generates images that follow user-provided layouts far more faithfully than the strongest proprietary editing systems while matching them on garment fidelity.",
-      "abstract_zh": "虚拟试衣(Virtual try-on，VTO)技术在将服装真实地迁移到目标人物身上已取得显著进展。然而，大多数系统几乎未赋予用户对穿着方式的控制权——包括服装尺寸(宽松或合身)、穿着风格(例如下摆内扎或外放、敞开或闭合)以及在身体上的空间布局。我们通过两项互补性贡献来弥补这一不足。首先，我们通过VIP-SAM框架定义并解决了视觉实例提示分割任务：给定一件服装的平铺图像，在人物穿着该服装的实拍图中分割该特定实例。这是实例级任务，区别于通常研究的类别级分割。其次，我们提出可控虚拟试衣框架CtrlVTON，该框架将试衣重新定义为图像编辑问题，并引入分割掩模作为服装布局的像素级控制手段，涵盖穿着风格、尺寸及身体空间定位。VIP-SAM与CtrlVTON在各自任务中均取得了最先进的成果。特别值得注意的是，CtrlVTON生成图像在严格遵循用户提供布局的同时，其服装保真度与最强大的商业编辑系统相当，且在布局遵循度上显著优于现有系统。",
-      "hf_link": "https://huggingface.co/papers/2607.09362"
+    "2607.09701": {
+      "title": "EgoSteer: A Full-Stack System Towards Steerable Dexterous Manipulation from Egocentric Videos",
+      "abstract": "Steerability is a defining capability of generalist robot policies, yet remains largely absent in dexterous-hand systems for lack of large-scale, language-aligned, and action-accurate demonstration data. To address this bottleneck, we present a full-stack system that scales dexterous VLA pre-training from egocentric human videos and enables data-efficient real-robot post-training. It integrates EgoSmith, a data pipeline that curates in-the-wild egocentric videos into 9.6K hours of high-quality pre-training data with 9x higher throughput and better accuracy than prior SOTA; a unified robot stack for teleoperation and human-in-the-loop correction; and EgoSteer, a world-model-enhanced VLA trained on optimized infrastructure. Human-data pre-training equips EgoSteer with language-guided manipulation priors, which are grounded through robot post-training and improved by DAgger refinement. Empirically, EgoSteer robustly executes free-form instructions across 40+ diverse tasks, demonstrating failure recovery, dexterity, and generalization. The pre-trained model also few-shot adapts to complex long-horizon tasks, including box folding, on two embodiments with 75+% success. We open-source the system, data, and model atthis https URL.",
+      "abstract_zh": "可操控性（Steerability）是通用机器人策略的关键能力，但在灵巧手系统中仍基本缺失，这主要由于缺乏大规模、语言对齐且动作精确的示范数据。为突破这一瓶颈，我们提出了一套全栈系统，该系统能够从人类第一视角视频中规模化地进行灵巧视觉语言动作模型预训练，并支持数据高效的实机机器人后训练。该系统集成了三大组件：EgoSmith——一个数据处理管道，将野外第一视角视频处理为9.6K小时的高质量预训练数据，其数据吞吐量较先前最佳方法提升9倍且精度更高；一套用于遥操作及人在回路校正的统一机器人软硬件栈；以及EgoSteer——一个在优化基础设施上训练、融合世界模型的视觉语言动作模型。基于人类数据的预训练使EgoSteer具备了语言引导的操控先验知识，这些知识通过机器人后训练得以具体化，并借助DAgger（数据聚合）优化方法进一步强化。实验表明，EgoSteer能够在40多种多样化任务中稳健执行自由形式的指令，展现出故障恢复能力、精细操作技巧及泛化性能。该预训练模型还能通过少量样本快速适应复杂的长时程任务，如在两种实体平台上以超过75%的成功率完成折盒任务。我们将整套系统、数据及模型在此网址开源：this https URL。",
+      "hf_link": "https://huggingface.co/papers/2607.09701"
+    },
+    "2607.11885": {
+      "title": "Latent-Identity Tuning in Text-to-Image Personalization Models",
+      "abstract": "Generating and editing a person's face demands high precision, as even minor modifications can significantly alter a subject's perceived identity. Current personalization and editing methods built on general-purpose text-to-image models, however, often lack the precision required for fine-grained facial edits. We present a method for fine-grained identity tuning in text-to-image personalization models. Unlike standard image editing, which operates on a given image, identity tuning modifies the latent representation of a specific identity, enabling the generation of diverse images that consistently depict the same edited identity. To enable fine-grained latent identity tuning, we explore the latent space of a pre-trained, frozen encoder for text-to-image personalization. Our approach requires no additional training. Instead, it leverages the existing architecture of a frozen encoder to uncover latent semantic directions. This space consists of a set of latent tokens that play distinct roles in capturing different aspects of an identity and often correspond to specific spatial or semantic facial regions. We show that meaningful directions can be identified within this space and within subspaces defined by selected tokens, enabling localized, fine-grained, and semantically coherent edits. We validate our approach through qualitative and quantitative experiments that demonstrate diverse localized facial edits while preserving cross-image identity consistency. Project page at:this https URL",
+      "abstract_zh": "生成与编辑人脸图像对精确度要求极高，即便微小的改动也可能显著改变主体的感知身份。然而，当前基于通用文本到图像模型构建的个性化与编辑方法，往往缺乏实现细粒度面部编辑所需的精度。本文提出一种针对文本到图像个性化模型进行细粒度身份调谐的方法。与在给定图像上操作的标准图像编辑不同，身份调谐通过修改特定身份的潜在表示，能够生成持续呈现同一编辑后身份的多样化图像。\n\n为实现细粒度的潜在身份调谐，我们探索了一个预训练且参数冻结的文本到图像个性化编码器的潜在空间。该方法无需额外训练，而是利用冻结编码器的现有架构来揭示潜在的语义方向。该空间包含一组潜在标记，这些标记在捕捉身份的不同方面扮演着独特角色，并常对应于特定的空间或语义面部区域。我们证明，在此空间内以及由选定标记定义的子空间中，能够识别出有意义的编辑方向，从而实现局部化、细粒度且语义连贯的编辑效果。\n\n我们通过定性与定量实验验证了该方法的有效性，实验表明其在保持跨图像身份一致性的同时，能够实现多样化的局部面部编辑。项目页面地址为：https://this_URL。",
+      "hf_link": "https://huggingface.co/papers/2607.11885"
     }
   },
   "hf_votes": {
@@ -83,9 +95,11 @@
     "2607.11881": 0,
     "2607.11505": 0,
     "2607.00397": 0,
-    "2607.11644": 0,
     "2607.09362": 0,
-    "2607.10623": 0
+    "2607.11644": 0,
+    "2607.10623": 0,
+    "2607.09701": 0,
+    "2607.11885": 0
   },
   "focus_sections": {
     "3D生成与重建": [
@@ -144,15 +158,25 @@
       "tags": "自然语言处理;大语言模型可解释性;模型内部功能组织映射",
       "body_summary": "理解大语言模型复杂认知功能的内部组织方式\n提出NeuroCogMap框架，将模型内部特征映射为功能模块，解释模型行为与失败，并联系人类认知"
     },
+    "2607.09362": {
+      "short_zh": "可控虚拟试衣图像编辑",
+      "tags": "计算机视觉;图像生成与编辑;可控虚拟试衣",
+      "body_summary": "虚拟试衣技术缺乏对穿着样式、尺寸和空间位置的控制。\n提出VIP-SAM实例分割模型和CtrlVTON可控试衣框架，通过分割掩码实现像素级控制。"
+    },
     "2607.11644": {
       "short_zh": "免训练视频运动迁移",
       "tags": "计算机图形学;视频生成;跨主体运动迁移",
       "body_summary": "本文研究如何将一段视频中的角色运动迁移到另一段不同角色的视频中，该任务在动画制作中至关重要。\n我们提出了一种免训练框架Motion4Motion，通过建模角色的运动流而非依赖预定义骨骼，实现了跨物种的运动迁移，超越了现有方法的局限性。"
     },
-    "2607.09362": {
-      "short_zh": "可控虚拟试衣图像编辑",
-      "tags": "计算机视觉;图像生成与编辑;可控虚拟试衣",
-      "body_summary": "虚拟试衣技术缺乏对穿着样式、尺寸和空间位置的控制。\n提出VIP-SAM实例分割模型和CtrlVTON可控试衣框架，通过分割掩码实现像素级控制。"
+    "2607.09701": {
+      "short_zh": "从人眼视频训练灵巧手操作策略",
+      "tags": "机器人;灵巧操作;多任务指令执行",
+      "body_summary": "现有数据难以支撑灵巧手策略的可控性\n提出了包含数据管线、机器人栈和模型的全栈系统，并通过预训练与后训练实现了多任务指令执行"
+    },
+    "2607.11885": {
+      "short_zh": "潜在身份微调提升人像编辑精度",
+      "tags": "计算机视觉;图像生成与编辑;文本到图像个性化",
+      "body_summary": "当前基于通用文本到图像模型的个性化方法难以实现精细的人脸编辑。\n本文提出一种无需训练的方法，通过探索预训练编码器的潜在空间，实现针对特定身份的细粒度、局部化编辑。"
     }
   },
   "deep_analysis": {
