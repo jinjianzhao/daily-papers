@@ -6,16 +6,30 @@
       "abstract_zh": "本文提出SpectraReward，一种无需训练即可将预训练多模态大语言模型（MLLM）转化为即用型奖励函数的方法，用于图像生成强化学习。与要求MLLM直接评判生成图像或回答分解式验证问题不同，SpectraReward通过单次图像条件化教师强制前向传播，测量从生成图像中恢复原始提示词的能力。我们采用平均图像条件化提示词对数似然作为奖励值，直接复用MLLM预训练获得的图文对齐能力，无需偏好标注或奖励模型微调。我们进一步提出Self-SpectraReward特例，适用于统一多模态模型架构——将策略自身的理解分支作为其生成分支的奖励模型，形成无需外部奖励模型或外部知识的闭环自我优化框架。通过涵盖两个扩散模型、三种强化学习算法、来自四个MLLM家族的九种奖励模型骨干（参数量从40亿到2350亿）以及五个分布外文本到图像基准测试的广泛实验，验证了SpectraReward的有效性。结果表明，SpectraReward与Self-SpectraReward均能显著且持续提升生成性能，优于现有基于MLLM的奖励训练方法。进一步分析揭示：更大的奖励MLLM未必带来更好效果，而Self-SpectraReward能够匹配或超越参数量更大的外部奖励模型，说明奖励策略对齐是影响图像生成强化学习效果的关键因素。项目页面：this https URL",
       "hf_link": "https://huggingface.co/papers/2607.11886"
     },
+    "2607.08317": {
+      "title": "Blind-Spots-Bench: Evaluating Blind Spots in Multimodal Models",
+      "abstract": "Modern AI models achieve strong performance on many established benchmarks, yet they still fail on tasks that humans find almost trivial, such as manipulating a string or drawing a dog with five legs. These examples suggest that existing benchmarks may under-measure persistent blind spots in current systems. We introduce $\\texttt{blind-spots-bench}$, a benchmark designed to expose such blind spots through tasks that appear simple for humans but remain challenging for modern AI. We collect raw questions from students in an AI course, clean and annotate them with structured reference solutions, and propose a task taxonomy tailored to the resulting dataset of 235 samples. We further develop an automated grading pipeline to evaluate a wide range of models, including open-weight and closed-source language, vision-language, and image-generation models. Our analysis on $\\texttt{blind-spots-bench}$ reveals that closed-source frontier models can substantially outperform open-weight models with even $\\approx10\\%$ gap, even when they attain comparable performance on existing benchmarks. A more fine-grained analysis shows that no single model dominates across all task types, and that some tasks remain challenging for all evaluated models. These results highlight the value of $\\texttt{blind-spots-bench}$ as a diagnostic stress test for identifying concrete weaknesses in current modern models.",
+      "abstract_zh": "现代人工智能模型在许多成熟基准测试中表现优异，然而它们仍会在人类认为几乎微不足道的任务上失败，例如操作字符串或绘制一条有五条腿的狗。这些案例表明，现有基准测试可能未能充分衡量当前系统中持续存在的盲点。我们推出了$\\texttt{blind-spots-bench}$（盲点基准），这是一个通过人类视作简单但对现代AI仍具挑战性的任务来暴露此类盲点的基准测试。我们从人工智能课程的学生中收集原始问题，通过结构化参考答案进行清理与标注，并针对最终包含235个样本的数据集提出了专门的任务分类体系。我们进一步开发了自动化评分流程，用于评估包括开源与闭源语言模型、视觉语言模型以及图像生成模型在内的广泛模型。在$\\texttt{blind-spots-bench}$上的分析表明，闭源前沿模型能显著超越开源模型，差距可达约10%，即使它们在现有基准测试中取得相近性能。更细粒度的分析显示，没有单一模型能在所有任务类型中占据主导地位，且某些任务对所有评估模型而言仍具挑战性。这些结果凸显了$\\texttt{blind-spots-bench}$作为诊断性压力测试的价值，可用于识别当前现代模型的具体弱点。",
+      "hf_link": "https://huggingface.co/papers/2607.08317"
+    },
     "2607.11111": {
       "title": "Know Before Fix: QA-Driven Repository Knowledge Acquisition for Software Issue Resolution",
       "abstract": "LLM-based coding agents have significantly advanced automated software issue resolution, yet they remain highly prone to factual errors caused by insufficient repository understanding. Recent methods attempt to mitigate this limitation through pre-repair repository exploration; however, their fix-driven strategies explore repositories without identifying the agent's knowledge gaps, often yielding imprecise context that fails to bridge the underlying understanding deficit. In this paper, we propose ACQUIRE, a QA-driven framework for software issue resolution. Mirroring how experienced developers first comprehend unfamiliar code before attempting a fix, ACQUIRE explicitly acquires repository knowledge prior to repair. The framework decouples knowledge acquisition from patch generation through two stages: in the first stage, a Questioner and an Answerer collaborate to acquire structured repository knowledge, where the Questioner poses targeted questions and the Answerer produces evidence-grounded answers through autonomous exploration; in the second stage, the Resolver leverages the resulting QA knowledge to generate informed patches. By transforming implicit knowledge gaps into explicit, factually reliable understanding, ACQUIRE accelerates knowledge-intensive repair stages and enables more accurate resolution. Experiments on SWE-bench Verified demonstrate that ACQUIRE consistently outperforms representative pre-repair methods, raising Pass@1 by up to 4.4 percentage points with modest additional cost and time.",
       "abstract_zh": "基于大语言模型(LLM)的编码智能体在自动化软件问题解决方面取得了显著进展，但因其对代码库理解不足，仍极易产生事实性错误。现有方法试图通过修复前的代码库探索来缓解这一局限；然而，这些以修复为导向的策略在探索时未能识别智能体的知识缺口，往往产生不精确的上下文，无法弥补根本性的理解缺陷。本文提出ACQUIRE——一个基于问答驱动(QA-driven)的软件问题解决框架。该框架模拟经验丰富的开发者在尝试修复前先理解陌生代码的行为模式，在修复前显式获取代码库知识。其通过两个阶段实现知识获取与补丁生成的解耦：第一阶段，提问者与回答者协作获取结构化代码库知识，其中提问者提出针对性问题，回答者通过自主探索提供基于证据的回答；第二阶段，解决者利用生成的问答知识来生成具备充分信息支撑的补丁。通过将隐性知识缺口转化为显性、事实可靠的理解，ACQUIRE加速了知识密集型修复阶段，并实现了更精确的问题解决。在SWE-bench Verified基准上的实验表明，ACQUIRE持续优于代表性的修复前探索方法，在适度增加成本与时间的情况下，将Pass@1指标最高提升了4.4个百分点。",
       "hf_link": "https://huggingface.co/papers/2607.11111"
+    },
+    "2607.07769": {
+      "title": "Principled Analysis of Deep Reinforcement Learning Evaluation and Design Paradigms",
+      "abstract": "Starting from the utilization of deep neural networks to approximate the state-action value function that led to winning one of the most challenging games, to algorithmic advancements that allowed solving problems without even explicitly stating the rules of the challenge at hand, reinforcement learning research has been the center of remarkable scientific progress for the past decade. In this paper, we focus on the key ingredients of this research progress and we analyze the canonical evaluation and design paradigms in reinforcement learning. We introduce the theoretical foundations of scaling laws in reinforcement learning and show that the asymptotic performance of reinforcement learning algorithms does not have a monotone relationship between performance rankings and data-regimes. We conduct large-scale experiments and our results demonstrate that a line of reinforcement learning research under the canonical design and evaluation paradigms resulted in incorrect conclusions. Our analysis and results provide a core analysis on scaling, capacity and complexity of deep reinforcement learning.",
+      "abstract_zh": "从利用深度神经网络逼近状态动作价值函数从而赢得最具挑战性的游戏之一，到无需明确说明当前挑战规则即可解决问题的算法进步，强化学习研究在过去十年中一直是引人注目的科学进展的核心。本文聚焦于该研究进展的关键要素，并分析了强化学习中的经典评估与设计范式。我们介绍了强化学习中缩放定律的理论基础，并证明强化学习算法的渐近性能在性能排名与数据规模之间并不存在单调关系。通过开展大规模实验，我们的结果表明，在经典设计和评估范式下的一系列强化学习研究得出了错误结论。我们的分析与结果为深度强化学习的缩放性、容量与复杂性提供了核心分析。",
+      "hf_link": "https://huggingface.co/papers/2607.07769"
     }
   },
   "hf_votes": {
     "2607.11886": 0,
-    "2607.11111": 0
+    "2607.08317": 0,
+    "2607.11111": 0,
+    "2607.07769": 0
   },
   "focus_sections": {
     "3D生成与重建": []
@@ -26,10 +40,20 @@
       "tags": "多模态生成;图像生成;文生图强化学习",
       "body_summary": "当前文生图模型在评估生成质量时依赖人工标注或训练专用奖励模型，成本高且泛化有限。\n提出SpectraReward，通过预训练多模态大模型单向预测原提示的概率作为奖励，无需训练即可用于强化学习优化图像生成，并引入自循环版本实现自我改进。"
     },
+    "2607.08317": {
+      "short_zh": "盲点基准评估模型弱点",
+      "tags": "多模态学习;基准测试;模型盲点诊断",
+      "body_summary": "现有AI模型在标准基准上表现良好，但在人类看来简单的任务上仍存在盲点。\n构建了盲点基准数据集并自动化评估多类模型，揭示了模型间的性能差异与共同弱点。"
+    },
     "2607.11111": {
       "short_zh": "问答驱动知识获取修复软件缺陷",
       "tags": "软件工程;程序修复;问答式代码理解",
       "body_summary": "现有基于大模型的代码修复代理常因对代码库理解不足而产生事实错误。\n我们提出了ACQUIRE框架，通过问答协作先获取结构化代码库知识，再利用知识生成补丁，在测试集上显著提升了修复准确率。"
+    },
+    "2607.07769": {
+      "short_zh": "分析深度强化学习评估设计范式",
+      "tags": "机器学习;强化学习;深度强化学习评估设计",
+      "body_summary": "强化学习通过深度神经网络等关键进展在过去十年取得显著科学进步，其评估与设计范式是核心关注点。\n本文分析了深度强化学习的扩展规律，通过大规模实验发现经典范式下的性能排名与数据规模关系非单调，并揭示了相关研究可能得出错误结论。"
     }
   },
   "deep_analysis": {},
