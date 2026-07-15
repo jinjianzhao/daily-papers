@@ -1,0 +1,37 @@
+{
+  "base_info": {
+    "2607.11886": {
+      "title": "Read It Back: Pretrained MLLMs Are Zero-Shot Reward Models for Text-to-Image Generation",
+      "abstract": "In this paper, we propose SpectraReward, a training-free reward function that turns pretrained MLLMs into off-the-shelf reward models for image-generation reinforcement learning. Instead of asking the MLLM to judge a generated image or answer decomposed verification questions, SpectraReward measures how well the original prompt can be recovered from the generated image through a single image-conditioned, teacher-forced forward pass. We use the average image-conditioned prompt log-likelihood as the reward, directly reusing the MLLM's pretrained image-text alignment ability without preference labels, reward-model fine-tuning. We further introduce Self-SpectraReward, a special case for unified multimodal models where the policy's own understanding branch serves as the reward model for its generation branch, forming a closed-loop self-improving framework without external reward models or external knowledge. Extensive experiments validate SpectraReward through a broad image-generation RL study covering two diffusion models, three RL algorithms, nine reward MLLM backbones from four MLLM families spanning 4B to 235B parameters, and five out-of-distribution text-to-image benchmarks. Results show that both SpectraReward and Self-SpectraReward significantly and consistently improve generation performance and outperform prior MLLM-derived reward training methods. Further analysis reveals that larger reward MLLMs are not always better, while Self-SpectraReward can match or surpass much larger external reward models, suggesting that reward-policy alignment is a key factor for effective image-generation RL. Project Page:this https URL",
+      "abstract_zh": "本文提出SpectraReward，一种无需训练即可将预训练多模态大语言模型（MLLM）转化为即用型奖励函数的方法，用于图像生成强化学习。与要求MLLM直接评判生成图像或回答分解式验证问题不同，SpectraReward通过单次图像条件化教师强制前向传播，测量从生成图像中恢复原始提示词的能力。我们采用平均图像条件化提示词对数似然作为奖励值，直接复用MLLM预训练获得的图文对齐能力，无需偏好标注或奖励模型微调。我们进一步提出Self-SpectraReward特例，适用于统一多模态模型架构——将策略自身的理解分支作为其生成分支的奖励模型，形成无需外部奖励模型或外部知识的闭环自我优化框架。通过涵盖两个扩散模型、三种强化学习算法、来自四个MLLM家族的九种奖励模型骨干（参数量从40亿到2350亿）以及五个分布外文本到图像基准测试的广泛实验，验证了SpectraReward的有效性。结果表明，SpectraReward与Self-SpectraReward均能显著且持续提升生成性能，优于现有基于MLLM的奖励训练方法。进一步分析揭示：更大的奖励MLLM未必带来更好效果，而Self-SpectraReward能够匹配或超越参数量更大的外部奖励模型，说明奖励策略对齐是影响图像生成强化学习效果的关键因素。项目页面：this https URL",
+      "hf_link": "https://huggingface.co/papers/2607.11886"
+    },
+    "2607.11111": {
+      "title": "Know Before Fix: QA-Driven Repository Knowledge Acquisition for Software Issue Resolution",
+      "abstract": "LLM-based coding agents have significantly advanced automated software issue resolution, yet they remain highly prone to factual errors caused by insufficient repository understanding. Recent methods attempt to mitigate this limitation through pre-repair repository exploration; however, their fix-driven strategies explore repositories without identifying the agent's knowledge gaps, often yielding imprecise context that fails to bridge the underlying understanding deficit. In this paper, we propose ACQUIRE, a QA-driven framework for software issue resolution. Mirroring how experienced developers first comprehend unfamiliar code before attempting a fix, ACQUIRE explicitly acquires repository knowledge prior to repair. The framework decouples knowledge acquisition from patch generation through two stages: in the first stage, a Questioner and an Answerer collaborate to acquire structured repository knowledge, where the Questioner poses targeted questions and the Answerer produces evidence-grounded answers through autonomous exploration; in the second stage, the Resolver leverages the resulting QA knowledge to generate informed patches. By transforming implicit knowledge gaps into explicit, factually reliable understanding, ACQUIRE accelerates knowledge-intensive repair stages and enables more accurate resolution. Experiments on SWE-bench Verified demonstrate that ACQUIRE consistently outperforms representative pre-repair methods, raising Pass@1 by up to 4.4 percentage points with modest additional cost and time.",
+      "abstract_zh": "基于大语言模型(LLM)的编码智能体在自动化软件问题解决方面取得了显著进展，但因其对代码库理解不足，仍极易产生事实性错误。现有方法试图通过修复前的代码库探索来缓解这一局限；然而，这些以修复为导向的策略在探索时未能识别智能体的知识缺口，往往产生不精确的上下文，无法弥补根本性的理解缺陷。本文提出ACQUIRE——一个基于问答驱动(QA-driven)的软件问题解决框架。该框架模拟经验丰富的开发者在尝试修复前先理解陌生代码的行为模式，在修复前显式获取代码库知识。其通过两个阶段实现知识获取与补丁生成的解耦：第一阶段，提问者与回答者协作获取结构化代码库知识，其中提问者提出针对性问题，回答者通过自主探索提供基于证据的回答；第二阶段，解决者利用生成的问答知识来生成具备充分信息支撑的补丁。通过将隐性知识缺口转化为显性、事实可靠的理解，ACQUIRE加速了知识密集型修复阶段，并实现了更精确的问题解决。在SWE-bench Verified基准上的实验表明，ACQUIRE持续优于代表性的修复前探索方法，在适度增加成本与时间的情况下，将Pass@1指标最高提升了4.4个百分点。",
+      "hf_link": "https://huggingface.co/papers/2607.11111"
+    }
+  },
+  "hf_votes": {
+    "2607.11886": 0,
+    "2607.11111": 0
+  },
+  "focus_sections": {
+    "3D生成与重建": []
+  },
+  "summaries": {
+    "2607.11886": {
+      "short_zh": "用大模型打分提升文生图质量",
+      "tags": "多模态生成;图像生成;文生图强化学习",
+      "body_summary": "当前文生图模型在评估生成质量时依赖人工标注或训练专用奖励模型，成本高且泛化有限。\n提出SpectraReward，通过预训练多模态大模型单向预测原提示的概率作为奖励，无需训练即可用于强化学习优化图像生成，并引入自循环版本实现自我改进。"
+    },
+    "2607.11111": {
+      "short_zh": "问答驱动知识获取修复软件缺陷",
+      "tags": "软件工程;程序修复;问答式代码理解",
+      "body_summary": "现有基于大模型的代码修复代理常因对代码库理解不足而产生事实错误。\n我们提出了ACQUIRE框架，通过问答协作先获取结构化代码库知识，再利用知识生成补丁，在测试集上显著提升了修复准确率。"
+    }
+  },
+  "deep_analysis": {},
+  "figures": {}
+}
