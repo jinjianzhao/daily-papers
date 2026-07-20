@@ -1,16 +1,28 @@
 {
   "base_info": {
+    "2607.15330": {
+      "title": "Xiaomi-Robotics-1: Scaling Vision-Language-Action Models with over 100K Hours of Real-World Trajectories",
+      "abstract": "We present Xiaomi-Robotics-1, a foundational vision-language-action (VLA) model capable of (1) following diverse language instructions to perform a wide range of mobile manipulation tasks in unseen environments out-of-the-box, and (2) efficiently adapting to novel downstream tasks with minimal fine-tuning data. We propose a two-stage training recipe consisting of pre-training and post-training. During pre-training, we imbue the model with broad and generalizable action-generation capabilities by training on over 100k hours of real-world manipulation trajectories collected via UMI devices. Crucially, we develop a scalable auto-labeling pipeline that annotates trajectory clips with natural languages describing scene state transitions, providing rich and precise conditioning for action learning. During post-training, we aim to align these capabilities with robot embodiments and imperative instructions that humans naturally use to prompt robots. Extensive experiments demonstrate strong scaling behavior. Xiaomi-Robotics-1 consistently improves with increased data scales and model sizes during pre-training. This scaling behavior directly transfers to post-training, where a stronger pre-training model yields better out-of-the-box real-robot performance in unseen environments. Furthermore, Xiaomi-Robotics-1 serves as a strong robot foundation policy that can be efficiently fine-tuned on complex, dexterous tasks with high data efficiency. Across multiple simulation benchmarks, Xiaomi-Robotics-1 outperforms state-of-the-art methods. Notably, it establishes a new state-of-the-art with a 57.6% success rate on RoboCasa365, surpassing the previous best of 46.6%. Furthermore, it achieves an average score of 20.07 on RoboDojo, significantly outperforming the prior state-of-the-art (13.07). Code and model checkpoints will be released. Project page:this https URL",
+      "abstract_zh": "我们推出Xiaomi-Robotics-1——一个基础级视觉-语言-动作（Vision-Language-Action，VLA）模型，具备两大核心能力：（1）能够遵循多样化语言指令，在未见环境中开箱即用地执行广泛的移动操作任务；（2）能以极少量微调数据高效适应新下游任务。我们提出了包含预训练与后训练的两阶段训练方案。在预训练阶段，我们通过超过10万小时由UMI设备采集的真实世界操作轨迹训练，使模型获得广泛且可泛化的动作生成能力。关键创新在于开发了可扩展的自动标注流程，该流程使用描述场景状态转换的自然语言对轨迹片段进行标注，为动作学习提供了丰富而精确的条件约束。在后训练阶段，我们致力于将这些能力与机器人具身形态及人类自然使用的指令范式对齐。大量实验证明了显著的规模化效应：在预训练过程中，随着数据规模和模型尺寸的增加，Xiaomi-Robotics-1持续提升性能。这种规模化特性直接迁移至后训练阶段，更强的预训练模型在未见环境中展现出更优的开箱即用实体机器人性能。此外，Xiaomi-Robotics-1可作为强大的机器人基础策略模型，能够以高数据效率对复杂灵巧任务进行高效微调。在多个仿真基准测试中，Xiaomi-Robotics-1均超越现有最优方法：在RoboCasa365基准上以57.6%的成功率刷新纪录（原最佳为46.6%）；在RoboDojo基准上平均得分达20.07，显著优于先前最优结果（13.07）。代码与模型检查点即将开源。项目主页：this https URL",
+      "hf_link": "https://huggingface.co/papers/2607.15330"
+    },
+    "2607.11683": {
+      "title": "RAGU: A Multi-Step GraphRAG Engine with a Compact Domain-Adapted LLM",
+      "abstract": "Graph retrieval-augmented generation (GraphRAG) enhances large language models with structured knowledge, yet existing systems construct knowledge graphs in a single extraction pass, producing noisy entities and brittle retrieval. RAGU, an open-source modular GraphRAG engine, addresses this by separating extraction from consolidation: entities and relations pass through two-stage typed extraction, DBSCAN-backed deduplication, LLM summarization, and Leiden community detection. A key insight motivates a compact extractor: the skills an in-pipeline LLM needs - comprehension, extraction, reasoning over context - are language skills that grow only weakly with model size, unlike factual world knowledge. Accordingly, we train Meno-Lite-0.1, a 7B model optimized for language skills, which outperforms Qwen2.5-32B on knowledge-graph construction (+12.5% relative harmonic mean) and matches it on English GraphRAG tasks. On GraphRAG-Bench (Medical), RAGU retrieves the most complete context at every factoid level (evidence recall up to 0.84 vs. $\\leq$0.76) and overtakes HippoRAG2 on synthesis tasks; on multi-hop factoid QA, the apparent HippoRAG2 advantage is shown to be largely an answer-format artifact. RAGU is installable via $\\texttt{pip install graph_ragu}$, runs on a single GPU, and is released under MIT. The source code is publicly available atthis https URL, and the Meno-Lite-0.1 model can be obtained fromthis https URL.",
+      "abstract_zh": "基于图结构的检索增强生成（Graph Retrieval-Augmented Generation, GraphRAG）通过结构化知识增强大语言模型，但现有系统通常在单次抽取过程中构建知识图谱，导致实体噪声较多且检索过程脆弱。RAGU作为一个开源模块化的GraphRAG引擎，通过将抽取与整合环节解耦来解决此问题：实体与关系经过双阶段类型化抽取、基于DBSCAN的去重、大语言模型摘要以及莱顿（Leiden）社区检测流程。其核心设计理念在于采用精简的抽取器：流水线中大语言模型所需的能力——理解、抽取与上下文推理——属于语言技能范畴，这类能力随模型规模增长而提升的幅度远小于事实性世界知识。基于此，我们训练了Meno-Lite-0.1模型，这是一个针对语言技能优化的70亿参数模型，其在知识图谱构建任务上的表现优于Qwen2.5-32B模型（相对调和平均值提升+12.5%），并在英文GraphRAG任务中达到同等水平。在GraphRAG-Bench（医学版）测试中，RAGU在所有事实层级均能检索到最完整的上下文（证据召回率最高达0.84，对比基线≤0.76），并在综合生成任务上超越HippoRAG2；在多跳事实问答任务中，HippoRAG2的表面优势被证实主要源于答案格式的特定设计。RAGU可通过$\\texttt{pip install graph_ragu}$安装，支持单GPU运行，并以MIT协议开源。源代码公开于此https URL，Meno-Lite-0.1模型可从此https URL获取。",
+      "hf_link": "https://huggingface.co/papers/2607.11683"
+    },
     "2607.14530": {
       "title": "xHC: Expanded Hyper-Connections",
       "abstract": "Hyper-Connections (HC) expand the residual stream of Transformers into $N$ parallel streams, providing a form of memory scaling beyond model width and depth. Manifold-Constrained HC (mHC) stabilizes this formulation at scale. The large gains from $N{=}1$ to $N{=}4$ suggest residual-stream expansion as a promising scaling axis. However, existing HC-family methods typically stop at $N{=}4$. Our experiments reveal why: scaling mHC beyond this point yields diminishing performance gains and rapidly increasing training cost. We attribute this limitation to two bottlenecks: insufficient write-back information for an expanding number of streams and residual-mixing generation whose cost scales cubically with $N$. To address both bottlenecks, we propose xHC (Expanded Hyper-Connections), the first HC-family method to achieve meaningful expansion beyond $N{=}4$. xHC combines temporal feature augmentation for richer write-back with a sparse residual-stream architecture that updates only $k=4$ of the $N=16$ streams while retaining dense access to the full residual state. Across 18B and 28B MoE models, xHC delivers strong and consistent downstream improvements. On an 18B MoE model, xHC improves the average downstream score by 4.0 points over mHC, while adding only modest training FLOPs over the vanilla baseline. Scaling-law experiments show that the vanilla and mHC require $1.50\\times$ and $1.19\\times$ the compute of xHC, respectively, to reach the same loss. Practical large-$N$ training also requires controlling memory traffic from the expanded residual state. We therefore introduce xHC-Flash, which reduces the per-sublayer memory traffic from $73.5C$ to $40C$, comparable to the $34C$ required by mHC at $N{=}4$, while retaining the gains of full xHC. Together, xHC and xHC-Flash make large-$N$ residual-stream expansion effective and practical for LLM pre-training.",
       "abstract_zh": "超连接 (Hyper-Connections, HC) 将 Transformer 的残差流扩展为 $N$ 条并行流，提供了一种超越模型宽度和深度的内存扩展形式。流形约束超连接 (Manifold-Constrained HC, mHC) 在大规模训练中稳定了这一结构。从 $N{=}1$ 到 $N{=}4$ 带来的显著性能提升表明，残差流扩展是一个有前景的缩放维度。然而，现有的 HC 系列方法通常仅扩展到 $N{=}4$。我们的实验揭示了原因：将 mHC 扩展至超过此点会导致性能增益递减，且训练成本急剧上升。我们将此限制归因于两个瓶颈：一是对于不断增加的流数量，回写信息不足；二是残差混合生成的计算成本随 $N$ 呈立方级增长。为解决这两个瓶颈，我们提出了 xHC (扩展超连接)，这是首个能够实现超越 $N{=}4$ 有效扩展的 HC 系列方法。xHC 结合了用于丰富回写的时序特征增强，以及一种稀疏残差流架构：该架构在 $N=16$ 条流中仅更新 $k=4$ 条，同时保留对完整残差状态的密集访问。在 18B 和 28B 混合专家 (MoE) 模型上的实验表明，xHC 带来了显著且一致的下游任务性能提升。在 18B 的 MoE 模型上，xHC 相较于 mHC 将平均下游任务得分提升了 4.0 分，同时相对于原始基线仅增加了适度的训练浮点运算量。缩放定律实验显示，要达到相同的损失，原始模型和 mHC 分别需要 xHC 计算量的 $1.50\\times$ 和 $1.19\\times$。实际的大 $N$ 训练还需要控制因残差状态扩展而产生的内存流量。因此，我们引入了 xHC-Flash，它将每个子层的峰值内存流量从 $73.5C$ 降至 $40C$，与 $N{=}4$ 时 mHC 所需的 $34C$ 相当，同时保留了完整 xHC 的性能增益。总之，xHC 和 xHC-Flash 使得大 $N$ 残差流扩展在大语言模型预训练中变得高效且实用。",
       "hf_link": "https://huggingface.co/papers/2607.14530"
     },
-    "2607.15330": {
-      "title": "Xiaomi-Robotics-1: Scaling Vision-Language-Action Models with over 100K Hours of Real-World Trajectories",
-      "abstract": "We present Xiaomi-Robotics-1, a foundational vision-language-action (VLA) model capable of (1) following diverse language instructions to perform a wide range of mobile manipulation tasks in unseen environments out-of-the-box, and (2) efficiently adapting to novel downstream tasks with minimal fine-tuning data. We propose a two-stage training recipe consisting of pre-training and post-training. During pre-training, we imbue the model with broad and generalizable action-generation capabilities by training on over 100k hours of real-world manipulation trajectories collected via UMI devices. Crucially, we develop a scalable auto-labeling pipeline that annotates trajectory clips with natural languages describing scene state transitions, providing rich and precise conditioning for action learning. During post-training, we aim to align these capabilities with robot embodiments and imperative instructions that humans naturally use to prompt robots. Extensive experiments demonstrate strong scaling behavior. Xiaomi-Robotics-1 consistently improves with increased data scales and model sizes during pre-training. This scaling behavior directly transfers to post-training, where a stronger pre-training model yields better out-of-the-box real-robot performance in unseen environments. Furthermore, Xiaomi-Robotics-1 serves as a strong robot foundation policy that can be efficiently fine-tuned on complex, dexterous tasks with high data efficiency. Across multiple simulation benchmarks, Xiaomi-Robotics-1 outperforms state-of-the-art methods. Notably, it establishes a new state-of-the-art with a 57.6% success rate on RoboCasa365, surpassing the previous best of 46.6%. Furthermore, it achieves an average score of 20.07 on RoboDojo, significantly outperforming the prior state-of-the-art (13.07). Code and model checkpoints will be released. Project page:this https URL",
-      "abstract_zh": "我们推出Xiaomi-Robotics-1——一个基础级视觉-语言-动作（Vision-Language-Action，VLA）模型，具备两大核心能力：（1）能够遵循多样化语言指令，在未见环境中开箱即用地执行广泛的移动操作任务；（2）能以极少量微调数据高效适应新下游任务。我们提出了包含预训练与后训练的两阶段训练方案。在预训练阶段，我们通过超过10万小时由UMI设备采集的真实世界操作轨迹训练，使模型获得广泛且可泛化的动作生成能力。关键创新在于开发了可扩展的自动标注流程，该流程使用描述场景状态转换的自然语言对轨迹片段进行标注，为动作学习提供了丰富而精确的条件约束。在后训练阶段，我们致力于将这些能力与机器人具身形态及人类自然使用的指令范式对齐。大量实验证明了显著的规模化效应：在预训练过程中，随着数据规模和模型尺寸的增加，Xiaomi-Robotics-1持续提升性能。这种规模化特性直接迁移至后训练阶段，更强的预训练模型在未见环境中展现出更优的开箱即用实体机器人性能。此外，Xiaomi-Robotics-1可作为强大的机器人基础策略模型，能够以高数据效率对复杂灵巧任务进行高效微调。在多个仿真基准测试中，Xiaomi-Robotics-1均超越现有最优方法：在RoboCasa365基准上以57.6%的成功率刷新纪录（原最佳为46.6%）；在RoboDojo基准上平均得分达20.07，显著优于先前最优结果（13.07）。代码与模型检查点即将开源。项目主页：this https URL",
-      "hf_link": "https://huggingface.co/papers/2607.15330"
+    "2606.29538": {
+      "title": "RESOURCE2SKILL: Distilling Executable Agent Skills from Human-Created Multimodal Resources",
+      "abstract": "Skills are a useful abstraction for software agents, turning human and agent experience into reusable procedural knowledge. Yet existing skill libraries are mostly hand-written, text-centric, or derived from agent traces, leaving tutorial videos and other multimodal human resources largely underused. We present RESOURCE2SKILL, a framework that distills multimodal resources, including tutorial videos, repositories, articles, and reference artifacts, into executable skills for software agents. RESOURCE2SKILL organizes these skills as a hierarchical multimodal Skill Wiki, where each entry combines structured text, code, visual examples, metadata, and provenance. This design preserves complementary signals from different resources: videos capture temporal operations and visual effects, code captures executable tool patterns, and articles or artifacts provide conceptual and stylistic grounding. At inference time, agents retrieve and compose relevant skills from the wiki; when coverage is insufficient, the same construction operator can acquire new skills online. Across seven practical authoring domains, RESOURCE2SKILL improves average overall score by +11.9 percentage points over no-skill agents and outperforms strong harness baselines in 26 of 28 main-aggregate model-domain cells. Ablations confirm the value of multimodal skill format, hierarchical organization, source diversity, selection strategy, and online acquisition.",
+      "abstract_zh": "技能是软件智能体的一种有效抽象形式，能将人类与智能体的经验转化为可复用的程序性知识。然而现有的技能库多为手工编写、以文本为中心或从智能体轨迹中衍生，使得教程视频等多模态人类资源在很大程度上未被充分利用。我们提出RESOURCE2SKILL框架，该框架能够从教程视频、代码仓库、技术文章和参考制品等多模态资源中提炼出可供软件智能体执行的技能。RESOURCE2SKILL将这些技能组织为层次化多模态\"技能维基\"，其中每个条目融合了结构化文本、代码、视觉示例、元数据与溯源信息。这一设计保留了来自不同资源的互补性信号：视频捕捉时序操作与视觉效果，代码呈现可执行的工具模式，而文章或制品则提供概念性与风格化基础。在推理阶段，智能体从维基中检索并组合相关技能；当现有技能覆盖不足时，相同的构建算子可在线获取新技能。在七个实际创作领域中，RESOURCE2SKILL相较于无技能智能体将平均综合得分提升了11.9个百分点，并在28个核心聚合模型-领域单元中的26个单元表现优于强基准系统。消融实验证实了多模态技能格式、层次化组织、来源多样性、选择策略及在线获取机制的价值。",
+      "hf_link": "https://huggingface.co/papers/2606.29538"
     },
     "2607.15314": {
       "title": "Cura 1T: Specialized Model for Agentic Healthcare",
@@ -30,11 +42,11 @@
       "abstract_zh": "大语言模型（LLM）正在推动推荐系统从匹配历史行为中的共现模式，转向对驱动行为背后的意图进行推理。RecGPT-V1 在淘宝平台率先实践了这一以用户理解为中心的新范式，而 RecGPT-V2 则通过协调的多智能体推理将其规模化；两者均已部署上线，并在用户体验和商业成果上取得了持续提升。然而，大规模运行 RecGPT 系统揭示了三大挑战：（1）**无状态行为建模**，每次请求都需重新处理完整的用户历史，既浪费计算资源又丢弃了先前的分析；（2）**标签到商品的信息瓶颈**，自然语言标签在用户理解与商品定位间构成了一个有损通道；（3）**低效的显式推理**，冗长的思维链会带来难以承受的延迟和计算开销。我们提出 RecGPT-V3，这是一个**有状态的、混合模态的推荐系统**，它能够对自然语言（用于开放世界知识）和语义标识（Semantic IDs，SIDs，用于具体的商品定位）进行联合推理。一个**记忆中枢**（Memory Hub）维护着结构化的、持续演进的用户记忆，它将长期行为提炼为浓缩单元，从而将用户建模计算量削减了 55.8%。一个**混合模态基础模型**（Hybrid-modal Foundation Model）使大语言模型能够同时对文本标签和语义标识进行推理，从而开辟了一条通往商品空间的高带宽通道。**潜在意图推理**（Latent Intent Reasoning）将冗长的推理过程内化为紧凑的可学习潜在标记，这些标记仍可解码为可读的解释，从而将输出标记成本降低了 200 倍。在淘宝“猜你喜欢”信息流中部署后，RecGPT-V3 在大规模在线 A/B 测试中取得了持续提升：商品详情页浏览量（IPV）提升 1.28%，点击率（CTR）提升 1.00%，交易次数（TC）提升 1.97%，商品交易总额（GMV）提升 3.97%，同时将端到端服务资源消耗降低了 52.4%。",
       "hf_link": "https://huggingface.co/papers/2607.15591"
     },
-    "2607.11683": {
-      "title": "RAGU: A Multi-Step GraphRAG Engine with a Compact Domain-Adapted LLM",
-      "abstract": "Graph retrieval-augmented generation (GraphRAG) enhances large language models with structured knowledge, yet existing systems construct knowledge graphs in a single extraction pass, producing noisy entities and brittle retrieval. RAGU, an open-source modular GraphRAG engine, addresses this by separating extraction from consolidation: entities and relations pass through two-stage typed extraction, DBSCAN-backed deduplication, LLM summarization, and Leiden community detection. A key insight motivates a compact extractor: the skills an in-pipeline LLM needs - comprehension, extraction, reasoning over context - are language skills that grow only weakly with model size, unlike factual world knowledge. Accordingly, we train Meno-Lite-0.1, a 7B model optimized for language skills, which outperforms Qwen2.5-32B on knowledge-graph construction (+12.5% relative harmonic mean) and matches it on English GraphRAG tasks. On GraphRAG-Bench (Medical), RAGU retrieves the most complete context at every factoid level (evidence recall up to 0.84 vs. $\\leq$0.76) and overtakes HippoRAG2 on synthesis tasks; on multi-hop factoid QA, the apparent HippoRAG2 advantage is shown to be largely an answer-format artifact. RAGU is installable via $\\texttt{pip install graph_ragu}$, runs on a single GPU, and is released under MIT. The source code is publicly available atthis https URL, and the Meno-Lite-0.1 model can be obtained fromthis https URL.",
-      "abstract_zh": "基于图结构的检索增强生成（Graph Retrieval-Augmented Generation, GraphRAG）通过结构化知识增强大语言模型，但现有系统通常在单次抽取过程中构建知识图谱，导致实体噪声较多且检索过程脆弱。RAGU作为一个开源模块化的GraphRAG引擎，通过将抽取与整合环节解耦来解决此问题：实体与关系经过双阶段类型化抽取、基于DBSCAN的去重、大语言模型摘要以及莱顿（Leiden）社区检测流程。其核心设计理念在于采用精简的抽取器：流水线中大语言模型所需的能力——理解、抽取与上下文推理——属于语言技能范畴，这类能力随模型规模增长而提升的幅度远小于事实性世界知识。基于此，我们训练了Meno-Lite-0.1模型，这是一个针对语言技能优化的70亿参数模型，其在知识图谱构建任务上的表现优于Qwen2.5-32B模型（相对调和平均值提升+12.5%），并在英文GraphRAG任务中达到同等水平。在GraphRAG-Bench（医学版）测试中，RAGU在所有事实层级均能检索到最完整的上下文（证据召回率最高达0.84，对比基线≤0.76），并在综合生成任务上超越HippoRAG2；在多跳事实问答任务中，HippoRAG2的表面优势被证实主要源于答案格式的特定设计。RAGU可通过$\\texttt{pip install graph_ragu}$安装，支持单GPU运行，并以MIT协议开源。源代码公开于此https URL，Meno-Lite-0.1模型可从此https URL获取。",
-      "hf_link": "https://huggingface.co/papers/2607.11683"
+    "2607.15161": {
+      "title": "On-Policy Delta Distillation",
+      "abstract": "On-policy distillation is an alternative post-training method in reinforcement learning that alleviates the constraints imposed by reward models by providing token-level supervision from a teacher model. Although on-policy distillation has been studied and applied across various settings, its fundamental design remains underexplored. In this paper, we introduce a new distillation reward, termed the delta signal, instead of directly imitating the teacher's output distribution. The delta signal is defined as the difference between the teacher model and its base model prior to instruction tuning for reasoning capability. It therefore captures the changes induced by reasoning tuning and provides a more direct signal for transferring reasoning capabilities. Using extensive empirical evidence, we show that the delta signal substantially improves on-policy distillation and refer to the new distillation method as On-Policy Delta Distillation (OPD$^2$). Experiments across mathematics, science, and code-reasoning benchmarks demonstrate that OPD$^2$ consistently outperforms conventional on-policy distillation, enabling reasoning LLMs to achieve strong performance with only a short post-training period. Code will be available atthis https URL",
+      "abstract_zh": "在线策略蒸馏是一种强化学习中的替代性后训练方法，它通过提供来自教师模型的令牌级监督来缓解奖励模型带来的约束。尽管在线策略蒸馏已在多种场景中得到研究和应用，但其基础设计仍未得到充分探索。本文提出了一种新的蒸馏奖励方式——称为增量信号，以替代直接模仿教师模型的输出分布。该增量信号被定义为教师模型与其在指令调优以获得推理能力之前的基础模型之间的差异。因此，它捕捉了推理调优所引起的变化，并为传递推理能力提供了更直接的信号。通过大量实证证据，我们证明增量信号显著改进了在线策略蒸馏，并将这种新蒸馏方法称为在线策略增量蒸馏。在数学、科学和代码推理基准测试中的实验表明，在线策略增量蒸馏始终优于传统的在线策略蒸馏，使具备推理能力的大语言模型仅通过短暂的后训练期就能实现强劲性能。相关代码将在此https URL发布。",
+      "hf_link": "https://huggingface.co/papers/2607.15161"
     },
     "2607.13196": {
       "title": "From Human-Centric to Agentic Code Review: The Impact of Different Generations of Generative AI Technology on Review Quality",
@@ -42,11 +54,11 @@
       "abstract_zh": "代码评审有助于在代码集成前维护软件质量，但也给人工评审者带来了巨大的工作负担。随着生成式人工智能成为软件开发的一部分，代码评审正从以人工评审为主的过程，转向由大型语言模型（LLM）评审者和人工智能代理（AI agent）评审者与人类评审者共同参与的AI辅助评审过程。然而，我们仍缺乏关于这一转变如何影响评审效率和评审质量的实证证据。在本文中，我们研究了来自207个GitHub项目的102万个已评审拉取请求（pull request），这些项目跨越了三个代码评审时代：以人类为中心的评审、LLM辅助评审和智能代理代码评审。我们识别了三种AI评审者采用实践：渐进式AI采用、快速LLM采用和快速AI代理采用。我们进一步将拉取请求评审讨论建模为评审者交互序列，以刻画人类、LLM和AI代理评审者在评审过程中的协作方式。研究结果表明，在渐进式AI采用和快速AI代理采用实践中，涉及AI代理的协作模式——特别是由AI代理发起或涉及多个AI代理的评审——与更快的评审决策相关联。然而，这些效率提升并未转化为更高的评审质量。我们还发现，评审活跃度和拉取请求类型在各个时代中均保持重要影响，而一旦LLM和AI代理评审者参与后，人机协作模式成为评审效率最强的解释因素。这些发现为设计AI辅助的代码评审流程提供了实证指导，有助于在不削弱评审质量的前提下提升效率。",
       "hf_link": "https://huggingface.co/papers/2607.13196"
     },
-    "2607.15161": {
-      "title": "On-Policy Delta Distillation",
-      "abstract": "On-policy distillation is an alternative post-training method in reinforcement learning that alleviates the constraints imposed by reward models by providing token-level supervision from a teacher model. Although on-policy distillation has been studied and applied across various settings, its fundamental design remains underexplored. In this paper, we introduce a new distillation reward, termed the delta signal, instead of directly imitating the teacher's output distribution. The delta signal is defined as the difference between the teacher model and its base model prior to instruction tuning for reasoning capability. It therefore captures the changes induced by reasoning tuning and provides a more direct signal for transferring reasoning capabilities. Using extensive empirical evidence, we show that the delta signal substantially improves on-policy distillation and refer to the new distillation method as On-Policy Delta Distillation (OPD$^2$). Experiments across mathematics, science, and code-reasoning benchmarks demonstrate that OPD$^2$ consistently outperforms conventional on-policy distillation, enabling reasoning LLMs to achieve strong performance with only a short post-training period. Code will be available atthis https URL",
-      "abstract_zh": "在线策略蒸馏是一种强化学习中的替代性后训练方法，它通过提供来自教师模型的令牌级监督来缓解奖励模型带来的约束。尽管在线策略蒸馏已在多种场景中得到研究和应用，但其基础设计仍未得到充分探索。本文提出了一种新的蒸馏奖励方式——称为增量信号，以替代直接模仿教师模型的输出分布。该增量信号被定义为教师模型与其在指令调优以获得推理能力之前的基础模型之间的差异。因此，它捕捉了推理调优所引起的变化，并为传递推理能力提供了更直接的信号。通过大量实证证据，我们证明增量信号显著改进了在线策略蒸馏，并将这种新蒸馏方法称为在线策略增量蒸馏。在数学、科学和代码推理基准测试中的实验表明，在线策略增量蒸馏始终优于传统的在线策略蒸馏，使具备推理能力的大语言模型仅通过短暂的后训练期就能实现强劲性能。相关代码将在此https URL发布。",
-      "hf_link": "https://huggingface.co/papers/2607.15161"
+    "2607.16097": {
+      "title": "Understanding Reasoning from Pretraining to Post-Training",
+      "abstract": "Reinforcement learning (RL) has become central to improving large language models (LLMs) on complex reasoning tasks, yet RL post-training is largely studied in isolation from the pretraining that precedes it. As a result, two basic questions remain open: (1) how do pretraining choices (model size, data) shape the returns to RL compute, and (2) what does RL actually do to the model? These questions are difficult to study in the standard LLM setting: pretraining corpora are vast and uncontrolled, making it hard to attribute behaviors to pretraining versus RL, and systematic compute sweeps across both stages are prohibitively expensive. To address these challenges, we use chess as a controlled testbed for studying reasoning across the full pretraining-to-post-training pipeline. We follow the standard LLM training pipeline by pretraining language models from 5M to 1B parameters on human chess games, supervised fine-tuning on synthetic reasoning traces, and running RL on chess puzzles with verifiable rewards. Using this framework, we find that the post-RL performance at given RL compute level is well-predicted from the pretraining loss, and slope of the RL reward curves improves approximately linearly with the pretraining tokens. Beyond scaling, we find that RL does not simply sharpen the SFT policy: on easy puzzles it amplifies correct moves the SFT policy already preferred, while on hard puzzles it surfaces correct moves that were nearly absent under SFT. We further test whether our findings transfer beyond chess by training a 1B language model on math-domain text, where the same predictive pattern emerges: longer-pretrained checkpoints reach higher post-RL performance and improve faster under RL. In sum, we provide a quantitative account of the pretraining-to-RL interface and a controlled testbed for studying the science of reasoning across the full pretraining-to-post-training pipeline.",
+      "abstract_zh": "强化学习（Reinforcement Learning，RL）已成为提升大语言模型（Large Language Models，LLMs）在复杂推理任务上表现的核心技术，但其后训练阶段的研究往往与前置的预训练过程割裂。因此，两个基本问题仍未得到解答：（1）预训练选择（模型规模、数据）如何影响 RL 计算资源的回报；（2）RL 究竟对模型产生了何种作用？在标准 LLM 研究背景下，这些问题难以深入探讨：预训练语料库规模庞大且不可控，使得难以区分行为来自预训练还是 RL，而对两个阶段进行系统化的计算资源扫描又成本过高。为应对这些挑战，我们以国际象棋作为一个受控测试平台，用于研究从预训练到后训练全流程的推理能力。我们遵循标准 LLM 训练流程：首先在人类棋局数据上对参数量从 5M 到 1B 的语言模型进行预训练，随后在合成的推理轨迹上进行监督微调（Supervised Fine-Tuning，SFT），并在具有可验证奖励的象棋谜题上运行 RL。借助这一框架，我们发现：在给定 RL 计算资源水平下，经过 RL 后的性能可通过预训练损失准确预测，且 RL 奖励曲线的斜率大致随预训练 token 数量线性提升。除规模扩展效应外，我们还发现 RL 并非简单锐化 SFT 策略：在简单谜题中，它放大了 SFT 策略已倾向的正确走法；而在困难谜题中，它则发掘出 SFT 策略下几乎不存在的正确走法。我们进一步通过训练一个基于数学领域文本的 1B 语言模型，验证这些发现在国际象棋之外的领域是否依然成立——相同的预测规律再次显现：预训练更充分的检查点（checkpoints）在 RL 后达到更高性能，且在 RL 过程中提升更快。总之，我们为预训练与 RL 的衔接提供了量化解释，并构建了一个受控测试平台，用于系统研究从预训练到后训练全流程中的推理科学问题。",
+      "hf_link": "https://huggingface.co/papers/2607.16097"
     },
     "2607.11699": {
       "title": "Qwen-Music Technical Report",
@@ -54,29 +66,17 @@
       "abstract_zh": "在本报告中，我们介绍Qwen-Music——一个能够生成具备完整人声演唱、高度音乐性与高保真度的歌曲的强大音乐生成模型。Qwen-Music支持两项核心任务：文本到音乐生成，即根据文本描述、歌词与音乐属性创作全新歌曲；以及翻唱歌曲生成，即以不同风格与人声特征重新演绎现有歌曲。在架构上，Qwen-Music整合了三个核心组件：Qwen-Music-Tokenizer、Qwen-Music-LLM与Qwen-Music-Render。Qwen-Music-Tokenizer将音频压缩为25赫兹的单码本音乐语义标记流，这些标记保留了用于大语言模型预测的语义与旋律信息。基于这些标记，Qwen-Music-LLM进行自回归的音乐语义建模，其关键创新在于引入了基于旋律标记的思维链机制——该机制在生成完整歌曲前预先规划旋律，从而提升了创作性、音乐性、结构连贯性以及基于参考音频的旋律复现能力。为克服离散语义标记在保真度上的局限，Qwen-Music-Render执行生成式立体声渲染，丰富声学细节并产生高保真立体声波形。最后，我们在覆盖数百种语言的超500万小时多语言音乐数据上训练Qwen-Music-LLM。我们首先采用质量感知的预训练课程，随后通过包含监督初始化、离线直接偏好优化与在线生成式策略优化的渐进式后训练，进一步提升模型的音乐性与指令跟随能力。在600条中英文提示词的测试中，Qwen-Music在16项客观音乐性与音频质量指标中的13项达到了最先进水平。专业评估者也更倾向于选择Qwen-Music而非领先的专有系统。在翻唱歌曲生成任务中，Qwen-Music比主流专有系统更准确地保留了参考旋律。",
       "hf_link": "https://huggingface.co/papers/2607.11699"
     },
-    "2607.16097": {
-      "title": "Understanding Reasoning from Pretraining to Post-Training",
-      "abstract": "Reinforcement learning (RL) has become central to improving large language models (LLMs) on complex reasoning tasks, yet RL post-training is largely studied in isolation from the pretraining that precedes it. As a result, two basic questions remain open: (1) how do pretraining choices (model size, data) shape the returns to RL compute, and (2) what does RL actually do to the model? These questions are difficult to study in the standard LLM setting: pretraining corpora are vast and uncontrolled, making it hard to attribute behaviors to pretraining versus RL, and systematic compute sweeps across both stages are prohibitively expensive. To address these challenges, we use chess as a controlled testbed for studying reasoning across the full pretraining-to-post-training pipeline. We follow the standard LLM training pipeline by pretraining language models from 5M to 1B parameters on human chess games, supervised fine-tuning on synthetic reasoning traces, and running RL on chess puzzles with verifiable rewards. Using this framework, we find that the post-RL performance at given RL compute level is well-predicted from the pretraining loss, and slope of the RL reward curves improves approximately linearly with the pretraining tokens. Beyond scaling, we find that RL does not simply sharpen the SFT policy: on easy puzzles it amplifies correct moves the SFT policy already preferred, while on hard puzzles it surfaces correct moves that were nearly absent under SFT. We further test whether our findings transfer beyond chess by training a 1B language model on math-domain text, where the same predictive pattern emerges: longer-pretrained checkpoints reach higher post-RL performance and improve faster under RL. In sum, we provide a quantitative account of the pretraining-to-RL interface and a controlled testbed for studying the science of reasoning across the full pretraining-to-post-training pipeline.",
-      "abstract_zh": "强化学习（Reinforcement Learning，RL）已成为提升大语言模型（Large Language Models，LLMs）在复杂推理任务上表现的核心技术，但其后训练阶段的研究往往与前置的预训练过程割裂。因此，两个基本问题仍未得到解答：（1）预训练选择（模型规模、数据）如何影响 RL 计算资源的回报；（2）RL 究竟对模型产生了何种作用？在标准 LLM 研究背景下，这些问题难以深入探讨：预训练语料库规模庞大且不可控，使得难以区分行为来自预训练还是 RL，而对两个阶段进行系统化的计算资源扫描又成本过高。为应对这些挑战，我们以国际象棋作为一个受控测试平台，用于研究从预训练到后训练全流程的推理能力。我们遵循标准 LLM 训练流程：首先在人类棋局数据上对参数量从 5M 到 1B 的语言模型进行预训练，随后在合成的推理轨迹上进行监督微调（Supervised Fine-Tuning，SFT），并在具有可验证奖励的象棋谜题上运行 RL。借助这一框架，我们发现：在给定 RL 计算资源水平下，经过 RL 后的性能可通过预训练损失准确预测，且 RL 奖励曲线的斜率大致随预训练 token 数量线性提升。除规模扩展效应外，我们还发现 RL 并非简单锐化 SFT 策略：在简单谜题中，它放大了 SFT 策略已倾向的正确走法；而在困难谜题中，它则发掘出 SFT 策略下几乎不存在的正确走法。我们进一步通过训练一个基于数学领域文本的 1B 语言模型，验证这些发现在国际象棋之外的领域是否依然成立——相同的预测规律再次显现：预训练更充分的检查点（checkpoints）在 RL 后达到更高性能，且在 RL 过程中提升更快。总之，我们为预训练与 RL 的衔接提供了量化解释，并构建了一个受控测试平台，用于系统研究从预训练到后训练全流程中的推理科学问题。",
-      "hf_link": "https://huggingface.co/papers/2607.16097"
+    "2607.16169": {
+      "title": "When Does Muon Help Agentic Reinforcement Learning?",
+      "abstract": "Muon is competitive with AdamW in large-scale pre-training, but its value for reinforcement-learning (RL) post-training remains unclear. We study vanilla Muon in sparse-reward agentic RL through matched single-seed comparisons with AdamW on ALFWorld using Qwen2.5-0.5B-Instruct. Under Group-in-Group Policy Optimization (GiGPO), applying Muon only to hidden weight matrices raises final-window validation success from 0.290 to 0.546 (+88%); high-rate AdamW controls retain no post-update success. The effect depends on the advantage estimator and learning rate. At 3e-5, Muon improves GRPO from 0.161 to 0.268, whereas GraphGPO's late-window gap narrows near saturation. At 1e-5, GraphGPO Muon reaches 0.901, raises normalized validation AUC from 0.399 to 0.556, and reaches 0.5 and 0.75 success 30 and 60 updates earlier, respectively. These exploratory results show that Muon can benefit agentic RL and motivate studying the policy optimizer, advantage estimator, and learning rate jointly. Multi-seed and cross-task validation remain open.",
+      "abstract_zh": "在大型预训练中，Muon与AdamW表现相当，但其在强化学习后训练中的价值仍不明确。我们通过在ALFWorld环境中使用Qwen2.5-0.5B-Instruct模型，与AdamW进行匹配单种子比较，研究了原始Muon在稀疏奖励智能体强化学习中的表现。在组内组策略优化（GiGPO）框架下，仅对隐藏权重矩阵应用Muon可将最终窗口验证成功率从0.290提升至0.546（+88%）；而采用高学习率AdamW的对照组在更新后未能保持任何成功率。该效果受优势估计器和学习率影响：在3e-5学习率下，Muon将GRPO的成功率从0.161提升至0.268，而GraphGPO在接近饱和时后期窗口差距缩小；在1e-5学习率下，GraphGPO结合Muon达到0.901成功率，将归一化验证AUC从0.399提升至0.556，并分别提前30次和60次更新达到0.5及0.75成功率。这些探索性结果表明Muon可为智能体强化学习带来增益，并推动了对策略优化器、优势估计器与学习率的联合研究。多种子与跨任务验证仍有待探索。",
+      "hf_link": "https://huggingface.co/papers/2607.16169"
     },
     "2607.15524": {
       "title": "Recursive Harness Self-Improvement",
       "abstract": "Under model--harness co-evolution, harnesses are not merely inference-time scaffolds but data-generating components whose execution traces can shape future foundation models. This motivates harness-in-the-loop learning: optimizing harnesses for both immediate agent performance and the quality of traces used for future model training. However, continually updating provider-built scaffolds is costly and labor-intensive. We therefore investigate whether optimizing user-constructed harnesses in a task-specific manner can improve execution-trace quality while remaining computationally lightweight and requiring only a few update iterations. To this end, we introduce Recursive Harness Self-Improvement (RHI), which represents the harness as a prompt-level specification of the agent loop and iteratively refines it using pairwise feedback over its own revision history. Across 30 synthetic machine-learning research tasks spanning quantitative finance, robotics, and pharmacy, a few RHI iterations suffice to substantially raise the performance ceiling of low-reasoning-effort agents, exceeding the corresponding maximum-reasoning-effort setting while reducing inference cost by up to 60%. We show that these gains arise primarily from improved task-specific context management through more effective inter-agent information flow rather than longer reasoning traces. Finally, we formalize this behavior as an information-theoretic hypothesis for RHI's implicit optimization objective, suggesting RHI as a practical algorithm for continual learning within the paradigm of model--harness co-evolution.",
       "abstract_zh": "在模型与约束框架协同演化范式下，约束框架不仅是推理阶段的脚手架，更是能够通过执行轨迹影响未来基础模型训练的数据生成组件。这催生了\"约束框架在环学习\"方法：通过优化约束框架，既能提升智能体即时性能，又能改善用于未来模型训练的执行轨迹质量。然而持续更新供应商构建的框架存在成本高昂且劳动密集的挑战。为此，我们研究针对用户构建的约束框架进行任务特异性优化，能否在保持计算轻量化和仅需少量更新迭代的前提下提升执行轨迹质量。我们提出递归约束框架自改进方法，将约束框架表征为智能体循环的提示级规范，并利用其自身修订历史的成对反馈进行迭代优化。在涵盖量化金融、机器人与制药领域的30项合成机器学习研究任务中，仅需数次RHI迭代即可显著提升低推理效能智能体的性能上限，其表现超越对应的高推理效能设定，同时将推理成本降低达60%。研究表明，这些性能增益主要源于通过更有效的智能体间信息流实现的任务特异性上下文管理改进，而非依赖更长的推理轨迹。最后，我们将该机制形式化为信息论假说以阐释RHI的隐式优化目标，表明RHI可作为模型与约束框架协同演化范式下持续学习的实用算法。",
       "hf_link": "https://huggingface.co/papers/2607.15524"
-    },
-    "2607.15901": {
-      "title": "DSWorld: A Data Science World Model for Efficient Autonomous Agents",
-      "abstract": "Despite strong capabilities in data understanding and decision-making, autonomous data science agents still heavily rely on trial-and-error workflows that involve expensive computation. This bottleneck motivates models that can anticipate the effects of data science operations before real execution. In this paper, we introduce the concept of Data Science World Model, which model the data science execution environment by predicting environment state transitions conditioned on current workflow states and candidate operations. We further propose DSWorld, a practical framework that combines structured state construction, cost-aware routing, lightweight real execution, and an LLM-based simulator for expensive operations. To support training, we construct an 8K-scale transition trajectory dataset and introduce Reflective World Model Optimization, an error-aware reinforcement learning strategy for improving transition prediction. Experiments show that DSWorld accelerates RL-based agent training by approximately $14\\times$ and search-based inference by approximately $3$-$6\\times$ while maintaining competitive performance, and outperforms the strongest LLM baseline by 35.6% on transition prediction tasks. The code is available atthis https URL.",
-      "abstract_zh": "尽管在数据理解和决策方面具备强大能力，自主数据科学代理仍严重依赖涉及昂贵计算的试错工作流程。这一瓶颈催生了能够在实际执行前预测数据科学操作效果的模型。本文提出数据科学世界模型概念，该模型通过基于当前工作流状态和候选操作预测环境状态转移，对数据科学执行环境进行建模。我们进一步提出DSWorld框架，该框架结合结构化状态构建、成本感知路由、轻量级实际执行以及基于大语言模型的昂贵操作模拟器。为支持训练，我们构建了包含8千条转移轨迹的数据集，并引入反思性世界模型优化——一种用于改进转移预测的误差感知强化学习策略。实验表明，DSWorld在保持竞争性能的同时，将基于强化学习的代理训练速度提升约14倍，将基于搜索的推理速度提升约3-6倍，并在转移预测任务上超越最强LLM基线35.6%。代码可通过此https链接获取。",
-      "hf_link": "https://huggingface.co/papers/2607.15901"
-    },
-    "2607.15686": {
-      "title": "S1-Omni: A Unified Multimodal Reasoning Model for Scientific Understanding, Prediction, and Generation",
-      "abstract": "We present S1-Omni, a unified multimodal reasoning model for scientific understanding, prediction, and generation. AI for Science (AI4S) has advanced significantly through domain-specific models, tool-augmented LLMs, and scientific language models. However, model capabilities remain highly fragmented, limiting the joint modeling of heterogeneous data, scientific laws, and expert knowledge. S1-Omni addresses this gap by consolidating these capabilities into a single, coherent scientific reasoning model. The architecture of S1-Omni is built upon three core components: unified representation of scientific data, natural-world knowledge alignment, and decoding for domain-specific tasks. First, S1-Omni maps natural-language instructions and scientific objects, including CIF, SMILES, protein sequences, spectra, and scientific images, into a shared representation space. Second, it incorporates scientific laws and expert knowledge into data construction and training, enabling the model to reason from scientific evidence. Third, it performs task-specific decoding to support a broad range of applications, including property prediction, spectrum-to-molecular generation, protein site and structure prediction, and scientific image generation and editing. S1-Omni is trained on S1-Omni-Corpus, which covers 200 scientific tasks and contains millions of reasoning samples, and is evaluated on over 60 scientific benchmarks. It outperforms GPT-5.5 and Gemini-3.1-Pro on most benchmarks and matches or surpasses domain-specific models on several benchmarks. Overall, S1-Omni provides a practical path toward unified scientific modeling.",
-      "abstract_zh": "本文提出S1-Omni，一个面向科学理解、预测与生成的多模态统一推理模型。科学人工智能（AI4S）通过领域专用模型、工具增强型大语言模型和科学语言模型取得了显著进展，但当前模型能力仍高度碎片化，限制了异构数据、科学定律与专家知识的联合建模。S1-Omni通过将这些能力整合为统一连贯的科学推理模型，弥补了这一缺陷。该模型的架构基于三大核心组件：科学数据的统一表征、自然世界知识对齐以及面向领域任务的解码机制。首先，S1-Omni将自然语言指令与科学对象（包括CIF（晶体学信息文件）、SMILES（简化分子线性输入系统）、蛋白质序列、谱图及科学图像）映射至共享表征空间。其次，该模型将科学定律与专家知识融入数据构建与训练过程，使其能够基于科学证据进行推理。最后，它执行任务定制化解码，支撑包括性质预测、谱图到分子生成、蛋白质位点与结构预测、科学图像生成与编辑在内的广泛应用。S1-Omni基于覆盖200项科学任务、包含数百万推理样本的S1-Omni-Corpus进行训练，并在超过60个科学基准测试中完成评估。其在多数基准测试中超越GPT-5.5与Gemini-3.1-Pro，并在若干基准测试中达到或优于领域专用模型。总体而言，S1-Omni为统一科学建模提供了可行路径。",
-      "hf_link": "https://huggingface.co/papers/2607.15686"
     },
     "2607.14088": {
       "title": "VideoRAE: Taming Video Foundation Models for Generative Modeling via Representation Autoencoders",
@@ -89,38 +89,69 @@
       "abstract": "We present Audio-Visual Flamingo (AV-Flamingo), a fully open state-of-the-art audio-visual large language model (AV-LLM) for joint understanding and reasoning over audio, images, and long-form videos. Unlike prior AV-LLMs that primarily focus on short clips, AV-Flamingo is designed for understanding and reasoning over long and complex real-world (audio-visual) videos. To support this, we make three key contributions: (i) Audio-Visual-Skills, a large-scale collection of real-world videos with ~7M caption and question-answer training instances designed to emphasize temporal, compositional, and cross-modal audio-visual reasoning; (ii) a novel three-stage curriculum that progressively trains the model from short-range perception to long-horizon multi-event reasoning; and (iii) Temporal Audio-Visual Interleaved Chain-of-Thought, a reasoning framework that explicitly grounds intermediate reasoning steps to timestamps in long audio-visual streams, improving temporal alignment and interpretability. Extensive experiments across 15+ audio-visual, omni-modal, audio, and vision benchmarks show that AV-Flamingo outperforms similarly sized open models by clear margins and remains highly competitive with, and in some cases surpasses, much larger open-weight and closed models, particularly on long and complex real-world audio-visual understanding and reasoning tasks. Beyond benchmark performance, AV-Flamingo exhibits strong real-world utility and transfers well to unseen tasks, highlighting its robustness and generalization ability.",
       "abstract_zh": "我们提出音频-视觉火烈鸟（Audio-Visual Flamingo，AV-Flamingo），这是一个完全开源、性能领先的音频-视觉大语言模型（Audio-Visual Large Language Model，AV-LLM），用于实现对音频、图像及长视频的联合理解与推理。与先前主要聚焦短片段处理的AV-LLMs不同，AV-Flamingo专为理解和推理长时、复杂的真实世界（音频-视觉）视频而设计。为此，我们做出三项关键贡献：（一）音频-视觉技能（Audio-Visual-Skills）——一个大规模真实世界视频数据集，包含约700万条描述文本与问答训练实例，旨在强化时序性、组合性及跨模态的音频-视觉推理能力；（二）一种新颖的三阶段渐进式训练课程，使模型从短时感知逐步提升至长时程多事件推理能力；（三）时序音频-视觉交错思维链（Temporal Audio-Visual Interleaved Chain-of-Thought）——一种推理框架，能够将中间推理步骤显式对齐到长音频-视觉流的时间戳上，从而提升时序对齐能力与可解释性。在涵盖15个以上音频-视觉、全模态、音频及视觉基准的广泛实验中，AV-Flamingo显著优于同规模开源模型，并与规模更大的开源权重模型及闭源模型保持强劲竞争力，甚至在部分长时复杂真实世界音频-视觉理解与推理任务中实现超越。除基准性能外，AV-Flamingo展现出强大的实际应用价值，并能良好迁移至未见任务，凸显了其鲁棒性与泛化能力。",
       "hf_link": "https://huggingface.co/papers/2607.16107"
+    },
+    "2607.15686": {
+      "title": "S1-Omni: A Unified Multimodal Reasoning Model for Scientific Understanding, Prediction, and Generation",
+      "abstract": "We present S1-Omni, a unified multimodal reasoning model for scientific understanding, prediction, and generation. AI for Science (AI4S) has advanced significantly through domain-specific models, tool-augmented LLMs, and scientific language models. However, model capabilities remain highly fragmented, limiting the joint modeling of heterogeneous data, scientific laws, and expert knowledge. S1-Omni addresses this gap by consolidating these capabilities into a single, coherent scientific reasoning model. The architecture of S1-Omni is built upon three core components: unified representation of scientific data, natural-world knowledge alignment, and decoding for domain-specific tasks. First, S1-Omni maps natural-language instructions and scientific objects, including CIF, SMILES, protein sequences, spectra, and scientific images, into a shared representation space. Second, it incorporates scientific laws and expert knowledge into data construction and training, enabling the model to reason from scientific evidence. Third, it performs task-specific decoding to support a broad range of applications, including property prediction, spectrum-to-molecular generation, protein site and structure prediction, and scientific image generation and editing. S1-Omni is trained on S1-Omni-Corpus, which covers 200 scientific tasks and contains millions of reasoning samples, and is evaluated on over 60 scientific benchmarks. It outperforms GPT-5.5 and Gemini-3.1-Pro on most benchmarks and matches or surpasses domain-specific models on several benchmarks. Overall, S1-Omni provides a practical path toward unified scientific modeling.",
+      "abstract_zh": "本文提出S1-Omni，一个面向科学理解、预测与生成的多模态统一推理模型。科学人工智能（AI4S）通过领域专用模型、工具增强型大语言模型和科学语言模型取得了显著进展，但当前模型能力仍高度碎片化，限制了异构数据、科学定律与专家知识的联合建模。S1-Omni通过将这些能力整合为统一连贯的科学推理模型，弥补了这一缺陷。该模型的架构基于三大核心组件：科学数据的统一表征、自然世界知识对齐以及面向领域任务的解码机制。首先，S1-Omni将自然语言指令与科学对象（包括CIF（晶体学信息文件）、SMILES（简化分子线性输入系统）、蛋白质序列、谱图及科学图像）映射至共享表征空间。其次，该模型将科学定律与专家知识融入数据构建与训练过程，使其能够基于科学证据进行推理。最后，它执行任务定制化解码，支撑包括性质预测、谱图到分子生成、蛋白质位点与结构预测、科学图像生成与编辑在内的广泛应用。S1-Omni基于覆盖200项科学任务、包含数百万推理样本的S1-Omni-Corpus进行训练，并在超过60个科学基准测试中完成评估。其在多数基准测试中超越GPT-5.5与Gemini-3.1-Pro，并在若干基准测试中达到或优于领域专用模型。总体而言，S1-Omni为统一科学建模提供了可行路径。",
+      "hf_link": "https://huggingface.co/papers/2607.15686"
+    },
+    "2607.14614": {
+      "title": "Beyond Entropy: Correctness-Aware Advantage Shaping via Contrastive Policy Optimization",
+      "abstract": "Reinforcement learning with verifiable rewards (RLVR) commonly uses entropy for advantage shaping. However, entropy cannot distinguish useful uncertainty from detrimental confusion, limiting its effectiveness as a correctness signal. We propose Contrastive Policy Optimization (CPO), which uses token-level contrastive disagreement between reference-guided and vanilla generation distributions for correctness-aware advantage shaping. Both theoretical and empirical results show that this disagreement reliably indicates token-level correctness. We further show that On-policy Distillation is a special case of CPO, where the posterior distribution is instantiated by an external teacher model. CPO also resolves the zero-advantage problem. Experiments on in-domain and out-of-domain benchmarks demonstrate that CPO substantially outperforms entropy-based RLVR methods while maintaining strong generalization. Further analysis shows that correct and incorrect responses naturally support exploration and exploitation respectively, and balancing both leads to the best performance.",
+      "abstract_zh": "基于可验证奖励的强化学习（Reinforcement learning with verifiable rewards，RLVR）通常采用熵进行优势塑形。然而，熵无法区分有益的不确定性与有害的混淆，这限制了其作为正确性指示信号的有效性。我们提出对比策略优化（Contrastive Policy Optimization，CPO），该方法利用参考引导生成分布与原始生成分布之间的令牌级对比差异，实现基于正确性感知的优势塑形。理论与实证结果均表明，该差异能可靠地反映令牌级正确性。我们进一步证明，在线策略蒸馏（On-policy Distillation）是CPO的一种特例，其中后验分布由外部教师模型实例化。CPO还解决了零优势问题。在领域内和领域外基准测试上的实验表明，CPO显著优于基于熵的RLVR方法，同时保持了强大的泛化能力。进一步分析显示，正确与错误的响应分别天然支持探索与利用，而平衡二者可获得最佳性能。",
+      "hf_link": "https://huggingface.co/papers/2607.14614"
+    },
+    "2607.15901": {
+      "title": "DSWorld: A Data Science World Model for Efficient Autonomous Agents",
+      "abstract": "Despite strong capabilities in data understanding and decision-making, autonomous data science agents still heavily rely on trial-and-error workflows that involve expensive computation. This bottleneck motivates models that can anticipate the effects of data science operations before real execution. In this paper, we introduce the concept of Data Science World Model, which model the data science execution environment by predicting environment state transitions conditioned on current workflow states and candidate operations. We further propose DSWorld, a practical framework that combines structured state construction, cost-aware routing, lightweight real execution, and an LLM-based simulator for expensive operations. To support training, we construct an 8K-scale transition trajectory dataset and introduce Reflective World Model Optimization, an error-aware reinforcement learning strategy for improving transition prediction. Experiments show that DSWorld accelerates RL-based agent training by approximately $14\\times$ and search-based inference by approximately $3$-$6\\times$ while maintaining competitive performance, and outperforms the strongest LLM baseline by 35.6% on transition prediction tasks. The code is available atthis https URL.",
+      "abstract_zh": "尽管在数据理解和决策方面具备强大能力，自主数据科学代理仍严重依赖涉及昂贵计算的试错工作流程。这一瓶颈催生了能够在实际执行前预测数据科学操作效果的模型。本文提出数据科学世界模型概念，该模型通过基于当前工作流状态和候选操作预测环境状态转移，对数据科学执行环境进行建模。我们进一步提出DSWorld框架，该框架结合结构化状态构建、成本感知路由、轻量级实际执行以及基于大语言模型的昂贵操作模拟器。为支持训练，我们构建了包含8千条转移轨迹的数据集，并引入反思性世界模型优化——一种用于改进转移预测的误差感知强化学习策略。实验表明，DSWorld在保持竞争性能的同时，将基于强化学习的代理训练速度提升约14倍，将基于搜索的推理速度提升约3-6倍，并在转移预测任务上超越最强LLM基线35.6%。代码可通过此https链接获取。",
+      "hf_link": "https://huggingface.co/papers/2607.15901"
     }
   },
   "hf_votes": {
-    "2607.14530": 0,
     "2607.15330": 0,
+    "2607.11683": 0,
+    "2607.14530": 0,
+    "2606.29538": 0,
     "2607.15314": 0,
     "2607.16051": 0,
     "2607.15591": 0,
-    "2607.11683": 0,
-    "2607.13196": 0,
     "2607.15161": 0,
-    "2607.11699": 0,
+    "2607.13196": 0,
     "2607.16097": 0,
+    "2607.11699": 0,
+    "2607.16169": 0,
     "2607.15524": 0,
-    "2607.15901": 0,
-    "2607.15686": 0,
     "2607.14088": 0,
-    "2607.16107": 0
+    "2607.16107": 0,
+    "2607.15686": 0,
+    "2607.14614": 0,
+    "2607.15901": 0
   },
   "focus_sections": {
     "3D生成与重建": []
   },
   "summaries": {
+    "2607.15330": {
+      "short_zh": "小米机器人模型用十万小时数据训练",
+      "tags": "机器人;具身智能;移动操作机器人模型",
+      "body_summary": "开发能理解自然语言指令并执行移动操作任务的通用机器人基础模型。\n提出两阶段训练方法，用超十万小时真实数据预训练，再通过指令微调对齐人类指令，在新环境和复杂任务中表现优异。"
+    },
+    "2607.11683": {
+      "short_zh": "多步图知识增强大模型引擎",
+      "tags": "自然语言处理;知识增强与检索;图知识库构建与推理",
+      "body_summary": "现有图知识增强方法在单次提取中构建的知识图谱存在噪声且检索脆弱。\n提出了RAGU引擎，采用提取与整合分离的多步流程，并训练了高效的专用小模型，显著提升了知识图谱构建质量和检索性能。"
+    },
     "2607.14530": {
       "short_zh": "扩充残差流的新方法",
       "tags": "大语言模型;模型架构优化;残差流扩展",
       "body_summary": "现有Transformer残差流扩展方法在超过4个并行流后性能提升有限且训练成本激增。\n提出了xHC方法，通过增强回写信息和稀疏更新机制，首次实现了16个流的有效扩展，并引入xHC-Flash控制内存开销。"
     },
-    "2607.15330": {
-      "short_zh": "小米机器人模型用十万小时数据训练",
-      "tags": "机器人;具身智能;移动操作机器人模型",
-      "body_summary": "开发能理解自然语言指令并执行移动操作任务的通用机器人基础模型。\n提出两阶段训练方法，用超十万小时真实数据预训练，再通过指令微调对齐人类指令，在新环境和复杂任务中表现优异。"
+    "2606.29538": {
+      "short_zh": "从多模态资源提取可执行技能",
+      "tags": "机器学习;具身智能与软件代理;多模态技能提取与组织",
+      "body_summary": "当前软件代理的技能库大多依赖文本或代理自身经验，未能充分利用教程视频等多模态资源。\n提出了RESOURCE2SKILL框架，将视频、代码等资源转化为结构化的可执行技能，构建分层技能维基，并证明其在多个实际任务中能显著提升代理性能。"
     },
     "2607.15314": {
       "short_zh": "医生助手模型Cura 1T",
@@ -137,45 +168,35 @@
       "tags": "推荐系统；大语言模型推荐；状态化混合模态推荐",
       "body_summary": "大语言模型正在改变推荐系统，使其从匹配历史行为转向推理用户意图，但现有方法存在状态缺失、信息瓶颈和推理低效三大挑战。\nRecGPT-V3通过引入记忆中枢、混合模态基座和隐式意图推理，构建了状态化、混合模态的推荐系统，在淘宝上线后显著提升了多项用户指标并大幅降低了资源消耗。"
     },
-    "2607.11683": {
-      "short_zh": "多步图知识增强大模型引擎",
-      "tags": "自然语言处理;知识增强与检索;图知识库构建与推理",
-      "body_summary": "现有图知识增强方法在单次提取中构建的知识图谱存在噪声且检索脆弱。\n提出了RAGU引擎，采用提取与整合分离的多步流程，并训练了高效的专用小模型，显著提升了知识图谱构建质量和检索性能。"
+    "2607.15161": {
+      "short_zh": "改进强化学习奖励设计",
+      "tags": "强化学习;语言模型对齐;策略蒸馏",
+      "body_summary": "强化学习中的策略蒸馏通常直接模仿教师模型输出，但这种方法存在局限。\n提出了一种新的“差值信号”奖励，通过捕捉教师模型与其基础模型在指令调优前后的差异来指导训练，实验证明该方法能更有效地提升模型推理能力。"
     },
     "2607.13196": {
       "short_zh": "生成式AI对代码审查质量影响研究",
       "tags": "软件工程;代码审查;AI辅助审查",
       "body_summary": "代码审查有助于保障软件质量但人力负担重，生成式AI正推动审查从人工主导转向AI参与的新模式，但缺乏对效率与质量影响的实证证据。\n分析了百万级代码审查记录，识别三种AI应用模式并建模审查互动，发现AI参与提升效率但未改善质量，为优化AI辅助审查流程提供依据。"
     },
-    "2607.15161": {
-      "short_zh": "改进强化学习奖励设计",
-      "tags": "强化学习;语言模型对齐;策略蒸馏",
-      "body_summary": "强化学习中的策略蒸馏通常直接模仿教师模型输出，但这种方法存在局限。\n提出了一种新的“差值信号”奖励，通过捕捉教师模型与其基础模型在指令调优前后的差异来指导训练，实验证明该方法能更有效地提升模型推理能力。"
+    "2607.16097": {
+      "short_zh": "研究预训练对强化学习后训练的影响",
+      "tags": "自然语言处理;大语言模型训练;强化学习后训练",
+      "body_summary": "强化学习被广泛用于提升大语言模型的复杂推理能力，但其与预训练阶段的关系尚不清晰。\n本文以国际象棋为受控测试平台，探究了预训练选择如何影响强化学习效果，并揭示了强化学习在推理任务中的具体作用机制。"
     },
     "2607.11699": {
       "short_zh": "Qwen音乐生成模型技术报告",
       "tags": "多模态生成;音乐生成;文本到音乐生成与翻唱生成",
       "body_summary": "我们介绍了Qwen-Music，一个能生成高质量带人声歌曲的模型，支持文本生成音乐和翻唱生成任务。\n该模型整合了分词器、大语言模型和渲染器，采用新颖的旋律思维链机制，在大量数据上通过课程学习和渐进式训练，在多项指标上达到领先。"
     },
-    "2607.16097": {
-      "short_zh": "研究预训练对强化学习后训练的影响",
-      "tags": "自然语言处理;大语言模型训练;强化学习后训练",
-      "body_summary": "强化学习被广泛用于提升大语言模型的复杂推理能力，但其与预训练阶段的关系尚不清晰。\n本文以国际象棋为受控测试平台，探究了预训练选择如何影响强化学习效果，并揭示了强化学习在推理任务中的具体作用机制。"
+    "2607.16169": {
+      "short_zh": "探究Muon优化器对智能体强化学习的影响",
+      "tags": "机器学习;强化学习;智能体策略优化",
+      "body_summary": "传统AdamW优化器在强化学习微调中表现不佳，Muon优化器在大规模预训练中已展现竞争力。\n研究将Muon优化器应用于稀疏奖励的智能体强化学习任务，发现其能显著提升策略成功率与训练效率，效果受优势估计器和学习率影响。"
     },
     "2607.15524": {
       "short_zh": "迭代优化智能体协作流程",
       "tags": "机器学习;智能体系统;提示工程优化",
       "body_summary": "在模型与工具协同进化的背景下，用户构建的任务执行流程（harness）难以高效优化。\n提出递归自我改进方法，通过迭代优化提示来提升智能体协作效率，在多个任务上以更低成本超越传统方法。"
-    },
-    "2607.15901": {
-      "short_zh": "数据科学世界模型加速智能体",
-      "tags": "机器学习;自动机器学习;数据科学工作流模拟",
-      "body_summary": "当前数据科学智能体依赖试错执行，计算成本高\n提出预测工作流状态转移的世界模型框架，提升训练与推理效率"
-    },
-    "2607.15686": {
-      "short_zh": "统一多模态科学推理模型",
-      "tags": "科学计算；多模态学习；科学数据理解与生成",
-      "body_summary": "科学AI模型目前能力碎片化，难以联合建模异构数据与科学知识\n提出S1-Omni模型，统一表示科学数据并融合科学知识，在多个科学任务上实现先进性能"
     },
     "2607.14088": {
       "short_zh": "用视频基模型构建生成式视频潜空间",
@@ -186,6 +207,21 @@
       "short_zh": "视听人工智能理解复杂长视频",
       "tags": "多模态人工智能;视听语言模型;长视频理解与推理",
       "body_summary": "现有模型主要处理短视频，难以应对长而复杂的真实世界视听视频。\n提出AV-Flamingo模型，构建大规模数据集和训练课程，并设计推理框架，在多项任务中表现优异。"
+    },
+    "2607.15686": {
+      "short_zh": "统一多模态科学推理模型",
+      "tags": "科学计算；多模态学习；科学数据理解与生成",
+      "body_summary": "科学AI模型目前能力碎片化，难以联合建模异构数据与科学知识\n提出S1-Omni模型，统一表示科学数据并融合科学知识，在多个科学任务上实现先进性能"
+    },
+    "2607.14614": {
+      "short_zh": "强化学习奖励可验证任务优化",
+      "tags": "机器学习;强化学习;语言模型对齐",
+      "body_summary": "强化学习验证奖励方法常用熵进行优势塑形，但熵无法区分有益和有害的不确定性。\n提出对比策略优化，利用参考与原始生成的分布差异进行正确性感知的优势塑形，显著优于熵基方法。"
+    },
+    "2607.15901": {
+      "short_zh": "数据科学世界模型加速智能体",
+      "tags": "机器学习;自动机器学习;数据科学工作流模拟",
+      "body_summary": "当前数据科学智能体依赖试错执行，计算成本高\n提出预测工作流状态转移的世界模型框架，提升训练与推理效率"
     }
   },
   "deep_analysis": {},
