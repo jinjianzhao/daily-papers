@@ -1,28 +1,16 @@
 {
   "base_info": {
-    "2607.17097": {
-      "title": "HarmoHOI: Harmonizing Appearance and 3D Motion for Multi-view Hand-Object Interaction Synthesis",
-      "abstract": "Hand-Object Interaction (HOI) synthesis is a cornerstone for animation production and embodied AI. Despite the strong priors of video foundation models, multi-view consistent HOI synthesis remains challenging due to complex hand motions and occlusions. We present HarmoHOI, a unified diffusion framework that jointly and harmoniously generates synchronized multi-view HOI videos and globally aligned 3D point tracks. Our core insight is that robust multi-view consistency fundamentally requires globally aligned 3D geometry and motion. To this end, we propose a Mixture of Multi-view Diffusion Transformer that co-models RGB videos and 3D point tracks. By representing point tracks as pseudo-videos, we align 3D geometric signals with the 2D latent space of foundation models, thereby minimizing the domain gap and easing adaptation of priors. To further ensure geometry consistency, we introduce Global Motion Aligning Diffusion, which refines coarse point tracks into metric-scale, globally aligned 3D trajectories. HarmoHOI enables on-the-fly co-evolution of 2D appearance and 3D motion during denoising. To overcome the scarcity of multi-view HOI data, we employ a hybrid data curriculum learning strategy that successfully transfers generic priors from single-view data to synchronized multi-view generation. Experimental results show that HarmoHOI achieves state-of-the-art performance in visual quality, motion plausibility, and multi-view geometric consistency. Project page available atthis https URL.",
-      "abstract_zh": "手-物体交互（Hand-Object Interaction, HOI）合成是动画制作与具身人工智能（embodied AI）的基石。尽管视频基础模型具备强大的先验知识，但由于复杂的手部运动与遮挡，多视角一致的HOI合成仍面临挑战。我们提出了HarmoHOI，一个统一的扩散框架，能够协同且和谐地生成同步的多视角HOI视频以及全局对齐的3D点轨迹。我们的核心见解是：鲁棒的多视角一致性根本上需要全局对齐的3D几何与运动。为此，我们提出了一种多视角扩散Transformer混合模型，该模型协同建模RGB视频与3D点轨迹。通过将点轨迹表示为伪视频，我们将3D几何信号与基础模型的2D潜在空间对齐，从而最小化领域差距并促进先验知识的适配。为进一步确保几何一致性，我们引入了全局运动对齐扩散机制，该机制将粗略的点轨迹优化为公制尺度、全局对齐的3D运动轨迹。HarmoHOI能够在去噪过程中实现2D外观与3D运动的实时协同演化。为克服多视角HOI数据稀缺的问题，我们采用了混合数据课程学习策略，成功将单视角数据中的通用先验知识迁移至同步多视角生成任务。实验结果表明，HarmoHOI在视觉质量、运动合理性和多视角几何一致性方面均达到了最先进的性能。项目页面详见此链接。",
-      "hf_link": "https://huggingface.co/papers/2607.17097"
-    },
     "2607.13365": {
       "title": "DiffGI: Differentiable Geometry Images for High-Fidelity Thin-Shell 3D Generation",
       "abstract": "Existing 3D generative models predominantly rely on implicit volumetric representations, which enforce watertight topology and struggle to represent thin-shell and non-manifold geometries such as garments. Geometry image-based approaches offer a surface-centric alternative, but existing methods rely on discrete binary occupancy maps whose resolution-dependent boundary encoding causes staircase artifacts and information loss upon downsampling, while surface reconstruction remains a non-differentiable post-processing step disconnected from the learning pipeline. To address this, we propose Differentiable Geometry Image (DiffGI), an end-to-end 3D-to-2D mapping framework that seamlessly integrates surface representation and geometric optimization. DiffGI replaces binary maps with a continuous 2D Truncated Signed Distance Function (TSDF), which encodes boundary position at subpixel precision within a fixed grid resolution, eliminating resolution-dependent staircase artifacts even under aggressive downsampling. Building on this continuous field, we introduce a differentiable Marching Squares algorithm based on analytical linear interpolation, allowing gradients from 3D surface losses to propagate back to the 2D latent space. Leveraging this differentiable pipeline, we train a DiffGI-VAE augmented with a geometry-aware normal rendering loss to compress complex 3D surfaces into an ultra-compact 32X32 latent space, and instantiate a transformer-based latent diffusion model with a flow-matching objective on top of this space for conditional 3D generation. Extensive experiments on garment and object datasets demonstrate that our method achieves superior reconstruction fidelity and boundary precision compared to prior geometry-image and voxel-based approaches, while requiring significantly fewer computational resources.",
       "abstract_zh": "现有的三维生成模型主要依赖隐式体积表示，这类方法强制要求水密拓扑结构，难以表现服装等薄壳与非流形几何体。基于几何图像的方法提供了一种以曲面为中心的替代方案，但现有方法依赖于离散的二值占据图，其分辨率相关的边界编码会在下采样时产生阶梯状伪影并导致信息丢失，且曲面重建仍然是与学习流程脱节的非可微分后处理步骤。为解决这些问题，我们提出了可微分几何图像（DiffGI），这是一个端到端的三维到二维映射框架，能够无缝集成曲面表示与几何优化。DiffGI采用连续二维截断符号距离函数（TSDF）替代二值占据图，该函数可在固定网格分辨率内以亚像素精度编码边界位置，即便在激进的下采样条件下也能消除分辨率相关的阶梯状伪影。基于此连续场，我们提出了一种基于解析线性插值的可微分行进方格算法，使得来自三维曲面损失的梯度能够反向传播至二维潜在空间。利用这一可微分流程，我们训练了一个增强几何感知法线渲染损失的DiffGI-VAE，将复杂三维曲面压缩至超紧凑的32×32潜在空间，并在此空间上构建了基于Transformer的潜在扩散模型，采用流匹配目标实现条件化三维生成。在服装与物体数据集上的大量实验表明，相较于先前的几何图像与体素方法，我们的方法在重建保真度与边界精度方面表现更优，同时所需计算资源显著减少。",
       "hf_link": "https://huggingface.co/papers/2607.13365"
     },
-    "2607.18213": {
-      "title": "SWE-Pruner Pro: The Coder LLM Already Knows What to Prune",
-      "abstract": "Pruning long context for coding agents has been a vital technology for efficient context management. While existing context pruning methods such as SWE-Pruner realize this by attaching a separate code classifier, we find the agent itself encodes internal representations indicating the relevance of code context when reading tool output. Based on this finding, we propose SWE-Pruner Pro, which prunes tool outputs directly inside the agent. Concretely, a small head turns the agent's own internal representations into a keep-or-prune label for each line, with a length-aware embedding keyed to each tool output's line count. Across two open-weight backbones and four multi-turn benchmarks, SWE-Pruner Pro saves up to 39% of prompt and completion tokens while preserving task quality, with bounded inference overhead. Notably, on MiMo-V2-Flash SWE-Pruner Pro additionally raises the SWE-Bench Verified resolve rate by +3.8% and the long-context Oolong accuracy by +2.2 points.",
-      "abstract_zh": "在编码智能体（coding agents）中，对长上下文进行剪枝一直是实现高效上下文管理的关键技术。虽然现有的上下文剪枝方法（例如SWE-Pruner）通过附加独立的代码分类器来实现这一目标，但我们发现，智能体在读取工具输出时，其内部表示本身已编码了代码上下文相关性的信息。基于这一发现，我们提出了SWE-Pruner Pro，它直接在智能体内部对工具输出进行剪枝。具体而言，该方法通过一个轻量级头部将智能体自身的内部表示转换为每行代码的保留或剪枝标签，并利用与每个工具输出行数关联的长度感知嵌入（length-aware embedding）来增强判断。在两个开源权重骨干模型和四个多轮基准测试中，SWE-Pruner Pro在保持任务质量的同时，最多节省了39%的提示词与生成词元，且推理开销可控。值得注意的是，在MiMo-V2-Flash模型上，SWE-Pruner Pro还额外将SWE-Bench Verified解决率提升了3.8%，并将长上下文Oolong准确率提高了2.2个百分点。",
-      "hf_link": "https://huggingface.co/papers/2607.18213"
-    },
-    "2607.17250": {
-      "title": "EvolvingWorld: An Open-Schema Framework for Co-Evolving Role-Play Agents and World Model in Interactive Literary World",
-      "abstract": "This paper introduces EvolvingWorld, a framework and benchmark for character and world co-evolution in interactive literary worlds. Existing systems either treat interactive literary simulation as static persona imitation or isolated scene generation, failing to capture how characters and worlds evolve together over time. To address this, EvolvingWorld models literary simulation as a long-horizon process where characters interact, scenes progress, and character and world states are persistently updated. Unlike prior systems relying on fixed schemas, EvolvingWorld adopts an open-schema framework to support simulation across diverse literary worlds. The framework consists of two coupled modules: a Character Agent for multi-character role-play and persistent profile evolution, and an LLM-based World Model for global and location/entity-level state maintenance and scene progression. Based on this architecture, we formulate 7 trainable tasks for scene initialization, interaction generation, and state update. We construct a dataset from 57 books, producing 138,596 supervised training samples and 222 snapshots for testing. Furthermore, we introduce a trajectory-level LLM-as-Judge evaluation protocol spanning 10 dimensions and 20 metrics. Experiments show that EvolvingWorld can improve long-horizon simulation by effectively maintaining persistent, coherent character and world development.",
-      "abstract_zh": "本文介绍了EvolvingWorld，一个用于交互式文学世界中角色与世界协同进化的框架与基准。现有系统或将交互式文学模拟视为静态角色模仿，或将其视为孤立场景生成，未能捕捉角色与世界观如何随时间共同演化。为应对这一问题，EvolvingWorld将文学模拟建模为一个长时序过程：角色在其中交互、场景随之推进，角色与世界状态得以持续更新。与依赖固定模式的既有系统不同，EvolvingWorld采用开放式架构框架，以支持跨多样文学世界的模拟。该框架包含两个耦合模块：用于多角色扮演与持续性档案演化的角色代理，以及基于大语言模型的世界模型——后者负责全局及位置/实体层面的状态维护与场景推进。基于此架构，我们针对场景初始化、交互生成和状态更新提出了七项可训练任务。我们从57部文学作品中构建数据集，生成138,596个监督训练样本及222个测试快照。此外，我们引入了一种涵盖10个维度20项指标的轨迹级LLM-as-Judge评估方案。实验表明，EvolvingWorld能通过有效维持持久连贯的角色与世界发展，显著提升长时序模拟能力。",
-      "hf_link": "https://huggingface.co/papers/2607.17250"
+    "2607.17097": {
+      "title": "HarmoHOI: Harmonizing Appearance and 3D Motion for Multi-view Hand-Object Interaction Synthesis",
+      "abstract": "Hand-Object Interaction (HOI) synthesis is a cornerstone for animation production and embodied AI. Despite the strong priors of video foundation models, multi-view consistent HOI synthesis remains challenging due to complex hand motions and occlusions. We present HarmoHOI, a unified diffusion framework that jointly and harmoniously generates synchronized multi-view HOI videos and globally aligned 3D point tracks. Our core insight is that robust multi-view consistency fundamentally requires globally aligned 3D geometry and motion. To this end, we propose a Mixture of Multi-view Diffusion Transformer that co-models RGB videos and 3D point tracks. By representing point tracks as pseudo-videos, we align 3D geometric signals with the 2D latent space of foundation models, thereby minimizing the domain gap and easing adaptation of priors. To further ensure geometry consistency, we introduce Global Motion Aligning Diffusion, which refines coarse point tracks into metric-scale, globally aligned 3D trajectories. HarmoHOI enables on-the-fly co-evolution of 2D appearance and 3D motion during denoising. To overcome the scarcity of multi-view HOI data, we employ a hybrid data curriculum learning strategy that successfully transfers generic priors from single-view data to synchronized multi-view generation. Experimental results show that HarmoHOI achieves state-of-the-art performance in visual quality, motion plausibility, and multi-view geometric consistency. Project page available atthis https URL.",
+      "abstract_zh": "手-物体交互（Hand-Object Interaction, HOI）合成是动画制作与具身人工智能（embodied AI）的基石。尽管视频基础模型具备强大的先验知识，但由于复杂的手部运动与遮挡，多视角一致的HOI合成仍面临挑战。我们提出了HarmoHOI，一个统一的扩散框架，能够协同且和谐地生成同步的多视角HOI视频以及全局对齐的3D点轨迹。我们的核心见解是：鲁棒的多视角一致性根本上需要全局对齐的3D几何与运动。为此，我们提出了一种多视角扩散Transformer混合模型，该模型协同建模RGB视频与3D点轨迹。通过将点轨迹表示为伪视频，我们将3D几何信号与基础模型的2D潜在空间对齐，从而最小化领域差距并促进先验知识的适配。为进一步确保几何一致性，我们引入了全局运动对齐扩散机制，该机制将粗略的点轨迹优化为公制尺度、全局对齐的3D运动轨迹。HarmoHOI能够在去噪过程中实现2D外观与3D运动的实时协同演化。为克服多视角HOI数据稀缺的问题，我们采用了混合数据课程学习策略，成功将单视角数据中的通用先验知识迁移至同步多视角生成任务。实验结果表明，HarmoHOI在视觉质量、运动合理性和多视角几何一致性方面均达到了最先进的性能。项目页面详见此链接。",
+      "hf_link": "https://huggingface.co/papers/2607.17097"
     },
     "2607.17423": {
       "title": "TimeLens2: Generalist Video Temporal Grounding with Multimodal LLMs",
@@ -30,17 +18,29 @@
       "abstract_zh": "视频多模态大语言模型(Video multimodal large language models, MLLMs)能够描述视频中发生的事件，但很少能识别支撑证据出现的具体时间点。我们研究通用视频时序定位问题，旨在构建一个能够跨视频长度、领域、查询形式和视角预测可变基数证据区间集合的模型。现有训练策略与这一集合值任务存在错配：长视频标注通常依赖脆弱的一次性标注流程，而强化学习奖励函数要么无法区分非重叠预测，要么需要脆弱的片段匹配机制。TimeLens2在全程监督和优化中将时序证据视为区间集合进行处理。TimeLens2-93K通过标题衍生的候选提案、独立定位、跨智能体共识、语义验证和边界细化的流程，构建了可靠的多跨度监督数据。我们提出的时序瓦瑟斯坦奖励通过计算合并区间支撑集上均匀分布的一维\\(W_1\\)精确距离，在不等基数与等效分割场景下提供无需匹配的密集反馈；时序交并比则通过精确重叠反馈与之形成互补。在七个基准测试中，TimeLens2-2B在全部测试集上均超越所有同规模基线模型，而4B和8B变体实现了最先进的性能表现，超越了参数量高达397B的开源模型。2B、4B和8B变体相较于其Qwen3-VL主干网络分别实现了14.2、13.0和18.1个mIoU百分点的性能提升。",
       "hf_link": "https://huggingface.co/papers/2607.17423"
     },
+    "2607.18213": {
+      "title": "SWE-Pruner Pro: The Coder LLM Already Knows What to Prune",
+      "abstract": "Pruning long context for coding agents has been a vital technology for efficient context management. While existing context pruning methods such as SWE-Pruner realize this by attaching a separate code classifier, we find the agent itself encodes internal representations indicating the relevance of code context when reading tool output. Based on this finding, we propose SWE-Pruner Pro, which prunes tool outputs directly inside the agent. Concretely, a small head turns the agent's own internal representations into a keep-or-prune label for each line, with a length-aware embedding keyed to each tool output's line count. Across two open-weight backbones and four multi-turn benchmarks, SWE-Pruner Pro saves up to 39% of prompt and completion tokens while preserving task quality, with bounded inference overhead. Notably, on MiMo-V2-Flash SWE-Pruner Pro additionally raises the SWE-Bench Verified resolve rate by +3.8% and the long-context Oolong accuracy by +2.2 points.",
+      "abstract_zh": "在编码智能体（coding agents）中，对长上下文进行剪枝一直是实现高效上下文管理的关键技术。虽然现有的上下文剪枝方法（例如SWE-Pruner）通过附加独立的代码分类器来实现这一目标，但我们发现，智能体在读取工具输出时，其内部表示本身已编码了代码上下文相关性的信息。基于这一发现，我们提出了SWE-Pruner Pro，它直接在智能体内部对工具输出进行剪枝。具体而言，该方法通过一个轻量级头部将智能体自身的内部表示转换为每行代码的保留或剪枝标签，并利用与每个工具输出行数关联的长度感知嵌入（length-aware embedding）来增强判断。在两个开源权重骨干模型和四个多轮基准测试中，SWE-Pruner Pro在保持任务质量的同时，最多节省了39%的提示词与生成词元，且推理开销可控。值得注意的是，在MiMo-V2-Flash模型上，SWE-Pruner Pro还额外将SWE-Bench Verified解决率提升了3.8%，并将长上下文Oolong准确率提高了2.2个百分点。",
+      "hf_link": "https://huggingface.co/papers/2607.18213"
+    },
+    "2607.07820": {
+      "title": "DeepSearch-World: Self-Distillation for Deep Search Agents in a Verifiable Environment",
+      "abstract": "Training tool-use agents to improve from their own experience remains challenging, as supervised fine-tuning relies on fixed teacher-distilled trajectories, while sparse-reward reinforcement learning provides weak supervision for long-horizon interactions. We present DeepSearch-Evolve, a self-distillation framework for web agents built on DeepSearch-World, a deterministic and verifiable environment with reproducible search and page-reading tools. DeepSearch-World contains 420K multi-hop QA tasks constructed from entity-level random walks and supports key agentic cognitive behaviors useful for self-evolving, including progress verification, grounded reflection, and failure recovery. DeepSearch-Evolve iteratively performs trajectory generation, filtering, data mixing, and fine-tuning to train stronger agents. Without distillation from more capable models, DeepSearch-World-9B achieves competitive performance compared with open-source agents, reaching 31.2% on BrowseComp, 61.5% on GAIA, and 93.4% on HotpotQA, showing that verifiable environments enable scalable self-evolution for long-horizon web agents. We will release the environment, 420K training pool, validation set, model, and code to facilitate future research on self-improving deep search agents.",
+      "abstract_zh": "训练工具使用智能体通过自身经验实现提升仍然面临挑战，因为监督微调依赖于固定的教师蒸馏轨迹，而稀疏奖励强化学习对长程交互的监督信号较弱。我们提出DeepSearch-Evolve——一个基于DeepSearch-World构建的网络智能体自蒸馏框架。DeepSearch-World是一个具备可复现搜索与页面阅读工具的确定性可验证环境，包含42万个通过实体级随机游走构建的多跳问答任务，支持对自我进化至关重要的智能体认知行为，包括进度验证、基于事实的反思以及失败恢复。DeepSearch-Evolve通过迭代执行轨迹生成、过滤、数据混合和微调来训练更强大的智能体。在不依赖更强模型蒸馏的情况下，DeepSearch-World-9B在开源智能体中展现出竞争力，在BrowseComp上达到31.2%，在GAIA上达到61.5%，在HotpotQA上达到93.4%，这表明可验证环境能为长程网络智能体实现可扩展的自我进化。我们将公开环境、42万条训练池数据、验证集、模型及代码，以促进自我提升式深度搜索智能体的未来研究。",
+      "hf_link": "https://huggingface.co/papers/2607.07820"
+    },
+    "2607.17250": {
+      "title": "EvolvingWorld: An Open-Schema Framework for Co-Evolving Role-Play Agents and World Model in Interactive Literary World",
+      "abstract": "This paper introduces EvolvingWorld, a framework and benchmark for character and world co-evolution in interactive literary worlds. Existing systems either treat interactive literary simulation as static persona imitation or isolated scene generation, failing to capture how characters and worlds evolve together over time. To address this, EvolvingWorld models literary simulation as a long-horizon process where characters interact, scenes progress, and character and world states are persistently updated. Unlike prior systems relying on fixed schemas, EvolvingWorld adopts an open-schema framework to support simulation across diverse literary worlds. The framework consists of two coupled modules: a Character Agent for multi-character role-play and persistent profile evolution, and an LLM-based World Model for global and location/entity-level state maintenance and scene progression. Based on this architecture, we formulate 7 trainable tasks for scene initialization, interaction generation, and state update. We construct a dataset from 57 books, producing 138,596 supervised training samples and 222 snapshots for testing. Furthermore, we introduce a trajectory-level LLM-as-Judge evaluation protocol spanning 10 dimensions and 20 metrics. Experiments show that EvolvingWorld can improve long-horizon simulation by effectively maintaining persistent, coherent character and world development.",
+      "abstract_zh": "本文介绍了EvolvingWorld，一个用于交互式文学世界中角色与世界协同进化的框架与基准。现有系统或将交互式文学模拟视为静态角色模仿，或将其视为孤立场景生成，未能捕捉角色与世界观如何随时间共同演化。为应对这一问题，EvolvingWorld将文学模拟建模为一个长时序过程：角色在其中交互、场景随之推进，角色与世界状态得以持续更新。与依赖固定模式的既有系统不同，EvolvingWorld采用开放式架构框架，以支持跨多样文学世界的模拟。该框架包含两个耦合模块：用于多角色扮演与持续性档案演化的角色代理，以及基于大语言模型的世界模型——后者负责全局及位置/实体层面的状态维护与场景推进。基于此架构，我们针对场景初始化、交互生成和状态更新提出了七项可训练任务。我们从57部文学作品中构建数据集，生成138,596个监督训练样本及222个测试快照。此外，我们引入了一种涵盖10个维度20项指标的轨迹级LLM-as-Judge评估方案。实验表明，EvolvingWorld能通过有效维持持久连贯的角色与世界发展，显著提升长时序模拟能力。",
+      "hf_link": "https://huggingface.co/papers/2607.17250"
+    },
     "2607.18217": {
       "title": "HOMIE: Human-object Centric Video Personalization via Multimodal Intelligent Enchancement",
       "abstract": "Human-object centric video personalization (HOCVP) is a core task within subject-driven video generation. However, existing methods suffer from two key limitations. First, most approaches focusing on inter-subject personalization still struggle to strike a balance between high subject fidelity and accurate interaction patterns between humans and diverse objects, especially when objects represent abstract concepts such as logos. Second, while intra-subject references (e.g., OCR maps, multi-view inputs) are expected to enhance subject fidelity, most existing works lack mechanisms to understand such latent correspondence. To address both challenges, we propose HOMIE, an HOCVP framework that tackles both inter- and intra-subject input settings in a unified manner. Compared to previous approaches, HOMIE proposes a better MLLM integration strategy to extract knowledge of reference-level relationships without compromising the controllability of text encoders or incurring costly re-alignment. Specifically, we introduce global multimodal guidance within self-attention to better align MLLM-derived semantic features with VAE tokens. Furthermore, we propose modality-reference embedding to differentiate tokens from MLLM features and VAE tokens and associate intra-subject reference image tokens. Extensive experiments validate that our method achieves state-of-the-art performance across various HOCVP tasks. Project Page:this https URL",
       "abstract_zh": "以人与物为中心的视频个性化（Human-object centric video personalization，HOCVP）是主体驱动视频生成中的核心任务。然而，现有方法存在两个关键局限。首先，多数聚焦于主体间个性化（inter-subject personalization）的研究仍难以在实现高主体保真度与准确捕捉人物与多样化物体（尤其是涉及标志等抽象概念物体）之间的交互模式之间取得平衡。其次，尽管主体内参考信息（例如OCR地图、多视角输入）被期望能增强主体保真度，但现有工作大多缺乏理解此类潜在对应关系的机制。为应对这两项挑战，我们提出了HOMIE——一个以统一方式处理主体间与主体内输入设置的HOCVP框架。相较于先前方法，HOMIE提出了更优的多模态大语言模型（MLLM）整合策略，既能提取参考级关系的知识，又不会损害文本编码器的可控性或引发高成本的重新对齐。具体而言，我们在自注意力机制中引入全局多模态引导，以更好地将MLLM衍生的语义特征与变分自编码器（VAE）标记对齐。此外，我们提出模态参考嵌入技术，以区分来自MLLM特征的标记和VAE标记，并关联主体内参考图像标记。大量实验验证表明，我们的方法在各类HOCVP任务中均实现了最先进的性能。项目页面：this https URL",
       "hf_link": "https://huggingface.co/papers/2607.18217"
-    },
-    "2607.16401": {
-      "title": "Apple-$π$: Benchmarking Thinking with Video Towards Law-Grounded Physical Intelligence",
-      "abstract": "Modern video generation models are increasingly hailed as emerging world models with an internalized grasp of physical law. Yet existing benchmarks largely evaluate physical plausibility only at the output level, without verifying whether the model arrives there through a faithful, law-grounded reasoning process. We introduce Apple-PI, the first benchmark that anchors video-model evaluation explicitly in physical laws. Apple-PI comprises three components. 1) Orchard: a dataset of 400 videos covering ten canonical tasks in classical mechanics. It separates single-law tasks for confounder-free diagnosis from multi-law tasks for probing generalization. 2) Benchmark Protocol: a three-stage protocol based on scientific reasoning, including Perception, Formulation, and Deduction. It uses chain-of-frames prompting on infographic-annotated first frames, treating the generated video as the model's visible reasoning trace. 3) Evaluation Suite: a hybrid evaluation suite that combines MLLM-based subjective scoring with physics-law-grounded objective measures. This enables stage-resolved diagnosis of not only whether a model fails, but where it fails. Benchmarking 11 models shows that current video models remain far from reliable law-grounded world simulators, with the best video model scoring only 0.473. Our stage-, pillar-, and source-resolved analyses further expose a Perception-to-Formulation-to-Deduction bottleneck, weak multi-law state transfer, and a persistent Sim-to-Real gap. These findings position Apple-PI as a diagnostic foundation for guiding future video models toward world models with law-grounded physical intelligence.",
-      "abstract_zh": "现代视频生成模型日益被视为具有物理定律内化认知的新兴世界模型。然而现有基准大多仅在输出层面评估物理合理性，未验证模型是否通过忠实、基于定律的推理过程达成结果。我们推出Apple-PI——首个将视频模型评估明确锚定于物理定律的基准。该基准包含三个组成部分：1) 果园数据集：涵盖经典力学中十个典型任务的400段视频，通过单一定律任务实现无干扰诊断，结合多定律任务探究泛化能力；2) 基准协议：基于科学推理的三阶段协议（感知、公式化与演绎），采用信息图标注的首帧进行帧链提示，将生成视频视为模型可见的推理轨迹；3) 评估套件：融合基于MLLM（多模态大语言模型）的主观评分与基于物理定律的客观度量的混合评估体系，实现对各阶段失效节点的精准诊断。对11个模型的基准测试表明，当前视频模型仍远未达到可靠的基于定律的世界模拟器水平，最佳视频模型得分仅0.473。我们的阶段、支柱与来源解析进一步揭示了感知→公式化→演绎的推理瓶颈、薄弱的多定律状态迁移能力以及持续存在的仿真与现实差距。这些发现使Apple-PI成为指导未来视频模型向具有定律根基的物理智能世界模型发展的诊断基础。",
-      "hf_link": "https://huggingface.co/papers/2607.16401"
     },
     "2607.17977": {
       "title": "RynnBrain 1.1: Towards More Capable and Generalizable Embodied Foundation Model",
@@ -48,11 +48,11 @@
       "abstract_zh": "我们推出了RynnBrain 1.1系列具身基础模型，涵盖20亿、90亿及1220亿-100亿参数规模。该模型通过统一的时空与物理接地框架训练，支持具身感知、空间推理、定位与规划功能。相较于RynnBrain 1.0版本，新系列全系模型新增接触点预测功能，并在20亿与90亿模型中引入原生三维接地能力，使其表征与输出能更直接适配机器人操控任务。我们还开发了具备统一跨具身行动空间与特异性掩蔽机制的RynnBrain-VLA系统，并成功部署于宇树G1、智元机器人S1及天工Wuji平台。RynnBrain 1.1在具身认知、定位与三维接地任务中表现卓越，其中1220亿-100亿参数模型在VSI-Bench、MMSI及RefSpatial-Bench基准测试中超越所有评估的专有与开源模型。真实机器人实验表明，基于RynnBrain初始化的策略在性能上优于基于Qwen的模型及代表性通用VLA系统，同时联合多任务与多具身训练相较于单任务训练能显著提升流程评分与任务成功率。",
       "hf_link": "https://huggingface.co/papers/2607.17977"
     },
-    "2607.09759": {
-      "title": "ReflectWorld-MM: An Entity-Oriented Multimodal Memory System for Open-Ended Video Streams",
-      "abstract": "Building assistants that can continually watch the world, remember what they see, and reason over their accumulated experience is a long-standing goal, and recently multimodal agents equipped with long-term memory over video streams have attracted increasing interest. Unfortunately, existing systems either keep their memory inside the model context or in a flat feature store, and organize it around frames rather than around the persistent entities a stream is really about, which confines them to bounded videos and weakens their ability to track who and what reappears over time. In this paper, we propose ReflectWorld-MM, an entity-oriented multimodal memory system for open-ended video streams. It consists of three parts. The first is a perception front-end that turns an audiovisual stream into entity-resolved observations under a bounded short-term memory. The second is a hierarchical long-term memory, grounded in human memory theory, that couples a multi-scale episodic memory, an evolving entity-centric semantic memory, and a procedural memory. The third is a complete realization, built for real-world operation, that ingests arbitrary streams and plugs into off-the-shelf assistants. Across six long-video and lifelong-memory benchmarks, ReflectWorld-MM achieves the best accuracy on all six, outperforming strong memory agents and a frontier model.",
-      "abstract_zh": "构建能够持续观察世界、记忆所见内容并对其累积经验进行推理的助手，是一个长期目标。近年来，配备视频流长期记忆功能的多模态智能体日益受到关注。然而，现有系统要么将记忆保留在模型上下文内，要么存储在扁平的特征库中，并围绕视频帧而非视频流所涉及的持久实体来组织记忆。这种设计限制了它们仅能处理有限时长的视频，并削弱了其追踪随时间重复出现的人物与事物的能力。本文提出ReflectWorld-MM，一种面向实体的多模态记忆系统，适用于开放式视频流。该系统包含三个部分：第一部分是感知前端，它能在有限的短期记忆下，将视听流转化为实体解析后的观测数据；第二部分是分层长期记忆，该设计基于人类记忆理论，耦合了多尺度情景记忆、不断演化的实体中心语义记忆以及程序性记忆；第三部分是一个完整的实现方案，专为现实世界操作而构建，能够处理任意视频流，并可集成至现成的智能助手中。在六项长视频与终身记忆基准测试中，ReflectWorld-MM在所有测试中均取得了最佳准确率，其性能超越了强记忆智能体及前沿模型。",
-      "hf_link": "https://huggingface.co/papers/2607.09759"
+    "2607.16401": {
+      "title": "Apple-$π$: Benchmarking Thinking with Video Towards Law-Grounded Physical Intelligence",
+      "abstract": "Modern video generation models are increasingly hailed as emerging world models with an internalized grasp of physical law. Yet existing benchmarks largely evaluate physical plausibility only at the output level, without verifying whether the model arrives there through a faithful, law-grounded reasoning process. We introduce Apple-PI, the first benchmark that anchors video-model evaluation explicitly in physical laws. Apple-PI comprises three components. 1) Orchard: a dataset of 400 videos covering ten canonical tasks in classical mechanics. It separates single-law tasks for confounder-free diagnosis from multi-law tasks for probing generalization. 2) Benchmark Protocol: a three-stage protocol based on scientific reasoning, including Perception, Formulation, and Deduction. It uses chain-of-frames prompting on infographic-annotated first frames, treating the generated video as the model's visible reasoning trace. 3) Evaluation Suite: a hybrid evaluation suite that combines MLLM-based subjective scoring with physics-law-grounded objective measures. This enables stage-resolved diagnosis of not only whether a model fails, but where it fails. Benchmarking 11 models shows that current video models remain far from reliable law-grounded world simulators, with the best video model scoring only 0.473. Our stage-, pillar-, and source-resolved analyses further expose a Perception-to-Formulation-to-Deduction bottleneck, weak multi-law state transfer, and a persistent Sim-to-Real gap. These findings position Apple-PI as a diagnostic foundation for guiding future video models toward world models with law-grounded physical intelligence.",
+      "abstract_zh": "现代视频生成模型日益被视为具有物理定律内化认知的新兴世界模型。然而现有基准大多仅在输出层面评估物理合理性，未验证模型是否通过忠实、基于定律的推理过程达成结果。我们推出Apple-PI——首个将视频模型评估明确锚定于物理定律的基准。该基准包含三个组成部分：1) 果园数据集：涵盖经典力学中十个典型任务的400段视频，通过单一定律任务实现无干扰诊断，结合多定律任务探究泛化能力；2) 基准协议：基于科学推理的三阶段协议（感知、公式化与演绎），采用信息图标注的首帧进行帧链提示，将生成视频视为模型可见的推理轨迹；3) 评估套件：融合基于MLLM（多模态大语言模型）的主观评分与基于物理定律的客观度量的混合评估体系，实现对各阶段失效节点的精准诊断。对11个模型的基准测试表明，当前视频模型仍远未达到可靠的基于定律的世界模拟器水平，最佳视频模型得分仅0.473。我们的阶段、支柱与来源解析进一步揭示了感知→公式化→演绎的推理瓶颈、薄弱的多定律状态迁移能力以及持续存在的仿真与现实差距。这些发现使Apple-PI成为指导未来视频模型向具有定律根基的物理智能世界模型发展的诊断基础。",
+      "hf_link": "https://huggingface.co/papers/2607.16401"
     },
     "2607.16850": {
       "title": "Group Entropy-Controlled Policy Optimization",
@@ -60,11 +60,35 @@
       "abstract_zh": "熵控制已成为大型语言模型强化学习中的有效工具，有助于在对齐过程中平衡探索与利用的权衡。此类强化学习范式通常在异构任务混合集上进行，这些任务在同一策略下会形成不同的熵状态，使得全局或词元级的熵调控难以应对异构的探索需求。这种异质性进一步导致GRPO风格的标准化优势函数产生熵依赖偏差，使得不同提示组间的优势信号在统计上不可比。为解决该问题，我们提出分组熵控制策略优化方法——一种对GRPO的轻量级扩展，该方法利用从现有分组样本估计的分组熵，执行熵条件化的非对称优势塑形。GEPO通过自适应阈值衰减低熵组的正向优势以减少过度利用，并衰减高熵组的负向优势以保持探索能力，这些阈值源自历史熵统计数据。在涵盖数学、物理、科学、代码生成和指令遵循等领域的13个基准测试中，对两个基础模型进行的大量实验表明，GEPO始终优于GRPO及近期熵控制方法，在保持任务特定探索水平的同时，实现了跨任务的均衡性能提升。",
       "hf_link": "https://huggingface.co/papers/2607.16850"
     },
+    "2607.09759": {
+      "title": "ReflectWorld-MM: An Entity-Oriented Multimodal Memory System for Open-Ended Video Streams",
+      "abstract": "Building assistants that can continually watch the world, remember what they see, and reason over their accumulated experience is a long-standing goal, and recently multimodal agents equipped with long-term memory over video streams have attracted increasing interest. Unfortunately, existing systems either keep their memory inside the model context or in a flat feature store, and organize it around frames rather than around the persistent entities a stream is really about, which confines them to bounded videos and weakens their ability to track who and what reappears over time. In this paper, we propose ReflectWorld-MM, an entity-oriented multimodal memory system for open-ended video streams. It consists of three parts. The first is a perception front-end that turns an audiovisual stream into entity-resolved observations under a bounded short-term memory. The second is a hierarchical long-term memory, grounded in human memory theory, that couples a multi-scale episodic memory, an evolving entity-centric semantic memory, and a procedural memory. The third is a complete realization, built for real-world operation, that ingests arbitrary streams and plugs into off-the-shelf assistants. Across six long-video and lifelong-memory benchmarks, ReflectWorld-MM achieves the best accuracy on all six, outperforming strong memory agents and a frontier model.",
+      "abstract_zh": "构建能够持续观察世界、记忆所见内容并对其累积经验进行推理的助手，是一个长期目标。近年来，配备视频流长期记忆功能的多模态智能体日益受到关注。然而，现有系统要么将记忆保留在模型上下文内，要么存储在扁平的特征库中，并围绕视频帧而非视频流所涉及的持久实体来组织记忆。这种设计限制了它们仅能处理有限时长的视频，并削弱了其追踪随时间重复出现的人物与事物的能力。本文提出ReflectWorld-MM，一种面向实体的多模态记忆系统，适用于开放式视频流。该系统包含三个部分：第一部分是感知前端，它能在有限的短期记忆下，将视听流转化为实体解析后的观测数据；第二部分是分层长期记忆，该设计基于人类记忆理论，耦合了多尺度情景记忆、不断演化的实体中心语义记忆以及程序性记忆；第三部分是一个完整的实现方案，专为现实世界操作而构建，能够处理任意视频流，并可集成至现成的智能助手中。在六项长视频与终身记忆基准测试中，ReflectWorld-MM在所有测试中均取得了最佳准确率，其性能超越了强记忆智能体及前沿模型。",
+      "hf_link": "https://huggingface.co/papers/2607.09759"
+    },
+    "2607.10387": {
+      "title": "GigaChat Audio: Time-aware Large Audio Language Model",
+      "abstract": "Temporal grounding in long recordings remains challenging for audio-conditioned LLMs. We present a time-aware audio LLM that answers questions with explicit timestamps over up to 120 minutes of input. Our approach interleaves periodic time markers with continuous audio tokens using large-scale synthetic supervision from a cascaded pipeline. Our model achieves strong temporal-grounding accuracy on short and long benchmarks and supports time-anchored fragment descriptions and summaries. Extensive ablations examine how time representation, marker frequency, tokenization, and duration-mixture design affect accuracy and computational cost. We release model weights and datasets to support further research on time-aware audio understanding, available atthis https URL.",
+      "abstract_zh": "在长时录音中进行时间定位对于音频条件下的LLM而言仍然是一个挑战。我们提出了一种时间感知的音频LLM，能够在长达120分钟的输入中通过显式时间戳回答问题。我们的方法通过级联流水线生成的大规模合成监督数据，将周期性时间标记与连续音频标记交错融合。该模型在短期和长期基准测试中均实现了较强的时间定位准确度，并支持基于时间锚点的片段描述与摘要生成。通过大量消融实验，我们研究了时间表示方式、标记频率、标记化策略以及时长混合设计如何影响模型精度与计算成本。我们公开发布模型权重与数据集，以支持时间感知音频理解领域的进一步研究，相关资源可通过此链接获取：https URL。",
+      "hf_link": "https://huggingface.co/papers/2607.10387"
+    },
+    "2607.10371": {
+      "title": "GigaAM Multilingual: Foundation Model for Underrepresented Languages",
+      "abstract": "Despite recent scaling successes, multilingual ASR performance remains highly uneven, with long-tail languages suffering from severe data scarcity. This work addresses the challenge of building robust foundation models for underrepresented Central Asian languages (Kazakh, Kyrgyz, Uzbek). We present GigaAM Multilingual, a Conformer encoder pre-trained on 2M hours of audio using a HuBERT-style objective. Crucially, we introduce a cluster-level data balancing strategy during pre-training and a domain-aware sampling method during fine-tuning to mitigate head-language dominance. In controlled comparisons, our approach outperforms strong open pretrained encoders (Whisper Large v3, Omnilingual-1B) on target languages, achieving significant gains on spontaneous speech while maintaining efficiency. We release the foundation encoder and ASR model, offering a proven recipe for effective multilingual adaptation under realistic data imbalance.",
+      "abstract_zh": "尽管近期在模型扩展方面取得了成功，多语言自动语音识别（ASR）的性能仍存在显著不均衡，长尾语言面临严重的数据稀缺问题。本研究针对为代表性不足的中亚语言（哈萨克语、吉尔吉斯语、乌兹别克语）构建鲁棒基础模型的挑战，提出了GigaAM Multilingual——一个基于Conformer编码器架构、通过HuBERT式目标在200万小时音频数据上预训练的模型。研究的关键创新在于：在预训练阶段引入了集群级数据平衡策略，并在微调阶段采用领域感知采样方法，以缓解主导语言对模型的影响。在对照实验中，我们的方法在目标语言上超越了现有强大的开源预训练编码器（Whisper Large v3、Omnilingual-1B），在保持模型高效性的同时，于自发语音任务上取得了显著性能提升。我们公开了基础编码器与自动语音识别模型，为在现实数据不均衡条件下实现有效的多语言适应提供了可验证的方案。",
+      "hf_link": "https://huggingface.co/papers/2607.10371"
+    },
     "2607.16900": {
       "title": "Environment-free Synthetic Data Generation for API-Calling Agents",
       "abstract": "Training API-calling large language model (LLM) agents demands massive amounts of high-quality trajectories. However, collecting such data at scale typically requires fully implemented environments with executable APIs and realistic, pre-populated backend databases, creating a major bottleneck for scalability. To overcome this, we propose an environment-free synthetic data generation approach that leverages LLMs as on-the-fly digital world models. Given only API specifications, our method generates trajectories mimicking interactions between an agent and a stateful environment. Specifically, an LLM first generates diverse tasks solvable with the provided APIs. A teacher agent then iteratively solves each task while an LLM simulator generates coherent synthetic API responses conditioned on the task context and simulation history. Finally, an LLM judge filters the trajectories to ensure the quality of the resulting dataset. We evaluate our approach on the challenging AppWorld and OfficeBench benchmarks, which include both information-retrieval and state-changing tasks. Fine-tuning models on our synthetic data yields significant performance gains, demonstrating that effective supervision for API-calling agents can be generated without any executable environment. Our results establish LLM-based API simulation as a practical, scalable solution for training agents across diverse API ecosystems.",
       "abstract_zh": "训练具备API调用能力的大语言模型（LLM）智能体需要大量高质量轨迹数据。然而，大规模收集此类数据通常需要具备可执行API的完整实现环境以及预先填充的真实后端数据库，这构成了可扩展性的主要瓶颈。为突破此限制，我们提出一种无需环境的合成数据生成方法，利用大语言模型作为即时数字世界模拟器。该方法仅需API规范即可生成模拟智能体与有状态环境交互的轨迹。具体而言，首先由大语言模型生成可通过所提供API解决的多类型任务；随后教师智能体迭代求解每个任务，同时由大语言模型模拟器根据任务上下文和模拟历史生成连贯的合成API响应；最终通过大语言模型裁判筛选轨迹以保证生成数据集的质量。我们在包含信息检索与状态变更任务的挑战性基准AppWorld和OfficeBench上评估本方法。使用合成数据微调的模型展现出显著的性能提升，证明无需任何可执行环境即可为API调用智能体生成有效的监督信号。我们的研究结果确立了基于大语言模型的API模拟作为一种实用、可扩展的解决方案，能够支持跨多样化API生态系统的智能体训练。",
       "hf_link": "https://huggingface.co/papers/2607.16900"
+    },
+    "2607.18227": {
+      "title": "FlowMimic: Mask-free Visual Editing and Generation with Pixel-pair Warped Flow Field for Online Video Editing Data Generation and Modality Mimicry",
+      "abstract": "In line with the prevailing direction of vision research, we explore the integration of both generation and editing capabilities for video and image modalities within a single model. Current approaches to collecting video editing data typically depend on labour-intensive, time-consuming curated procedures--involving object mask annotation, the use of error-introducing pair synthesis via I2V model and ControlNet-like guidance, and VLM-based quality filtering or refinement--and demonstrate limited task scalability. As a result, the diversity of editing tasks remains substantially narrower than that available for image editing models. We develop a pixel-pair temporal warped flow field that can directly generate corresponding video editing samples in real time from image editing samples, and we demonstrate across multiple levels of video editing tasks that a model can learn video editing using only such data. We regard the image modality as a particular form of the video modality. Accordingly, we design a modality mimic generation loss and a modality mimic editing loss to relatively align the capabilities--and thereby the output distributions--of the two modalities through mutual imitation. Moreover, language-based visual editing entails the comprehension of the editing instruction and the reference visual content, the localization of the region corresponding to that instruction within the reference visual contents, and the modification of that region alone. Existing approaches predominantly rely on external aids, such as fine-tuning an additional MLLM or explicitly supplying a mask sequence as auxiliary input during inference. In contrast, we aspire for the model to internalize this capability. To that end, we introduce sense-related tasks--for instance, referring expression segmentation--along with corresponding editing-region-aware latent-level loss and attention-level loss.",
+      "abstract_zh": "顺应视觉研究的主流方向，我们探索在单一模型中整合视频与图像模态的生成与编辑能力。当前收集视频编辑数据的方法通常依赖于劳动密集、耗时的手工流程——包括物体掩码标注、通过I2V模型和类ControlNet引导引入误差的配对合成，以及基于VLM的质量过滤或精修——且任务可扩展性有限。因此，现有编辑任务的多样性仍远低于图像编辑模型所能支持的范围。\n\n我们开发了一种像素对时序扭曲流场，能够直接从图像编辑样本实时生成对应的视频编辑样本，并通过多层级视频编辑任务验证了模型仅使用此类数据即可学习视频编辑。我们将图像模态视为视频模态的一种特殊形式。基于此，我们设计了模态模仿生成损失与模态模仿编辑损失，通过双向模仿实现两种模态能力及其输出分布的相对对齐。\n\n此外，基于语言的视觉编辑需要理解编辑指令与参考视觉内容，在参考内容中定位与指令对应的区域，并仅对该区域进行修改。现有方法主要依赖外部辅助，例如微调额外的MLLM或在推理时显式提供掩码序列作为辅助输入。与之相反，我们期望模型能够内化这种能力。为此，我们引入了感知相关任务（例如指代表达分割）以及相应的编辑区域感知潜在层损失与注意力层损失。",
+      "hf_link": "https://huggingface.co/papers/2607.18227"
     },
     "2607.18110": {
       "title": "LLM-as-a-Coach: Experiential Learning for Non-Verifiable Tasks",
@@ -78,17 +102,11 @@
       "abstract_zh": "大语言模型（LLM）的后训练对于提升推理能力、适应性和对齐效果至关重要。现有方法主要遵循两种范式：强化学习（RL）和在线策略蒸馏（OPD）。然而，强化学习依赖粗粒度的结果监督，导致信用分配困难且获取新知识的能力有限。而在线策略蒸馏则通过KL散度无条件匹配教师模型的逻辑输出，这造成了一个困境：相似的教师模型难以提供新知识，而差异显著的教师模型又往往产生无效指导，从而在很大程度上将在线策略蒸馏限制在模型族内蒸馏的范畴。\n\n我们提出了蒸馏强化学习（Distilled RL），将教师监督整合到强化学习目标中，以提供细粒度指导、选择性迁移新知识，并避免无条件模仿。蒸馏强化学习包含三个核心组件：带裁剪的反向重要性采样、负样本重置以及序列级几何归一化。通过一个简洁且可解释的案例研究，我们证明了蒸馏强化学习能够有效地将教师模型中原本无法获取的知识迁移至学生模型。在模型族内蒸馏与跨模型族蒸馏的广泛实验中，蒸馏强化学习在pass@1和pass@k指标上均显著优于标准强化学习和在线策略蒸馏方法。我们的代码可通过此https链接获取。",
       "hf_link": "https://huggingface.co/papers/2607.17247"
     },
-    "2607.18227": {
-      "title": "FlowMimic: Mask-free Visual Editing and Generation with Pixel-pair Warped Flow Field for Online Video Editing Data Generation and Modality Mimicry",
-      "abstract": "In line with the prevailing direction of vision research, we explore the integration of both generation and editing capabilities for video and image modalities within a single model. Current approaches to collecting video editing data typically depend on labour-intensive, time-consuming curated procedures--involving object mask annotation, the use of error-introducing pair synthesis via I2V model and ControlNet-like guidance, and VLM-based quality filtering or refinement--and demonstrate limited task scalability. As a result, the diversity of editing tasks remains substantially narrower than that available for image editing models. We develop a pixel-pair temporal warped flow field that can directly generate corresponding video editing samples in real time from image editing samples, and we demonstrate across multiple levels of video editing tasks that a model can learn video editing using only such data. We regard the image modality as a particular form of the video modality. Accordingly, we design a modality mimic generation loss and a modality mimic editing loss to relatively align the capabilities--and thereby the output distributions--of the two modalities through mutual imitation. Moreover, language-based visual editing entails the comprehension of the editing instruction and the reference visual content, the localization of the region corresponding to that instruction within the reference visual contents, and the modification of that region alone. Existing approaches predominantly rely on external aids, such as fine-tuning an additional MLLM or explicitly supplying a mask sequence as auxiliary input during inference. In contrast, we aspire for the model to internalize this capability. To that end, we introduce sense-related tasks--for instance, referring expression segmentation--along with corresponding editing-region-aware latent-level loss and attention-level loss.",
-      "abstract_zh": "顺应视觉研究的主流方向，我们探索在单一模型中整合视频与图像模态的生成与编辑能力。当前收集视频编辑数据的方法通常依赖于劳动密集、耗时的手工流程——包括物体掩码标注、通过I2V模型和类ControlNet引导引入误差的配对合成，以及基于VLM的质量过滤或精修——且任务可扩展性有限。因此，现有编辑任务的多样性仍远低于图像编辑模型所能支持的范围。\n\n我们开发了一种像素对时序扭曲流场，能够直接从图像编辑样本实时生成对应的视频编辑样本，并通过多层级视频编辑任务验证了模型仅使用此类数据即可学习视频编辑。我们将图像模态视为视频模态的一种特殊形式。基于此，我们设计了模态模仿生成损失与模态模仿编辑损失，通过双向模仿实现两种模态能力及其输出分布的相对对齐。\n\n此外，基于语言的视觉编辑需要理解编辑指令与参考视觉内容，在参考内容中定位与指令对应的区域，并仅对该区域进行修改。现有方法主要依赖外部辅助，例如微调额外的MLLM或在推理时显式提供掩码序列作为辅助输入。与之相反，我们期望模型能够内化这种能力。为此，我们引入了感知相关任务（例如指代表达分割）以及相应的编辑区域感知潜在层损失与注意力层损失。",
-      "hf_link": "https://huggingface.co/papers/2607.18227"
-    },
-    "2607.16074": {
-      "title": "JoyNexus: Service-Oriented Multi-Tenant Post-Training for VLA Models",
-      "abstract": "The post-training of Vision-Language-Action (VLA) models is essential due to the diversity of simulators, robot embodiments, and task objectives. Existing compute services, whether offered as direct accelerator rental or batch-workload submission, typically allocate an exclusive set of GPU and CPU resources to a single tenant. While this paradigm maximizes client flexibility, it burdens users with infrastructure adaptation, and the fixed card-hour accounting model renders short or bursty workloads both expensive for tenants and inefficient for the service provider. To address these challenges, we present JoyNexus, a unified service for multi-tenant VLA supervised fine-tuning, reinforcement learning, and evaluation. JoyNexus decouples the Training Model Service, Inference Model Service, and Environment Service, each accessed through APIs and backed by resident shared base models with tenant-specific slots. Tenants can directly invoke high-level semantic APIs for training, rollout, and evaluation, or compose custom algorithms using lower-level APIs and their assigned endpoints. Multiple tenants submit workloads concurrently; their action modules, optimizers, rollout records, and policy versions remain isolated, and the service is scheduled by the global Training Queue and Inference Queue. To further improve multi-tenant training efficiency, JoyNexus introduces group batching for heterogeneous VLA data schemas that share a compatible model-facing prefix, enabling a single shared backbone forward pass over grouped samples. Finally, we evaluate JoyNexus through workload simulation and a group-batching pipeline in a realistic embodied scenario. Results show that, compared with isolated single-tenant execution, JoyNexus reduces aggregate GPU time and improves service utilization via cross-tenant scheduling on shared resources.",
-      "abstract_zh": "视觉-语言-动作模型的训练后调谐至关重要，这源于仿真器、机器人实体形态以及任务目标的多样性。现有的计算服务，无论是作为直接加速器租赁还是批量任务提交，通常都会为单个租户分配专属的GPU和CPU资源集。尽管这种模式最大化了客户灵活性，但它将基础设施适配的负担转嫁给用户，且固定的卡时计费模型使得短时或突发性工作负载对租户而言成本高昂，同时对服务提供商也造成效率低下。为应对这些挑战，我们提出了JoyNexus——一个面向多租户VLA监督微调、强化学习与评估的统一服务平台。JoyNexus将训练模型服务、推理模型服务与环境服务解耦，各项服务均通过API访问，并由常驻的共享基础模型支持，每个租户拥有专属的模型槽位。租户可直接调用高层次语义API进行训练、轨迹生成与评估，或利用低层API及其分配到的端点组合自定义算法。多个租户并发提交工作负载；其动作模块、优化器、轨迹记录与策略版本保持隔离，服务由全局训练队列与推理队列统一调度。为进一步提升多租户训练效率，JoyNexus针对具有兼容模型前缀的异构VLA数据模式引入了分组批处理技术，使得共享主干网络能对分组样本执行单次前向传播。最后，我们在具身智能实际场景中通过工作负载模拟与分组批处理流水线对JoyNexus进行评估。结果表明，与隔离的单租户执行方式相比，JoyNexus通过在共享资源上进行跨租户调度，显著降低了总体GPU时间并提升了服务利用率。",
-      "hf_link": "https://huggingface.co/papers/2607.16074"
+    "2607.17146": {
+      "title": "The Geometry of Semantic Space: A Continuous Geometric Framework for the Transformer Architecture",
+      "abstract": "We present a continuous geometric framework that models the discrete algebraic operations of the Transformer architecture as an integro-differential equation (IDE) on a semantic fiber bundle $\\calE = \\calM \\times \\R^d$. Beginning from a single geometric axiom -- that the token sequence forms a discrete $1$-manifold equipped with a canonical measure lattice -- we translate every core component of the modern Transformer (RMSNorm, RoPE, Softmax Attention, FFN, Residual Stream, SGD, Weight Decay) into a cohesive vocabulary of differential geometry, measure theory, and stochastic calculus. The resulting framework yields quantitative predictions spanning entropic optimal transport (Attention as a Schrödinger bridge) and non-equilibrium thermodynamics (SGD as Itô diffusion violating detailed balance). We conduct a six-part experimental campaign across five architectures (Qwen3, LLaMA\\nobreakdash-3.1, Gemma\\nobreakdash-3, GPT-2, Mistral) spanning $124$M to $8$B parameters. The empirical observables are quantitatively consistent with the geometric predictions: the $\\epsilon^{-1/2}$ Lipschitz scaling calibration at machine precision ($R^2 = 1.000$), the Lie--Trotter operator-splitting torsion, the symmetric ablation instability confirming the Dual-Law of Topological Stability, the $\\calO(1/\\sqrt{k})$ thermodynamic suppression of Poincaré recurrence on the RoPE torus, the thermodynamic context-limit phase transition, and the Non-Equilibrium Steady State parameter vortex -- verified across two optimizers (AdamW and Pure SGD) to exclude momentum artifacts. The results demonstrate that analyzing Transformers through the lens of continuous stochastic differential geometry provides a predictive descriptive vocabulary for the stability limits, context bounds, and optimization dynamics of Large Language Models.",
+      "abstract_zh": "我们提出一个连续几何框架，将Transformer架构的离散代数操作建模为语义纤维丛$\\calE = \\calM \\times \\R^d$上的积分微分方程。从单一几何公理出发——即词元序列构成配备正则测度格的离散一维流形——我们将现代Transformer的每个核心组件（RMSNorm、RoPE、Softmax Attention、FFN、残差流、SGD、权重衰减）转化为微分几何、测度论与随机分析的连贯表述体系。该框架产生了涵盖熵最优传输（注意力作为薛定谔桥）与非平衡热力学（SGD作为违反细致平衡的伊藤扩散）的量化预测。我们在五种架构（Qwen3、LLaMA-3.1、Gemma-3、GPT-2、Mistral）上开展了包含六个部分的实验验证，参数量覆盖1.24亿至80亿范围。实证观测值与几何预测在定量层面一致：达到机器精度的$\\epsilon^{-1/2}$利普希茨标度校准（$R^2 = 1.000$）、李-特罗特算子分裂挠率、证实拓扑稳定性对偶律的对称消融不稳定性、RoPE环面上泊瓦松回归的$\\calO(1/\\sqrt{k})$热力学抑制、热力学上下文限制相变，以及非平衡稳态参数涡旋——这些现象在两种优化器（AdamW与纯SGD）上均得到验证，从而排除了动量伪影。研究结果表明，通过连续随机微分几何视角分析Transformer，能够为大语言模型的稳定性极限、上下文边界及优化动力学提供具有预测性的描述体系。",
+      "hf_link": "https://huggingface.co/papers/2607.17146"
     },
     "2607.17986": {
       "title": "Self-State Attacks on Self-Hosted AI Agents: How Far Can OS Defenses Go?",
@@ -96,17 +114,29 @@
       "abstract_zh": "自托管人工智能代理通过读写自身的内存与配置文件来实现功能。此类代理可能因其自身状态被破坏而遭受攻击——这种攻击是通过合法的操作系统系统调用实现的。我们将这类威胁称为自状态攻击。本文研究了操作系统对此类攻击的抵御能力。我们从形式化角度构建了一个四维度攻击空间（目标、机制、粒度、时序性）；探讨了预防、检测与恢复机制的结构性局限；并引入了工作负载条件约束下的可检测性视角。为具体验证该框架，我们收集了具有代表性的自托管代理在不同工作负载场景下的实时活动轨迹，将攻击空间实例化为一个包含23个单元的矩阵，对应针对真实自状态文件的43项具体操作，并将其注入到这些轨迹中。随后我们评估了经典防御策略与工作负载条件约束下的防御策略。实验结果表明：分层防御堆栈（在指令层与配置层采用访问控制预防机制，在内存层实施工作负载条件约束的检测，并辅以定期备份恢复策略）对大多数攻击单元具有防护效果，但仍存在一小部分残余攻击面在操作系统层结构上无法被区分。这些发现表明，针对新定义的自状态攻击类别，操作系统层面的防御机制需要重新考量，这可能为该领域开辟新的研究方向。",
       "hf_link": "https://huggingface.co/papers/2607.17986"
     },
-    "2607.09655": {
-      "title": "OpenLongTail: Generative Scaling of Long-Tail Driving Data",
-      "abstract": "Scaling robust driving policies is fundamentally bottlenecked by the scarcity of edge cases in curated datasets. While the real world continuously captures these critical events, such long-tail events remain underutilized when collected from heterogeneous sources. Specifically, diverse but valuable in-the-wild long-tail videos lack the full view coverage required for training policy models, often missing multi-view poses or originating solely from monocular dash cameras. This modality gap prevents these ubiquitous observations from being converted into scalable training data for long-tail generalization. We introduce OpenLongTail, an open-source generative data engine for scaling autonomous driving policies under long-tail events. To transform heterogeneous data sources into view-aligned and temporally coherent multi-view assets that are useful for policy learning, we develop a pose-informed extrapolative view synthesis pipeline that generates the missing views. We further enhance cross-view consistency and the temporal alignment for the newly generated views by injecting Plücker ray geometry into the scalable generation engine. By synthesizing heterogeneous long-tail data, we observe a significant improvement in closed-loop driving robustness in handling long-tail events. By measuring the extrapolative view synthesis and pose metrics, we validate the effectiveness of OpenLongTail in visual fidelity, cross-view consistency, and ego-trajectory recovery.",
-      "abstract_zh": "扩展稳健驾驶策略从根本上受到精选数据集中边缘案例稀缺的瓶颈制约。尽管现实世界持续捕捉这些关键事件，但当从异构来源收集这些长尾事件时，其潜力仍未得到充分利用。具体而言，多样但极具价值的野外长尾视频缺乏训练策略模型所需的全视角覆盖，往往缺失多视角位姿信息或仅来源于单目行车摄像头。这种模态差距阻碍了将这些普遍存在的观察结果转化为可扩展的训练数据，以实现长尾泛化。我们提出OpenLongTail——一个用于在长尾事件下扩展自动驾驶策略的开源生成式数据引擎。为了将异构数据源转化为适用于策略学习的视角对齐且时间连贯的多视角资产，我们开发了一套基于位姿信息的外推式视角合成流程，用于生成缺失的视角。通过将普吕克射线几何注入可扩展的生成引擎，我们进一步增强了新生成视角的跨视角一致性与时间对齐性。通过合成异构长尾数据，我们观察到闭环驾驶系统在处理长尾事件时的稳健性显著提升。通过评估外推视角合成质量与位姿度量指标，我们验证了OpenLongTail在视觉保真度、跨视角一致性和自车轨迹恢复方面的有效性。",
-      "hf_link": "https://huggingface.co/papers/2607.09655"
+    "2607.16074": {
+      "title": "JoyNexus: Service-Oriented Multi-Tenant Post-Training for VLA Models",
+      "abstract": "The post-training of Vision-Language-Action (VLA) models is essential due to the diversity of simulators, robot embodiments, and task objectives. Existing compute services, whether offered as direct accelerator rental or batch-workload submission, typically allocate an exclusive set of GPU and CPU resources to a single tenant. While this paradigm maximizes client flexibility, it burdens users with infrastructure adaptation, and the fixed card-hour accounting model renders short or bursty workloads both expensive for tenants and inefficient for the service provider. To address these challenges, we present JoyNexus, a unified service for multi-tenant VLA supervised fine-tuning, reinforcement learning, and evaluation. JoyNexus decouples the Training Model Service, Inference Model Service, and Environment Service, each accessed through APIs and backed by resident shared base models with tenant-specific slots. Tenants can directly invoke high-level semantic APIs for training, rollout, and evaluation, or compose custom algorithms using lower-level APIs and their assigned endpoints. Multiple tenants submit workloads concurrently; their action modules, optimizers, rollout records, and policy versions remain isolated, and the service is scheduled by the global Training Queue and Inference Queue. To further improve multi-tenant training efficiency, JoyNexus introduces group batching for heterogeneous VLA data schemas that share a compatible model-facing prefix, enabling a single shared backbone forward pass over grouped samples. Finally, we evaluate JoyNexus through workload simulation and a group-batching pipeline in a realistic embodied scenario. Results show that, compared with isolated single-tenant execution, JoyNexus reduces aggregate GPU time and improves service utilization via cross-tenant scheduling on shared resources.",
+      "abstract_zh": "视觉-语言-动作模型的训练后调谐至关重要，这源于仿真器、机器人实体形态以及任务目标的多样性。现有的计算服务，无论是作为直接加速器租赁还是批量任务提交，通常都会为单个租户分配专属的GPU和CPU资源集。尽管这种模式最大化了客户灵活性，但它将基础设施适配的负担转嫁给用户，且固定的卡时计费模型使得短时或突发性工作负载对租户而言成本高昂，同时对服务提供商也造成效率低下。为应对这些挑战，我们提出了JoyNexus——一个面向多租户VLA监督微调、强化学习与评估的统一服务平台。JoyNexus将训练模型服务、推理模型服务与环境服务解耦，各项服务均通过API访问，并由常驻的共享基础模型支持，每个租户拥有专属的模型槽位。租户可直接调用高层次语义API进行训练、轨迹生成与评估，或利用低层API及其分配到的端点组合自定义算法。多个租户并发提交工作负载；其动作模块、优化器、轨迹记录与策略版本保持隔离，服务由全局训练队列与推理队列统一调度。为进一步提升多租户训练效率，JoyNexus针对具有兼容模型前缀的异构VLA数据模式引入了分组批处理技术，使得共享主干网络能对分组样本执行单次前向传播。最后，我们在具身智能实际场景中通过工作负载模拟与分组批处理流水线对JoyNexus进行评估。结果表明，与隔离的单租户执行方式相比，JoyNexus通过在共享资源上进行跨租户调度，显著降低了总体GPU时间并提升了服务利用率。",
+      "hf_link": "https://huggingface.co/papers/2607.16074"
+    },
+    "2607.18084": {
+      "title": "WorldCupArena: Fine-Grained Evaluation of Language Models and Deep-Research Agents on Football Forecasting",
+      "abstract": "Predicting a football match before kickoff requires more than knowing past results: a model must use changing information and make a clear prediction before the answer is available. We present WorldCupArena, a dynamic benchmark for language models and deep-research agents. The 2026 FIFA World Cup is its first evaluation, and the same process can be reused for future leagues and cups. Before each match, a model either receives a common evidence package or searches for information itself. It predicts the result and score, likely players and events, match statistics, and the outcome of the competition. After the match, these predictions are compared with the recorded result. We report result accuracy, exact-score accuracy, and a scoreline score that gives some credit when a predicted score is close but not exact, together with scores for the other prediction tasks. Across 104 matches and 13 systems, models with similar result accuracy differ more clearly on detailed predictions. Compared with betting-market and human-fan baselines, the best system shows only small gains in result and exact-score accuracy, but a clearer gain in Scoreline. New schedules can be added as they begin, allowing the benchmark to evaluate future models without using outcomes that are already known. Code, prompts, predictions, and evaluation scripts are open sourced atthis https URL.",
+      "abstract_zh": "在足球比赛开赛前进行预测，所需信息远不止历史赛果：模型必须利用动态变化的信息，在结果尚未揭晓时做出明确预测。我们提出WorldCupArena——一个面向语言模型与深度研究智能体的动态评估基准。2026年国际足联世界杯（FIFA World Cup）是该基准的首个评估场景，同一评估流程可复用于未来各类联赛与杯赛。在每场比赛前，模型可选择接收统一提供的证据资料包或自行检索信息。模型需预测比赛结果与比分、可能登场的球员与关键事件、比赛统计数据以及赛事最终走向。赛后，这些预测将与实际记录结果进行比对。我们报告了胜负准确率、精确比分准确率，以及当预测比分接近实际比分（虽不精确）时给予部分得分的比分评分（Scoreline），同时包含其他预测任务的评分结果。在涵盖104场比赛与13个系统的测试中，胜负准确率相近的模型在细节预测方面表现出更显著的差异。相较于博彩市场与球迷群体的基线水平，最佳系统在胜负与精确比分准确率上仅呈现微弱优势，但在比分评分（Scoreline）上显示出更明显的提升。新赛程可随赛季启动同步纳入，确保该基准能基于未知结果持续评估未来模型。相关代码、提示词、预测数据及评估脚本已在https链接中开源。",
+      "hf_link": "https://huggingface.co/papers/2607.18084"
     },
     "2607.17524": {
       "title": "Token-Level Off-Policy Learning for Faithful Generation Under Distribution Shift",
       "abstract": "We propose Token-Level Off-Policy Labeling (TOPL), an off-policy training paradigm that reframes post-training as a token-level correctness prediction task. Our key intuition is that by training the model to distinguish good and bad tokens in a response, we naturally guide the model towards generating good tokens, while avoiding the pitfalls that come with directly training the model to generate off-policy tokens. Experiments on document summarization tasks show that TOPL achieves strong out-of-distribution generalization across 11 datasets against a diverse set of sequence-level and token-level baselines. We further demonstrate that TOPL transfers effectively to machine translation, suggesting that its benefits generalize across different faithful generation tasks. Through ablation studies, we confirm that our token-level learning signal is critical to good performance; sequence-level analogues do not confer similar benefits. Finally, we show that TOPL induces interpretable model updates: the LoRA adapters learned through TOPL function as linear classification heads and steering vectors.",
       "abstract_zh": "我们提出Token-Level Off-Policy Labeling（TOPL）这一离策略训练范式，该方法将后训练重构为词元级别的正确性预测任务。我们的核心思想是：通过训练模型区分回答中的好词元与坏词元，可以自然地引导模型生成优质词元，同时规避直接训练模型生成离策略词元可能带来的缺陷。在文档摘要任务上的实验表明，TOPL在11个数据集上相对于多种序列级与词元级基线模型均实现了出色的分布外泛化能力。我们进一步证明TOPL能有效迁移至机器翻译任务，这表明其优势在不同类型的忠实生成任务中具有普适性。通过消融实验，我们确认了词元级学习信号对优异性能的关键作用；序列级的类似方法无法带来同等效益。最后，我们发现TOPL能引发可解释的模型更新：通过TOPL学习得到的LoRA适配器可同时发挥线性分类头与导向向量的功能。",
       "hf_link": "https://huggingface.co/papers/2607.17524"
+    },
+    "2607.09655": {
+      "title": "OpenLongTail: Generative Scaling of Long-Tail Driving Data",
+      "abstract": "Scaling robust driving policies is fundamentally bottlenecked by the scarcity of edge cases in curated datasets. While the real world continuously captures these critical events, such long-tail events remain underutilized when collected from heterogeneous sources. Specifically, diverse but valuable in-the-wild long-tail videos lack the full view coverage required for training policy models, often missing multi-view poses or originating solely from monocular dash cameras. This modality gap prevents these ubiquitous observations from being converted into scalable training data for long-tail generalization. We introduce OpenLongTail, an open-source generative data engine for scaling autonomous driving policies under long-tail events. To transform heterogeneous data sources into view-aligned and temporally coherent multi-view assets that are useful for policy learning, we develop a pose-informed extrapolative view synthesis pipeline that generates the missing views. We further enhance cross-view consistency and the temporal alignment for the newly generated views by injecting Plücker ray geometry into the scalable generation engine. By synthesizing heterogeneous long-tail data, we observe a significant improvement in closed-loop driving robustness in handling long-tail events. By measuring the extrapolative view synthesis and pose metrics, we validate the effectiveness of OpenLongTail in visual fidelity, cross-view consistency, and ego-trajectory recovery.",
+      "abstract_zh": "扩展稳健驾驶策略从根本上受到精选数据集中边缘案例稀缺的瓶颈制约。尽管现实世界持续捕捉这些关键事件，但当从异构来源收集这些长尾事件时，其潜力仍未得到充分利用。具体而言，多样但极具价值的野外长尾视频缺乏训练策略模型所需的全视角覆盖，往往缺失多视角位姿信息或仅来源于单目行车摄像头。这种模态差距阻碍了将这些普遍存在的观察结果转化为可扩展的训练数据，以实现长尾泛化。我们提出OpenLongTail——一个用于在长尾事件下扩展自动驾驶策略的开源生成式数据引擎。为了将异构数据源转化为适用于策略学习的视角对齐且时间连贯的多视角资产，我们开发了一套基于位姿信息的外推式视角合成流程，用于生成缺失的视角。通过将普吕克射线几何注入可扩展的生成引擎，我们进一步增强了新生成视角的跨视角一致性与时间对齐性。通过合成异构长尾数据，我们观察到闭环驾驶系统在处理长尾事件时的稳健性显著提升。通过评估外推视角合成质量与位姿度量指标，我们验证了OpenLongTail在视觉保真度、跨视角一致性和自车轨迹恢复方面的有效性。",
+      "hf_link": "https://huggingface.co/papers/2607.09655"
     },
     "2607.18171": {
       "title": "FlashRT: Agent Harness for Guiding Agents to Deploy Real-Time Multimodal Applications",
@@ -119,29 +149,48 @@
       "abstract": "The prevailing inference framework for diffusion models formulates generation fundamentally as a problem of numerical integration. This perspective casts the model as an exact estimator, neglecting the inherent statistical uncertainty of the denoising process. In this work, we propose Forward-Process Aligned Diffusion prediction (\\textbf{DiFA}), a training-free framework that reframes inference-time data prediction refinement as a sequential state estimation problem. Rather than reusing past outputs solely for numerical integration, DiFA treats iterative data predictions along the reverse trajectory as correlated observations to build a forward-aligned temporal consensus. Inspired by Kalman filtering, this consensus aggregates historical predictions according to structural consistency and noise-level compatibility. To counteract the over-smoothing tendency of temporal consensus, we introduce a deviation guidance mechanism to adaptively preserve residual details. Empirically, DiFA yields significant improvements on CIFAR-10 and ImageNet across the evaluated metrics, including FID, IS, and FD-DINOv2, demonstrating that aligning inference with the forward statistical structure substantially improves generative fidelity.",
       "abstract_zh": "当前扩散模型的主流推理框架本质上将生成过程构建为一个数值积分问题。这一视角将模型视为精确估计器，忽视了去噪过程固有的统计不确定性。本研究提出前向过程对齐扩散预测（\\textbf{DiFA}），这是一个无需训练的新框架，将推理阶段的数据预测优化重新定义为序列状态估计问题。DiFA不再仅将历史输出复用于数值积分，而是将反向轨迹上的迭代数据预测视为相关观测值，从而构建前向对齐的时间一致性共识。受卡尔曼滤波启发，该共识根据结构一致性与噪声水平兼容性对历史预测进行聚合。为抵消时间共识可能导致的过度平滑倾向，我们引入偏差引导机制以自适应保留残差细节。实验表明，DiFA在CIFAR-10和ImageNet数据集的所有评估指标（包括FID、IS和FD-DINOv2）上均取得显著提升，证明将推理过程与前向统计结构对齐能实质性提高生成保真度。",
       "hf_link": "https://huggingface.co/papers/2607.17972"
+    },
+    "2607.17675": {
+      "title": "ShotPlan: Cinematic Video Generation with Learnable Planning Token",
+      "abstract": "Current video generation models achieve impressive results in single-shot generation, yet remain limited in cinematic video generation, where coherent narratives and effective multi-shot composition require explicit shot planning. To address this challenge, we propose ShotPlan, a framework for explicit multi-shot cinematic video generation built upon a video diffusion foundation model. Our method introduces learnable planning tokens that capture shot-level transition cues and can be seamlessly integrated with the original video generation tokens to control transition timestamps. Unlike standard video generation tokens, the proposed planning tokens are equipped with Fractional Temporal Rotary Position Embedding (FRoPE), enabling shot transitions to be modeled at the frame level. Experiments demonstrate that ShotPlan significantly outperforms existing cinematic video generation methods, offering more flexible shot management and stronger inter-shot consistency.",
+      "abstract_zh": "当前视频生成模型在单镜头生成方面已取得显著成果，但在电影级视频生成领域仍存在局限——连贯的叙事与有效的多镜头组合需要明确的镜头规划。为应对这一挑战，我们提出ShotPlan框架，该框架基于视频扩散基础模型构建，可实现显式的多镜头电影视频生成。我们的方法引入了可学习的规划标记符，这些标记符能捕捉镜头级转场线索，并可与原始视频生成标记符无缝集成以控制转场时间点。与标准视频生成标记符不同，所提出的规划标记符配备分数时序旋转位置编码（Fractional Temporal Rotary Position Embedding, FRoPE），使镜头转场能在帧级别进行建模。实验表明，ShotPlan显著优于现有电影视频生成方法，在提供更灵活镜头管理与更强镜头间连贯性方面表现出色。",
+      "hf_link": "https://huggingface.co/papers/2607.17675"
+    },
+    "2607.16609": {
+      "title": "Can Multimodal Large Language Models Understand OCT?",
+      "abstract": "Optical coherence tomography (OCT) imaging is essential for the diagnosis and treatment of retinal diseases. Although multimodal large language models (MLLMs) have demonstrated considerable potential in medical image analysis, existing benchmarks largely reduce OCT understanding to coarse-grained disease classification or isolated visual question answering, leaving the complete cognitive process from visual perception to clinical reasoning insufficiently evaluated. To address this limitation, we introduce OCT-Bench, a comprehensive benchmark dedicated to OCT image understanding. OCT-Bench comprises 10,076 high-quality multiple-choice questions constructed from 4,137 OCT images across seven public datasets. Following the real-world clinical interpretation workflow, we establish a hierarchical capability taxonomy consisting of 20 fine-grained tasks across three dimensions: Perception, Cognition, and Reasoning. These tasks cover a broad range of capabilities, including imaging attributes, retinal anatomy, lesion characteristics, spatial relationships, disease assessment, therapeutic decision-making, and prognostic management. We systematically evaluate 20 representative MLLMs, including proprietary models, open-source general-purpose models, and medical-domain models. Experimental results demonstrate that current models remain substantially short of reliable OCT understanding. Moreover, neither medical-domain adaptation nor increased model scale consistently improves performance across capability levels. OCT-Bench enables comprehensive and fine-grained evaluation of MLLMs, providing a foundation for identifying capability bottlenecks and advancing clinically grounded OCT understanding.",
+      "abstract_zh": "光学相干断层扫描（Optical Coherence Tomography，OCT）成像对视网膜疾病的诊断与治疗至关重要。尽管多模态大语言模型（Multimodal Large Language Models，MLLMs）在医学图像分析中展现出巨大潜力，现有基准测试大多将OCT理解简化为粗粒度的疾病分类或孤立的视觉问答，未能充分评估从视觉感知到临床推理的完整认知过程。为弥补这一不足，我们提出了OCT-Bench——一个专注于OCT图像理解的综合性基准测试。OCT-Bench包含10,076道基于4,137幅OCT图像构建的高质量选择题，这些图像来源于七个公共数据集。遵循真实世界的临床判读流程，我们建立了一个涵盖感知、认知与推理三个维度的层次化能力分类体系，包含20项细粒度任务。这些任务覆盖了成像属性、视网膜解剖结构、病灶特征、空间关系、疾病评估、治疗决策及预后管理等广泛能力。我们系统评估了20个代表性MLLMs，包括专有模型、开源通用模型及医疗领域模型。实验结果表明，当前模型仍远未实现可靠的OCT理解。此外，无论是医疗领域适配还是模型规模扩大，均未能在各能力层级上持续提升性能。OCT-Bench支持对MLLMs进行全面且细粒度的评估，为识别能力瓶颈和推进基于临床实践的OCT理解研究奠定基础。",
+      "hf_link": "https://huggingface.co/papers/2607.16609"
     }
   },
   "hf_votes": {
-    "2607.18213": 0,
-    "2607.17250": 0,
     "2607.17423": 0,
+    "2607.18213": 0,
+    "2607.07820": 0,
+    "2607.17250": 0,
     "2607.18217": 0,
-    "2607.16401": 0,
     "2607.17977": 0,
-    "2607.09759": 0,
+    "2607.16401": 0,
     "2607.16850": 0,
+    "2607.09759": 0,
+    "2607.10387": 0,
+    "2607.10371": 0,
     "2607.16900": 0,
-    "2607.18110": 0,
-    "2607.13365": 0,
-    "2607.17247": 0,
     "2607.18227": 0,
-    "2607.16074": 0,
-    "2607.17986": 0,
+    "2607.13365": 0,
+    "2607.18110": 0,
     "2607.17097": 0,
-    "2607.09655": 0,
+    "2607.17247": 0,
+    "2607.17146": 0,
+    "2607.17986": 0,
+    "2607.16074": 0,
+    "2607.18084": 0,
     "2607.17524": 0,
+    "2607.09655": 0,
     "2607.18171": 0,
-    "2607.17972": 0
+    "2607.17972": 0,
+    "2607.17675": 0,
+    "2607.16609": 0
   },
   "focus_sections": {
     "3D生成与重建": [
@@ -150,60 +199,80 @@
     ]
   },
   "summaries": {
-    "2607.17097": {
-      "short_zh": "多视角手物交互视频合成",
-      "tags": "计算机图形学;三维重建;手物交互合成",
-      "body_summary": "手物交互合成是动画和具身智能的关键，但多视角一致性合成因复杂手部动作和遮挡而困难。\n提出HarmoHOI框架，联合生成多视角视频和全局对齐的三维轨迹，通过混合数据课程学习实现高质量合成。"
-    },
     "2607.13365": {
       "short_zh": "一种生成高质量薄壳3D模型的新方法",
       "tags": "计算机图形学;三维形状生成;几何图像表示",
       "body_summary": "现有3D生成方法难以精确表示衣物等薄壳非流形几何结构。\n提出了可微几何图像框架，用连续距离场替代二值图像，并结合可微表面提取与扩散模型，实现高保真重建与生成。"
     },
-    "2607.18213": {
-      "short_zh": "让大模型自己修剪代码上下文",
-      "tags": "自然语言处理;代码智能;上下文修剪",
-      "body_summary": "现有方法为代码助手修剪长上下文时需额外分类器，而助手本身已隐含上下文相关性信息。\n提出新方法，直接利用助手内部特征，通过小模块自动标注并修剪工具输出行，显著节省计算开销。"
-    },
-    "2607.17250": {
-      "short_zh": "交互式文学世界角色与场景协同演化框架",
-      "tags": "自然语言处理;文本生成;交互式文学仿真",
-      "body_summary": "现有系统将交互式文学仿真视为静态角色模仿或孤立场景生成，未能捕捉角色与世界随时间的共同演化。\n提出了EvolvingWorld开放架构框架，包含角色代理与世界模型模块，构建了数据集和评估协议，以支持长程、连贯的角色与世界发展模拟。"
+    "2607.17097": {
+      "short_zh": "多视角手物交互视频合成",
+      "tags": "计算机图形学;三维重建;手物交互合成",
+      "body_summary": "手物交互合成是动画和具身智能的关键，但多视角一致性合成因复杂手部动作和遮挡而困难。\n提出HarmoHOI框架，联合生成多视角视频和全局对齐的三维轨迹，通过混合数据课程学习实现高质量合成。"
     },
     "2607.17423": {
       "short_zh": "视频多模态时序定位",
       "tags": "多模态视频理解；时序定位；多片段证据定位",
       "body_summary": "现有视频多模态大模型能描述视频内容，但难以准确定位支持证据发生的时间。\n本文提出TimeLens2模型及数据集，通过设计新的监督方法和优化目标，训练通用模型来定位视频中数量不定的多个证据片段。"
     },
+    "2607.18213": {
+      "short_zh": "让大模型自己修剪代码上下文",
+      "tags": "自然语言处理;代码智能;上下文修剪",
+      "body_summary": "现有方法为代码助手修剪长上下文时需额外分类器，而助手本身已隐含上下文相关性信息。\n提出新方法，直接利用助手内部特征，通过小模块自动标注并修剪工具输出行，显著节省计算开销。"
+    },
+    "2607.07820": {
+      "short_zh": "自主蒸馏训练网页搜索智能体",
+      "tags": "自然语言处理;智能体与交互;可验证环境下的网页搜索",
+      "body_summary": "训练能使用工具的智能体自我提升面临挑战：监督微调依赖固定轨迹，稀疏奖励强化学习对长程交互监督弱。\n我们提出了DeepSearch-Evolve框架，在具有可重现搜索工具的可验证环境DeepSearch-World中，通过轨迹生成、筛选、数据混合与微调的迭代过程训练智能体，使其无需更强模型蒸馏也能在多项任务上达到有竞争力的性能。"
+    },
+    "2607.17250": {
+      "short_zh": "交互式文学世界角色与场景协同演化框架",
+      "tags": "自然语言处理;文本生成;交互式文学仿真",
+      "body_summary": "现有系统将交互式文学仿真视为静态角色模仿或孤立场景生成，未能捕捉角色与世界随时间的共同演化。\n提出了EvolvingWorld开放架构框架，包含角色代理与世界模型模块，构建了数据集和评估协议，以支持长程、连贯的角色与世界发展模拟。"
+    },
     "2607.18217": {
       "short_zh": "视频主体个性化生成新方法",
       "tags": "计算机视觉;生成模型;人物对象视频个性化",
       "body_summary": "现有视频主体个性化方法在主体保真度、交互准确性和理解多模态参考上存在不足。\n提出HOMIE框架，通过改进MLLM集成策略和多模态引导机制，统一处理主体间与主体内参考，提升生成效果。"
-    },
-    "2607.16401": {
-      "short_zh": "苹果派评估视频模型物理理解",
-      "tags": "计算机视觉;视频生成与理解;物理世界模拟评估",
-      "body_summary": "现有视频生成模型被视作内化了物理规律的世界模型，但缺乏对其推理过程是否符合物理定律的评估。\n我们提出了首个以物理定律为基准的视频评估体系Apple-PI，包含数据集、评测协议与评估套件，用于诊断模型在感知、建模与推理各阶段的物理理解能力。"
     },
     "2607.17977": {
       "short_zh": "构建更通用机器人基础模型",
       "tags": "机器人;具身智能;多模态大模型",
       "body_summary": "我们构建了RynnBrain 1.1系列具身基础模型，旨在提升机器人的感知、推理与规划能力。\n该模型引入了接触点预测与3D基础能力，在多任务与多机器人平台上验证了其优越性能。"
     },
-    "2607.09759": {
-      "short_zh": "实体导向视频记忆系统",
-      "tags": "多模态人工智能;视频理解;开放视频流记忆",
-      "body_summary": "现有视频记忆系统以帧为单位组织记忆，难以持续跟踪跨时间出现的实体\n提出ReflectWorld-MM系统，包含感知前端、分层长时记忆和完整实现，在六个基准测试中表现最佳"
+    "2607.16401": {
+      "short_zh": "苹果派评估视频模型物理理解",
+      "tags": "计算机视觉;视频生成与理解;物理世界模拟评估",
+      "body_summary": "现有视频生成模型被视作内化了物理规律的世界模型，但缺乏对其推理过程是否符合物理定律的评估。\n我们提出了首个以物理定律为基准的视频评估体系Apple-PI，包含数据集、评测协议与评估套件，用于诊断模型在感知、建模与推理各阶段的物理理解能力。"
     },
     "2607.16850": {
       "short_zh": "分组熵控策略优化",
       "tags": "强化学习;语言模型对齐;组熵归一化优势",
       "body_summary": "强化学习对齐大模型时，混合任务导致熵需求各异，全局熵调控与优势标准化存在偏差。\n提出分组熵控策略优化，用组熵自适应修正优势，平衡探索利用，提升跨任务表现。"
     },
+    "2607.09759": {
+      "short_zh": "实体导向视频记忆系统",
+      "tags": "多模态人工智能;视频理解;开放视频流记忆",
+      "body_summary": "现有视频记忆系统以帧为单位组织记忆，难以持续跟踪跨时间出现的实体\n提出ReflectWorld-MM系统，包含感知前端、分层长时记忆和完整实现，在六个基准测试中表现最佳"
+    },
+    "2607.10387": {
+      "short_zh": "时间感知音频大语言模型",
+      "tags": "自然语言处理；多模态学习；长音频时序定位",
+      "body_summary": "处理长录音中音频时序定位的难题，让模型能回答带时间戳的问题\n提出的模型通过插入周期性时间标记和合成监督，在长达120分钟的音频上实现精确时序定位"
+    },
+    "2607.10371": {
+      "short_zh": "构建小语种语音识别基础模型",
+      "tags": "语音识别;多语言语音识别;低资源语言语音识别",
+      "body_summary": "当前多语言语音识别性能不均衡，低资源语言数据稀缺\n我们提出了GigaAM模型及其数据平衡策略，在中亚语言上超越现有模型"
+    },
     "2607.16900": {
       "short_zh": "无需环境生成API调用代理训练数据",
       "tags": "自然语言处理;智能体;API调用轨迹生成",
       "body_summary": "训练能调用API的大模型代理需要大量高质量交互数据，但构建可执行环境与数据库是主要瓶颈。\n我们提出一种无需环境的方法，用大模型模拟数字世界来合成任务、生成响应并筛选轨迹，从而高效生成训练数据。"
+    },
+    "2607.18227": {
+      "short_zh": "在单一模型中融合视频图像生成与编辑",
+      "tags": "计算机视觉;视频编辑;像素级流场编辑",
+      "body_summary": "当前视频编辑数据收集依赖人工标注与合成流程，任务多样性与扩展性受限。\n我们提出实时生成视频编辑样本的流场方法，并通过模态模仿与感知任务提升模型内在编辑能力。"
     },
     "2607.18110": {
       "short_zh": "大模型教练指导强化学习",
@@ -215,30 +284,35 @@
       "tags": "自然语言处理;大语言模型;模型蒸馏与对齐",
       "body_summary": "现有大语言模型训练方法存在强化学习难以分配奖励和模仿学习无条件模仿教师知识的局限。\n我们提出蒸馏强化学习，将教师知识融入强化目标进行细粒度指导，通过选择性知识转移提升模型能力。"
     },
-    "2607.18227": {
-      "short_zh": "在单一模型中融合视频图像生成与编辑",
-      "tags": "计算机视觉;视频编辑;像素级流场编辑",
-      "body_summary": "当前视频编辑数据收集依赖人工标注与合成流程，任务多样性与扩展性受限。\n我们提出实时生成视频编辑样本的流场方法，并通过模态模仿与感知任务提升模型内在编辑能力。"
-    },
-    "2607.16074": {
-      "short_zh": "多租户视觉语言动作模型后训练服务",
-      "tags": "机器人;具身智能;视觉语言动作模型后训练",
-      "body_summary": "视觉语言动作模型后训练面临仿真器、机器人硬件和任务目标多样化的挑战，现有计算服务模式存在资源利用率低和成本高的问题。\n提出了多租户后训练服务系统JoyNexus，它通过服务解耦、共享基础模型和调度队列实现资源高效共享，并引入分组批处理提升异构数据训练效率。"
+    "2607.17146": {
+      "short_zh": "构建Transformer的连续几何框架",
+      "tags": "自然语言处理;语言模型;Transformer几何建模",
+      "body_summary": "提出一个连续几何框架，将Transformer的离散操作建模为语义纤维丛上的积分微分方程。\n通过理论与实验验证，该框架能预测模型稳定性、上下文长度和优化动态。"
     },
     "2607.17986": {
       "short_zh": "自身状态攻击与操作系统防御",
       "tags": "系统安全;操作系统安全;AI代理安全",
       "body_summary": "研究自托管AI代理因其自身状态文件遭篡改而受攻击的威胁，评估操作系统对此类攻击的防御能力。\n从攻防角度建模攻击空间，基于真实代理活动注入攻击，评估防御策略效果并指出其局限性。"
     },
-    "2607.09655": {
-      "short_zh": "生成式长尾驾驶数据增强",
-      "tags": "自动驾驶;感知与决策;长尾场景数据合成",
-      "body_summary": "现有驾驶数据缺乏长尾边角案例，且异质数据因视角不全难以直接用于策略训练。\n提出OpenLongTail，通过姿态感知的外推视图合成，将异质长尾视频生成为多视角对齐的训练数据，提升了驾驶策略的鲁棒性。"
+    "2607.16074": {
+      "short_zh": "多租户视觉语言动作模型后训练服务",
+      "tags": "机器人;具身智能;视觉语言动作模型后训练",
+      "body_summary": "视觉语言动作模型后训练面临仿真器、机器人硬件和任务目标多样化的挑战，现有计算服务模式存在资源利用率低和成本高的问题。\n提出了多租户后训练服务系统JoyNexus，它通过服务解耦、共享基础模型和调度队列实现资源高效共享，并引入分组批处理提升异构数据训练效率。"
+    },
+    "2607.18084": {
+      "short_zh": "足球预测的细粒度评估基准",
+      "tags": "自然语言处理;大语言模型评估;动态开放域预测",
+      "body_summary": "预测足球赛果需整合动态信息并在赛前给出明确预测，现有模型评测对此关注不足。\n我们构建了WorldCupArena基准，利用2026世界杯赛程，评估模型在证据包或自主搜索信息下的赛果、比分等细粒度预测能力，并开源相关资源。"
     },
     "2607.17524": {
       "short_zh": "标记级离策学习提升分布偏移下忠实生成",
       "tags": "自然语言处理;文本生成;忠实文本生成",
       "body_summary": "在分布偏移下，如何使模型生成忠实可信的内容是文本生成领域的一个挑战。\n我们提出了TOPL方法，通过训练模型在标记级别区分回答中的好坏成分，以引导模型生成优质内容，并在摘要和翻译任务中验证了其有效性和可解释性。"
+    },
+    "2607.09655": {
+      "short_zh": "生成式长尾驾驶数据增强",
+      "tags": "自动驾驶;感知与决策;长尾场景数据合成",
+      "body_summary": "现有驾驶数据缺乏长尾边角案例，且异质数据因视角不全难以直接用于策略训练。\n提出OpenLongTail，通过姿态感知的外推视图合成，将异质长尾视频生成为多视角对齐的训练数据，提升了驾驶策略的鲁棒性。"
     },
     "2607.18171": {
       "short_zh": "智能体自动优化多模型实时应用",
@@ -249,33 +323,23 @@
       "short_zh": "提升扩散模型推理精度",
       "tags": "生成模型；扩散模型；推理时对齐",
       "body_summary": "现有扩散模型推理框架忽视去噪过程固有的统计不确定性，将其视为数值积分问题，导致生成质量受限。\n提出无需训练的前向过程对齐框架，将推理时数据预测视为序列状态估计，通过时序共识聚合历史预测并引入偏差引导保留细节，显著提升了生成保真度。"
+    },
+    "2607.17675": {
+      "short_zh": "学习规划令牌生成电影视频",
+      "tags": "计算机视觉；视频生成；电影视频多镜头规划",
+      "body_summary": "现有视频生成模型在单镜头生成上效果出色，但生成具有连贯叙事和有效多镜头组合的电影视频时，需要显式的镜头规划。\n提出ShotPlan框架，通过可学习的规划令牌捕获镜头级过渡线索，并结合分数时间旋转位置编码，在视频扩散基础模型上实现了可控的多镜头电影视频生成。"
+    },
+    "2607.16609": {
+      "short_zh": "评测大语言模型理解OCT图像能力",
+      "tags": "多模态学习;医学图像理解;OCT图像理解与评估",
+      "body_summary": "背景/任务：光学相干断层扫描（OCT）对诊断视网膜疾病至关重要，但现有多模态大语言模型（MLLMs）在OCT图像理解上的评估不足。\n做了什么：提出了一个包含一万余道选择题的综合评测基准OCT-Bench，用于系统评估20个模型在OCT图像感知、认知和推理三方面的细粒度能力，发现现有模型仍有明显不足。"
     }
   },
   "deep_analysis": {
-    "2607.17097": "好的，没问题。我们就像聊天一样，用简单的语言来梳理这篇论文的核心内容。假设你是一位刚入门的博士生，我来帮你解读。\n\n这篇论文的名字叫 **《HarmoHOI: 为多视角手-物交互合成而协调外观与3D运动》**。我们一步步拆解。\n\n### (1) 任务是什么？\n\n*   **任务输入：**\n    1.  **一张参考图片：** 比如一只手拿着一个杯子的静态照片。这张图提供了初始的手、物体以及它们之间关系的“外观”信息。\n    2.  **多个目标相机姿态：** 你指定几个虚拟相机的位置和角度，告诉模型你想从哪几个不同的视角看这个场景。\n\n*   **任务输出：**\n    1.  **同步的多视角视频：** 生成一组视频，每个视频代表从一个指定相机视角看到的**手和物体交互的动态过程**（比如拿起杯子、摇晃、放下）。关键是，这些视频在时间上是完全同步的：在同一个时刻，所有视角看到的动作和物体位置在3D空间里是匹配的。\n    2.  **全局对齐的3D点轨迹：** 除了视频，模型还会生成一组3D空间中的点，这些点会随着时间运动，精确地描绘出手和物体在真实三维空间中的运动轨迹。\n\n*   **任务功能：** 简而言之，就是从一个**静态的、单视角的图片**出发，**凭空想象并生成一个多视角、动态的、3D一致的手部操纵物体的动画**。这就像给一张照片赋予了生命和多个视角。\n\n### (2) 想解决什么问题？\n\n手-物交互（HOI）的视频生成非常难，因为动作精细、遮挡严重（比如手指会互相挡住或挡住物体）。现有的视频生成大模型虽然很强，但直接用来生成**多视角**的HOI视频，会出现严重问题：\n\n*   **视角不一致：** 从不同视角生成的视频，物体和手的位置、运动轨迹对不上，违反了基本的3D几何规律（比如你从左边看手在杯子右边，从右边看手却在杯子左边，这就不合理）。\n*   **缺乏3D运动感知：** 大多数方法只关心生成的2D视频“看起来”真实，但不管它们在3D空间里是不是一个合理的、统一的运动。没有3D信息作为“锚点”，多视角一致性就很难保证。\n\n所以，这篇论文的核心问题是：**如何让生成的多视角HOI视频不仅在2D画面上真实，而且在3D几何和运动上也是全局一致、合情合理的？**\n\n### (3) 贡献是什么？\n\n论文提出了几个关键的新点子来解决问题：\n\n1.  **联合建模2D外观与3D运动：** 这是最核心的思想。他们不像以前的工作那样，要么只生成视频，要么用3D信息去“控制”视频生成。而是**让2D视频和3D运动轨迹在同一个生成模型里“共同进化”**。在生成过程中，3D信息帮助约束视角一致性，2D信息帮助丰富细节，两者互相促进。\n2.  **将3D点轨迹“伪装”成视频：** 为了让模型更容易理解和处理3D信息，他们巧妙地把3D点轨迹（一串随时间变化的3D坐标）重新排列成一种“伪视频”的格式，这样就能直接利用现有的、强大的**视频生成基础模型（如Sora, Luma等）** 的知识来处理3D信号，降低了学习难度。\n3.  **全局运动对齐扩散：** 他们设计了一个额外的模块，专门用来优化和精细化生成的3D点轨迹，确保这些轨迹在真实的物理尺度下是平滑、合理、全局对齐的。\n4.  **混合数据课程学习：** 多视角的HOI数据非常少。他们想了一个办法：先用大量**单视角**的HOI视频数据训练模型学会生成合理的动作，再逐渐引入少量的**多视角**数据教它学会视角同步。这就像先学走路（单视角动作），再学协调（多视角一致）。\n\n### (4) 整体思路与模型结构\n\n**基模是谁？** 论文基于一个现成的、强大的**视频扩散模型（Video Diffusion Model）**。你可以把它想象成一个已经看过海量视频、学会了视频生成规律的“大脑”。论文的工作是给这个大脑“升级”，让它具备多视角3D生成的能力。\n\n**整体流程（看图理解）：**\n\n1.  **输入与编码：**\n    *   你把**参考图片**和**目标相机姿态**（比如4个不同角度）输入系统。\n    *   系统会为每个目标视角，根据参考图片和相机姿态，生成一个初步的、粗糙的**3D点轨迹**（想象成一些稀疏的、可能不太准的3D点云在动）。\n    *   同时，参考图片也被编码成特征。\n\n2.  **核心生成阶段 - “混合多视角扩散Transformer”：**\n    *   这是论文的核心模块。它把两种数据混合在一起送入模型：\n        *   **2D潜在视频特征：** 对应我们想生成的RGB视频。\n        *   **3D伪视频特征：** 把上一步的粗糙3D点轨迹，按照特定格式排列成的“伪视频”。\n    *   这个模块就像一个**联合推理引擎**。在去噪生成的过程中，它同时去猜测下一个时间步的“2D视频应该是什么样”和“3D点应该在哪里”。因为两者在同一个模型里一起算，模型会自然地学习到它们之间的对应关系：`某个3D点的运动，必然会在所有2D视角的视频中留下符合透视规律的投影`。\n\n3.  **3D轨迹精修阶段 - “全局运动对齐扩散”：**\n    *   从核心模块出来的3D点轨迹可能还不够精确和平滑。这个专门的模块就像一位“3D运动校对员”，它接收这些粗糙的轨迹，利用更多物理和几何约束（比如运动的连续性、尺度一致性），输出一套更干净、更准确、全局对齐的**精细化3D点轨迹**。\n\n4.  **输出：**\n    *   **最终的多视角视频** 从核心生成模块得到。\n    *   **最终的3D点轨迹** 从精修模块得到。\n    *   由于生成过程中2D和3D信号是联合优化的，所以这两个输出在几何上是完全自洽的。\n\n### (5) 结果怎么样？\n\n根据论文中的实验，HarmoHOI在以下几个方面表现突出：\n\n*   **视觉质量高：** 生成的单视角或多视角视频，手和物体的外观清晰、真实。\n*   **运动合理：** 手的动作（如抓握、旋转）看起来自然、符合物理规律。\n*   **多视角一致性最好：** 这是它最大的优势。在定量指标和人工评测中，它生成的不同视角视频之间的几何一致性显著优于其他对比方法。也就是说，它的输出最像一个真实的、从不同角度拍摄的**同一场**动态3D场景。\n*   **能生成可信的3D运动：** 它输出的3D点轨迹质量很高，可以直接用于下游任务（如动画、机器人仿真）。\n\n**总结一下给你的印象：**\n这篇论文的核心洞察是——要想生成一致的多视角视频，不能只盯着2D像素，必须让模型“心里”有一个**统一的、正确的3D场景和运动**。它通过**让2D视频和3D运动在生成过程中“手拉手”一起学习**的方式，巧妙地解决了多视角HOI生成的难题，并且效果拔群。",
-    "2607.13365": "我来为你用简单的语言解释一下这篇论文的核心内容：\n\n## 1. 论文所在的任务\n\n**任务输入**：\n- 3D服装、家具等薄壳结构的网格模型\n- 条件信息（如标签、图像、占用图等）\n\n**任务输出**：\n- 高质量的3D薄壳网格模型（带有UV坐标）\n\n**任务功能**：\n这是一个**3D生成任务**，专门针对“薄壳结构”（像衣服、窗帘、家具框架这种很薄、有空隙、非封闭的3D物体）进行高质量生成和重建。\n\n## 2. 想解决什么问题\n\n现有的3D生成方法有两个主要问题：\n\n**问题1：大多数方法只能生成“水密”的封闭表面**\n- 比如用一个球或立方体，不能很好地表示衣服这种“薄片”\n- 容易把衣服的前后两面“粘”在一起，产生厚度\n\n**问题2：现有的几何图像方法质量不够好**\n- 它们用黑白二值图表示边界（像像素画）\n- 边界会有“锯齿”（分辨率依赖）\n- 网格重建和模型训练是分开的，不能端到端优化\n\n## 3. 论文的贡献\n\n**主要贡献三点**：\n\n1. **用连续距离场代替二值图**\n   - 以前：用黑白图表示“这里有没有表面”\n   - 现在：用连续数值表示“离边界有多远”\n   - 好处：边界更精确，没有锯齿\n\n2. **让网格重建变得可微分**\n   - 开发了“可微分Marching Squares”算法\n   - 现在3D表面的误差可以直接反向传播到2D表示上\n   - 实现端到端训练\n\n3. **超紧凑的表示**\n   - 只用32×32的小图就能表示复杂3D形状\n   - 比之前需要768×768的方法效率高很多\n\n## 4. 整体思路和模型结构\n\n**基模**：没有直接用别人的基础模型，但借鉴了VAE和扩散模型的思想\n\n**整体流程**：\n\n```\n输入3D网格 → 映射到2D图像 → 压缩编码 → 扩散生成 → 解码 → 重建3D网格\n```\n\n**详细步骤**：\n\n**步骤1：3D到2D映射**\n- 把3D衣服表面“展开”成多个2D贴图（像剥橘子皮）\n- 在每个贴图上计算“有符号距离函数”（TSDF）\n  - 正值：在表面外面\n  - 负值：在表面里面\n  - 零值：正好在表面上\n\n**步骤2：可微分的2D→3D重建**\n- 用“可微分Marching Squares”从2D距离场重建3D网格\n- 关键：这个重建过程是可微分的，梯度可以反向传播\n\n**步骤3：压缩编码（DiffGI-VAE）**\n- 训练一个变分自编码器（VAE）\n- 把高分辨率距离场压缩到很小的32×32潜在空间\n- 添加法线损失：确保生成的表面光滑\n\n**步骤4：扩散生成**\n- 在压缩后的潜在空间上训练扩散模型\n- 可以用各种条件控制生成：\n  - 标签条件（生成“衬衫”或“裤子”）\n  - 图像条件（根据图片生成3D）\n  - 占用图条件（生成特定形状）\n\n**步骤5：解码输出**\n- 扩散模型生成潜在编码\n- VAE解码器还原成距离场\n- 可微分Marching Squares重建最终3D网格\n\n## 5. 结果怎么样\n\n**效果很好**：\n\n1. **重建质量最好**\n   - 在多个数据集上（服装、家具）都超过了现有方法\n   - 边界更清晰，没有锯齿\n   - 更好地保持了薄壳结构\n\n2. **效率很高**\n   - 潜在空间只有32×32，非常紧凑\n   - 比需要768×768的方法节省大量计算\n   - 推理速度快\n\n3. **生成多样性好**\n   - 可以生成各种复杂的服装形状\n   - 支持多种条件控制\n   - 在零样本图像到3D任务上也表现不错\n\n**简单总结**：\n这篇论文就像是为3D服装设计了一个“智能熨斗+剪刀”：\n- **熨斗**：把3D衣服展平到2D（但保留精确信息）\n- **智能**：用AI学习如何设计和修改\n- **剪刀**：精确裁剪出边界\n- 最后还能从2D设计图变回3D成品，整个过程都可以自动优化学习。"
+    "2607.13365": "我来为你用简单的语言解释一下这篇论文的核心内容：\n\n## 1. 论文所在的任务\n\n**任务输入**：\n- 3D服装、家具等薄壳结构的网格模型\n- 条件信息（如标签、图像、占用图等）\n\n**任务输出**：\n- 高质量的3D薄壳网格模型（带有UV坐标）\n\n**任务功能**：\n这是一个**3D生成任务**，专门针对“薄壳结构”（像衣服、窗帘、家具框架这种很薄、有空隙、非封闭的3D物体）进行高质量生成和重建。\n\n## 2. 想解决什么问题\n\n现有的3D生成方法有两个主要问题：\n\n**问题1：大多数方法只能生成“水密”的封闭表面**\n- 比如用一个球或立方体，不能很好地表示衣服这种“薄片”\n- 容易把衣服的前后两面“粘”在一起，产生厚度\n\n**问题2：现有的几何图像方法质量不够好**\n- 它们用黑白二值图表示边界（像像素画）\n- 边界会有“锯齿”（分辨率依赖）\n- 网格重建和模型训练是分开的，不能端到端优化\n\n## 3. 论文的贡献\n\n**主要贡献三点**：\n\n1. **用连续距离场代替二值图**\n   - 以前：用黑白图表示“这里有没有表面”\n   - 现在：用连续数值表示“离边界有多远”\n   - 好处：边界更精确，没有锯齿\n\n2. **让网格重建变得可微分**\n   - 开发了“可微分Marching Squares”算法\n   - 现在3D表面的误差可以直接反向传播到2D表示上\n   - 实现端到端训练\n\n3. **超紧凑的表示**\n   - 只用32×32的小图就能表示复杂3D形状\n   - 比之前需要768×768的方法效率高很多\n\n## 4. 整体思路和模型结构\n\n**基模**：没有直接用别人的基础模型，但借鉴了VAE和扩散模型的思想\n\n**整体流程**：\n\n```\n输入3D网格 → 映射到2D图像 → 压缩编码 → 扩散生成 → 解码 → 重建3D网格\n```\n\n**详细步骤**：\n\n**步骤1：3D到2D映射**\n- 把3D衣服表面“展开”成多个2D贴图（像剥橘子皮）\n- 在每个贴图上计算“有符号距离函数”（TSDF）\n  - 正值：在表面外面\n  - 负值：在表面里面\n  - 零值：正好在表面上\n\n**步骤2：可微分的2D→3D重建**\n- 用“可微分Marching Squares”从2D距离场重建3D网格\n- 关键：这个重建过程是可微分的，梯度可以反向传播\n\n**步骤3：压缩编码（DiffGI-VAE）**\n- 训练一个变分自编码器（VAE）\n- 把高分辨率距离场压缩到很小的32×32潜在空间\n- 添加法线损失：确保生成的表面光滑\n\n**步骤4：扩散生成**\n- 在压缩后的潜在空间上训练扩散模型\n- 可以用各种条件控制生成：\n  - 标签条件（生成“衬衫”或“裤子”）\n  - 图像条件（根据图片生成3D）\n  - 占用图条件（生成特定形状）\n\n**步骤5：解码输出**\n- 扩散模型生成潜在编码\n- VAE解码器还原成距离场\n- 可微分Marching Squares重建最终3D网格\n\n## 5. 结果怎么样\n\n**效果很好**：\n\n1. **重建质量最好**\n   - 在多个数据集上（服装、家具）都超过了现有方法\n   - 边界更清晰，没有锯齿\n   - 更好地保持了薄壳结构\n\n2. **效率很高**\n   - 潜在空间只有32×32，非常紧凑\n   - 比需要768×768的方法节省大量计算\n   - 推理速度快\n\n3. **生成多样性好**\n   - 可以生成各种复杂的服装形状\n   - 支持多种条件控制\n   - 在零样本图像到3D任务上也表现不错\n\n**简单总结**：\n这篇论文就像是为3D服装设计了一个“智能熨斗+剪刀”：\n- **熨斗**：把3D衣服展平到2D（但保留精确信息）\n- **智能**：用AI学习如何设计和修改\n- **剪刀**：精确裁剪出边界\n- 最后还能从2D设计图变回3D成品，整个过程都可以自动优化学习。",
+    "2607.17097": "好的，没问题。我们就像聊天一样，用简单的语言来梳理这篇论文的核心内容。假设你是一位刚入门的博士生，我来帮你解读。\n\n这篇论文的名字叫 **《HarmoHOI: 为多视角手-物交互合成而协调外观与3D运动》**。我们一步步拆解。\n\n### (1) 任务是什么？\n\n*   **任务输入：**\n    1.  **一张参考图片：** 比如一只手拿着一个杯子的静态照片。这张图提供了初始的手、物体以及它们之间关系的“外观”信息。\n    2.  **多个目标相机姿态：** 你指定几个虚拟相机的位置和角度，告诉模型你想从哪几个不同的视角看这个场景。\n\n*   **任务输出：**\n    1.  **同步的多视角视频：** 生成一组视频，每个视频代表从一个指定相机视角看到的**手和物体交互的动态过程**（比如拿起杯子、摇晃、放下）。关键是，这些视频在时间上是完全同步的：在同一个时刻，所有视角看到的动作和物体位置在3D空间里是匹配的。\n    2.  **全局对齐的3D点轨迹：** 除了视频，模型还会生成一组3D空间中的点，这些点会随着时间运动，精确地描绘出手和物体在真实三维空间中的运动轨迹。\n\n*   **任务功能：** 简而言之，就是从一个**静态的、单视角的图片**出发，**凭空想象并生成一个多视角、动态的、3D一致的手部操纵物体的动画**。这就像给一张照片赋予了生命和多个视角。\n\n### (2) 想解决什么问题？\n\n手-物交互（HOI）的视频生成非常难，因为动作精细、遮挡严重（比如手指会互相挡住或挡住物体）。现有的视频生成大模型虽然很强，但直接用来生成**多视角**的HOI视频，会出现严重问题：\n\n*   **视角不一致：** 从不同视角生成的视频，物体和手的位置、运动轨迹对不上，违反了基本的3D几何规律（比如你从左边看手在杯子右边，从右边看手却在杯子左边，这就不合理）。\n*   **缺乏3D运动感知：** 大多数方法只关心生成的2D视频“看起来”真实，但不管它们在3D空间里是不是一个合理的、统一的运动。没有3D信息作为“锚点”，多视角一致性就很难保证。\n\n所以，这篇论文的核心问题是：**如何让生成的多视角HOI视频不仅在2D画面上真实，而且在3D几何和运动上也是全局一致、合情合理的？**\n\n### (3) 贡献是什么？\n\n论文提出了几个关键的新点子来解决问题：\n\n1.  **联合建模2D外观与3D运动：** 这是最核心的思想。他们不像以前的工作那样，要么只生成视频，要么用3D信息去“控制”视频生成。而是**让2D视频和3D运动轨迹在同一个生成模型里“共同进化”**。在生成过程中，3D信息帮助约束视角一致性，2D信息帮助丰富细节，两者互相促进。\n2.  **将3D点轨迹“伪装”成视频：** 为了让模型更容易理解和处理3D信息，他们巧妙地把3D点轨迹（一串随时间变化的3D坐标）重新排列成一种“伪视频”的格式，这样就能直接利用现有的、强大的**视频生成基础模型（如Sora, Luma等）** 的知识来处理3D信号，降低了学习难度。\n3.  **全局运动对齐扩散：** 他们设计了一个额外的模块，专门用来优化和精细化生成的3D点轨迹，确保这些轨迹在真实的物理尺度下是平滑、合理、全局对齐的。\n4.  **混合数据课程学习：** 多视角的HOI数据非常少。他们想了一个办法：先用大量**单视角**的HOI视频数据训练模型学会生成合理的动作，再逐渐引入少量的**多视角**数据教它学会视角同步。这就像先学走路（单视角动作），再学协调（多视角一致）。\n\n### (4) 整体思路与模型结构\n\n**基模是谁？** 论文基于一个现成的、强大的**视频扩散模型（Video Diffusion Model）**。你可以把它想象成一个已经看过海量视频、学会了视频生成规律的“大脑”。论文的工作是给这个大脑“升级”，让它具备多视角3D生成的能力。\n\n**整体流程（看图理解）：**\n\n1.  **输入与编码：**\n    *   你把**参考图片**和**目标相机姿态**（比如4个不同角度）输入系统。\n    *   系统会为每个目标视角，根据参考图片和相机姿态，生成一个初步的、粗糙的**3D点轨迹**（想象成一些稀疏的、可能不太准的3D点云在动）。\n    *   同时，参考图片也被编码成特征。\n\n2.  **核心生成阶段 - “混合多视角扩散Transformer”：**\n    *   这是论文的核心模块。它把两种数据混合在一起送入模型：\n        *   **2D潜在视频特征：** 对应我们想生成的RGB视频。\n        *   **3D伪视频特征：** 把上一步的粗糙3D点轨迹，按照特定格式排列成的“伪视频”。\n    *   这个模块就像一个**联合推理引擎**。在去噪生成的过程中，它同时去猜测下一个时间步的“2D视频应该是什么样”和“3D点应该在哪里”。因为两者在同一个模型里一起算，模型会自然地学习到它们之间的对应关系：`某个3D点的运动，必然会在所有2D视角的视频中留下符合透视规律的投影`。\n\n3.  **3D轨迹精修阶段 - “全局运动对齐扩散”：**\n    *   从核心模块出来的3D点轨迹可能还不够精确和平滑。这个专门的模块就像一位“3D运动校对员”，它接收这些粗糙的轨迹，利用更多物理和几何约束（比如运动的连续性、尺度一致性），输出一套更干净、更准确、全局对齐的**精细化3D点轨迹**。\n\n4.  **输出：**\n    *   **最终的多视角视频** 从核心生成模块得到。\n    *   **最终的3D点轨迹** 从精修模块得到。\n    *   由于生成过程中2D和3D信号是联合优化的，所以这两个输出在几何上是完全自洽的。\n\n### (5) 结果怎么样？\n\n根据论文中的实验，HarmoHOI在以下几个方面表现突出：\n\n*   **视觉质量高：** 生成的单视角或多视角视频，手和物体的外观清晰、真实。\n*   **运动合理：** 手的动作（如抓握、旋转）看起来自然、符合物理规律。\n*   **多视角一致性最好：** 这是它最大的优势。在定量指标和人工评测中，它生成的不同视角视频之间的几何一致性显著优于其他对比方法。也就是说，它的输出最像一个真实的、从不同角度拍摄的**同一场**动态3D场景。\n*   **能生成可信的3D运动：** 它输出的3D点轨迹质量很高，可以直接用于下游任务（如动画、机器人仿真）。\n\n**总结一下给你的印象：**\n这篇论文的核心洞察是——要想生成一致的多视角视频，不能只盯着2D像素，必须让模型“心里”有一个**统一的、正确的3D场景和运动**。它通过**让2D视频和3D运动在生成过程中“手拉手”一起学习**的方式，巧妙地解决了多视角HOI生成的难题，并且效果拔群。"
   },
   "figures": {
-    "2607.17097": [
-      {
-        "path": "https://arxiv.org/html/2607.17097v1/x1.png",
-        "caption": "Figure 2.Our HarmoHOI frameworkcomprises two key components: First, the Mixture of Multi-view Diffusion Transformer (M2M^{2}DiT) generates synchronized multi-view RGB videos, intermediate motion pseudo videos, and global metric scales (Sec.3.3). Second, the Global Motion Aligning Diffusion (GloMAD) takes the resulting coarse 3D point tracks as a conditioning signal to reconstruct globally aligned point track sequences (Sec.3.4). Furthermore,M2M^{2}DiT and GloMAD form a closed-loop mutual enhancement cycle during iterative denoising (See Supp. Sec.B).",
-        "role": "pipeline_1",
-        "caption_zh": "图 2. 我们的 HarmoHOI 框架包含两个关键组成部分：首先，多视图混合扩散 Transformer（M2M²DiT）生成同步的多视点 RGB 视频、中间运动伪视频与全局度量尺度（第 3.3 节）；其次，全局运动对齐扩散模型（GloMAD）以生成的粗略三维点轨迹作为条件信号，重建全局对齐的点轨迹序列（第 3.4 节）。此外，M2M²DiT 与 GloMAD 在迭代去噪过程中形成一个闭环式的相互增强循环（详见补充材料第 B 节）。"
-      },
-      {
-        "path": "https://arxiv.org/html/2607.17097v1/fig/hybrid_data.png",
-        "caption": "Figure 3.Hybrid-data progressive curriculum learning.HarmoHOI is trained progressively from single-view geometry-aware learning, to multi-view appearance synchronization, and finally to unified multi-view appearance-geometry learning, thereby preserving pretrained visual priors while gradually injecting multi-view geometric consistency.",
-        "role": "pipeline_2",
-        "caption_zh": "图3. 混合数据渐进式课程学习。HarmoHOI 的训练过程从单视角几何感知学习逐步过渡到多视角外观同步，最终实现统一的多视角外观-几何联合学习，从而在逐步注入多视角几何一致性的同时，保留预训练的视觉先验知识。"
-      },
-      {
-        "path": "https://arxiv.org/html/2607.17097v1/fig/teaser2.png",
-        "caption": "Figure 1.Our HarmoHOI jointly models the consistency between 2D visual appearance and 3D motion, and learns the synchronization of multi-view epipolar geometry. Consequently, it can not only generate a single-view HOI video and 3D motion from a reference image (top), but also synthesize synchronized multi-view HOI videos and globally aligned 3D point tracks from a reference image and multi-view target camera poses (bottom). The generated outputs exhibit visual realism, motion plausibility, and geometric consistency.",
-        "role": "pipeline_3",
-        "caption_zh": "图 1. 我们的 HarmoHOI 方法联合建模了二维视觉外观与三维运动之间的一致性，并学习了多视图极几何的同步关系。因此，该方法不仅能够从参考图像生成单视图的人-物交互视频及三维运动（上图），还能基于参考图像与多视图目标相机姿态，合成同步的多视图人-物交互视频及全局对齐的三维点轨迹（下图）。生成结果展现出视觉真实感、运动合理性与几何一致性。"
-      }
-    ],
     "2607.13365": [
       {
         "path": "https://arxiv.org/html/2607.13365v1/x2.png",
@@ -294,6 +358,26 @@
         "caption": "Figure S1:Resolution-dependent reconstruction quality of TSDF vs. Occupancy\nwithout VAE compression.Top:Hausdorff Distance (HD) vs. resolution on ABO (left)\nand GarmageSet (right); solid lines and shaded regions denote mean and\nstandard deviation.Bottom:Per-vertex error maps for a representative ABO sample\n(colour scale: point-to-surface distance).\nTSDF achieves lower error at low resolutions (64, 128),\nwith both representations converging beyond 256.",
         "role": "pipeline_3",
         "caption_zh": "图 S1：无 VAE 压缩时 TSDF 与占据表示的分辨率依赖重建质量对比。顶部：ABO（左）与 GarmageSet（右）上的豪斯多夫距离（HD）随分辨率的变化；实线与阴影区域分别表示均值与标准差。底部：一个代表性 ABO 样本的逐顶点误差图（色标：点到表面距离）。在低分辨率（64、128）下，TSDF 误差更低，两种表示在分辨率超过 256 后趋于一致。"
+      }
+    ],
+    "2607.17097": [
+      {
+        "path": "https://arxiv.org/html/2607.17097v1/x1.png",
+        "caption": "Figure 2.Our HarmoHOI frameworkcomprises two key components: First, the Mixture of Multi-view Diffusion Transformer (M2M^{2}DiT) generates synchronized multi-view RGB videos, intermediate motion pseudo videos, and global metric scales (Sec.3.3). Second, the Global Motion Aligning Diffusion (GloMAD) takes the resulting coarse 3D point tracks as a conditioning signal to reconstruct globally aligned point track sequences (Sec.3.4). Furthermore,M2M^{2}DiT and GloMAD form a closed-loop mutual enhancement cycle during iterative denoising (See Supp. Sec.B).",
+        "role": "pipeline_1",
+        "caption_zh": "图 2. 我们的 HarmoHOI 框架包含两个关键组成部分：首先，多视图混合扩散 Transformer（M2M²DiT）生成同步的多视点 RGB 视频、中间运动伪视频与全局度量尺度（第 3.3 节）；其次，全局运动对齐扩散模型（GloMAD）以生成的粗略三维点轨迹作为条件信号，重建全局对齐的点轨迹序列（第 3.4 节）。此外，M2M²DiT 与 GloMAD 在迭代去噪过程中形成一个闭环式的相互增强循环（详见补充材料第 B 节）。"
+      },
+      {
+        "path": "https://arxiv.org/html/2607.17097v1/fig/hybrid_data.png",
+        "caption": "Figure 3.Hybrid-data progressive curriculum learning.HarmoHOI is trained progressively from single-view geometry-aware learning, to multi-view appearance synchronization, and finally to unified multi-view appearance-geometry learning, thereby preserving pretrained visual priors while gradually injecting multi-view geometric consistency.",
+        "role": "pipeline_2",
+        "caption_zh": "图3. 混合数据渐进式课程学习。HarmoHOI 的训练过程从单视角几何感知学习逐步过渡到多视角外观同步，最终实现统一的多视角外观-几何联合学习，从而在逐步注入多视角几何一致性的同时，保留预训练的视觉先验知识。"
+      },
+      {
+        "path": "https://arxiv.org/html/2607.17097v1/fig/teaser2.png",
+        "caption": "Figure 1.Our HarmoHOI jointly models the consistency between 2D visual appearance and 3D motion, and learns the synchronization of multi-view epipolar geometry. Consequently, it can not only generate a single-view HOI video and 3D motion from a reference image (top), but also synthesize synchronized multi-view HOI videos and globally aligned 3D point tracks from a reference image and multi-view target camera poses (bottom). The generated outputs exhibit visual realism, motion plausibility, and geometric consistency.",
+        "role": "pipeline_3",
+        "caption_zh": "图 1. 我们的 HarmoHOI 方法联合建模了二维视觉外观与三维运动之间的一致性，并学习了多视图极几何的同步关系。因此，该方法不仅能够从参考图像生成单视图的人-物交互视频及三维运动（上图），还能基于参考图像与多视图目标相机姿态，合成同步的多视图人-物交互视频及全局对齐的三维点轨迹（下图）。生成结果展现出视觉真实感、运动合理性与几何一致性。"
       }
     ]
   }
