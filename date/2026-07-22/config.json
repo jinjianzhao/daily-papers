@@ -1,0 +1,241 @@
+{
+  "base_info": {
+    "2607.18703": {
+      "title": "Generative World Renderer at the Speed of Play",
+      "abstract": "Generative world renderer AlayaRenderer receives structured world states exported from physics engines and synthesizes RGB frames. Unlike models that generate frames from text/control-hints prompts, AlayaRenderer preserves scene structure without altering the underlying world dynamics. This demonstrates an alternative path toward interactive world modeling and user-controllable play. However, the original AlayaRenderer is too computationally expensive for real-time deployment. This technical report introduces AlayaRenderer-Flash, a real-time-oriented generative forward world renderer that pushes AlayaRenderer from 0.56 FPS to 31.54 FPS, reaching the speed of play. AlayaRenderer-Flash reformulates the original renderer as a few-step autoregressive streaming model and introduces lightweight distilled codecs for efficient latent encoding and frame reconstruction. It retains the teacher model's G-buffer and text-prompt interfaces while enabling continuous rendering over input streams of unbounded length. We evaluate AlayaRenderer-Flash on G-buffer streams across content preservation, temporal consistency, cross-window stability, prompt controllability, and runtime efficiency. Our results show that AlayaRenderer-Flash substantially reduces inference cost while preserving the core rendering capabilities of the teacher model. By integrating AlayaRenderer-Flash with a physics engine, we build a fully playable generative world running at 30 FPS.",
+      "abstract_zh": "生成式世界渲染器AlayaRenderer接收从物理引擎导出的结构化世界状态并合成RGB帧。与基于文本/控制提示生成帧的模型不同，AlayaRenderer在保持场景结构的同时不会改变底层世界动力学。这展示了一条通往交互式世界建模与用户可控游戏的替代路径。然而，原始AlayaRenderer的计算成本过高，难以实现实时部署。本技术报告介绍了面向实时的生成式前向世界渲染器AlayaRenderer-Flash，它将AlayaRenderer的渲染速度从0.56帧/秒提升至31.54帧/秒，达到了可流畅运行的速度。AlayaRenderer-Flash将原始渲染器重构为多步自回归流式模型，并引入轻量级蒸馏编解码器以实现高效的潜在编码与帧重建。该模型在保留教师模型的几何缓冲区（G-buffer）与文本提示接口的同时，能够对无限长度的输入流进行连续渲染。我们在几何缓冲区流上对AlayaRenderer-Flash进行了内容保持性、时间一致性、跨窗口稳定性、提示可控性及运行时效率的全面评估。结果表明，AlayaRenderer-Flash在显著降低推理成本的同时，完整保留了教师模型的核心渲染能力。通过将AlayaRenderer-Flash与物理引擎集成，我们构建了以30帧/秒速率运行、具备完全可玩性的生成式世界。",
+      "hf_link": "https://huggingface.co/papers/2607.18703"
+    },
+    "2607.19139": {
+      "title": "Text Template Tokens Are Implicit Semantic Registers in Diffusion Transformers",
+      "abstract": "Text-to-image diffusion transformers (DiTs) jointly process text and image tokens, yet their internal computation during denoising remains poorly understood. We introduce a causal interpretability framework for modern large-scale DiTs that combines attention decomposition with targeted interventions across token spans, heads, and layers. Using it to separate prompt-content tokens from structural template tokens, we find that the structural tokens carry little prompt-specific information at the encoder output. Yet surprisingly, they emerge as dominant image-to-text attention sinks and causally maintain object identity inside the DiT, acting as implicit semantic registers. We show that they acquire this identity indirectly, with prompt semantics first injected into the image latents and then read back into the template tokens rather than transferred directly from the prompt tokens. Inspired by the above findings, we design a training-free pruning rule for DiTs. Heads that attend most strongly to prompt tokens are dispensable, and pruning them removes $20\\%$ of attention FLOPs with only a $1.4$-point drop on GenEval. We further reveal how generative computation in DiTs is organized across heads and depth, separating semantic routing from visual synthesis and progressing from identity formation to propagation and refinement. Our work not only reveals that the tokens encoding semantics at input need not be those that maintain it during generation, but also provides a causal view of internal mechanisms in DiTs.",
+      "abstract_zh": "文本到图像的扩散变换器（DiTs）共同处理文本与图像标记，但其在去噪过程中的内部计算机制仍未被充分理解。我们为现代大规模DiTs引入了一个因果可解释性框架，该框架结合了注意力分解与跨标记区间、注意力头和网络层的定向干预。通过利用该框架分离提示内容标记与结构模板标记，我们发现结构标记在编码器输出端携带的提示特异性信息极少。然而出乎意料的是，它们在图像到文本的注意力中作为主导性的注意力汇聚点浮现，并在DiT内部因果性地维持对象身份，发挥着隐式语义寄存器的作用。我们证明这些标记通过间接方式获取身份信息：提示语义首先被注入图像隐空间，随后被读回至模板标记，而非直接从提示标记转移。基于上述发现，我们为DiTs设计了一种无需训练的剪枝规则。那些对提示标记关注度最高的注意力头具有可替代性，剪除这些头能在仅导致GenEval评测指标下降1.4分的情况下，减少20%的注意力浮点运算量。我们进一步揭示了DiTs中生成计算在注意力头与网络深度间的组织方式：语义路由与视觉合成相互分离，计算进程从身份形成逐步推进到传播与细化。本研究不仅揭示了编码输入语义的标记未必是生成过程中维持该语义的载体，还为DiTs的内部机制提供了因果性视角。",
+      "hf_link": "https://huggingface.co/papers/2607.19139"
+    },
+    "2607.16617": {
+      "title": "DataFlow-Harness: A Grounded Code-Agent Platform for Constructing Editable LLM Data Pipelines",
+      "abstract": "Large language models (LLMs) are increasingly used to automate data-processing workflows, yet coding agents typically produce scripts that are not automatically materialized as persistent, editable platform artifacts. We call this disconnect the \\textit{NL2Pipeline gap}. To bridge it, we introduce \\textsc{DataFlow-Harness}, a platform that guides an LLM agent to construct platform-native directed acyclic graphs (DAGs) through typed, incremental mutations rather than free-form scripts. The platform combines \\textsc{DataFlow-Skills} for procedural guidance, a Model Context Protocol (MCP) layer that exposes the live operator registry and current pipeline state, and \\textsc{DataFlow-WebUI}, which synchronizes conversational authoring with a visual DAG editor. On a 12-task data-engineering benchmark, \\textsc{DataFlow-Harness} achieves a 93.3\\% observed end-to-end pass rate. Relative to Vanilla Claude Code, it reduces measured monetary cost by 72.5\\% and generation latency by 49.9\\%; its observed pass rate is within 0.9 percentage points of the Context-Aware Claude Code baseline while its cost is 42.8\\% lower. Per-task analysis indicates that Skills are most useful when construction depends on implicit procedural knowledge. These results show that live platform grounding can produce persistent, editable workflow artifacts with an observed reliability close to script-generation baselines and with lower measured construction cost and latency.",
+      "abstract_zh": "大型语言模型（LLM）正日益被用于自动化数据处理工作流，但编码智能体通常生成的脚本无法自动物化为持久、可编辑的平台工件。我们将这种脱节称为“自然语言到流水线（NL2Pipeline）鸿沟”。为弥合此鸿沟，我们引入了“数据流-驾驭”平台，该平台引导LLM智能体通过类型化、增量式的变更来构建平台原生的有向无环图，而非自由形式的脚本。该平台结合了用于流程引导的“数据流-技能”，一个暴露实时算子注册器及当前流水线状态的模型上下文协议层，以及与可视化DAG编辑器同步的对话式创作界面“数据流-WebUI”。在包含12项任务的数据工程基准测试中，“数据流-驾驭”实现了93.3%的端到端通过率。相较于原始Claude代码生成，其货币成本降低了72.5%，生成延迟降低了49.9%；其通过率与上下文感知Claude代码基线的差距仅为0.9个百分点，而成本则降低了42.8%。针对具体任务的分析表明，当构建过程依赖于隐式流程知识时，“技能”模块的效用最为显著。这些结果表明，基于实时平台根基的方法能够产生持久、可编辑的工作流工件，其实际可靠性接近脚本生成基线，同时具备更低的实测构建成本与延迟。",
+      "hf_link": "https://huggingface.co/papers/2607.16617"
+    },
+    "2607.19064": {
+      "title": "Mage-Flow: An Efficient Native-Resolution Foundation Model for Image Generation and Editing",
+      "abstract": "Large-scale visual generators are increasingly capable but costly to train, fine-tune, and deploy. We introduce Mage-Flow, a compact 4B-scale generative stack for efficient text-to-image generation and instruction-based image editing. The stack is built from two co-designed components: Mage-VAE, a lightweight high-fidelity latent tokenizer, and a Native-Resolution Multimodal Diffusion Transformer trained with rectified flow matching. Mage-VAE uses one-step diffusion-style encoding and decoding with anchor-latent regularization, preserving the reconstruction quality of strong public VAEs while reducing tokenization cost by more than an order of magnitude. Together with native-resolution packing and stack-level CUDA kernel fusion, the stack supports flexible-resolution training and improves end-to-end training throughput by about $2.5\\times$. Built on this foundation, we develop a complete model family with Base, RL-aligned, and Turbo variants for both generation and editing. Diffusion-NFT improves prompt following, text rendering, aesthetic quality, and editing fidelity, while few-step distillation with adversarial perceptual guidance produces 4-step Turbo models for low-latency inference. Despite its compact scale, Mage-Flow and Mage-Flow-Edit achieves competitive performance across standard generation and editing benchmarks. More importantly, the Turbo variants make high-resolution generation and editing practical for interactive use: at $1024^2$ resolution on a single NVIDIA A100 GPU, Mage-Flow-Turbo generates an image in 0.59s, and Mage-Flow-Edit-Turbo edits an image in 1.02s, while maintaining a small memory footprint. These results show that careful tokenizer--backbone--system co-design can deliver strong high-resolution generation and editing within an efficient 4B model family.",
+      "abstract_zh": "大规模视觉生成模型能力日益强大，但其训练、微调和部署成本高昂。我们推出Mage-Flow——一个紧凑的40亿参数规模生成堆栈，用于高效的文本到图像生成及基于指令的图像编辑。该堆栈由两个协同设计的组件构成：Mage-VAE（一种轻量化高保真潜变量分词器）和基于修正流匹配训练的原生分辨率多模态扩散变换器。Mage-VAE采用锚定潜变量正则化的单步扩散式编码与解码，在保持强效公开VAEs重构质量的同时，将分词计算成本降低超过一个数量级。结合原生分辨率数据打包和堆栈级CUDA内核融合技术，该堆栈支持灵活分辨率的训练，并将端到端训练吞吐量提升约2.5倍。基于此基础架构，我们开发了包含基础版、RL对齐版和Turbo版的完整模型系列，同时支持生成与编辑任务。扩散-NFT技术增强了提示跟随、文本渲染、美学质量及编辑保真度，而结合对抗感知引导的少步蒸馏则产生了适用于低延迟推理的4步Turbo模型。尽管规模紧凑，Mage-Flow与Mage-Flow-Edit在标准生成与编辑基准测试中均展现出竞争力。更重要的是，Turbo变体使得高分辨率生成与编辑在交互式应用中变得可行：在单张NVIDIA A100 GPU上以1024×1024分辨率运行时，Mage-Flow-Turbo生成图像仅需0.59秒，Mage-Flow-Edit-Turbo编辑图像仅需1.02秒，同时保持较小的内存占用。这些结果表明，精心的分词器-主干网络-系统协同设计能够在高效的40亿参数模型家族中实现强大的高分辨率生成与编辑能力。",
+      "hf_link": "https://huggingface.co/papers/2607.19064"
+    },
+    "2607.18367": {
+      "title": "AlayaWorld: Interactive Long-Horizon World Modeling -- Full Technical Report",
+      "abstract": "Unlike conventional video game development, which relies on labor-intensive pipelines for asset production, animation, physics, and programming, video world models generate interactive environments from user inputs instantly. It enable us to create customized, explorable, and continuously evolving virtual world from text, an image, or video. Realizing this vision requires four tightly coupled capabilities: interaction, persistent spatiotemporal consistency, stable long-horizon generation, and efficient response. We present AlayaWorld, an interactive long-horizon video world model that generates 24-fps video at 540p and 720p. Built on a 15B video diffusion transformer, AlayaWorld generates short latent chunks autoregressively under camera trajectories and switchable text prompts. Its bounded visual context combines a persistent sink frame, compressed temporal history, geometry-aligned spatial memory, and recent-frame conditioning. To reduce long-term drift, the model is trained with corrupted histories and prediction residuals collected from its own roll-outs. We further introduce a discrete autoregressive distillation formulation that combines distribution-matching distillation, self-forcing++, and consistency distillation, reducing inference from approximately 30 sampling steps to four steps per chunk. On iWorld-Bench, AlayaWorld achieves the best performance over long-horizon generation. Conceived as a full-stack, open-source, and long-term project, AlayaWorld is intended to provide an extensible foundation for future research on interactive video world models.",
+      "abstract_zh": "与传统视频游戏开发依赖劳动密集的资产制作、动画、物理和编程流程不同，视频世界模型能够根据用户输入即时生成交互式环境。这使得我们能够从文本、图像或视频中创建可定制、可探索且持续演化的虚拟世界。实现这一愿景需要四种紧密耦合的能力：交互性、持久的时空一致性、稳定的长时程生成以及高效响应。我们提出AlayaWorld——一个交互式长时程视频世界模型，能够生成540p与720p分辨率下24帧/秒的视频。基于150亿参数视频扩散Transformer架构，AlayaWorld在相机轨迹与可切换文本提示的引导下自回归地生成短期潜在片段。其有界视觉上下文融合了持久性沉淀帧、压缩时序历史记录、几何对齐的空间记忆以及近期帧条件机制。为减少长期漂移，模型通过自身推演过程中收集的受损历史记录与预测残差进行训练。我们进一步提出离散自回归蒸馏框架，结合分布匹配蒸馏、自强化++与一致性蒸馏技术，将推理过程从每片段约30个采样步缩减至四步。在iWorld-Bench基准测试中，AlayaWorld在长时程生成任务上取得了最优性能。作为全栈、开源且长期推进的项目，AlayaWorld旨在为交互式视频世界模型的未来研究提供可扩展的基础框架。",
+      "hf_link": "https://huggingface.co/papers/2607.18367"
+    },
+    "2607.18722": {
+      "title": "Stale but Stable: Staleness-Adaptive Trust Regions for Stabilizing Asynchronous Reinforcement Learning",
+      "abstract": "Asynchronous reinforcement learning improves throughput by decoupling rollout generation from optimization, but staleness is an inevitable byproduct compounded by policy lag, engine delays, and mixture-of-experts routing. From a trust-region perspective, this mismatch is critical: training-inference divergence governs approximation error in finite-horizon bounds, whereas PPO clipping only gates sampled outward updates, acting as a sampled surrogate rather than a full-policy constraint. As a result, high-staleness updates remain weakly controlled in the asynchronous regime where stale rollouts matter most.We introduce the Staleness-Adaptive Trust Region (SAT), which uses the detached sampled log-ratio as a practical staleness proxy, identifies high-mismatch tails within each batch via staleness-based kernel scaling, and contracts only the sign-selected endpoint of the nominal PPO interval. This preserves baseline behavior on ordinary tokens while enforcing more conservative updates on newly intercepted outward bands. We prove local interval containment and pointwise pessimism relative to PPO, showing how the adaptive rule reshapes update geometry under heterogeneous staleness.We evaluate SAT in a decoupled asynchronous RL setup built on Qwen3-30B-A3B-Base, using SGLang as the inference engine and Megatron for training. In this setting, SAT-GSPO w/ R3 achieves the best observed AIME24 avg@8, reaching 35.83 at lag 1 and 34.79 at lag 8, while SAT-GSPO reaches 34.17 at lag 1. Adaptive clipping and routing replay act as complementary stabilizers targeting mismatch tails and routing inconsistency, respectively. Overall, aligning clip intervals with staleness heterogeneity effectively stabilizes asynchronous RL.",
+      "abstract_zh": "异步强化学习通过将经验收集与优化过程解耦来提升吞吐量，但策略滞后、引擎延迟和专家混合路由等因素共同导致了不可避免的陈旧性（staleness）问题。从信赖域（trust-region）视角看，这种不匹配至关重要：训练-推断差异主导有限时界约束中的近似误差，而PPO（Proximal Policy Optimization）裁剪机制仅对采样的外向更新起门控作用，充当的是采样替代项而非完整策略约束。因此，在高陈旧性影响最显著的异步场景中，陈旧度较高的更新仍处于弱控制状态。本文提出陈旧性自适应信赖域（Staleness-Adaptive Trust Region, SAT）方法，其利用分离的采样对数比作为实用的陈旧性代理指标，通过基于陈旧性的核缩放识别每批次内的高失配尾部数据，并仅收缩标准PPO区间的符号选择端点。该机制在普通词元上保持基线行为，同时对新截获的外向更新带执行更保守的更新。我们证明了该方法相对于PPO具有局部区间包容性与逐点悲观性，揭示了自适应规则如何在异构陈旧性下重塑更新几何结构。我们在基于Qwen3-30B-A3B-Base构建的解耦异步强化学习框架中评估SAT，使用SGLang作为推断引擎，Megatron进行训练。在此设置下，结合R3的SAT-GSPO取得了最佳的AIME24 avg@8观测结果：滞后1时达到35.83，滞后8时达到34.79；而SAT-GSPO在滞后1时达到34.17。自适应裁剪与路由重放分别作为针对失配尾部和路由不一致性的互补稳定器。总体而言，使裁剪区间与陈旧性异质性对齐能有效稳定异步强化学习系统。",
+      "hf_link": "https://huggingface.co/papers/2607.18722"
+    },
+    "2607.18091": {
+      "title": "SciForma: Structure-Faithful Generation of Scientific Diagrams",
+      "abstract": "Structural fidelity is essential to scientific methodology diagrams. To communicate research logic, these diagrams must faithfully render components, directional relations, and textual annotations. Since a single error, such as a reversed arrow or an unreadable equation, can invalidate the entire figure, structural fidelity is inherently conjunctive: correctness on one axis cannot compensate for failure on another. Current open-source models fail to satisfy this criterion. Supervised fine-tuning (SFT) learns plausible layouts but cannot reliably ensure structural correctness, while scalar reward-based post-training obscures which structural dimension has failed. To address this, we introduce SciForma, a framework for the structure faithful generation of scientific methodology diagrams. Specifically, SciForma decomposes diagram quality into three structural axes: Component, Arrow, and Text, guided by a structural inventory. Built on this foundation, we curate SciFormaData-700K for structured training and SciFormaBench-2K for logic-verified evaluation. To close the gap left by SFT, we develop Multi-Dimensional Conjunctive Preference Optimization (M-DPO), which enforces simultaneous correctness across all axes and adaptively routes gradients to the most deficient dimension in post-training. The same structural inventory also enables iterative editing at inference time to correct residual errors. This combination allows SciForma-9B to exceed all open-source baselines and GPT-Image-1.5 on both SciFormaBench-2K and AIBench, bringing open scientific diagram generation close to proprietary-level structural fidelity. Our code and data will be available at:this https URL.",
+      "abstract_zh": "结构保真度对科学方法图示至关重要。为清晰传达研究逻辑，这些图示必须精确呈现组件、方向关系及文本标注。由于单一错误（如方向颠倒的箭头或无法识别的公式）就可能导致整幅图失效，结构保真本质上具有联合性：某一维度的正确性无法弥补其他维度的缺陷。当前开源模型均无法满足该标准：有监督微调（Supervised Fine-Tuning, SFT）虽能学习合理布局，却无法可靠保证结构正确性；而基于标量奖励的后训练方法难以定位具体失效的结构维度。为此，我们提出SciForma——一个实现科学方法图示结构保真生成的框架。具体而言，SciForma依据结构化清单将图示质量分解为三个结构维度：组件（Component）、箭头（Arrow）与文本（Text）。基于此框架，我们构建了用于结构化训练的SciFormaData-700K数据集，以及经过逻辑验证的评估集SciFormaBench-2K。为弥补SFT的不足，我们开发了多维联合偏好优化（Multi-Dimensional Conjunctive Preference Optimization, M-DPO），该技术强制所有维度同时保持正确，并在后训练阶段将梯度自适应路由至最薄弱维度。同一结构化清单还支持在推理阶段进行迭代编辑以修正残留错误。通过上述组合，SciForma-9B模型在SciFormaBench-2K与AIBench评估中均超越所有开源基线及GPT-Image-1.5，使开源科学图示生成在结构保真度上逼近专业闭源模型水平。我们的代码与数据将在以下地址发布：此https链接。",
+      "hf_link": "https://huggingface.co/papers/2607.18091"
+    },
+    "2607.18754": {
+      "title": "AgentDebugX: An Open-Source Toolkit for Failure Observability, Attribution, and Recovery in LLM Agents",
+      "abstract": "LLM agent failures are difficult to debug because the step where an error surfaces is often not the one that caused it. Existing observability tools replay execution traces but provide little support for identifying the root cause or translating diagnosis into recovery. We present AgentDebugX, an open-source debugging framework that organizes debugging as a closed loop of Detect, Attribute, Recover, and Rerun. At its core, DeepDebug performs multi-turn root-cause diagnosis through global trajectory understanding, structure-guided investigation, and cross-examination. On the Who and When benchmark, DeepDebug achieves the best strict attribution accuracy among the evaluated methods on both tested open-weight backbones, reaching 28.8 percent exact agent-and-step accuracy on qwen3.5-9b versus 21.7 percent for the strongest single-pass baseline. On GAIA, DeepDebug repairs 13 of 73 failed tasks in a single rerun, compared with 4 to 6 for three decoupled self-correction baselines, improving overall accuracy from 55.8 percent to 63.6 percent. AgentDebugX exposes this workflow through a Python library, CLI, web console, and installable agentic skill, and provides an opt-in Error Hub for sharing scrubbed failure-diagnosis-repair bundles and reusing them as debugging memory.",
+      "abstract_zh": "大语言模型智能体(LLM agent)的故障调试极为困难，因为错误显现的步骤往往并非其根源所在。现有可观测性工具虽能回放执行轨迹，但在定位根本原因或将诊断转化为修复方案方面支持有限。本文提出AgentDebugX开源调试框架，将调试过程组织为“检测-归因-恢复-重运行”的闭环系统。其核心组件DeepDebug通过全局轨迹理解、结构引导式探查和交叉验证，实现多轮次根本原因诊断。在Who and When基准测试中，DeepDebug在所有评估方法的严格归因准确率上均取得最优表现：在测试的两个开源权重骨干模型中，qwen3.5-9b版本实现了28.8%的精确智能体与步骤匹配准确率，而最强单轮基线仅为21.7%。在GAIA基准测试中，DeepDebug通过单次重运行成功修复73项失败任务中的13项，而三个解耦式自我修正基线仅修复4至6项，将整体准确率从55.8%提升至63.6%。AgentDebugX通过Python库、命令行界面(CLI)、网页控制台及可安装的智能体技能模块提供全工作流程支持，并设有可选的错误中心(Error Hub)，用于分享脱敏的“故障-诊断-修复”数据包，并将其复用为调试记忆库。",
+      "hf_link": "https://huggingface.co/papers/2607.18754"
+    },
+    "2607.19191": {
+      "title": "ABot-World-0: Infinite Interactive World Rollout on a Single Desktop GPU",
+      "abstract": "We present ABot-World-0, an action-conditioned video world model for real-time, long-horizon closed-loop interaction, supported by a multi-source data infrastructure spanning AAA games, simulation engines, and internet videos to learn controllable world dynamics. WorldExplorer performs agent-driven collection guided by training feedback, while a unified pipeline applies 14 deterministic quality checks, VLM-based assessment, and synchronized action and text annotation. We progressively distill a bidirectional action-conditioned teacher into a causal student through teacher forcing and ODE distillation, and introduce LongForcing to align long student self-rollouts with an extended-horizon teacher, mitigating accumulated distribution shift and autoregressive drift. Raw keyboard actions provide a unified control interface for scene roaming and third-person character interaction, while reference-character memory provides persistent appearance cues for identity consistency during third-person rollouts. For deployment, we co-design a streaming inference stack with a lightweight VAE decoder, efficient attention, memory-aware scheduling, and low-bit DiT inference. Across optimized low-bit configurations, ABot-World-0 streams 720P video at up to 16 FPS on a single NVIDIA RTX 5090 desktop GPU, with 1.2s action-to-first-frame latency and approximately 19GiB peak VRAM. Experiments on WorldRoamBench and extended interactive rollouts demonstrate competitive controllability and coherent long-horizon world evolution.",
+      "abstract_zh": "本文介绍了ABot-World-0，这是一个面向实时、长视野闭环交互的动作条件视频世界模型。该模型依托一个覆盖AAA游戏、仿真引擎及网络视频的多源数据基础设施，以学习可控的世界动态。WorldExplorer在训练反馈的引导下执行智能体驱动的数据收集，同时通过统一流程应用14项确定性质量检查、基于视觉语言模型（VLM）的评估，以及同步的动作与文本标注。我们通过教师强制与常微分方程蒸馏，逐步将双向动作条件的教师模型蒸馏为因果学生模型，并引入长程强制方法，使学生的长程自推演与扩展视野的教师模型对齐，从而缓解累积分布偏移与自回归漂移问题。原始键盘动作为场景漫游与第三人称角色交互提供了统一控制接口，而参考角色记忆机制则在第三人称推演期间为身份一致性提供持续的外观线索。为适配部署需求，我们协同设计了包含轻量化变分自编码器（VAE）解码器、高效注意力机制、内存感知调度与低比特扩散Transformer（DiT）推理的流式推理架构。在优化的低比特配置下，ABot-World-0在单张NVIDIA RTX 5090桌面GPU上能以最高16 FPS的速率生成720P视频流，动作至首帧延迟为1.2秒，峰值显存占用约19GiB。在WorldRoamBench及扩展交互推演上的实验表明，该系统在可控性与连贯的长视野世界演化方面均展现出优秀性能。",
+      "hf_link": "https://huggingface.co/papers/2607.19191"
+    },
+    "2607.18839": {
+      "title": "HPD-Parsing: Hierarchical Parallel Document Parsing",
+      "abstract": "Efficient teamwork typically combines global coordination with parallel execution, a principle not yet fully reflected in unified Vision-Language Model (VLM)-based document parsers. Existing unified parsers process an entire page jointly but generate its output through a single token-by-token autoregressive trajectory, creating a sequential bottleneck that grows with document length. Such full-page sequential generation overlooks a key property of document parsing: layout must be analyzed globally, whereas block content can be parsed in parallel. Based on this observation, we introduce HPD-Parsing, which replaces full-page autoregressive generation with a Hierarchical Parallel Decoding paradigm. A main layout branch organizes the overall document structure and dynamically assigns block-level content decoding to concurrent branches, while progressive multi-token prediction (P-MTP) further reduces the decoding steps within each branch. Experiments on public benchmarks show that HPD-Parsing achieves 4,752 tokens per second, delivering $2.62\\times$ the throughput of the fastest existing document parsing model and $3.06\\times$ that of the vanilla autoregressive baseline, while maintaining competitive parsing accuracy. These results establish hierarchical parallel decoding as an effective alternative to full-page autoregressive generation, opening a new direction for efficient unified document parsing.",
+      "abstract_zh": "高效的团队协作通常将全局协调与并行执行相结合，这一原则在当前基于统一视觉-语言模型（Vision-Language Model, VLM）的文档解析器中尚未得到充分体现。现有的统一解析器虽对整个页面进行联合处理，但仅通过单一的自回归逐词轨迹生成输出，形成了随文档长度增长的序列化瓶颈。这种全页面序列化生成方式忽略了文档解析的一个关键特性：布局必须全局分析，而区块内容可以并行解析。基于这一观察，我们提出了HPD-Parsing，采用分层并行解码（Hierarchical Parallel Decoding）范式替代全页面自回归生成。该方法通过一个主布局分支组织整体文档结构，并动态地将区块级内容解码任务分配给并行分支，同时渐进式多词预测（Progressive Multi-Token Prediction, P-MTP）进一步减少了各分支内的解码步骤。在公开基准测试上的实验表明，HPD-Parsing实现了每秒4,752个词元的处理速度，吞吐量达到现有最快文档解析模型的2.62倍，且为原始自回归基线的3.06倍，同时保持了具有竞争力的解析精度。这些结果证明分层并行解码可作为全页面自回归生成的有效替代方案，为高效统一文档解析开辟了新方向。",
+      "hf_link": "https://huggingface.co/papers/2607.18839"
+    },
+    "2607.19322": {
+      "title": "Two-Level Meta-Rubrics for Evaluating Open-Ended Generation: GAMUT, a Benchmark for Factual Completeness",
+      "abstract": "Evaluating the factuality of long-form generations has focused predominantly on precision, measuring whether the claims a model makes are correct. The dominant decompose-search-verify pipeline catches incorrect claims well but says little about whether a response contains all the information it should. Measuring factual completeness, the missing half of factuality, is harder: it requires enumerating the full set of facts a complete answer should contain, and these facts rarely form a flat list. They often involve open-ended sets where coverage is what matters, ordered processes, and relationships among facts that a list of independent boolean checks fails to capture. We introduce a two-level meta-rubric framework for evaluating open-ended generation, and instantiate it as Gamut (Grounded Assessment of Multimodal Factuality), a benchmark for factual completeness in long-form generation. The framework rests on a two-level rubric representation: a structured meta-rubric captures the organization and importance of the required content, which is then mechanically compiled into a flat checklist of binary, machine-gradable rubrics that an LLM judge scores reliably. We construct 1,813 questions grounded in real wearable imagery across 10 diverse domains, each paired with an evidence-backed rubric verified by expert human annotators. Because the framework is modality-agnostic, we also release a text-only variant. Evaluating 14 frontier and open-weight models, we find the benchmark genuinely challenging (best score 58.7% from Gemini 3.1 Pro), highly discriminative, and robust to the choice of judge.",
+      "abstract_zh": "评估长文本生成事实性的研究主要聚焦于精确度，即衡量模型所提出主张的正确性。主流的\"分解-检索-验证\"流程能有效捕捉错误主张，却很少关注回答是否包含其应有的全部信息。衡量事实完整性——这一事实性评估中缺失的另一半——更为困难：它需要枚举完整答案应涵盖的全部事实集合，而这些事实很少呈现为扁平列表。它们通常涉及以覆盖度为核心的无边界集合、有序过程以及事实间的关联关系，这些都无法通过独立布尔值检查的简单列表来捕捉。我们提出一个用于评估开放式生成的两级元评分框架，并将其实例化为Gamut（多模态事实性基础评估）——一个针对长文本生成事实完整性的基准测试。该框架基于两级评分表示：结构化元评分表捕捉所需内容的组织结构和重要性，随后通过机制化编译生成扁平的二元机器可评分检查表，使大语言模型评判者能够可靠评分。我们构建了1,813个基于真实可穿戴设备影像的问题，涵盖10个不同领域，每个问题均配备经专家人工标注者验证的证据支持评分表。由于该框架具有模态无关性，我们还发布了纯文本版本。通过对14个前沿模型和开源权重模型的评估，我们发现该基准测试具有真实挑战性（Gemini 3.1 Pro获得最高分58.7%）、强区分度，且对评判模型的选择具有鲁棒性。",
+      "hf_link": "https://huggingface.co/papers/2607.19322"
+    },
+    "2607.19331": {
+      "title": "ISO: An RLVR-Native Optimization Stack",
+      "abstract": "Reinforcement learning with verifiable rewards (RLVR) is rapidly advancing the reasoning capabilities of language models, yet the optimization layer that converts reward feedback into weight-space updates remains poorly understood. Building on our prior analysis (Zhu et al., 2025), we study this missing layer through the singular structure of model weights and identify spectral inheritance: RLVR can reuse the base model's weight spectra while acquiring new behavior through changes in the associated input and output singular frames.We operationalize spectral inheritance as Isospectral Optimization (ISO), an RLVR-native, fixed-spectrum optimization framework with complementary offline and online instantiations. Offline, ISO-Merger combines the frame changes of shared-base specialists into a single fixed-spectrum model, requiring no post-merge data, rollouts, gradient updates, or on-policy distillation (OPD). It recovers complementary specialist capabilities and achieves the strongest aggregate performance among the compared data-free merging methods. Online, ISO-Optimizer applies a chosen base optimizer, including AdamW and Muon, to the frame variables while keeping the base spectra fixed. Across reasoning and coding tasks ranging from 1.5B to 8B parameters, ISO-Optimizer improves accuracy in the reported runs and reaches matched scores with substantially fewer training steps. On Qwen3-8B-Base, AdamW reaches an aggregate accuracy of 0.495 after 270 training steps. ISO-AdamW reaches the same accuracy after only 100 training steps and improves further to 0.509 after 210 training steps. Together, ISO offers a concrete answer to RLVR's missing optimization layer: rather than inheriting pre-training optimization wholesale, design post-training around the structure of reward-driven adaptation: inherit the spectrum, optimize the frames.",
+      "abstract_zh": "带有可验证奖励的强化学习（Reinforcement learning with verifiable rewards，RLVR）正在快速提升语言模型的推理能力，然而将奖励反馈转化为权重空间更新的优化层机制仍鲜为人知。基于我们先前的研究（Zhu et al., 2025），我们通过模型权重的奇异值结构探讨这一缺失的优化层，并发现了频谱继承现象：RLVR 可以在保留基础模型权重谱的同时，通过改变相关的输入与输出奇异向量框架来学习新行为。我们将频谱继承具体化为等谱优化（Isospectral Optimization，ISO），这是一个 RLVR 原生的、固定频谱的优化框架，包含离线和在线两种互补的实现方式。离线场景中，ISO-Merger 将共享基础架构的多个专项模型的框架变动合并为单一固定频谱模型，无需合并后数据、环境交互、梯度更新或策略蒸馏（on-policy distillation，OPD）。该方法恢复了各专项模型的互补能力，并在所比较的无数据合并方法中实现了最佳综合性能。在线场景中，ISO-Optimizer 对框架变量应用选定的基础优化器（包括 AdamW 和 Muon），同时保持基础频谱固定。在参数量为 1.5B 至 8B 的推理与编码任务中，ISO-Optimizer 在已报告的运行中提升了准确率，并以显著减少的训练步数达到同等分数。在 Qwen3-8B-Base 模型中，AdamW 经过 270 个训练步后综合准确率达到 0.495，而 ISO-AdamW 仅需 100 个训练步即达到相同准确率，并在 210 个训练步后进一步提升至 0.509。综上所述，ISO 为 RLVR 缺失的优化层提供了具体解决方案：与其全盘继承预训练的优化方式，不如围绕奖励驱动适应的结构设计后训练过程——继承频谱，优化框架。",
+      "hf_link": "https://huggingface.co/papers/2607.19331"
+    },
+    "2607.18529": {
+      "title": "EduPanel: A Three-Agent LLM Judge for Teaching Videos -- Reliability, Complementarity, and Human Trust Calibration",
+      "abstract": "Teaching videos are becoming a major medium for education, creating a growing need for scalable evaluation of their pedagogical quality. Existing automatic judges do not fully address this setting because teaching quality depends on multimodal evidence and should be evaluated with respect to the intended learner rather than as a universal property. We present EduPanel, a rubric-grounded, learner-conditioned LLM judge that decomposes evaluation across specialized agents to produce interpretable assessments for different aspects of teaching quality. Across expert studies, architecture ablations, and learner-persona analyses, EduPanel achieves reliability comparable to a median human expert. In expert evaluation, its feedback improves scoring accuracy (MAE 0.87 to 0.73), while experts remain able to detect unreliable outputs (AUC = 0.77) instead of accepting them blindly. These results suggest that EduPanel can serve as effective assistants for educational evaluation rather than replacements for human experts.",
+      "abstract_zh": "教学视频正成为教育的主要媒介，这对其教学质量的规模化评估提出了日益增长的需求。现有自动化评估系统未能完全满足这一场景的需求，因为教学质量依赖于多模态证据，且应针对目标学习者进行评估，而非作为普遍属性进行衡量。我们提出了EduPanel——一个基于评分标准、学习者条件化的大语言模型评估系统，该系统通过专业化智能体分解评估任务，为教学质量的各个维度生成可解释的评估结果。在专家研究、架构消融实验和学习者画像分析中，EduPanel达到了与人类专家中位数相当的可靠性。在专家评估中，其反馈提高了评分准确性（平均绝对误差从0.87降至0.73），同时专家仍能有效识别不可靠输出（曲线下面积=0.77）而非盲目接受。这些结果表明，EduPanel可以作为教育评估的有效辅助工具，而非人类专家的替代品。",
+      "hf_link": "https://huggingface.co/papers/2607.18529"
+    },
+    "2607.19343": {
+      "title": "Masked Visual Actions for Unified World Modeling",
+      "abstract": "Video models absorb rich priors over how the visual world moves, interacts, and responds to contact, making them promising substrates for robotic world modeling. The central challenge is how to communicate action to such models in a form aligned with the visual space in which they learned these interaction priors, yet still grounded in physical manipulation. We introduce Masked Visual Actions, a pixel-space control interface that expresses action as a partially revealed trajectory of an arbitrary entity in a video. Revealing robot motion makes the model act as a forward dynamics model that predicts the scene's response to low-level robot actions, while revealing desired object motion makes the same model recover robot behavior consistent with that outcome. Finetuned with only 15 hours of masked examples from real videos and simulation, a single checkpoint achieves strong visual fidelity and controllability across diverse scenes and multiple embodiments. In downstream manipulation settings, the model produces imagined rollouts whose outcomes correlate with real-world execution for policy evaluation, improves decision making by ranking candidate futures in model-based planning, and supports inverse modeling by synthesizing robot motion from desired object motion.",
+      "abstract_zh": "视频模型通过吸收关于视觉世界如何运动、交互及响应接触的丰富先验，成为构建机器人世界模型的有力基础。核心挑战在于如何以符合其学习交互先验的视觉空间形式、同时又能植根于物理操控的方式来向这类模型传达动作。我们提出掩码视觉动作（Masked Visual Actions），一种像素空间控制接口，它将动作表达为视频中任意实体部分揭示的轨迹。揭示机器人运动使模型充当正向动力学模型，预测场景对低层级机器人动作的响应；而揭示目标物体运动则使同一模型恢复与该结果一致的机器人行为。通过仅使用来自真实视频和仿真的15小时掩码示例进行微调，单一模型检查点即可在多样化场景与多种具身形态中实现强大的视觉保真度和可控性。在下游操控任务中，该模型生成的想象推演结果与实际执行效果具有相关性，可用于策略评估；通过基于模型的规划中对候选未来进行排序来改进决策；并能够通过从目标物体运动合成机器人运动来支持逆向建模。",
+      "hf_link": "https://huggingface.co/papers/2607.19343"
+    },
+    "2607.18955": {
+      "title": "H$^2$SD: Hybrid Hindsight Self-Distillation",
+      "abstract": "Reinforcement learning with verifiable rewards (RLVR) has substantially improved the reasoning capabilities of large language models on tasks such as mathematical reasoning and code generation. However, most RLVR methods assign a scalar outcome reward to an entire trajectory, resulting in sparse supervision and limited token-level credit assignment. On-policy distillation (OPD) provides denser supervision by distilling token-level distributions from a stronger teacher model, but requires an additional teacher and typically assumes a shared vocabulary. On-policy self-distillation (OPSD) removes this dependency by conditioning the same model on privileged information to construct a teacher policy. However, directly matching the teacher distribution may cause information leakage and unstable optimization. RLSD avoids direct matching by using the teacher signal only to modulate update magnitudes, but it cannot provide an explicit correction direction when the sampled reasoning fails. To address this tradeoff, we introduce $\\mathrm{H}^{2}\\mathrm{SD}$, a hybrid hindsight self distillation framework that uses the teacher differently according to trajectory correctness. For successful trajectories, the teacher receives the student response confirmed as correct together with a rephrasing instruction, and its probabilities on the original response tokens are used to modulate update magnitudes without changing the direction determined by the reward. For failed trajectories, we condition the teacher on a reference hint containing key reasoning steps and a verified answer, and minimize the reverse KL divergence from the student to the teacher. Experiments on multiple challenging reasoning benchmarks show that H$^2$SD consistently outperforms representative RLVR, OPSD, and RLSD baselines while maintaining stable optimization and favorable generation efficiency.",
+      "abstract_zh": "基于可验证奖励的强化学习（Reinforcement Learning with Verifiable Rewards, RLVR）显著提升了大规模语言模型在数学推理和代码生成等任务上的推理能力。然而，大多数RLVR方法将标量结果奖励分配给整个轨迹，导致监督信号稀疏且词元级信用分配有限。在线蒸馏（On-policy Distillation, OPD）通过从更强的教师模型中蒸馏词元级分布提供了更密集的监督，但需要额外教师模型且通常假设共享词汇表。在线自蒸馏（On-policy Self-Distillation, OPSD）通过基于特权信息调节同一模型以构建教师策略，从而消除这一依赖。然而，直接匹配教师分布可能导致信息泄露和优化不稳定。RLSD通过仅使用教师信号调节更新幅度来避免直接匹配，但在采样推理失败时无法提供明确的修正方向。为解决这一权衡问题，我们提出了$\\mathrm{H}^{2}\\mathrm{SD}$——一种混合事后自蒸馏框架，该框架根据轨迹正确性差异性地利用教师信号。对于成功轨迹，教师模型接收被确认为正确的学生响应及改写指令，其在原始响应词元上的概率被用于调节更新幅度，而不改变由奖励确定的方向。对于失败轨迹，我们使教师模型基于包含关键推理步骤和已验证答案的参考提示进行条件生成，并最小化学生模型到教师模型的反向KL散度。在多个具有挑战性的推理基准测试上的实验表明，H$^2$SD在保持优化稳定性和良好生成效率的同时，始终优于具有代表性的RLVR、OPSD和RLSD基线方法。",
+      "hf_link": "https://huggingface.co/papers/2607.18955"
+    },
+    "2607.19058": {
+      "title": "Where Should Optimizer State Live? Tiered State Allocation for Memory-Efficient Mixture-of-Experts Training",
+      "abstract": "Optimizer state is the largest single line item in the memory budget of mixture-of-experts (MoE) training: on a 6.78B-parameter MoE language model, AdamW keeps 50.6 GB of first and second moments to update 12.6 GB of bfloat16 weights. We study SkewAdam, an optimizer built on the observation that the three parameter populations of an MoE - the dense backbone, the experts, and the router - differ enough in size and gradient statistics that they should not receive the same state. SkewAdam keeps float32 momentum plus a factored second moment for the backbone (5% of parameters), a factored second moment alone for the experts (95%), and an exact second moment for the router (<0.01%). The resulting state occupies 1.29 GB, 2.6% of AdamW's, and peak training memory falls from 81.4 GB to 31.3 GB, within the budget of a 40 GB accelerator. In a controlled comparison from identical initializations over 82M tokens, SkewAdam reaches validation perplexity 108.4, ahead of AdamW (126.8), Muon (120.2), and Lion (393.7), and settles router load balance to within 1% of its uniform floor. The allocation is not what earns that perplexity: a tier ablation matches it with twenty times the state, and Adafactor, which shares the factored estimator but drops momentum, plateaus 40 points behind. The tiers buy memory at no cost to accuracy; the accuracy comes from keeping momentum, which a uniform optimizer shares too. Sweeping the baselines' learning rates narrows but does not close the gap: the best tuned AdamW reaches 118.5, tuned Adafactor 139.7. Where optimizer state lives, these results suggest, matters at least as much as how much of it there is.",
+      "abstract_zh": "在专家混合模型（MoE）训练的内存预算中，优化器状态是最大的单项开销：对于一个6.78B参数的MoE语言模型，AdamW需要保留50.6 GB的一阶矩和二阶矩来更新12.6 GB的bfloat16权重。我们研究了SkewAdam优化器，其设计基于以下观察：MoE中三类参数群体——稠密骨干网络、专家模块和路由门控——在规模和梯度统计特性上差异显著，因此不应共享相同的优化状态。SkewAdam为骨干网络（占总参数5%）保留float32动量加分解二阶矩，为专家模块（95%）仅保留分解二阶矩，为路由门控（<0.01%）保留精确二阶矩。由此产生的状态仅占用1.29 GB，相当于AdamW的2.6%，训练峰值内存从81.4 GB降至31.3 GB，可适配40 GB加速器内存上限。在基于8200万token的同等初始化对比实验中，SkewAdam取得验证困惑度108.4，优于AdamW（126.8）、Muon（120.2）和Lion（393.7），并将路由负载均衡稳定在理论均匀分布1%误差范围内。这种分级设计并非困惑度优势的主因：层级消融实验使用二十倍状态量达到同等性能；而采用相同分解估计器但舍弃动量的Adafactor则落后40个困惑度点。分级策略在保证精度的同时节省了内存；性能优势主要来自动量保留——均匀优化器同样具备该特性。对基线学习率进行网格搜索虽能缩小差距但未能追平：最佳调参的AdamW达到118.5，Adafactor为139.7。这些结果表明，优化器状态的分布位置至少与其数量同等重要。",
+      "hf_link": "https://huggingface.co/papers/2607.19058"
+    },
+    "2607.19344": {
+      "title": "Appearance Pointers -- Multimodal Region Control of Diffusion Transformers",
+      "abstract": "Controllable image generation remains challenging for creative professionals, who often require precise regional control over materials, object identities, and spatial arrangements that cannot be reliably achieved through text prompting alone. Diffusion Transformers (DiTs) can natively ingest heterogeneous tokens stemming from texts and images, but they lack mechanisms for determining where and how these tokens should influence the output. We introduce appearance pointers, compact tokens that guide DiTs toward the correct appearance cues at the correct spatial locations by aligning text or image inputs with user-specified masks. Appearance pointers are produced by a region correspondence network and refined through a spatial aggregation mechanism, enabling the model to handle multiple regional descriptions without significantly increasing token load. Our approach introduces the first modality-agnostic interface for localized multimodal control in a DiT without retraining the base model from scratch. Across a range of metrics, our single model reaches or surpasses the performance of modality-specific state of the art methods, offering a simple and extensible path toward precise, region-aware, multimodal guidance in generative image synthesis.",
+      "abstract_zh": "对于创意专业人士而言，可控图像生成仍具挑战性，他们常需对材质、物体身份与空间布局进行精确的区域控制，而仅通过文本提示难以可靠实现这一目标。扩散变换器（Diffusion Transformers，DiTs）虽能原生处理源自文本与图像的异构标记，但缺乏决定这些标记应在何处及如何影响输出结果的机制。我们引入外观指针——一种紧凑的标记，通过将文本或图像输入与用户指定的掩码对齐，引导DiTs在正确的空间位置获取准确的外观线索。外观指针由区域对应网络生成，并通过空间聚合机制进行优化，使模型能够处理多个区域描述而不会显著增加标记负担。我们的方法首次在DiT中实现了局部多模态控制的模态无关接口，且无需从头重新训练基础模型。在多项指标评估中，我们的单一模型达到或超越了针对特定模态的先进方法性能，为生成式图像合成提供了一条通向精确、区域感知、多模态引导的简洁可扩展路径。",
+      "hf_link": "https://huggingface.co/papers/2607.19344"
+    },
+    "2607.17599": {
+      "title": "ConsiSpace: Learning Geometric Consistency Matters for Video Spatial Reasoning",
+      "abstract": "Video spatial reasoning is essential for navigation-oriented perception and long-video question answering, where models must infer spatial relations across long horizons under changing viewpoints. However, existing multimodal large language models (MLLMs) remain largely semantic-centric, and often fail to reliably aggregate consistent spatial evidence from redundant video observations, leading to inefficient or unstable reasoning. To address these issues, we propose ConsiSpace, a geometry-consistency-aware framework for geometry-sensitive video spatial reasoning that turns spatial consistency into both an evidence organization principle and an explicit post-SFT learning signal. We build a geometry-consistent memory (GCM) including implicit evidence tokens and explicit geometric cues, and leverage efficient organization strategies to compactly preserve task-related spatial evidence. Furthermore, we utilize unified consistency self-supervised reinforcement learning (UC-SSRL) after supervised fine-tuning to improve cross-view stability, with answer-, metric-, and topology-consistency rewards. Extensive experiments on three spatial-reasoning benchmarks, VSI-Bench, OSI-Bench, and MMSI-Video-Bench, show consistent gains, improving the average score by 12.6 points over the strongest baselines.",
+      "abstract_zh": "视频空间推理对于面向导航的感知和长视频问答至关重要，模型必须在视角变化的长时程中推断空间关系。然而，现有的多模态大语言模型仍主要侧重于语义理解，往往无法从冗余的视频观察中可靠地聚合一致的空间证据，导致推理效率低下或不稳定。为解决这些问题，我们提出了ConsiSpace——一个用于几何敏感视频空间推理的几何一致性感知框架，它将空间一致性同时转化为证据组织原则和显式的监督微调后学习信号。我们构建了包含隐式证据标记和显式几何线索的几何一致性记忆模块，并采用高效的组织策略紧凑地保存任务相关的空间证据。此外，在监督微调后，我们利用统一一致性自监督强化学习方法，通过答案一致性、度量一致性和拓扑一致性奖励来提升跨视角稳定性。在三个空间推理基准测试上的大量实验表明，所提方法在VSI-Bench、OSI-Bench和MMSI-Video-Bench上均取得稳定提升，平均得分比最强基线高出12.6分。",
+      "hf_link": "https://huggingface.co/papers/2607.17599"
+    },
+    "2607.15491": {
+      "title": "Trajectory-aware Cross-view Geo-localization with Sequential Observations",
+      "abstract": "Cross-view geo-localization matches ground-level observations against geo-tagged satellite imagery. Recent methods show that sequential queries such as video clips yield richer spatiotemporal cues than single images, yet they overlook a complementary sequential modality: route descriptions -- which capture the same trajectory at a higher level of abstraction and are often the only input available (e.g., a user directing an autonomous vehicle to a pickup point). To bridge this gap, we introduce SeqGeo-VL, a dataset of $\\sim$39K video-text-satellite triplets, and TrajLoc, a unified framework capable of processing both video clips and route descriptions. By leveraging both dense visual and abstract linguistic semantics, TrajLoc enables these modalities to mutually reinforce cross-view matching. We further propose TrajMod, a lightweight module that conditions query embeddings on trajectory geometry, yielding spatially-aware representations. Experiments show that TrajLoc achieves substantial gains over state-of-the-art methods on both video and text geo-localization. The project page is available atthis https URL.",
+      "abstract_zh": "跨视角地理定位旨在将地面观测数据与地理标记的卫星图像进行匹配。现有研究表明，相较于单张图像，视频片段等序列化查询能提供更丰富的时空线索，但这些方法忽视了一种互补的序列模态：路径描述——它以更高层次的抽象方式捕捉相同轨迹，且常作为唯一可用输入（例如用户引导自动驾驶车辆至接载点）。为弥补这一空白，我们提出了SeqGeo-VL数据集（包含约3.9万个视频-文本-卫星图像三元组）与TrajLoc框架（一种能同时处理视频片段与路径描述的统一框架）。通过融合密集的视觉语义与抽象的语言语义，TrajLoc使两种模态能够相互增强跨视角匹配能力。我们进一步提出TrajMod模块，该轻量化模块将轨迹几何信息融入查询嵌入，生成具有空间感知能力的表征。实验表明，在视频与文本地理定位任务中，TrajLoc相比现有最优方法均取得显著提升。项目页面可通过此链接访问：https://...",
+      "hf_link": "https://huggingface.co/papers/2607.15491"
+    }
+  },
+  "hf_votes": {
+    "2607.18703": 0,
+    "2607.19139": 0,
+    "2607.16617": 0,
+    "2607.19064": 0,
+    "2607.18367": 0,
+    "2607.18722": 0,
+    "2607.18091": 0,
+    "2607.18754": 0,
+    "2607.19191": 0,
+    "2607.18839": 0,
+    "2607.19322": 0,
+    "2607.19331": 0,
+    "2607.18529": 0,
+    "2607.19343": 0,
+    "2607.18955": 0,
+    "2607.19058": 0,
+    "2607.19344": 0,
+    "2607.17599": 0,
+    "2607.15491": 0
+  },
+  "focus_sections": {
+    "3D生成与重建": []
+  },
+  "summaries": {
+    "2607.18703": {
+      "short_zh": "实时生成式世界渲染器加速研究",
+      "tags": "计算机图形学;实时渲染;生成式世界建模",
+      "body_summary": "AlayaRenderer能从物理引擎导出结构化世界状态并合成RGB帧，但原版计算开销过大，无法实时运行。\n论文提出AlayaRenderer-Flash，通过重构为流式自回归模型和使用轻量编解码器，将渲染速度大幅提升至可玩帧率，同时保留了核心渲染能力和控制接口。"
+    },
+    "2607.19139": {
+      "short_zh": "探究扩散模型文本模板令牌作用",
+      "tags": "计算机视觉;生成模型;扩散变换器内部机制",
+      "body_summary": "本文针对文本到图像扩散变换器在去噪过程中的内部计算机制尚不清晰的问题，提出一种因果可解释性分析框架。\n研究发现文本模板令牌作为隐式语义寄存器维持对象身份，基于此提出无训练剪枝方法并揭示了扩散变换器中生成计算的组织方式。"
+    },
+    "2607.16617": {
+      "short_zh": "构建可编辑的LLM数据流水线平台",
+      "tags": "大语言模型应用;智能数据工程;可编辑数据流水线构建",
+      "body_summary": "大语言模型用于自动化数据处理时，生成的脚本与可持久化编辑的平台工件之间存在脱节。\n提出了一个平台，通过引导LLM代理构建平台原生有向无环图，在高成功率的同时显著降低了构建成本和延迟。"
+    },
+    "2607.19064": {
+      "short_zh": "构建高效图像生成编辑基础模型",
+      "tags": "生成式人工智能;图像生成与编辑;高效文本图像生成与编辑模型",
+      "body_summary": "大规模视觉生成器能力强大但训练、微调和部署成本高昂。\n提出名为Mage-Flow的高效原生分辨率基础模型，通过紧凑的4B规模生成堆栈和系统级协同设计，在保持竞争力的同时，大幅提升了高分辨率图像生成与编辑的速度和效率。"
+    },
+    "2607.18367": {
+      "short_zh": "交互式视频世界建模与生成",
+      "tags": "计算机视觉;视频生成;交互式长时程视频世界建模",
+      "body_summary": "视频游戏等虚拟环境传统开发流程复杂耗时，而视频世界模型能根据用户输入即时生成交互式环境。\n我们提出了AlayaWorld模型，通过结合持久视觉上下文、长时程稳定性训练与高效推理蒸馏技术，实现了高质量、可交互的长时程视频世界生成。"
+    },
+    "2607.18722": {
+      "short_zh": "异步强化学习的稳定性优化",
+      "tags": "强化学习;异步强化学习;策略滞后与信任域错配",
+      "body_summary": "异步强化学习因解耦采样与优化提高效率，但会产生策略滞后等陈旧性问题，导致训练与推断策略失配，损害算法稳定性。\n提出了一种陈旧性自适应信任域方法，通过陈旧性代理识别高失配样本，并动态调整PPO截断区间，在保持整体性能的同时约束高风险更新，从而稳定异步强化学习。"
+    },
+    "2607.18091": {
+      "short_zh": "生成科学方法流程图",
+      "tags": "计算机图形学;文本到图像生成;科学图表生成",
+      "body_summary": "现有模型难以确保科学方法流程图的结构正确性，例如箭头方向、组件和文本标注。\n提出了SciForma框架，通过结构化数据、多维度偏好优化和迭代编辑，显著提升了科学图表生成的结构保真度。"
+    },
+    "2607.18754": {
+      "short_zh": "大语言模型智能体调试工具",
+      "tags": "自然语言处理;智能体与交互系统;智能体故障调试",
+      "body_summary": "现有工具难以定位和修复大模型智能体任务执行中的故障根源\n提出开源框架AgentDebugX，通过检测归因恢复闭环提升故障归因精度与修复能力"
+    },
+    "2607.19191": {
+      "short_zh": "单GPU实时交互世界模型构建",
+      "tags": "生成式人工智能;世界模型;交互式视频生成",
+      "body_summary": "构建一个能实时生成可控、长时程交互视频的世界模型，是迈向通用具身智能的关键挑战。\n提出ABot-World-0模型及配套数据系统，通过师生蒸馏等方法提升可控性与一致性，并优化推理栈实现单桌面GPU上的实时高清视频流生成。"
+    },
+    "2607.18839": {
+      "short_zh": "层次并行文档解析提速",
+      "tags": "自然语言处理;文档智能;统一文档解析",
+      "body_summary": "现有统一文档解析模型因全页串行解码存在效率瓶颈\n提出分层并行解码范式，以布局主分支协调、内容分支并行及渐进多词预测，大幅提升吞吐量"
+    },
+    "2607.19322": {
+      "short_zh": "长文本事实完整性评估框架",
+      "tags": "自然语言处理;文本生成评估;事实完整性评估",
+      "body_summary": "当前长文本生成的事实性评估主要关注精确性（即声称是否正确），但难以衡量回答是否包含了所有应有的信息（即事实完整性）。\n本文提出了一个两级元评分框架来评估开放域生成，并构建了Gamut基准，通过结构化元评分表捕获所需内容的组织和重要性，再将其编译为可机器评分的二元检查表，以可靠评估长文本的事实完整性。"
+    },
+    "2607.19331": {
+      "short_zh": "强化学习奖励优化新方法",
+      "tags": "机器学习;强化学习;奖励优化与模型适应",
+      "body_summary": "背景/任务是语言模型在可验证奖励强化学习中，其奖励反馈到模型权重更新的优化层尚不清晰。\n研究发现了权重的谱继承特性，并提出了固定谱优化框架ISO，包含离线和在线两种实现，能高效复用基础模型权重谱并优化相关框架，显著提升训练效率和性能。"
+    },
+    "2607.18529": {
+      "short_zh": "教育视频三智能体评分系统",
+      "tags": "人工智能应用;教育技术;教学视频自动评估",
+      "body_summary": "教学视频质量评估需求大，现有方法未能充分考虑多模态证据和面向特定学习者的评价。\n提出EduPanel系统，通过多智能体分解评估，提供可靠且可解释的教学质量反馈，辅助而非替代专家评审。"
+    },
+    "2607.19343": {
+      "short_zh": "用图像空间的动作控制视频模型",
+      "tags": "机器人学;视觉世界建模;掩码视觉动作",
+      "body_summary": "视频模型蕴含丰富的视觉世界交互先验，但如何用视觉对齐的形式向模型传达物理动作是关键挑战。\n提出掩码视觉动作，通过揭示视频中任意实体的部分轨迹作为控制接口，使单一模型既能预测机器人动作的后果，也能从目标物体运动反推机器人行为。"
+    },
+    "2607.18955": {
+      "short_zh": "混合后见自蒸馏改进推理强化学习",
+      "tags": "强化学习;语言模型推理;强化学习奖励分配",
+      "body_summary": "现有强化学习方法在语言模型推理任务中存在奖励稀疏和信用分配不足的问题，而蒸馏方法又各有缺陷。\n提出了一种混合后见自蒸馏方法，根据推理轨迹的成功与否，分别用教师模型调整学习幅度或提供校正方向，从而提升模型推理性能与训练稳定性。"
+    },
+    "2607.19058": {
+      "short_zh": "优化器状态分层存储节省内存",
+      "tags": "机器学习;大模型训练;稀疏混合专家",
+      "body_summary": "混合专家模型训练时，优化器状态占用大量内存，是内存瓶颈。\n提出SkewAdam优化器，为模型不同部分分配不同精度的优化器状态，大幅减少内存占用并保持性能。"
+    },
+    "2607.19344": {
+      "short_zh": "外观指针实现扩散模型区域控制",
+      "tags": "计算机图形学;图像生成;扩散模型区域精确控制",
+      "body_summary": "扩散模型难以通过文本提示实现精确的区域外观控制。\n我们提出外观指针，通过掩码对齐多模态输入，在扩散变换器中实现无需重训练的精确区域引导。"
+    },
+    "2607.17599": {
+      "short_zh": "视频空间推理几何一致性框架",
+      "tags": "多模态学习;视频理解;空间关系推理",
+      "body_summary": "现有模型难以从冗余视频观察中稳定聚合一致的空间证据进行空间推理。\n提出ConsiSpace，通过构建几何一致性记忆与一致性自监督强化学习提升视频空间推理的稳定性和准确性。"
+    },
+    "2607.15491": {
+      "short_zh": "利用轨迹信息进行跨视角地理定位",
+      "tags": "计算机视觉；跨模态学习；跨视角地理定位",
+      "body_summary": "跨视角地理定位任务旨在将地面观测（如图像/视频/文本）与地理标记的卫星图像进行匹配。\n构建了包含视频-文本-卫星图像三重数据的数据集和统一框架，通过轨迹感知模块融合视觉与文本线索，显著提升了视频和文本地理定位的性能。"
+    }
+  },
+  "deep_analysis": {},
+  "figures": {}
+}
