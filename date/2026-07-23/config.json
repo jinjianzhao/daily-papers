@@ -18,6 +18,12 @@
       "abstract_zh": "近期的自回归视频扩散方法日益建立在自我强制(Self Forcing)之上，即学生模型在自身推演生成的历史序列而非真实视频上下文上进行训练。这减少了曝光偏差，但历史键值缓存仅被后续帧用作冻结的推演状态。因此，未来帧的损失无法监督早期生成的潜在变量应如何写入更有效的键值对，以供后续视频潜在生成使用。我们称之为历史上下文梯度缺口。本文提出自我梯度强制(Self Gradient Forcing，SGF)——一种双通道训练策略，可在不进行全序列推演反向传播的情况下恢复这一缺失的监督信号。通道一执行无梯度自回归推演以匹配推理过程，并在采样的去噪退出步骤记录自生成上下文与输入模型的噪声潜在变量；通道二针对记录的退出步骤执行并行上下文梯度重建。生成的上下文作为停止梯度的干净潜在变量输入，同时模型重新计算上下文键值表示及未来到上下文的因果注意力。由此，SGF在原生的自回归训练目标内提供了缺失的记忆写入监督，利用未来视频潜在变量的损失来训练模型将上下文编码为更有效的因果记忆。在不同初始化条件下的大量长时程逐帧与分块实验中，SGF相比自我强制实现了更强的原生长视频外推能力，尤其在主体身份、背景/布局一致性与时间稳定性方面表现突出。值得注意的是，仅使用5秒训练窗口，SGF即可外推生成长达数分钟的视频。我们将公开代码与模型，以推动自回归视频生成领域的研究进展。",
       "hf_link": "https://huggingface.co/papers/2607.20368"
     },
+    "2607.19747": {
+      "title": "Beyond Relevance-Centric Retrieval: Rubric-Oriented Document Set Selection and Ranking",
+      "abstract": "As large language models and AI agents become the primary consumers of search results, document set quality determines the upper bound of downstream generation. Yet existing evaluation systems remain confined to scoring documents independently and aggregating via nDCG, ignoring inter-document interactions (redundancy, conflict, complementarity) and unable to answer what makes one document set better than another. To address these issues, we propose a complete evaluate-diagnose-optimize framework. We design SetwiseEvalKit, a three-level, nine-dimension document set evaluation benchmark covering both short-form and long-form scenarios, comprising approximately 28K high-quality evaluation rubrics. We systematically evaluate 12 rerankers: even the best method achieves no more than 45% coverage, cross-document coordination dimensions are universally weak, and no single method maintains top performance across both settings. Building on this, we propose Rubric4Setwise, a training-free method that converts rubric-based evaluation criteria into document set selection signals, achieving the best downstream generation performance with fewer documents and search rounds. It is the only method that maintains state-of-the-art results across both scenarios, validating the effectiveness of closing the loop from evaluation to optimization.",
+      "abstract_zh": "随着大语言模型与AI智能体成为搜索结果的主要消费者，文档集质量决定了下游生成任务的效果上限。然而，现有评估体系仍局限于对文档进行独立评分并通过标准化折损累计增益（nDCG）进行聚合，忽略了文档间的交互作用（冗余性、矛盾性、互补性），无法解释为何一个文档集优于另一个。为应对这些问题，我们提出了完整的评估-诊断-优化框架。我们设计了SetwiseEvalKit——一个涵盖短文本与长文本场景的三层级、九维度的文档集评估基准，包含约2.8万条高质量评估准则。我们系统评估了12种重排序模型：即使最优方法在准则覆盖率上也不超过45%，跨文档协调维度普遍薄弱，且没有单一方法能在两种场景下均保持顶尖性能。基于此，我们提出Rubric4Setwise，这是一种无需训练的方法，可将基于准则的评估指标转化为文档集选择信号，仅需更少文档和搜索轮次即可实现最佳下游生成性能。该方法是唯一能在两种场景下均保持前沿效果的方法，验证了从评估到优化的闭环有效性。",
+      "hf_link": "https://huggingface.co/papers/2607.19747"
+    },
     "2607.16165": {
       "title": "An Exam for Active Observers",
       "abstract": "Human vision is a closed loop: gaze is continuously redirected by intermediate hypotheses rather than a single snapshot. Decades of psychophysics and cognitive science have argued that this active observation is essential for a wide range of tasks. Whether today's multimodal large language models (MLLMs) exercise active observation is an empirical question that current vision-language benchmarks do not answer. We introduce ActiveVision, a benchmark that makes active observation measurable for MLLMs, comprising 17 tasks across 3 categories. Tasks are designed to force repeated visual perception rather than a single static description. Frontier MLLMs collapse on ActiveVision: the highest-scoring model we evaluate, GPT-5.5 at the highest exposed reasoning-effort tier, solves only 10.6% of items and scores zero on 11 of the 17 tasks, and even Claude Fable 5, despite topping most reasoning and coding leaderboards, solves just 3.5%, far behind three human participants who average 96.1%. Furthermore, much of the gap persists even when models write and run their own vision code: such code is unreliable on realistic imagery, and catching its failures itself requires the active perception the models lack. Together, these results indicate that current MLLMs lack robust active visual observation, motivating architectures and training objectives that close the perception-reasoning loop.",
@@ -35,12 +41,6 @@
       "abstract": "Reinforcement learning (RL) has become a dominant paradigm for enhancing LLMs' reasoning capabilities. However, RL algorithms with PPO-Clip are inherently limited by exploration collapse. Subsequent works remain primarily heuristic and fail to identify the essential cause of PPO-Clip's failure. This work reveals the fundamental flaw of PPO-Clip: it implicitly measures policy discrepancy using Euclidean metric, which is theoretically inconsistent with the intrinsic geometry on the policy Riemannian manifold. This geometric mismatch results in overly conservative updates in low-probability regions while aggressive in high-probability regions, ultimately collapsing exploration. To correct this geometric flaw, we propose Riemannian Isometric Policy Optimization (RIPO), which guarantees isometric policy updates on the Riemannian manifold, effectively balancing exploration and exploitation. We further show that RIPO achieves a favorable bias-variance trade-off, which stabilizes optimization. Extensive experiments demonstrate that RIPO significantly surpasses existing LLM RL algorithms across seven competition-level benchmarks (up to 60% improvement over GRPO on AIME24).",
       "abstract_zh": "强化学习（Reinforcement Learning, RL）已成为提升大型语言模型（Large Language Models, LLMs）推理能力的主导范式。然而，采用PPO-Clip算法的强化学习方法本质上受限于探索崩溃问题。后续研究主要仍停留在启发式层面，未能揭示PPO-Clip失效的根本原因。本文揭示了PPO-Clip的根本缺陷：它隐含地使用欧几里得度量来衡量策略差异，这在理论上与策略黎曼流形上的内在几何结构不一致。这种几何失配导致在低概率区域更新过于保守，而在高概率区域则过于激进，最终引发探索崩溃。为纠正这一几何缺陷，我们提出了黎曼等距策略优化（Riemannian Isometric Policy Optimization, RIPO），该方法能保证在黎曼流形上进行等距策略更新，有效平衡探索与利用。我们进一步证明，RIPO实现了有利的偏差-方差权衡，从而稳定了优化过程。大量实验表明，在七个竞赛级基准测试中，RIPO显著超越了现有的大型语言模型强化学习算法（如在AIME24上较GRPO提升高达60%）。",
       "hf_link": "https://huggingface.co/papers/2607.10169"
-    },
-    "2607.19747": {
-      "title": "Beyond Relevance-Centric Retrieval: Rubric-Oriented Document Set Selection and Ranking",
-      "abstract": "As large language models and AI agents become the primary consumers of search results, document set quality determines the upper bound of downstream generation. Yet existing evaluation systems remain confined to scoring documents independently and aggregating via nDCG, ignoring inter-document interactions (redundancy, conflict, complementarity) and unable to answer what makes one document set better than another. To address these issues, we propose a complete evaluate-diagnose-optimize framework. We design SetwiseEvalKit, a three-level, nine-dimension document set evaluation benchmark covering both short-form and long-form scenarios, comprising approximately 28K high-quality evaluation rubrics. We systematically evaluate 12 rerankers: even the best method achieves no more than 45% coverage, cross-document coordination dimensions are universally weak, and no single method maintains top performance across both settings. Building on this, we propose Rubric4Setwise, a training-free method that converts rubric-based evaluation criteria into document set selection signals, achieving the best downstream generation performance with fewer documents and search rounds. It is the only method that maintains state-of-the-art results across both scenarios, validating the effectiveness of closing the loop from evaluation to optimization.",
-      "abstract_zh": "随着大语言模型与AI智能体成为搜索结果的主要消费者，文档集质量决定了下游生成任务的效果上限。然而，现有评估体系仍局限于对文档进行独立评分并通过标准化折损累计增益（nDCG）进行聚合，忽略了文档间的交互作用（冗余性、矛盾性、互补性），无法解释为何一个文档集优于另一个。为应对这些问题，我们提出了完整的评估-诊断-优化框架。我们设计了SetwiseEvalKit——一个涵盖短文本与长文本场景的三层级、九维度的文档集评估基准，包含约2.8万条高质量评估准则。我们系统评估了12种重排序模型：即使最优方法在准则覆盖率上也不超过45%，跨文档协调维度普遍薄弱，且没有单一方法能在两种场景下均保持顶尖性能。基于此，我们提出Rubric4Setwise，这是一种无需训练的方法，可将基于准则的评估指标转化为文档集选择信号，仅需更少文档和搜索轮次即可实现最佳下游生成性能。该方法是唯一能在两种场景下均保持前沿效果的方法，验证了从评估到优化的闭环有效性。",
-      "hf_link": "https://huggingface.co/papers/2607.19747"
     },
     "2607.13429": {
       "title": "Generalizable VLA Finetuning via Representation Anchoring and Language-Action Alignment",
@@ -60,17 +60,23 @@
       "abstract_zh": "可验证奖励强化学习（RLVR，Reinforcement Learning with Verifiable Rewards）显著提升了语言模型的推理能力，然而其向视觉语言模型的扩展仍受限于同时具备广泛性、精确可验证性与可复现性的训练数据的缺乏。我们介绍了Trace——一个基于分类学指导的多领域视觉推理环境。Trace将任务构建分解为场景语法和可执行的任务程序，从而将视觉呈现与答案计算相分离。共享的语义状态决定了渲染的图像、提示、类型化答案、验证器状态以及可回放的实例轨迹。由此构建的环境包含277个场景语法和11个视觉领域下的1000项任务，并实现了语义与视觉变化的受控调节。在64,000个Trace实例上进行的RLVR训练，使Qwen2.5-VL-3B在24个外部基准测试中的宏观平均性能提升了3.51个百分点，Qwen2.5-VL-7B提升了4.06个百分点，这证明了广泛的过程性训练能够迁移到生成任务分布之外。项目页面：此 https URL。",
       "hf_link": "https://huggingface.co/papers/2607.19790"
     },
-    "2607.20379": {
-      "title": "Train the Model, Not the Reader: Decodability Supervision for Verifiable Activation Explanations",
-      "abstract": "Natural-language autoencoders score explanations of hidden activations by reconstruction: an explanation is deemed faithful if the activation can be regenerated from it. The test is structurally insensitive to individual false claims: if flipping a claim does not change the reconstruction, the claim is never penalized. We show the test is passed in two ways, neither faithful. On a released Qwen-2.5-7B verbalizer, explanations reconstruct well above chance while ~2% of specific claims are reconstruction-dependent, so the score tracks gist, not specific facts. Under exact synthetic ground truth, the standard recipe develops co-adapted private codes (false wording the reconstruction depends on) in 5/5 runs, and fixes that leave the target model unchanged do not help. We contribute two audit protocols, the grounded-vs-true cross and the evaluator swap, and RECAP (Readable Encodings via Co-trained Auxiliary Predictors): linear heads trained alongside the target model to keep designated content decodable. On RECAP-trained sandbox models, fresh verbalizers state the designated content truly and the codes vanish, at a +0.001-nat cost. This replicates on a pretrained Pythia-160M: the content becomes reliably probe-decodable, though a fresh verbalizer conveys it only in part (truth 0.44-0.46 vs a near-zero control). For interpretability, high reconstruction does not certify individual claims. For AI safety, RECAP makes designated internal content independently checkable against probes rather than asserted by prose a model can game: an independent probe scores the verbalizer's true claims above its false ones (AUC 0.96, vs 0.82 without RECAP). Against an adversary that edits an explanation to maximize the reconstruction score while lying (suppressing ~87% of its lie penalty), the RECAP probe still flags the lies (AUC 0.95) while the control probe collapses to chance (0.51).",
-      "abstract_zh": "自然语言自编码器通过重构来评估对隐藏激活的解释：若能从解释中重新生成激活，则该解释被视为忠实。该测试在结构上对个别虚假主张不敏感：若翻转某个主张不改变重构结果，则该主张永远不会被惩罚。我们证明该测试可通过两种方式通过，但均非忠实。在一个已发布的Qwen-2.5-7B语言化模型上，解释的重构效果远高于随机水平，而约2%的具体主张具有重构依赖性，因此评分追踪的是主旨而非具体事实。在精确的合成真实数据下，标准方案在5次运行中均产生了共适应的私有编码（重构依赖的错误措辞），且保持目标模型不变的修复措施无济于事。我们提出两种审计协议——基于真实数据的交叉检验和评估器置换，以及RECAP（通过协同训练的辅助预测器实现可读编码）：在目标模型训练时同步训练的线性头，用以保持指定内容可解码。在经RECAP训练的沙盒模型中，新语言化模型能真实陈述指定内容且私有编码消失，代价仅为+0.001奈特。该方法在预训练的Pythia-160M上得到复现：指定内容变得可靠可探查解码，尽管新语言化模型仅能部分传达内容（真实度0.44-0.46，而对照组接近零）。对于可解释性，高重构分数并不能保证个别主张的真实性。对于人工智能安全，RECAP使指定的内部内容可通过独立探查器验证，而非依赖模型可能操纵的文本陈述：独立探查器对语言化模型真实主张的评分高于虚假主张（AUC达0.96，无RECAP时为0.82）。面对通过编辑解释以最大化重构分数同时说谎的对抗攻击（压制约87%的谎言惩罚），RECAP探查器仍能标记谎言（AUC 0.95），而对照组探查器则退化至随机水平（0.51）。",
-      "hf_link": "https://huggingface.co/papers/2607.20379"
-    },
     "2607.19691": {
       "title": "SLPO: Scaling Latent Reasoning via a Surrogate Policy",
       "abstract": "Reinforcement learning with verifiable rewards has become the predominant recipe for eliciting test-time scaling in explicit Chain-of-Thought reasoners. Yet this scaling path remains computationally costly, since every intermediate step must be decoded as a language token. Latent reasoning instead carries intermediate computation as continuous vectors and already matches or surpasses explicit CoT at far shorter horizons. Despite this promise, latent reasoners remain largely imitation-bound, while explicit CoT has already moved past imitation via outcome-reward RL. Latent trajectories lack a tractable per-step likelihood and an adaptive stopping interface under fixed thinking budgets, so outcome rewards cannot elicit latent test-time scaling. We introduce Surrogate Latent Policy Optimization (SLPO) to bring outcome-reward RL to autoregressive latent reasoners: an empirical surrogate policy density over latent transitions for trajectory-level credit assignment, and a correctness-supervised stopping head that outcome-reward optimization refines into a variable-horizon policy. Across continuous and soft thinking settings, SLPO improves Pass@$k$ under parallel sampling and allocates longer latent computation to harder instances with higher deterministic accuracy.",
       "abstract_zh": "具备可验证奖励的强化学习已成为在显式思维链推理模型中引发测试时扩展的主流方法。然而这条扩展路径的计算成本仍然高昂，因为每个中间步骤都必须解码为语言标记。与之相对的隐式推理则将中间计算以连续向量的形式进行，并已在更短的推理跨度内达到甚至超越了显式思维链的性能。尽管前景广阔，隐式推理器目前仍主要受限于模仿学习，而显式思维链则已通过结果奖励强化学习超越了模仿阶段。隐式推理轨迹缺乏可追踪的逐步似然性，且在固定思考预算下缺少自适应停止接口，因此结果奖励无法引发隐式测试时扩展。我们提出代理隐式策略优化方法，将结果奖励强化学习引入自回归隐式推理器：通过建立隐式状态转移的经验代理策略密度来实现轨迹级信用分配，同时利用结果奖励优化将正确性监督的停止头改进为可变跨度的策略。在连续与软性思考设置中，SLPO在并行采样下提升了Pass@$k$指标，并将更长的隐式计算资源分配给更难的问题实例，从而获得更高的确定性准确率。",
       "hf_link": "https://huggingface.co/papers/2607.19691"
+    },
+    "2607.19865": {
+      "title": "DocOps: A Verifiable Benchmark for Autonomous Agents in Complex Document Operations",
+      "abstract": "As autonomous agents rapidly evolve, their ability to reliably manipulate ubiquitous digital documents has become critical for enabling general-purpose AI assistants and automating complex workspace workflows. In this paper, we introduce DocOps, a deterministically verifiable evaluation framework underpinned by a hierarchical taxonomy that deconstructs document operations inspired by real-world practices into atomic dimensions and escalating workflow complexities. Based on DocOps, we systematically evaluate representative closed- and open-source models across various agentic harnesses, revealing that even the most advanced frontier configurations still exhibit profound limitations when handling highly coupled, long-range tasks. Furthermore, a fine-grained analysis of existing agents' manipulation behaviors uncovers 3 key failure modes: long-term state tracking collapse, shallow semantic verification, and destructive editing of structural metadata. Ultimately, our work exposes the capability boundaries of agents in maintaining global document consistency, shedding light on the future design of robust, non-destructive agents for complex digital ecosystems.",
+      "abstract_zh": "随着自主智能体（autonomous agents）的快速发展，它们能否可靠地操作无处不在的数字文档已成为实现通用人工智能助手与自动化复杂工作流程的关键。本文提出了DocOps——一个确定性可验证的评估框架，其核心是一个受现实实践启发的层次化分类体系，能够将文档操作解构为原子维度与逐级递增的工作流复杂度。基于DocOps，我们系统评估了多种智能体框架下的代表性闭源与开源模型，结果显示即使最先进的前沿配置在处理高度耦合、长程依赖的任务时仍存在显著局限。进一步对现有智能体操作行为进行细粒度分析后，我们揭示了三种关键失败模式：长期状态跟踪崩溃、浅层语义验证以及结构性元数据的破坏性编辑。最终，我们的研究揭示了智能体在维护全局文档一致性方面的能力边界，为未来设计面向复杂数字生态系统的鲁棒、非破坏性智能体提供了重要启示。",
+      "hf_link": "https://huggingface.co/papers/2607.19865"
+    },
+    "2607.20379": {
+      "title": "Train the Model, Not the Reader: Decodability Supervision for Verifiable Activation Explanations",
+      "abstract": "Natural-language autoencoders score explanations of hidden activations by reconstruction: an explanation is deemed faithful if the activation can be regenerated from it. The test is structurally insensitive to individual false claims: if flipping a claim does not change the reconstruction, the claim is never penalized. We show the test is passed in two ways, neither faithful. On a released Qwen-2.5-7B verbalizer, explanations reconstruct well above chance while ~2% of specific claims are reconstruction-dependent, so the score tracks gist, not specific facts. Under exact synthetic ground truth, the standard recipe develops co-adapted private codes (false wording the reconstruction depends on) in 5/5 runs, and fixes that leave the target model unchanged do not help. We contribute two audit protocols, the grounded-vs-true cross and the evaluator swap, and RECAP (Readable Encodings via Co-trained Auxiliary Predictors): linear heads trained alongside the target model to keep designated content decodable. On RECAP-trained sandbox models, fresh verbalizers state the designated content truly and the codes vanish, at a +0.001-nat cost. This replicates on a pretrained Pythia-160M: the content becomes reliably probe-decodable, though a fresh verbalizer conveys it only in part (truth 0.44-0.46 vs a near-zero control). For interpretability, high reconstruction does not certify individual claims. For AI safety, RECAP makes designated internal content independently checkable against probes rather than asserted by prose a model can game: an independent probe scores the verbalizer's true claims above its false ones (AUC 0.96, vs 0.82 without RECAP). Against an adversary that edits an explanation to maximize the reconstruction score while lying (suppressing ~87% of its lie penalty), the RECAP probe still flags the lies (AUC 0.95) while the control probe collapses to chance (0.51).",
+      "abstract_zh": "自然语言自编码器通过重构来评估对隐藏激活的解释：若能从解释中重新生成激活，则该解释被视为忠实。该测试在结构上对个别虚假主张不敏感：若翻转某个主张不改变重构结果，则该主张永远不会被惩罚。我们证明该测试可通过两种方式通过，但均非忠实。在一个已发布的Qwen-2.5-7B语言化模型上，解释的重构效果远高于随机水平，而约2%的具体主张具有重构依赖性，因此评分追踪的是主旨而非具体事实。在精确的合成真实数据下，标准方案在5次运行中均产生了共适应的私有编码（重构依赖的错误措辞），且保持目标模型不变的修复措施无济于事。我们提出两种审计协议——基于真实数据的交叉检验和评估器置换，以及RECAP（通过协同训练的辅助预测器实现可读编码）：在目标模型训练时同步训练的线性头，用以保持指定内容可解码。在经RECAP训练的沙盒模型中，新语言化模型能真实陈述指定内容且私有编码消失，代价仅为+0.001奈特。该方法在预训练的Pythia-160M上得到复现：指定内容变得可靠可探查解码，尽管新语言化模型仅能部分传达内容（真实度0.44-0.46，而对照组接近零）。对于可解释性，高重构分数并不能保证个别主张的真实性。对于人工智能安全，RECAP使指定的内部内容可通过独立探查器验证，而非依赖模型可能操纵的文本陈述：独立探查器对语言化模型真实主张的评分高于虚假主张（AUC达0.96，无RECAP时为0.82）。面对通过编辑解释以最大化重构分数同时说谎的对抗攻击（压制约87%的谎言惩罚），RECAP探查器仍能标记谎言（AUC 0.95），而对照组探查器则退化至随机水平（0.51）。",
+      "hf_link": "https://huggingface.co/papers/2607.20379"
     },
     "2607.19942": {
       "title": "G-MAD: A Game-Based Data Generation Framework for Multi-View RGB-T Aerial Object Detection",
@@ -88,15 +94,16 @@
   "hf_votes": {
     "2607.20145": 0,
     "2607.20368": 0,
+    "2607.19747": 0,
     "2607.16165": 0,
     "2607.19604": 0,
     "2607.10169": 0,
-    "2607.19747": 0,
     "2607.13429": 0,
     "2607.16190": 0,
     "2607.19790": 0,
-    "2607.20379": 0,
     "2607.19691": 0,
+    "2607.19865": 0,
+    "2607.20379": 0,
     "2607.19942": 0,
     "2607.20207": 0,
     "2607.20417": 0
@@ -122,6 +129,11 @@
       "tags": "计算机视觉;视频生成;自回归视频扩散模型",
       "body_summary": "现有自回归视频扩散方法使用自强制训练以减少暴露偏差，但其历史上下文梯度监督缺失，限制长视频生成质量。\n提出自梯度强制方法，通过双阶段训练为历史上下文生成提供梯度监督，使模型能在短训练窗口下生成长达数分钟的一致长视频。"
     },
+    "2607.19747": {
+      "short_zh": "文档集合优化提升生成质量",
+      "tags": "信息检索;文档重排序;文档集合评估优化",
+      "body_summary": "现有检索评估忽视文档间互动，无法判定文档集合优劣。\n提出了评估诊断优化框架，构建了多层次评估基准并设计了基于准则的文档集合选择方法。"
+    },
     "2607.16165": {
       "short_zh": "测试多模态大模型动态视觉能力",
       "tags": "计算机视觉;视觉与语言;主动视觉评测",
@@ -136,11 +148,6 @@
       "short_zh": "改进大语言模型强化学习策略更新",
       "tags": "强化学习;大语言模型强化学习;策略优化几何缺陷",
       "body_summary": "现有基于PPO-Clip的LLM强化学习方法存在探索崩溃的根本问题。\n提出基于黎曼等距的策略优化方法RIPO，在基准测试中显著超越现有算法。"
-    },
-    "2607.19747": {
-      "short_zh": "文档集合优化提升生成质量",
-      "tags": "信息检索;文档重排序;文档集合评估优化",
-      "body_summary": "现有检索评估忽视文档间互动，无法判定文档集合优劣。\n提出了评估诊断优化框架，构建了多层次评估基准并设计了基于准则的文档集合选择方法。"
     },
     "2607.13429": {
       "short_zh": "微调视觉语言动作策略的泛化性",
@@ -157,15 +164,20 @@
       "tags": "视觉语言模型;视觉推理;程序化训练环境",
       "body_summary": "强化学习在语言模型推理中取得进展，但在视觉语言模型中因缺乏广泛、可验证、可复现的训练数据而受限。\n提出了一个名为Trace的、由分类学引导的、多领域视觉推理训练环境，它通过分离视觉呈现与答案计算，构建了包含大量可控变体的任务库，并证明其训练能有效提升模型在外部基准上的表现。"
     },
-    "2607.20379": {
-      "short_zh": "训练模型而非读者",
-      "tags": "自然语言处理;可解释性;激活解码",
-      "body_summary": "针对自然语言自编码器通过重构分数评估激活解释的局限性展开研究。\n提出两种审计协议和RECAP方法，以线性头协同训练确保指定内容可解码，从而提升解释的可靠性和可验证性。"
-    },
     "2607.19691": {
       "short_zh": "用强化学习优化潜在推理模型",
       "tags": "机器学习;推理优化;潜在推理强化学习",
       "body_summary": "传统思维链推理需要解码中间步骤，计算成本高，而具有验证奖励的强化学习能提升其性能，但难以直接应用于在连续向量空间进行中间计算的潜在推理模型。\n本文提出SLPO，通过构建经验替代策略密度实现轨迹级信用分配，并优化一个可自适应停止的头部，从而将结果奖励强化学习引入自回归潜在推理器，使其能根据问题难度动态分配计算并提升性能。"
+    },
+    "2607.19865": {
+      "short_zh": "评估自主智能体操作文档能力",
+      "tags": "智能体技术;文档智能;文档操作与验证",
+      "body_summary": "随着自主智能体的发展，其对数字文档的可靠操作能力变得至关重要。\n本文提出了DocOps评测框架，系统评估了现有模型，揭示了其在复杂任务中的三大失败模式并分析了能力边界。"
+    },
+    "2607.20379": {
+      "short_zh": "训练模型而非读者",
+      "tags": "自然语言处理;可解释性;激活解码",
+      "body_summary": "针对自然语言自编码器通过重构分数评估激活解释的局限性展开研究。\n提出两种审计协议和RECAP方法，以线性头协同训练确保指定内容可解码，从而提升解释的可靠性和可验证性。"
     },
     "2607.19942": {
       "short_zh": "游戏生成多视角航拍数据集",
