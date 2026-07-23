@@ -1,0 +1,206 @@
+{
+  "base_info": {
+    "2607.20417": {
+      "title": "ATSplat: Compact Feed-forward 3D Gaussian Splatting with Adaptive Token Expansion",
+      "abstract": "3D Gaussian Splatting (3DGS) achieves high-quality novel-view synthesis by optimizing freely placed primitives in 3D and adaptively densifying them in under-reconstructed regions. However, this scene-adaptive capacity allocation is largely lost in existing feed-forward 3DGS methods, which commonly regress Gaussians at input pixels and lift them along camera rays. Such pixel-aligned formulations make the number and placement of primitives depend on image resolution and input viewpoints rather than scene complexity, resulting in dense and often redundant Gaussian sets. We present ATSplat, a feed-forward 3DGS framework that restores the adaptive allocation capability of 3DGS optimization through Adaptive 3D Tokens. ATSplat first lifts coarse patch-level depth and camera cues into sparse 3D anchor tokens, forming a compact scaffold of the scene. Each token is then regressed into local Gaussians with learnable 3D offsets, decoupling primitive placement from input image grids. An Adaptive Token Expansion module predicts a token-level uncertainty score, supervised by rendering error maps, and selectively expands high-uncertainty tokens through learnable expansion layers. This sparse-to-adaptive formulation enables ATSplat to concentrate primitives in challenging regions while maintaining a compact representation. Experiments on two representative datasets, RealEstate10K and DL3DV, show that ATSplat achieves state-of-the-art rendering quality while reducing the number of Gaussians by more than $5.7\\times$ compared with dense feed-forward 3DGS methods. From 12 input images at $512 \\times 960$ resolution, ATSplat completes reconstruction in less than a second using a single commercial GPU, and renders high-quality novel views at 1136 FPS ($512 \\times 960$) with only 311K Gaussians.",
+      "abstract_zh": "三维高斯溅射（3D Gaussian Splatting，3DGS）通过在三维空间中自由放置图元并自适应地在重建不足区域进行致密化，实现了高质量的新视角合成。然而，这种场景自适应的容量分配在现有的前馈式3DGS方法中基本丧失，这些方法通常基于输入像素回归高斯分布并将其沿相机射线提升。此类像素对齐的设定使得图元的数量与位置取决于图像分辨率和输入视角，而非场景复杂度，从而导致生成密集且往往冗余的高斯集合。我们提出ATSplat，一种前馈式3DGS框架，通过自适应三维标记（Adaptive 3D Tokens）恢复了3DGS优化的自适应分配能力。ATSplat首先将粗粒度块级深度信息与相机线索提升为稀疏的三维锚点标记，形成场景的紧凑支架。随后，每个标记通过可学习的三维偏移量被回归为局部高斯分布，从而将图元放置与输入图像网格解耦。自适应标记扩展模块通过渲染误差图监督，预测标记级不确定性分数，并选择性通过可学习的扩展层对高不确定性标记进行扩展。这种从稀疏到自适应的构建方式使ATSplat能够将图元集中于具有挑战性的区域，同时保持表示的紧凑性。在RealEstate10K和DL3DV两个代表性数据集上的实验表明，ATSplat实现了最先进的渲染质量，同时相比密集前馈式3DGS方法减少了超过$5.7\\times$的高斯数量。在输入12张分辨率为$512 \\times 960$的图像时，ATSplat可在单块商用GPU上于一秒内完成重建，并以仅311K高斯数量实现1136 FPS（$512 \\times 960$分辨率）的高质量新视角渲染。",
+      "hf_link": "https://huggingface.co/papers/2607.20417"
+    },
+    "2607.20145": {
+      "title": "SLAI T-Rex: Full-Parameter Post-training of the DeepSeek-V4 Family on Ascend SuperPOD",
+      "abstract": "Full-parameter post-training of trillion-parameter-scale MoE models introduces substantial system-level challenges for large-scale distributed training, including severe memory pressure, non-overlapped communication overhead, and inefficient kernel execution. While most large-scale LLM training systems are built around GPU-based clusters, this report presents an end-to-end optimization practice on the Ascend NPU SuperPOD. Using the DeepSeek-V4 model family as the target workload, we develop a hierarchical optimization framework spanning model-level parallelism, computation-communication orchestration, and low-level kernel execution. The resulting system achieves 34.22% Model FLOPs Utilization (MFU) with a 2.93x improvement over the open-source baseline recipe while maintaining training stability. Building on this optimized infrastructure, we further establish a CPT and SFT workflow for complex Operations Research (OR) tasks. We refer to the integrated framework as SLAI T-Rex. Using DeepSeek-V4-Flash, we develop OR-oriented CPT and SFT data pipelines that combine collected domain resources with solver-verified synthetic optimization documents. The resulting dataset contains 10K high-quality SFT samples spanning four task categories and three problem representations. The specialized model achieves the highest average zero-shot Pass@1 score among the evaluated models, reaching 71.81% and outperforming GPT-5.4-Mini and the base DeepSeek-V4-Flash model by 3.98 and 11.27 percentage points, respectively. Overall, this work demonstrates a full-stack pathway from efficient trillion-parameter model post-training on Ascend infra to domain-specialized Flash models for solver-grounded mathematical modeling, advancing frontier-model systems for complex reasoning.",
+      "abstract_zh": "针对万亿参数规模的混合专家（MoE）模型进行全参数训练后优化（post-training），在大规模分布式训练中引入了严峻的系统级挑战，包括巨大的内存压力、无法重叠的通信开销以及低效的内核执行。尽管大多数大规模语言模型（LLM）训练系统基于GPU集群构建，本报告展示了在昇腾（Ascend）NPU超级集群（SuperPOD）上进行端到端优化的实践。以DeepSeek-V4模型系列为目标工作负载，我们开发了一个涵盖模型级并行、计算-通信协同编排以及底层内核执行的分层优化框架。最终系统实现了34.22%的模型浮点运算利用率（Model FLOPs Utilization，MFU），相比开源基线方案提升了2.93倍，同时保持了训练稳定性。\n\n基于这一优化基础设施，我们进一步构建了面向复杂运筹学（Operations Research，OR）任务的持续预训练（CPT）与监督微调（SFT）工作流。我们将该集成框架命名为SLAI T-Rex。利用DeepSeek-V4-Flash模型，我们开发了面向运筹学的CPT与SFT数据流水线，将收集的领域资源与求解器验证过的合成优化文档相结合。最终构建的数据集包含1万个高质量SFT样本，涵盖四大任务类别和三种问题表示形式。专项训练后的模型在评估模型中取得了最高的平均零样本通过率（zero-shot Pass@1），达到71.81%，分别超过GPT-5.4-Mini和基础DeepSeek-V4-Flash模型3.98和11.27个百分点。\n\n总体而言，这项工作展示了一条从基于昇腾基础设施的高效万亿参数模型训练后优化，到面向求解器驱动的数学建模领域专项Flash模型的全栈路径，推动了面向复杂推理的前沿模型系统发展。",
+      "hf_link": "https://huggingface.co/papers/2607.20145"
+    },
+    "2607.20368": {
+      "title": "Self Gradient Forcing: Native Long Video Extrapolation",
+      "abstract": "Recent autoregressive video diffusion methods are increasingly built upon Self Forcing, where the student is trained on histories produced by its own rollout rather than ground-truth video contexts. This reduces exposure bias, but the historical key-value cache is still used by future frames only as frozen rollout state. As a result, future losses cannot supervise how earlier generated latents should be written into more useful keys and values for later video-latent generation. We call this the historical context-gradient gap. We propose Self Gradient Forcing (SGF), a two-pass training strategy that restores this missing supervision signal without backpropagating through the full serial rollout. Pass 1 performs a no-gradient autoregressive rollout matching inference and, at a sampled denoising exit step, records both the self-generated context and the noisy latents fed to the model. Pass 2 performs parallel context-gradient reconstruction for the recorded exit step. The generated context is used as stop-gradient clean-latent input, while the model recomputes the context KV representations and future-to-context causal attention. Thus, SGF provides the missing memory-writing supervision within the native autoregressive training objective, using losses on future video latents to train the model to encode context into more effective causal memory. Across extensive long-horizon frame-wise and chunk-wise experiments under different initializations, SGF achieves stronger native long-video extrapolation than Self Forcing, especially in subject identity, background/layout consistency, and temporal stability. Remarkably, using only a 5-second training window, SGF can extrapolate to videos lasting several minutes. Code and models will be released to advance research on autoregressive video generation.",
+      "abstract_zh": "近期的自回归视频扩散方法日益建立在自我强制(Self Forcing)之上，即学生模型在自身推演生成的历史序列而非真实视频上下文上进行训练。这减少了曝光偏差，但历史键值缓存仅被后续帧用作冻结的推演状态。因此，未来帧的损失无法监督早期生成的潜在变量应如何写入更有效的键值对，以供后续视频潜在生成使用。我们称之为历史上下文梯度缺口。本文提出自我梯度强制(Self Gradient Forcing，SGF)——一种双通道训练策略，可在不进行全序列推演反向传播的情况下恢复这一缺失的监督信号。通道一执行无梯度自回归推演以匹配推理过程，并在采样的去噪退出步骤记录自生成上下文与输入模型的噪声潜在变量；通道二针对记录的退出步骤执行并行上下文梯度重建。生成的上下文作为停止梯度的干净潜在变量输入，同时模型重新计算上下文键值表示及未来到上下文的因果注意力。由此，SGF在原生的自回归训练目标内提供了缺失的记忆写入监督，利用未来视频潜在变量的损失来训练模型将上下文编码为更有效的因果记忆。在不同初始化条件下的大量长时程逐帧与分块实验中，SGF相比自我强制实现了更强的原生长视频外推能力，尤其在主体身份、背景/布局一致性与时间稳定性方面表现突出。值得注意的是，仅使用5秒训练窗口，SGF即可外推生成长达数分钟的视频。我们将公开代码与模型，以推动自回归视频生成领域的研究进展。",
+      "hf_link": "https://huggingface.co/papers/2607.20368"
+    },
+    "2607.16165": {
+      "title": "An Exam for Active Observers",
+      "abstract": "Human vision is a closed loop: gaze is continuously redirected by intermediate hypotheses rather than a single snapshot. Decades of psychophysics and cognitive science have argued that this active observation is essential for a wide range of tasks. Whether today's multimodal large language models (MLLMs) exercise active observation is an empirical question that current vision-language benchmarks do not answer. We introduce ActiveVision, a benchmark that makes active observation measurable for MLLMs, comprising 17 tasks across 3 categories. Tasks are designed to force repeated visual perception rather than a single static description. Frontier MLLMs collapse on ActiveVision: the highest-scoring model we evaluate, GPT-5.5 at the highest exposed reasoning-effort tier, solves only 10.6% of items and scores zero on 11 of the 17 tasks, and even Claude Fable 5, despite topping most reasoning and coding leaderboards, solves just 3.5%, far behind three human participants who average 96.1%. Furthermore, much of the gap persists even when models write and run their own vision code: such code is unreliable on realistic imagery, and catching its failures itself requires the active perception the models lack. Together, these results indicate that current MLLMs lack robust active visual observation, motivating architectures and training objectives that close the perception-reasoning loop.",
+      "abstract_zh": "人类视觉是一个闭环系统：注视的持续重定向由中间假设驱动，而非依赖单一静态快照。数十年的心理物理学与认知科学研究表明，这种主动观察对于广泛的任务至关重要。当前的多模态大语言模型是否具备主动观察能力，是一个现有视觉语言基准测试未能回答的实证问题。我们提出了ActiveVision基准测试，旨在使MLLMs的主动观察能力可量化，该基准涵盖3大类别的17项任务。这些任务的设计旨在迫使模型进行反复的视觉感知，而非仅生成单一静态描述。前沿MLLMs在ActiveVision上表现崩溃：我们所评估的最高分模型——处于最高推理强度层级的GPT-5.5——仅解决了10.6%的测试项，且在17项任务中的11项得分为零；即使是占据多数推理与编程排行榜首位的Claude Fable 5，其解决率也仅为3.5%，远低于三位平均得分达96.1%的人类参与者。此外，即使允许模型编写并运行自身的视觉代码，大部分能力差距依然存在：此类代码在真实图像处理中可靠性不足，而发现其错误本身就需要模型所欠缺的主动感知能力。综上，这些结果表明当前MLLMs缺乏稳健的主动视觉观察能力，这激励着我们发展能够闭合感知-推理循环的架构与训练目标。",
+      "hf_link": "https://huggingface.co/papers/2607.16165"
+    },
+    "2607.19604": {
+      "title": "Scaling Laws for Hypernetwork-Based Knowledge Injection in Large Language Models",
+      "abstract": "Injecting factual knowledge into large language models (LLMs) reliably and at scale remains an open challenge. Hypernetworks provide a promising solution to large-scale knowledge injection. Although hypernetworks are typically applied for test-time adaptation, we explore their use in train-time knowledge injection, where, given a large corpus of facts, we train a hypernetwork to generate a fixed LoRA adapter that, when inserted into the target model, enable the model to answer questions about those facts. In this work, we investigate whether hypernetworks can be used to perform train-time knowledge injection and how this ability varies with scale. The scaling behavior of hypernetworks remains largely unstudied. Our design decouples the hypernetwork's injection capacity from the target model's general capability, enabling, for the first time, a rigorous study of scaling laws for hypernetwork architectures. We characterize how loss, reasoning accuracy, and out-of-distribution (OOD) generalization vary with hypernetwork depth, width, and target network size. We construct a large-scale dataset, called MegaWikiQA, containing tens of millions of multi-hop question-answer examples across 39 domains constructed from examples in Wikidata5M. Our results reveal: (i) hypernetwork-based injection exhibits broadly predictive power law scaling along all architecture axes; and (ii) hypernetworks are capable of reliable OOD generalization at increasing scales, suggesting that hypernetwork provides a promising alternative to other train-time adaptation methods such as LoRA finetuning and full fine-tuning, exhibiting steeper scaling exponents in all OOD evaluations. Together, these results establish hypernetworks as a principled and scalable substrate for train-time adaptation, and provide the first empirically grounded scaling laws to guide hypernetworks for factual reasoning in large language models.",
+      "abstract_zh": "将事实知识可靠且大规模地注入大型语言模型(LLMs)仍是一个开放挑战。超网络(Hypernetworks)为大规模知识注入提供了一种前景广阔的解决方案。尽管超网络通常用于测试时适应(test-time adaptation)，本文探索了其在训练时知识注入(train-time knowledge injection)中的应用：给定庞大的事实语料库，我们训练一个超网络以生成一个固定的低秩适应(LoRA)适配器，将其插入目标模型后，能使模型回答关于这些事实的问题。本研究旨在探究超网络能否用于执行训练时知识注入，以及这种能力如何随规模变化。超网络的缩放行为在很大程度上尚未得到研究。我们的设计将超网络的注入能力与目标模型的通用能力解耦，首次实现了对超网络架构缩放定律的严谨研究。我们刻画了损失、推理准确性和分布外(OOD)泛化能力如何随超网络深度、宽度及目标网络规模的变化。我们构建了一个名为MegaWikiQA的大规模数据集，包含基于Wikidata5M示例构建的39个领域内数千万个多跳问答实例。研究结果表明：（一）基于超网络的注入在所有架构维度上均展现出广泛可预测的幂律缩放规律；（二）超网络在规模递增时能够实现可靠的分布外泛化，表明超网络为其他训练时适应方法（如LoRA微调和全参数微调）提供了有前景的替代方案，在所有分布外评估中均表现出更陡峭的缩放指数。这些结论共同确立了超网络作为训练时适应的原理性可扩展基础，并首次提供了基于实证的缩放定律，以指导超网络在大型语言模型中进行事实推理。",
+      "hf_link": "https://huggingface.co/papers/2607.19604"
+    },
+    "2607.10169": {
+      "title": "Beyond Euclidean Clipping: Overcoming Exploration Collapse in LLM RL via Riemannian Isometric Policy Optimization",
+      "abstract": "Reinforcement learning (RL) has become a dominant paradigm for enhancing LLMs' reasoning capabilities. However, RL algorithms with PPO-Clip are inherently limited by exploration collapse. Subsequent works remain primarily heuristic and fail to identify the essential cause of PPO-Clip's failure. This work reveals the fundamental flaw of PPO-Clip: it implicitly measures policy discrepancy using Euclidean metric, which is theoretically inconsistent with the intrinsic geometry on the policy Riemannian manifold. This geometric mismatch results in overly conservative updates in low-probability regions while aggressive in high-probability regions, ultimately collapsing exploration. To correct this geometric flaw, we propose Riemannian Isometric Policy Optimization (RIPO), which guarantees isometric policy updates on the Riemannian manifold, effectively balancing exploration and exploitation. We further show that RIPO achieves a favorable bias-variance trade-off, which stabilizes optimization. Extensive experiments demonstrate that RIPO significantly surpasses existing LLM RL algorithms across seven competition-level benchmarks (up to 60% improvement over GRPO on AIME24).",
+      "abstract_zh": "强化学习（Reinforcement Learning, RL）已成为提升大型语言模型（Large Language Models, LLMs）推理能力的主导范式。然而，采用PPO-Clip算法的强化学习方法本质上受限于探索崩溃问题。后续研究主要仍停留在启发式层面，未能揭示PPO-Clip失效的根本原因。本文揭示了PPO-Clip的根本缺陷：它隐含地使用欧几里得度量来衡量策略差异，这在理论上与策略黎曼流形上的内在几何结构不一致。这种几何失配导致在低概率区域更新过于保守，而在高概率区域则过于激进，最终引发探索崩溃。为纠正这一几何缺陷，我们提出了黎曼等距策略优化（Riemannian Isometric Policy Optimization, RIPO），该方法能保证在黎曼流形上进行等距策略更新，有效平衡探索与利用。我们进一步证明，RIPO实现了有利的偏差-方差权衡，从而稳定了优化过程。大量实验表明，在七个竞赛级基准测试中，RIPO显著超越了现有的大型语言模型强化学习算法（如在AIME24上较GRPO提升高达60%）。",
+      "hf_link": "https://huggingface.co/papers/2607.10169"
+    },
+    "2607.19747": {
+      "title": "Beyond Relevance-Centric Retrieval: Rubric-Oriented Document Set Selection and Ranking",
+      "abstract": "As large language models and AI agents become the primary consumers of search results, document set quality determines the upper bound of downstream generation. Yet existing evaluation systems remain confined to scoring documents independently and aggregating via nDCG, ignoring inter-document interactions (redundancy, conflict, complementarity) and unable to answer what makes one document set better than another. To address these issues, we propose a complete evaluate-diagnose-optimize framework. We design SetwiseEvalKit, a three-level, nine-dimension document set evaluation benchmark covering both short-form and long-form scenarios, comprising approximately 28K high-quality evaluation rubrics. We systematically evaluate 12 rerankers: even the best method achieves no more than 45% coverage, cross-document coordination dimensions are universally weak, and no single method maintains top performance across both settings. Building on this, we propose Rubric4Setwise, a training-free method that converts rubric-based evaluation criteria into document set selection signals, achieving the best downstream generation performance with fewer documents and search rounds. It is the only method that maintains state-of-the-art results across both scenarios, validating the effectiveness of closing the loop from evaluation to optimization.",
+      "abstract_zh": "随着大语言模型与AI智能体成为搜索结果的主要消费者，文档集质量决定了下游生成任务的效果上限。然而，现有评估体系仍局限于对文档进行独立评分并通过标准化折损累计增益（nDCG）进行聚合，忽略了文档间的交互作用（冗余性、矛盾性、互补性），无法解释为何一个文档集优于另一个。为应对这些问题，我们提出了完整的评估-诊断-优化框架。我们设计了SetwiseEvalKit——一个涵盖短文本与长文本场景的三层级、九维度的文档集评估基准，包含约2.8万条高质量评估准则。我们系统评估了12种重排序模型：即使最优方法在准则覆盖率上也不超过45%，跨文档协调维度普遍薄弱，且没有单一方法能在两种场景下均保持顶尖性能。基于此，我们提出Rubric4Setwise，这是一种无需训练的方法，可将基于准则的评估指标转化为文档集选择信号，仅需更少文档和搜索轮次即可实现最佳下游生成性能。该方法是唯一能在两种场景下均保持前沿效果的方法，验证了从评估到优化的闭环有效性。",
+      "hf_link": "https://huggingface.co/papers/2607.19747"
+    },
+    "2607.13429": {
+      "title": "Generalizable VLA Finetuning via Representation Anchoring and Language-Action Alignment",
+      "abstract": "Finetuning a pretrained vision-language model (VLM) on robot demonstrations via behavior cloning (BC) has become the standard recipe for vision-language-action (VLA) policies. However, BC finetuning progressively overwrites the pretrained representations that support visual and semantic generalization. Co-training on web image-text data, a common remedy, does not prevent this; it applies language and action losses to separate observations, leaving VLAs with language-action misalignment that standard manipulation benchmarks do not expose. We propose Anchor-Align, which augments BC with two objectives: Vision-Language Anchoring distills layer-wise representations from a frozen VLM copy to prevent this drift, while Language-Action Alignment converts each action target into a discrete motion-direction label and jointly trains language and action prediction on the same robot observation. On a physical xArm7 robot, across two widely used VLA architectures, Anchor-Align improves real-robot success on both (28% to 54% and 37% to 60%). At scale in simulation, we demonstrate consistent improvements on OOD perturbations, perceptual robustness, and long-horizon control across LIBERO-PRO, LIBERO-Plus, and CALVIN, respectively, suggesting that preserving pretrained representations and effective action learning are not fundamentally at odds. Project page:this http URL",
+      "abstract_zh": "通过行为克隆（Behavior Cloning，BC）在机器人演示数据上微调预训练的视觉语言模型（Vision-Language Model，VLM），已成为构建视觉语言动作（Vision-Language-Action，VLA）策略的标准方法。然而，BC微调会逐渐覆盖预训练模型中支持视觉与语义泛化的表征。尽管联合训练网络图像-文本数据是一种常见补救措施，但该方法并未阻止此问题；它将语言和动作损失分别应用于不同的观测样本，导致VLA策略出现语言-动作错位，而标准操作基准测试无法暴露这一缺陷。为此，我们提出Anchor-Align方法，通过两个目标增强BC训练：视觉语言锚定（Vision-Language Anchoring）通过逐层蒸馏冻结VLM副本的表征以防止表征漂移；语言动作对齐（Language-Action Alignment）则将每个动作目标转化为离散运动方向标签，并对同一机器人观测样本联合训练语言与动作预测。在实体xArm7机器人上，针对两种广泛使用的VLA架构，Anchor-Align均显著提升了实际任务成功率（分别从28%提升至54%和从37%提升至60%）。在大规模仿真实验中，我们在LIBERO-PRO、LIBERO-Plus和CALVIN数据集上分别验证了该方法对分布外扰动、感知鲁棒性和长时程控制的一致性提升，表明保留预训练表征与高效的动作学习并非根本矛盾。项目页面：this http URL",
+      "hf_link": "https://huggingface.co/papers/2607.13429"
+    },
+    "2607.16190": {
+      "title": "FVAttn: Adaptive Sparse Attention with Runtime Load Balancing for Video Generation",
+      "abstract": "Video Diffusion Transformers process long spatio-temporal sequences, making self-attention the main bottleneck in high-resolution video generation. Training-free sparse attention reduces this cost, but adaptive Top-$p$ routing creates uneven per-head workloads under multi-GPU sequence parallelism. The resulting workload heterogeneity turns sparse attention into a rank-level straggler problem. We present \\method{}, a training-free sparse-attention system that improves the distributed execution efficiency of adaptive sparse attention under multi-GPU sequence parallelism. \\method{} uses Top-$p$ routing, a Top-$k$ safety floor, and video-aware block organization as the sparse-routing frontend, then repairs the materialized mask at runtime. Runtime Load Balancing migrates a small number of heavy heads via P2P communication to shorten the current critical path. Slack-Aware Sparse Augmentation fills residual non-critical-rank slack with additional high-value blocks, while overlap hides scheduling and migration overhead behind existing computation. On step-distilled Wan2.2 I2V, \\method{} reduces average load imbalance from 1.34 to 1.08 and delivers a $4.41\\times$ attention speedup over FlashAttention, while achieving a $2.02$--$2.11\\times$ DiT inference speedup with competitive video quality.",
+      "abstract_zh": "视频扩散变换器处理长时空序列，这导致自注意力机制成为高分辨率视频生成的主要瓶颈。免训练稀疏注意力虽能降低此成本，但自适应Top-$p$路由在多GPU序列并行场景下会造成各注意力头间工作量不均。由此产生的工作负载异构性将稀疏注意力转化为层级间的拖尾问题。本文提出\\method{}——一个免训练的稀疏注意力系统，旨在提升多GPU序列并行环境下自适应稀疏注意力的分布式执行效率。\\method{}采用Top-$p$路由、Top-$k$安全阈值与视频感知块组织作为稀疏路由前端，并在运行时对生成的掩码进行修复。运行时负载均衡通过点对点通信迁移少量高负载注意力头，以缩短当前关键路径；松弛感知稀疏增强则利用额外高价值块填充剩余非关键层级的空闲资源，同时通过重叠计算隐藏调度与迁移开销。在步进蒸馏Wan2.2图像到视频任务中，\\method{}将平均负载不均衡度从1.34降至1.08，相比FlashAttention实现$4.41\\times$的注意力加速，并在保持视频质量竞争力的同时获得$2.02$--$2.11\\times$的扩散变换器推理加速。",
+      "hf_link": "https://huggingface.co/papers/2607.16190"
+    },
+    "2607.19790": {
+      "title": "Trace: A Taxonomy-Guided Environment for Multidomain Visual Reasoning",
+      "abstract": "Reinforcement learning with verifiable rewards (RLVR) has substantially improved language-model reasoning, yet its extension to vision-language models remains constrained by the lack of training data that are simultaneously broad, exactly verifiable, and reproducible. We introduce Trace, a taxonomy-guided environment for multidomain visual reasoning. Trace factorizes task construction into a scene grammar and an executable task program, separating visual realization from answer computation. A shared semantic state determines the rendered image, prompt, typed answer, verifier state, and replayable instance trace. The resulting environment comprises 1,000 tasks over 277 scene grammars and 11 visual domains, with controlled semantic and visual variation. RLVR on 64,000 Trace instances improves the macro-average across 24 external benchmarks by 3.51 percentage points for Qwen2.5-VL-3B and 4.06 points for Qwen2.5-VL-7B, providing evidence that broad procedural training can transfer beyond the generated task distributions. Project page:this https URL.",
+      "abstract_zh": "可验证奖励强化学习（RLVR，Reinforcement Learning with Verifiable Rewards）显著提升了语言模型的推理能力，然而其向视觉语言模型的扩展仍受限于同时具备广泛性、精确可验证性与可复现性的训练数据的缺乏。我们介绍了Trace——一个基于分类学指导的多领域视觉推理环境。Trace将任务构建分解为场景语法和可执行的任务程序，从而将视觉呈现与答案计算相分离。共享的语义状态决定了渲染的图像、提示、类型化答案、验证器状态以及可回放的实例轨迹。由此构建的环境包含277个场景语法和11个视觉领域下的1000项任务，并实现了语义与视觉变化的受控调节。在64,000个Trace实例上进行的RLVR训练，使Qwen2.5-VL-3B在24个外部基准测试中的宏观平均性能提升了3.51个百分点，Qwen2.5-VL-7B提升了4.06个百分点，这证明了广泛的过程性训练能够迁移到生成任务分布之外。项目页面：此 https URL。",
+      "hf_link": "https://huggingface.co/papers/2607.19790"
+    },
+    "2607.20379": {
+      "title": "Train the Model, Not the Reader: Decodability Supervision for Verifiable Activation Explanations",
+      "abstract": "Natural-language autoencoders score explanations of hidden activations by reconstruction: an explanation is deemed faithful if the activation can be regenerated from it. The test is structurally insensitive to individual false claims: if flipping a claim does not change the reconstruction, the claim is never penalized. We show the test is passed in two ways, neither faithful. On a released Qwen-2.5-7B verbalizer, explanations reconstruct well above chance while ~2% of specific claims are reconstruction-dependent, so the score tracks gist, not specific facts. Under exact synthetic ground truth, the standard recipe develops co-adapted private codes (false wording the reconstruction depends on) in 5/5 runs, and fixes that leave the target model unchanged do not help. We contribute two audit protocols, the grounded-vs-true cross and the evaluator swap, and RECAP (Readable Encodings via Co-trained Auxiliary Predictors): linear heads trained alongside the target model to keep designated content decodable. On RECAP-trained sandbox models, fresh verbalizers state the designated content truly and the codes vanish, at a +0.001-nat cost. This replicates on a pretrained Pythia-160M: the content becomes reliably probe-decodable, though a fresh verbalizer conveys it only in part (truth 0.44-0.46 vs a near-zero control). For interpretability, high reconstruction does not certify individual claims. For AI safety, RECAP makes designated internal content independently checkable against probes rather than asserted by prose a model can game: an independent probe scores the verbalizer's true claims above its false ones (AUC 0.96, vs 0.82 without RECAP). Against an adversary that edits an explanation to maximize the reconstruction score while lying (suppressing ~87% of its lie penalty), the RECAP probe still flags the lies (AUC 0.95) while the control probe collapses to chance (0.51).",
+      "abstract_zh": "自然语言自编码器通过重构来评估对隐藏激活的解释：若能从解释中重新生成激活，则该解释被视为忠实。该测试在结构上对个别虚假主张不敏感：若翻转某个主张不改变重构结果，则该主张永远不会被惩罚。我们证明该测试可通过两种方式通过，但均非忠实。在一个已发布的Qwen-2.5-7B语言化模型上，解释的重构效果远高于随机水平，而约2%的具体主张具有重构依赖性，因此评分追踪的是主旨而非具体事实。在精确的合成真实数据下，标准方案在5次运行中均产生了共适应的私有编码（重构依赖的错误措辞），且保持目标模型不变的修复措施无济于事。我们提出两种审计协议——基于真实数据的交叉检验和评估器置换，以及RECAP（通过协同训练的辅助预测器实现可读编码）：在目标模型训练时同步训练的线性头，用以保持指定内容可解码。在经RECAP训练的沙盒模型中，新语言化模型能真实陈述指定内容且私有编码消失，代价仅为+0.001奈特。该方法在预训练的Pythia-160M上得到复现：指定内容变得可靠可探查解码，尽管新语言化模型仅能部分传达内容（真实度0.44-0.46，而对照组接近零）。对于可解释性，高重构分数并不能保证个别主张的真实性。对于人工智能安全，RECAP使指定的内部内容可通过独立探查器验证，而非依赖模型可能操纵的文本陈述：独立探查器对语言化模型真实主张的评分高于虚假主张（AUC达0.96，无RECAP时为0.82）。面对通过编辑解释以最大化重构分数同时说谎的对抗攻击（压制约87%的谎言惩罚），RECAP探查器仍能标记谎言（AUC 0.95），而对照组探查器则退化至随机水平（0.51）。",
+      "hf_link": "https://huggingface.co/papers/2607.20379"
+    },
+    "2607.19691": {
+      "title": "SLPO: Scaling Latent Reasoning via a Surrogate Policy",
+      "abstract": "Reinforcement learning with verifiable rewards has become the predominant recipe for eliciting test-time scaling in explicit Chain-of-Thought reasoners. Yet this scaling path remains computationally costly, since every intermediate step must be decoded as a language token. Latent reasoning instead carries intermediate computation as continuous vectors and already matches or surpasses explicit CoT at far shorter horizons. Despite this promise, latent reasoners remain largely imitation-bound, while explicit CoT has already moved past imitation via outcome-reward RL. Latent trajectories lack a tractable per-step likelihood and an adaptive stopping interface under fixed thinking budgets, so outcome rewards cannot elicit latent test-time scaling. We introduce Surrogate Latent Policy Optimization (SLPO) to bring outcome-reward RL to autoregressive latent reasoners: an empirical surrogate policy density over latent transitions for trajectory-level credit assignment, and a correctness-supervised stopping head that outcome-reward optimization refines into a variable-horizon policy. Across continuous and soft thinking settings, SLPO improves Pass@$k$ under parallel sampling and allocates longer latent computation to harder instances with higher deterministic accuracy.",
+      "abstract_zh": "具备可验证奖励的强化学习已成为在显式思维链推理模型中引发测试时扩展的主流方法。然而这条扩展路径的计算成本仍然高昂，因为每个中间步骤都必须解码为语言标记。与之相对的隐式推理则将中间计算以连续向量的形式进行，并已在更短的推理跨度内达到甚至超越了显式思维链的性能。尽管前景广阔，隐式推理器目前仍主要受限于模仿学习，而显式思维链则已通过结果奖励强化学习超越了模仿阶段。隐式推理轨迹缺乏可追踪的逐步似然性，且在固定思考预算下缺少自适应停止接口，因此结果奖励无法引发隐式测试时扩展。我们提出代理隐式策略优化方法，将结果奖励强化学习引入自回归隐式推理器：通过建立隐式状态转移的经验代理策略密度来实现轨迹级信用分配，同时利用结果奖励优化将正确性监督的停止头改进为可变跨度的策略。在连续与软性思考设置中，SLPO在并行采样下提升了Pass@$k$指标，并将更长的隐式计算资源分配给更难的问题实例，从而获得更高的确定性准确率。",
+      "hf_link": "https://huggingface.co/papers/2607.19691"
+    },
+    "2607.19942": {
+      "title": "G-MAD: A Game-Based Data Generation Framework for Multi-View RGB-T Aerial Object Detection",
+      "abstract": "This work introduces G-MAD, an open-source framework that uses Arma3 to generate synchronized multi-view RGB-T data for aerial object detection. G-MAD addresses key limitations of real-world aerial dataset construction, including limited viewpoint control, imperfect RGB-T alignment and high annotation cost. The framework supports structured scenario specification, controllable multi-view camera placement, simultaneous visible/thermal capture, and automatic bounding box annotation using engine-level geometric metadata. These capabilities enable controlled studies of viewpoint variation, multi-modal fusion, and synthetic-to-real transfer in aerial object detection. Besides, using G-MAD, we construct and release AMOD, a new large-scale multi-view aerial RGB-T object detection benchmark. The source code and the dataset are available atthis https URL.",
+      "abstract_zh": "本文介绍了G-MAD，一个利用Arma3生成同步多视角RGB-T数据以用于空中目标检测的开源框架。该框架解决了现实世界航空数据集构建中的关键局限，包括视角控制受限、RGB-T数据对齐不完美以及标注成本高昂等问题。G-MAD支持结构化场景设定、可控多视角相机布设、可见光/热成像同步采集，并能利用引擎级几何元数据实现自动边界框标注。这些功能使得在航空目标检测领域开展关于视角变化、多模态融合以及合成到真实场景迁移的受控研究成为可能。此外，基于G-MAD我们构建并发布了AMOD——一个全新的大规模多视角航空RGB-T目标检测基准数据集。源代码与数据集可通过此链接获取：https URL。",
+      "hf_link": "https://huggingface.co/papers/2607.19942"
+    },
+    "2607.20207": {
+      "title": "SeededGrasp: Language-Guided Grasping in Complex Scenes with Multiple Embodiments",
+      "abstract": "Practical robotic grasping in complex scenes requires both 3D spatial reasoning and alignment with task-specific requirements. Vision-language models (VLMs) offer a natural way to specify these requirements using language, but existing approaches either use a VLM to predict the grasp directly with limited spatial awareness, or train the VLM together with the grasping model, which requires significantly more data and compute. These limitations impede performance and have prevented scaling to multiple embodiments in complex scenes. We address this by proposing SeededGrasp, a novel data-efficient framework that enables a VLM to predict a seed point to be used as conditioning for a subsequent lightweight grasp-generation model. Our architecture decouples high-level semantic reasoning from low-level geometric execution, enabling multi-embodiment support while bypassing the need for expensive end-to-end training. To enable training such models, we release the first multi-embodiment tabletop grasping dataset comprising over 2.5M grasps in cluttered scenes. Experimental results demonstrate that our approach outperforms existing baselines, achieving 72% success in simulation and 78% in real-world grasping experiments. See our project site for data and code:this https URL",
+      "abstract_zh": "复杂场景下的实用机器人抓取任务，既需要三维空间推理能力，也必须满足任务特定的要求。视觉语言模型（Vision-language models, VLMs）为通过语言指定这些要求提供了自然的方式，但现有方法要么直接使用VLM预测抓取位姿而空间感知能力有限，要么将VLM与抓取模型联合训练，这需要大量数据与算力支持。这些限制影响了性能表现，并阻碍了在复杂场景中向多形态机器人平台的扩展。为此，我们提出SeededGrasp这一新型数据高效框架，通过使VLM预测一个种子点，并将其作为后续轻量级抓取生成模型的调节条件。我们的架构将高层语义推理与底层几何执行解耦，在无需昂贵端到端训练的前提下实现了多形态机器人平台的支持。为训练此类模型，我们发布了首个多形态桌面抓取数据集，包含杂乱场景中超过250万次抓取记录。实验结果表明，我们的方法优于现有基线，在仿真实验中达到72%的成功率，在真实世界抓取实验中达到78%的成功率。数据与代码详见项目网站：this https URL",
+      "hf_link": "https://huggingface.co/papers/2607.20207"
+    }
+  },
+  "hf_votes": {
+    "2607.20145": 0,
+    "2607.20368": 0,
+    "2607.16165": 0,
+    "2607.19604": 0,
+    "2607.10169": 0,
+    "2607.19747": 0,
+    "2607.13429": 0,
+    "2607.16190": 0,
+    "2607.19790": 0,
+    "2607.20379": 0,
+    "2607.19691": 0,
+    "2607.19942": 0,
+    "2607.20207": 0,
+    "2607.20417": 0
+  },
+  "focus_sections": {
+    "3D生成与重建": [
+      "2607.20417"
+    ]
+  },
+  "summaries": {
+    "2607.20417": {
+      "short_zh": "自适应紧凑前馈三维高斯溅射",
+      "tags": "计算机图形学；三维重建与渲染；前馈三维高斯溅射",
+      "body_summary": "现有前馈三维高斯溅射方法受制于像素对齐，无法根据场景复杂度自适应分配表达资源。\n提出ATSplat，通过自适应三维令牌构建稀疏支架并选择性扩展，在提升渲染质量的同时大幅减少所需高斯数量。"
+    },
+    "2607.20145": {
+      "short_zh": "优化超大规模MoE模型训练系统",
+      "tags": "大规模模型训练;混合专家模型;后训练优化",
+      "body_summary": "在昇腾NPU集群对万亿参数MoE模型进行全参数后训练存在内存、通信与计算效率挑战。\n通过层级优化框架将MFU提升至34.22%，并构建运筹学定向数据流程，使专项模型零样本准确率达71.81%。"
+    },
+    "2607.20368": {
+      "short_zh": "自回归视频长期外推训练改进",
+      "tags": "计算机视觉;视频生成;自回归视频扩散模型",
+      "body_summary": "现有自回归视频扩散方法使用自强制训练以减少暴露偏差，但其历史上下文梯度监督缺失，限制长视频生成质量。\n提出自梯度强制方法，通过双阶段训练为历史上下文生成提供梯度监督，使模型能在短训练窗口下生成长达数分钟的一致长视频。"
+    },
+    "2607.16165": {
+      "short_zh": "测试多模态大模型动态视觉能力",
+      "tags": "计算机视觉;视觉与语言;主动视觉评测",
+      "body_summary": "人类视觉是闭环的，但当前评测无法衡量多模态大模型的主动观察能力。\n我们提出了ActiveVision基准，发现前沿模型表现远差于人类，表明其缺乏稳健的主动视觉。"
+    },
+    "2607.19604": {
+      "short_zh": "探究超网络注入知识规模律",
+      "tags": "自然语言处理;大语言模型知识注入;超网络规模律研究",
+      "body_summary": "向大语言模型可靠、大规模地注入事实知识仍具挑战，超网络为此提供了一种有前景的解决方案。\n本文首次系统探究超网络在训练时知识注入中的扩展规律，构建大规模数据集，揭示了其在损失、推理精度和泛化能力上遵循幂律缩放，并展现出优于其他适配方法的泛化性能。"
+    },
+    "2607.10169": {
+      "short_zh": "改进大语言模型强化学习策略更新",
+      "tags": "强化学习;大语言模型强化学习;策略优化几何缺陷",
+      "body_summary": "现有基于PPO-Clip的LLM强化学习方法存在探索崩溃的根本问题。\n提出基于黎曼等距的策略优化方法RIPO，在基准测试中显著超越现有算法。"
+    },
+    "2607.19747": {
+      "short_zh": "文档集合优化提升生成质量",
+      "tags": "信息检索;文档重排序;文档集合评估优化",
+      "body_summary": "现有检索评估忽视文档间互动，无法判定文档集合优劣。\n提出了评估诊断优化框架，构建了多层次评估基准并设计了基于准则的文档集合选择方法。"
+    },
+    "2607.13429": {
+      "short_zh": "微调视觉语言动作策略的泛化性",
+      "tags": "机器人；视觉语言动作模型；行为克隆微调的泛化改进",
+      "body_summary": "背景/任务：当前通过行为克隆微调预训练视觉语言模型来构建机器人策略的方法，会破坏预训练模型的泛化能力，且语言与动作预测存在不对齐问题。\n做了什么：提出了Anchor-Align方法，通过视觉语言锚定防止表示漂移，并通过语言动作对齐联合训练，在真实机器人和模拟基准上显著提升了策略的泛化与成功率。"
+    },
+    "2607.16190": {
+      "short_zh": "视频扩散注意力负载均衡系统",
+      "tags": "计算机图形学;视频生成;注意力机制优化",
+      "body_summary": "视频扩散模型因处理长序列导致注意力计算成为生成高分辨率视频的主要瓶颈。\n提出自适应稀疏注意力系统，运行时动态平衡多GPU工作负载并填充空闲计算资源以加速推理。"
+    },
+    "2607.19790": {
+      "short_zh": "构建多领域视觉推理训练环境",
+      "tags": "视觉语言模型;视觉推理;程序化训练环境",
+      "body_summary": "强化学习在语言模型推理中取得进展，但在视觉语言模型中因缺乏广泛、可验证、可复现的训练数据而受限。\n提出了一个名为Trace的、由分类学引导的、多领域视觉推理训练环境，它通过分离视觉呈现与答案计算，构建了包含大量可控变体的任务库，并证明其训练能有效提升模型在外部基准上的表现。"
+    },
+    "2607.20379": {
+      "short_zh": "训练模型而非读者",
+      "tags": "自然语言处理;可解释性;激活解码",
+      "body_summary": "针对自然语言自编码器通过重构分数评估激活解释的局限性展开研究。\n提出两种审计协议和RECAP方法，以线性头协同训练确保指定内容可解码，从而提升解释的可靠性和可验证性。"
+    },
+    "2607.19691": {
+      "short_zh": "用强化学习优化潜在推理模型",
+      "tags": "机器学习;推理优化;潜在推理强化学习",
+      "body_summary": "传统思维链推理需要解码中间步骤，计算成本高，而具有验证奖励的强化学习能提升其性能，但难以直接应用于在连续向量空间进行中间计算的潜在推理模型。\n本文提出SLPO，通过构建经验替代策略密度实现轨迹级信用分配，并优化一个可自适应停止的头部，从而将结果奖励强化学习引入自回归潜在推理器，使其能根据问题难度动态分配计算并提升性能。"
+    },
+    "2607.19942": {
+      "short_zh": "游戏生成多视角航拍数据集",
+      "tags": "计算机视觉;目标检测;多模态航拍目标检测",
+      "body_summary": "现有航拍数据集在视点控制、多模态对齐和标注成本上存在不足。\n提出了G-MAD框架，用游戏引擎生成对齐的多视角RGB-T数据并自动标注，构建了基准数据集AMOD。"
+    },
+    "2607.20207": {
+      "short_zh": "语言引导多臂机器人抓取",
+      "tags": "机器人;操作与抓取;多臂场景语言引导抓取",
+      "body_summary": "在复杂场景中实现符合任务需求的机器人抓取需要结合3D空间推理与语言指令对齐。\n提出SeededGrasp框架，通过视觉语言模型预测抓取种子点引导轻量抓取模型，并发布首个多臂桌面抓取数据集，在仿真与真实实验中均取得更高成功率。"
+    }
+  },
+  "deep_analysis": {
+    "2607.20417": "好的，没问题。我们来用通俗易懂的语言拆解这篇论文。\n\n### (1) 任务是什么？\n- **任务（功能）**：**多视角三维场景重建与渲染**。简单说，就是从同一个场景在不同角度拍摄的几张照片，快速生成一个可以在电脑里自由旋转、从任意新角度观看的3D模型。\n- **任务输入**：一个场景的**多张（例如12张）在不同位置和角度拍摄的彩色图片**，以及拍摄这些照片时相机的**具体参数**（位置、朝向等）。\n- **任务输出**：一个用**3D高斯（3D Gaussians）** 这种特殊“颜料点”表示的3D场景模型。这个模型可以直接用来**实时渲染**出高质量的新视角图片。\n\n### (2) 想解决什么问题？\n传统的3D高斯方法（3DGS）重建效果虽好，但需要对每个新场景**从头到尾优化几十分钟甚至几小时**，非常慢。\n\n为了让3DGS“快”起来，出现了“前馈式”方法（Feed-forward 3DGS），它用一个训练好的神经网络，**只看一次输入图片就立刻输出3D高斯**。但目前的主流方法有个大问题：它们习惯在**输入的每一个像素点**上都生成一个3D高斯。这就导致了：\n- **效率低下**：生成的3D高斯数量太多（比如几百万个），渲染和存储成本高。\n- **分配不均**：无论场景是简单（一面白墙）还是复杂（布满花纹的雕塑），每个像素都分到一个高斯，这是“大锅饭”式的平均分配，而不是“好钢用在刀刃上”。\n\n这篇论文的核心就是想**在前馈式框架中，恢复传统优化方法“按需分配”的能力**，用更少的高斯点（更紧凑的表示）达到同样甚至更好的渲染效果。\n\n### (3) 贡献是什么？\n1.  **提出了“自适应3D令牌（Adaptive 3D Tokens）”**：不再绑定到像素，而是先建立一个稀疏的3D场景骨架（Anchor Tokens），再从这个骨架上“长”出高斯点。这**解耦了高斯点位置和输入图像网格**。\n2.  **设计了“自适应令牌扩展（ATE）模块”**：这个模块能像“侦察兵”一样，预测场景中哪些区域（对应哪些令牌）重建难度大、不确定性高，然后只对这些区域的令牌进行“扩编”（生成更多高斯点）。这实现了**“稀疏 -> 按需稠密”的智能容量分配**。\n3.  **一个高效、紧凑的框架（ATSplat）**：结合以上两点，构建了一个完整系统。它生成的3D高斯数量**比像素对齐的方法少了5.7倍以上**，但渲染质量更高或相当。速度快（不到1秒重建），渲染帧率极高（1136 FPS）。\n\n### (4) 整体思路与模型结构\n**基模（基石模型）**：论文没有依赖某个特定的超大预训练模型（如Stable Diffusion），但其图像编码器、Transformer解码器等核心组件，使用的是计算机视觉领域常见且成熟的神经网络架构。\n\n**整体流程（配合你提供的摘要和引言部分）**：\n\n1.  **输入与图像编码**：\n    - **输入**：多张图像 + 相机参数。\n    - **第一步**：用一个**多视角图像编码器**分别处理每张图，提取图像特征。同时，用一个**轻量级的深度估计网络**为每张图预测一个粗糙的深度图（知道每个像素大概离相机多远）。\n\n2.  **初始化稀疏3D锚点令牌**：\n    - 作者不按像素生成高斯，而是先把图像分成很多个**小斑块（Patch）**。\n    - 对于每个斑块，利用它的**平均深度**和**相机光线方向**，计算出一个**3D空间中的锚点（Anchor）**。所有图像的斑块锚点汇总起来，就形成了一个覆盖整个场景的、**稀疏的3D点云**。每个锚点就是一个“**锚点令牌**”。这步非常关键，它建立了初始的、稀疏的3D场景骨架。\n\n3.  **图像到3D的解码**：\n    - 这些3D锚点令牌被送入一个 **Transformer解码器**。\n    - 解码器会**融合多视角的图像特征**到每个令牌上，让每个令牌不仅知道自己的3D位置，还能“看到”周围在不同图片里长什么样。\n    - 经过解码器处理，每个令牌被赋予丰富的几何和外观信息。\n\n4.  **从锚点到局部3D高斯**：\n    - 每个“富化”后的令牌，会通过一个小型网络（MLP）**预测出若干个（比如4个）局部的3D高斯**。\n    - 这些高斯的位置不是固定的，而是预测为相对于该令牌锚点的**3D偏移量**。这样，高斯点就可以自由地放置在3D空间中任何需要的地方，彻底摆脱了图像网格的束缚。\n\n5.  **自适应令牌扩展（核心创新）**：\n    - **问题**：一开始的锚点令牌是稀疏的，可能不足以描述所有细节。\n    - **解决**：引入一个**自适应令牌扩展模块**。\n        - **学习不确定性**：该模块会为每个令牌预测一个“**不确定性分数**”，分数高的地方意味着这个区域可能很复杂、没建好。\n        - **监督信号**：训练时，这个分数通过对比**渲染出来的图片**和**真实的输入图片**之间的误差（渲染误差图）来监督。误差大的地方，就应该有高的不确定性。\n        - **选择性扩展**：在解码过程中，只对那些**不确定性高的令牌**进行“扩展”。扩展的方式是通过一个可学习的“扩展层”，把一个令牌分裂或变换成多个令牌，然后再让这些新令牌去生成更多的高斯点。这就把计算资源集中用在了最难重建的地方。\n\n**总结流程**：多张图片 -> 提取特征和粗糙深度 -> 生成稀疏3D锚点令牌 -> 用Transformer融合多视角信息 -> 每个令牌预测一组局部高斯 -> 基于预测的不确定性，对难区令牌进行扩增 -> 输出最终的自适应、紧凑的3D高斯集合。\n\n### (5) 结果怎么样\n在RealEstate10K和DL3DV这两个标准数据集上进行了测试：\n- **渲染质量**：达到了**最先进的（SOTA）水平**，即新视角合成的图片在清晰度、细节上是最好的或与之相当。\n- **紧凑性**：生成的**3D高斯数量仅约31.1万个**，比之前需要几百万个高斯的方法**减少了5.7倍以上**。存储和传输更省空间。\n- **速度**：\n    - **重建（推理）速度**：用12张512x960的图片，在单块消费级GPU上**不到1秒**就能完成3D重建。\n    - **渲染速度**：对生成的紧凑模型，可以达到 **1136 FPS** 的渲染帧率，远超实时需求。\n- **有效性验证**：论文通过大量实验和可视化证明，其“不确定性预测”确实找到了难重建的区域（如物体边缘、复杂纹理），并且“令牌扩展”机制有效提升了这些区域的质量。\n\n**一句话总结**：这篇论文就像给3D高斯重建设计了一个“智能施工队”。传统方法（像素对齐）是“遍地撒网，每平方米派一个工人”；而ATSplat是先派“工头”（锚点令牌）勘察地形，然后只在最难盖的楼区（高不确定性区域）增派工人（扩展令牌生成高斯），从而用更少的人力（高斯）更快、更好地完成工程。"
+  },
+  "figures": {
+    "2607.20417": [
+      {
+        "path": "https://arxiv.org/html/2607.20417v1/x2.png",
+        "caption": "Figure 2.(a) Framework overview.Given posed multi-view images, a multi-view image encoder extracts coarse patch features and estimates patch-level depths.\nThe predicted depths and patch features are used to initialize a sparse set of 3D anchor tokens, serving as a sparse scene scaffold.\nAn image-to-3D decoder refines these anchors throughLdL_{d}decoder blocks, with an Adaptive Token Expansion (ATE) module that allocates additional capacity to under-reconstructed regions.\nA Gaussian head then decodes each refined anchor into a set of local 3D Gaussians.(b) Adaptive Token Expansion.At each decoder block, a lightweight MLP predicts a per-anchor uncertainty score, supervised by 2D error maps computed from intermediate Gaussians. Anchors with high uncertainty scores are expanded into multiple tokens, increasing representational capacity where needed.(c) Anchors to local Gaussians.Each refined anchor token is regressed into K local Gaussians whose centers are placed as 3D offsets relative to the anchor, decoupling primitive positions from the input pixel grid.",
+        "role": "pipeline_1",
+        "caption_zh": "图 2。（a）框架概览。给定姿态已知的多视角图像，一个多视角图像编码器提取粗糙的块特征并估计块级深度。预测的深度和块特征用于初始化一组稀疏的 3D 锚点标记，作为稀疏的场景支架。一个图像到 3D 的解码器通过 L_d 个解码器块来细化这些锚点，其中包含一个自适应标记扩展模块，该模块将额外的容量分配给重建不足的区域。随后，一个高斯头部将每个细化后的锚点解码为一组局部 3D 高斯。（b）自适应标记扩展。在每个解码器块中，一个轻量级 MLP 预测每个锚点的不确定性分数，该分数由从中间高斯计算的 2D 误差图监督。具有高不确定性分数的锚点被扩展为多个标记，从而在需要的地方增加表示能力。（c）锚点到局部高斯。每个细化后的锚点标记被回归为 K 个局部高斯，其中心作为相对于锚点的 3D 偏移量放置，从而将基元位置与输入像素网格解耦。"
+      },
+      {
+        "path": "https://arxiv.org/html/2607.20417v1/x3.png",
+        "caption": "Figure 3.Visualization of expanded tokens.The coordinate of each expanded token is computed as the mean center of its decoded Gaussians.",
+        "role": "pipeline_2",
+        "caption_zh": "图3：扩展标记的可视化。每个扩展标记的坐标由其解码高斯分布的均值中心计算得出。"
+      },
+      {
+        "path": "https://arxiv.org/html/2607.20417v1/x4.png",
+        "caption": "Figure 4.Visualization of uncertainty scores and selected tokensat the last block. We visualize actual error maps (D-SSIM), predicted uncertainty maps, and alpha maps of Gaussians decoded from the selected tokens.",
+        "role": "pipeline_3",
+        "caption_zh": "图 4. 最后一模块的不确定性分数与所选标记可视化。我们展示了实际误差图（D-SSIM）、预测不确定性图以及从所选标记解码的高斯分布阿尔法图。"
+      }
+    ]
+  }
+}
