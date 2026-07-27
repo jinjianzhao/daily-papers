@@ -12,23 +12,17 @@
       "abstract_zh": "训练数据的质量从根本上决定了大型语言模型（LLMs）的能力，但目前尚无统一基准来衡量LLMs、智能体以及以数据为中心的工作流在实际端到端准备训练数据方面的表现。我们认为LLM驱动的数据准备包含两种互补能力：数据构建（将原始来源转化为监督训练数据）和数据质量评估（在下游训练前预测候选数据集的训练价值）；其中，“质量”指的是下游训练效用而非表层文本属性。我们提出了DataPrep-Bench——首个在六个领域和多个基础模型上、基于共享的下游锚定协议联合评估这两种能力的统一基准。在数据构建方面，各方法接收相同的原始数据源，其评分依据为：在输出数据上结合Dolly-15k对基础模型进行微调后的表现；在此赛道之外，我们发布了Data-Construction-Skill——一种技能引导的智能体，在Llama-3.1-8B金融领域将仅使用Dolly的基线绝对提升了近20分，并在知识提取密集领域与最强的基于智能体和数据流的方法具有竞争力。在数据质量评估方面，评分函数通过其与候选数据池下游性能的皮尔逊相关性进行评分；我们发布了分布对齐分数（Distributional Alignment Score, DAS），这是一种基于分布的评估器，利用候选数据集与领域代理之间的最大均值差异（MMD）。DAS在六个领域中的四个领域实现了最强的跨模型相关性，并且是唯一在数学、科学和医学领域同时达到r > 0.70的指标，其表现优于现有的基于质量、多样性和启发式的评估器。DataPrep-Bench为衡量LLM驱动数据准备中两项同等重要能力的发展提供了统一且下游锚定的评估框架。",
       "hf_link": "https://huggingface.co/papers/2607.20465"
     },
-    "2607.21653": {
-      "title": "Molt: A Scalable PyTorch-Native Training Framework for Agentic Reinforcement Learning",
-      "abstract": "Agentic reinforcement learning research is constant algorithm modification, new estimators, new pipeline stages, new rollout schemes, and in mainstream frameworks each change threads through layers of trainer, distributed backend, and rollout glue: the cost lands on the researcher at every iteration. Molt is a PyTorch-native training framework built to keep that cost small: a codebase compact and clean enough for a researcher to hold in their head, and for an AI coding assistant to read and reason about in its entirety, so the algorithm flow can be traced and changed end to end. The agent is an ordinary program, and one asynchronous loop trains multimodal and mixture-of-experts policies while never training on a token it did not generate, consistent in tokens, policy versions, and model semantics. Leanness does not cost performance: under a matched, fully asynchronous protocol, Molt is statistically comparable to a state-of-the-art Megatron-based stack. Molt is open source and provides recipes and containers atthis https URL.",
-      "abstract_zh": "自主强化学习研究需要不断进行算法调整、引入新的估计器、新增流水线阶段以及设计新的推演方案。在主流框架中，每次改动都需要贯穿训练器、分布式后端和推演粘合层的多重架构，研究人员在每次迭代中都要承担由此产生的成本。Molt 是一个基于 PyTorch 的原生训练框架，其设计目标正是为了降低这一成本：该代码库结构紧凑清晰，既便于研究者在头脑中完整把握，也利于人工智能编程助手进行全局解读与推理，从而支持对算法流程进行端到端的追踪与修改。智能体作为普通程序运行，通过单异步循环训练多模态及混合专家（Mixture-of-Experts）策略，且始终避免训练非自身生成的标记（token），在标记序列、策略版本和模型语义层面保持一致性。简洁性并未以性能为代价：在匹配的完全异步协议下，Molt 在统计性能上与基于 Megatron 的先进技术栈相当。Molt 已开源，相关配置方案与容器镜像可通过此 https URL 获取。",
-      "hf_link": "https://huggingface.co/papers/2607.21653"
-    },
     "2607.22043": {
       "title": "Scaling Native Multimodal Pre-Training From Scratch",
       "abstract": "Although large language models (LLMs) exhibit remarkable reasoning capabilities, their reliance on text-only pre-training restricts the perception of the multimodal physical world. Native multimodal pre-training avoids this limitation by training models from scratch on multimodal inputs, thereby achieving deep cross-modal integration and mitigating optimization asymmetries inherent to traditional late-fusion architectures. Despite these advantages, the scaling properties of this paradigm remain systematically uncharacterized. To address this gap, we investigate the optimal model size and token count for training a transformer-based vision-language model under a fixed computational budget. We demonstrate that minimal objective loss adheres to a predictable compute law, whereas compute-optimal model sizes and token counts scale as power laws. Notably, language and multimodal objectives manifest distinct scaling behaviors. The language allocation law is largely invariant to the composition of the data, indicating stable language learning regardless of the multimodal data ratio. Conversely, the multimodal allocation law is highly sensitive to this composition. Specifically, text-heavy mixtures become compute-efficient only at larger model scales, shifting the optimal resource allocation toward greater model capacity. Additionally, by modeling the influence of data composition on compute laws and allocation exponents, we derive an efficiency frontier specifying precise configurations of model size, token count, and data mixture. Downstream evaluations further reveal that native multimodal pre-training induces positive cross-modal transfer, thereby enhancing pure-text spatial reasoning and enabling robust multimodal in-context learning. In summary, this empirical research establishes the essential groundwork for predictably scaling multimodal foundation models.",
       "abstract_zh": "尽管大语言模型(LLMs)展现出卓越的推理能力，但其对纯文本预训练的依赖限制了对多模态物理世界的感知。原生多模态预训练通过在多模态输入上从头训练模型来规避这一局限，从而实现深度的跨模态整合，并缓解传统后期融合架构固有的优化不对称性。尽管存在这些优势，该范式的扩展规律尚未得到系统性研究。为填补这一空白，我们在固定计算预算下研究了基于Transformer的视觉语言模型的最佳模型规模与训练词元数量。我们证明最小目标损失遵循可预测的计算规律，而计算最优的模型规模与词元数量呈幂律关系。值得注意的是，语言目标与多模态目标呈现出不同的扩展行为：语言分配的规律对数据构成基本保持不变，表明无论多模态数据比例如何，语言学习过程具有稳定性；相反，多模态分配规律对此高度敏感。具体而言，文本占比较高的数据混合方案仅在较大模型规模下才具有计算效率，这促使最优资源配置向更大模型容量偏移。此外，通过建模数据构成对计算规律与分配指数的影响，我们推导出界定模型规模、词元数量与数据混合比例的精确配置的效率边界。下游任务评估进一步揭示，原生多模态预训练能引发正向的跨模态迁移，从而增强纯文本空间推理能力，并实现稳健的多模态上下文学习。总之，这项实证研究为可预测地扩展多模态基础模型奠定了必要基础。",
       "hf_link": "https://huggingface.co/papers/2607.22043"
     },
-    "2607.22042": {
-      "title": "LAMAR: An Open Language-Aware Multilingual Alignment Reranker",
-      "abstract": "In multilingual retrieval augmented generation, a retriever can retrieve relevant documents written in multiple languages, which are subsequently reranked before answer generation. However, it remains unclear whether existing multilingual rerankers consider document language when ordering semantically relevant candidates. Our analysis shows that these rerankers do not consistently prioritize documents written in the same language as the query when semantically equivalent documents are available across languages, even though document language can affect answer generation. We release LAMAR, a language aware multilingual cross encoder trained to account for both semantic relevance and language coherence. LAMAR first uses English anchored relevance distillation to establish consistent relevance scoring across multilingual inputs and then applies preference alignment for language coherence to encourage documents written in the same language as the query to receive higher rankings while retaining semantic relevance. In a controlled experiment designed to assess language coherence, LAMAR achieves the best performance overall and across all languages examined individually. LAMAR also remains competitive on established multilingual reranking benchmarks. In practical retrieval settings, LAMAR achieves the best results across all reported metrics when reranking candidates retrieved in the first stage. These results demonstrate that LAMAR accounts for language coherence while achieving strong performance on general multilingual reranking benchmarks.",
-      "abstract_zh": "在多语言检索增强生成中，检索器可以检索到多种语言编写的相关文档，这些文档在生成答案前会经过重排序处理。然而，现有多语言重排序器在排列语义相关候选文档时是否考虑文档语言仍不明确。我们的分析表明，当存在跨语言的语义等价文档时，这些重排序器并不会始终优先选择与查询语言相同的文档——尽管文档语言可能影响答案生成。为此，我们发布了LAMAR（语言感知多语言交叉编码器），该模型通过训练同时兼顾语义相关性与语言一致性。LAMAR首先采用锚定英语的相关性蒸馏技术，为多语言输入建立一致性相关性评分，随后通过语言一致性偏好对齐方法，在保持语义相关性的同时，提升与查询语言相同的文档排序优先级。在针对语言一致性设计的受控实验中，LAMAR在整体及所有单语言测试中均取得最佳性能。该模型在现有多语言重排序基准测试中也保持竞争力。在实际检索场景中，LAMAR对第一阶段检索结果进行重排序时，在所有报告指标上均取得最优结果。这些研究表明，LAMAR在实现强大通用多语言重排序性能的同时，有效兼顾了语言一致性考量。",
-      "hf_link": "https://huggingface.co/papers/2607.22042"
+    "2607.21653": {
+      "title": "Molt: A Scalable PyTorch-Native Training Framework for Agentic Reinforcement Learning",
+      "abstract": "Agentic reinforcement learning research is constant algorithm modification, new estimators, new pipeline stages, new rollout schemes, and in mainstream frameworks each change threads through layers of trainer, distributed backend, and rollout glue: the cost lands on the researcher at every iteration. Molt is a PyTorch-native training framework built to keep that cost small: a codebase compact and clean enough for a researcher to hold in their head, and for an AI coding assistant to read and reason about in its entirety, so the algorithm flow can be traced and changed end to end. The agent is an ordinary program, and one asynchronous loop trains multimodal and mixture-of-experts policies while never training on a token it did not generate, consistent in tokens, policy versions, and model semantics. Leanness does not cost performance: under a matched, fully asynchronous protocol, Molt is statistically comparable to a state-of-the-art Megatron-based stack. Molt is open source and provides recipes and containers atthis https URL.",
+      "abstract_zh": "自主强化学习研究需要不断进行算法调整、引入新的估计器、新增流水线阶段以及设计新的推演方案。在主流框架中，每次改动都需要贯穿训练器、分布式后端和推演粘合层的多重架构，研究人员在每次迭代中都要承担由此产生的成本。Molt 是一个基于 PyTorch 的原生训练框架，其设计目标正是为了降低这一成本：该代码库结构紧凑清晰，既便于研究者在头脑中完整把握，也利于人工智能编程助手进行全局解读与推理，从而支持对算法流程进行端到端的追踪与修改。智能体作为普通程序运行，通过单异步循环训练多模态及混合专家（Mixture-of-Experts）策略，且始终避免训练非自身生成的标记（token），在标记序列、策略版本和模型语义层面保持一致性。简洁性并未以性能为代价：在匹配的完全异步协议下，Molt 在统计性能上与基于 Megatron 的先进技术栈相当。Molt 已开源，相关配置方案与容器镜像可通过此 https URL 获取。",
+      "hf_link": "https://huggingface.co/papers/2607.21653"
     },
     "2607.21503": {
       "title": "Agentic Context Management: Solving Agent Memory and Cost by Treating Them as Lifecycle and Architecture Problems",
@@ -36,11 +30,29 @@
       "abstract_zh": "生产级AI智能体（Artificial Intelligence agents）的故障较少源于推理能力不足，而更多是由于无法有效管理其推理上下文中的内容：对话历史、大型提示词、庞大的工具定义以及不断膨胀的工具输出。智能体被自身持续积累的历史所淹没，同时每轮交互都需承担不断增长的令牌成本，导致在单次对话内及跨对话场景中出现遗漏召回。当前的主流应对方案将其视为存储与检索问题。我们认为这一界定过于狭隘。主动管理智能体所持记忆内容是一个完整的生命周期，而不仅仅是存储行为：它涵盖决定记忆内容、提取与结构化信息、为各类数据选择适宜存储方式、在保持来源可追溯的同时进行整合与遗忘、判定当前相关要素、预判未来需求，以及将上下文压缩至预算范围内而不丢失关键信息。在严肃的生产环境中，这一过程并非针对单一用户，而是在组织范围层级内运作。我们将此学科命名为智能体上下文管理（Agentic Context Management，ACM），并将其分解为五大基本操作：架构设计、信息摄入、范围界定、需求预判、以及压缩与整合。随后我们从经济性角度论证：简单的上下文积累会导致令牌成本随对话长度呈二次方增长，粗略的摘要压缩虽能以线性成本为代价却导致准确性断崖式下降，唯有经过验证的压缩技术才能在保持保真度的同时实现线性成本增长。我们介绍了一个参考实现系统Maximem Synap，该系统将五大基本操作实现为多租户服务，并在第6节详述的配置下于LongMemEval评测中取得92%得分，在LoCoMo评测中达到93.2%得分。最后，我们探讨现有基准测试尚未涵盖的维度——延迟、令牌效率与上下文抗衰减能力，并展望该领域指向的决策层级与组织层级上下文管理的前沿方向。",
       "hf_link": "https://huggingface.co/papers/2607.21503"
     },
+    "2607.18198": {
+      "title": "Three-Body Scattering for Generative Modeling",
+      "abstract": "Modern generative models typically rely on an adversarial critic, a prescribed noise-to-data path, or an autoregressive factorization. Instead, we show that a proper distributional energy can induce sample-level motion and provide direct regression supervision for a one-step generator. Three-Body Scattering Modeling (TBSM) for generation turns the energy distance into a constant-size per-projectile interaction: each projectile is attracted toward one real source and repelled from one independently generated source. Conditioned on the projectile and its condition, its expectation equals the $2$-Wasserstein gradient-flow velocity of $\\frac12D_E^2(P_{\\theta},Q)$. A batch of $B$ frozen-target events yields $O(B)$ sample-level losses, each using one reference for its condition instead of the minibatch-wide all-pairs field used by methods such as Drifting Models. Tracking this conditional expectation online can reduce field noise. Using scattering in frozen image features, TBSM trains one-step generators on ImageNet-256, achieving FID${}=2.23$ with pixel-space PixelDiT-XL and FID${}=1.63$ with latent-space DiT-XL at NFE${}=1$. We provide a design map relating diffusion-related supervision, Drift-like dynamics, and GAN-like objectives. These results establish tracked scattering as a route to high-dimensional one-step generation. Code:this https URL.",
+      "abstract_zh": "现代生成模型通常依赖于对抗性判别器、预设的噪声到数据路径或自回归分解。与此不同，我们证明一个恰当的分布能量可以诱导样本级运动，并为一步生成器提供直接的回归监督。用于生成的三体散射建模将能量距离转化为恒定尺寸的每投射体相互作用：每个投射体被吸引向一个真实源，同时被一个独立生成的源排斥。在投射体及其条件给定的情况下，其期望等于$\\frac12D_E^2(P_{\\theta},Q)$的$2$-瓦瑟斯坦梯度流速度。一批包含$B$个固定目标事件可产生$O(B)$个样本级损失，每个损失使用一个参考作为其条件，而非如漂移模型等方法使用的批次内全配对场。在线追踪该条件期望可减少场噪声。通过在冻结图像特征中进行散射，TBSM在ImageNet-256上训练一步生成器，使用像素空间PixelDiT-XL实现FID${}=2.23$，使用潜空间DiT-XL在NFE${}=1$时实现FID${}=1.63$。我们提供了一个关联扩散相关监督、类漂移动力学和类GAN目标的设计图谱。这些结果确立了追踪散射作为实现高维一步生成的可行路径。代码：此 https URL。",
+      "hf_link": "https://huggingface.co/papers/2607.18198"
+    },
+    "2607.22042": {
+      "title": "LAMAR: An Open Language-Aware Multilingual Alignment Reranker",
+      "abstract": "In multilingual retrieval augmented generation, a retriever can retrieve relevant documents written in multiple languages, which are subsequently reranked before answer generation. However, it remains unclear whether existing multilingual rerankers consider document language when ordering semantically relevant candidates. Our analysis shows that these rerankers do not consistently prioritize documents written in the same language as the query when semantically equivalent documents are available across languages, even though document language can affect answer generation. We release LAMAR, a language aware multilingual cross encoder trained to account for both semantic relevance and language coherence. LAMAR first uses English anchored relevance distillation to establish consistent relevance scoring across multilingual inputs and then applies preference alignment for language coherence to encourage documents written in the same language as the query to receive higher rankings while retaining semantic relevance. In a controlled experiment designed to assess language coherence, LAMAR achieves the best performance overall and across all languages examined individually. LAMAR also remains competitive on established multilingual reranking benchmarks. In practical retrieval settings, LAMAR achieves the best results across all reported metrics when reranking candidates retrieved in the first stage. These results demonstrate that LAMAR accounts for language coherence while achieving strong performance on general multilingual reranking benchmarks.",
+      "abstract_zh": "在多语言检索增强生成中，检索器可以检索到多种语言编写的相关文档，这些文档在生成答案前会经过重排序处理。然而，现有多语言重排序器在排列语义相关候选文档时是否考虑文档语言仍不明确。我们的分析表明，当存在跨语言的语义等价文档时，这些重排序器并不会始终优先选择与查询语言相同的文档——尽管文档语言可能影响答案生成。为此，我们发布了LAMAR（语言感知多语言交叉编码器），该模型通过训练同时兼顾语义相关性与语言一致性。LAMAR首先采用锚定英语的相关性蒸馏技术，为多语言输入建立一致性相关性评分，随后通过语言一致性偏好对齐方法，在保持语义相关性的同时，提升与查询语言相同的文档排序优先级。在针对语言一致性设计的受控实验中，LAMAR在整体及所有单语言测试中均取得最佳性能。该模型在现有多语言重排序基准测试中也保持竞争力。在实际检索场景中，LAMAR对第一阶段检索结果进行重排序时，在所有报告指标上均取得最优结果。这些研究表明，LAMAR在实现强大通用多语言重排序性能的同时，有效兼顾了语言一致性考量。",
+      "hf_link": "https://huggingface.co/papers/2607.22042"
+    },
     "2607.14277": {
       "title": "Multi-Head Latent Control: A Unified Interface for LLM Agent Decision Making",
       "abstract": "Large language models are increasingly deployed as agents, but reliable agentic behavior requires more than next-token prediction. At inference time, it is preferred that an agent can decide whether to proceed with its current reasoning, defer to a stronger model, request additional information, invoke external tools, or abstain under the given setup. Existing approaches address these decisions through prompt-level routing, external orchestration, or task-specific fine-tuning, which primarily rely on input-side signals, and are often costly and difficult to maintain as model backbones evolve. We ask whether such control decisions can be inferred directly from a model's latent generation process. We introduce Multi-Head Latent Control, a lightweight layer that reads hidden-state trajectories from a frozen LLM or VLM to produce deployment-time control signals. A Capability Head predicts whether the current model can solve the instance or should defer to a stronger collaborator, while a Resolution Head predicts appropriate resolution decision Clarification, Tool Use, Abstention, or Direct Answering. Both heads are trained only on latent traces from the same frozen LLM backbone, enabling post hoc adaptation without modifying the model. Across language and vision-language settings, Multi-Head Latent Control consistently improves the quality-cost tradeoff of multi-model systems, enabling early handoff from partial generations and more accurate intervention decisions. In routed execution (small + large model), it reduces large-model usage by up to 90.7 percent on AndroidWorld and 27-53 percent on average across benchmarks, while retaining most of large-model performance. Additionally, the learned control signals improve tool-use decision quality, yielding up to +158 percent relative score gain and 65.5 percent fewer missed-required tool calls.",
       "abstract_zh": "大型语言模型正越来越多地作为智能体部署，但可靠的智能体行为需要超越仅进行下一词预测的能力。在推理阶段，理想的智能体应能根据当前设置，自主决定是否继续其推理过程、将任务移交至更强模型、请求额外信息、调用外部工具，或是选择弃权。现有方法主要通过提示级路由、外部编排或针对特定任务进行微调来处理这些决策，这些方法主要依赖输入侧信号，且随着模型基座的演进往往成本高昂、难以维护。我们提出疑问：此类控制决策是否可直接从模型的潜在生成过程中推断得出？本文介绍了一种名为\"多头潜在控制\"的轻量级层，该层通过读取冻结的大型语言模型或视觉语言模型的隐藏状态轨迹来生成部署时的控制信号。其中，\"能力预测头\"负责判断当前模型能否解决当前实例，或应移交至更强的协作模型；而\"决策解析头\"则负责预测合适的解析决策（包括请求澄清、使用工具、主动弃权或直接回答）。两个预测头仅基于同一冻结语言模型基座产生的潜在轨迹进行训练，从而实现在不修改原模型的情况下进行事后适配。在语言与视觉-语言任务场景中，多头潜在控制持续优化了多模型系统的质量-成本权衡，能够通过部分生成结果实现早期任务移交，并作出更精准的干预决策。在路由执行框架（小型模型+大型模型）中，该方案在AndroidWorld基准上将大型模型使用量降低了高达90.7%，在跨基准测试中平均降低27-53%，同时保留了大型模型绝大部分性能。此外，习得的控制信号显著提升了工具使用决策质量，实现了最高达+158%的相对分数增益，并使必需工具调用的遗漏率减少了65.5%。",
       "hf_link": "https://huggingface.co/papers/2607.14277"
+    },
+    "2607.22091": {
+      "title": "Spectral Prior for Reducing Exposure Bias in Diffusion Models",
+      "abstract": "Diffusion models typically suffer from error accumulation during iterative sampling, commonly referred to as exposure bias. We reveal systematic frequency-dependent discrepancies between training and inference, which can be interpreted as frequency-dependent SNR error. Crucially, the direction of this mismatch varies across models and timesteps, indicating that fixed correction rules do not generalize. We propose Spectral Alignment (SPA), a lightweight, guidance-based method that calibrates the power spectrum of intermediate predictions to a pre-computed prior. Our approach consists of two stages: (1) offline fitting of a parametric spectrum model from training data, and (2) inference-time guidance via efficient FFT-based gradient computation. SPA introduces minimal computational overhead (3-4\\%) and is complementary to Classifier-Free Guidance (CFG). We demonstrate consistent improvements across diverse architectures, from pixel-space models (DDPM, ADM) to latent diffusion models (SD2.0, SDXL) and flow-matching models (SD3.5, FLUX). Our implementation is available atthis https URL.",
+      "abstract_zh": "扩散模型在迭代采样过程中通常遭受误差累积问题，这一现象常被称为曝光偏差（exposure bias）。我们发现训练与推理阶段存在系统性的频率相关差异，这种差异可解释为频率相关的信噪比（SNR）误差。关键的是，这种不匹配的方向在不同模型和不同时间步中存在差异，表明固定的校正规则无法实现泛化。我们提出谱对齐（Spectral Alignment，SPA）方法——一种基于引导的轻量化方案，通过将中间预测的功率谱校准至预先计算的先验分布来实现优化。该方法包含两个阶段：（1）从训练数据中离线拟合参数化频谱模型；（2）通过高效的快速傅里叶变换（FFT）梯度计算实施推理时引导。SPA仅引入极低计算开销（3-4%），且可与无分类器引导（Classifier-Free Guidance，CFG）形成互补。我们在多样化架构中验证了其持续改进效果，涵盖像素空间模型（DDPM、ADM）、潜扩散模型（SD2.0、SDXL）以及流匹配模型（SD3.5、FLUX）。实现代码已发布于https URL。",
+      "hf_link": "https://huggingface.co/papers/2607.22091"
     },
     "2607.22375": {
       "title": "IDEAgent: Agentic Quality-Diversity Search for Research Idea Generation",
@@ -60,11 +72,11 @@
       "abstract_zh": "近期的条件视频生成模型展现出将三维引擎渲染结果（如深度图与未贴图几何体）转化为逼真视频的潜力，适用于游戏与沉浸式内容创作。这类应用需要长序列自回归生成，在持续合成新帧的同时保持三维世界的持久一致性。自回归生成器通过有限键值缓存逐块合成视频，当相机重新访问已移出缓存范围的场景时，即使条件渲染输入（如深度图）与底层三维场景完全对齐，模型仍会生成外观不一致的内容。为在不进行额外训练的前提下解决这种重复访问不一致性问题，我们利用三维引擎已提供的对应关系：时间对应性通过检索姿态匹配的历史潜在块至键值缓存作为闭环记忆，而基于相机姿态与深度重投影的空间对应性则引导词元级注意力偏向检索块中的几何对应区域。我们在从TartanAir与TartanGround数据集中提取的闭环轨迹上验证了该方法，以模拟复杂的现实应用场景。实验表明，该方法在保持整体视频质量的同时，在重复访问一致性方面优于现有的免训练基线方案。项目页面：this https URL",
       "hf_link": "https://huggingface.co/papers/2607.21848"
     },
-    "2607.18198": {
-      "title": "Three-Body Scattering for Generative Modeling",
-      "abstract": "Modern generative models typically rely on an adversarial critic, a prescribed noise-to-data path, or an autoregressive factorization. Instead, we show that a proper distributional energy can induce sample-level motion and provide direct regression supervision for a one-step generator. Three-Body Scattering Modeling (TBSM) for generation turns the energy distance into a constant-size per-projectile interaction: each projectile is attracted toward one real source and repelled from one independently generated source. Conditioned on the projectile and its condition, its expectation equals the $2$-Wasserstein gradient-flow velocity of $\\frac12D_E^2(P_{\\theta},Q)$. A batch of $B$ frozen-target events yields $O(B)$ sample-level losses, each using one reference for its condition instead of the minibatch-wide all-pairs field used by methods such as Drifting Models. Tracking this conditional expectation online can reduce field noise. Using scattering in frozen image features, TBSM trains one-step generators on ImageNet-256, achieving FID${}=2.23$ with pixel-space PixelDiT-XL and FID${}=1.63$ with latent-space DiT-XL at NFE${}=1$. We provide a design map relating diffusion-related supervision, Drift-like dynamics, and GAN-like objectives. These results establish tracked scattering as a route to high-dimensional one-step generation. Code:this https URL.",
-      "abstract_zh": "现代生成模型通常依赖于对抗性判别器、预设的噪声到数据路径或自回归分解。与此不同，我们证明一个恰当的分布能量可以诱导样本级运动，并为一步生成器提供直接的回归监督。用于生成的三体散射建模将能量距离转化为恒定尺寸的每投射体相互作用：每个投射体被吸引向一个真实源，同时被一个独立生成的源排斥。在投射体及其条件给定的情况下，其期望等于$\\frac12D_E^2(P_{\\theta},Q)$的$2$-瓦瑟斯坦梯度流速度。一批包含$B$个固定目标事件可产生$O(B)$个样本级损失，每个损失使用一个参考作为其条件，而非如漂移模型等方法使用的批次内全配对场。在线追踪该条件期望可减少场噪声。通过在冻结图像特征中进行散射，TBSM在ImageNet-256上训练一步生成器，使用像素空间PixelDiT-XL实现FID${}=2.23$，使用潜空间DiT-XL在NFE${}=1$时实现FID${}=1.63$。我们提供了一个关联扩散相关监督、类漂移动力学和类GAN目标的设计图谱。这些结果确立了追踪散射作为实现高维一步生成的可行路径。代码：此 https URL。",
-      "hf_link": "https://huggingface.co/papers/2607.18198"
+    "2607.19636": {
+      "title": "Multimodal Speaker Verification as a Threat to Speaker Anonymization",
+      "abstract": "Most automatic speaker verification (ASV) systems operate on individual utterances, despite real-world interactions typically consisting of multiple utterances. As speech accumulates, increasingly rich speaker information becomes available through acoustic, prosodic, and linguistic cues, potentially challenging speaker anonymization methods that primarily target vocal characteristics. We investigate ASV in a multi-utterance, multimodal setting and examine whether aggregating information across anonymized speech impacts privacy. We first study audio-only aggregation across multiple anonymized utterances and observe consistent performance improvements as more speech becomes available. We then incorporate prosodic and linguistic information, showing that multimodal systems outperform unimodal approaches. Finally, we compare aggregation strategies and find that frame-level aggregation yields the lowest EERs. Even with only five anonymized utterances, combining audio and text reduces EER by over 15% relative to audio-only aggregation, demonstrating that substantial speaker-discriminative information remains accessible despite anonymization.",
+      "abstract_zh": "大多数自动说话人验证（ASV）系统基于单个语音片段进行操作，然而现实场景中的交互通常包含多段语音。随着语音内容的累积，通过声学、韵律和语言学线索可获取的说话人信息日益丰富，这可能对主要针对声学特征进行处理的说话人匿名化方法构成挑战。本研究在多语句、多模态场景下探究ASV系统性能，并检验聚合匿名化语音信息是否影响隐私保护效果。我们首先研究纯音频模式下多段匿名化语句的聚合效果，发现随着语音数据量的增加，系统性能持续提升。随后引入韵律与语言学信息，证明多模态系统表现优于单模态方案。最后通过对比不同聚合策略，发现帧级聚合能达到最低的等错误率（EER）。实验表明，即使仅使用五段匿名化语音，结合音频与文本信息相较于纯音频聚合能使EER相对降低超过15%，这揭示出匿名化处理后仍存在大量可用于说话人判别的可获取信息。",
+      "hf_link": "https://huggingface.co/papers/2607.19636"
     },
     "2607.12756": {
       "title": "VisCo: Leveraging Large Language Models as Intrinsic Encoders for Visual Token Compression",
@@ -76,15 +88,17 @@
   "hf_votes": {
     "2607.22529": 0,
     "2607.20465": 0,
-    "2607.21653": 0,
     "2607.22043": 0,
-    "2607.22042": 0,
+    "2607.21653": 0,
     "2607.21503": 0,
+    "2607.18198": 0,
+    "2607.22042": 0,
     "2607.14277": 0,
+    "2607.22091": 0,
     "2607.22375": 0,
     "2607.22393": 0,
     "2607.21848": 0,
-    "2607.18198": 0,
+    "2607.19636": 0,
     "2607.12756": 0
   },
   "focus_sections": {
@@ -101,30 +115,40 @@
       "tags": "自然语言处理;数据预训练;训练数据构建与评估",
       "body_summary": "当前缺乏统一标准来衡量大模型在端到端准备训练数据方面的能力，尤其是在数据构建与数据质量评估两个关键环节。\n本文提出了首个联合评估框架DataPrep-Bench，并发布了新的数据构建技能代理和数据分布对齐评分方法，在多个领域验证了其有效性。"
     },
-    "2607.21653": {
-      "short_zh": "开发轻量级强化学习训练框架",
-      "tags": "机器学习;强化学习;智能体训练框架",
-      "body_summary": "现有强化学习框架改造成本高，阻碍算法迭代。\nMolt是PyTorch原生轻量框架，支持端到端修改与全异步训练，性能媲美主流框架。"
-    },
     "2607.22043": {
       "short_zh": "原生多模态预训练扩展律",
       "tags": "自然语言处理;多模态学习;多模态预训练扩展特性",
       "body_summary": "探索原生多模态预训练范式的扩展规律，以克服纯文本模型感知物理世界的局限。\n系统研究了计算预算固定下模型规模与数据量的最优配置，揭示了语言与多模态目标的不同扩展行为，并证明了该范式能带来跨模态能力迁移。"
     },
-    "2607.22042": {
-      "short_zh": "提出多语言检索增强生成中的语言感知排序器",
-      "tags": "自然语言处理;信息检索;多语言文档重排序",
-      "body_summary": "在多语言检索增强生成中，现有排序器未充分考量文档语言与查询语言的一致性，可能影响最终生成质量。\n我们提出了LAMAR，它通过蒸馏学习和偏好对齐，在保持语义相关性的同时，优先排序与查询语言一致的文档，在语言一致性和通用排序基准上均表现优异。"
+    "2607.21653": {
+      "short_zh": "开发轻量级强化学习训练框架",
+      "tags": "机器学习;强化学习;智能体训练框架",
+      "body_summary": "现有强化学习框架改造成本高，阻碍算法迭代。\nMolt是PyTorch原生轻量框架，支持端到端修改与全异步训练，性能媲美主流框架。"
     },
     "2607.21503": {
       "short_zh": "智能体上下文管理问题分析",
       "tags": "人工智能系统；智能体架构；上下文生命周期管理",
       "body_summary": "生产级AI智能体常因上下文管理而非推理能力不足而失败，导致成本剧增与记忆丢失。\n提出智能体上下文管理框架，将其分解为五项核心原语，并通过验证性压缩实现线性成本与高保真度。"
     },
+    "2607.18198": {
+      "short_zh": "三体散射生成建模",
+      "tags": "生成模型;扩散模型;一步式生成",
+      "body_summary": "现有生成模型依赖对抗、噪声路径或自回归，缺乏直接回归的单步生成方法\n提出三体散射建模，通过能量距离设计样本级运动，训练单步生成器，在ImageNet-256上取得领先结果"
+    },
+    "2607.22042": {
+      "short_zh": "提出多语言检索增强生成中的语言感知排序器",
+      "tags": "自然语言处理;信息检索;多语言文档重排序",
+      "body_summary": "在多语言检索增强生成中，现有排序器未充分考量文档语言与查询语言的一致性，可能影响最终生成质量。\n我们提出了LAMAR，它通过蒸馏学习和偏好对齐，在保持语义相关性的同时，优先排序与查询语言一致的文档，在语言一致性和通用排序基准上均表现优异。"
+    },
     "2607.14277": {
       "short_zh": "大模型推理控制信号预测",
       "tags": "自然语言处理;大语言模型应用;智能体决策控制",
       "body_summary": "当前大模型作为智能体部署时，其推理过程缺乏对“如何行动”的实时控制能力。\n我们提出了一个轻量级控制层，通过读取模型推理的隐藏状态，直接预测何时需要求助更强模型或使用外部工具，从而优化系统性能与成本。"
+    },
+    "2607.22091": {
+      "short_zh": "光谱对齐缓解扩散模型曝光偏差",
+      "tags": "生成模型;扩散模型;曝光偏差校正",
+      "body_summary": "扩散模型在迭代采样中存在曝光偏差问题，表现为训练与推理间的频率不一致。\n提出光谱对齐方法，用离线频谱先验和推理时引导校正预测频谱，提升各类扩散模型性能。"
     },
     "2607.22375": {
       "short_zh": "智能体辅助科研构思",
@@ -141,10 +165,10 @@
       "tags": "计算机图形学;条件视频生成;自回归渲染一致性",
       "body_summary": "近期条件视频生成模型能将3D引擎渲染图（如深度图）转为逼真视频，但自回归生成在长序列中因缓存限制会出现场景重访时画面不一致的问题。\n本文提出一种无需训练的方法，利用3D引擎提供的时空对应关系，通过检索历史隐状态和重投影引导注意力，有效解决重访不一致性，并在复杂轨迹上验证了其有效性。"
     },
-    "2607.18198": {
-      "short_zh": "三体散射生成建模",
-      "tags": "生成模型;扩散模型;一步式生成",
-      "body_summary": "现有生成模型依赖对抗、噪声路径或自回归，缺乏直接回归的单步生成方法\n提出三体散射建模，通过能量距离设计样本级运动，训练单步生成器，在ImageNet-256上取得领先结果"
+    "2607.19636": {
+      "short_zh": "多轮匿名语音仍可暴露身份",
+      "tags": "语音技术;说话人验证;匿名语音攻击",
+      "body_summary": "研究多轮对话下的说话人验证对语音匿名技术的威胁。\n发现结合多轮语音及文本信息能显著提升验证效果，揭示匿名后仍存身份信息。"
     },
     "2607.12756": {
       "short_zh": "视觉语言模型高效压缩视觉令牌",
