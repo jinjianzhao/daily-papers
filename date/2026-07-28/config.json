@@ -18,17 +18,17 @@
       "abstract_zh": "生成式人工智能正从单步资产生成转向长周期多模态创作。尽管当前的生成模型能够合成高质量的图像、视频、音频片段、UI组件、故事板、幻灯片等创意资产，但现实世界的创意工作远不止于孤立的提示-输出交互。它涉及参考素材、草稿、备选方案、编辑记录、失败尝试、版本关联、工具操作、评估信号以及人类反馈，这些共同构成了持续演化的项目状态。现有的基于提示、对话或节点的工作流系统仅部分支持这种状态，因为它们常丢弃中间上下文、依赖线性对话流或需要手动指定工作流程。近期的商业系统显示出向智能体辅助创意生产的转变趋势，但其封闭式架构难以研究智能体如何表征上下文、选择工具、修改成果、从失败中恢复并保持长期一致性。为填补这一空白，我们提出了JarvisHub——一个面向长周期多模态创作的画布原生创意智能体框架。JarvisHub将可编辑画布视为用户工作空间、智能体外置存储器、动作空间及共享项目状态，通过类型化画布节点与连接来表征多模态资产、依赖关系、版本迭代及反馈信息。通过画布状态层、协议桥接层与智能体运行层的三层架构，JarvisHub使智能体能够在可检视、可编辑的创意状态中执行操作。该设计推动创意智能体超越孤立工具使用，实现持续可操控的创作自动化：智能体能够渐进式规划、生成、修订并组织多模态项目，同时确保用户在整个过程中保持检视、引导及干预能力。",
       "hf_link": "https://huggingface.co/papers/2607.23588"
     },
-    "2607.21655": {
-      "title": "Progress Reward Modeling for Robotic Learning: A Comprehensive Survey",
-      "abstract": "Robotic learning takes place in dynamic environments with large behavior spaces. A terminal success signal only tells the robot whether the task is completed. It does not explain whether the current behavior is making progress, remaining unchanged, or undoing earlier progress. For this reason, recent studies have increasingly explored progress rewards that provide feedback during task execution. However, the current literature lacks a shared framework. Existing methods use different observations, goal specifications, output signals, supervision sources, and evaluation protocols. This makes it difficult to compare them and understand what their results actually validate. In this survey, we provide a unified view of progress reward modeling for robotic learning. We organize the field in three connected steps. We first study the interface of a progress model. This defines the problem from the outside by asking what information the model receives and what form of progress signal it produces. We then move inside the model and study the methods used to construct this signal. This reveals the different assumptions and mechanisms behind progress estimation and reward generation. Finally, we examine the data and benchmarks that support these methods. This shows how progress supervision is obtained and what different evaluations actually measure. Together, these three perspectives connect what a progress model is, how it is built, and how its quality is validated. We further summarize the main limitations of current approaches and discuss future research directions.",
-      "abstract_zh": "机器人学习发生在行为空间广阔的动态环境中。终端成功信号仅告知机器人任务是否完成，而无法解释当前行为是在取得进展、维持现状还是抵消先前的进步。正因如此，近期研究越来越多地探索在执行任务过程中提供反馈的进度奖励（progress rewards）。然而，现有文献缺乏统一的框架。现有方法使用不同的观测数据、目标设定方式、输出信号、监督来源及评估协议，这使得比较不同方法并理解其成果的实际验证内容变得困难。本综述为机器人学习的进度奖励建模提供了统一视角。我们将该领域划分为三个相互关联的步骤：首先研究进度模型的接口，通过分析模型接收的信息及其生成的进度信号形式，从外部界定问题；继而深入模型内部，研究构建该信号的方法，揭示进度评估与奖励生成背后的不同假设与机制；最后考察支撑这些方法的数据与基准测试，阐明进度监督的获取方式及各评估体系的实际测量维度。这三个视角共同构建了进度模型的本体特征、构建方法及其质量验证体系的完整逻辑闭环。我们进一步总结了当前方法的主要局限，并探讨了未来研究方向。",
-      "hf_link": "https://huggingface.co/papers/2607.21655"
-    },
     "2607.24280": {
       "title": "From Proprietary to Open-Source: Bridging the Distribution Gap via Multi-Agent Protocol Distillation in Agentic Search",
       "abstract": "Agentic search enables large language models to solve knowledge-intensive tasks by interleaving multi-step reasoning with retrieval, yet optimizing this with outcome-based reinforcement learning (RL) provides only sparse supervision. Knowledge distillation can supply denser guidance, and advanced proprietary models with their strong reasoning capabilities are promising teachers. While distilling from proprietary models can densify this supervisory signal, conventional logit-matching is precluded by hidden logits and mismatched tokenizers, whereas raw natural language trajectory imitation transfers superficial stylistic artifacts rather than core reasoning competence. To address the heterogeneous distillation problem and bridge the distribution gap, we propose Multi-Agent Protocol Distillation (MAPD), a joint distillation and RL framework uses a structured, style-normalized protocol as an intermediate representation. An offline multi-agent system (MAS) decomposes each query, retrieves supporting evidence, repairs failed searches, and converts the resulting exploration trace into a JSON protocol containing the task type, reasoning plan, and extractive grounding facts. During training, the protocol is provided only to a privileged branch of the student policy, whose token distributions furnish a dense distillation signal alongside the sparse RL objective. Extensive evaluations across seven QA benchmarks demonstrate that MAPD consistently outperforms competitive distillation and RL, achieving average success rates of 39.4\\% on Qwen3-1.7B and 44.4\\% on Qwen3-4B. Crucially, the framework generalizes robustly across diverse proprietary teachers while effectively mitigating the student policy from style drift and verbosity degeneration.",
       "abstract_zh": "代理搜索(Agentic search)使大型语言模型能够通过将多步推理与检索交织来解决知识密集型任务，然而基于结果的强化学习(Reinforcement Learning，RL)优化仅能提供稀疏监督。知识蒸馏(Knowledge Distillation)可提供更密集的指导，而具备强大推理能力的先进专有模型则成为潜在的优质教师模型。虽然通过专有模型进行蒸馏能强化监督信号，但传统对数匹配因隐藏对数及不匹配的分词器而不可行，而原始自然语言轨迹模仿仅传递表面的风格特征而非核心推理能力。为应对异构蒸馏问题并弥合分布差距，本文提出多智能体协议蒸馏(Multi-Agent Protocol Distillation，MAPD)——一种联合蒸馏与强化学习框架，采用结构化、风格标准化的协议作为中间表征。离线多智能体系统(Multi-Agent System，MAS)对每个查询进行分解，检索支持证据，修复失败的搜索，并将最终探索轨迹转化为包含任务类型、推理计划与抽取式基础事实的JSON协议。在训练过程中，该协议仅提供给学生策略的特权分支，其令牌分布机制在稀疏强化学习目标之外提供了密集的蒸馏信号。在七个问答基准上的广泛评估表明，MAPD始终优于主流蒸馏与强化学习方法，在Qwen3-1.7B和Qwen3-4B模型上分别实现39.4%和44.4%的平均成功率。关键的是，该框架在不同专有教师模型间展现出稳健的泛化能力，同时有效防止学生策略出现风格漂移与冗长退化问题。",
       "hf_link": "https://huggingface.co/papers/2607.24280"
+    },
+    "2607.21655": {
+      "title": "Progress Reward Modeling for Robotic Learning: A Comprehensive Survey",
+      "abstract": "Robotic learning takes place in dynamic environments with large behavior spaces. A terminal success signal only tells the robot whether the task is completed. It does not explain whether the current behavior is making progress, remaining unchanged, or undoing earlier progress. For this reason, recent studies have increasingly explored progress rewards that provide feedback during task execution. However, the current literature lacks a shared framework. Existing methods use different observations, goal specifications, output signals, supervision sources, and evaluation protocols. This makes it difficult to compare them and understand what their results actually validate. In this survey, we provide a unified view of progress reward modeling for robotic learning. We organize the field in three connected steps. We first study the interface of a progress model. This defines the problem from the outside by asking what information the model receives and what form of progress signal it produces. We then move inside the model and study the methods used to construct this signal. This reveals the different assumptions and mechanisms behind progress estimation and reward generation. Finally, we examine the data and benchmarks that support these methods. This shows how progress supervision is obtained and what different evaluations actually measure. Together, these three perspectives connect what a progress model is, how it is built, and how its quality is validated. We further summarize the main limitations of current approaches and discuss future research directions.",
+      "abstract_zh": "机器人学习发生在行为空间广阔的动态环境中。终端成功信号仅告知机器人任务是否完成，而无法解释当前行为是在取得进展、维持现状还是抵消先前的进步。正因如此，近期研究越来越多地探索在执行任务过程中提供反馈的进度奖励（progress rewards）。然而，现有文献缺乏统一的框架。现有方法使用不同的观测数据、目标设定方式、输出信号、监督来源及评估协议，这使得比较不同方法并理解其成果的实际验证内容变得困难。本综述为机器人学习的进度奖励建模提供了统一视角。我们将该领域划分为三个相互关联的步骤：首先研究进度模型的接口，通过分析模型接收的信息及其生成的进度信号形式，从外部界定问题；继而深入模型内部，研究构建该信号的方法，揭示进度评估与奖励生成背后的不同假设与机制；最后考察支撑这些方法的数据与基准测试，阐明进度监督的获取方式及各评估体系的实际测量维度。这三个视角共同构建了进度模型的本体特征、构建方法及其质量验证体系的完整逻辑闭环。我们进一步总结了当前方法的主要局限，并探讨了未来研究方向。",
+      "hf_link": "https://huggingface.co/papers/2607.21655"
     },
     "2607.22798": {
       "title": "StateAct: Program State, before Pixels, for Long-Horizon Computer-Use Agents",
@@ -36,23 +36,17 @@
       "abstract_zh": "计算机使用智能体通常通过强化感知能力来改进：即采用更优的屏幕截图读取模型和点击位置选择模型。然而，屏幕截图仅是底层程序状态的有损呈现，例如承载任务数据的文件、应用程序后端和DOM（文档对象模型）。不同状态可能生成相同像素，而代码能够直接检视并修改这些状态。StateAct正是基于这种差异构建的代码优先多智能体框架。其主智能体通过代码直接操作程序状态，而专用的图形用户界面子智能体仅在少数需要屏幕交互的子目标中处理截图与点击操作——在108项任务中仅涉及28项，且仅占主智能体操作步骤的1.1%。这种对程序状态的直接访问同样支持验证机制：独立的完成校验门会二次核查已保存结果是否存在结构性错误，例如输出缺失、未保存或写入错误路径等情况。为确保数百个操作步骤的连贯性，主智能体将子目标分配给新建子智能体，从而保持自身上下文的专注度。在OSWorld 2.0测试环境中，StateAct将Claude Opus模型的二进制成功率从20.6%提升至26.9%，部分成功率从54.8%提升至61.6%，且每项任务成本比纯截图驱动模式降低约9倍；而无图形用户界面子智能体的纯代码变体仅达到45.9%的部分成功率，低于纯截图基线的54.8%。总体而言，将行动、验证和记忆锚定于程序状态——我们称之为状态锚定——将主要瓶颈从感知转移至推理：智能体的失败更多取决于其思考过程而非所见内容。",
       "hf_link": "https://huggingface.co/papers/2607.22798"
     },
-    "2607.24744": {
-      "title": "Data Pyramid for Embodied Manipulation",
-      "abstract": "Multimodal foundation models learned to see and to speak by consuming the whole internet. Embodied agents admit no such shortcut, since they require data that couple observations with physical states and actions. These signals can be provided, to varying degrees, by multiple data sources. In this work, we organize the embodied data ecosystem as a \"pyramid\" spanning five complementary sources: real-robot data, UMI-style data, egocentric and exocentric data, simulation data, and general vision-language data. We organize the pyramid around the tension between scalability and robot alignment, and further characterize each source in terms of data quality, diversity, reusability, and physical fidelity. We then analyze recent embodied foundation models through the lens of their data recipes, examining how different sources are selected, aligned, and mixed during pretraining. For embodied brain models, vision-language-action models, and world-action models alike, we relate data composition to capabilities in perception, reasoning, planning, action generation, and world prediction. We close by discussing six open challenges: building large-scale tactile datasets, collecting failure and recovery data, developing scalable data-collection pipelines, aligning actions across embodiments, leveraging egocentric data for dexterous manipulation, and designing principled data recipes for robot learning. We hope this work paves the foundation for the design of next-generation embodied systems.",
-      "abstract_zh": "多模态基础模型通过消化整个互联网学会了观察与表达。然而，具身智能体无法走这样的捷径，因为它们需要将观察信息与物理状态及动作耦合的数据。这些信号可以通过多种数据源在不同程度上提供。本研究中，我们将具身数据生态系统组织成一个涵盖五类互补来源的“金字塔”：真实机器人数据、UMI风格数据、第一人称与第三人称数据、仿真数据以及通用视觉-语言数据。我们围绕可扩展性与机器人对齐之间的张力构建了该金字塔框架，并进一步从数据质量、多样性、可复用性和物理保真度四个方面描述了各数据源的特征。随后，我们通过数据配置方案的视角分析了近期出现的具身基础模型，探讨了在预训练过程中不同数据源如何被选择、对齐与融合。针对具身大脑模型、视觉-语言-动作模型和世界-动作模型，我们揭示了数据构成与其在感知、推理、规划、动作生成及世界预测等能力之间的关联。最后，我们讨论了六个开放挑战：构建大规模触觉数据集、收集失败与恢复数据、开发可扩展的数据采集流程、实现跨具身形态的动作对齐、利用第一人称数据进行灵巧操作，以及设计面向机器人学习的系统性数据配置方案。我们希望本工作能为下一代具身系统的设计奠定基础。",
-      "hf_link": "https://huggingface.co/papers/2607.24744"
-    },
     "2607.24731": {
       "title": "Rethinking Classifier-Free Guidance in On-Policy Diffusion Distillation",
       "abstract": "On-policy distillation (OPD) adapts diffusion models by querying a teacher along trajectories generated by the current student, but how it should behave under classifier-free guidance (CFG), a default component of modern diffusion systems, remains poorly understood. Existing OPD methods naturally extend velocity matching to the CFG-composed prediction, directly matching teacher and student guided velocities. We show that this objective is under-identified at the branch level: positive- and negative-branch errors can compensate in the guided prediction. Through two contrasting cases, we find that naive matching remains effective under shared negative conditioning, where both branch errors decrease jointly. When the model's native CFG schema retains privileged information in the teacher's negative branch that is unavailable to the student, however, this joint reduction breaks down and the composed objective induces antagonistic branch-error dynamics, reducing the positive-branch error while increasing the negative-branch error. We term this failure mode Negative Branch Asymmetry (NBA). To address NBA, we introduce Positive--Direction Matching (PDM), a branch-aware OPD objective that separately constrains the positive prediction and the CFG conditional direction. We apply PDM to dense-to-sparse video control, where naive guided matching is highly sensitive to inference guidance scales, while branch-aware supervision enables more robust and effective knowledge transfer.",
       "abstract_zh": "同策略蒸馏(On-policy distillation, OPD)通过沿着当前学生模型生成的轨迹查询教师模型来调整扩散模型，但其在无分类器引导(classifier-free guidance, CFG)——现代扩散系统的默认组件——下的行为机制仍未得到充分理解。现有OPD方法自然地将速度匹配扩展至CFG复合预测，直接对齐教师与学生的引导速度。我们证明该目标在分支层面存在识别不足问题：正分支与负分支误差可在引导预测中相互抵消。通过两个对比案例，我们发现当采用共享负条件设定（即双方分支误差同步减少）时，朴素匹配方法仍保持有效。然而，当模型的固有CFG机制在教师负分支中保留了学生无法获取的特权信息时，这种联合误差减少机制就会失效，复合目标会引发对抗性的分支误差动态——在减少正分支误差的同时增加负分支误差。我们将这种失效模式称为负分支不对称性(Negative Branch Asymmetry, NBA)。为解决NBA问题，我们提出了正向-方向匹配(Positive--Direction Matching, PDM)，这是一种分支感知的OPD目标，可分别约束正向预测与CFG条件方向。我们将PDM应用于稠密到稀疏视频控制任务中，实验表明朴素引导匹配对推理引导尺度高度敏感，而分支感知监督能实现更稳健有效的知识迁移。",
       "hf_link": "https://huggingface.co/papers/2607.24731"
     },
-    "2607.23855": {
-      "title": "OmniVAE: An Audio-Video VAE with Cross-Modal Alignment for Joint Generation",
-      "abstract": "Recent generative models are moving beyond silent video or standalone audio synthesis toward the joint generation of synchronized audio and video. Despite this progress, jointly generating audio and video with fine-grained cross-modal correspondence remains challenging due to their fundamental structural differences. Most existing methods use audio and video VAEs trained separately. As a result, the two latent spaces lack cross-modal alignment, leaving the downstream generative model to learn cross-modal synchronization from scratch. We present OmniVAE, a jointly trained audio-video VAE that learns fine-grained semantic alignment between audio and video latent representations. Beyond reconstruction, OmniVAE uses a segment-level audio-video contrastive objective to capture temporal-semantic correspondence and align the two latent spaces. In parallel, it distills features from pretrained modality-specific semantic encoders into each modality, improving the downstream learnability of both latent spaces. Extensive experiments show that both objectives consistently improve the learnability of the latent spaces, translating into higher generation quality and more accurate cross-modal synchronization in downstream text-to-audio-video generation. These findings underscore the importance of learning unified representations as a foundation for omnimodal modeling.1",
-      "abstract_zh": "近期生成模型正从无声视频或独立音频合成向同步音视频联合生成方向迈进。尽管取得进展，但由于音频与视频存在根本性结构差异，实现细粒度跨模态对应的音视频联合生成仍具挑战。现有方法多采用分别训练的音频与视频变分自编码器（VAEs），导致两个潜在空间缺乏跨模态对齐，迫使下游生成模型需从零开始学习跨模态同步。我们提出OmniVAE——一种联合训练的音视频VAE，可学习音频与视频潜在表征间的细粒度语义对齐。除重构任务外，OmniVAE采用片段级音视频对比目标来捕获时序语义对应关系，实现双潜在空间对齐。同时，该方法从预训练的模态特定语义编码器中提取特征并蒸馏至各模态，提升双潜在空间的下游可学习性。大量实验表明，这两项目标能持续提升潜在空间的可学习性，进而在下游文本-音视频生成任务中实现更高质量的生成效果与更精准的跨模态同步。这些发现凸显了学习统一表征作为全模态建模基础的重要性。",
-      "hf_link": "https://huggingface.co/papers/2607.23855"
+    "2607.24744": {
+      "title": "Data Pyramid for Embodied Manipulation",
+      "abstract": "Multimodal foundation models learned to see and to speak by consuming the whole internet. Embodied agents admit no such shortcut, since they require data that couple observations with physical states and actions. These signals can be provided, to varying degrees, by multiple data sources. In this work, we organize the embodied data ecosystem as a \"pyramid\" spanning five complementary sources: real-robot data, UMI-style data, egocentric and exocentric data, simulation data, and general vision-language data. We organize the pyramid around the tension between scalability and robot alignment, and further characterize each source in terms of data quality, diversity, reusability, and physical fidelity. We then analyze recent embodied foundation models through the lens of their data recipes, examining how different sources are selected, aligned, and mixed during pretraining. For embodied brain models, vision-language-action models, and world-action models alike, we relate data composition to capabilities in perception, reasoning, planning, action generation, and world prediction. We close by discussing six open challenges: building large-scale tactile datasets, collecting failure and recovery data, developing scalable data-collection pipelines, aligning actions across embodiments, leveraging egocentric data for dexterous manipulation, and designing principled data recipes for robot learning. We hope this work paves the foundation for the design of next-generation embodied systems.",
+      "abstract_zh": "多模态基础模型通过消化整个互联网学会了观察与表达。然而，具身智能体无法走这样的捷径，因为它们需要将观察信息与物理状态及动作耦合的数据。这些信号可以通过多种数据源在不同程度上提供。本研究中，我们将具身数据生态系统组织成一个涵盖五类互补来源的“金字塔”：真实机器人数据、UMI风格数据、第一人称与第三人称数据、仿真数据以及通用视觉-语言数据。我们围绕可扩展性与机器人对齐之间的张力构建了该金字塔框架，并进一步从数据质量、多样性、可复用性和物理保真度四个方面描述了各数据源的特征。随后，我们通过数据配置方案的视角分析了近期出现的具身基础模型，探讨了在预训练过程中不同数据源如何被选择、对齐与融合。针对具身大脑模型、视觉-语言-动作模型和世界-动作模型，我们揭示了数据构成与其在感知、推理、规划、动作生成及世界预测等能力之间的关联。最后，我们讨论了六个开放挑战：构建大规模触觉数据集、收集失败与恢复数据、开发可扩展的数据采集流程、实现跨具身形态的动作对齐、利用第一人称数据进行灵巧操作，以及设计面向机器人学习的系统性数据配置方案。我们希望本工作能为下一代具身系统的设计奠定基础。",
+      "hf_link": "https://huggingface.co/papers/2607.24744"
     },
     "2607.24027": {
       "title": "2607.24027",
@@ -60,17 +54,17 @@
       "abstract_zh": "",
       "hf_link": "https://huggingface.co/papers/2607.24027"
     },
+    "2607.23855": {
+      "title": "OmniVAE: An Audio-Video VAE with Cross-Modal Alignment for Joint Generation",
+      "abstract": "Recent generative models are moving beyond silent video or standalone audio synthesis toward the joint generation of synchronized audio and video. Despite this progress, jointly generating audio and video with fine-grained cross-modal correspondence remains challenging due to their fundamental structural differences. Most existing methods use audio and video VAEs trained separately. As a result, the two latent spaces lack cross-modal alignment, leaving the downstream generative model to learn cross-modal synchronization from scratch. We present OmniVAE, a jointly trained audio-video VAE that learns fine-grained semantic alignment between audio and video latent representations. Beyond reconstruction, OmniVAE uses a segment-level audio-video contrastive objective to capture temporal-semantic correspondence and align the two latent spaces. In parallel, it distills features from pretrained modality-specific semantic encoders into each modality, improving the downstream learnability of both latent spaces. Extensive experiments show that both objectives consistently improve the learnability of the latent spaces, translating into higher generation quality and more accurate cross-modal synchronization in downstream text-to-audio-video generation. These findings underscore the importance of learning unified representations as a foundation for omnimodal modeling.1",
+      "abstract_zh": "近期生成模型正从无声视频或独立音频合成向同步音视频联合生成方向迈进。尽管取得进展，但由于音频与视频存在根本性结构差异，实现细粒度跨模态对应的音视频联合生成仍具挑战。现有方法多采用分别训练的音频与视频变分自编码器（VAEs），导致两个潜在空间缺乏跨模态对齐，迫使下游生成模型需从零开始学习跨模态同步。我们提出OmniVAE——一种联合训练的音视频VAE，可学习音频与视频潜在表征间的细粒度语义对齐。除重构任务外，OmniVAE采用片段级音视频对比目标来捕获时序语义对应关系，实现双潜在空间对齐。同时，该方法从预训练的模态特定语义编码器中提取特征并蒸馏至各模态，提升双潜在空间的下游可学习性。大量实验表明，这两项目标能持续提升潜在空间的可学习性，进而在下游文本-音视频生成任务中实现更高质量的生成效果与更精准的跨模态同步。这些发现凸显了学习统一表征作为全模态建模基础的重要性。",
+      "hf_link": "https://huggingface.co/papers/2607.23855"
+    },
     "2607.24720": {
       "title": "The Physics of Multi-Turn Long-Horizon Planning: From Pre-training to Post-training via Single- and Multi-Teacher On-Policy Agentic Distillation",
       "abstract": "Multi-turn long-horizon planning is critical for foundation model agents, yet how to fundamentally improve it remains unclear. Existing models are trained on uncontrollable and opaque Internet data, making it difficult to identify how planning ability is acquired, shaped, and integrated. To address this challenge, we introduce a unified and controlled multi-turn environment that enables precise control. It allows systematically study long-horizon planning across three stages. (1) Planning ability acquisition during pre-training. We study data format, distribution, and quality. Explicit world model construction through CoT state transition modeling yields stronger long-horizon generalization. Atomic skills alone are insufficient for compositional generalization, whereas a litte long-horizon data works. Moreover, suboptimal trajectories severely impair performance because errors amplify over long horizons. (2) Planning ability shaping via GRPO and OPD post-training. Through mutual information, we distinguish general planning patterns from task-specific planning knowledge. For planning patterns, we identify three application regions of post-training: unnecessary, effective, and unsupported. OPD has a broader effective region than GRPO under low-quality and long-horizon settings, as it provides more consistent update directions. For planning knowledge, distilling unseen procedures from a teacher with different knowledge may impair student's prior world modeling without fully establishing new knowledge. (3) Planning ability integration through MOPD post-training. We show that multi-teacher on-policy distillation (MOPD) integrates capabilities by converging to shared planning-pattern across environments. Compatible patterns enable cross-environment generalization, partially shared patterns support continual learning, while completely conflicting patterns cause severe interference.",
       "abstract_zh": "多步长时规划对于基础模型智能体至关重要，然而如何从根本上提升该能力仍不明确。现有模型基于不可控且不透明的互联网数据进行训练，难以辨析规划能力如何被获取、塑造与整合。为解决这一挑战，我们设计了一个统一且可控的多步交互环境，支持精确调控。该环境支持系统性研究长时规划的三个阶段：（1）预训练阶段的规划能力获取。我们研究了数据格式、分布与质量。通过思维链状态转换建模显式构建世界模型，可获得更强的长时泛化能力；仅依赖原子技能无法实现组合泛化，而少量长时数据即可显著改善效果；次优轨迹会严重损害性能，因为误差会在长时程中被放大。（2）通过GRPO（生成式强化策略优化）与OPD（离策略蒸馏）的后训练对规划能力进行塑造。通过互信息分析，我们区分了通用规划模式与任务特定规划知识。针对规划模式，我们界定了后训练的三种适用区域：无效区、有效区与不支持区。在低质量与长时程场景下，OPD比GRPO具有更广的有效区，因其能提供更一致的更新方向。针对规划知识，从具有不同知识结构的教师模型中蒸馏未见过程，可能损害学生模型原有的世界建模能力，且无法完全建立新知识。（3）通过MOPD（多教师同策略蒸馏）后训练实现规划能力整合。我们证明多教师同策略蒸馏能通过收敛至跨环境共享的规划模式来整合能力：相容模式支持跨环境泛化，部分共享模式支持持续学习，而完全冲突的模式会导致严重的干扰效应。",
       "hf_link": "https://huggingface.co/papers/2607.24720"
-    },
-    "2607.23518": {
-      "title": "Chamaileon: Cross-Context Binder Design with Contextualized Modeling and Mixed Sampling",
-      "abstract": "The rapid evolution of generative models has unlocked new potentials in protein binder design, a pivotal task in structural biology, by facilitating end-to-end generation via joint sequence-structure modeling or hallucination. However, existing approaches are predominantly implemented under a single-target, single-state assumption, limiting their ability to model multi-target or multi-state interactions required for advanced function-oriented protein design. Here, we introduce Chamaileon, which unifies multi-target and multi-state binder design by formulating the problem as cross-context binding landscape modeling. The framework is underpinned by a training paradigm termed In-Context Complex Co-Design (I3CD) for context-aware sequence-structure co-modeling. During inference, we employ Mixture-of-Paths Sampling (MoPS), a scalable strategy that optimizes a single sequence across contexts while alleviating the scarcity of high-quality multi-conformational paired data. Extensive evaluation on our newly constructed benchmark, CROSS, demonstrates that Chamaileon effectively generates sequences adaptable to diverse conformational landscapes and multi-target requirements. The code is available onthis https URL.",
-      "abstract_zh": "生成模型的快速发展通过联合序列-结构建模或幻觉技术实现端到端生成，为蛋白质结合剂设计这一结构生物学关键任务开辟了新前景。然而，现有方法主要在单靶点、单状态的假设下实施，限制了其对面向高级功能蛋白质设计所需的多靶点或多状态相互作用的建模能力。本文提出Chamaileon框架，通过将问题构建为跨上下文结合景观建模，统一了多靶点与多状态结合剂设计。该框架以\"上下文感知复合体协同设计\"训练范式为核心，实现上下文感知的序列-结构协同建模。在推理阶段，我们采用\"路径混合采样\"策略，这种可扩展方法能在不同上下文中优化单一序列，同时缓解高质量多构象配对数据稀缺的问题。在我们新构建的CROSS基准测试上进行广泛评估表明，Chamaileon能有效生成适应多样化构象景观和多靶点需求的序列。代码可通过此链接获取：https://github.com/xxx。",
-      "hf_link": "https://huggingface.co/papers/2607.23518"
     },
     "2607.21694": {
       "title": "Oxygen-TryOn: Fashion-Native Foundation Model for Any-item Virtual Try-On",
@@ -78,11 +72,11 @@
       "abstract_zh": "我们推出Oxygen-TryOn，这是一个面向任意品类虚拟试穿的统一基础模型。与改造通用图像编辑器不同，Oxygen-TryOn是专为时尚场景构建的原生试穿模型，通过专属数据引擎和针对性训练实现。在给定一个或多个参考商品（洁净商品图或真实穿着照片）及单张目标人物图像后，该模型能合成出人物穿着各类时尚商品的逼真图像。现有系统多局限于处理单一服装品类且需在影棚环境下操作，近期出现的多参考方法仍以服装为中心；相比之下，Oxygen-TryOn支持多样化商品与场景，包括全身/半身视角、可变数量参考图以及自由多商品组合，同时精准保持人物身份特征与商品外观形态。我们摒弃基于遮罩的图像修复范式，将试穿任务重新构建为多参考理解驱动的生成任务。通过构建大规模数据引擎，实现高质量试穿数据的采集、生成、标注与筛选，并设计包含持续预训练（CPT）、监督微调（SFT）和强化学习（RL）的三阶段训练方案。在强化学习阶段采用混合奖励机制，将自研试穿奖励模型与基于量规评估的专有通用模型相结合，共同监督细粒度一致性与指令级生成质量。该模型还能在同一流程中响应通用编辑指令（如姿势调整）。在公开基准测试与自建的Oxygen-TryOn Bench评估中，本模型在单商品试穿任务上达到业界领先的一致性及真实度，在多商品试穿任务中表现优异，其性能匹配或超越主流专有系统（Nano Banana Pro、GPT-Image-2、Seedream5 Lite）与开源模型（FLUX.2）。",
       "hf_link": "https://huggingface.co/papers/2607.21694"
     },
-    "2607.24516": {
-      "title": "DecoupleMix: Decoupled Ratio Search and Convex Allocation for Scalable VLM Data Recipes",
-      "abstract": "While data curation for Vision Language Models (VLMs) is increasingly active, public practice for constructing pretraining mixtures remains largely heuristic: practitioners stack datasets that pass quality filters, set cross-domain ratios by intuition, and lack a principled, attributable criterion for admitting new data, while frontier recipes remain undisclosed. We formulate data construction as a systematic mixture-optimization problem and turn it into a reproducible engineering discipline by decoupling the mixture into two orthogonal sub-problems: inter-class ratios across capabilities and intra-class ratios within a category. For inter-class allocation, we use a single-variable iterative search; for intra-class composition, we apply a multidimensional, dataset-level assessment scoring Quality and Difficulty, and formulate selection as a constrained convex optimization with a diversity objective. The DecoupleMix framework delivers two critical capabilities: guiding what data to collect next and rendering dataset validation a controlled, attributable experiment. Experiments show our approach consistently surpasses heuristic baselines. Moreover, optimal ratios discovered on small-scale proxies transfer seamlessly to larger scales without retuning. Using 80B additional multimodal continue-pretraining tokens, our VLM is competitive with strong open-source models trained with substantially larger multimodal budgets.",
-      "abstract_zh": "视觉语言模型（Vision Language Models, VLMs）的数据策展日益活跃，然而构建预训练数据混合集的公共实践仍主要依赖经验法则：实践者通常简单堆叠通过质量筛选的数据集，凭借直觉设定跨领域比例，缺乏原则性、可归因的标准来决定是否纳入新数据，而前沿的训练方案往往未公开。我们将数据构建形式化为一个系统的混合优化问题，并将其转化为可复现的工程学科，具体方法是将混合问题解耦为两个正交子问题：跨能力维度的类间比例与类别内部的类内比例。针对类间分配，我们采用单变量迭代搜索；对于类内构成，我们应用多维度的数据集级评估，从质量（Quality）和难度（Difficulty）两方面进行评分，并将数据选择建模为以多样性为目标的约束凸优化问题。DecoupleMix 框架提供了两项关键能力：指导下一步应收集何种数据，并使数据集验证成为可控、可归因的实验。实验表明，我们的方法持续超越基于经验的基线。此外，在小型代理集上发现的最优比例无需重新调整即可无缝迁移至更大规模。通过额外使用 800 亿多模态持续预训练词元，我们的视觉语言模型在与使用显著更多多模态数据训练的强开源模型的竞争中表现出相当的竞争力。",
-      "hf_link": "https://huggingface.co/papers/2607.24516"
+    "2607.23518": {
+      "title": "Chamaileon: Cross-Context Binder Design with Contextualized Modeling and Mixed Sampling",
+      "abstract": "The rapid evolution of generative models has unlocked new potentials in protein binder design, a pivotal task in structural biology, by facilitating end-to-end generation via joint sequence-structure modeling or hallucination. However, existing approaches are predominantly implemented under a single-target, single-state assumption, limiting their ability to model multi-target or multi-state interactions required for advanced function-oriented protein design. Here, we introduce Chamaileon, which unifies multi-target and multi-state binder design by formulating the problem as cross-context binding landscape modeling. The framework is underpinned by a training paradigm termed In-Context Complex Co-Design (I3CD) for context-aware sequence-structure co-modeling. During inference, we employ Mixture-of-Paths Sampling (MoPS), a scalable strategy that optimizes a single sequence across contexts while alleviating the scarcity of high-quality multi-conformational paired data. Extensive evaluation on our newly constructed benchmark, CROSS, demonstrates that Chamaileon effectively generates sequences adaptable to diverse conformational landscapes and multi-target requirements. The code is available onthis https URL.",
+      "abstract_zh": "生成模型的快速发展通过联合序列-结构建模或幻觉技术实现端到端生成，为蛋白质结合剂设计这一结构生物学关键任务开辟了新前景。然而，现有方法主要在单靶点、单状态的假设下实施，限制了其对面向高级功能蛋白质设计所需的多靶点或多状态相互作用的建模能力。本文提出Chamaileon框架，通过将问题构建为跨上下文结合景观建模，统一了多靶点与多状态结合剂设计。该框架以\"上下文感知复合体协同设计\"训练范式为核心，实现上下文感知的序列-结构协同建模。在推理阶段，我们采用\"路径混合采样\"策略，这种可扩展方法能在不同上下文中优化单一序列，同时缓解高质量多构象配对数据稀缺的问题。在我们新构建的CROSS基准测试上进行广泛评估表明，Chamaileon能有效生成适应多样化构象景观和多靶点需求的序列。代码可通过此链接获取：https://github.com/xxx。",
+      "hf_link": "https://huggingface.co/papers/2607.23518"
     },
     "2607.22148": {
       "title": "dRAE: Representation Autoencoder with Hyper-Spherical Codes",
@@ -90,11 +84,23 @@
       "abstract_zh": "在本研究中，我们旨在离散化高维视觉表征，以弥合其与语言模型之间的鸿沟——这是一个具有实质性的挑战，因为现有的量化方法普遍受限于码本崩塌问题，难以在保持语义连贯性的同时进行规模化扩展。我们发现问题根源在于度量失配：标准欧几里得码本优化目标与表征空间的各向异性几何结构存在根本性错位，导致码本嵌入向量具有高方差的幅度尺度与不均匀的角度分布，从而阻碍了可扩展性。为解决这一问题，我们提出超球面量化（HSQ），该方法通过角度路由机制将语义内容与特征幅度解耦，防止码字分配被幅度尺度而非语义主导。由此构建的离散表征自编码器（dRAE）实现了高保真度的重建，同时保持了语义完整性并支持可扩展的码本容量。大量实验表明，当词汇表规模扩展至131,072时，该方法始终获得稳定的性能提升，并实现100%的码本利用率、简化的训练流程，以及在理解与生成任务上均展现出强劲性能。",
       "hf_link": "https://huggingface.co/papers/2607.22148"
     },
+    "2607.24516": {
+      "title": "DecoupleMix: Decoupled Ratio Search and Convex Allocation for Scalable VLM Data Recipes",
+      "abstract": "While data curation for Vision Language Models (VLMs) is increasingly active, public practice for constructing pretraining mixtures remains largely heuristic: practitioners stack datasets that pass quality filters, set cross-domain ratios by intuition, and lack a principled, attributable criterion for admitting new data, while frontier recipes remain undisclosed. We formulate data construction as a systematic mixture-optimization problem and turn it into a reproducible engineering discipline by decoupling the mixture into two orthogonal sub-problems: inter-class ratios across capabilities and intra-class ratios within a category. For inter-class allocation, we use a single-variable iterative search; for intra-class composition, we apply a multidimensional, dataset-level assessment scoring Quality and Difficulty, and formulate selection as a constrained convex optimization with a diversity objective. The DecoupleMix framework delivers two critical capabilities: guiding what data to collect next and rendering dataset validation a controlled, attributable experiment. Experiments show our approach consistently surpasses heuristic baselines. Moreover, optimal ratios discovered on small-scale proxies transfer seamlessly to larger scales without retuning. Using 80B additional multimodal continue-pretraining tokens, our VLM is competitive with strong open-source models trained with substantially larger multimodal budgets.",
+      "abstract_zh": "视觉语言模型（Vision Language Models, VLMs）的数据策展日益活跃，然而构建预训练数据混合集的公共实践仍主要依赖经验法则：实践者通常简单堆叠通过质量筛选的数据集，凭借直觉设定跨领域比例，缺乏原则性、可归因的标准来决定是否纳入新数据，而前沿的训练方案往往未公开。我们将数据构建形式化为一个系统的混合优化问题，并将其转化为可复现的工程学科，具体方法是将混合问题解耦为两个正交子问题：跨能力维度的类间比例与类别内部的类内比例。针对类间分配，我们采用单变量迭代搜索；对于类内构成，我们应用多维度的数据集级评估，从质量（Quality）和难度（Difficulty）两方面进行评分，并将数据选择建模为以多样性为目标的约束凸优化问题。DecoupleMix 框架提供了两项关键能力：指导下一步应收集何种数据，并使数据集验证成为可控、可归因的实验。实验表明，我们的方法持续超越基于经验的基线。此外，在小型代理集上发现的最优比例无需重新调整即可无缝迁移至更大规模。通过额外使用 800 亿多模态持续预训练词元，我们的视觉语言模型在与使用显著更多多模态数据训练的强开源模型的竞争中表现出相当的竞争力。",
+      "hf_link": "https://huggingface.co/papers/2607.24516"
+    },
     "2607.24743": {
       "title": "ClinFusion: A Vision-Centric Multimodal LLM System for Holistic Medical Understanding",
       "abstract": "Multimodal large language models (MLLMs) hold immense potential to revolutionize clinical practice, yet deploying them in the medical domain is fundamentally a vision-centric challenge: models must absorb knowledge from heterogeneous 2D and 3D medical images, and evaluation protocols must align with radiologists' clinical practice and provide an accurate, fine-grained and factualness-driven assessment. In this paper, we introduce ClinFusion, a vision-centric MLLM designed for holistic medical understanding that systematically addresses these limitations. We propose a compositional and cascaded vision encoder architecture featuring a Cascade Spatial-Aware Locality Fusion operator that unifies diverse 2D and native 3D medical image understanding within a fused encoder. We further introduce a vision-grounded evaluation framework, including MedIF-Bench for instruction-following assessment and a region-of-interest-grounded method for clinically aligned and factualness-driven report generation evaluation. We show that ClinFusion sets a new state-of-the-art across a comprehensive suite of 2D and 3D multimodal medical benchmarks---spanning visual question answering, report generation, and instruction following---as well as textual medical tasks, outperforming leading open-source medical MLLMs (\\textit{e.g.}, Hulu-Med, Lingshu) on 20 out of 24 benchmarks and demonstrating multimodal capabilities better than powerful proprietary models such as GPT-5.2 and Gemini-3-Flash on 13 out of 16 benchmarks, and can be further augmented with agentic tool use for retrieval-augmented and tool-assisted clinical workflows. A blinded evaluation by board-certified radiologists confirms that ClinFusion produces the highest-ranked reports, and validates our RoI-grounded metric as achieving the strongest correlation with expert judgment among all automatic evaluation metrics examined.",
       "abstract_zh": "多模态大语言模型（MLLMs）在革新临床实践方面具有巨大潜力，但将其部署于医疗领域本质上是一项以视觉为核心的挑战：模型需从异构的二维和三维医学影像中吸收知识，且评估方案必须与放射科医师的临床实践保持一致，并提供精准、细粒度且基于事实性的评估。本文提出ClinFusion，一个为整体医学理解设计的以视觉为核心的MLLM，系统性地解决了这些局限。我们提出了一种组合式级联视觉编码器架构，其核心是级联空间感知局部融合算子，可在融合编码器中统一处理多样化的二维及原生三维医学影像理解。我们进一步引入了一个基于视觉的评估框架，包括用于指令遵循评估的MedIF-Bench，以及一种基于感兴趣区域的、与临床对齐且以事实性驱动的报告生成评估方法。实验表明，ClinFusion在一套全面的二维和三维多模态医学基准测试中——涵盖视觉问答、报告生成和指令遵循——以及文本医学任务上，均取得了新的最优性能，在24项基准中的20项上超越了领先的开源医学MLLM（如Hulu-Med、Lingshu），并在16项基准中的13项上展现出优于GPT-5.2和Gemini-3-Flash等强大专有模型的多模态能力，且可通过智能体工具使用进一步强化，应用于检索增强和工具辅助的临床工作流。经执业放射科医师进行的盲法评估证实，ClinFusion生成的报告评分最高，并验证了我们基于感兴趣区域的指标在所有考察的自动评估指标中与专家判断具有最强的相关性。",
       "hf_link": "https://huggingface.co/papers/2607.24743"
+    },
+    "2607.22561": {
+      "title": "Codifying the Judge: Scalable Evaluation via Program Distillation",
+      "abstract": "LLM-as-a-judge has become the standard for automated evaluation, but it suffers from high cost, significant latency, and opaque decisions -- limitations that undermine its scalability and reliability. We address these with a simple, efficient alternative: program distillation. Instead of prompting an LLM at the evaluation time, we distill its decision logic into a committee of programs that score candidates directly. These programmatic judges offer transparency, are easily inspected or edited, and eliminate per-sample API costs. Building on this notion, we introduce PAJAMA, a system that synthesizes programs as judges, aggregates their decisions into a joint verdict, and incorporates a fallback mechanism to selectively escalate low-confidence cases to an LLM. Across five datasets and four model families, we show that programmatic judges can match the performance of a 13B-size LLM judge. When using program outputs as routing signals, PAJAMA improves both accuracy and throughput and advances the Pareto frontier. Beyond evaluation, programmatic judges produce cheap and effective reward signals: on RewardBench, a reward model distilled from programs' verdicts outperforms one trained on a proprietary LLM's labels at two orders of magnitude lower API cost.",
+      "abstract_zh": "LLM-as-a-judge已成为自动评估的标准方法，但其存在成本高、延迟显著和决策不透明等缺陷——这些局限性削弱了其可扩展性与可靠性。我们通过一种简单高效的替代方案——程序蒸馏——来解决这些问题。该方法不在评估时调用大型语言模型（LLM），而是将其决策逻辑蒸馏为一组可直接对候选结果评分的程序委员会。这类程序化评估者具有透明度高、易于审查或修改的特点，并能消除逐样本的API调用成本。基于这一理念，我们提出了PAJAMA系统：该系统通过合成程序作为评估者，将其决策汇总为联合判定，并引入回退机制，将低置信度案例选择性地提交给LLM处理。在五个数据集和四个模型系列的实验中，我们证明程序化评估者能达到13B参数规模LLM评估者的性能水平。当使用程序输出作为路由信号时，PAJAMA在提升准确率与吞吐量的同时，推进了帕累托前沿边界。除评估任务外，程序化评估者还能产生廉价而有效的奖励信号：在RewardBench基准测试中，基于程序判定结果蒸馏得到的奖励模型，其性能超越了使用专有LLM标注数据训练的奖励模型，而API成本降低了两个数量级。",
+      "hf_link": "https://huggingface.co/papers/2607.22561"
     },
     "2607.23806": {
       "title": "A Frozen 12B Beats Frontier Models on Verified Work: 100% Accuracy, 0 Tokens, Bit-Exact, Forever",
@@ -108,11 +114,17 @@
       "abstract_zh": "大型推理模型（LRMs）在生成最终答案前会产生长推理轨迹。尽管这些轨迹可能包含用于幻觉检测的有用信号，但有效利用它们并非易事，因为长轨迹常包含噪声步骤，这些步骤会掩盖与真实性评估相关的线索。本文识别了两种普遍的推理噪声形式，即无关步骤和重复步骤，并证明二者均会显著降低幻觉检测性能。现有的基于置信度的评分和朴素的基于嵌入的过滤方法无法可靠地区分噪声步骤与信息性步骤。为解决这一挑战，我们提出REDE——一种用于去噪推理轨迹以进行幻觉检测的新型学习框架。具体而言，REDE利用最终答案注意力作为自动监督信号来塑造步骤级表示空间，从而产生经过细化的嵌入表示，在此空间中可可靠识别并过滤噪声步骤。通过移除噪声步骤后对过滤后的推理轨迹进行操作，REDE能轻松适配多种幻觉检测器。在多个推理基准上的大量实验表明，REDE始终能超越现有竞争基线，持续提升检测性能。",
       "hf_link": "https://huggingface.co/papers/2607.22098"
     },
-    "2607.22561": {
-      "title": "Codifying the Judge: Scalable Evaluation via Program Distillation",
-      "abstract": "LLM-as-a-judge has become the standard for automated evaluation, but it suffers from high cost, significant latency, and opaque decisions -- limitations that undermine its scalability and reliability. We address these with a simple, efficient alternative: program distillation. Instead of prompting an LLM at the evaluation time, we distill its decision logic into a committee of programs that score candidates directly. These programmatic judges offer transparency, are easily inspected or edited, and eliminate per-sample API costs. Building on this notion, we introduce PAJAMA, a system that synthesizes programs as judges, aggregates their decisions into a joint verdict, and incorporates a fallback mechanism to selectively escalate low-confidence cases to an LLM. Across five datasets and four model families, we show that programmatic judges can match the performance of a 13B-size LLM judge. When using program outputs as routing signals, PAJAMA improves both accuracy and throughput and advances the Pareto frontier. Beyond evaluation, programmatic judges produce cheap and effective reward signals: on RewardBench, a reward model distilled from programs' verdicts outperforms one trained on a proprietary LLM's labels at two orders of magnitude lower API cost.",
-      "abstract_zh": "LLM-as-a-judge已成为自动评估的标准方法，但其存在成本高、延迟显著和决策不透明等缺陷——这些局限性削弱了其可扩展性与可靠性。我们通过一种简单高效的替代方案——程序蒸馏——来解决这些问题。该方法不在评估时调用大型语言模型（LLM），而是将其决策逻辑蒸馏为一组可直接对候选结果评分的程序委员会。这类程序化评估者具有透明度高、易于审查或修改的特点，并能消除逐样本的API调用成本。基于这一理念，我们提出了PAJAMA系统：该系统通过合成程序作为评估者，将其决策汇总为联合判定，并引入回退机制，将低置信度案例选择性地提交给LLM处理。在五个数据集和四个模型系列的实验中，我们证明程序化评估者能达到13B参数规模LLM评估者的性能水平。当使用程序输出作为路由信号时，PAJAMA在提升准确率与吞吐量的同时，推进了帕累托前沿边界。除评估任务外，程序化评估者还能产生廉价而有效的奖励信号：在RewardBench基准测试中，基于程序判定结果蒸馏得到的奖励模型，其性能超越了使用专有LLM标注数据训练的奖励模型，而API成本降低了两个数量级。",
-      "hf_link": "https://huggingface.co/papers/2607.22561"
+    "2607.24241": {
+      "title": "FilmBench: A Film-Grade Benchmark for Cinematic Video Generation",
+      "abstract": "Progress in video generation keeps narrowing the visual gap between AI-generated and professionally produced footage, yet most benchmarks still draw prompts from web sources or LLM templates and score them with untrained, generic multimodal models. More fundamentally, their evaluation taxonomies remain rudimentary (overall visual quality, coarse text alignment and temporal smoothness) rather than the professional Cinematic Language criteria by which films are actually made and judged, so they assess basic video plausibility rather than film-grade craft. We introduce FilmBench, a text-to-video (T2V) and reference-to-video (R2V) benchmark grounded in the professional Cinematic Language of the film- academy tradition and co-developed with directors and faculty from the Beijing Film Academy and the Hujing Digital Media & Entertainment Group film studio. It rests on three choices. First, prompts are reverse-engineered from clips of award-winning films spanning 20 cinematic genres and chosen by professional directors, so every prompt is anchored to a verified live-action reference; the prompts follow real shot lists, and most script multiple shots (1,056 of the 1,169 prompts are multi-shot), unlike prior single-clip benchmarks. Second, evaluation follows a three-level Cinematic taxonomy of 3 axes, 12 components and 35 (T2V) +3 (R2V-only) sub-metrics. Third, we develop an in-house expert-grade automatic evaluation agent and open-source its core suite of Cinematic Language operators (FilmOps). Benchmarking leading video generation models (9 for T2V, 7 for R2V), the evaluator reproduces the human model ranking at model-level Spearman \\r{ho} = 0.95 (T2V) and 0.96 (R2V). Scores fall well below prior web-style benchmarks, with two consistent gaps in dynamic aesthetics and a marked single- to multi-shot performance drop that widens for weaker models.",
+      "abstract_zh": "视频生成技术的进步不断缩小着AI生成内容与专业制作影像之间的视觉鸿沟，但现有评测基准仍主要从网络来源或大语言模型模板中提取提示词，并采用未经训练的通适多模态模型进行评分。更根本的是，这些评估体系仍停留在基础层面（整体视觉质量、粗略的文本对齐度和时序流畅性），而非基于电影制作与评判实际采用的专业电影语言标准，导致其仅能评估视频的基础合理性而非电影级工艺水准。我们推出FilmBench——一个植根于电影学院传统专业电影语言的文本到视频（T2V）与参考视频到视频（R2V）评测基准，其开发过程与北京电影学院及互镜数字传媒娱乐集团电影工作室的导演和教员共同完成。该基准建立在三项核心设计上：首先，提示词逆向工程自涵盖20种电影类型的获奖影片片段，并由专业导演遴选，确保每个提示词都锚定于经核实的实拍参考；这些提示词遵循真实分镜脚本，且多数包含多镜头描述（1169条提示词中1056条为多镜头），突破了以往单镜头评测的局限。其次，评估体系采用三级电影学分类框架，包含3个维度、12个组件及35个（T2V）+3个（R2V专属）子指标。第三，我们开发了内部专家级自动评估智能体，并开源其核心电影语言操作算子套件（FilmOps）。通过对主流视频生成模型（9个T2V模型、7个R2V模型）的评测，该评估器在模型级别复现了人类评估排序，斯皮尔曼相关系数ρ达到0.95（T2V）和0.96（R2V）。评测得分显著低于既往网络风格基准，在动态美学维度呈现两个持续性短板，且从单镜头到多镜头场景出现明显性能下降，这一差距在较弱模型中更为显著。",
+      "hf_link": "https://huggingface.co/papers/2607.24241"
+    },
+    "2607.21936": {
+      "title": "Leveraging External Knowledge for Historical Document Restoration via Retrieval-Augmented Large Language Models",
+      "abstract": "Historical documents act as invaluable knowledge archives but often suffer from illegibility due to physical deterioration and damage. While existing restoration methods based on masked language modeling effectively utilize local context, they struggle to restore named entities that require external historical knowledge. To address this limitation, we introduce a novel framework for historical document restoration that leverages large language models with retrieval-augmented generation (RAG). By combining the implicit knowledge of pre-trained LLMs with explicitly retrieved external context, our model ARI effectively mitigates the challenge of inferring context-dependent proper nouns. Extensive experiments on Korean historical documents demonstrate that our approach significantly outperforms baselines, achieving substantial gains in restoring both general characters and named entities. Furthermore, comprehensive evaluations including expert assessments confirm that ARI serves as a practical tool for domain experts, promising to accelerate the analysis of historical records.",
+      "abstract_zh": "历史文献作为宝贵的知识档案，常因物理性劣化与损坏而难以辨识。尽管现有基于掩码语言建模的修复方法能有效利用局部上下文，但在恢复需要外部历史知识的命名实体时仍面临困难。为突破这一限制，我们提出了一种新颖的历史文献修复框架，该框架采用检索增强生成技术与大语言模型相结合。通过将预训练大语言模型的隐性知识与显性检索的外部语境相融合，我们的模型ARI有效缓解了推断上下文相关专有名词的挑战。在朝鲜历史文献上的大量实验表明，该方法显著优于基线模型，在普通字符与命名实体的修复上都取得了实质性提升。此外，包含专家评估在内的综合验证证实，ARI可作为领域专家的实用工具，有望加速历史记录的分析进程。",
+      "hf_link": "https://huggingface.co/papers/2607.21936"
     },
     "2607.24651": {
       "title": "Evidence Attribution in Visual Document Understanding without Coordinates or Region Labels",
@@ -120,23 +132,17 @@
       "abstract_zh": "可靠的视觉文档理解要求模型能够将其给出的每一个答案归因于支持它的证据区域。近期的基准测试和系统通过坐标接口来表达这一步骤：模型输出边界框的坐标，用以标记文档中的证据区域。在这种接口下，视觉语言模型常常无法识别正确的区域，即使答案本身是正确的，这种失败被称为归因幻觉。我们提出了一项研究，旨在探讨这种失败是否部分受到模型通过坐标所能表达内容的限制。在一个经过验证的双语CiteVQA子集上，我们将坐标接口与语言接口进行了比较：在语言接口中，模型仅输出文本，逐字引用其证据，而一个多模态检索器则通过布局解析器提出的页面区域返回每段引用的位置（表格和图表通过其标题或注释进行引用）；该比较在六个开源视觉语言模型上重复进行。与坐标接口相比，证据召回率从最高8个百分点提升至26到47之间，幻觉率大约减半，而答案质量几乎没有变化。基于这一比较，我们使用相同的引用-检索流程作为训练框架：由于为长文档收集区域级的证据标注成本高昂，我们引入了一个GRPO配方，其奖励基于评判者对标准答案及检索区域裁剪图的阅读，从而训练模型在没有任何区域标注的情况下引用更好的证据，并将一个80亿参数骨干模型的严格归因准确率从22.4提升至33.8。这些发现表明了一条可行的路径，可以在不使用坐标接口且无需昂贵区域级监督的情况下改进归因。",
       "hf_link": "https://huggingface.co/papers/2607.24651"
     },
-    "2607.24241": {
-      "title": "FilmBench: A Film-Grade Benchmark for Cinematic Video Generation",
-      "abstract": "Progress in video generation keeps narrowing the visual gap between AI-generated and professionally produced footage, yet most benchmarks still draw prompts from web sources or LLM templates and score them with untrained, generic multimodal models. More fundamentally, their evaluation taxonomies remain rudimentary (overall visual quality, coarse text alignment and temporal smoothness) rather than the professional Cinematic Language criteria by which films are actually made and judged, so they assess basic video plausibility rather than film-grade craft. We introduce FilmBench, a text-to-video (T2V) and reference-to-video (R2V) benchmark grounded in the professional Cinematic Language of the film- academy tradition and co-developed with directors and faculty from the Beijing Film Academy and the Hujing Digital Media & Entertainment Group film studio. It rests on three choices. First, prompts are reverse-engineered from clips of award-winning films spanning 20 cinematic genres and chosen by professional directors, so every prompt is anchored to a verified live-action reference; the prompts follow real shot lists, and most script multiple shots (1,056 of the 1,169 prompts are multi-shot), unlike prior single-clip benchmarks. Second, evaluation follows a three-level Cinematic taxonomy of 3 axes, 12 components and 35 (T2V) +3 (R2V-only) sub-metrics. Third, we develop an in-house expert-grade automatic evaluation agent and open-source its core suite of Cinematic Language operators (FilmOps). Benchmarking leading video generation models (9 for T2V, 7 for R2V), the evaluator reproduces the human model ranking at model-level Spearman \\r{ho} = 0.95 (T2V) and 0.96 (R2V). Scores fall well below prior web-style benchmarks, with two consistent gaps in dynamic aesthetics and a marked single- to multi-shot performance drop that widens for weaker models.",
-      "abstract_zh": "视频生成技术的进步不断缩小着AI生成内容与专业制作影像之间的视觉鸿沟，但现有评测基准仍主要从网络来源或大语言模型模板中提取提示词，并采用未经训练的通适多模态模型进行评分。更根本的是，这些评估体系仍停留在基础层面（整体视觉质量、粗略的文本对齐度和时序流畅性），而非基于电影制作与评判实际采用的专业电影语言标准，导致其仅能评估视频的基础合理性而非电影级工艺水准。我们推出FilmBench——一个植根于电影学院传统专业电影语言的文本到视频（T2V）与参考视频到视频（R2V）评测基准，其开发过程与北京电影学院及互镜数字传媒娱乐集团电影工作室的导演和教员共同完成。该基准建立在三项核心设计上：首先，提示词逆向工程自涵盖20种电影类型的获奖影片片段，并由专业导演遴选，确保每个提示词都锚定于经核实的实拍参考；这些提示词遵循真实分镜脚本，且多数包含多镜头描述（1169条提示词中1056条为多镜头），突破了以往单镜头评测的局限。其次，评估体系采用三级电影学分类框架，包含3个维度、12个组件及35个（T2V）+3个（R2V专属）子指标。第三，我们开发了内部专家级自动评估智能体，并开源其核心电影语言操作算子套件（FilmOps）。通过对主流视频生成模型（9个T2V模型、7个R2V模型）的评测，该评估器在模型级别复现了人类评估排序，斯皮尔曼相关系数ρ达到0.95（T2V）和0.96（R2V）。评测得分显著低于既往网络风格基准，在动态美学维度呈现两个持续性短板，且从单镜头到多镜头场景出现明显性能下降，这一差距在较弱模型中更为显著。",
-      "hf_link": "https://huggingface.co/papers/2607.24241"
-    },
     "2607.23242": {
       "title": "IndicTalk: A Large-Scale Persona-Based Multilingual Conversational Corpus for Indic Languages",
       "abstract": "Large Language Models (LLMs) have transformed conversational AI, yet high-quality multilingual code-mixed dialogue resources remain scarce, particularly for Indic languages where speakers naturally alternate between English and their native language in both native-script and Romanized forms. We present IndicTalk, one of the largest multilingual Indic code-mixed conversational corpora, comprising over 13,28,604 event-grounded multi-turn conversations across 18 language varieties covering 9 Indic languages. The corpus is generated through a fully automated pipeline that combines real-world news grounding, persona-conditioned dialogue generation using multilingual LLMs, and automatic quality validation. Extensive linguistic, automatic, and human evaluations demonstrate that IndicTalk produces fluent, coherent, and naturally code-mixed conversations across both script variants. We will release IndicTalk to support the development and evaluation of multilingual conversational AI for underrepresented Indic languages. The dataset is available at:this https URL.",
       "abstract_zh": "大型语言模型（LLMs）已彻底改变对话式人工智能领域，然而高质量的多语言代码混合对话资源依然稀缺，尤其在印度语言中——使用者常自然地在英语与其母语之间切换，并混合使用原生文字与罗马化形式。本文推出IndicTalk，这是目前规模最大的多语言印度代码混合对话语料库之一，包含超过1,328,604条基于现实事件的多人轮对话，涵盖9种印度语言对应的18种语言变体。该语料库通过全自动流程生成，融合了真实新闻事件锚定、基于人物设定的多语言LLM对话生成及自动化质量验证机制。广泛的语言学分析、自动化评估与人工评估均表明，IndicTalk能够在两种文字变体中生成流畅、连贯且自然实现代码混合的对话。我们将公开IndicTalk数据集，以支持资源相对匮乏的印度语言在多语言对话人工智能领域的开发与评估工作。数据集可通过以下链接获取：this https URL。",
       "hf_link": "https://huggingface.co/papers/2607.23242"
     },
-    "2607.21936": {
-      "title": "Leveraging External Knowledge for Historical Document Restoration via Retrieval-Augmented Large Language Models",
-      "abstract": "Historical documents act as invaluable knowledge archives but often suffer from illegibility due to physical deterioration and damage. While existing restoration methods based on masked language modeling effectively utilize local context, they struggle to restore named entities that require external historical knowledge. To address this limitation, we introduce a novel framework for historical document restoration that leverages large language models with retrieval-augmented generation (RAG). By combining the implicit knowledge of pre-trained LLMs with explicitly retrieved external context, our model ARI effectively mitigates the challenge of inferring context-dependent proper nouns. Extensive experiments on Korean historical documents demonstrate that our approach significantly outperforms baselines, achieving substantial gains in restoring both general characters and named entities. Furthermore, comprehensive evaluations including expert assessments confirm that ARI serves as a practical tool for domain experts, promising to accelerate the analysis of historical records.",
-      "abstract_zh": "历史文献作为宝贵的知识档案，常因物理性劣化与损坏而难以辨识。尽管现有基于掩码语言建模的修复方法能有效利用局部上下文，但在恢复需要外部历史知识的命名实体时仍面临困难。为突破这一限制，我们提出了一种新颖的历史文献修复框架，该框架采用检索增强生成技术与大语言模型相结合。通过将预训练大语言模型的隐性知识与显性检索的外部语境相融合，我们的模型ARI有效缓解了推断上下文相关专有名词的挑战。在朝鲜历史文献上的大量实验表明，该方法显著优于基线模型，在普通字符与命名实体的修复上都取得了实质性提升。此外，包含专家评估在内的综合验证证实，ARI可作为领域专家的实用工具，有望加速历史记录的分析进程。",
-      "hf_link": "https://huggingface.co/papers/2607.21936"
+    "2607.23402": {
+      "title": "Characterizing Warp Divergence from Pascal to Blackwell",
+      "abstract": "Since Volta introduced Independent Thread Scheduling (ITS), NVIDIA GPUs have been widely assumed to handle warp divergence in a fixed manner. We test this assumption across Ampere, Hopper, and datacenter and consumer Blackwell GPUs, using pre-ITS Pascal as a baseline. Combining cycle-accurate microbenchmarks, hardware counters, and static analysis of compiler-generated SASS, we separate stable behavior from architectural change. Across all tested generations, divergent paths serialize linearly with the number of paths $k$, following $T(k) \\approx sk$ with no super-linear reconvergence penalty. Warp execution efficiency falls as $32/k$, the penalty is independent of occupancy, and predication removes the serialization cost. The same behavior appears on Pascal, showing that this programmer-visible cost model predates ITS. The compiler-emitted reconvergence machinery, however, has changed substantially. Pascal uses a per-warp SSY/SYNC instruction stack, whereas later generations use barrier-register instructions. Deferred reconvergence beyond the immediate post-dominator falls from 29 cases on Ampere to 2 on Blackwell. Blackwell also introduces a two-tier convergence-barrier classification, uniform-branch instructions, and explicit partial-mask warp synchronization, none of which appear on Ampere or Hopper. Controlled bit-flip experiments indicate that the new barrier class is a static compiler classification with no observable runtime effect in our tests. Thus, divergence retains a stable and predictable performance cost even as NVIDIA's control-flow ISA and reconvergence mechanisms continue to evolve.",
+      "abstract_zh": "自Volta架构引入独立线程调度(ITS)以来，业界普遍认为NVIDIA GPU以固定方式处理线程束(warp)分支分歧。我们以先于ITS的Pascal架构为基准，在Ampere、Hopper以及数据中心和消费级Blackwell GPU上验证了这一假设。通过结合周期级精确的微基准测试、硬件性能计数器以及对编译器生成SASS代码的静态分析，我们分离出稳定行为与架构变更的影响。在所有测试代际中，分支路径的执行时间随路径数$k$呈线性序列化，遵循$T(k) \\approx sk$的规律，未出现超线性的重收敛惩罚。线程束执行效率下降为$32/k$，该惩罚与占用率无关，而谓词化(predication)可消除序列化开销。相同行为在Pascal架构上同样存在，表明这一程序员可见的成本模型实际早于ITS出现。然而，编译器生成的重收敛机制已发生显著变化：Pascal采用每线程束的SSY/SYNC指令栈，而后继代际则使用屏障寄存器指令。延迟至直接后支配点之外的重收敛案例从Ampere的29例减少到Blackwell的2例。Blackwell还引入了两级收敛屏障分类、统一分支指令以及显式部分掩码线程束同步机制，这些特性均未出现在Ampere或Hopper架构中。受控比特翻转实验表明，新的屏障类别属于静态编译器分类，在我们的测试中未观察到其运行时影响。因此，尽管NVIDIA的控制流指令集架构(ISA)与重收敛机制持续演进，分支分歧仍保持着稳定且可预测的性能代价。",
+      "hf_link": "https://huggingface.co/papers/2607.23402"
     },
     "2607.23822": {
       "title": "DriveDNA: A Large-Scale Multimodal Naturalistic Driving Dataset and Benchmark for Driving Style Identification",
@@ -148,27 +154,28 @@
   "hf_votes": {
     "2607.24653": 0,
     "2607.23588": 0,
-    "2607.21655": 0,
     "2607.24280": 0,
+    "2607.21655": 0,
     "2607.22798": 0,
-    "2607.24744": 0,
     "2607.24731": 0,
-    "2607.23855": 0,
+    "2607.24744": 0,
     "2607.24027": 0,
+    "2607.23855": 0,
     "2607.24720": 0,
-    "2607.23518": 0,
     "2607.21694": 0,
-    "2607.24516": 0,
+    "2607.23518": 0,
     "2607.22148": 0,
+    "2607.24516": 0,
     "2607.24743": 0,
+    "2607.22561": 0,
     "2607.23806": 0,
     "2607.23687": 0,
     "2607.22098": 0,
-    "2607.22561": 0,
-    "2607.24651": 0,
     "2607.24241": 0,
-    "2607.23242": 0,
     "2607.21936": 0,
+    "2607.24651": 0,
+    "2607.23242": 0,
+    "2607.23402": 0,
     "2607.23822": 0
   },
   "focus_sections": {
@@ -192,70 +199,75 @@
       "tags": "人机交互;创意计算;多模态创意项目状态管理",
       "body_summary": "现有创意生成系统难以支持包含多轮交互、版本管理和协作反馈的复杂创意项目状态。\n我们提出了一个基于可编辑画板的开放平台，将画板作为共享项目状态，支持智能体进行长期、可检查的多模态创意生成与修订。"
     },
-    "2607.21655": {
-      "short_zh": "机器人学习中的进展奖励建模综述",
-      "tags": "机器人学;机器人学习;进展奖励建模",
-      "body_summary": "机器人学习任务复杂，仅靠最终成败信号无法有效指导学习过程。\n本文首次统一梳理进展奖励建模领域，从模型接口、内部方法和数据基准三个层面构建分析框架，总结现状并展望未来。"
-    },
     "2607.24280": {
       "short_zh": "多智能体协议蒸馏提升开源模型搜索",
       "tags": "自然语言处理;智能体与多智能体系统;智能体搜索知识蒸馏",
       "body_summary": "针对智能体搜索中强化学习信号稀疏与从闭源模型蒸馏存在分布差异的问题\n提出多智能体协议蒸馏框架，通过结构化协议作为中间表示联合蒸馏与强化学习，有效提升了开源模型的搜索性能"
+    },
+    "2607.21655": {
+      "short_zh": "机器人学习中的进展奖励建模综述",
+      "tags": "机器人学;机器人学习;进展奖励建模",
+      "body_summary": "机器人学习任务复杂，仅靠最终成败信号无法有效指导学习过程。\n本文首次统一梳理进展奖励建模领域，从模型接口、内部方法和数据基准三个层面构建分析框架，总结现状并展望未来。"
     },
     "2607.22798": {
       "short_zh": "提升计算机使用智能体长程任务表现",
       "tags": "软件工程;智能体架构;程序状态驱动",
       "body_summary": "计算机使用智能体通常依赖屏幕截图感知环境，但截图仅是底层程序状态的损失性呈现。\n本文提出StateAct框架，让主智能体直接通过代码操作程序状态，仅对少数需要GUI的子目标调用截图交互，从而显著提升任务成功率和效率。"
     },
-    "2607.24744": {
-      "short_zh": "构建具身智能数据金字塔",
-      "tags": "机器人学；具身智能；机器人学习数据组织",
-      "body_summary": "具身智能缺乏像互联网规模的现成数据，其发展受限于多种异构数据源。\n本文提出一个五层数据金字塔框架，系统梳理与评估了各类具身数据源，并分析了现有基础模型的数据配方与其能力的关系。"
-    },
     "2607.24731": {
       "short_zh": "改进分类器无导师蒸馏",
       "tags": "生成式人工智能;扩散模型;策略内蒸馏",
       "body_summary": "现有基于策略的扩散模型蒸馏方法在处理分类器无导师引导时，存在目标不明确，分支误差可能相互抵消的问题。\n本研究指出问题源于负分支信息不对称，并提出正向-方向匹配方法，在视频控制任务中实现了更稳健的知识迁移。"
     },
-    "2607.23855": {
-      "short_zh": "联合生成音视频的变分自编码器",
-      "tags": "生成式人工智能;多模态生成;音视频联合生成与对齐",
-      "body_summary": "当前生成模型正从无声视频或独立音频合成，转向生成同步的音视频内容，但两者因结构差异导致跨模态细粒度对应颇具挑战。\n我们提出了OmniVAE，一个联合训练的音频-视频变分自编码器，它通过学习片段级对比目标和对齐预训练语义特征，实现了跨模态潜在空间的对齐，从而提升了下游任务的生成质量与同步准确性。"
+    "2607.24744": {
+      "short_zh": "构建具身智能数据金字塔",
+      "tags": "机器人学；具身智能；机器人学习数据组织",
+      "body_summary": "具身智能缺乏像互联网规模的现成数据，其发展受限于多种异构数据源。\n本文提出一个五层数据金字塔框架，系统梳理与评估了各类具身数据源，并分析了现有基础模型的数据配方与其能力的关系。"
     },
     "2607.24027": {
       "short_zh": "提升扩散模型采样速度",
       "tags": "生成模型;扩散模型;采样加速",
       "body_summary": "扩散模型因其高质量生成能力而流行，但采样速度慢是其应用瓶颈\n本文提出一种新的采样方法，通过优化轨迹，在保持生成质量的同时显著减少采样步数"
     },
+    "2607.23855": {
+      "short_zh": "联合生成音视频的变分自编码器",
+      "tags": "生成式人工智能;多模态生成;音视频联合生成与对齐",
+      "body_summary": "当前生成模型正从无声视频或独立音频合成，转向生成同步的音视频内容，但两者因结构差异导致跨模态细粒度对应颇具挑战。\n我们提出了OmniVAE，一个联合训练的音频-视频变分自编码器，它通过学习片段级对比目标和对齐预训练语义特征，实现了跨模态潜在空间的对齐，从而提升了下游任务的生成质量与同步准确性。"
+    },
     "2607.24720": {
       "short_zh": "多轮长程规划能力形成路径研究",
       "tags": "机器学习;强化学习;多轮长程规划",
       "body_summary": "研究大模型智能体在多轮长程规划任务中，其规划能力如何获得、塑造与融合。\n通过构建可控环境，系统探究了预训练、后训练中数据与算法对规划能力的影响机制。"
-    },
-    "2607.23518": {
-      "short_zh": "跨上下文蛋白质结合剂设计",
-      "tags": "生物信息学;蛋白质设计;多构象结合剂生成",
-      "body_summary": "现有方法难以设计能同时结合多个靶点或适应多个构象的蛋白质结合剂。\n提出Chamaileon框架，通过上下文感知的联合建模和混合采样策略，统一生成适应多靶点多构象的蛋白质结合剂序列。"
     },
     "2607.21694": {
       "short_zh": "多品类虚拟试穿基础模型",
       "tags": "计算机视觉;图像生成与编辑;虚拟试穿",
       "body_summary": "当前虚拟试穿系统通常局限于单一服饰品类或特定场景。\n本文提出了Oxygen-TryOn，一个面向任意时尚单品的原生试穿基础模型，它通过专用数据引擎和分阶段训练策略，实现了多参考、任意组合的高保真虚拟试穿。"
     },
-    "2607.24516": {
-      "short_zh": "数据混合优化新法",
-      "tags": "计算机视觉;多模态学习;视觉语言模型数据混合",
-      "body_summary": "当前视觉语言模型数据混合构建多依赖启发式经验，缺乏系统优化方法。\n提出DecoupleMix框架，将混合问题分解为跨能力类别搜索与数据集内优化，实现可扩展与可复现的数据配方。"
+    "2607.23518": {
+      "short_zh": "跨上下文蛋白质结合剂设计",
+      "tags": "生物信息学;蛋白质设计;多构象结合剂生成",
+      "body_summary": "现有方法难以设计能同时结合多个靶点或适应多个构象的蛋白质结合剂。\n提出Chamaileon框架，通过上下文感知的联合建模和混合采样策略，统一生成适应多靶点多构象的蛋白质结合剂序列。"
     },
     "2607.22148": {
       "short_zh": "高维视觉表示离散化方法",
       "tags": "机器学习;表征学习;视觉表征量化",
       "body_summary": "现有视觉表征量化方法存在码本坍缩问题，难以在扩大词汇量的同时保持语义一致性。\n提出超球面量化方法，通过角度路由分离语义与特征模长，构建了可扩展且保持语义的离散表征自编码器。"
     },
+    "2607.24516": {
+      "short_zh": "数据混合优化新法",
+      "tags": "计算机视觉;多模态学习;视觉语言模型数据混合",
+      "body_summary": "当前视觉语言模型数据混合构建多依赖启发式经验，缺乏系统优化方法。\n提出DecoupleMix框架，将混合问题分解为跨能力类别搜索与数据集内优化，实现可扩展与可复现的数据配方。"
+    },
     "2607.24743": {
       "short_zh": "临床多模态大模型系统",
       "tags": "计算机视觉;医学图像分析;多模态医学理解",
       "body_summary": "多模态大语言模型在临床应用潜力巨大，但其部署面临必须统一理解各类医学图像、评估需与临床实践对齐等核心挑战。\n提出了ClinFusion系统，它采用融合编码器统一处理2D/3D医学图像，并建立了新的评测框架，在多项基准测试中超越现有模型，且经放射科医生评估表现最优。"
+    },
+    "2607.22561": {
+      "short_zh": "程序法官替代大模型评估",
+      "tags": "自然语言处理;大语言模型评估;自动化评分系统",
+      "body_summary": "背景/任务：当前用大语言模型作为自动评估法官存在成本高、延迟大和决策不透明的问题。\n本文提出“程序蒸馏”方法，将大模型法官的决策逻辑提炼成可执行的程序委员会来直接评分，并构建PAJAMA系统以提高评估的效率和透明度。"
     },
     "2607.23806": {
       "short_zh": "冻结模型加验证记忆实现零生成推理",
@@ -267,30 +279,30 @@
       "tags": "自然语言处理;大语言模型;幻觉检测",
       "body_summary": "大推理模型生成答案前会输出长推理轨迹，但轨迹中存在无关和重复的噪声步骤干扰幻觉检测。\n提出REDE框架，利用最终答案注意力指导去噪，去除噪声步骤后提升多种幻觉检测器性能。"
     },
-    "2607.22561": {
-      "short_zh": "程序法官替代大模型评估",
-      "tags": "自然语言处理;大语言模型评估;自动化评分系统",
-      "body_summary": "背景/任务：当前用大语言模型作为自动评估法官存在成本高、延迟大和决策不透明的问题。\n本文提出“程序蒸馏”方法，将大模型法官的决策逻辑提炼成可执行的程序委员会来直接评分，并构建PAJAMA系统以提高评估的效率和透明度。"
+    "2607.24241": {
+      "short_zh": "建立面向影视的视频生成评测基准",
+      "tags": "计算机视觉;视频生成;视频生成质量评估",
+      "body_summary": "现有视频生成评估多依赖通用模型和基础标准，难以衡量专业电影级质量。\n本文联合电影专家构建了基于电影语言学的专业基准FilmBench，并开发了自动评估工具，大幅降低了与人类评价的差距。"
+    },
+    "2607.21936": {
+      "short_zh": "用外部知识修复历史文献",
+      "tags": "自然语言处理;文档恢复;历史文献修复",
+      "body_summary": "历史文献因损坏导致字迹难辨，现有方法难以修复需外部历史知识的人名地名等专有名词。\n提出检索增强大语言模型框架，结合外部知识提升修复效果，在韩文文献上验证了其有效性。"
     },
     "2607.24651": {
       "short_zh": "不用坐标让文档视觉模型归因证据",
       "tags": "计算机视觉;视觉文档理解;证据归因",
       "body_summary": "现有文档视觉模型常无法准确标出支持答案的证据区域。\n提出用文本引用证据并检索定位的方法，提升归因效果且无需区域标注训练。"
     },
-    "2607.24241": {
-      "short_zh": "建立面向影视的视频生成评测基准",
-      "tags": "计算机视觉;视频生成;视频生成质量评估",
-      "body_summary": "现有视频生成评估多依赖通用模型和基础标准，难以衡量专业电影级质量。\n本文联合电影专家构建了基于电影语言学的专业基准FilmBench，并开发了自动评估工具，大幅降低了与人类评价的差距。"
-    },
     "2607.23242": {
       "short_zh": "构建大规模印度语言混合对话数据集",
       "tags": "自然语言处理;对话系统;多语言混合对话数据集",
       "body_summary": "大语言模型推动了对话AI发展，但高质量的多语言混合对话资源仍稀缺，特别是在印度语言中，人们常自然交替使用英语和本地语言。\n我们提出了IndicTalk，一个包含超132万次事件驱动多轮对话的大规模印度语言混合对话语料库，通过自动化流程生成，并验证了其流畅性与自然性。"
     },
-    "2607.21936": {
-      "short_zh": "用外部知识修复历史文献",
-      "tags": "自然语言处理;文档恢复;历史文献修复",
-      "body_summary": "历史文献因损坏导致字迹难辨，现有方法难以修复需外部历史知识的人名地名等专有名词。\n提出检索增强大语言模型框架，结合外部知识提升修复效果，在韩文文献上验证了其有效性。"
+    "2607.23402": {
+      "short_zh": "探究GPU线程分歧性能演变",
+      "tags": "高性能计算;GPU架构与性能分析;线程分歧与收敛机制",
+      "body_summary": "研究GPU从Pascal到Blackwell架构中线程分歧的处理机制与性能影响。\n通过微基准测试等方法，发现分歧成本稳定且可预测，但底层收敛机制持续演进。"
     },
     "2607.23822": {
       "short_zh": "驾驶风格识别数据集与基准",
