@@ -6,6 +6,12 @@
       "abstract_zh": "视觉-语言-动作（Vision-Language-Action, VLA）模型通常采用以大语言模型（LLM）为中心的 $V \\to L \\to A$ 路径：视觉观测首先被投影至大语言模型的表示空间，随后解码为机器人动作。尽管这一设计有效，但其在每次策略调用时均会产生显著的计算与内存开销。本文提出TurboVLA，一种全新的VLA范式，它将传统的 $V \\to L \\to A$ 路径重构为直接的 $V + L \\to A$ 映射。不同于使用大语言模型作为感知与动作之间的核心接口，TurboVLA独立编码视觉观测与语言指令，通过轻量级的双向视觉-语言交互直接在二者间交换信息，并使用紧凑的解码器预测连续的动作片段。这一简洁设计直接从视觉与语言特征构建任务条件化表示，大幅降低了VLA推理的计算与内存成本。在LIBERO基准上，TurboVLA仅以0.2B参数、31.2毫秒推理延迟和消费级RTX 4090显卡上0.9 GB的推理显存占用，实现了97.7%的平均成功率，其性能匹配甚至超越了规模大得多的VLA策略。这些结果确立了TurboVLA作为当前主流的以大语言模型为中心的VLA范式的简洁而有效的替代方案，为如何连接视觉、语言与动作以实现高效的机器人操作提供了新的视角。代码可通过此链接获取：this https URL。",
       "hf_link": "https://huggingface.co/papers/2607.27205"
     },
+    "2607.25659": {
+      "title": "CoRT: Counterfactual Replay for Token-Level Rubric-Guided Policy Optimization",
+      "abstract": "Rubric-based reinforcement learning enriches language model training by evaluating model outputs against explicit criteria. Yet in GRPO-style pipelines, these structured judgments are reduced to a scalar response-level reward and converted into a response-level advantage, which is broadcast uniformly to all generated tokens. This leaves no explicit mechanism for allocating credit within a response, even when different criteria are grounded in different spans, formatting decisions, or semantic choices. We propose CoRT, a token-level credit weighting method for rubric-conditioned GRPO. Instead of training an auxiliary token scoring model, CoRT uses counterfactual replay to rescore the same sampled response under the original rubric-conditioned prompt and a matched criteria-free prompt. The resulting tokenwise log-likelihood contrasts serve as a proxy for dependence on the rubric context. CoRT maps these contrasts to bounded, response-normalized weights and uses them to redistribute the signed GRPO advantage across tokens, without introducing an auxiliary scorer or changing the response-level reward. Experiments across instruction-tuned models and reward granularities show that CoRT improves over matched response-level GRPO in the vast majority of comparisons, with an average gain of 4.4 percentage points. The method remains competitive with learned token-level credit baselines while avoiding a separate relevance-learning stage. These results suggest that policy-internal counterfactual likelihood contrasts provide an effective training signal for within-response credit allocation while retaining the simplicity and stability of GRPO.",
+      "abstract_zh": "基于量表的强化学习通过依据明确标准评估模型输出，丰富了语言模型的训练过程。然而在GRPO风格的学习流程中，这些结构化判断被简化为标量级的响应层面奖励，并转化为响应层面的优势值，随后被均匀分配到所有生成标记上。这种方式缺乏在单个响应内部进行贡献分配的显式机制，尤其当不同评判标准对应不同文本片段、格式决策或语义选择时。我们提出CoRT——一种面向量表条件化GRPO的标记级贡献加权方法。该方法无需训练辅助的标记评分模型，而是通过反事实重演技术，在原始量表条件化提示词与匹配的无标准提示词下对同一采样响应进行重新评分。由此产生的标记级对数似然对比值可作为模型对量表上下文依赖程度的代理指标。CoRT将这些对比值映射为有界的、响应归一化的权重，并利用这些权重在标记间重新分配带符号的GRPO优势值，整个过程既不引入辅助评分器，也不改变响应层面的奖励机制。在指令微调模型和不同奖励粒度上的实验表明，CoRT在绝大多数对比场景中优于匹配的响应级GRPO，平均提升幅度达4.4个百分点。该方法在保持与学习型标记级贡献基线竞争力的同时，避免了独立的相关性学习阶段。这些结果表明，策略内部的反事实似然对比为响应内部的贡献分配提供了有效的训练信号，同时保留了GRPO的简洁性与稳定性。",
+      "hf_link": "https://huggingface.co/papers/2607.25659"
+    },
     "2607.27180": {
       "title": "HumanCLAW: Can Vision-Language Models Act Through a Body?",
       "abstract": "Evaluating whether a vision-language model (VLM) can act through a physical body is challenging. The outcome of an action couples the VLM's decision with motor control. When a task fails, it is hard to tell whether the VLM made a bad choice or the motor controller simply failed to execute it, e.g., losing balance and falling. In this work, we introduce HumanCLAW, an evaluation framework that decouples action decision-making from low-level execution. At every step, a harnessed, off-the-shelf VLM issues an atomic skill command, and the command is translated into a sub-second chunk of continuous full-body motion with real physical consequences, including gravity and collisions. The body can therefore act freely in the physical world, while execution-side disturbances, balance and motor errors, are factored out. What remains measurable is the model's action intelligence: its moment-to-moment choice of what the body should execute next. Based on this framework, we build HumanCLAW-Bench: 1,218 long-horizon, egocentric find-navigate-interact episodes across 41 indoor scenes. We test nine state-of-the-art VLMs and find that none solves the benchmark; the best model reaches only a 16.8% success rate. Recognizing the target is not the bottleneck. What current VLMs lack is embodied self-awareness: they lose track of their own body, failing to tell where it is, whether it has reached the goal, or whether it has hit an obstacle.",
@@ -24,12 +30,6 @@
       "abstract_zh": "现实任务通常要求模型从任务特定的上下文(context)中学习，而非仅依赖预训练知识。尽管近期研究将这种能力凸显为上下文学习，但现有评估主要集中于文本语境。然而，在许多实际场景中，需要学习的上下文是多模态的：科学发现通过图表呈现，金融指标分散在转换后的报告中，空间决策则依赖于地图、场景或网页。我们提出了CLBench-V——一个针对多模态上下文学习的基准测试，通过围绕三个维度（上下文关联、新信息应用和新知识学习）组织任务，以解决定位上下文使用失效点的难题。CLBench-V整合了转换后的公共基准与全新构建的数据集，涵盖科学、金融、长文档理解、空间推理和基于网络的视觉问答等领域。为降低构建领域特定上下文学习任务的成本，我们进一步在新构建的数据集中采用自动化构建与筛选流程。在3,443个测试实例和六个最新多模态模型的评估中，最佳总体得分仅为0.2847，这表明多模态上下文学习远未达到饱和状态。此外，InternVL3.5-30B-A3B在上下文关联和新知识学习方面表现最佳，而Qwen3.5-Plus在新信息应用方面表现最优。我们进一步分析了评估可靠性、上下文长度、图像数量及典型失败案例。代码可通过此链接获取：https://（此处保留原始URL）。",
       "hf_link": "https://huggingface.co/papers/2607.25294"
     },
-    "2607.25659": {
-      "title": "CoRT: Counterfactual Replay for Token-Level Rubric-Guided Policy Optimization",
-      "abstract": "Rubric-based reinforcement learning enriches language model training by evaluating model outputs against explicit criteria. Yet in GRPO-style pipelines, these structured judgments are reduced to a scalar response-level reward and converted into a response-level advantage, which is broadcast uniformly to all generated tokens. This leaves no explicit mechanism for allocating credit within a response, even when different criteria are grounded in different spans, formatting decisions, or semantic choices. We propose CoRT, a token-level credit weighting method for rubric-conditioned GRPO. Instead of training an auxiliary token scoring model, CoRT uses counterfactual replay to rescore the same sampled response under the original rubric-conditioned prompt and a matched criteria-free prompt. The resulting tokenwise log-likelihood contrasts serve as a proxy for dependence on the rubric context. CoRT maps these contrasts to bounded, response-normalized weights and uses them to redistribute the signed GRPO advantage across tokens, without introducing an auxiliary scorer or changing the response-level reward. Experiments across instruction-tuned models and reward granularities show that CoRT improves over matched response-level GRPO in the vast majority of comparisons, with an average gain of 4.4 percentage points. The method remains competitive with learned token-level credit baselines while avoiding a separate relevance-learning stage. These results suggest that policy-internal counterfactual likelihood contrasts provide an effective training signal for within-response credit allocation while retaining the simplicity and stability of GRPO.",
-      "abstract_zh": "基于量表的强化学习通过依据明确标准评估模型输出，丰富了语言模型的训练过程。然而在GRPO风格的学习流程中，这些结构化判断被简化为标量级的响应层面奖励，并转化为响应层面的优势值，随后被均匀分配到所有生成标记上。这种方式缺乏在单个响应内部进行贡献分配的显式机制，尤其当不同评判标准对应不同文本片段、格式决策或语义选择时。我们提出CoRT——一种面向量表条件化GRPO的标记级贡献加权方法。该方法无需训练辅助的标记评分模型，而是通过反事实重演技术，在原始量表条件化提示词与匹配的无标准提示词下对同一采样响应进行重新评分。由此产生的标记级对数似然对比值可作为模型对量表上下文依赖程度的代理指标。CoRT将这些对比值映射为有界的、响应归一化的权重，并利用这些权重在标记间重新分配带符号的GRPO优势值，整个过程既不引入辅助评分器，也不改变响应层面的奖励机制。在指令微调模型和不同奖励粒度上的实验表明，CoRT在绝大多数对比场景中优于匹配的响应级GRPO，平均提升幅度达4.4个百分点。该方法在保持与学习型标记级贡献基线竞争力的同时，避免了独立的相关性学习阶段。这些结果表明，策略内部的反事实似然对比为响应内部的贡献分配提供了有效的训练信号，同时保留了GRPO的简洁性与稳定性。",
-      "hf_link": "https://huggingface.co/papers/2607.25659"
-    },
     "2607.25308": {
       "title": "CAST: Game Solvers as Turn-Level Teachers for LLM Agents",
       "abstract": "Training large language models (LLMs) to act in long-horizon games is a promising step toward generalist decision-making, yet reinforcement learning with verifiable rewards (RLVR) relies on sparse final rewards that reveal little about which decisions determine success. Denser process signals could supply this missing turn-level credit, but existing sources are hard to keep both cheap and accurate. We observe that changes in a game solver's state value reveal whether an action advances the state toward success. Building on this insight, we propose CAST (Credit Assignment from Solver Teachers), which converts these value changes into solver advantages and injects them into RLVR as turn-level signals. We further show that, under a soft-optimal solver assumption, maximizing the solver advantage is equivalent to on-policy distillation from the solver, requiring only scalar values rather than teacher logits. Across Sokoban, Minesweeper, and Rush Hour, CAST outperforms all trained baselines on every game under both in-domain and unseen-difficulty evaluation and achieves the highest average zero-shot performance on ALFWorld and WebShop. Our code is available atthis https URL.",
@@ -41,6 +41,12 @@
       "abstract": "Large language model agents often encounter related yet distinct tasks that share reusable solution patterns. Yet standard agentic reinforcement learning treats tasks as independent episodes, while existing approaches to skill learning either focus on repeated attempts of one task or use pipelines with multiple stages that entangle extraction, retrieval, and execution. We introduce SkillRise, a unified reinforcement learning framework for learning skills across tasks. SkillRise organizes related instances into progressively challenging sequences and uses a single policy to alternate between task solving and curating an evolving skill document passed directly to the next task. Decoupled credit assignment across tasks supervises solving with the current task outcome and curation with discounted downstream outcomes. Experiments on ALFWorld, WebShop, and ScienceWorld show that SkillRise achieves the strongest Pass@1 performance among the compared methods, with gains over the strongest baseline ranging from 2.3 to 8.5 percentage points. Although trained across distinct tasks, its learned curation policy remains effective for repeated attempts on the same task. Further analysis reveals scaling at test time across tasks: performance improves with longer sequences of related tasks even when each task is attempted only once. This trend suggests that SkillRise reuses transferable skills across tasks rather than benefiting from repeated sampling of the same task. SkillRise further retains strong performance while substantially reducing the runtime overhead of skill learning pipelines with multiple stages. Together, these results provide a simple and efficient training paradigm for LLM agents to extract, refine, and reuse transferable skills across tasks.",
       "abstract_zh": "大型语言模型智能体常会遇到彼此相关但又有所区别的任务，这些任务共享着可复用的解决模式。然而标准的智能体强化学习将任务视为独立的片段，而现有的技能学习方法要么专注于单一任务的重复尝试，要么使用包含多个阶段的流程，将技能提取、检索与执行过程相互纠缠。我们提出了SkillRise——一个用于跨任务学习技能的统一强化学习框架。SkillRise将相关任务实例组织成逐步具有挑战性的序列，并使用单一策略在任务求解与文档管理之间交替进行，该策略直接管理一份持续演进的技能文档并将其传递给后续任务。跨任务的解耦式信用分配机制以当前任务结果监督求解过程，并以折现后的下游任务结果监督文档管理过程。在ALFWorld、WebShop和ScienceWorld上的实验表明，SkillRise在所有对比方法中取得了最高的Pass@1性能表现，相较于最强基线模型，其性能提升幅度在2.3至8.5个百分点之间。尽管训练过程跨越不同任务，其习得的文档管理策略在针对同一任务的重复尝试中依然有效。进一步分析揭示了测试阶段跨任务的扩展性：即使每个任务仅尝试一次，在更长的相关任务序列中性能仍持续提升。这一趋势表明SkillRise实现了跨任务的可迁移技能复用，而非依赖同一任务的重复采样。SkillRise在显著降低多阶段技能学习流程运行开销的同时，依然保持着强劲的性能表现。综合来看，这些结果为大型语言模型智能体提供了一个简洁高效的训练范式，使其能够跨任务提取、优化并复用可迁移技能。",
       "hf_link": "https://huggingface.co/papers/2607.26784"
+    },
+    "2607.26754": {
+      "title": "StatePlay: State-Aware Game World Models for Mechanics-Consistent Generation",
+      "abstract": "Recent game world models can generate visually realistic and interactive environments conditioned on player actions. However, games are not defined by pixels alone; they are governed by explicit mechanics, namely state-dependent rules that control health reduction, skill activation, and game termination. These mechanics depend on precise internal states, such as health points, skill meters, and timers, which are tightly coupled with visual observations and determine how gameplay evolves. Without modeling these state dynamics, existing game world models may generate visually plausible rollouts but violate the underlying game rules. In this paper, we propose StatePlay, a novel state-aware game world model that jointly predicts visual content and game states to promote mechanics-consistent generation. StatePlay adopts a mixture-of-transformers (MoT)-style architecture that preserves specialized visual and state representations while enabling cross-modal interaction, allowing predicted states to guide frame generation. Each branch is further optimized with a distinct objective suited to its modality. Experiments show that StatePlay achieves an average normalized L1 distance below 0.06 for state prediction. Furthermore, compared with models without explicit state modeling, our method improves mechanics fidelity in generated game rollouts by 18.6%. Overall, our work highlights the importance of state-aware game world modeling and advances beyond pixel-level realism toward complete and mechanically faithful game generation.",
+      "abstract_zh": "近期的游戏世界模型能够根据玩家动作生成视觉逼真且可交互的环境。然而游戏并非仅由像素定义，它们受显式机制（mechanics）支配——即控制生命值减少、技能激活与游戏终止的状态依赖规则。这些机制依赖于精确的内部状态，例如生命值、技能计量条和计时器，这些状态与视觉观察紧密耦合并决定游戏进程的演变。若不对这些状态动态进行建模，现有游戏世界模型可能生成视觉合理的推演序列，却会违反底层游戏规则。本文提出StatePlay，一种新颖的状态感知游戏世界模型，通过联合预测视觉内容与游戏状态来促进机制一致性生成。StatePlay采用混合变换器（Mixture-of-Transformers, MoT）风格的架构，在保留专用视觉与状态表征的同时实现跨模态交互，使预测状态能够指导帧生成。每个分支还通过适配其模态特性的差异化目标进行优化。实验表明，StatePlay在状态预测上的平均归一化L1距离低于0.06。此外，与未采用显式状态建模的模型相比，我们的方法将生成游戏推演序列的机制保真度提升了18.6%。总体而言，本研究凸显了状态感知游戏世界建模的重要性，推动游戏生成超越像素级真实感，迈向完整且机制可信的新阶段。",
+      "hf_link": "https://huggingface.co/papers/2607.26754"
     },
     "2607.27155": {
       "title": "OmegaUse-OfficeVal: Benchmarking LLM Agents on Long-Horizon Office-Suite Tasks with Economic Grounding",
@@ -54,17 +60,23 @@
       "abstract_zh": "对人工智能(AI)爆炸性进展的预测，关键在于AI智能体能否实现AI研究的自动化。但关于智能体是否能进行开放式AI研究的证据尚不充分。目前的评估方法要么在狭窄、可验证的任务上测试智能体（这排除了开放式研究），要么将AI生成的论文提交给盲审同行评议——这种方式负担过重、具有随机性且评审质量不佳。我们提出了第三种衡量AI研发自动化进展的路径：让智能体承担一篇高质量未发表论文的核心开放式研究问题，并由论文原作者对其成果进行评分。我们称这种方法为影子评估。\n\n我们在两篇未发表的NeurIPS 2026投稿论文上进行了影子评估，为前沿智能体提供了六天时间和数千美元的计算资源。智能体在无人协助的情况下完成了所有工程实现，却未能在解答研究问题上取得实质性进展。因此，两篇论文均被原作者明确否决。我们识别出五种反复出现的失败模式：对可发表研究的标准判断力不足、对研究设计缺陷缺乏创造性应对、陷入死胡同后回溯效率低下、资源意识薄弱以及指令漂移。使用第二套模型和框架进行的稳健性检验复现了这些失败案例。\n\n我们公开了专家评审意见、调查反馈、智能体代码库及运行日志。我们的研究结果提供了早期证据，表明当前智能体能够承担AI研究的工程实现工作，但在研究生命周期的关键环节仍面临重大挑战。",
       "hf_link": "https://huggingface.co/papers/2607.27191"
     },
+    "2607.26115": {
+      "title": "GPT-Red: Automated Red Teaming via Self-Play at Scale",
+      "abstract": "We introduce \\textbf{GPT-Red}, an automated red-teaming agent that is trained to discover novel prompt injection attacks against frontier LLMs. The goal of this model is to evaluate and improve the robustness of our production systems. To this end, we use it to adversarially train GPT-5.6, our most robust model to prompt injections to date. To create GPT-Red, we design a scalable self-play algorithm where the model is tasked with attacking a diverse population of simultaneously-trained defender agents. We train the model on realistic red-teaming environments using compute on the same scale as some of our largest RL post-training runs, making it the single-largest LLM safety training run ever documented. GPT-Red excels at red-teaming: it reliably breaks our past models up to GPT-5.5, it finds more successful attacks than human red-teamers, and it generalizes to held-out environments, defender models, and harnesses. In the future, we expect that as we improve the robustness of each new GPT model, it will in turn will provide better learning signal for \\textit{even stronger} red-teamer agents, thus unlocking a self-improvement flywheel.",
+      "abstract_zh": "我们推出**GPT-Red**——一种经过训练、用于针对前沿大语言模型发现新型提示注入攻击的自动化红队代理。该模型的目标是评估并提升我们生产系统的鲁棒性。为此，我们利用它对GPT-5.6进行对抗训练，后者是我们迄今对提示注入最具抵御能力的模型。为构建GPT-Red，我们设计了一种可扩展的自博弈算法，使模型能够攻击一组同步训练的多样化防御代理。我们在高度真实的红队环境中对模型进行训练，其计算规模与我们最大规模的强化学习后训练任务相当，使之成为有记录以来规模最大的大语言模型安全训练项目。GPT-Red在红队测试中表现卓越：它能稳定攻破我们此前直至GPT-5.5的所有模型，发现的成功攻击案例远超人类红队成员，并能泛化应用于预留测试环境、防御模型及安全框架。展望未来，我们预期随着每个新版GPT模型鲁棒性的提升，它们将反过来为**更强大**的红队代理提供更优质的学习信号，从而开启自我强化的飞轮效应。",
+      "hf_link": "https://huggingface.co/papers/2607.26115"
+    },
     "2607.25802": {
       "title": "Explicit Layer Modeling for Video Object Insertion and Layer Decomposition",
       "abstract": "Most video editing systems still lack explicit layered video representations, limiting their ability to perform realistic compositing, object reuse, and consistent manipulation. This limitation is especially pronounced in video object insertion and video layer decomposition, where existing methods rely on implicit inference or per-scene optimization due to the absence of explicit foreground-layer supervision. We introduce TriLayer, a large-scale triplet video dataset containing aligned composite, background, and foreground videos, where the foreground layers include both object appearance and associated visual effects. This explicit supervision enables models to learn layered video representations directly rather than inferring them implicitly. Building on this dataset, we propose DBL-Diffusion, a dual-branch diffusion framework that jointly models RGB composites and RGBA foreground layers through shared denoising and cross-branch interaction. We instantiate the framework in two tasks: DBL-Insert for layered object insertion, which generates explicit RGBA layers for realistic compositing and flexible post-editing, and DBL-Decompose for video layer decomposition, which recovers foreground and background layers using triplet supervision. Experiments demonstrate that explicit layer modeling substantially improves both insertion fidelity and decomposition quality.",
       "abstract_zh": "当前大多数视频编辑系统仍缺乏显式的分层视频表征，这限制了其实现真实合成、对象复用与一致性操控的能力。在视频对象插入和视频图层分解任务中，由于缺乏明确的前景层监督，现有方法依赖于隐式推断或逐场景优化，使得这一局限尤为突出。为此，我们提出了TriLayer——一个包含对齐的合成视频、背景视频与前景视频的大规模三元组视频数据集，其中前景层同时包含物体外观与关联的视觉效果。这种显式监督使模型能够直接学习分层视频表征，而非通过隐式推断获得。基于此数据集，我们开发了DBL-Diffusion，这是一个通过共享去噪机制与跨分支交互共同建模RGB合成视频与RGBA前景层的双分支扩散框架。我们将该框架具体应用于两项任务：用于分层对象插入的DBL-Insert（可生成显式RGBA图层以实现真实合成与灵活后期编辑），以及利用三元组监督恢复前景与背景层的视频图层分解任务DBL-Decompose。实验表明，显式的图层建模能显著提升插入真实度与分解质量。",
       "hf_link": "https://huggingface.co/papers/2607.25802"
     },
-    "2607.26115": {
-      "title": "GPT-Red: Automated Red Teaming via Self-Play at Scale",
-      "abstract": "We introduce \\textbf{GPT-Red}, an automated red-teaming agent that is trained to discover novel prompt injection attacks against frontier LLMs. The goal of this model is to evaluate and improve the robustness of our production systems. To this end, we use it to adversarially train GPT-5.6, our most robust model to prompt injections to date. To create GPT-Red, we design a scalable self-play algorithm where the model is tasked with attacking a diverse population of simultaneously-trained defender agents. We train the model on realistic red-teaming environments using compute on the same scale as some of our largest RL post-training runs, making it the single-largest LLM safety training run ever documented. GPT-Red excels at red-teaming: it reliably breaks our past models up to GPT-5.5, it finds more successful attacks than human red-teamers, and it generalizes to held-out environments, defender models, and harnesses. In the future, we expect that as we improve the robustness of each new GPT model, it will in turn will provide better learning signal for \\textit{even stronger} red-teamer agents, thus unlocking a self-improvement flywheel.",
-      "abstract_zh": "我们推出**GPT-Red**——一种经过训练、用于针对前沿大语言模型发现新型提示注入攻击的自动化红队代理。该模型的目标是评估并提升我们生产系统的鲁棒性。为此，我们利用它对GPT-5.6进行对抗训练，后者是我们迄今对提示注入最具抵御能力的模型。为构建GPT-Red，我们设计了一种可扩展的自博弈算法，使模型能够攻击一组同步训练的多样化防御代理。我们在高度真实的红队环境中对模型进行训练，其计算规模与我们最大规模的强化学习后训练任务相当，使之成为有记录以来规模最大的大语言模型安全训练项目。GPT-Red在红队测试中表现卓越：它能稳定攻破我们此前直至GPT-5.5的所有模型，发现的成功攻击案例远超人类红队成员，并能泛化应用于预留测试环境、防御模型及安全框架。展望未来，我们预期随着每个新版GPT模型鲁棒性的提升，它们将反过来为**更强大**的红队代理提供更优质的学习信号，从而开启自我强化的飞轮效应。",
-      "hf_link": "https://huggingface.co/papers/2607.26115"
+    "2607.25380": {
+      "title": "Memory for Large Language Models",
+      "abstract": "Memory has evolved into a foundational architectural dimension in large language models (LLMs), shifting from an implicit byproduct of computation to a spectrum of explicit, controllable mechanisms. While recent advances introduce diverse strategies---spanning transient attention, recurrent state dynamics, parameter-efficient adaptations, and scalable lookup storage---this rapid evolution has led to a highly fragmented research landscape. In this survey, we present a systematic, architecture-centric taxonomy of memory in LLMs. Our framework characterizes memory along three orthogonal axes: representation (implicit versus explicit), update dynamics (offline versus online), and persistence (short-term versus long-term). We further formalize the granular mechanisms dictating memory writing, routing, state transitions, and consolidation. This unified perspective elucidates the conceptual boundaries between computation-coupled and independently addressable memory, effectively bridging disparate architectural paradigms. Additionally, we critically analyze hybrid memory architectures, system-level efficiency trade-offs, and multi-dimensional evaluation methodologies. By consolidating these scattered advancements into a cohesive framework, this survey charts the trajectory of memory-centric LLM design and provides a principled foundation for future innovations in scalable and adaptive language modeling.",
+      "abstract_zh": "记忆已演化为大型语言模型（LLM）中的一个基础架构维度，从计算的隐式副产品转变为一系列显式、可控的机制。尽管近期研究提出了多种策略——涵盖瞬态注意力（transient attention）、循环状态动态（recurrent state dynamics）、参数高效适配（parameter-efficient adaptations）以及可扩展查找存储（scalable lookup storage）——这一快速发展却导致了高度碎片化的研究图景。本综述系统性地提出了一个以架构为中心的大型语言模型记忆分类法。我们的框架沿三个正交轴刻画记忆特性：表征方式（隐式与显式）、更新动态（离线与在线）以及持久性（短期与长期）。我们进一步形式化了支配记忆写入、路由、状态转换与巩固的细粒度机制。这一统一视角阐明了计算耦合型记忆与独立可寻址记忆之间的概念边界，有效桥接了不同的架构范式。此外，我们批判性分析了混合记忆架构、系统级效率权衡以及多维评估方法。通过将这些分散的进展整合为连贯的框架，本综述描绘了以记忆为中心的大型语言模型设计的发展轨迹，并为未来可扩展与自适应语言建模的创新奠定了原则性基础。",
+      "hf_link": "https://huggingface.co/papers/2607.25380"
     },
     "2607.26314": {
       "title": "StealthBench: Measuring Operational Stealth in Autonomous Offensive-Security Agents",
@@ -78,6 +90,12 @@
       "abstract_zh": "现代多智能体知识系统日益通过自主转换链而非直接检索来积累知识。现有的溯源研究记录已发生的事件——执行轨迹、工具调用、证据链接——而源可靠性评估领域（真相发现、声誉系统）早已确立。当前缺失的是一个可操作的框架，能够将分领域、分级别的传播者可靠度附加至声明级传播链，并具备完整性语义、转换类型聚合、解耦的内容评判以及服务/审查/隔离路由功能。古典伊斯兰圣训学曾面临结构相似的问题：判断通过人类叙述者链条传递的知识是否应被接受。数个世纪以来，该学科发展出一套严谨的方法论——伊斯纳德（每个声明附带的完整传播链）、里贾尔（对每位叙述者诚信度与精确度的系统性分级）、最弱链接链条评估、独立链条佐证以及麦特恩批评（独立于链条质量的内容评估）。本文将此方法论迁移至人工智能系统设计。我们提出的贡献包括：圣训学概念到多智能体流程的形式化映射、实现声明链与分级叙述者注册的关系型架构、整合链条等级与内容批评的决策矩阵，以及对两万条真实物理教材声明的评估。评估验证了最弱链接隔离与独立链条佐证机制；报告了等级恢复循环的部分失效——该系统未能识别故障率最高的叙述者；并指出两项分析尚无定论，包括框架无法通过参考内容批评器实现的匹配覆盖度比较。本文始终明确说明现有证据支持与尚未支持的主张范围。",
       "hf_link": "https://huggingface.co/papers/2607.24117"
     },
+    "2607.16955": {
+      "title": "CADENCE: Closing the Reasoning Gap via Coverage-Adaptive On-Policy Distillation",
+      "abstract": "On-policy knowledge distillation transfers reasoning from large teachers to compact students, but existing approaches suffer three compounding failure modes: (i) cold-start collapse, where a fresh student assigns near-zero mass to teacher-preferred tokens; (ii) state-agnostic divergence scheduling, where time-only forward/reverse-KL interpolation ignores the student's coverage state; and (iii) binary reward sparsity, where pass/fail signals discard information from partially correct traces.We present CADENCE, a unified framework with a targeted fix for each. Its DRIFT mechanism schedules a per-token convex mixture of forward-KL and reverse-KL surrogate objectives on student-sampled trajectories (per-token surrogates, not sequence-level KL gradient estimators). Six components extend it: (A) COVA, a coverage-adaptive $\\beta$ schedule accelerating the forward-to-reverse transition; (B) FTB, a forking-token boost concentrating gradient at high-entropy positions via a globally-normalized entropy reference; (C) CCD, a dense reward adding numerical-proximity partial credit for incorrect-but-close traces; (D) LAP, brevity-preferential correct-rollout reinforcement; (E) EMR, an entropy-matching calibration regularizer; (F) BSD, a bootstrapped self-distillation phase.On GSM8K and MATH-500 (corrected 512-token protocol, 5 seeds, reported std), CADENCE distills a 0.5B student from a 1.5B teacher to 69.8 $\\pm$ 0.5% GSM8K pass@1 (from 48.7% pretrained; 63.2% of the teacher gap closed) and to 72.1 $\\pm$ 0.4% with a 3B teacher (76.2% closed), beating the strongest matched-compute label-using baseline (DRIFT+binary reward) by +4.4 $\\pm$ 0.7 points. All experiments run on a single Apple Mac Studio (M-series, 64GB unified memory), showing principled distillation reaches strong reasoning quality without datacenter-scale hardware.",
+      "abstract_zh": "在线策略知识蒸馏将推理能力从大型教师模型迁移至紧凑学生模型，但现有方法存在三种相互交织的失效模式：(i) 冷启动崩溃，即初始学生模型对教师偏好的标记分配近乎零概率；(ii) 状态无关散度调度，即仅基于时间的正向/反向KL散度插值忽略学生模型的覆盖状态；(iii) 二元奖励稀疏性，即通过/失败信号丢弃部分正确轨迹的信息。我们提出CADENCE统一框架，针对每种失效模式提供针对性解决方案。其核心DRIFT机制在学生采样轨迹上调度每个标记的正向KL与反向KL代理目标凸组合（基于逐标记代理目标，而非序列级KL梯度估计器）。框架通过六个组件扩展：(A) COVA——覆盖自适应的β调度器，加速正向到反向KL的转换；(B) FTB——分叉标记增强机制，通过全局归一化的熵参考将梯度聚焦于高熵位置；(C) CCD——稠密奖励函数，为错误但接近正确的轨迹提供数值接近性部分奖励；(D) LAP——偏好简洁的正确推演强化机制；(E) EMR——熵匹配校准正则器；(F) BSD——自举自蒸馏阶段。在GSM8K和MATH-500数据集上（修正的512标记协议，5次随机种子，报告标准差），CADENCE将1.5B参数教师蒸馏至0.5B学生模型，达到69.8±0.5%的GSM8K pass@1（预训练基线48.7%；弥合教师差距的63.2%），使用3B教师时达到72.1±0.4%（弥合76.2%差距），超越最强匹配计算量的标签使用基线（DRIFT+二元奖励）4.4±0.7个百分点。所有实验在单台Apple Mac Studio（M系列芯片，64GB统一内存）运行，表明基于原理的蒸馏无需数据中心级硬件即可实现强悍推理能力。",
+      "hf_link": "https://huggingface.co/papers/2607.16955"
+    },
     "2607.26791": {
       "title": "SecRespond: Benchmarking AI Agents for Real-World Post-Compromise Incident Response",
       "abstract": "Large Language Model (LLM) agents are increasingly adopted in real-world security operations with access to host artifacts and command-line interfaces (CLIs), making it critical to thoroughly assess their security capabilities. However, existing cybersecurity benchmarks focus on pre-compromise settings where agents are placed in a clean and idealized environment before an attack occurs. This leaves the post-compromise setting underexplored. To address this gap, we introduce SecRespond, the first benchmark for evaluating LLM agents on the post-compromise incident-response workflow. Given a forensic disk snapshot of a compromised host together with the alerts, vulnerability scans, and baseline checks reported by a host security product, agents are required to produce forensic reports on intrusions, baseline risks, and vulnerability risks, together with a remediation plan. We instantiate this task across 10 cyber ranges, each constructed from a distinct compromised cloud host, spanning 4 entry-point types, 21 ATT&CK techniques, and 5 operating systems. We evaluate 23 frontier LLMs on the OpenCode agent harness. Experimental results show that although current agents can reliably uncover the problems exposed by alerts, they struggle to proactively investigate the disk for silent intrusions and to produce comprehensive, verified remediation plans, with no model achieving complete detection and remediation on any single range. This reveals a fundamental bottleneck in building agents for real-world incident response. The benchmark is publicly available atthis https URL.",
@@ -87,18 +105,21 @@
   },
   "hf_votes": {
     "2607.27205": 0,
+    "2607.25659": 0,
     "2607.27180": 0,
     "2607.25675": 0,
     "2607.25294": 0,
-    "2607.25659": 0,
     "2607.25308": 0,
     "2607.26784": 0,
+    "2607.26754": 0,
     "2607.27155": 0,
     "2607.27191": 0,
-    "2607.25802": 0,
     "2607.26115": 0,
+    "2607.25802": 0,
+    "2607.25380": 0,
     "2607.26314": 0,
     "2607.24117": 0,
+    "2607.16955": 0,
     "2607.26791": 0
   },
   "focus_sections": {
@@ -109,6 +130,11 @@
       "short_zh": "实时轻量视觉语言动作模型",
       "tags": "机器人学;机器人控制;视觉语言动作模型",
       "body_summary": "现有视觉语言动作模型采用LLM中心架构，计算和内存开销大\n提出TurboVLA直接映射视觉语言到动作，实现高效实时推理"
+    },
+    "2607.25659": {
+      "short_zh": "基于准则的强化学习优化方法",
+      "tags": "自然语言处理;语言模型对齐与强化学习;基于准则的强化学习",
+      "body_summary": "在基于准则（Rubric）的强化学习框架中，现有方法通常将结构化准则评判压缩为整体响应层面的单一奖励，并均匀地分配给所有生成标记，缺乏对响应内部不同部分贡献的精细信用分配机制。\n我们提出了CoRT方法，它利用反事实重放技术，通过对比模型在有/无准则上下文提示下生成同一响应的标记级对数似然差异，将其作为信用权重来重新分配GRPO优势信号，从而实现响应内部的精细信用分配，无需引入额外的标记评分模型。"
     },
     "2607.27180": {
       "short_zh": "评测视觉语言模型身体控制能力",
@@ -125,11 +151,6 @@
       "tags": "多模态模型；上下文学习；多模态基准构建",
       "body_summary": "现实任务常需模型从任务特定多模态上下文中学习而非仅依赖预训练知识\n本文提出CLBench-V基准从三个维度系统评估多模态上下文学习并发现现有模型表现不佳"
     },
-    "2607.25659": {
-      "short_zh": "基于准则的强化学习优化方法",
-      "tags": "自然语言处理;语言模型对齐与强化学习;基于准则的强化学习",
-      "body_summary": "在基于准则（Rubric）的强化学习框架中，现有方法通常将结构化准则评判压缩为整体响应层面的单一奖励，并均匀地分配给所有生成标记，缺乏对响应内部不同部分贡献的精细信用分配机制。\n我们提出了CoRT方法，它利用反事实重放技术，通过对比模型在有/无准则上下文提示下生成同一响应的标记级对数似然差异，将其作为信用权重来重新分配GRPO优势信号，从而实现响应内部的精细信用分配，无需引入额外的标记评分模型。"
-    },
     "2607.25308": {
       "short_zh": "用游戏求解器帮助大语言模型学习决策",
       "tags": "强化学习;决策智能;游戏决策训练",
@@ -139,6 +160,11 @@
       "short_zh": "跨任务技能进化的智能体学习",
       "tags": "强化学习;智能体学习;跨任务技能抽取与复用",
       "body_summary": "大型语言模型(LLM)智能体在处理一系列相关但不同的任务时，需要复用已有的解决方案模式，但现有方法常将任务孤立处理或使用多阶段复杂流程。\n提出了SkillRise框架，通过统一强化学习策略交替执行任务和整理跨任务技能文档，实现技能的提取与演进，在多个基准测试中显著提升了单次尝试通过率并降低了运行开销。"
+    },
+    "2607.26754": {
+      "short_zh": "学习游戏状态感知生成模型",
+      "tags": "游戏人工智能;游戏世界生成;状态感知游戏生成",
+      "body_summary": "现有游戏世界模型能生成逼真交互环境，但缺乏对生命值、计时器等内部状态的建模，导致生成内容可能违反游戏规则。\n提出StatePlay模型，联合预测视觉画面与游戏状态，通过分支架构与针对性优化，显著提升生成内容与游戏机制的一致性。"
     },
     "2607.27155": {
       "short_zh": "评测LLM执行办公长任务成本",
@@ -150,15 +176,20 @@
       "tags": "人工智能评估方法;AI研究自动化;AI智能体开放性研究评估",
       "body_summary": "目前缺乏AI能否自主进行开放性研究的证据，现有评估方法存在局限。\n我们提出了一种新评估方法，让AI智能体尝试解决未发表论文的核心问题，由原作者评审，发现当前AI能完成工程任务但难以推进研究。"
     },
+    "2607.26115": {
+      "short_zh": "训练AI攻击手提升大模型安全",
+      "tags": "大语言模型安全;对抗性训练;自动化红队测试",
+      "body_summary": "为评估和提升大语言模型在生产环境中的鲁棒性，需要开发高效的自动化测试方法。\n提出了一个名为GPT-Red的自动化红队代理，通过大规模自我博弈算法训练，能有效发现新的提示注入攻击，并用于对抗性训练以增强GPT-5.6等模型的防御能力。"
+    },
     "2607.25802": {
       "short_zh": "视频层级建模提升插入与分解效果",
       "tags": "计算机视觉;视频编辑;视频层分解与合成",
       "body_summary": "现有视频编辑缺乏显式层级表示，限制了真实合成与分解能力。\n本文构建三元视频数据集TriLayer，提出双分支扩散模型DBL-Diffusion，实现显式层级建模。"
     },
-    "2607.26115": {
-      "short_zh": "训练AI攻击手提升大模型安全",
-      "tags": "大语言模型安全;对抗性训练;自动化红队测试",
-      "body_summary": "为评估和提升大语言模型在生产环境中的鲁棒性，需要开发高效的自动化测试方法。\n提出了一个名为GPT-Red的自动化红队代理，通过大规模自我博弈算法训练，能有效发现新的提示注入攻击，并用于对抗性训练以增强GPT-5.6等模型的防御能力。"
+    "2607.25380": {
+      "short_zh": "大型语言模型中的记忆机制综述",
+      "tags": "自然语言处理;大语言模型架构;记忆机制",
+      "body_summary": "近年来，记忆已成为大语言模型架构设计的核心维度，但相关研究碎片化。\n本文提出一个系统性的记忆分类框架，从表示、更新、持久性三个维度统一梳理，并为未来设计提供基础。"
     },
     "2607.26314": {
       "short_zh": "测攻防智能体隐蔽操作能力",
@@ -169,6 +200,11 @@
       "short_zh": "AI知识溯源评估框架",
       "tags": "知识工程；多智能体系统；知识溯源可靠性评估",
       "body_summary": "现代多智能体知识系统通过长链式自主转换积累知识，但缺乏对传播链逐环节可靠性评估的框架。\n借鉴伊斯兰圣训学方法，构建了可对知识传播链评级并隔离可疑内容的形式化框架，并在物理教材知识上验证了部分机制的有效性。"
+    },
+    "2607.16955": {
+      "short_zh": "提升小模型数学推理能力",
+      "tags": "自然语言处理;语言模型推理;知识蒸馏优化",
+      "body_summary": "现有策略蒸馏方法在数学推理任务中存在启动困难、奖励稀疏等问题。\n提出CADENCE框架，通过自适应调度、密集奖励等组件，显著提升小型学生模型的数学推理性能。"
     },
     "2607.26791": {
       "short_zh": "评估大模型代理事后应急响应能力",
