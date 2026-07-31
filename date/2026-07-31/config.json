@@ -1,22 +1,28 @@
 {
   "base_info": {
+    "2607.28227": {
+      "title": "Qwen-UI-Agent Technical Report: Toward Next-Generation Real-World Centric Foundation GUI Agents",
+      "abstract": "GUI agents have the potential to become a general purpose executor over existing digital devices. To advance them toward real-world use, we envision agents that operate reliably on real devices, execute workflows across platforms, combine GUI interaction with CLI execution, complete long-horizon tasks, proactively initiate useful services, and autonomously improve their capabilities with minimal human effort. Guided by this vision, we present Qwen-UI-Agent, a real-world centric foundation GUI agent spanning mobile, computer-use, web, and DeepSearch environments. Qwen-UI-Agent combines diverse sandbox environments with a large-scale real-device mobile runtime. Its unified action space interleaves GUI operations with CLI execution and generates batched actions in a single model turn. An AutoResearch-style data flywheel uses agents to construct tasks and environments, diagnose failures, and plan subsequent iterations. Online RL supports training on trajectories exceeding 100 turns, with over 10,000 concurrent environments accelerating rollout. A lightweight harness layer supports proactive service initiation and stateful workflows across mobile and computer.Across a broad suite of evaluations, Qwen-UI-Agent sets state-of-the-art performance on mobile-use benchmarks while delivering competitive performance on computer- and browser-use tasks against frontier models, including Opus 4.8, Gemini 3.1 Pro, and GPT-5.6 Sol. On mobile use, it achieves 82.1% on MobileWorld, 92.2% on MobileWorld-Real, and 97.5% on AndroidDaily. On computer use, it achieves 79.5% on OSWorld-Verified and a 40.0% partial-progress score on OSWorld-v2. On browser use and GUI grounding, it achieves 73.6% on WebArena and 81.5% on ScreenSpot-Pro, respectively.",
+      "abstract_zh": "图形用户界面(Graphical User Interface, GUI)智能体有潜力成为现有数字设备的通用执行器。为推进其走向实际应用，我们设想的智能体应具备以下能力：在真实设备上可靠运行、跨平台执行工作流程、将GUI交互与命令行界面(Command Line Interface, CLI)执行相结合、完成长周期任务、主动发起实用服务，并以最小人力投入实现自主能力提升。基于这一愿景，我们提出了Qwen-UI-Agent——一个以现实世界为中心的基础GUI智能体，覆盖移动设备、计算机应用、网页及深度搜索(DeepSearch)环境。该系统融合了多样化的沙箱环境与大规模真实移动设备运行时环境，其统一动作空间支持GUI操作与CLI执行的交错执行，并能单轮生成批量动作。通过采用自动研究(AutoResearch)风格的数据飞轮机制，该系统利用智能体构建任务与环境、诊断故障并规划后续迭代。在线强化学习(Reinforcement Learning, RL)支持超过100轮的长轨迹训练，超过10,000个并发环境加速了推演过程。轻量级的控制层实现了跨移动端与计算机端的主动服务启动及有状态工作流管理。\n\n在广泛评估中，Qwen-UI-Agent在移动使用基准测试中取得了最先进的性能表现，同时在计算机与浏览器使用任务中相较于前沿模型（包括Opus 4.8、Gemini 3.1 Pro和GPT-5.6 Sol）展现出竞争力。具体而言：在移动使用场景下，该系统在MobileWorld达到82.1%，在MobileWorld-Real达到92.2%，在AndroidDaily达到97.5%；在计算机使用场景下，OSWorld-Verified得分79.5%，OSWorld-v2部分进度得分40.0%；在浏览器使用与GUI基础能力方面，WebArena得分73.6%，ScreenSpot-Pro得分81.5%。",
+      "hf_link": "https://huggingface.co/papers/2607.28227"
+    },
     "2607.28624": {
       "title": "PhiZero: A World Model Built Around Physical Language",
       "abstract": "We introduce PhiZero, a physical world model built around physical language, a compact discrete representation of world-state transitions. Existing physical world models typically predict future videos directly in pixel space, leaving the underlying world dynamics implicit within high-dimensional visual predictors. Motivated by humans' ability to abstract predictive structure from visual experience and organize it in natural language for explicit reasoning, we learn physical language from in-the-wild videos through self-supervision and use it to explicitly reason about how the physical world evolves. Accordingly, PhiZero adopts a reason-then-render paradigm: it first infers future world evolution as a physical-language sequence and then renders the inferred transitions into videos. Extensive experiments across generation and understanding benchmarks validate the ability of PhiZero to model physically coherent world evolution. We further show its potential for realistic and interactive world modeling, fine-grained action-conditioned simulation, and zero-shot motion transfer.",
       "abstract_zh": "我们提出PhiZero，这是一种围绕物理语言构建的物理世界模型，物理语言是一种对世界状态转换的紧凑离散表征。现有的物理世界模型通常直接在像素空间中预测未来视频，将潜在的世界动态隐含在高维视觉预测器中。受人类从视觉经验中抽象出预测结构、并以自然语言组织起来进行显式推理的能力启发，我们通过自监督从真实世界视频中学习物理语言，并利用它来显式推理物理世界如何演变。因此，PhiZero采用“先推理后渲染”的范式：首先将未来世界演化推断为物理语言序列，然后将推断出的转换渲染为视频。在生成与理解基准测试上进行的大量实验验证了PhiZero对物理一致世界演化进行建模的能力。我们进一步展示了其在真实交互式世界建模、细粒度动作条件模拟以及零样本运动迁移方面的潜力。",
       "hf_link": "https://huggingface.co/papers/2607.28624"
     },
-    "2607.28568": {
-      "title": "Frontis-MA1: Training an AI4AI Model towards Recursive Self-Improvement in Machine Learning Engineering",
-      "abstract": "Recursive self-improvement (RSI) requires AI systems that improve the process of building AI (i.e., AI4AI); machine learning engineering (MLE) offers a concrete, executable testbed for studying this capability. We introduce OpenMLE, an open full-stack system for RSI research in MLE, spanning verifiable task environments with execution feedback (OpenMLE-Gym), operator learning (OpenMLE-RL), and long-horizon search (OpenMLE-Evo). On this stack we post-train Frontis-MA1 (35B) as a meta-evolution agent for MLE, aligning post-training and inference around four atomic program-evolution operators (Draft, Improve, Debug, Crossover): the same operators are trained via execution-grounded SFT and RL on data deduplicated against all evaluation benchmarks, then composed into long-horizon search, coupling learning and evolution in a single loop. On MLE-Bench Lite under a 12-hour per-task budget on one RTX 4090 capped at 12 GB VRAM, Frontis-MA1 (35B) improves Medal Average from 39.39% to 60.61% over its base model with OpenMLE-Evo, and reaches 71.21% with OpenMLE-Evo-Max (benchmark-independent experience priors and asynchronous search), exceeding GPT-5.5 + Codex and approaching GPT-5.6 Sol and the 2.8T Kimi K3. On held-out NatureBench Lite, both components transfer: with the framework fixed, swapping in the trained model raises Match-SOTA from 50% to 70%; with the model fixed, swapping in OpenMLE-Evo raises it from 20% to 50%. We release the model weights and the full OpenMLE stack to enable reproducible research on executable AI4AI toward RSI. Code:this https URL",
-      "abstract_zh": "递归自我改进（Recursive Self-Improvement, RSI）要求人工智能系统能够改进构建人工智能的过程（即AI4AI）；机器学习工程（Machine Learning Engineering, MLE）为研究此能力提供了一个具体、可执行的测试平台。我们提出了OpenMLE——一个用于MLE领域RSI研究的开源全栈系统，涵盖具备执行反馈的可验证任务环境（OpenMLE-Gym）、操作学习（OpenMLE-RL）以及长视野搜索（OpenMLE-Evo）。基于该技术栈，我们对Frontis-MA1（35B）进行微调，使其成为面向MLE的元进化智能体，并以四种原子级程序进化操作（草拟、改进、调试、交叉）为核心统一微调与推理流程：这些操作通过基于执行反馈的有监督微调和强化学习进行训练，所用数据已针对所有评估基准进行去重，随后被组合应用于长视野搜索，从而将学习与进化耦合在单一循环中。在单张RTX 4090（显存上限12 GB）每任务12小时的预算限制下，基于OpenMLE-Evo的Frontis-MA1（35B）在MLE-Bench Lite上将奖牌平均得分（Medal Average）从基础模型的39.39%提升至60.61%，并通过OpenMLE-Evo-Max（采用与基准无关的经验先验和异步搜索）达到71.21%，超越了GPT-5.5 + Codex，并接近GPT-5.6 Sol与2.8T参数的Kimi K3。在保留测试集NatureBench Lite上，两个组件均展现出可迁移性：在框架固定的情况下，替换为训练后的模型可将匹配最优性能（Match-SOTA）从50%提升至70%；在模型固定的情况下，替换为OpenMLE-Evo可将其从20%提升至50%。我们公开了模型权重与完整的OpenMLE技术栈，以支持面向RSI的可执行AI4AI研究的可复现性。代码地址：this https URL",
-      "hf_link": "https://huggingface.co/papers/2607.28568"
-    },
     "2607.26760": {
       "title": "Metis: Memory Foundation Model",
       "abstract": "Recent advances in AI agents have increasingly internalized native capabilities into their underlying foundation models, giving rise to multimodal foundation models and large reasoning models. However, agent memory is still primarily implemented through external modules, leaving the native memory capability largely unexplored. In this paper, we take a first step toward this direction by introducing memory foundation models, which empower foundation models with native memory capabilities. We formalize native memory from two perspectives: a persistent and dynamically evolving memory state within the backbone, and native memory procedures that autonomously store and utilize information through model computation. We show that native memory offers advantages in architecture, end-to-end optimization, and efficiency. Based on this formulation, we propose Metis, the first prototype of memory foundation models. Metis introduces a new architecture that equips a foundation model with a native memory state, allowing historical information to be compressed into the model and accessed through memory attention. We construct large-scale memory-specific training data and introduce multiple optimization objectives to acquire these native memory procedures through mid-training. The online memory maintenance of Metis is gradient-free, and the memory update requires only a forward pass. At inference time, all learned model weights remain frozen, while the native memory states are autonomously transformed through standard forward computation. Through extensive experiments, we show that Metis exhibits native memory capabilities and further provide a detailed analysis of its strengths, limitations, and behaviors. To facilitate future research on memory foundation models, we release our project and model checkpoints.",
       "abstract_zh": "人工智能代理领域的最新进展正日益将原生能力内化至其底层基础模型之中，从而催生了多模态基础模型与大推理模型。然而，智能体记忆目前仍主要通过外部模块实现，其原生记忆能力在很大程度上尚未得到探索。本文通过引入记忆基础模型，首次向这一方向迈出步伐，使基础模型具备原生记忆能力。我们从两个角度对原生记忆进行形式化定义：一是主干网络内持久且动态演化的记忆状态，二是通过模型计算自主存储与利用信息的原生记忆过程。我们论证了原生记忆在架构设计、端到端优化及效率方面的优势。基于此框架，我们提出了首个记忆基础模型原型Metis。Metis引入了一种新型架构，为基础模型配备了原生记忆状态，使历史信息能够被压缩至模型中并通过记忆注意力机制进行检索。我们构建了大规模记忆专用训练数据集，并引入多目标优化策略，通过中期训练获取这些原生记忆过程。Metis的在线记忆维护无需梯度计算，记忆更新仅需前向传播即可完成。在推理阶段，所有已学习的模型权重保持冻结，而原生记忆状态通过标准前向计算自主演化。通过大量实验，我们证实了Metis具备原生记忆能力，并对其优势、局限性和行为特征进行了详细分析。为促进记忆基础模型的未来研究，我们公开了项目资源及模型检查点。",
       "hf_link": "https://huggingface.co/papers/2607.26760"
+    },
+    "2607.28568": {
+      "title": "Frontis-MA1: Training an AI4AI Model towards Recursive Self-Improvement in Machine Learning Engineering",
+      "abstract": "Recursive self-improvement (RSI) requires AI systems that improve the process of building AI (i.e., AI4AI); machine learning engineering (MLE) offers a concrete, executable testbed for studying this capability. We introduce OpenMLE, an open full-stack system for RSI research in MLE, spanning verifiable task environments with execution feedback (OpenMLE-Gym), operator learning (OpenMLE-RL), and long-horizon search (OpenMLE-Evo). On this stack we post-train Frontis-MA1 (35B) as a meta-evolution agent for MLE, aligning post-training and inference around four atomic program-evolution operators (Draft, Improve, Debug, Crossover): the same operators are trained via execution-grounded SFT and RL on data deduplicated against all evaluation benchmarks, then composed into long-horizon search, coupling learning and evolution in a single loop. On MLE-Bench Lite under a 12-hour per-task budget on one RTX 4090 capped at 12 GB VRAM, Frontis-MA1 (35B) improves Medal Average from 39.39% to 60.61% over its base model with OpenMLE-Evo, and reaches 71.21% with OpenMLE-Evo-Max (benchmark-independent experience priors and asynchronous search), exceeding GPT-5.5 + Codex and approaching GPT-5.6 Sol and the 2.8T Kimi K3. On held-out NatureBench Lite, both components transfer: with the framework fixed, swapping in the trained model raises Match-SOTA from 50% to 70%; with the model fixed, swapping in OpenMLE-Evo raises it from 20% to 50%. We release the model weights and the full OpenMLE stack to enable reproducible research on executable AI4AI toward RSI. Code:this https URL",
+      "abstract_zh": "递归自我改进（Recursive Self-Improvement, RSI）要求人工智能系统能够改进构建人工智能的过程（即AI4AI）；机器学习工程（Machine Learning Engineering, MLE）为研究此能力提供了一个具体、可执行的测试平台。我们提出了OpenMLE——一个用于MLE领域RSI研究的开源全栈系统，涵盖具备执行反馈的可验证任务环境（OpenMLE-Gym）、操作学习（OpenMLE-RL）以及长视野搜索（OpenMLE-Evo）。基于该技术栈，我们对Frontis-MA1（35B）进行微调，使其成为面向MLE的元进化智能体，并以四种原子级程序进化操作（草拟、改进、调试、交叉）为核心统一微调与推理流程：这些操作通过基于执行反馈的有监督微调和强化学习进行训练，所用数据已针对所有评估基准进行去重，随后被组合应用于长视野搜索，从而将学习与进化耦合在单一循环中。在单张RTX 4090（显存上限12 GB）每任务12小时的预算限制下，基于OpenMLE-Evo的Frontis-MA1（35B）在MLE-Bench Lite上将奖牌平均得分（Medal Average）从基础模型的39.39%提升至60.61%，并通过OpenMLE-Evo-Max（采用与基准无关的经验先验和异步搜索）达到71.21%，超越了GPT-5.5 + Codex，并接近GPT-5.6 Sol与2.8T参数的Kimi K3。在保留测试集NatureBench Lite上，两个组件均展现出可迁移性：在框架固定的情况下，替换为训练后的模型可将匹配最优性能（Match-SOTA）从50%提升至70%；在模型固定的情况下，替换为OpenMLE-Evo可将其从20%提升至50%。我们公开了模型权重与完整的OpenMLE技术栈，以支持面向RSI的可执行AI4AI研究的可复现性。代码地址：this https URL",
+      "hf_link": "https://huggingface.co/papers/2607.28568"
     },
     "2607.28618": {
       "title": "AskChem: Claim-Centered Infrastructure for Chemistry Literature Synthesis",
@@ -36,6 +42,12 @@
       "abstract_zh": "智能视觉推理的根本目标是提升多模态大语言模型（MLLMs）在复杂任务上的成功率，而非仅仅为其配备一套复杂却低效的推理范式。本研究通过工具使用的两个关键维度——模式自适应性（Mode Adaptiveness, MA）与工具效应（Tool Effect, TE）——重新审视智能视觉推理。模式自适应性衡量多模态大语言模型能否准确识别何时真正需要工具并相应调用，从而避免不必要的计算开销，同时在需要工具辅助的难题上提升表现。工具效应则评估工具使用的实际效果：工具应扩展模型在纯文本推理无法解决的问题上的能力，同时避免在模型本已能独立解决的简单问题上引入额外错误。我们通过全面分析量化了这两项特性，实证表明现有的智能视觉推理模型的模式自适应性有限，且工具使用在困难样例上带来的收益大多被模型本可独立解决的简单样例上产生的损害所抵消。基于这些观察，我们提出了Beacon——一种新型智能视觉推理模型，它在整体性能、模式自适应性及工具带来的真实性能提升方面均表现更优。Beacon的核心在于强化学习阶段引入的必要性感知自适应奖励与提示引导能力扩展机制，前者鼓励根据任务必要性自适应调用工具，后者则在最具挑战性的问题上强化模型的工具使用能力。跨多个基准的广泛实验表明，Beacon不仅整体性能强劲，且在模式自适应性和工具效应方面均有显著提升。",
       "hf_link": "https://huggingface.co/papers/2607.28595"
     },
+    "2607.27919": {
+      "title": "Memory Decoder at Scale: A Pretrained, Parametric Long-Term Memory",
+      "abstract": "Decoder-only language models entangle long-term memory and reasoning in a single parameter set, making it difficult to scale memory capacity independently. Memory Decoder introduces a parametric long-term memory module but only studies it at a relatively small scale. In this work, we present Memory Decoder at Scale, scaling memory models up to 6.9B parameters and pretraining them on 300B tokens. At this data scale, the combined cost of indexing and search makes a standard Faiss pipeline infeasible. We address this bottleneck with a distributed pipeline for Faiss indexing and retrieval, together with sparse, batch-wise loading of kNN distributions. Across model scales, we find that allocating more parameters to memory yields a better parameter-performance tradeoff than scaling the base model alone. On 17 benchmarks, pairing a 6.9B general memory with Pythia-410M raises its average score from 29.86 to 37.34, surpassing Pythia-12B (37.24) with 39% fewer total parameters. For Qwen3 Base models ranging from 0.6B to 14B, 1.7B domain memories improve the average score across the three domains by more than 9 points at every scale. Overall, our results demonstrate that independently scaling pretrained memory offers a more parameter efficient path to improving language model performance.",
+      "abstract_zh": "仅解码器语言模型将长期记忆与推理能力耦合于单一参数集合中，使得独立扩展记忆容量变得困难。Memory Decoder（记忆解码器）引入了参数化长期记忆模块，但仅在小规模范围内进行了研究。本工作中，我们提出大规模Memory Decoder，将记忆模型的参数量扩展至69亿，并在3000亿token上进行预训练。在此数据规模下，索引与检索的综合成本使标准Faiss流程难以实施。我们通过分布式Faiss索引检索流程，结合kNN分布的稀疏批量加载策略，成功解决了这一瓶颈。在不同模型规模下，我们发现相较于单纯扩展基础模型，将更多参数分配给记忆模块能实现更优的参数-性能权衡。在17个基准测试中，为Pythia-410M模型配备69亿通用记忆模块后，其平均得分从29.86提升至37.34，以总参数量减少39%的代价超越了Pythia-12B模型（37.24）。对于参数量从6亿到140亿不等的Qwen3 Base模型，17亿领域专用记忆模块在所有规模上均将三大领域的平均得分提升超过9分。总体而言，我们的研究结果表明：独立扩展预训练记忆模块为提升语言模型性能提供了一条参数效率更高的发展路径。",
+      "hf_link": "https://huggingface.co/papers/2607.27919"
+    },
     "2607.26497": {
       "title": "BM25 Wins at Scale: A Scaling Study of Retrieval-Augmented Generation Paradigms",
       "abstract": "Retrieval-augmented generation (RAG) spans lexical and dense retrieval, graph-based indexing, and agentic search, but these paradigms are usually evaluated on different benchmarks at one corpus size, leaving their accuracy-cost scaling unclear. To bridge this gap, we present a controlled study that varies corpus size along 28 strictly nested tiers spanning roughly 450-fold, while holding questions and a fixed bedrock of relevant and adversarial documents unchanged. Under one reader model and one judging protocol, we measure official accuracy, construction and query tokens, and latency. The results reveal a scale-dependent crossover rather than an unconditional winner. File-System Agent leads at the smallest shared tiers, but its sequential exploration costs 39 times more query tokens at the bedrock and becomes less effective as the search space grows. Around 10 million corpus tokens, BM25 overtakes it and leads at every larger shared tier, with a margin approaching 20 points at full scale. BM25 also anchors the low-cost end of the Pareto frontier without LLM-based construction. Dense retrieval remains efficient but less accurate, whereas graph-based RAG encounters construction walls before deployment scale and its scalable variants remain below BM25 at shared tiers. Overall, corpus growth increasingly favors global candidate ranking: lexical retrieval is the strongest scalable default, while agentic reasoning works best after ranked discovery rather than in place of it.",
@@ -53,18 +65,6 @@
       "abstract": "Embodied intelligence faces a fundamental data bottleneck. Models must capture how first-person perception, whole-body motion, dexterous manipulation, object state, sound, and touch evolve together as humans pursue goals over time. Existing datasets fragment this experience across viewpoints, modalities, or spatial scales, leaving the full perception-action loop only partially observed. We introduce the Ambient Capture Engine (ACE), a human-centric data engine that transforms real home environments into spatially calibrated, temporally synchronized recording studios. ACE operates at two complementary scales: a table-scale configuration resolves hand-object manipulation, while a room-scale configuration captures whole-body motion, locomotion, and interactions across a furnished home. ACE records egocentric and multi-view exocentric video, full-body and articulated hand motion, object geometry and 6-DoF trajectories, audio, and tactile signals as a unified multisensory stream. Using ACE, we build ACE-Data-0, comprising 150 hours and 17M video frames across 200 task categories, performed by 50 participants in 2 environments, for a total of 75,000 interaction episodes. The dataset spans atomic manipulation, long-horizon chains of household activities, and human-scene interaction, while preserving natural behavioral variation through goal-level rather than step-by-step instructions. We further introduce a hierarchical benchmark that progresses from signals to scene components and then to interactions. Evaluations of state-of-the-art methods expose substantial gaps under contact, occlusion, egomotion, and long temporal horizons. ACE-Data-0 provides synchronized human demonstrations with aligned perceptual, kinematic, and contact supervision, offering a scalable foundation for imitation learning, world models, vision-language-action systems, and embodied AI.",
       "abstract_zh": "具身智能面临一个根本性的数据瓶颈。模型需要捕捉人类在随时间推移追求目标的过程中，第一人称感知、全身运动、灵巧操作、物体状态、声音及触觉如何协同演化。现有数据集将这种体验分散在不同视角、模态或空间尺度上，导致完整的感知-行动回路仅获得部分观测。我们引入了环境捕获引擎（Ambient Capture Engine, ACE）——一种以人为中心的数据引擎，能够将真实家庭环境转化为空间校准、时间同步的录制工作室。ACE在两个互补尺度上运行：桌面尺度配置解析手部-物体操作，而房间尺度配置则捕捉整个家具齐全家庭环境中的全身运动、移动及交互行为。ACE将第一人称与多视角第三人称视频、全身及关节化手部运动、物体几何与六自由度轨迹、音频及触觉信号记录为统一的多感官流。利用ACE，我们构建了ACE-Data-0数据集，包含150小时、1700万视频帧，覆盖200个任务类别，由50名参与者在2个环境中执行，总计75,000个交互片段。该数据集涵盖原子级操作、长时序家庭活动链以及人-场景交互，同时通过目标层面而非逐步指令保持了自然行为差异。我们进一步提出了一个从信号到场景组件再到交互的层次化基准测试。对现有先进方法的评估揭示了其在接触、遮挡、自运动及长时序跨度方面存在的显著差距。ACE-Data-0提供了同步的人类演示数据，包含对齐的感知、运动学及接触监督信号，为模仿学习、世界模型、视觉-语言-行动系统以及具身人工智能提供了可扩展的基础。",
       "hf_link": "https://huggingface.co/papers/2607.28625"
-    },
-    "2607.28227": {
-      "title": "Qwen-UI-Agent Technical Report: Toward Next-Generation Real-World Centric Foundation GUI Agents",
-      "abstract": "GUI agents have the potential to become a general purpose executor over existing digital devices. To advance them toward real-world use, we envision agents that operate reliably on real devices, execute workflows across platforms, combine GUI interaction with CLI execution, complete long-horizon tasks, proactively initiate useful services, and autonomously improve their capabilities with minimal human effort. Guided by this vision, we present Qwen-UI-Agent, a real-world centric foundation GUI agent spanning mobile, computer-use, web, and DeepSearch environments. Qwen-UI-Agent combines diverse sandbox environments with a large-scale real-device mobile runtime. Its unified action space interleaves GUI operations with CLI execution and generates batched actions in a single model turn. An AutoResearch-style data flywheel uses agents to construct tasks and environments, diagnose failures, and plan subsequent iterations. Online RL supports training on trajectories exceeding 100 turns, with over 10,000 concurrent environments accelerating rollout. A lightweight harness layer supports proactive service initiation and stateful workflows across mobile and computer.Across a broad suite of evaluations, Qwen-UI-Agent sets state-of-the-art performance on mobile-use benchmarks while delivering competitive performance on computer- and browser-use tasks against frontier models, including Opus 4.8, Gemini 3.1 Pro, and GPT-5.6 Sol. On mobile use, it achieves 82.1% on MobileWorld, 92.2% on MobileWorld-Real, and 97.5% on AndroidDaily. On computer use, it achieves 79.5% on OSWorld-Verified and a 40.0% partial-progress score on OSWorld-v2. On browser use and GUI grounding, it achieves 73.6% on WebArena and 81.5% on ScreenSpot-Pro, respectively.",
-      "abstract_zh": "图形用户界面(Graphical User Interface, GUI)智能体有潜力成为现有数字设备的通用执行器。为推进其走向实际应用，我们设想的智能体应具备以下能力：在真实设备上可靠运行、跨平台执行工作流程、将GUI交互与命令行界面(Command Line Interface, CLI)执行相结合、完成长周期任务、主动发起实用服务，并以最小人力投入实现自主能力提升。基于这一愿景，我们提出了Qwen-UI-Agent——一个以现实世界为中心的基础GUI智能体，覆盖移动设备、计算机应用、网页及深度搜索(DeepSearch)环境。该系统融合了多样化的沙箱环境与大规模真实移动设备运行时环境，其统一动作空间支持GUI操作与CLI执行的交错执行，并能单轮生成批量动作。通过采用自动研究(AutoResearch)风格的数据飞轮机制，该系统利用智能体构建任务与环境、诊断故障并规划后续迭代。在线强化学习(Reinforcement Learning, RL)支持超过100轮的长轨迹训练，超过10,000个并发环境加速了推演过程。轻量级的控制层实现了跨移动端与计算机端的主动服务启动及有状态工作流管理。\n\n在广泛评估中，Qwen-UI-Agent在移动使用基准测试中取得了最先进的性能表现，同时在计算机与浏览器使用任务中相较于前沿模型（包括Opus 4.8、Gemini 3.1 Pro和GPT-5.6 Sol）展现出竞争力。具体而言：在移动使用场景下，该系统在MobileWorld达到82.1%，在MobileWorld-Real达到92.2%，在AndroidDaily达到97.5%；在计算机使用场景下，OSWorld-Verified得分79.5%，OSWorld-v2部分进度得分40.0%；在浏览器使用与GUI基础能力方面，WebArena得分73.6%，ScreenSpot-Pro得分81.5%。",
-      "hf_link": "https://huggingface.co/papers/2607.28227"
-    },
-    "2607.27919": {
-      "title": "Memory Decoder at Scale: A Pretrained, Parametric Long-Term Memory",
-      "abstract": "Decoder-only language models entangle long-term memory and reasoning in a single parameter set, making it difficult to scale memory capacity independently. Memory Decoder introduces a parametric long-term memory module but only studies it at a relatively small scale. In this work, we present Memory Decoder at Scale, scaling memory models up to 6.9B parameters and pretraining them on 300B tokens. At this data scale, the combined cost of indexing and search makes a standard Faiss pipeline infeasible. We address this bottleneck with a distributed pipeline for Faiss indexing and retrieval, together with sparse, batch-wise loading of kNN distributions. Across model scales, we find that allocating more parameters to memory yields a better parameter-performance tradeoff than scaling the base model alone. On 17 benchmarks, pairing a 6.9B general memory with Pythia-410M raises its average score from 29.86 to 37.34, surpassing Pythia-12B (37.24) with 39% fewer total parameters. For Qwen3 Base models ranging from 0.6B to 14B, 1.7B domain memories improve the average score across the three domains by more than 9 points at every scale. Overall, our results demonstrate that independently scaling pretrained memory offers a more parameter efficient path to improving language model performance.",
-      "abstract_zh": "仅解码器语言模型将长期记忆与推理能力耦合于单一参数集合中，使得独立扩展记忆容量变得困难。Memory Decoder（记忆解码器）引入了参数化长期记忆模块，但仅在小规模范围内进行了研究。本工作中，我们提出大规模Memory Decoder，将记忆模型的参数量扩展至69亿，并在3000亿token上进行预训练。在此数据规模下，索引与检索的综合成本使标准Faiss流程难以实施。我们通过分布式Faiss索引检索流程，结合kNN分布的稀疏批量加载策略，成功解决了这一瓶颈。在不同模型规模下，我们发现相较于单纯扩展基础模型，将更多参数分配给记忆模块能实现更优的参数-性能权衡。在17个基准测试中，为Pythia-410M模型配备69亿通用记忆模块后，其平均得分从29.86提升至37.34，以总参数量减少39%的代价超越了Pythia-12B模型（37.24）。对于参数量从6亿到140亿不等的Qwen3 Base模型，17亿领域专用记忆模块在所有规模上均将三大领域的平均得分提升超过9分。总体而言，我们的研究结果表明：独立扩展预训练记忆模块为提升语言模型性能提供了一条参数效率更高的发展路径。",
-      "hf_link": "https://huggingface.co/papers/2607.27919"
     },
     "2607.28022": {
       "title": "Flux-OPD: On-Policy Distillation with Evolving Contexts",
@@ -90,17 +90,23 @@
       "abstract_zh": "视觉语言模型（VLMs）越来越多地被用于具身智能体（embodied agents）中，以解读视觉输入、推理空间关系，并基于该推理做出任务级决策。然而，当前仍存在一个根本性的能力不匹配问题：通用视觉语言模型能够对整体任务进行推理，却常常忽略决定成功的关键视觉细节；而专业视觉模型（specialist vision models）虽能捕捉这些细节，却无法将其转化为任务级决策。在本研究中，我们提出了 SpatialCLI 框架，该框架旨在教导视觉语言模型利用空间工具进行推理，并逐步内化这些工具所提供专业感知能力。SpatialCLI 分为三个阶段：(1) 调用（Call）阶段将专业视觉模型作为空间工具，以增强视觉语言模型的感知能力；(2) 学习（Learn）阶段通过冷启动监督微调（Cold-Start SFT）和智能体强化学习（agentic RL）来优化工具使用；(3) 内化（Internalize）阶段对成功的工具使用轨迹进行语言化描述，从而实现专业感知能力的内化。我们进一步提出了 SpatialCLI-Bench，这是一个包含 516 个示例的基准测试集，用于评估跨定位、分割、深度和姿态的组合感知能力。在 MindCube 基准上，SpatialCLI 将 Qwen3-VL-8B-Instruct 在使用工具时的性能从 29.3% 提升至 84.6%，超越了使用工具的 GPT-5.6 Sol（72.1%），并在内化后无需工具时仍保持了 73.8% 的性能。",
       "hf_link": "https://huggingface.co/papers/2607.27703"
     },
-    "2607.28272": {
-      "title": "MemHarness: Memory Is Reconstructed, Not Replayed",
-      "abstract": "Retrieving past experiences has become a common strategy to enhance large language model agents. However, most existing memory-augmented agents treat retrieved experiences as static records to be replayed verbatim, injecting them into the context regardless of whether they align with the agent's current situation. This ``replay'' paradigm ignores the gap between the abstract, general nature of stored experience and the concrete, ever-changing states encountered at decision time, frequently causing negative transfer. In contrast, humans rarely recall past experiences verbatim; instead, they reorganize and adapt retrieved memories to fit the present context. Inspired by this, we propose MemHarness, a framework that equips LLM agents to actively harness and reconstruct past experiences based on the present context. At each decision step, a unified policy model critiques and reconstructs the retrieved experience conditioned on the current state, producing context-grounded guidance before acting. This reconstructive ability emerges naturally through end-to-end training with GRPO. Experiments on ALFWorld and WebShop show that MemHarness substantially outperforms pure RL and static memory-augmented baselines, demonstrating strong robustness in out-of-distribution (OOD) scenarios. Furthermore, our analyses reveal that this reconstruction objective not only prevents negative transfer but also serves as latent guidance during training, fundamentally improving the agent's intrinsic reasoning capabilities.",
-      "abstract_zh": "检索过往经验已成为增强大语言模型智能体的常用策略。然而，现有大多数基于记忆增强的智能体将检索到的经验视为静态记录进行逐字回放，无论其是否与智能体当前情境相符，都会将其注入上下文。这种“回放”范式忽略了存储经验的抽象性、普遍性与决策时遇到的具体、多变状态之间的鸿沟，常常导致负迁移。相比之下，人类很少逐字回忆过往经验，而是对检索到的记忆进行重组和调整，以适应当前语境。受此启发，我们提出MemHarness框架，使大语言模型智能体能够基于当前语境主动利用并重构过往经验。在每个决策步骤中，统一的策略模型会基于当前状态对检索到的经验进行批判性评估和重构，在执行行动前生成基于上下文的指导。这种重构能力通过基于分组相对策略优化的端到端训练自然涌现。在ALFWorld和WebShop上的实验表明，MemHarness显著优于纯强化学习和静态记忆增强基线方法，并在分布外场景中展现出强大的鲁棒性。进一步分析表明，这种重构目标不仅能防止负迁移，还能在训练过程中作为潜在指导，从根本上提升智能体的内在推理能力。",
-      "hf_link": "https://huggingface.co/papers/2607.28272"
-    },
     "2607.28362": {
       "title": "ShadowDancer: Teaching Video World Models Any Action by Learning Unified Dynamics Representations from a Video and Its Shadow",
       "abstract": "We present ShadowDancer, a novel approach to any-action, frame-level control of interactive video world models. The obstacle is representational: existing interfaces either encode an action loosely, leaving how it unfolds for the model to improvise, or encode it exactly through structured signals that serve one family and are hard to acquire, so precise control across diverse dynamics remains impractical. Demonstration videos are the natural remedy, specifying any dynamics frame by frame; yet a video shows its dynamics only through one particular appearance, a single shadow of the underlying dynamics, so actions learned from demonstrations transfer poorly to new scenes. ShadowDancer addresses this with two key innovations: (1) shadow pairs, video pairs that replay the same dynamics under independently resampled appearance, constructed at scale by our Shadow Library, so that a dynamics family becomes controllable exactly when such pairs can be constructed for it; and (2) cross-shadow prediction, which learns actions by predicting one shadow from the other, so that whatever the pairing resamples is discarded by construction and whatever it preserves becomes the action, yielding a unified dynamics representation that drives a block-causal world model. Any demonstrated clip thus becomes a reusable action asset, replayed in new environments without action labels, motion estimators, or fine-tuning. Experiments demonstrate improved action transfer and long action rollout over strong latent-action and interactive world model baselines across diverse dynamics families, with an average blinded win rate of 86% in rollout comparisons. We show video results atthis https URL",
       "abstract_zh": "我们提出ShadowDancer，一种针对交互式视频世界模型（interactive video world models）的任意动作帧级控制新方法。核心障碍在于表征层面：现有接口要么松散地编码动作，将其具体展开方式交由模型即兴发挥；要么通过结构化信号精确编码，但此类信号仅适用于单一动作族且难以获取，因而跨多样动态特性的精确控制仍不切实际。演示视频是自然的解决方案，可逐帧指定任意动态；然而视频仅通过特定外观展现其动态，这仅是底层动态特性的单一投影（shadow），导致从演示中学习的动作在新场景中迁移效果不佳。ShadowDancer通过两项关键创新应对该问题：（1）投影对（shadow pairs）——在独立重采样的外观条件下重现相同动态的视频对，通过我们的投影库（Shadow Library）大规模构建，使得当某动态族能构建此类视频对时，即可实现精确控制；（2）跨投影预测（cross-shadow prediction）——通过从一个投影预测另一个投影来学习动作，使得配对过程中重采样的要素被结构性地丢弃，而保留的要素则成为动作表征，从而生成驱动块因果世界模型（block-causal world model）的统一动态表征。任何演示片段因此可转化为可复用的动作资产，无需动作标签、运动估计器或微调即可在新环境中重演。实验表明，该方法在多种动态族上较强大的潜在动作模型（latant-action）和交互式世界模型基线，实现了更优的动作迁移与长序列动作展开，在展开比较中获得平均86%的盲测胜率。视频结果可见此链接：https://...",
       "hf_link": "https://huggingface.co/papers/2607.28362"
+    },
+    "2607.26769": {
+      "title": "See2Think: Do Multimodal Models Really Use Intermediate Visual States?",
+      "abstract": "Multimodal large language models increasingly use sketches, annotations, tools, and intermediate images during reasoning, but it remains unclear whether they truly rely on these visual states. Existing benchmarks are limited both by task collections with narrow coverage or partially text-solvable samples and by evaluations that emphasize final answers without diagnosing how intermediate visual states are generated, rendered, and used. We introduce See2Think, a unified evaluation framework comprising See2ThinkBench and Visual Action-of-Thought (VAoT). See2ThinkBench contains 1,200 open-ended, visually dependent problems across 12 task categories spanning 2D structured, 3D scene, and real-world reasoning. VAoT records textual thoughts, visual actions, rendered states, and subsequent reasoning under four controlled inference settings. Evaluating representative proprietary and open-source multimodal models, we find that visual reasoning is strongly model- and environment-dependent, with no single setting consistently dominating across tasks. Process analysis further shows that models usually select relevant visual operations, while faithful rendering remains the clearest bottleneck and high feedback uptake does not necessarily translate into accuracy gains. Under task-relevant corrupted feedback, models exhibit behavioral dependence on visual states, with accuracy dropping by over 10 percentage points in controlled interventions.",
+      "abstract_zh": "多模态大语言模型在推理过程中越来越多地使用草图、标注、工具和中间图像，但这些模型是否真正依赖于这些视觉状态尚不明确。现有基准测试既受限于任务集合覆盖范围狭窄或部分样本可通过纯文本解决，也受限于评估方法过于强调最终答案而未能诊断中间视觉状态的生成、呈现与使用机制。我们提出See2Think这一统一评估框架，包含See2ThinkBench基准集与视觉思维链（Visual Action-of-Thought, VAoT）评估协议。See2ThinkBench涵盖12类任务共1,200个开放性问题，覆盖二维结构化推理、三维场景理解与真实世界推理三大领域，所有问题均需视觉信息参与解决。VAoT在四种受控推理模式下记录模型的文本思考、视觉操作、渲染状态及后续推理过程。通过对代表性专有模型与开源多模态模型的评估，我们发现视觉推理能力高度依赖于模型架构与环境设置，没有任何单一推理模式能在所有任务中保持优势。过程分析进一步表明：模型通常能选择相关的视觉操作，但准确渲染仍是当前最明显的瓶颈；高频率的视觉反馈采纳未必能提升准确率。在任务相关性被破坏的反馈条件下，模型表现出对视觉状态的行为依赖性——在受控干预实验中，准确率下降超过10个百分点。",
+      "hf_link": "https://huggingface.co/papers/2607.26769"
+    },
+    "2607.28272": {
+      "title": "MemHarness: Memory Is Reconstructed, Not Replayed",
+      "abstract": "Retrieving past experiences has become a common strategy to enhance large language model agents. However, most existing memory-augmented agents treat retrieved experiences as static records to be replayed verbatim, injecting them into the context regardless of whether they align with the agent's current situation. This ``replay'' paradigm ignores the gap between the abstract, general nature of stored experience and the concrete, ever-changing states encountered at decision time, frequently causing negative transfer. In contrast, humans rarely recall past experiences verbatim; instead, they reorganize and adapt retrieved memories to fit the present context. Inspired by this, we propose MemHarness, a framework that equips LLM agents to actively harness and reconstruct past experiences based on the present context. At each decision step, a unified policy model critiques and reconstructs the retrieved experience conditioned on the current state, producing context-grounded guidance before acting. This reconstructive ability emerges naturally through end-to-end training with GRPO. Experiments on ALFWorld and WebShop show that MemHarness substantially outperforms pure RL and static memory-augmented baselines, demonstrating strong robustness in out-of-distribution (OOD) scenarios. Furthermore, our analyses reveal that this reconstruction objective not only prevents negative transfer but also serves as latent guidance during training, fundamentally improving the agent's intrinsic reasoning capabilities.",
+      "abstract_zh": "检索过往经验已成为增强大语言模型智能体的常用策略。然而，现有大多数基于记忆增强的智能体将检索到的经验视为静态记录进行逐字回放，无论其是否与智能体当前情境相符，都会将其注入上下文。这种“回放”范式忽略了存储经验的抽象性、普遍性与决策时遇到的具体、多变状态之间的鸿沟，常常导致负迁移。相比之下，人类很少逐字回忆过往经验，而是对检索到的记忆进行重组和调整，以适应当前语境。受此启发，我们提出MemHarness框架，使大语言模型智能体能够基于当前语境主动利用并重构过往经验。在每个决策步骤中，统一的策略模型会基于当前状态对检索到的经验进行批判性评估和重构，在执行行动前生成基于上下文的指导。这种重构能力通过基于分组相对策略优化的端到端训练自然涌现。在ALFWorld和WebShop上的实验表明，MemHarness显著优于纯强化学习和静态记忆增强基线方法，并在分布外场景中展现出强大的鲁棒性。进一步分析表明，这种重构目标不仅能防止负迁移，还能在训练过程中作为潜在指导，从根本上提升智能体的内在推理能力。",
+      "hf_link": "https://huggingface.co/papers/2607.28272"
     },
     "2607.28410": {
       "title": "Can Large Language Models Execute Parent Orders?",
@@ -120,29 +126,17 @@
       "abstract_zh": "前向潜在世界模型（Forward latent world models）能预测动作如何改变场景，但仅能通过昂贵的测试时搜索来为期望的变化恢复动作。我们提出了INTACT（INtent-To-ACTion），这是一种端到端的联合嵌入预测架构（JEPA），可将带有动作标记、无奖励的轨迹转换为可部署的意图到动作接口。每个状态转移提供物理意图 $z_{t+1}-z_t$，而未来目标则提供部署意图 $\\operatorname{sg}(z_g)-z_t$。该架构在局部运动意图与目标运动意图的主干输入图之间具有同构性，这通过相同的四槽语法和共享参数实现，并在支持的局部与目标运动意图族之间通过由同一预测器导出的动作规律语义（而非逐点的潜在相等性）保持同构。INTACT还实现了从RGB证据到动作有效的潜在意图坐标、以及从意图族到其对应动作规律族的完整迁移。非对称端点梯度以物理后继状态为根基，并将未来目标固定为锚点，从而在不依赖逐点潜在匹配或全局线性动力学的情况下，将表征学习与控制结合起来。所得坐标支持一个鲁棒的分布型动作规律：其条件均值可直接作为免搜索的策略，同时仍可通过采样获得多样性或进行可选验证。在四个官方LeWM任务上，单轮训练、零搜索模型分别达到85.78%、100.00%、97.67%和97.89%的成功率。以直接规划（Direct plan）为中心的可选局部交叉熵方法（CEM）使用384条（而非9,000条）候选序列即达到96.86%的宏观成功率，采样量减少23.44倍，同时将纯CEM性能提升16.00个百分点。一个共享的四任务编码器达到89.39%的E5直接宏观成功率，并在所有任务上优于联合训练的LeWM，而预测-专家动作族k近邻（kNN）与直接成功率的相关系数达$r=0.954$。直接推理耗时2.9–5.5毫秒。",
       "hf_link": "https://huggingface.co/papers/2607.26056"
     },
-    "2607.28074": {
-      "title": "Echoverse: Deep, Evolving Environments for Training Computer-Use Agents at Scale",
-      "abstract": "Computer-use agents learn from what their actions change, so training one needs applications it can act on, break and reset. The applications that matter most are login-gated and stateful, so synthetic environments stand in for them. Recent pipelines generate such environments in bulk, which moves the bottleneck from how many exist to what is inside each one. The returns, we find, come from three properties: how much behavioural depth an environment carries, whether it targets the interaction an agent actually fails, and whether it improves alongside the model. We present Echoverse, which compiles specifications into stateful applications whose tasks are graded against the application's own database, and a co-evolution loop that reads every graded rollout twice: as repairs to the environment, its tasks and its verifier, and as training signal for the model. Trained on twelve such environments, a 9B model improves from $36.5\\%$ to $67.1\\%$ across fourteen evaluation splits, within fourteen points of the much larger frontier model that taught it. We examine each property in turn. On the same domains, shallow environments push live-site accuracy below the base model ($80.0 \\to 75.0$) while deep ones raise it ($80.0 \\to 85.0$ and $48.0 \\to 65.0$); drilling one interface control across many renderings transfers to held-out widget families and to the open web; and repairing a single environment lifts the model trained on it from $16.2\\%$ to $38.5\\%$. The same worlds serve as reinforcement-learning environments, where a reward combining the grounded verifier with a dense per-step judge raises held-out score from $58.8\\%$ to $68.0\\%$. We release four environments as a benchmark, with their applications, seed data and grounded graders. Code:this https URL",
-      "abstract_zh": "计算机使用智能体从其行为引发的变化中学习，因此训练此类智能体需要可供其操作、破坏与重置的应用程序。最关键的应用通常需要登录认证且具有状态保持特性，因此研究者采用合成环境作为替代方案。近期技术流程实现了批量生成此类环境，这使得瓶颈从环境数量问题转向了每个环境的内涵质量。我们发现，环境效益主要取决于三个特性：环境承载的行为深度、是否针对智能体实际失败的交互场景，以及能否随模型同步优化。本文提出Echoverse系统，该系统可将规范编译成具有状态保持功能的应用程序，其任务难度根据应用程序自身数据库进行分级；同时构建协同进化循环机制，对每个分级推演结果进行双重解读：既作为对环境、任务及其验证器的修复依据，也作为模型的训练信号。通过在十二个此类环境中训练，一个90亿参数模型的评估性能在十四个测试集上从36.5%提升至67.1%，与指导它的前沿超大模型差距缩小至十四个百分点。我们逐项检验了三个特性：相同领域内，浅层环境使实际网站准确率低于基础模型（80.0→75.0），而深层环境则提升准确率（80.0→85.0及48.0→65.0）；跨多种渲染形式训练单一界面控件的技能可迁移至未训练过的组件家族及开放网络；修复单个环境能使基于该环境训练的模型性能从16.2%提升至38.5%。这些环境同样适用于强化学习场景，结合基础验证器与密集逐步评判器的奖励机制将未知任务得分从58.8%提升至68.0%。我们发布了四个环境作为基准测试集，包含对应应用程序、种子数据及基础分级器。代码地址：https://github.com/echoverse/benchmark",
-      "hf_link": "https://huggingface.co/papers/2607.28074"
-    },
     "2607.28374": {
       "title": "LEDGERMIND: Provenance-Constrained Multimodal Agentic Reasoning with a Structured Evidence Ledger",
       "abstract": "Multimodal agents for visual question answering increasingly operate as multi-step trajectories that interleave perception, retrieval, and reasoning, yet evaluation still largely reduces to final-answer accuracy. This aggregate signal cannot tell whether a correct answer was reached through grounded evidence, language priors, or accidental error cancellation. We propose to treat a multimodal agent trajectory as a provenance-constrained state machine: tool outputs are normalized into a Structured Evidence Ledger that serves as the trajectory state, downstream reasoning and decision claims may cite only active ledger entries, grounding is checked at the entity and numeric level, and repair is realized as typed state transitions that cannot introduce content without tool-produced provenance. We instantiate this design as LedgerMind (Provenance-Constrained Multimodal Agentic Reasoning with a Structured Evidence Ledger), augmented by a Three-Layer Grounding Protocol, an Adaptive Dual-Path Dispatcher that matches reasoning depth to question complexity, and an Event-Triggered Verification-and-Repair engine with a formal provenance non-amplification guarantee. We use LedgerMind to target four recurring failure patterns that final-answer accuracy tends to obscure: unsupported intermediate reasoning, citation-backed entity hallucination (Phantom Grounding), over-reasoning on simple queries, and repair-time amplification. Experiments across multiple multimodal reasoning benchmarks and backbone MLLMs show that LedgerMind improves both answer accuracy and trajectory-level faithfulness.",
       "abstract_zh": "面向视觉问答的多模态智能体日益以多步轨迹形式运行，其过程交织着感知、检索与推理，然而评估标准仍主要简化为最终答案的准确性。这种聚合性指标无法揭示正确答案是通过可靠的证据、语言先验还是偶然的误差抵消所获得。我们提出将多模态智能体轨迹视为一个溯源约束的状态机：工具输出被规范化至一个作为轨迹状态的结构化证据账本中，下游推理与决策声明仅能引用当前活跃的账本条目，实体与数值层面的可验证性通过三层验证协议进行检查，而修正过程则被实现为具有类型约束的状态转移，确保不会引入缺乏工具产出溯源依据的内容。我们将这一设计实例化为LedgerMind（基于结构化证据账本的溯源约束多模态智能体推理框架），并辅以三重可验证性协议、一个根据问题复杂度匹配推理深度的自适应双路分发器，以及一个具有形式化溯源非放大保证的事件触发式验证与修复引擎。利用LedgerMind，我们针对最终答案准确性指标常掩盖的四种常见失效模式展开研究：缺乏支持的中间推理、引用支撑的实体幻觉（虚假可验证性）、对简单问题的过度推理以及修复阶段的放大效应。在多个多模态推理基准测试及骨干多模态大语言模型上的实验表明，LedgerMind在提升答案准确性的同时，显著增强了轨迹层面的可信度。",
       "hf_link": "https://huggingface.co/papers/2607.28374"
     },
-    "2607.27652": {
-      "title": "Harness-G: A Graph-Structured Harness for Search Agents",
-      "abstract": "Reinforcement learning (RL) search agents commonly model retrieval as free-form natural-language query generation and optimize multi-turn interactions using final-answer rewards. Current studies mainly improve training with denser or more structured credit signals, but rarely examine whether retrieval is properly formulated at the policy-environment interface. We observe pronounced retrieval aliasing during Search-R1 training: rollouts for the same question continue to generate distinct query strings, yet their accumulated evidence sets increasingly overlap. We call this phenomenon retrieval-equivalence collapse; in this regime, trajectories approach utility equivalence with respect to retrieval decisions, leaving within-group returns with little effective retrieval contrast. To address this problem, we propose Harness-G, a graph-structured retrieval framework that redesigns this interface. It reformulates free-form query generation as finite action selection: the policy selects an evidence sentence or entity, or chooses to answer, while the environment constructs the menu, tracks retrieval state, and validates and executes each choice. This interface reduces linguistic aliasing and makes same-state alternatives directly comparable. Building on this interface, we introduce Structured Non-myopic Credit (SNC), which uses a frozen answer scorer to compare the selected action with its alternatives and assigns downstream gains to the earlier actions that enabled them. Across six QA benchmarks, Harness-G achieves the highest average F1 at both evaluated model scales, outperforming the strongest baseline, Graph-R1, by 10.74 points at 1.5B and 3.98 points at 3B.",
-      "abstract_zh": "强化学习（Reinforcement Learning，RL）搜索代理通常将检索建模为自由形式的自然语言查询生成，并利用最终答案奖励优化多轮交互。当前研究主要通过更密集或更结构化的信用信号改进训练，但鲜少探讨在策略-环境接口层面检索是否被合理构建。我们观察到在Search-R1训练中存在显著的检索混叠现象：针对同一问题的多次运行会持续生成不同的查询字符串，但其所累积的证据集重叠度却逐渐增加。我们将此现象称为检索等价坍缩；在此状态下，轨迹在检索决策方面趋于效用等价，导致组内回报缺乏有效的检索区分度。为解决这一问题，我们提出Harness-G——一种图结构检索框架，重新设计该接口。它将自由形式查询生成重构为有限动作选择：策略选择证据句子或实体，或选择回答；而环境负责构建菜单、跟踪检索状态、验证并执行每个选择。该接口减少了语言混叠，并使同状态下不同备选方案可直接比较。基于此接口，我们引入结构化非近视信用分配（Structured Non-myopic Credit，SNC），利用冻结的答案评分器比较所选动作与备选动作，并将下游收益归因于促成这些结果的前期动作。在六个问答基准测试中，Harness-G在两个评估模型规模下均取得最高平均F1分数，在1.5B和3B参数规模下分别超出最强基线Graph-R1达10.74分和3.98分。",
-      "hf_link": "https://huggingface.co/papers/2607.27652"
-    },
-    "2607.27372": {
-      "title": "Explorative Modeling: Unlocking a Third Pretraining Axis and End-to-End Generation",
-      "abstract": "The deep learning revolution, kicked off by AlexNet, taught us that end-to-end training beats decomposing a problem into hand-designed stages. Generative modeling, however, has remained the exception-despite generative models being remarkably capable, they are still not trained end-to-end. This is because, at its core, generative modeling is about handling distributions with many modes, and existing scalable approaches handle this the same way, by factoring the generation procedure, which prevents end-to-end generation. In this work, we introduce Explorative Modeling, a new paradigm that instead factors the training loop, exploring K candidate matches between model generations and data, and training on the best, so predictions commit to modes rather than blurring them. We find Explorative Models (XMs) useful in two settings. First, increasing exploration adds a third pretraining axis beyond parameters and data for existing generative models-where scaling exploration monotonically improves performance across both continuous and discrete domains (images, video, and language). Notably, gains from exploration increase with scale, climbing from 7% to 36% as data scales and from 13% to 23% as models grow, with efficiency gains more than doubling at 3x the compute. Concretely, exploration improves FLOP efficiency by 4.1x, sample efficiency by 6.2x, parameter efficiency by 47%, lifts the strongest of image-generation recipes to a near-state-of-the-art 1.43 FID on ImageNet without guidance, enables scaling how end-to-end existing models are, and unlocks scaling generalization. Second, XMs enable end-to-end reconstructive generative modeling, matching diffusion on control tasks with 16-256x fewer inference steps. Together, these results establish XMs as both a new pretraining axis for existing generative models and a standalone end-to-end generative modeling paradigm.",
-      "abstract_zh": "由AlexNet开启的深度学习革命告诉我们，端到端训练优于将问题分解为手工设计的阶段。然而，生成式建模（Generative Modeling）却是一个例外——尽管生成模型展现出卓越能力，但它们仍未实现端到端训练。究其核心，生成式建模的关键在于处理具有多模态的分布，而现有可扩展方法均采用相同方式应对这一挑战：通过分解生成过程来规避端到端生成。本文提出探索式建模（Explorative Modeling）这一新范式，其创新之处在于分解训练循环：在模型生成结果与数据之间探索K个候选匹配，并基于最优匹配进行训练，从而使预测结果专注于模态而非模糊化处理。我们发现探索式模型（Explorative Models，XMs）在两种场景中具有重要价值。首先，增强探索为现有生成模型引入了继参数量与数据量之外的第三预训练维度——无论在连续域还是离散域（图像、视频与语言），扩展探索均能持续提升模型性能。值得注意的是，探索带来的性能增益随规模扩大而增强：当数据规模扩展时增益从7%提升至36%，模型增长时增益从13%提升至23%，且计算量增至3倍时效率增益翻倍以上。具体而言，探索将FLOP效率提升4.1倍，样本效率提升6.2倍，参数效率提升47%，使现有最强图像生成方案在无引导条件下达到接近最优的ImageNet 1.43 FID，推动现有模型向端到端范式扩展，并解锁规模化泛化能力。其次，XMs实现了端到端的重构生成建模，在控制任务上以16-256倍更少的推理步数达到与扩散模型相当的性能。这些成果共同确立了XMs作为现有生成模型的新预训练维度，以及独立端到端生成建模范式的双重价值。",
-      "hf_link": "https://huggingface.co/papers/2607.27372"
+    "2607.28074": {
+      "title": "Echoverse: Deep, Evolving Environments for Training Computer-Use Agents at Scale",
+      "abstract": "Computer-use agents learn from what their actions change, so training one needs applications it can act on, break and reset. The applications that matter most are login-gated and stateful, so synthetic environments stand in for them. Recent pipelines generate such environments in bulk, which moves the bottleneck from how many exist to what is inside each one. The returns, we find, come from three properties: how much behavioural depth an environment carries, whether it targets the interaction an agent actually fails, and whether it improves alongside the model. We present Echoverse, which compiles specifications into stateful applications whose tasks are graded against the application's own database, and a co-evolution loop that reads every graded rollout twice: as repairs to the environment, its tasks and its verifier, and as training signal for the model. Trained on twelve such environments, a 9B model improves from $36.5\\%$ to $67.1\\%$ across fourteen evaluation splits, within fourteen points of the much larger frontier model that taught it. We examine each property in turn. On the same domains, shallow environments push live-site accuracy below the base model ($80.0 \\to 75.0$) while deep ones raise it ($80.0 \\to 85.0$ and $48.0 \\to 65.0$); drilling one interface control across many renderings transfers to held-out widget families and to the open web; and repairing a single environment lifts the model trained on it from $16.2\\%$ to $38.5\\%$. The same worlds serve as reinforcement-learning environments, where a reward combining the grounded verifier with a dense per-step judge raises held-out score from $58.8\\%$ to $68.0\\%$. We release four environments as a benchmark, with their applications, seed data and grounded graders. Code:this https URL",
+      "abstract_zh": "计算机使用智能体从其行为引发的变化中学习，因此训练此类智能体需要可供其操作、破坏与重置的应用程序。最关键的应用通常需要登录认证且具有状态保持特性，因此研究者采用合成环境作为替代方案。近期技术流程实现了批量生成此类环境，这使得瓶颈从环境数量问题转向了每个环境的内涵质量。我们发现，环境效益主要取决于三个特性：环境承载的行为深度、是否针对智能体实际失败的交互场景，以及能否随模型同步优化。本文提出Echoverse系统，该系统可将规范编译成具有状态保持功能的应用程序，其任务难度根据应用程序自身数据库进行分级；同时构建协同进化循环机制，对每个分级推演结果进行双重解读：既作为对环境、任务及其验证器的修复依据，也作为模型的训练信号。通过在十二个此类环境中训练，一个90亿参数模型的评估性能在十四个测试集上从36.5%提升至67.1%，与指导它的前沿超大模型差距缩小至十四个百分点。我们逐项检验了三个特性：相同领域内，浅层环境使实际网站准确率低于基础模型（80.0→75.0），而深层环境则提升准确率（80.0→85.0及48.0→65.0）；跨多种渲染形式训练单一界面控件的技能可迁移至未训练过的组件家族及开放网络；修复单个环境能使基于该环境训练的模型性能从16.2%提升至38.5%。这些环境同样适用于强化学习场景，结合基础验证器与密集逐步评判器的奖励机制将未知任务得分从58.8%提升至68.0%。我们发布了四个环境作为基准测试集，包含对应应用程序、种子数据及基础分级器。代码地址：https://github.com/echoverse/benchmark",
+      "hf_link": "https://huggingface.co/papers/2607.28074"
     },
     "2607.26627": {
       "title": "Revisiting Lossy Verification in Speculative Decoding: Mechanisms, Trade-offs, and Failure Modes",
@@ -150,11 +144,47 @@
       "abstract_zh": "推测解码（Speculative Decoding，SD）通过允许轻量级草稿模型（draft model）生成候选词元（tokens），随后由更大的目标模型（target model）并行验证，从而加速大语言模型的推理过程。近期研究引入了有损验证（lossy verification）方案，通过放宽严格的分布匹配要求以进一步提升效率。然而，这种放宽会隐式地改写解码分布，由此带来的加速可能以生成质量不稳定甚至严重下降为代价。本文对有损验证方法所诱导的分布进行了系统性分析。我们发现，许多看似不同的方法仅在表面上存在差异，实际上可分为两类：基于截断的验证（truncation-based verification）与协作验证（collaborative verification）。此外，我们构建了一个基于精选基准的诊断评估框架。对于基于截断的方法，我们揭示了一个根本性缺陷：由于分布扭曲，其性能可能相较于真实的截断采样基线显著下降。对于协作验证，我们发现了一个关键原则：必须控制草稿概率相对于目标概率的过冲（overshoot），以防止生成低质量输出。相关代码已公开于此 https URL。",
       "hf_link": "https://huggingface.co/papers/2607.26627"
     },
+    "2607.26637": {
+      "title": "Filesystem-Based Memory for LLM Agents: Organization, Evolution, and Sustainability",
+      "abstract": "Deployed LLM agents increasingly keep their long-term memory as a filesystem: a directory tree of markdown files that the agent itself reads, writes, and reorganizes through generic file tools. Yet research has largely passed over this medium: prior systems design bespoke memory representations and study retrieval over them, leaving the default's two working assumptions untested: that an agent can keep a growing store organized as memories accumulate, conflict, and go stale, and that this organization pays. We present the first systematic exploration of filesystem-based memory for LLM agents. We formalize the setting as three roles around one memory filesystem: a management agent integrates and organizes incoming content, a search agent answers queries with cited sources, and an execution agent supplies task trajectories that are distilled into skills, unifying declarative memory and skills in a single store. Across long-conversation benchmarks and embodied tasks, we vary memory shape (agent-organized hierarchy, verbatim dump, chunk retrieval), stream scale, tool harness (sandboxed shell, memory-tool-style functions, varied search tooling), and the strengths of the management and search agents, tracking answer quality, cost, and store health as memory grows. What organization reliably buys is search economy: organized stores roughly halve retrieval cost where material is large. Today's agents, however, fall short of the default's promise: in our growth study, organization erodes for all but the strongest management agent, and no agent we measure converts organization itself into better answers. And the model is not the only lever over a store's shape: changing the tool set alone reshapes the store as strongly as swapping the model. The study turns the filesystem default from an assumption into a design space for agent memory.",
+      "abstract_zh": "部署的LLM智能体越来越多地将其长期记忆保存为文件系统：一个由智能体通过通用文件工具自行读写和重组的Markdown文件目录树。然而这一媒介在研究中很大程度上被忽视：先前的系统设计了定制化的记忆表示并针对其进行检索研究，使得这种默认方式的两个工作假设未经检验：一是智能体能够在记忆不断积累、冲突和过期的过程中保持不断增长的存储库的组织性，二是这种组织方式具有实际效益。我们首次对基于文件系统的LLM智能体记忆进行了系统性探索。我们将该场景形式化为围绕单一记忆文件系统的三种角色：管理智能体负责整合与组织输入内容，搜索智能体通过引用源回答查询，执行智能体则提供任务轨迹并提炼为技能——从而将陈述性记忆与技能统一存储于单一存储库中。通过在长对话基准测试和具身任务中，我们变换了记忆形态（智能体组织的层级结构、原始转储、分块检索）、数据流规模、工具配置（沙盒化shell、记忆工具风格函数、多样化搜索工具）以及管理和搜索智能体的能力强度，在记忆增长过程中追踪答案质量、成本及存储库健康度。组织性带来的可靠收益是搜索经济性：在资料规模较大时，有组织的存储库能使检索成本降低约一半。然而当前智能体尚未实现默认方式所承诺的潜力：在我们的增长研究中，除最强管理智能体外，所有系统的组织性均出现退化，且我们测试的所有智能体都未能将组织性本身转化为更优质的答案。模型并非塑造存储形态的唯一杠杆：仅改变工具集对存储形态的重塑作用就与更换模型相当。这项研究将文件系统默认方式从假设转变为智能体记忆的设计空间。",
+      "hf_link": "https://huggingface.co/papers/2607.26637"
+    },
     "2607.27230": {
       "title": "Multi-Head Attention Residuals",
       "abstract": "Transformers propagate information across depth through a single additive residual stream: every sublayer reads only the most recent state. Attention residuals relax this by letting each sublayer attend, through a learned softmax. However, that read uses a single query shared across the entire width, so every feature subspace must read the depth history through one distribution. The cost of this forced compromise grows with how much the subspaces disagree about which layers to read, and disagreement grows with model width. We introduce Multi-Head Attention Residuals (MHAR): the routing query is reshaped into H per-subspace heads, each with its own softmax over the depth history. The read becomes block-diagonal, the reshape adds zero parameters and negligible compute, and H = 1 recovers attention residuals exactly. Trained from scratch on a deduplicated Nemotron-based anneal corpus that is quality-filtered and STEM- and code-heavy, MHAR improves validation loss over a standard Transformer at 100M, 350M, and 1B (-0.061, -0.149, and -0.140). It achieves the best result among four methods in every setting, with the gain increasing from 100M to the larger scales. The head count is a real design axis rather than a free knob: validation loss is U-shaped with respect to H, with a flat optimum at H = 4 or H = 8 across scales. We adopt H = 8 for large-scale models; over-splitting beyond this point (H = 16) consistently gives back part of the gain. A direct probe of the trained queries confirms that learned subspace disagreement is the underlying driver. Fused Triton routing kernels increase attention-residual training throughput from 0.2-0.5x to 0.55-0.88x of the baseline while maintaining near-baseline peak memory. An identity-preserving conversion using delta attention residuals supports 8B mid-training, yielding improvements of +3.2 on GSM8K and +3.1 on GPQA.",
       "abstract_zh": "Transformer通过单一加法残差流在深度维度传播信息：每个子层仅读取最新状态。注意力残差（attention residuals）通过引入可学习的softmax分布使子层能够读取历史状态，从而缓解了这一限制。然而，这种读取机制在整个宽度维度上共享单个查询向量，导致每个特征子空间必须通过同一分布读取深度历史。这种强制妥协的代价随着子空间对读取层选择的分歧程度而增加，而分歧度随模型宽度扩大而加剧。我们提出多头注意力残差（Multi-Head Attention Residuals, MHAR）：将路由查询重塑为H个按子空间划分的头部，每个头部在深度历史维度拥有独立的softmax分布。这种读取方式转化为块对角结构，重塑操作不增加参数且计算开销可忽略，当H=1时完全退化为标准注意力残差。在基于去重Nemotron语料库（经质量过滤且富含STEM与代码内容）上从头训练，MHAR在1亿、3.5亿和10亿参数规模下相较于标准Transformer分别降低验证损失0.061、0.149和0.140。它在四种方法的所有设置中均取得最优结果，且增益随规模扩大而增强。头部数量是实际设计维度而非自由超参：验证损失随H呈U形分布，在各规模下H=4或H=8处存在平坦最优区间。大型模型采用H=8配置；过度拆分（H=16）会持续削弱部分增益。对训练后查询向量的直接探测证实，学习到的子空间分歧是根本驱动因素。融合Triton路由内核将注意力残差的训练吞吐量从基准的0.2-0.5倍提升至0.55-0.88倍，同时保持接近基准的峰值内存。通过增量注意力残差（delta attention residuals）进行恒等保持转换，支持80亿参数规模的中期训练，在GSM8K和GPQA基准上分别提升3.2和3.1分。",
       "hf_link": "https://huggingface.co/papers/2607.27230"
+    },
+    "2607.27652": {
+      "title": "Harness-G: A Graph-Structured Harness for Search Agents",
+      "abstract": "Reinforcement learning (RL) search agents commonly model retrieval as free-form natural-language query generation and optimize multi-turn interactions using final-answer rewards. Current studies mainly improve training with denser or more structured credit signals, but rarely examine whether retrieval is properly formulated at the policy-environment interface. We observe pronounced retrieval aliasing during Search-R1 training: rollouts for the same question continue to generate distinct query strings, yet their accumulated evidence sets increasingly overlap. We call this phenomenon retrieval-equivalence collapse; in this regime, trajectories approach utility equivalence with respect to retrieval decisions, leaving within-group returns with little effective retrieval contrast. To address this problem, we propose Harness-G, a graph-structured retrieval framework that redesigns this interface. It reformulates free-form query generation as finite action selection: the policy selects an evidence sentence or entity, or chooses to answer, while the environment constructs the menu, tracks retrieval state, and validates and executes each choice. This interface reduces linguistic aliasing and makes same-state alternatives directly comparable. Building on this interface, we introduce Structured Non-myopic Credit (SNC), which uses a frozen answer scorer to compare the selected action with its alternatives and assigns downstream gains to the earlier actions that enabled them. Across six QA benchmarks, Harness-G achieves the highest average F1 at both evaluated model scales, outperforming the strongest baseline, Graph-R1, by 10.74 points at 1.5B and 3.98 points at 3B.",
+      "abstract_zh": "强化学习（Reinforcement Learning，RL）搜索代理通常将检索建模为自由形式的自然语言查询生成，并利用最终答案奖励优化多轮交互。当前研究主要通过更密集或更结构化的信用信号改进训练，但鲜少探讨在策略-环境接口层面检索是否被合理构建。我们观察到在Search-R1训练中存在显著的检索混叠现象：针对同一问题的多次运行会持续生成不同的查询字符串，但其所累积的证据集重叠度却逐渐增加。我们将此现象称为检索等价坍缩；在此状态下，轨迹在检索决策方面趋于效用等价，导致组内回报缺乏有效的检索区分度。为解决这一问题，我们提出Harness-G——一种图结构检索框架，重新设计该接口。它将自由形式查询生成重构为有限动作选择：策略选择证据句子或实体，或选择回答；而环境负责构建菜单、跟踪检索状态、验证并执行每个选择。该接口减少了语言混叠，并使同状态下不同备选方案可直接比较。基于此接口，我们引入结构化非近视信用分配（Structured Non-myopic Credit，SNC），利用冻结的答案评分器比较所选动作与备选动作，并将下游收益归因于促成这些结果的前期动作。在六个问答基准测试中，Harness-G在两个评估模型规模下均取得最高平均F1分数，在1.5B和3B参数规模下分别超出最强基线Graph-R1达10.74分和3.98分。",
+      "hf_link": "https://huggingface.co/papers/2607.27652"
+    },
+    "2607.27958": {
+      "title": "$Σ$-Mem: An Online Reliability Memory for LLM-based Multi-Agent Systems",
+      "abstract": "Memory is central to long-horizon LLM agents, yet existing memory systems primarily preserve interaction content rather than modeling which agents can be trusted and under what conditions. This limitation is particularly important in multi-agent systems, where a central model may be unable to directly verify plausible or correlated peer responses. We introduce $\\Sigma$-Mem, an online reliability memory that records historical competence evidence for individual peers and peer relationship evidence across the peer set. Both forms of evidence are maintained as real symmetric states and updated from post-decision correctness feedback. By Weyl's inequality, the spectral change caused by each event-level update is bounded, enabling stable online adaptation without retraining the underlying models. $\\Sigma$-Mem provides a general write-and-read interface: the same memory can be used for residual steering of a central model, response-free peer routing, or reliability-weighted voting. Across five Qwen-family models, $\\Sigma$-Mem adapts to counterfactual reliability shifts and generalizes to unseen peers and task domains. Direct memory readouts also outperform majority voting and the best fixed peer over the full OOD evaluation set. Moreover, performance improves consistently as more correctness feedback becomes available, indicating that $\\Sigma$-Mem progressively accumulates actionable reliability information. These results establish reliability memory as a reusable foundation for adaptive coordination in LLM-based multi-agent systems.",
+      "abstract_zh": "记忆在长视野LLM智能体中居于核心地位，但现有记忆系统主要保存交互内容，而未建模哪些智能体值得信任及其适用条件。这一局限在多智能体系统中尤为重要，因为中心模型可能无法直接验证看似合理或相互关联的同伴响应。我们提出$\\Sigma$-Mem——一种在线可靠性记忆系统，可记录个体同伴的历史能力证据及同伴集合内的关系证据。两种证据均以实对称状态保存，并通过决策后正确性反馈进行更新。根据韦伊不等式(Weyl's inequality)，事件级更新引起的谱变化存在上界，使得系统能在无需重训练底层模型的情况下实现稳定的在线适应。$\\Sigma$-Mem提供通用的读写接口：同一记忆既可用于中心模型的残差引导，也可用于免响应同伴路由或可靠性加权投票。在五个Qwen系列模型的测试中，$\\Sigma$-Mem能适应反事实的可靠性变迁，并泛化至未见过的同伴和任务领域。直接记忆读取出在完整OOD评估集上的表现优于多数投票法和最佳固定同伴。随着更多正确性反馈的积累，系统性能持续提升，表明$\\Sigma$-Mem正在逐步积累可操作的可靠性信息。这些结果证实了可靠性记忆可作为基于LLM的多智能体系统中自适应协调的可复用基础架构。",
+      "hf_link": "https://huggingface.co/papers/2607.27958"
+    },
+    "2607.27372": {
+      "title": "Explorative Modeling: Unlocking a Third Pretraining Axis and End-to-End Generation",
+      "abstract": "The deep learning revolution, kicked off by AlexNet, taught us that end-to-end training beats decomposing a problem into hand-designed stages. Generative modeling, however, has remained the exception-despite generative models being remarkably capable, they are still not trained end-to-end. This is because, at its core, generative modeling is about handling distributions with many modes, and existing scalable approaches handle this the same way, by factoring the generation procedure, which prevents end-to-end generation. In this work, we introduce Explorative Modeling, a new paradigm that instead factors the training loop, exploring K candidate matches between model generations and data, and training on the best, so predictions commit to modes rather than blurring them. We find Explorative Models (XMs) useful in two settings. First, increasing exploration adds a third pretraining axis beyond parameters and data for existing generative models-where scaling exploration monotonically improves performance across both continuous and discrete domains (images, video, and language). Notably, gains from exploration increase with scale, climbing from 7% to 36% as data scales and from 13% to 23% as models grow, with efficiency gains more than doubling at 3x the compute. Concretely, exploration improves FLOP efficiency by 4.1x, sample efficiency by 6.2x, parameter efficiency by 47%, lifts the strongest of image-generation recipes to a near-state-of-the-art 1.43 FID on ImageNet without guidance, enables scaling how end-to-end existing models are, and unlocks scaling generalization. Second, XMs enable end-to-end reconstructive generative modeling, matching diffusion on control tasks with 16-256x fewer inference steps. Together, these results establish XMs as both a new pretraining axis for existing generative models and a standalone end-to-end generative modeling paradigm.",
+      "abstract_zh": "由AlexNet开启的深度学习革命告诉我们，端到端训练优于将问题分解为手工设计的阶段。然而，生成式建模（Generative Modeling）却是一个例外——尽管生成模型展现出卓越能力，但它们仍未实现端到端训练。究其核心，生成式建模的关键在于处理具有多模态的分布，而现有可扩展方法均采用相同方式应对这一挑战：通过分解生成过程来规避端到端生成。本文提出探索式建模（Explorative Modeling）这一新范式，其创新之处在于分解训练循环：在模型生成结果与数据之间探索K个候选匹配，并基于最优匹配进行训练，从而使预测结果专注于模态而非模糊化处理。我们发现探索式模型（Explorative Models，XMs）在两种场景中具有重要价值。首先，增强探索为现有生成模型引入了继参数量与数据量之外的第三预训练维度——无论在连续域还是离散域（图像、视频与语言），扩展探索均能持续提升模型性能。值得注意的是，探索带来的性能增益随规模扩大而增强：当数据规模扩展时增益从7%提升至36%，模型增长时增益从13%提升至23%，且计算量增至3倍时效率增益翻倍以上。具体而言，探索将FLOP效率提升4.1倍，样本效率提升6.2倍，参数效率提升47%，使现有最强图像生成方案在无引导条件下达到接近最优的ImageNet 1.43 FID，推动现有模型向端到端范式扩展，并解锁规模化泛化能力。其次，XMs实现了端到端的重构生成建模，在控制任务上以16-256倍更少的推理步数达到与扩散模型相当的性能。这些成果共同确立了XMs作为现有生成模型的新预训练维度，以及独立端到端生成建模范式的双重价值。",
+      "hf_link": "https://huggingface.co/papers/2607.27372"
+    },
+    "2607.28627": {
+      "title": "ReToken: One Token to Improve Vision-Language Models for Visual Retrieval",
+      "abstract": "Long visual context poses a challenge for vision-language models: performance degrades as the number of distractors grows, and processing all tokens at once is computationally infeasible under GPU memory constraints. We present ReToken, a single learnable embedding trained as an explicit retrieval target that selects a sparse set of query-relevant visual tokens from a pre-filled visual KV cache. Trained on only a small image-QA dataset, ReToken yields consistent gains across image and video benchmarks: on Visual Haystacks it improves Qwen3VL-8B by 13.4 points and InternVL3.5 by 12.4 points (>20% relative), and on LVBench it transfers zero-shot to long video for an 8.0-point gain with Qwen3VL-8B. Thanks to its lightweight design, both training and long-video inference fit on a single H100. Code is available at:this https URL",
+      "abstract_zh": "长视觉上下文对视觉语言模型构成挑战：随着干扰物数量增加，模型性能会下降，且在GPU内存限制下一次性处理所有token在计算上不可行。我们提出了ReToken——一种可学习的嵌入表示，通过训练成为显式检索目标，能够从预填充的视觉键值缓存中筛选出与查询相关的稀疏视觉token集合。仅在小型图像问答数据集上训练后，ReToken在图像与视频基准测试中均取得稳定提升：在Visual Haystacks任务中，将Qwen3VL-8B模型性能提升13.4分，InternVL3.5模型提升12.4分（相对提升超20%）；在LVBench测试中，该方法零样本迁移至长视频任务，使Qwen3VL-8B获得8.0分的性能增益。得益于其轻量化设计，训练与长视频推理均可在一张H100显卡上完成。代码已发布于：此https链接。",
+      "hf_link": "https://huggingface.co/papers/2607.28627"
+    },
+    "2607.28319": {
+      "title": "Fairness Pruning: Locating Demographic Bias in GLU-MLP Layers via Differential Activations",
+      "abstract": "This work presents Fairness Pruning, a lightweight structural intervention method designed for the management and future mitigation of demographic bias in large language models (LLMs). As a foundational empirical validation of this method, this work focuses on causal bias localization. Using minimally contrastive prompt pairs and inference-time activation capture, the method identifies neurons that react differentially when processing demographic attributes in GLU architectures, evaluating the signal at the down_proj input. Empirical evaluation was conducted on models of up to 3 billion parameters (Llama-3.2 family and Salamandra-2B), combining standardized benchmark evaluation with qualitative text generation experiments. Results demonstrate that zeroing the identified neurons alters how the model responds to associated demographic variables. However, rather than producing flat mitigation, the intervention causes bidirectional bias destabilization: because BiasScore is unsigned, candidate sets mix neurons that push toward and against the stereotype, and the net effect on aggregate bias depends on which sign dominates. The intervention is extremely surgical: zeroing at most 40 neurons in Llama-3.2-1B (less than 0.031% of total MLP width) achieves a mean retention of 99.49% in reasoning and general knowledge capabilities. These findings empirically confirm that demographic bias processing and model capabilities operate on dissociable circuits, establishing the methodological foundations for transitioning from blind zeroing toward directional behavior modulation.",
+      "abstract_zh": "本研究提出了公平性剪枝(Fairness Pruning)——一种轻量级结构化干预方法，旨在管理并前瞻性缓解大语言模型(LLMs)中的人口统计偏差。作为该方法的基础性实证验证，本研究聚焦于因果偏差定位。通过使用最小对比提示对和推理时激活捕获，该方法在GLU架构中识别出在处理人口统计属性时产生差异化反应的神经元，并在down_proj输入处评估信号。我们在参数规模高达30亿的模型（Llama-3.2系列和Salamandra-2B）上进行了实证评估，结合标准化基准测试与定性文本生成实验。结果表明，将识别出的神经元归零会改变模型对相关人口统计变量的响应方式。然而，这种干预并未产生单一的缓解效果，而是引发了双向偏差失稳：由于偏差分数(BiasScore)是无符号量，候选神经元集合同时包含强化和削弱刻板印象的神经元，对整体偏差的净效应取决于主导作用的符号方向。该干预具有极高的精准性：在Llama-3.2-1B中最多归零40个神经元（不足MLP总宽度的0.031%），即可实现推理与常识能力的平均保持率达99.49%。这些发现实证证实了人口统计偏差处理与模型能力运行于可分离的神经回路，为从盲目归零转向定向行为调控奠定了方法论基础。",
+      "hf_link": "https://huggingface.co/papers/2607.28319"
     },
     "2607.20891": {
       "title": "Is Deep Research Reliable? Misleading Knowledge Induces False Conclusions",
@@ -168,69 +198,79 @@
       "abstract_zh": "本文提出了AI Tour Meeting，一种由多个基于大语言模型（Large Language Model, LLM）的智能体驱动的群体旅行规划框架。这些智能体被赋予不同的角色设定，并通过自然语言讨论协同寻找满足其约束条件和偏好的行程方案。该框架提供了用于配置智能体角色、讨论流程、监控及LLM部署的接口，从而能够便捷灵活地编排此类讨论。其主要应用场景是作为一个模拟工具，用于分析多个LLM智能体在旅行规划讨论中的行为。本文通过展示系统的验证结果以及利用该框架获得的若干分析结论，论证了该框架的实用性。",
       "hf_link": "https://huggingface.co/papers/2607.18806"
     },
-    "2607.28627": {
-      "title": "ReToken: One Token to Improve Vision-Language Models for Visual Retrieval",
-      "abstract": "Long visual context poses a challenge for vision-language models: performance degrades as the number of distractors grows, and processing all tokens at once is computationally infeasible under GPU memory constraints. We present ReToken, a single learnable embedding trained as an explicit retrieval target that selects a sparse set of query-relevant visual tokens from a pre-filled visual KV cache. Trained on only a small image-QA dataset, ReToken yields consistent gains across image and video benchmarks: on Visual Haystacks it improves Qwen3VL-8B by 13.4 points and InternVL3.5 by 12.4 points (>20% relative), and on LVBench it transfers zero-shot to long video for an 8.0-point gain with Qwen3VL-8B. Thanks to its lightweight design, both training and long-video inference fit on a single H100. Code is available at:this https URL",
-      "abstract_zh": "长视觉上下文对视觉语言模型构成挑战：随着干扰物数量增加，模型性能会下降，且在GPU内存限制下一次性处理所有token在计算上不可行。我们提出了ReToken——一种可学习的嵌入表示，通过训练成为显式检索目标，能够从预填充的视觉键值缓存中筛选出与查询相关的稀疏视觉token集合。仅在小型图像问答数据集上训练后，ReToken在图像与视频基准测试中均取得稳定提升：在Visual Haystacks任务中，将Qwen3VL-8B模型性能提升13.4分，InternVL3.5模型提升12.4分（相对提升超20%）；在LVBench测试中，该方法零样本迁移至长视频任务，使Qwen3VL-8B获得8.0分的性能增益。得益于其轻量化设计，训练与长视频推理均可在一张H100显卡上完成。代码已发布于：此https链接。",
-      "hf_link": "https://huggingface.co/papers/2607.28627"
-    },
     "2607.25289": {
       "title": "AMRD: Adaptive Multi-Teacher Relational Distillation for Lightweight Speech Emotion Recognition",
       "abstract": "On-device speech emotion recognition (SER) is critical for real-time applications, yet large self-supervised models that excel at SER are too costly for edge devices. Multi-teacher knowledge distillation can compress them into a lightweight student, but two challenges remain: teacher reliability varies across batches, and logit-level distillation ignores inter-sample relational structure. We propose Adaptive Multi-teacher Relational Distillation (AMRD) to address both. A one-class SVM on each teacher's logit similarity matrix assigns per-batch weights favoring more coherent teachers. A relational distillation loss aligns teacher and student similarity matrices, capturing structure that logit matching misses. On IEMOCAP and CREMA-D datasets across four student architectures, AMRD outperforms single-teacher distillation baselines in most settings, and ablations confirm both components yield complementary gains.",
       "abstract_zh": "设备端语音情感识别（SER）对于实时应用至关重要，然而擅长SER的大型自监督模型在边缘设备上运行成本过高。多教师知识蒸馏技术可将其压缩为轻量级学生模型，但仍面临两大挑战：教师的可靠性在不同批次间存在差异，且基于对数（logit）的蒸馏忽略了样本间的关系结构。为此，我们提出自适应多教师关系蒸馏（Adaptive Multi-teacher Relational Distillation，AMRD）以同时应对这两个问题。该方法通过在每个教师的对数相似度矩阵上应用单类支持向量机（one-class SVM），为每批次分配权重，以偏向输出更一致的教师。同时，通过关系蒸馏损失函数对齐教师与学生模型的相似度矩阵，从而捕捉对数匹配所忽略的结构信息。在IEMOCAP和CREMA-D数据集上，针对四种学生模型架构的测试表明，AMRD在多数场景下优于单教师蒸馏基线；消融实验进一步验证了其两个核心组件具有互补增益效果。",
       "hf_link": "https://huggingface.co/papers/2607.25289"
+    },
+    "2607.16922": {
+      "title": "Pedestrian Archetypes Extension -- More Pedestrian Models for Autonomous Vehicle Safety Testing",
+      "abstract": "In our prior work, Pedestrian Archetypes, we defined pedestrian archetypes as collections of behaviors that uniquely identify a specific type of pedestrian. The first paper proposed 12 pedestrian archetypes, including the Wanderer, Drunk, Distracted, Flash, Indecisive, Blind, Flock, Jaywalker, Elderly, Kid, Eventful, and Parked Pedestrian. These archetypes were introduced to move beyond single behavior labels and provide a more natural way to describe how dangerous pedestrians actually behave progressively in real-world traffic scenarios. However, upon further annotation of YouTube dash-cam videos, we identified 7 additional pedestrian archetypes with observable and significant behavioral differences from the previously proposed ones. These new archetypes capture pedestrian behavior patterns that could not be fully explained by the original taxonomy. In this pre-print, we introduce each new archetype, define its essential and optional behaviors, explain how it differs from previously proposed archetypes, and provide video-frame evidence showing the archetype in action.",
+      "abstract_zh": "在我们先前的研究《行人原型》中，我们将行人原型定义为能够唯一识别特定行人类型的行为集合。首篇论文提出了12种行人原型，包括漫游者（Wanderer）、醉酒者（Drunk）、分心者（Distracted）、疾行者（Flash）、犹豫者（Indecisive）、盲视者（Blind）、群体行人（Flock）、乱穿马路者（Jaywalker）、老年人（Elderly）、儿童（Kid）、事件相关行人（Eventful）以及驻留行人（Parked Pedestrian）。这些原型的提出旨在超越单一行为标签，以更自然的方式描述行人在真实交通场景中逐步呈现的实际危险行为。然而，通过对YouTube行车记录仪视频的进一步标注，我们发现了7种新的行人原型，它们与先前提出的原型在行为上存在显著且可观测的差异。这些新原型捕捉了原有分类体系无法完全解释的行人行为模式。在本预印本中，我们逐一介绍了每种新原型，定义了其核心及可选行为，阐释了其与既有原型的区别，并提供了展示原型行为模式的视频帧证据。",
+      "hf_link": "https://huggingface.co/papers/2607.16922"
     }
   },
   "hf_votes": {
+    "2607.28227": 0,
     "2607.28624": 0,
-    "2607.28568": 0,
     "2607.26760": 0,
+    "2607.28568": 0,
     "2607.28618": 0,
     "2607.27380": 0,
     "2607.28595": 0,
+    "2607.27919": 0,
     "2607.26497": 0,
     "2607.27616": 0,
     "2607.28625": 0,
-    "2607.28227": 0,
-    "2607.27919": 0,
     "2607.28022": 0,
     "2607.27816": 0,
     "2607.28509": 0,
     "2607.27703": 0,
-    "2607.28272": 0,
     "2607.28362": 0,
+    "2607.26769": 0,
+    "2607.28272": 0,
     "2607.28410": 0,
     "2607.28611": 0,
     "2607.26056": 0,
-    "2607.28074": 0,
     "2607.28374": 0,
-    "2607.27652": 0,
-    "2607.27372": 0,
+    "2607.28074": 0,
     "2607.26627": 0,
+    "2607.26637": 0,
     "2607.27230": 0,
+    "2607.27652": 0,
+    "2607.27958": 0,
+    "2607.27372": 0,
+    "2607.28627": 0,
+    "2607.28319": 0,
     "2607.20891": 0,
     "2607.18806": 0,
-    "2607.28627": 0,
-    "2607.25289": 0
+    "2607.25289": 0,
+    "2607.16922": 0
   },
   "focus_sections": {
     "3D生成与重建": []
   },
   "summaries": {
+    "2607.28227": {
+      "short_zh": "QwenUI智能体技术报告面向下一代现实中心基础图形用户界面智能体",
+      "tags": "人机交互;智能体;图形用户界面智能体",
+      "body_summary": "图形用户界面智能体有望成为操作现有数字设备的通用执行器，需提升其在实际设备上的可靠性、跨平台执行工作流等能力，以迈向实际应用。\n提出了Qwen-UI-Agent，这是一个涵盖移动、计算机、网页和深度搜索环境的现实中心基础图形用户界面智能体，它整合了多样化的沙箱环境与大规模真实移动设备运行时，并通过自动化数据飞轮和在线强化学习等方法进行训练，在多项基准测试中取得了先进或具有竞争力的性能。"
+    },
     "2607.28624": {
       "short_zh": "用物理语言建模世界演变",
       "tags": "世界模型;视频预测;物理语言推理",
       "body_summary": "现有视觉世界模型在像素空间预测视频，世界动态是隐含的。\n我们提出了PhiZero，它先推理出用物理语言描述的未来状态序列，再渲染成视频，在多个任务上验证了其物理一致性和应用潜力。"
     },
-    "2607.28568": {
-      "short_zh": "训练AI自主改进机器学习工程",
-      "tags": "机器学习工程;AI辅助AI研究;递归自我改进模型",
-      "body_summary": "研究AI系统如何自主改进AI构建过程，以机器学习工程为具体测试场景。\n开发了OpenMLE系统，训练了Frontis-MA1模型，通过组合程序演化算子进行长程搜索，在多项基准测试中显著提升了性能。"
-    },
     "2607.26760": {
       "short_zh": "构建具有原生记忆能力的基础模型",
       "tags": "基础模型;智能体记忆;原生记忆机制",
       "body_summary": "当前AI智能体仍依赖外部模块实现记忆功能，基础模型本身缺乏原生记忆能力。\n我们提出首个记忆基础模型Metis，通过模型内持久记忆状态与原生计算机制，实现信息的自主存储与调用。"
+    },
+    "2607.28568": {
+      "short_zh": "训练AI自主改进机器学习工程",
+      "tags": "机器学习工程;AI辅助AI研究;递归自我改进模型",
+      "body_summary": "研究AI系统如何自主改进AI构建过程，以机器学习工程为具体测试场景。\n开发了OpenMLE系统，训练了Frontis-MA1模型，通过组合程序演化算子进行长程搜索，在多项基准测试中显著提升了性能。"
     },
     "2607.28618": {
       "short_zh": "化学文献按声明检索系统",
@@ -247,6 +287,11 @@
       "tags": "计算机视觉;多模态学习;智能体视觉推理",
       "body_summary": "针对多模态大语言模型在复杂视觉任务中工具使用不当导致效率低下和性能不佳的问题。\n提出了Beacon模型，通过自适应奖励和能力扩展机制，提升模型在必要时使用工具的能力，从而在多项基准测试中实现更强的整体性能和更优的工具使用效果。"
     },
+    "2607.27919": {
+      "short_zh": "语言模型参数化长时记忆扩展",
+      "tags": "自然语言处理;语言模型架构;参数化长时记忆",
+      "body_summary": "背景是仅解码器语言模型难以独立扩展长时记忆能力。\n本研究将参数化记忆模块扩展到69亿参数规模并进行了大规模预训练，证明了其比单纯放大基础模型更具参数效率。"
+    },
     "2607.26497": {
       "short_zh": "检索增强生成范式扩展对比研究",
       "tags": "自然语言处理;信息检索;检索增强生成扩展性",
@@ -261,16 +306,6 @@
       "short_zh": "构建家庭环境多模态人机交互数据集",
       "tags": "具身智能;人机交互;多模态感知与行为建模",
       "body_summary": "现有具身智能数据集在视角、模态和空间尺度上存在割裂，难以完整捕捉人在真实家庭环境中完成目标时感知与动作协同演化的闭环。\n我们提出了环境捕捉引擎和数据集，通过构建家庭录制室同步采集多视角视频、全身与手部运动、物体轨迹、音频及触觉等多模态数据，并基于此创建了一个包含丰富交互场景的大规模基准。"
-    },
-    "2607.28227": {
-      "short_zh": "QwenUI智能体技术报告面向下一代现实中心基础图形用户界面智能体",
-      "tags": "人机交互;智能体;图形用户界面智能体",
-      "body_summary": "图形用户界面智能体有望成为操作现有数字设备的通用执行器，需提升其在实际设备上的可靠性、跨平台执行工作流等能力，以迈向实际应用。\n提出了Qwen-UI-Agent，这是一个涵盖移动、计算机、网页和深度搜索环境的现实中心基础图形用户界面智能体，它整合了多样化的沙箱环境与大规模真实移动设备运行时，并通过自动化数据飞轮和在线强化学习等方法进行训练，在多项基准测试中取得了先进或具有竞争力的性能。"
-    },
-    "2607.27919": {
-      "short_zh": "语言模型参数化长时记忆扩展",
-      "tags": "自然语言处理;语言模型架构;参数化长时记忆",
-      "body_summary": "背景是仅解码器语言模型难以独立扩展长时记忆能力。\n本研究将参数化记忆模块扩展到69亿参数规模并进行了大规模预训练，证明了其比单纯放大基础模型更具参数效率。"
     },
     "2607.28022": {
       "short_zh": "策略蒸馏中的动态上下文优化",
@@ -292,15 +327,20 @@
       "tags": "计算机视觉;视觉语言模型;空间推理与工具学习",
       "body_summary": "视觉语言模型在具身智能中因感知细节与任务决策能力不匹配而受限。\n提出SpatialCLI框架，先让模型学会使用空间工具，再内化其能力以提升空间推理。"
     },
-    "2607.28272": {
-      "short_zh": "大模型记忆增强新方法",
-      "tags": "自然语言处理;智能体与强化学习;记忆重构增强",
-      "body_summary": "现有记忆增强智能体将检索到的经验视为静态记录直接回放，常因情境不匹配导致负迁移。\n我们提出MemHarness框架，通过训练智能体对检索记忆进行批判性重构以适应当前情境，从而提升决策性能与泛化能力。"
-    },
     "2607.28362": {
       "short_zh": "用视频及其影子学习统一动态以控制世界模型",
       "tags": "计算机视觉;视频理解;交互式世界模型动作控制",
       "body_summary": "现有方法难以通过视频演示精确控制视频世界模型中的多样化动态行为，因为视频仅展示了特定外观下的动态，导致动作迁移性差。\n提出ShadowDancer方法，通过构建展示相同动态但外观不同的“影子对”视频，并训练模型进行跨影子预测，从而学习到与外观无关的统一动态表示，实现了无需额外标注即可将任何演示动作迁移到新场景的精确控制。"
+    },
+    "2607.26769": {
+      "short_zh": "探究多模态模型是否真用视觉中间态",
+      "tags": "多模态模型;视觉推理;视觉中间态评测",
+      "body_summary": "多模态大语言模型常使用草图、注释等视觉中间状态进行推理，但尚不清楚它们是否真正依赖这些状态进行思考。\n作者提出了See2Think评估框架，通过包含多样化视觉问题的评测基准和记录推理过程的方法，发现视觉推理能力高度依赖模型和环境，且忠实呈现视觉状态是主要瓶颈。"
+    },
+    "2607.28272": {
+      "short_zh": "大模型记忆增强新方法",
+      "tags": "自然语言处理;智能体与强化学习;记忆重构增强",
+      "body_summary": "现有记忆增强智能体将检索到的经验视为静态记录直接回放，常因情境不匹配导致负迁移。\n我们提出MemHarness框架，通过训练智能体对检索记忆进行批判性重构以适应当前情境，从而提升决策性能与泛化能力。"
     },
     "2607.28410": {
       "short_zh": "大模型处理大额订单执行",
@@ -317,35 +357,55 @@
       "tags": "机器学习;世界模型;意图到动作学习",
       "body_summary": "现有前向潜在世界模型需通过昂贵搜索才能根据目标变化反向确定动作\n提出INTACT模型，通过同构架构直接学习意图到动作的映射，实现无需搜索的策略生成"
     },
-    "2607.28074": {
-      "short_zh": "训练计算机使用智能体的仿真环境",
-      "tags": "强化学习;智能体训练;环境构建",
-      "body_summary": "训练计算机使用智能体需要能交互、可重置的应用程序环境，但关键应用（需登录、有状态）难以直接获取。\n我们提出了Echoverse，它能将规格编译成有状态的应用程序，并设计了一个协同进化循环，通过评估智能体的操作轨迹来同时改进环境和模型，大幅提升了模型在真实网站上的任务完成率。"
-    },
     "2607.28374": {
       "short_zh": "为多模态智能体构建可溯源推理框架",
       "tags": "多模态人工智能;智能体推理;视觉问答可解释性",
       "body_summary": "当前多模态智能体在视觉问答中常通过多步骤轨迹进行感知与推理，但仅凭最终答案准确性无法判断推理是否基于可靠证据。\n我们提出了LedgerMind框架，通过结构化证据账本约束推理轨迹，确保每一步结论均有据可查，并设计了多层验证机制来提升答案准确性和推理过程的可信度。"
     },
-    "2607.27652": {
-      "short_zh": "改进搜索智能体的检索框架",
-      "tags": "自然语言处理;信息检索;强化学习检索代理",
-      "body_summary": "现有强化学习搜索代理通常将检索视为自由文本查询生成，但会导致检索决策模糊化、轨迹效用趋同的问题。\n本论文提出了一个图结构检索框架，将自由查询生成转化为有限动作选择，并设计了结构化非近视信用分配方法，在多个问答基准上取得了显著性能提升。"
-    },
-    "2607.27372": {
-      "short_zh": "探索建模新范式提升生成模型效能",
-      "tags": "生成模型;模型训练;探索式训练",
-      "body_summary": "现有生成模型训练因需处理多模态分布而无法端到端，性能受限。\n提出探索建模新范式，通过优化训练循环实现高效端到端生成，提升现有模型性能并拓展应用。"
+    "2607.28074": {
+      "short_zh": "训练计算机使用智能体的仿真环境",
+      "tags": "强化学习;智能体训练;环境构建",
+      "body_summary": "训练计算机使用智能体需要能交互、可重置的应用程序环境，但关键应用（需登录、有状态）难以直接获取。\n我们提出了Echoverse，它能将规格编译成有状态的应用程序，并设计了一个协同进化循环，通过评估智能体的操作轨迹来同时改进环境和模型，大幅提升了模型在真实网站上的任务完成率。"
     },
     "2607.26627": {
       "short_zh": "损失验证在推测解码中的研究",
       "tags": "自然语言处理;大语言模型推理;推测解码损失验证",
       "body_summary": "推测解码用轻量草稿模型加速大语言模型推理，但引入损失验证可能降低生成质量。\n系统分析损失验证的分布影响，将其分为截断和协作验证，揭示性能下降原因与控制关键。"
     },
+    "2607.26637": {
+      "short_zh": "大模型智能体文件系统记忆研究",
+      "tags": "自然语言处理;智能体系统;文件系统记忆管理",
+      "body_summary": "当前大模型智能体普遍使用文件系统存储长期记忆，但这一默认方式的有效性尚未得到系统研究。\n本文首次系统探索文件系统记忆，分析了不同组织形式、规模与工具对记忆健康与任务表现的影响，揭示了其作为设计空间的潜力。"
+    },
     "2607.27230": {
       "short_zh": "多头注意力残差改进Transformer",
       "tags": "自然语言处理;神经语言模型;Transformer结构优化",
       "body_summary": "标准Transformer只在层间传递单一残差流，限制了信息跨层路由的灵活性。\n提出了多头注意力残差机制，让每个子空间独立学习深度历史路由，在多个规模上提升了模型性能。"
+    },
+    "2607.27652": {
+      "short_zh": "改进搜索智能体的检索框架",
+      "tags": "自然语言处理;信息检索;强化学习检索代理",
+      "body_summary": "现有强化学习搜索代理通常将检索视为自由文本查询生成，但会导致检索决策模糊化、轨迹效用趋同的问题。\n本论文提出了一个图结构检索框架，将自由查询生成转化为有限动作选择，并设计了结构化非近视信用分配方法，在多个问答基准上取得了显著性能提升。"
+    },
+    "2607.27958": {
+      "short_zh": "在线可靠性记忆助力大模型多智能体系统",
+      "tags": "自然语言处理；智能体与多智能体系统；多智能体可靠性记忆",
+      "body_summary": "现有大模型多智能体系统的记忆机制主要保存交互内容，缺乏对智能体可信度与适用条件的建模，难以在无法直接验证同伴响应的场景中实现可靠协调。\n本文提出Σ-Mem，一种在线可靠性记忆，通过记录个体同伴的历史能力证据与同伴间关系证据，并基于决策后正确性反馈在线更新，为多智能体系统提供无需重训练的稳定可靠性评估，支持中心模型残差引导、无响应同伴路由及可靠性加权投票等多种协调机制。"
+    },
+    "2607.27372": {
+      "short_zh": "探索建模新范式提升生成模型效能",
+      "tags": "生成模型;模型训练;探索式训练",
+      "body_summary": "现有生成模型训练因需处理多模态分布而无法端到端，性能受限。\n提出探索建模新范式，通过优化训练循环实现高效端到端生成，提升现有模型性能并拓展应用。"
+    },
+    "2607.28627": {
+      "short_zh": "视觉检索的稀疏标记选择方法",
+      "tags": "计算机视觉;多模态学习;视觉语言检索",
+      "body_summary": "长视觉上下文导致模型性能下降且计算负担重，现有方法难以兼顾。\n提出可学习的ReToken嵌入，从视觉缓存中稀疏选择相关标记，小数据集训练即提升多基准表现。"
+    },
+    "2607.28319": {
+      "short_zh": "定位大模型中偏见神经元",
+      "tags": "自然语言处理;公平性与偏差;神经元级偏见定位",
+      "body_summary": "当前大模型存在处理人口属性时的偏见问题，需要精准定位偏见位置。\n提出Fairness Pruning方法，通过激活差异识别并干预GLU层中与偏见相关的少量神经元，在基本保留模型能力的同时改变其对人口属性的响应。"
     },
     "2607.20891": {
       "short_zh": "深度研究可靠性受误导信息影响",
@@ -357,15 +417,15 @@
       "tags": "自然语言处理;智能代理;群组旅行规划",
       "body_summary": "背景/任务：群体旅行规划涉及多人偏好与约束的协调，传统方法难以模拟自然语言讨论过程。\n做了什么：提出了一个由多个LLM智能体参与的旅行规划框架，通过配置角色与工作流来仿真和分析它们在自然语言讨论中的协作行为。"
     },
-    "2607.28627": {
-      "short_zh": "视觉检索的稀疏标记选择方法",
-      "tags": "计算机视觉;多模态学习;视觉语言检索",
-      "body_summary": "长视觉上下文导致模型性能下降且计算负担重，现有方法难以兼顾。\n提出可学习的ReToken嵌入，从视觉缓存中稀疏选择相关标记，小数据集训练即提升多基准表现。"
-    },
     "2607.25289": {
       "short_zh": "自适应多教师关系蒸馏压缩语音情感模型",
       "tags": "语音信号处理;语音情感识别;轻量化模型蒸馏",
       "body_summary": "端侧实时语音情感识别需要轻量模型，但大模型难以部署。\n提出自适应多教师加权和关系蒸馏损失，提升学生模型性能。"
+    },
+    "2607.16922": {
+      "short_zh": "扩展行人原型以提升自动驾驶测试",
+      "tags": "自动驾驶;行人行为建模;危险行人原型扩展",
+      "body_summary": "先前研究提出了12种行人原型以更自然地描述危险行人的渐进式行为。\n在进一步视频标注中，发现了7种新原型，并定义了其行为特征与差异。"
     }
   },
   "deep_analysis": {},
