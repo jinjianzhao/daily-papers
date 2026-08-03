@@ -1,0 +1,206 @@
+{
+  "base_info": {
+    "2607.28675": {
+      "title": "Meshy T2: Fast Native Mesh Generation with Flow Matching",
+      "abstract": "Polygonal meshes are the standard surface representation of modern 3D pipelines, and generating high-quality meshes with artist-style topology is essential for film, gaming, and interactive 3D applications. Mainstream approaches serialize a mesh into a token sequence and decode it autoregressively, which is slow at inference and sensitive to error accumulation, making them impractical for interactive asset creation. We present Meshy T2, a fast native mesh generation framework built on flow matching. At its core is a vertex-set mesh VAE that encodes a mesh into one continuous latent token per vertex and decodes vertices, edge connectivity, and face winding order in a single pass, preserving high-precision geometry and artist-authored topology without vertex quantization or welding. Generation proceeds as a coarse-to-fine cascade of two flow-matching models: an image-conditioned voxel flow first sketches the overall shape as a coarse occupancy scaffold, and a mesh flow then populates the scaffold with per-vertex latent tokens, conditioned on the image, the scaffold, and a requested vertex budget. This design delivers three practical capabilities: interactive generation speed through parallel flow-based synthesis; effective face-count control through the requested vertex budget; and native support for multi-part assets, whose components emerge directly from the generated connectivity. In our experiments, Meshy T2 achieves state-of-the-art geometric fidelity and completes end-to-end image-to-mesh generation within a median of 6 seconds, over an order of magnitude faster than autoregressive baselines. Code and weights will be available atthis https URL.",
+      "abstract_zh": "多边形网格是现代三维处理流程的标准表面表示形式，生成具有艺术家风格拓扑结构的高质量网格对于影视、游戏和交互式三维应用至关重要。主流方法将网格序列化为令牌串并通过自回归方式解码，这种方式推理速度慢且对误差累积敏感，难以应用于交互式资产创建。我们提出Meshy T2——一个基于流匹配构建的快速原生网格生成框架。其核心是顶点集网格变分自编码器，该编码器将网格编码为每个顶点对应的连续潜变量令牌，并单次解码出顶点、边连接关系和面环绕顺序，在保留高精度几何结构与艺术家创作拓扑的同时，避免了顶点量化或焊接操作。生成过程采用由粗到精的两级流匹配级联模型：图像条件体素流首先生成粗糙占据支架来勾勒整体形状，随后网格流根据图像、支架及预设顶点预算，在支架上生成逐顶点的潜变量令牌。该设计实现了三大实用能力：基于并行流合成的交互式生成速度；通过预设顶点预算实现有效的面数控制；以及对多部件资产的原生支持——其组件可直接从生成的连接关系中提取。实验表明，Meshy T2在几何保真度上达到最优水平，端到端的图像到网格生成中位耗时仅6秒，比自回归基线方法快一个数量级以上。代码与权重可通过此https URL获取。",
+      "hf_link": "https://huggingface.co/papers/2607.28675"
+    },
+    "2607.23802": {
+      "title": "From RLVR to RLSVR: Task Transformation Induces Self-Verifiable Rewards for Open-Ended LLM Self-Improvement",
+      "abstract": "Reinforcement Learning with Verifiable Rewards (RLVR) has driven recent progress in reasoning-oriented large language models (LLMs) by enabling large-scale optimization. However, its applicability remains largely limited to domains such as mathematics and coding, where correctness can be deterministically verifiable. Open-ended tasks instead often rely on human preferences, reward models, or LLM-based judges, introducing evaluation bias, judge capability bottlenecks, and additional inference costs. Drawing on the principle of self-supervised learning, which constructs pretext tasks to derive supervision from the data itself, we propose Reinforcement Learning with Self-Verifiable Rewards (RLSVR), a task-transformation-based training paradigm for extending RLVR to open-ended tasks. RLSVR transforms open-ended tasks into verifiable proxy environments whose internal rules and interaction outcomes automatically generate reward signals. We instantiate RLSVR with SpyRL, a Self-PlaY Reinforcement Learning method inspired by social deduction game Who Is the Spy?. Agents receive asymmetric information, complete the same target task, and vote to identify a designated spy. Because the spy identity is predetermined, voting outcomes provide fully verifiable rewards, while successful identification remains closely related to output quality. Experiments on text summarization, creative writing, and mathematical reasoning show that SpyRL outperforms existing self-improvement methods on non-verifiable tasks and yields consistent gains on verifiable reasoning tasks. These results demonstrate that task transformation can extend scalable RLVR-based self-improvement beyond inherently verifiable domains. Models and code have been released atthis https URL.",
+      "abstract_zh": "基于可验证奖励的强化学习（Reinforcement Learning with Verifiable Rewards, RLVR）通过支持大规模优化，推动了面向推理的大语言模型（Large Language Models, LLMs）的最新进展。然而，其应用范围仍主要局限于数学和编程等领域，这些领域的正确性可通过确定性方式进行验证。相比之下，开放式任务通常依赖于人类偏好、奖励模型或基于LLM的评判器，这引入了评估偏差、评判能力瓶颈以及额外的推理成本。借鉴自监督学习（Self-Supervised Learning）通过构建前置任务从数据本身获得监督信号的原则，本文提出了基于自验证奖励的强化学习（Reinforcement Learning with Self-Verifiable Rewards, RLSVR），这是一种基于任务转换的训练范式，旨在将RLVR扩展至开放式任务。RLSVR将开放式任务转化为可验证的代理环境，其内部规则和交互结果可自动生成奖励信号。我们通过SpyRL方法实例化RLSVR，这是一种受社交推理游戏《谁是卧底》（Who Is the Spy?）启发的自我博弈强化学习（Self-PlaY Reinforcement Learning）方法。智能体接收非对称信息，完成相同的目标任务，并通过投票识别指定的卧底。由于卧底身份已预先确定，投票结果提供了完全可验证的奖励，而成功识别卧底仍与输出质量密切相关。在文本摘要、创意写作和数学推理任务上的实验表明，SpyRL在非可验证任务上超越了现有的自我改进方法，并在可验证的推理任务上实现了持续的性能提升。这些结果表明，任务转换能够将基于RLVR的可扩展自我改进方法扩展到固有可验证领域之外。模型与代码已发布于该链接：this https URL。",
+      "hf_link": "https://huggingface.co/papers/2607.23802"
+    },
+    "2607.23782": {
+      "title": "$N_0$-VTLA: Scaling Vision-Tactile-Language-Action Model with Latent Tactile Tokens",
+      "abstract": "We present $N_0$-VTLA, a vision-tactile-language-action (VTLA) foundation model capable of (1) fine-grained contact-rich manipulation with tactile perception and tactile-feedback control, and (2) offline policy improvement from stored deployment data. Building on current vision-based backbones, we propose a training recipe for tactile integration consisting of visuo-tactile pre-training, staged tactile-pathway integration, and advantage-conditioned offline policy improvement. During pre-training, the policy learns broad contact priors from NeoData, our large-scale visuo-tactile robot dataset; to our knowledge, $N_0$-VTLA is the first VTLA model pretrained on tactile data at scale. During post-training, we augment the policy with a predictive tactile pathway that distills the contact patterns learned at scale into the fine motion adjustments required by downstream tactile-centric manipulation. For offline policy improvement, we introduce ALTER, an advantage-conditioned offline reinforcement learning method that converts relative progress and trajectory-event comparisons into binary advantage labels for policy training on a fixed deployment corpus, further improving task-specific learning on contact-rich skills such as deformable object manipulation. Across contact-rich benchmarks, $N_0$-VTLA outperforms strong baselines by wide margins: it wins all nine real-robot NeoReal tasks and reaches 63.8% mean success on a twenty-task simulation suite, against 44.0% for the strongest baseline. $N_0$-VTLA policies trained with ALTER reach 75-95% success on three long-horizon real-robot tasks. These results lay a foundation for versatile tactile-driven manipulation policies.",
+      "abstract_zh": "本文提出$N_0$-VTLA，一种视觉-触觉-语言-动作（Vision-Tactile-Language-Action, VTLA）基础模型，具备两大核心能力：（1）通过触觉感知与触觉反馈控制实现精细化的密集接触式操作；（2）利用已存储的部署数据进行离线策略提升。基于现有视觉主干网络，我们提出一套触觉整合训练方案，包含视觉-触觉预训练、分阶段触觉通路整合以及优势条件化的离线策略改进。在预训练阶段，策略从我们的大规模视觉-触觉机器人数据集NeoData中学习广泛的接触先验知识；据我们所知，$N_0$-VTLA是首个基于大规模触觉数据预训练的VTLA模型。在后训练阶段，我们为策略增加预测性触觉通路，将大规模学习到的接触模式提炼为下游以触觉为中心的操作任务所需的精细运动调整。针对离线策略改进，我们提出ALTER方法——一种优势条件化离线强化学习方法，该方法将相对进度与轨迹事件比较转化为二元优势标签，用于在固定部署语料上进行策略训练，从而进一步提升对密集接触技能（如可变形物体操作）的任务特异性学习效果。在多项密集接触基准测试中，$N_0$-VTLA以显著优势超越现有强基线模型：它在全部九项真实机器人NeoReal任务中获胜，并在包含二十项任务的仿真测试集中达到63.8%的平均成功率，而最强基线仅为44.0%。经ALTER训练的$N_0$-VTLA策略在三个长时序真实机器人任务中取得75-95%的成功率。这些成果为构建通用的触觉驱动操作策略奠定了重要基础。",
+      "hf_link": "https://huggingface.co/papers/2607.23782"
+    },
+    "2607.28617": {
+      "title": "AISPA: User-Centric System Prompt Auditing for Large Language Model Applications",
+      "abstract": "System prompts are instructions configured by developers to govern the behaviors of foundation models in AI applications. They are used throughout commercial AI products, but are rarely disclosed to the public or regulators, creating a serious trust and accountability gap in the wide deployment of AI systems. In this paper, we introduce Artificial Intelligence System Prompt Assurance (AISPA), a user-centric framework for systematically auditing system prompts in AI systems. AISPA examines specific parts of a system prompt and evaluates them along eight dimensions that matter to users. We then use this framework to review 3,249 instructions from system prompts in 88 commercial AI products, classifying each instruction as either protective (of users) or problematic. Our audit surfaces four core findings. First, system prompt design varies substantially across products and developers, with some organizations averaging over 60 protective instructions per product while others average fewer than 5. Second, protective instructions are widely adopted but shallow in scope: 98.9% of products contain at least one, yet only 24% cover all eight dimensions of the AISPA taxonomy. Third, system prompts have grown steadily longer and more protective of users, suggesting that user protection is becoming a more visible concern in commercial prompt design. Fourth, despite this progress, problematic instructions remain pervasive: roughly 40% of products contain at least one instruction that works against user interests, and protective and problematic instructions frequently coexist within the same prompt. Our findings highlight the need for greater transparency, standardization, and independent oversight for system prompts in commercial AI products.",
+      "abstract_zh": "系统提示（system prompts）是开发者为规范人工智能应用中基础模型行为而配置的指令。它们广泛应用于商业人工智能产品中，却极少向公众或监管机构公开，这在人工智能系统的大规模部署中造成了严重的信任与问责缺失。本文提出\"人工智能系统提示保障框架\"（Artificial Intelligence System Prompt Assurance, AISPA），这是一个以用户为中心、用于系统审计人工智能系统中系统提示的框架。AISPA通过八个对用户至关重要的维度，对系统提示的特定部分进行审查与评估。我们运用该框架审计了88款商业人工智能产品的3,249条系统提示指令，将每条指令分类为用户保护型或问题型。审计揭示了四项核心发现：首先，不同产品与开发者之间的系统提示设计差异显著，部分机构平均每款产品包含60条以上保护性指令，而其他机构平均少于5条；其次，保护性指令虽被广泛采用但覆盖范围较浅——98.9%的产品至少包含一条保护性指令，但仅24%的产品覆盖AISPA分类体系的所有八个维度；第三，系统提示正持续变得更长且更具用户保护性，表明用户保护正成为商业提示设计中日益显性的关注点；第四，尽管取得进展，问题指令仍然普遍存在——约40%的产品至少包含一条损害用户利益的指令，且保护性指令与问题指令常在同一提示中共存。我们的研究结果凸显了商业人工智能产品中系统提示亟需更高的透明度、标准化与独立监督机制。",
+      "hf_link": "https://huggingface.co/papers/2607.28617"
+    },
+    "2607.28415": {
+      "title": "QQWorld: Quantile-Quantile Matching for World Model Regularization",
+      "abstract": "Latent world models enable efficient planning by predicting future states in a compact representation space, but their performance depends critically on the quality of the learned latent distribution. LeWorldModel (LeWM) regularizes its latents toward an isotropic Gaussian using the Epps-Pulley (EP) objective. We show that the corrective gradients of EP rapidly vanish for isolated tail samples, leaving heavy-tailed deviations insufficiently controlled. To address this limitation, we propose QQWorld, which replaces EP with a quantile-quantile matching objective that directly aligns projected latent samples with rank-matched Gaussian quantiles, thereby maintaining effective corrective gradients in the tails. We further develop cross-batch QQ, which enlarges the effective ranking pool using detached samples from previous batches, and characterize its bias-variance trade-off. Across four control environments, QQWorld effectively improves the average planning success rate of LeWM, while consistently yielding better Gaussian alignment and thinner latent tails.",
+      "abstract_zh": "潜在世界模型通过紧凑表示空间预测未来状态以实现高效规划，但其性能关键取决于所学潜在分布的质量。LeWorldModel（LeWM）采用Epps-Pulley（EP）目标函数将潜在变量正则化为各向同性高斯分布。我们发现EP的校正梯度对孤立尾部样本会迅速消失，导致重尾偏差得不到有效控制。为突破此局限，我们提出QQWorld模型，采用分位数-分位数匹配目标替代EP，通过将投影后的潜在样本与秩匹配的高斯分位数直接对齐，从而在尾部保持有效的校正梯度。我们进一步开发了跨批次QQ方法，利用历史批次的分离样本扩大有效排序池，并解析其偏差-方差权衡特性。在四个控制环境中，QQWorld将LeWM的平均规划成功率显著提升，同时持续获得更优的高斯对齐度与更薄的潜在分布尾部。",
+      "hf_link": "https://huggingface.co/papers/2607.28415"
+    },
+    "2607.29679": {
+      "title": "Scaling Properties of Text Conditioning in Visual Generation",
+      "abstract": "We study empirical scaling properties for text conditioning in visual generation. Such properties have rarely been measured because diffusion loss does not scale with the number of tokens in natural-language prompts. Surprisingly, we find that the converged diffusion loss scales with the amount of structured language in the prompt. To quantify structured language, we adapt two complementary measures: a white-box likelihood metric (GPG) and a black-box attribute metric (ED). Across controlled training runs, the converged diffusion loss decreases approximately linearly with GPG and follows a power law with ED. Guided by these scaling properties, we improve \\emph{diffusability} by constructing structured prompts with semantic and geometric annotations derived from images, and improve \\emph{promptability} by training a prompter through supervised fine-tuning, cold-start, and verifier-gated on-policy distillation. The resulting system outperforms all evaluated open-weight models on nearly every compositional, reasoning, and world-knowledge benchmark, while matching or surpassing the strongest closed-weight models on most evaluations.",
+      "abstract_zh": "本研究探讨了视觉生成中文本条件设定的经验性缩放规律。此类规律鲜有量化研究，因为扩散损失通常不随自然语言提示中的标记数量而缩放。令人惊讶的是，我们发现收敛后的扩散损失会随着提示中结构化语言的数量而呈现规律性变化。为量化结构化语言，我们采用了两种互补的度量方法：白盒似然度量（GPG）与黑盒属性度量（ED）。在受控训练实验中，收敛扩散损失随GPG近似线性下降，并随ED呈现幂律关系。基于这些缩放规律，我们通过构建包含图像衍生的语义与几何标注的结构化提示来提升扩散生成性能，同时通过监督微调、冷启动以及验证器门控的策略蒸馏训练提示生成器，从而增强提示引导能力。最终构建的系统在几乎所有组合推理和世界知识基准测试中超越了所有已评估的开源权重模型，并在多数评测中达到或超越了最强闭源权重模型的性能水平。",
+      "hf_link": "https://huggingface.co/papers/2607.29679"
+    },
+    "2607.29677": {
+      "title": "ExtractBench: A Benchmark for Schema-Guided Enterprise Document Extraction",
+      "abstract": "Enterprise workflows increasingly rely on agents for \\emph{schema-guided extraction}: given a document and a user-defined schema, the agent faithfully follows the schema to produce the correct output with source evidence as grounding metadata. We present ExtractBench, a benchmark for schema-guided extraction and, to our knowledge, the first to score value accuracy, record completeness at scale, grounding, and measured cost together. The evaluation system contains 4,869 pages across 370 enterprise documents, 8 business domains, and 67 document types, with clear tags differentiating their challenge scenarios. The scalable schema and ground-truth curation pipeline combines independent-system agreement for real documents, known values for synthetic lists, and human verification for forms. We report order-insensitive value F1 for value accuracy, plus two grounding metrics for source traceability: word- and page-level F1. Commercial VLMs perform well on short documents but often truncate record lists on long ones, while coding agents retain higher accuracy at much higher cost. LlamaExtract Agentic Plus ranks first on all three metrics, with accuracy comparable to coding agents at a fraction of the cost. Dataset and evaluation code are available on \\href{this https URL}{HuggingFace} and \\href{this https URL}{GitHub}.",
+      "abstract_zh": "企业工作流日益依赖智能体进行**模式引导提取**(schema-guided extraction)：给定文档与用户定义的模式，智能体遵循该模式生成正确输出，并提供源证据作为支撑元数据。本文提出ExtractBench——一个面向模式引导提取的基准测试，据我们所知，这是首个能同时评估数值准确性、大规模记录完整性、证据支撑度与量化成本的基准。该评估系统涵盖370份企业文档、8个商业领域及67种文档类型，共计4,869页内容，并通过清晰标签区分不同挑战场景。其可扩展的模式与真值标注流程融合了真实文档的独立系统校验、合成列表的已知值验证以及表单的人工核查机制。我们采用顺序不敏感数值F1评估数值准确性，同时提出两种支撑度追踪指标：词级与页级F1。实验表明，商业视觉语言模型在短文档上表现良好，但在长文档中常截断记录列表；编码型智能体虽保持更高准确性，但成本显著提升。LlamaExtract Agentic Plus在全部三项指标中位列第一，其准确性可与编码型智能体媲美而成本大幅降低。完整数据集与评估代码已发布于\\href{this https URL}{HuggingFace}及\\href{this https URL}{GitHub}平台。",
+      "hf_link": "https://huggingface.co/papers/2607.29677"
+    },
+    "2607.18082": {
+      "title": "Enhancing Rubric-based RL via Self-Distillation",
+      "abstract": "Rubric-based RL has recently shown promise in improving LLMs on open-ended tasks. A widely recognized limitation of rubric-based RL is limited exploration: criteria that no rollout manages to satisfy (Unexplored Criteria, UC) receive no optimization signal. Recent methods address this by incorporating rubric information as external guidance during rollout, yet they introduce a train-inference mismatch: the policy is optimized on rollouts produced under external guidance while this guidance is absent at inference time, causing error accumulation through autoregressive decoding. Moreover, these exploration-focused approaches overlook a fundamentally different failure mode that we term Suppressed Criteria (SC) -- criteria that are satisfied by some rollouts yet whose learning signals are lost during optimization because scalar reward aggregation assigns them non-positive aggregate advantages. Our analysis reveals that SC are remarkably prevalent: over 57% of samples exhibit this failure mode throughout training, with an average of 1.8 SC per sample. To simultaneously address both UC and SC without introducing training-inference mismatch, we propose Criterion-Distilled Policy Optimization (CriPO), which enhances rubric-based RL via on-policy self-distillation. For UC, CriPO constructs a criterion-injection self-teacher and computes a localized forward-KL loss to inject missing behaviors into the policy. For SC, CriPO employs a counterfactual self-teacher to locate criterion-relevant tokens in negative-advantage rollouts and flips their token-level advantages to positive values, preserving useful patterns that would otherwise be suppressed. Experiments on medicine and science benchmarks demonstrate that CriPO consistently outperforms rubric-based RL, achieving stronger final performance with approximately $2\\times$ fewer optimization steps.",
+      "abstract_zh": "基于评分标准的强化学习（Rubric-based RL）近期在提升大语言模型（LLM）处理开放式任务方面展现出潜力。该方法一个被广泛认知的局限性在于探索有限：那些没有任何生成结果能够满足的评分标准（未探索标准，UC）无法获得优化信号。近期的方法通过在生成过程中引入评分标准信息作为外部指导来解决这一问题，但这引入了训练-推断不匹配：策略的优化基于外部指导下产生的生成结果，而在推断时这种指导却不存在，导致错误在自回归解码过程中不断累积。此外，这些聚焦于探索的方法忽略了一种根本不同的失败模式，我们称之为抑制标准（SC）——即某些生成结果满足了这些标准，但标量奖励聚合在优化过程中为其分配了非正值的聚合优势，从而导致其学习信号丢失。我们的分析表明，SC异常普遍：超过57%的样本在整个训练过程中都表现出这种失败模式，平均每个样本存在1.8个SC。为了在不引入训练-推断不匹配的情况下同时解决UC和SC问题，我们提出了标准蒸馏策略优化（Criterion-Distilled Policy Optimization, CriPO），该方法通过基于策略的自蒸馏来增强基于评分标准的强化学习。对于UC，CriPO构建了一个标准注入自教师（criterion-injection self-teacher），并计算局部前向KL损失，以将缺失的行为模式注入策略中。对于SC，CriPO则利用一个反事实自教师（counterfactual self-teacher）来定位负优势生成结果中与标准相关的令牌，并将其令牌级优势翻转为正值，从而保留那些原本会被抑制的有用模式。在医学和科学基准测试上的实验表明，CriPO持续优于基于评分标准的强化学习，能以大约一半的优化步骤获得更强的最终性能。",
+      "hf_link": "https://huggingface.co/papers/2607.18082"
+    },
+    "2607.29025": {
+      "title": "Evaluation-Verification Reward for Consistent Multi-Reference Image Editing",
+      "abstract": "While recent image editing models have made rapid progress, multi-reference editing remains challenging, particularly in maintaining visual consistency across references and ensuring overall visual harmony. Reinforcement learning has proven highly effective for text-to-image generation and single-image editing, but its extension to multi-reference editing is hindered by the absence of suitable reward models that capture multi-image relational constraints. Moreover, naively using multimodal large language models(MLLMs) as zero-shot evaluators faces a key tension between hallucination-prone long-form reasoning and the limited deductive power of short-form judgments. We address these issues with a Multi-dimensional Evaluation-Verification Reward(EVR). EVR decomposes evaluation into distinct visual criteria; for each criterion, an MLLM Evaluator generates multiple candidate hypotheses, and a Verifier grounds each claim in concrete visual evidence to accept or reject it, producing reliable and fine-grained reward signals. Together with a scalable data pipeline, our method enables RL fine-tuning of off-the-shelf editors without architectural changes. Extensive experiments show substantial gains over the base Qwen-Image-Edit, improving consistency and harmony to match or surpass NanoBanana.",
+      "abstract_zh": "虽然近期图像编辑模型发展迅速，但多参考图像编辑仍面临挑战，尤其是在保持参考图像间视觉一致性及确保整体视觉协调性方面。强化学习在文本到图像生成和单图像编辑任务中已证明极具成效，但其向多参考编辑的扩展因缺乏能捕捉多图像关联约束的合适奖励模型而受阻。此外，直接采用多模态大语言模型作为零样本评估器面临核心矛盾：易于产生幻觉的长篇推理与短篇判断有限的演绎能力之间存在冲突。针对这些问题，我们提出多维度评估-验证奖励机制。该机制将评估分解为不同的视觉标准；针对每个标准，由多模态大语言模型评估器生成多个候选假设，验证器则依据具体视觉证据对每个主张进行验证，从而接受或拒绝假设，最终产生可靠且细粒度的奖励信号。结合可扩展的数据处理流程，我们的方法能够在不改变架构的前提下，对现成编辑模型进行强化学习微调。大量实验表明，相较于基础模型Qwen-Image-Edit，该方法在一致性与协调性方面取得显著提升，达到甚至超越了NanoBanana的性能水平。",
+      "hf_link": "https://huggingface.co/papers/2607.29025"
+    },
+    "2607.23783": {
+      "title": "$N_0$-TWAM: Scaling Tactile-Native World-Action Model for Contact-Rich Manipulation",
+      "abstract": "We present $N_0$-TWAM, a tactile-native world-action model for contact-rich manipulation that predicts both future vision and future contact. To our knowledge, it is the first tactile world-action model trained at large scale, and it shows strong capability on contact-rich tasks. We pre-train $N_0$-TWAM at large scale with visuo-tactile joint training over tactile-rich demonstrations spanning six embodiments and 450 tasks. We use NeoForce, a unified force-based tactile representation, to form a physically grounded contact signal that conditions action generation. To improve long-horizon and multi-stage manipulation, we introduce tactile contact events for task staging and advance through them during execution. For real-time efficiency, we adopt an asymmetric Mixture-of-Transformers architecture that pairs a full-width expert for video prediction with slim experts for downstream action and tactile prediction. Evaluations on both real and simulated benchmarks justify the capabilities of $N_0$-TWAM across a range of contact-rich tasks, and demonstrate the benefit of data scaling for precise tactile and action prediction. In summary, $N_0$-TWAM endows a world-action model with predictive capabilities to foresee vision, touch and action, building a solid foundation for fine-grained manipulation on open contact-rich tasks. The codebase and model checkpoints will be made publicly available to foster further research and development in tactile-enabled robotic manipulation.",
+      "abstract_zh": "我们提出了$N_0$-TWAM，一种面向接触密集型操作的触觉原生世界-行动模型，能够同时预测未来视觉与未来接触信息。据我们所知，这是首个在大规模数据上训练的触觉世界-行动模型，并在接触密集型任务中展现出强大能力。我们通过在涵盖六种实体形态与450项任务的触觉密集型演示数据上进行视觉-触觉联合训练，实现了$N_0$-TWAM的大规模预训练。我们采用NeoForce——一种基于力的统一触觉表征体系，构建了物理 grounded 的接触信号来指导行动生成。为提升长时程与多阶段操作能力，我们引入了触觉接触事件进行任务阶段划分，并在执行过程中推进这些阶段。针对实时性需求，我们采用非对称混合Transformer架构，将全宽度专家模型用于视频预测，同时配备轻量化专家模型处理下游行动与触觉预测。在真实与仿真基准测试中的评估结果验证了$N_0$-TWAM在多种接触密集型任务上的综合能力，并证明了数据规模化对提升触觉与行动预测精度的积极影响。总之，$N_0$-TWAM赋予世界-行动模型以预见视觉、触觉与行动的预测能力，为开放环境下接触密集型任务的精细化操作奠定了坚实基础。相关代码库与模型检查点将公开发布，以促进触觉赋能机器人操作领域的进一步研究与发展。",
+      "hf_link": "https://huggingface.co/papers/2607.23783"
+    },
+    "2607.28996": {
+      "title": "SULAND v2: A Refined RGB Dataset and Deep Learning Object Detection Benchmark for UAV/UGV-Based SUrface LANDmine Detection Under Domain Shift",
+      "abstract": "RGB imagery offers a practical, low-cost option for Unmanned Aerial/Ground Vehicle (UAV/UGV) survey support in surface-landmine detection, but object detectors remain underexplored in this safety-critical domain. Limited cross-architecture benchmarking and insufficient out-of-distribution (OOD) analysis obscure whether detectors generalize across deployment conditions. This challenge is amplified by the scarcity of public RGB landmine datasets, making SULAND a key benchmark for PFM-1 and PMA-2 detection. However, inspection reveals missing/false annotations, localization errors, inconsistent visibility criteria, visual artifacts, temporal labeling inconsistencies, and an inverted OOD class-ID convention in SULAND. We present SULAND_v2, a refined RGB surface-landmine dataset and benchmark. Preserving original images and splits, we manually revise annotations to ensure completeness, precise localization, label validity, and class consistency. SULAND_v2 contains 33,771 images and 12,433 bounding boxes. We benchmark 35 detector configurations across nine families. Annotation refinement improves YOLOv8 in-distribution (IID) test mAP@50 by 14.6-19.6 percentage points, while fixing the OOD class-ID convention increases mean YOLOv8 OOD mAP@50 by ~25 percentage points. On SULAND_v2, YOLOv12-Small achieves the highest IID mAP@50 (0.908), while RF-DETR-Large yields the strongest OOD performance (0.799 mAP@50, 0.675 recall). Our results demonstrate that high IID accuracy does not guarantee operational readiness. SULAND_v2 provides a reliable benchmark for evaluating domain-shift robustness in RGB-based mine-action survey support.",
+      "abstract_zh": "RGB图像为地表地雷探测中的无人机/地面车辆(Unmanned Aerial/Ground Vehicle, UAV/UGV)勘测支持提供了一种实用且低成本的选择，但目标检测器在这一安全关键领域的研究仍显不足。有限的跨架构基准测试与不充分的分布外(out-of-distribution, OOD)分析，使得检测器能否在不同部署条件下保持泛化能力尚不明确。公开RGB地雷数据集的稀缺进一步加剧了这一挑战，使得SULAND成为PFM-1与PMA-2型地雷检测的关键基准数据集。然而，经检查发现SULAND存在标注遗漏/错误、定位偏差、可见性标准不一致、视觉伪影、时间标注矛盾以及分布外类别标识约定倒置等问题。我们提出了SULAND_v2——一个经过优化的RGB地表地雷数据集与评估基准。在保留原始图像与数据划分的基础上，我们通过人工修订标注确保了完整性、定位精确性、标签有效性及类别一致性。SULAND_v2包含33,771张图像与12,433个边界框。我们对九大检测器家族的35种配置进行了基准测试。标注优化使YOLOv8在分布内(in-distribution, IID)测试集的平均精度均值(mean Average Precision, mAP@50)提升了14.6-19.6个百分点，而修正分布外类别标识约定后，YOLOv8的分布外平均精度均值提升了约25个百分点。在SULAND_v2上，YOLOv12-Small取得了最高的分布内平均精度均值(0.908)，而RF-DETR-Large则实现了最强的分布外性能(0.799平均精度均值，0.675召回率)。我们的结果表明，高分布内精度并不能保证实际部署的可靠性。SULAND_v2为评估基于RGB图像的地雷行动勘测支持系统的领域偏移鲁棒性提供了可靠的基准。",
+      "hf_link": "https://huggingface.co/papers/2607.28996"
+    },
+    "2607.27924": {
+      "title": "ODEWorld: A Continuous Predictive Architecture via Physical-Time Flow",
+      "abstract": "In the physical world we inhabit, space and time are fundamentally continuous. However, existing machine learning paradigms for world modeling are largely confined to discrete-time prediction, thereby exhibiting significant inefficiency in capturing the dynamics of physical world. We introduce Physical-Time Flow (\\textbf{PT-Flow}), a novel approach that learns a continuous latent velocity field operating in physical time. Crucially, the underlying dynamics of sequential data are parameterized by an ordinary differential equation (ODE) embedded in a well-structured representation space. Under this paradigm, the prediction of future can be recast as temporal integration via an ODE solver in the compressed latent space. Building upon PT-Flow, we construct \\textbf{ODEWorld}, a continuous-time latent world model that is both efficient and versatile. By extracting time-variant features and enforcing ODE properties on both the dynamical representation space and the latent velocity field, ODEWorld effectively addresses the long-standing representation collapse issue in latent world model literature. This also enables high-quality image reconstruction even after long-horizon prediction. Moreover, its continuous nature allows for arbitrary temporal resolution and even backward prediction, which is impossible for most discrete-time models. Lastly, ODEWorld can provide rich planning-oriented information to facilitate downstream policy learning. Comprehensive experiments demonstrate that ODEWorld successfully reconciles planning-conducive dynamics abstraction with visual realism, excelling in both video generation and robotic control. \\href{this https URL}{Project Website}.",
+      "abstract_zh": "在我们所处的物理世界中，空间与时间本质上是连续的。然而，现有的世界建模机器学习范式大多局限于离散时间预测，因此在捕捉物理世界动态时表现出显著的低效性。我们提出了物理时间流（\\textbf{PT-Flow}），这是一种在物理时间内学习连续潜在速度场的新方法。其关键在于，序列数据的底层动力学通过一个嵌入在结构良好的表示空间中的常微分方程（ordinary differential equation, ODE）进行参数化。在此范式下，对未来状态的预测可以转化为在压缩潜在空间中通过ODE求解器进行的时间积分。基于PT-Flow，我们构建了\\textbf{ODEWorld}，这是一个高效且通用的连续时间潜在世界模型。通过提取时变特征，并在动力学表示空间与潜在速度场上强制施加ODE特性，ODEWorld有效解决了潜在世界模型研究中长期存在的表示崩溃问题。这也使得即使在长期预测后，仍能实现高质量的图像重建。此外，其连续性允许任意的时序分辨率甚至反向预测，这对于大多数离散时间模型而言是无法实现的。最后，ODEWorld能够提供丰富的规划导向信息，以促进下游策略学习。综合实验表明，ODEWorld成功地将有利于规划的动力学抽象与视觉真实性相统一，在视频生成与机器人控制任务中均表现卓越。\\href{this https URL}{项目网站}.",
+      "hf_link": "https://huggingface.co/papers/2607.27924"
+    },
+    "2607.28478": {
+      "title": "Would You Walk to the Car Wash? Revealing the Salience Bias of Large Language Models in Commonsense Reasoning",
+      "abstract": "As large language models (LLMs) continue to advance in complex reasoning tasks, they have learned to heavily prioritize explicit conditions provided in the input. However, in everyday commonsense reasoning, this mechanism exposes a critical vulnerability which we term Salience Bias: models become easily hijacked by useless explicit distractors (e.g., numerical values), leading them to ignore the implicit physical or commonsense prerequisites of a task. A critical open question is whether this failure reflects a genuine gap in commonsense knowledge or merely its suppression under misleading task framing. To investigate this, we construct the SaliTrap Benchmark, a high-quality dataset across four trap dimensions. Evaluating 12 state-of-the-art LLMs, we find that all mainstream models suffer significantly from salience bias, with severity scaling with distractor density and detecting the trap often decoupled from actually avoiding it. Crucially, by re-eliciting the same models with the task framing stripped away, we show that this is overwhelmingly a failure of \\textbf{knowledge suppression rather than knowledge absence}: a context-free knowledge probe alone recovers over 90\\% of sycophantic-compliance failures, revealing that the requisite commonsense is intrinsically present but actively crowded out by salient distractors that lure the model into over-compliant, unnecessary computation. Building on this diagnosis, we further show that lightweight, inference-time prompting alone substantially closes the gap without any retraining. Our findings relocate the bottleneck of commonsense reasoning failures from model competence to elicitation, and we release SaliTrap as a testbed for this blind spot. The codes are available atthis https URL.",
+      "abstract_zh": "随着大型语言模型（LLM）在复杂推理任务中不断进步，它们已学会高度优先考虑输入中提供的显式条件。然而在日常常识推理中，这种机制暴露出一个关键脆弱性，我们称之为**显著性偏差**：模型极易被无用的显式干扰项（例如数值）所劫持，导致其忽略任务隐含的物理或常识前提条件。一个关键悬而未决的问题是：这种失败究竟反映了常识知识的真实缺失，还是仅仅因为误导性任务框架抑制了知识的调用？为探究此问题，我们构建了SaliTrap Benchmark，一个涵盖四个陷阱维度的高质量数据集。通过对12个前沿大型语言模型的评估，我们发现所有主流模型均显著受到显著性偏差影响，其严重程度随干扰项密度增加而加剧，且模型识别陷阱的能力常与实际规避行为脱节。关键在于，通过移除任务框架后重新激发相同模型，我们证明这本质上属于**知识抑制而非知识缺失**的失效：仅通过无上下文的知识探测即可恢复超过90%的盲从性错误，表明所需常识本质上存在于模型中，却被显著干扰项主动排挤——这些干扰项诱使模型陷入过度顺从且不必要的计算。基于此诊断，我们进一步证明仅通过轻量级的推理时提示即可大幅缩小性能差距，而无需任何重新训练。我们的研究将常识推理失败的瓶颈从模型能力本身转移至知识激发方式，并发布SaliTrap作为此盲点的测试基准。代码可通过此 https URL 获取。",
+      "hf_link": "https://huggingface.co/papers/2607.28478"
+    },
+    "2607.27951": {
+      "title": "Safeguards Based on Copyable Context Cannot Provide Reliable Safety for LLMs",
+      "abstract": "Large language model safeguards decide whether to answer before seeing how an answer will be used. This creates a basic problem for dual-use tasks: the same answer can help an authorized professional or an attacker, while an attacker can imitate a benign request and interaction history. We separate the capability released by the model from the evidence available about downstream use. When that evidence is copyable, we derive the exact worst-case floor on attacker assistance while preserving useful answers. The result yields a safety trilemma: Useful Capability, Reliable Safety, and Open Access cannot coexist. We then show how a trusted credential can complement existing safeguards by adding hard-to-copy information that predicts actual downstream use, and identify the stronger condition needed to eliminate the floor. Evidence from dual-use evaluations, adaptive attacks, and deployed trusted-access programs supports the practical relevance of these conditions.",
+      "abstract_zh": "大型语言模型的安全防护机制在尚未了解答案将如何被使用的情况下，就预先决定是否作出回应。这为双重用途任务带来了一个根本性问题：同一个答案既可能帮助获得授权的专业人士，也可能协助攻击者；而攻击者可以伪装成善意请求并模仿良性交互历史。我们将模型释放的能力与关于下游用途的可获取证据区分开来。当此类证据可被复制时，我们推导出在保留有用回答的同时，攻击者可能获得协助的最坏情况确切下限。这一结果揭示了安全性的三重困境：实用能力、可靠安全与开放访问三者无法同时实现。随后我们论证了可信凭证如何通过补充难以复制的、能预测实际下游用途的信息，来增强现有防护机制，并指出了消除该下限所需满足的更严格条件。来自双重用途评估、适应性攻击及已部署可信访问项目的证据，支持了这些条件在实际应用中的相关性。",
+      "hf_link": "https://huggingface.co/papers/2607.27951"
+    }
+  },
+  "hf_votes": {
+    "2607.23802": 0,
+    "2607.23782": 0,
+    "2607.28675": 0,
+    "2607.28617": 0,
+    "2607.28415": 0,
+    "2607.29679": 0,
+    "2607.29677": 0,
+    "2607.18082": 0,
+    "2607.29025": 0,
+    "2607.23783": 0,
+    "2607.28996": 0,
+    "2607.27924": 0,
+    "2607.28478": 0,
+    "2607.27951": 0
+  },
+  "focus_sections": {
+    "3D生成与重建": [
+      "2607.28675"
+    ]
+  },
+  "summaries": {
+    "2607.28675": {
+      "short_zh": "快速生成高质量三维网格模型",
+      "tags": "计算机图形学;三维几何处理;图像到网格生成",
+      "body_summary": "多边形网格是三维管线标准表面表示，但现有方法生成慢且易错，难以用于交互式创作。\n提出Meshy T2框架，通过流匹配技术并行生成高精度网格，速度快、能控制面数并支持多部件。"
+    },
+    "2607.23802": {
+      "short_zh": "任务转换实现大模型自验证奖励强化学习",
+      "tags": "自然语言处理;大语言模型强化学习;自验证奖励设计",
+      "body_summary": "现有强化学习方法在开放式任务中面临奖励难验证等问题\n提出RLSVR范式及其实例SpyRL，通过任务转换自动生成可验证奖励，在摘要、写作等任务上取得改进"
+    },
+    "2607.23782": {
+      "short_zh": "整合触觉感知与控制的机器人操作模型",
+      "tags": "机器人;机器人操作;触觉驱动操作",
+      "body_summary": "让机器人通过触觉感知和反馈控制执行精细接触操作，并利用离线数据进行策略提升。\n提出N0-VTLA模型，通过触觉预训练、分阶段整合触觉路径及优势条件离线强化学习方法，在接触丰富的操作任务上显著优于基线。"
+    },
+    "2607.28617": {
+      "short_zh": "审查AI系统提示的用户保护度",
+      "tags": "自然语言处理;大语言模型应用安全;系统提示审计",
+      "body_summary": "系统提示是AI应用控制模型行为的开发者指令，其不公开造成监管和信任风险。\n我们提出AISPA框架，从八个维度审计了88款产品的3249条系统提示，发现用户保护虽普遍但不足，问题指令仍常见。"
+    },
+    "2607.28415": {
+      "short_zh": "世界模型正则化的分布对齐",
+      "tags": "强化学习;模型基础规划;潜在世界模型正则化",
+      "body_summary": "潜在世界模型的性能依赖于其学习到的潜在分布的质量，现有方法对分布尾部的异常样本正则化不足。\n我们提出了基于分位数匹配的正则化方法，通过直接对齐潜在样本与高斯分位数，有效控制了尾部偏差，提升了规划成功率。"
+    },
+    "2607.29679": {
+      "short_zh": "文本条件在视觉生成中的缩放规律研究",
+      "tags": "计算机视觉;视觉生成;文本条件扩散模型",
+      "body_summary": "研究文本条件在视觉生成中的扩散损失随提示词变化的缩放规律。\n发现扩散损失随提示词中的结构化语言量呈规律性变化，并据此改进系统，在多项基准测试中取得领先。"
+    },
+    "2607.29677": {
+      "short_zh": "企业文档结构化信息抽取评测",
+      "tags": "文档智能;信息抽取;模式引导抽取",
+      "body_summary": "企业工作流依赖智能体根据自定义模式从文档中抽取信息，需要评估其准确性、完整性和成本。\n我们提出了首个综合评估模式引导抽取的基准ExtractBench，包含大规模数据集和四项评测指标，并对比了各类智能体的性能。"
+    },
+    "2607.18082": {
+      "short_zh": "改进标准强化学习探索与抑制问题",
+      "tags": "自然语言处理;强化学习与对齐;基于评分标准的强化学习",
+      "body_summary": "基于评分标准的强化学习在开放任务中优化大语言模型时，面临探索不足和有用信号被抑制的问题。\n提出标准蒸馏策略优化方法，通过自我蒸馏分别处理未探索和被抑制的标准，提升训练效率与最终性能。"
+    },
+    "2607.29025": {
+      "short_zh": "多参考图像编辑一致性增强",
+      "tags": "计算机视觉;图像生成与编辑;多参考图像编辑",
+      "body_summary": "多参考图像编辑面临保持视觉一致性与整体和谐性的挑战，且缺乏合适的奖励模型。\n提出评估-验证奖励方法，通过分解评估、生成假设并验证证据来提供细粒度奖励信号，结合数据管道对现有编辑器进行强化学习微调，显著提升性能。"
+    },
+    "2607.23783": {
+      "short_zh": "大规模触觉世界动作模型",
+      "tags": "机器人学;机器人学习;触觉增强操作",
+      "body_summary": "针对接触丰富的操作任务，需预测未来视觉和触觉信息\n提出N0-TWAM模型，通过大规模视觉触觉联合预训练及新型架构，提升接触任务性能"
+    },
+    "2607.28996": {
+      "short_zh": "改进地表地雷检测数据集与基准",
+      "tags": "计算机视觉;目标检测;无人机地表地雷检测",
+      "body_summary": "RGB图像为无人机/无人车地表地雷检测提供低成本方案，但现有公开数据集存在标注缺陷且检测器泛化能力不明。\n作者修正了SULAND数据集的标注错误与设计问题，推出SULAND_v2，并系统评估了多种检测器在分布内外的性能，证明高分布内精度不代表实际部署鲁棒性。"
+    },
+    "2607.27924": {
+      "short_zh": "连续世界建模的ODE架构",
+      "tags": "世界建模;视频预测;连续时间动力学建模",
+      "body_summary": "现有机器学习范式多局限于离散时间预测，难以高效捕捉物理世界的连续时空动态。\n我们提出了PT-Flow方法，通过在学习到的结构化表示空间中嵌入ODE，构建了连续时间隐世界模型ODEWorld，实现了任意时间分辨率的预测，并解决了表示坍塌问题，在视频生成和机器人控制中表现出色。"
+    },
+    "2607.28478": {
+      "short_zh": "大模型常识推理中的显著偏差问题",
+      "tags": "自然语言处理;大语言模型评测;常识推理陷阱",
+      "body_summary": "大语言模型在复杂推理任务中进步显著，但容易被输入中的无意义显性干扰项（如数字）误导，忽视任务的隐含常识前提，这被称为显著偏差。\n为探究该问题源于知识缺失还是知识抑制，本文构建了SaliTrap基准数据集并评估12个先进模型，发现主要是知识被抑制；通过无背景知识探测和轻量提示，可大幅缓解此问题。"
+    },
+    "2607.27951": {
+      "short_zh": "大模型安全措施存在根本局限",
+      "tags": "自然语言处理;大语言模型安全;双重用途任务安全",
+      "body_summary": "大语言模型的安全措施在生成答案前无法预测其下游用途，导致双重用途任务中同一回答既可能帮助合法用户也可能协助攻击者，而攻击者可以模仿良性请求和交互历史。\n本文通过分离模型释放的能力与下游使用证据，证明可复制的上下文无法提供可靠安全，提出了安全三难困境，并指出可信凭证可为现有措施补充难以复制的信息以预测实际下游使用。"
+    }
+  },
+  "deep_analysis": {
+    "2607.28675": "这篇论文的作者来自Meshy AI公司，他们提出了一种能**快速生成高质量三维网格模型**的新方法。下面我用简单易懂的方式为你解读。\n\n### (1) 这篇论文所在的任务是什么？\n*   **任务名称**：**图像到网格生成**。\n*   **任务输入**：一张**图片**（比如一个咖啡杯的照片）。\n*   **任务输出**：一个**三维网格模型**。这个模型由顶点、边和面组成，结构清晰、面数可控，可以直接用于游戏、电影等3D应用。\n*   **任务功能**：根据一张2D图片，快速、自动地生成一个**即用型**的3D模型，省去艺术家手动建模的繁琐过程。\n\n### (2) 这篇论文想解决什么问题？\n目前主流的3D生成方法主要有两大痛点：\n1.  **方法一（隐式场生成）**：先生成一个“模糊”的3D形状表示，再用算法（如Marching Cubes）提取出网格。问题是提取出的网格通常**面数极多、结构混乱**，像“土豆泥”一样，不实用。\n2.  **方法二（序列生成，如MeshGPT）**：把网格像句子一样“展开”成一系列点坐标，然后用类似GPT的模型一个字一个字（自回归）地生成。问题是**生成速度极慢**（需要几百上千步），而且一旦中间生成出错，整个模型就可能损坏（如出现破洞、面片翻转）。\n\n简单说，现有方法要么**质量差**，要么**速度慢、不稳定**。这篇论文想**同时解决质量和速度的问题**。\n\n### (3) 这篇论文的贡献是什么？\n他们提出了一个叫 **“Meshy T2”** 的系统，核心贡献有三点：\n\n1.  **全新“网格VAE”**：设计了一个能一次性理解整个网格的编码器-解码器。它把网格压缩成一组“顶点令牌”，解码时能**并行**地、正确地重建出所有顶点、边和面，保证了网格的完整性和拓扑结构。\n2.  **“流匹配”生成框架**：用“流匹配”模型（一种新式扩散模型）代替自回归模型。这意味着所有顶点可以**同时生成**，而不是一个接一个，所以**推理速度极快**。\n3.  **由粗到精的两阶段流程**：\n    *   **第一阶段**：用图片快速生成一个粗糙的**体素（像乐高块）** 形状，把握整体结构。\n    *   **第二阶段**：以图片和体素为条件，用流匹配模型在体素“脚手架”上生成精细的网格。用户可以**指定想要的顶点数量**，从而精确控制生成模型的面数（复杂度）。\n\n### (4) 论文的整体思路与模型结构\n整个系统是一个**两阶段的级联流程**，像一个流水线。\n\n**核心基模**：**流匹配**。你可以把它想象成一种更高效的“扩散模型”，能从一个简单的噪声分布，通过一次或几次预测，直接变换成我们想要的数据分布（这里是网格），速度比传统扩散模型快很多。\n\n**整体流程如下**：\n\n**阶段一：图片 -> 粗糙体素（把握形状）**\n1.  **输入**：一张图片。\n2.  **模型**：一个**图像条件的体素流匹配模型**。\n3.  **过程**：模型根据图片，预测出一个低分辨率的3D体素网格。这个体素网格不精细，但能勾勒出物体的大致轮廓和占用的空间，就像用乐高搭出一个粗略的造型。这一步非常快。\n\n**阶段二：（图片 + 体素） -> 精细网格（生成可用模型）**\n这是核心阶段，又分为几步：\n1.  **编码**：使用论文提出的**网格VAE编码器**，将真实的高质量网格样本（训练数据）编码成一堆“顶点令牌”。每个顶点对应一个连续的向量。\n2.  **条件注入**：将**阶段一生成的体素**和**原始图片**作为条件，输入给一个**流匹配模型**。同时，用户还可以输入一个“期望的顶点数量”作为条件。\n3.  **流匹配生成**：流匹配模型以噪声为起点，在“条件”（图片、体素、顶点数）的指导下，**并行地**预测出所有顶点的令牌向量。\n    *   **关键技巧（最优传输位置编码）**：为了让生成的顶点位置合理，他们用一种聪明的算法（最优传输）来给这些顶点令牌分配一个初始的、大致合理的位置，帮助模型学习。\n4.  **解码与组装**：将流匹配模型生成的顶点令牌，送入**网格VAE解码器**。\n    *   解码器会**同时**做三件事：\n        a. 预测每个顶点的精确3D坐标。\n        b. 预测顶点之间哪些有边连接。\n        c. 预测面的缠绕顺序（确保面都朝外）。\n5.  **输出**：一个完整的、拓扑结构正确的、面数可控的三维网格模型。因为边和面是同时预测的，所以像“椅子由座垫、靠背、四条腿组成”这种多部件结构，会**自然地被分成不同的连接组件**，无需额外处理。\n\n### (5) 结果怎么样\n论文报告的结果非常出色：\n\n1.  **生成质量高**：在几何保真度（形状像不像真东西）和拓扑质量（网格结构好不好）上，达到了**最先进的水平**，显著优于之前的MeshGPT等方法。\n2.  **生成速度快**：**中位生成时间仅为6秒**，这比自回归方法（如MeshGPT需要几分钟）快了**几十倍**，达到了“交互式”速度，用户体验很好。\n3.  **控制能力强**：用户可以**有效控制生成网格的面数**，生成从简模到精模的不同版本。\n4.  **可靠性好**：由于并行生成和VAE的结构保障，生成的网格**有效性高**，极少出现破洞、非法面片等问题。\n\n**总结**：Meshy T2就像是一个“3D模型快速打印店”。你给它一张照片（输入），它先快速捏个泥胚（体素阶段），然后根据你的要求（面数多少），立刻打印出一个结构结实、细节清晰、直接能用的塑料模型（网格输出），又快又好。"
+  },
+  "figures": {
+    "2607.28675": [
+      {
+        "path": "https://arxiv.org/html/2607.28675v1/x2.png",
+        "caption": "Figure 2:Vertex-set mesh autoencoder training framework.The encoder builds one latent token per ground-truth vertex by combining\nsurface-sample voxel context with vertex queries and graph attention over the\ntrue mesh edges. The decoder reconstructs vertex coordinates, undirected\nedges, and local halfedge permutations from the latent tokens. The final\nmesh is assembled from the predicted edges and halfedge successor\nmappings.",
+        "role": "pipeline_1",
+        "caption_zh": "图2：顶点集网格自编码器训练框架。编码器通过将表面采样体素上下文与顶点查询相结合，并在真实网格边上进行图注意力计算，为每个真实顶点构建一个潜在标记。解码器根据潜在标记重建顶点坐标、无向边及局部半边排列。最终网格根据预测的边和半边后继映射关系组装而成。"
+      },
+      {
+        "path": "https://arxiv.org/html/2607.28675v1/x5.png",
+        "caption": "Figure 5:Mesh generation.Frozen VAE latents provide the clean target set𝐱0\\mathbf{x}_{0}. Flow matching\nconstructs𝐱t\\mathbf{x}_{t}from𝐱0\\mathbf{x}_{0}, Gaussian noise𝐱1\\mathbf{x}_{1},\nand timesteptt, then predicts velocity using a single-stream DiT over latent,\nimage, and voxel tokens. Sobol OT assigns spatial PE to unordered latent tokens,\nwhile image, voxel, timestep, and count conditions control generation and\nprimitive budget.",
+        "role": "pipeline_2",
+        "caption_zh": "图 5：网格生成。冻结的 VAE 隐变量提供了干净的目标集 𝐱₀。流匹配基于 𝐱₀、高斯噪声 𝐱₁ 及时间步 t 构建 𝐱ₜ，随后通过一个在隐变量、图像和体素 token 上操作的单一流 DiT 来预测速度。Sobol OT 为无序的隐变量 token 分配空间位置编码，而图像、体素、时间步和计数条件则控制生成过程及图元预算。"
+      },
+      {
+        "path": "https://arxiv.org/html/2607.28675v1/x4.png",
+        "caption": "Figure 4:Voxel-grid generation.With the Voxel VAE frozen, its standardized posterior mean is flattened into163=409616^{3}=4096spatial tokens as the clean endpoint𝐱0\\mathbf{x}_{0}, and a\ntime-modulated Transformer velocity field is trained with flow matching under\nDINOv3 image conditioning. At inference, the generated latent grid is decoded\nby the frozen VAE and thresholded into the binary occupancy scaffold that\nconditions the second stage.",
+        "role": "pipeline_3",
+        "caption_zh": "图4：体素网格生成。在冻结体素VAE后，将其标准化的后验均值展平为163=4096个空间标记作为干净端点𝐱0，并在DINOv3图像条件化下，通过流匹配训练一个时间调制的Transformer速度场。在推理时，生成的潜在网格通过冻结的VAE解码，并阈值化为二值占据率支架，作为第二阶段的输入条件。"
+      }
+    ]
+  }
+}
