@@ -6,23 +6,29 @@
       "abstract_zh": "图像生成领域的最新进展展现了整合理解、生成与编辑功能的统一多模态模型的潜力。然而，统一的3D建模仍受限于稀缺的多模态数据，尤其是缺乏大规模且几何一致的编辑数据。为解决这一局限，我们提出了Hunyuan3D-Buffalo 1.0——一个在单一架构内支持3D理解、文本到3D生成、指令引导的3D编辑以及基于文本的部件生成的统一框架。为实现可扩展的训练，我们构建了一个包含8700万个样本的3D多模态数据集，其中包含2500万个理解样本、5000万文本到3D配对数据，以及利用Nano3D-v2生成的1200万个编辑配对数据。在架构设计上，该框架融合了具备语义、结构与空间理解能力的Hunyuan3D-VLM（视觉语言模型）与实现高保真3D合成的Hunyuan3D DiT（扩散变换器）。视觉语言模型为生成过程提供多模态语义条件，而编辑和部件生成任务则额外将扩散过程以源物体表征为条件，以保持其整体结构及未编辑区域。大量实验表明，Hunyuan3D-Buffalo 1.0在文本到3D生成和3D编辑基准测试中达到或领先于当前最优性能，同时展现出强大的理解与部件生成能力。我们的分析进一步证明，生成与理解能力的协同提升有效促进了编辑性能，这验证了统一3D多模态训练的有效性。项目页面：此 https URL",
       "hf_link": "https://huggingface.co/papers/2608.02711"
     },
-    "2608.03974": {
-      "title": "JoyAI-Video-Edit: Real-Time Open-Ended Video Editing with Autoregressive Diffusion",
-      "abstract": "Real-time video editing requires low-latency causal generation with bounded computational resources while preserving source fidelity and long-term temporal consistency. We present JoyAI-Video-Edit, a 16B-parameter autoregressive diffusion framework for real-time, open-ended video editing without access to future frames or a predefined video duration. Our method combines chunk-wise autoregressive adaptation, Source-Anchored Distribution Matching Distillation (SA-DMD), and Long-Horizon Autoregressive Distillation to reduce train--inference mismatch, preserve source fidelity during two-step generation, and mitigate accumulated temporal drift. Extensive automatic and human evaluations show that JoyAI-Video-Edit substantially outperforms existing streaming editors and remains competitive with strong offline systems on both short and long videos. The complete system achieves end-to-end 720p video editing at approximately 30 FPS on a single Nvidia B200 GPU. Code is available atthis https URL.",
-      "abstract_zh": "实时视频编辑要求在有界计算资源下实现低延迟的因果生成，同时保持源视频保真度和长期时序一致性。本文提出JoyAI-Video-Edit——一个160亿参数的自回归扩散框架，可在无需访问未来帧或预定义视频时长的情况下实现实时开放式视频编辑。我们的方法融合了分块自回归适配技术、源锚定分布匹配蒸馏（Source-Anchored Distribution Matching Distillation, SA-DMD）以及长时域自回归蒸馏技术，以降低训练-推理失配度，在两步生成过程中保持源视频保真度，并缓解累积性时序漂移。大量自动评估与人工评估表明，JoyAI-Video-Edit显著优于现有流式编辑系统，并在长短视频任务中均与强离线系统保持竞争力。完整系统在单张英伟达B200 GPU上可实现端到端720p视频编辑，速度约30 FPS。代码公开于此https链接。",
-      "hf_link": "https://huggingface.co/papers/2608.03974"
-    },
     "2607.28956": {
       "title": "MerchantBench: Benchmarking LLM Agents for Long-Term Coherence in E-Commerce Operations",
       "abstract": "Large language model agents are increasingly evaluated as autonomous tool users, yet most benchmarks focus on bounded tasks with immediate success criteria. Real-world deployments often require Long-Term Coherence, the capacity to preserve purposeful behavior across extended horizons while adapting decisions to accumulated evidence. Evaluating this capacity requires a persistent environment in which actions constrain future choices, feedback arrives at heterogeneous delays, and incoherent behavior produces measurable cumulative effects. Seller-side e-commerce provides a suitable setting for this evaluation through recurrent and interdependent decisions over Product Sourcing, Listing and Pricing Control, Cash-Flow Management, and Mixed-Latency Feedback Adaptation. We introduce MerchantBench, a 365-day order-level simulation grounded in 98,843 real e-commerce product records and equipped with 26 tools for agent interaction. MerchantBench couples promptly observable Upstream Supplier Events with delayed Downstream Order Outcomes, requiring agents to follow individual order lifecycles and revisit earlier decisions. We evaluate eight LLMs under two agent frameworks in 48 runs, each spanning 365 simulated days. Our results reveal a substantial gap between even the latest LLMs and human participants, with the best LLM configuration attaining only 27.3\\% of the mean final net assets achieved by human participants.",
       "abstract_zh": "大型语言模型智能体作为自主工具使用者的评估日益增多，但现有基准测试大多局限于具有即时成功标准的有限任务。现实场景往往需要长期连贯性——即在扩展时间跨度内保持目标导向行为，同时根据累积证据调整决策的能力。评估这种能力需要构建持久环境，其中行动会约束未来选择，反馈以异质性延迟出现，而不连贯行为会产生可量化的累积效应。卖方电子商务为此类评估提供了适宜场景，其涉及产品采购、上架与定价控制、现金流管理及混合延迟反馈适应等具有周期性和相互依赖性的决策序列。我们推出MerchantBench，这是一个基于98,843条真实电商产品记录构建的365天订单级仿真环境，配备26种智能体交互工具。该平台将可即时观测的上游供应商事件与延迟出现的下游订单结果相耦合，要求智能体跟踪单个订单生命周期并重新审视早期决策。我们在两种智能体框架下对八个大语言模型进行48次测试，每次模拟持续365天。结果显示，即使最新的大语言模型与人类参与者之间仍存在显著差距——最佳大语言模型配置仅达到人类参与者平均最终净资产的27.3%。",
       "hf_link": "https://huggingface.co/papers/2607.28956"
     },
+    "2608.03974": {
+      "title": "JoyAI-Video-Edit: Real-Time Open-Ended Video Editing with Autoregressive Diffusion",
+      "abstract": "Real-time video editing requires low-latency causal generation with bounded computational resources while preserving source fidelity and long-term temporal consistency. We present JoyAI-Video-Edit, a 16B-parameter autoregressive diffusion framework for real-time, open-ended video editing without access to future frames or a predefined video duration. Our method combines chunk-wise autoregressive adaptation, Source-Anchored Distribution Matching Distillation (SA-DMD), and Long-Horizon Autoregressive Distillation to reduce train--inference mismatch, preserve source fidelity during two-step generation, and mitigate accumulated temporal drift. Extensive automatic and human evaluations show that JoyAI-Video-Edit substantially outperforms existing streaming editors and remains competitive with strong offline systems on both short and long videos. The complete system achieves end-to-end 720p video editing at approximately 30 FPS on a single Nvidia B200 GPU. Code is available atthis https URL.",
+      "abstract_zh": "实时视频编辑要求在有界计算资源下实现低延迟的因果生成，同时保持源视频保真度和长期时序一致性。本文提出JoyAI-Video-Edit——一个160亿参数的自回归扩散框架，可在无需访问未来帧或预定义视频时长的情况下实现实时开放式视频编辑。我们的方法融合了分块自回归适配技术、源锚定分布匹配蒸馏（Source-Anchored Distribution Matching Distillation, SA-DMD）以及长时域自回归蒸馏技术，以降低训练-推理失配度，在两步生成过程中保持源视频保真度，并缓解累积性时序漂移。大量自动评估与人工评估表明，JoyAI-Video-Edit显著优于现有流式编辑系统，并在长短视频任务中均与强离线系统保持竞争力。完整系统在单张英伟达B200 GPU上可实现端到端720p视频编辑，速度约30 FPS。代码公开于此https链接。",
+      "hf_link": "https://huggingface.co/papers/2608.03974"
+    },
     "2608.02602": {
       "title": "AURORA-LM: Autoencoding Unified Representation for Continuous-Latent Diffusion Language Modeling",
       "abstract": "Language remains an outlier in generative modeling: while images, video, and audio are increasingly modeled in continuous latent spaces, text generation still relies predominantly on discrete tokens. Existing continuous language models either inherit embedding spaces not designed for joint generation and decoding, or compress autoencoded latents to ease diffusion, sacrificing token-level fidelity. Instead of simplifying the representation to suit the generative model, we preserve a high-capacity, decodable text latent and design the diffusion model to learn its distribution directly.We introduce AURORA-LM, a continuous-latent diffusion language model that separates the construction of a decodable text representation from the modeling of its distribution. A Query-based Encoder-Decoder organizes text into a high-capacity, prefix-aligned latent sequence, and a Block-causal Diffusion Transformer learns its distribution through flow matching, generating blocks left to right while denoising positions within each block in parallel. Because such a latent is harder for diffusion to model, AURORA-LM restricts only the noisy-input pathway while retaining the full clean-latent prediction target, accommodating full-width latents without reducing decoder-facing capacity. We further calibrate the noise-level distribution to the latent width, and introduce self-trajectory consistency to bridge independently sampled training noise and iterative denoising at inference.AURORA-LM achieves the strongest performance among evaluated continuous and diffusion-based language models on OpenWebText free generation and XSum summarization. Scaling to 1B parameters with about 1500 EFLOPs of total compute yields further gains, surpassing a larger publicly released latent-diffusion language model under a matched evaluation protocol. All experiments are conducted on Ascend NPUs.",
       "abstract_zh": "语言在生成建模中仍是一个特例：尽管图像、视频和音频越来越多地在连续潜在空间中进行建模，文本生成却依然主要依赖于离散的标记。现有的连续语言模型要么继承了并非为联合生成与解码而设计的嵌入空间，要么通过压缩自编码潜在表示以简化扩散过程，却牺牲了标记级别的保真度。我们并未为适应生成模型而简化表征，而是保留了一个高容量、可解码的文本潜在表示，并设计了扩散模型来直接学习其分布。我们提出了AURORA-LM，一种连续潜在扩散语言模型，它将可解码文本表征的构建与其分布建模分离开来。一个基于查询的编码器-解码器将文本组织成高容量、前缀对齐的潜在序列；而一个块因果扩散变换器则通过流匹配学习其分布，在从左到右生成文本块的同时，并行地对每个块内的位置进行去噪。由于此类潜在表示对扩散模型而言更难建模，AURORA-LM仅限制噪声输入路径，同时保留完整的干净潜在预测目标，从而在不降低面向解码器能力的情况下容纳全宽度潜在表示。我们进一步根据潜在宽度校准噪声水平分布，并引入自轨迹一致性，以弥合独立采样的训练噪声与推理时的迭代去噪过程。在OpenWebText自由生成和XSum摘要任务上，AURORA-LM在所有评估的连续与基于扩散的语言模型中取得了最佳性能。通过扩展至10亿参数并投入约1500 EFLOPs的总计算量，模型性能获得进一步提升，在匹配的评估协议下超越了更大规模的已公开潜在扩散语言模型。所有实验均在昇腾神经网络处理器（Ascend NPUs）上完成。",
       "hf_link": "https://huggingface.co/papers/2608.02602"
+    },
+    "2608.03979": {
+      "title": "Video-DeepResearch: Towards the Next-Generation Multimodal Deepresearch Agent",
+      "abstract": "We introduce Video-DeepResearch (Video-DR), extending multimodal agents from static images to continuous video streams, a setting that demands dense spatiotemporal grounding coupled with open-web exploration. Preliminary evaluations reveal two critical bottlenecks in current models: (1) modality bias, where agents bypass visual tools in favor of textual search, and (2) parametric knowledge leakage, where models rely on internal memory rather than genuine tool-augmented execution. To address these challenges, we propose Video-DR, featuring a decoupled perception-exploration pipeline with stage-wise tool unlocking that compels exhaustive cross-frame visual grounding prior to web retrieval. Our framework adopts a two-stage training recipe: supervised fine-tuning followed by Group Relative Policy Optimization (GRPO), enabling autonomous exploration that breaks the imitation-learning ceiling. Furthermore, we curate Video-DR-Bench, a human-AI collaborative benchmark comprising 200 complex, multi-hop VQA instances. Empirical results demonstrate that our Video-DeepResearch-35B-A3B establishes a new state-of-the-art of 64.0% average accuracy, surpassing proprietary Claude-4.5-Sonnet (59.0%) by 5.0 points and significantly outperforming GPT-5 (52.5%) and Gemini 2.5 Pro (57.5%). The 30B-A3B variant achieves 59.3%, competitive with Claude-4.5-Sonnet and demonstrating the effectiveness of our training paradigm even at compact scale. Code:this https URL.",
+      "abstract_zh": "我们推出视频深度研究（Video-DeepResearch，简称Video-DR），将多模态智能体从静态图像拓展至连续视频流。这一场景要求实现密集的时空定位与开放网络探索的结合。初步评估揭示了当前模型存在的两大关键瓶颈：（1）模态偏见——智能体倾向于绕过视觉工具而依赖文本搜索；（2）参数知识泄漏——模型依赖内部记忆而非真正的工具增强执行。为应对这些挑战，我们提出了Video-DR框架，其采用解耦的感知-探索流程，通过分阶段工具解锁机制，强制模型在启动网络检索前完成详尽的跨帧视觉定位。我们的框架采用两阶段训练方案：先进行监督微调，再实施分组相对策略优化（Group Relative Policy Optimization，GRPO），从而突破模仿学习的性能上限，实现自主探索。此外，我们构建了Video-DR-Bench基准测试集——一个由200个复杂多跳视频问答实例构成的人机协作评估体系。实验结果表明，我们的Video-DeepResearch-35B-A3B模型以64.0%的平均准确率创造了新的性能纪录，较专用模型Claude-4.5-Sonnet（59.0%）提升5.0个百分点，并显著超越GPT-5（52.5%）和Gemini 2.5 Pro（57.5%）。其30B-A3B变体亦达到59.3%的准确率，与Claude-4.5-Sonnet性能相当，这证明了我们的训练范式即使在紧凑模型规模下依然有效。代码地址：this https URL。",
+      "hf_link": "https://huggingface.co/papers/2608.03979"
     },
     "2608.02738": {
       "title": "Knowledge-Geometry Decoupling: Refreshable Pretrained Transfer for Streaming Recommendation",
@@ -36,41 +42,17 @@
       "abstract_zh": "大型语言模型智能体在复杂交互任务中展现出巨大潜力，但其强化学习过程常受稀疏奖励制约——长程多轮轨迹往往仅能获得单一结果级反馈信号。基于策略的自蒸馏方法通过特权教师模型提供密集的词元级监督，但教师模型在各位置的预测可靠性并不稳定。现有方法通常依赖孤立的词元级差异度量（易受噪声干扰），或采用共享的步骤级权重（可能忽视位置差异性）。本研究提出持续性一致自蒸馏方法，该方法通过教师偏好信号的局部持续性推导词元级蒸馏权重。该框架融合自适应窗口与指数衰减聚合机制以捕捉持续的教师相对支持度，运用趋势感知调制衰减局部递减的支持信号，并通过S型门控生成连续权重。最终目标函数与GRPO协同优化，将密集的教师指导与稀疏的环境反馈相结合。在不引入推理时技能的前提下，该方法在ALFWorld综合评估中超越所有基线模型：在两个骨干网络上分别超过GRPO 15.6与13.3个百分点，超过SDAR 6.2与5.5个百分点；在WebShop基准上保持竞争力，并在ALFWorld未知场景分割中较GRPO提升15.8个百分点。",
       "hf_link": "https://huggingface.co/papers/2608.01837"
     },
-    "2608.04003": {
-      "title": "PAST-Bench: Benchmarking the Foundations of Recursive Self-Improvement in Personal Agents",
-      "abstract": "Recursive self-improvement requires agents to turn accumulated experience into better future behavior. Personal AI agents offer a concrete setting for studying this capability because they retain preferences, task histories, tool routines, and learned skills across sessions. Yet whether retained experience actually improves them over time has not been systematically tested. We introduce PAST-Bench, a benchmark designed to isolate this question. Each agent runs through ordered sequences of fresh-session tasks under matched conditions that turn retained experience on and off. It spans 26 scenarios and 204 episodes across memory, procedural reuse, information gathering, and update. We report both later-task gains and whether those gains follow the intended save, retrieve, and update pathway. Across seven base models and four agent frameworks, improvement is real but uneven across capabilities. Agents with the same headline gain can differ markedly in whether that gain is supported by evidence of the intended pathway. Guided by these findings, we develop Hermes+, which extends Hermes with five targeted interventions across stages of the agent loop. Hermes+ raises the average gain from retained experience and provides clearer pathway evidence, with its strongest improvement on tasks requiring outdated state to be replaced, although the effect remains capability- and model-dependent. Together, PAST-Bench and Hermes+ provide an evaluation and diagnostic foundation for studying how persistent agents can progress from retaining experience to systematically improving through it. Code:this https URL",
-      "abstract_zh": "递归自我改进要求智能体将累积的经验转化为更优的未来行为。个人AI智能体为研究这一能力提供了具体场景，因为它们能在不同会话间保留偏好、任务历史、工具使用惯例及习得技能。然而，留存的经验是否真能随时间推移提升其性能尚未得到系统验证。我们提出PAST-Bench基准测试，旨在隔离该问题进行研究。每个智能体在匹配条件下执行有序的新会话任务序列，通过开关设置控制经验留存机制。该基准涵盖记忆、流程复用、信息收集与更新四大模块，包含26个场景与204个任务片段。我们既评估后续任务的增益表现，也检验这些增益是否符合预设的存储-检索-更新路径。在七种基础模型与四种智能体框架的测试中，改进确实存在但不同能力间表现不均。即使获得相同表面增益的智能体，其改进过程对预设路径的遵循程度也存在显著差异。基于这些发现，我们开发了Hermes+系统，通过在智能体循环的五个关键阶段实施针对性干预来扩展原有Hermes框架。Hermes+提升了经验留存带来的平均增益，并提供了更清晰的路径遵循证据，在需要替换过时状态的任务上改进尤为显著，但效果仍受具体能力与模型差异影响。PAST-Bench与Hermes+共同为研究持久化智能体如何从经验留存走向系统性自我改进提供了评估与诊断基础。代码地址：this https URL",
-      "hf_link": "https://huggingface.co/papers/2608.04003"
-    },
     "2608.02713": {
       "title": "Quo Vadis, World Modeling?",
       "abstract": "Continually improving agents require dynamic interaction feedback beyond static supervision, yet direct real-environment interaction is costly, slow, unsafe, and hard to parallelize. World modeling offers a natural intermediate proxy that allows agents to query lower-cost, more controllable feedback before committing to real actions. Classical world models instantiate this proxy primarily through future physical-state prediction, a formulation useful yet narrow for agents that require actionable feedback beyond raw state transitions. In this work, we conceptualize Agent-Centric Interactive World Proxies, shifting the fundamental paradigm from physical state transitions to agent-usable information transitions, such as execution outcomes, retrieved experiences or skills, and verification signals, broadening the scope of world modeling to provide versatile feedback for continually improving agents. To systematically map this design space, we organize world proxies into six functional forms based on their feedback modalities: dynamics, spatial, execution, memory/experience, skill, and reward/verification proxies, which together characterize the primary ways world modeling serves agent improvement. We further analyze how these proxies empower agents across three progressive levels: L.1 Inference-Time Guidance, where proxy outputs enrich in-context information for superior decisions; L.2 Training-Time Optimization, where proxy outputs yield rewards, critiques, or synthetic rollouts for policy learning; and L.3 Agent-Proxy Co-Evolution, where real-environment evidence continuously updates both the proxy and the agent for co-evolution. Ultimately, this work recasts world modeling into an agent-centric paradigm, establishing a roadmap for building world proxies that empower agents to plan better, learn faster, and evolve continually.",
       "abstract_zh": "持续改进的智能体需要超越静态监督的动态交互反馈，然而直接在真实环境中进行交互成本高昂、速度缓慢、存在安全隐患且难以并行化。世界建模（world modeling）提供了一种天然的中间代理（proxy），使智能体在采取真实行动前能够获取成本更低、更可控的反馈。经典的世界建模主要通过未来物理状态预测来实现这一代理功能，这种形式虽然有效，但对于需要超越原始状态转换、获得可操作反馈的智能体而言，其适用范围较为有限。本研究提出以智能体为中心的可交互世界代理（Agent-Centric Interactive World Proxies）概念，将基本范式从物理状态转移转向对智能体可用的信息转移，例如执行结果、检索到的经验或技能以及验证信号，从而拓宽世界建模的范畴，为持续改进的智能体提供多样化的反馈。\n\n为系统性地梳理这一设计空间，我们根据反馈模态将世界代理归纳为六种功能形态：动态代理（dynamics proxies）、空间代理（spatial proxies）、执行代理（execution proxies）、记忆/经验代理（memory/experience proxies）、技能代理（skill proxies）以及奖励/验证代理（reward/verification proxies），它们共同描述了世界建模支持智能体改进的主要方式。进一步地，我们分析了这些代理如何在三个递进层级上赋能智能体：**L.1 推理时指导**——代理输出丰富的上下文信息以辅助更优决策；**L.2 训练时优化**——代理输出产生奖励、评估或合成推演轨迹以支持策略学习；**L.3 智能体-代理协同进化**——真实环境证据持续更新代理与智能体，实现二者协同进化。\n\n最终，本研究将世界建模重塑为以智能体为中心的范式，并构建了发展世界代理的技术路线图，旨在使智能体能够更好地规划、更快地学习并实现持续进化。",
       "hf_link": "https://huggingface.co/papers/2608.02713"
     },
-    "2608.03979": {
-      "title": "Video-DeepResearch: Towards the Next-Generation Multimodal Deepresearch Agent",
-      "abstract": "We introduce Video-DeepResearch (Video-DR), extending multimodal agents from static images to continuous video streams, a setting that demands dense spatiotemporal grounding coupled with open-web exploration. Preliminary evaluations reveal two critical bottlenecks in current models: (1) modality bias, where agents bypass visual tools in favor of textual search, and (2) parametric knowledge leakage, where models rely on internal memory rather than genuine tool-augmented execution. To address these challenges, we propose Video-DR, featuring a decoupled perception-exploration pipeline with stage-wise tool unlocking that compels exhaustive cross-frame visual grounding prior to web retrieval. Our framework adopts a two-stage training recipe: supervised fine-tuning followed by Group Relative Policy Optimization (GRPO), enabling autonomous exploration that breaks the imitation-learning ceiling. Furthermore, we curate Video-DR-Bench, a human-AI collaborative benchmark comprising 200 complex, multi-hop VQA instances. Empirical results demonstrate that our Video-DeepResearch-35B-A3B establishes a new state-of-the-art of 64.0% average accuracy, surpassing proprietary Claude-4.5-Sonnet (59.0%) by 5.0 points and significantly outperforming GPT-5 (52.5%) and Gemini 2.5 Pro (57.5%). The 30B-A3B variant achieves 59.3%, competitive with Claude-4.5-Sonnet and demonstrating the effectiveness of our training paradigm even at compact scale. Code:this https URL.",
-      "abstract_zh": "我们推出视频深度研究（Video-DeepResearch，简称Video-DR），将多模态智能体从静态图像拓展至连续视频流。这一场景要求实现密集的时空定位与开放网络探索的结合。初步评估揭示了当前模型存在的两大关键瓶颈：（1）模态偏见——智能体倾向于绕过视觉工具而依赖文本搜索；（2）参数知识泄漏——模型依赖内部记忆而非真正的工具增强执行。为应对这些挑战，我们提出了Video-DR框架，其采用解耦的感知-探索流程，通过分阶段工具解锁机制，强制模型在启动网络检索前完成详尽的跨帧视觉定位。我们的框架采用两阶段训练方案：先进行监督微调，再实施分组相对策略优化（Group Relative Policy Optimization，GRPO），从而突破模仿学习的性能上限，实现自主探索。此外，我们构建了Video-DR-Bench基准测试集——一个由200个复杂多跳视频问答实例构成的人机协作评估体系。实验结果表明，我们的Video-DeepResearch-35B-A3B模型以64.0%的平均准确率创造了新的性能纪录，较专用模型Claude-4.5-Sonnet（59.0%）提升5.0个百分点，并显著超越GPT-5（52.5%）和Gemini 2.5 Pro（57.5%）。其30B-A3B变体亦达到59.3%的准确率，与Claude-4.5-Sonnet性能相当，这证明了我们的训练范式即使在紧凑模型规模下依然有效。代码地址：this https URL。",
-      "hf_link": "https://huggingface.co/papers/2608.03979"
-    },
-    "2608.03812": {
-      "title": "OmniPack: Unified Token Compression for Efficient Omni-modal Large Language Models",
-      "abstract": "Omni-modal large language models (Omni-LLMs) have achieved remarkable performance on audio-visual understanding tasks, but processing long and highly redundant visual and audio token sequences incurs substantial computational overhead, demanding aggressive token compression for efficient deployment. Existing methods often degrade at low token budgets: pre-LLM compression may discard structurally important and globally distributed evidence, whereas inner-LLM compression often underexploits query-conditioned audio-visual collaboration. To address these limitations, we propose OmniPack, a training-free framework that coordinates structural compression before the LLM with task-relevant semantic refinement within the LLM. Before the LLM, OmniPack removes structural redundancy through modality-specific importance, global coverage, and similarity-aware merging. After sufficient multimodal interaction, it further consolidates diverse, task-relevant representations through textual guidance and audio-visual collaboration. Extensive experiments on five benchmarks with three Omni-LLM backbones demonstrate that OmniPack consistently achieves the best performance-efficiency trade-off across diverse retention ratios, outperforming all existing methods. Notably, on Qwen2.5-Omni-7B, OmniPack preserves 98.0% of the original performance while reducing FLOPs to 16.7%, and still retains 92.9% of the original performance with only 6.8% of the original FLOPs.",
-      "abstract_zh": "全模态大语言模型(Omni-LLMs)在视听理解任务上取得了显著性能，但处理长且高度冗余的视觉与音频标记序列会产生大量计算开销，需要积极的标记压缩以实现高效部署。现有方法在低标记预算下往往性能下降：大语言模型(LLM)前压缩可能丢弃结构重要性且全局分布的证据，而大语言模型(LLM)内压缩则常常未能充分利用查询条件化的视听协同。为应对这些局限，我们提出OmniPack——一种无需训练的训练框架，通过在大语言模型(LLM)前进行结构压缩，与大语言模型(LLM)内任务相关语义精炼的协同机制。在大语言模型(LLM)处理前，OmniPack通过模态特定重要性评估、全局覆盖度分析和相似性感知融合来消除结构冗余。在充分的多模态交互后，该框架进一步通过文本引导和视听协作整合多样化且任务相关的表征。在五个基准测试集上对三种全模态大语言模型(Omni-LLM)骨干网络开展的广泛实验表明，OmniPack在不同保留率下始终实现最佳性能-效率权衡，优于所有现有方法。值得注意的是，在Qwen2.5-Omni-7B模型上，OmniPack在将浮点运算量(FLOPs)降至16.7%时仍保持原始性能的98.0%，即使仅保留原始浮点运算量(FLOPs)的6.8%时仍可维持92.9%的原始性能。",
-      "hf_link": "https://huggingface.co/papers/2608.03812"
-    },
-    "2608.03971": {
-      "title": "UniWorld-Design: From Pixel Generation to Layer-Native Design",
-      "abstract": "We introduce UniWorld-Design, a framework that redefines image generation from flat pixel synthesis to structured visual composition, with semantic RGBA layers as the atomic units of generation, understanding, and editing. Our key insight is that pixels define how an image is rendered, whereas layers define how an image is created, understood, and edited. Just as human designers create and manipulate visual content through layers rather than raw pixels, UniWorld-Design equips multimodal generative models with a layer-native design space. UniWorld-Design comprises two models. The Text-to-RGBA (T2RGBA) model generates standalone RGBA assets directly from text. The Image-to-Layer (I2L) model conditions on a finished image, a global instruction and per-layer prompts, and jointly produces ordered, complete semantic RGBA layers. Its instruction interface supports top-level decomposition, recursive decomposition and targeted extraction, making layering an instruction-addressable operation for agentic editing. Because I2L learns complete semantic objects rather than visible-pixel partitions, its layers stay usable when moved or removed. On the Crello benchmark, I2L reduces per-layer RGB L1 error by 37% and achieves a 34% relative improvement in Alpha Soft IoU over Qwen-Image-Layered. Separately, T2RGBA achieves the highest CLIP Score, outperforming LayerDiffuse and OmniAlpha.",
-      "abstract_zh": "我们提出UniWorld-Design框架，该框架将图像生成从平面像素合成重新定义为结构化视觉组合，以语义RGBA层作为生成、理解与编辑的原子单元。我们的核心见解在于：像素定义了图像的渲染方式，而图层定义了图像的创建、理解与编辑方式。正如人类设计师通过图层而非原始像素来创建和操控视觉内容，UniWorld-Design为多模态生成模型提供了原生图层化的设计空间。UniWorld-Design包含两个模型：文本到RGBA（Text-to-RGBA, T2RGBA）模型可直接从文本生成独立的RGBA素材；图像到图层（Image-to-Layer, I2L）模型则基于完成图像、全局指令及逐层提示进行条件化处理，共同生成有序且完整的语义RGBA层。其指令接口支持顶层分解、递归分解与目标提取，使得分层操作成为可指令驱动的智能编辑手段。由于I2L学习的是完整语义对象而非可见像素分区，其图层在移动或移除时仍保持可用性。在Crello基准测试中，I2L将单层RGB L1误差降低了37%，Alpha软交并比（Soft IoU）相比Qwen-Image-Layered实现34%的相对提升。此外，T2RGBA在CLIP评分中取得最高分，性能优于LayerDiffuse与OmniAlpha。",
-      "hf_link": "https://huggingface.co/papers/2608.03971"
-    },
-    "2608.02589": {
-      "title": "CAPEval: A Decoupled Caption Evaluation across Understanding and Generation",
-      "abstract": "Captions serve as a primary supervision signal for both multimodal understanding and text-to-image generation. However, previous evaluations treat the caption quality as a single scalar objective, which conflates two distinct properties: (1) how much visual information a caption covers and (2) how reliably the image supports its stated claims. To this end, we design a decoupled caption evaluation benchmark, CAPEval (Coverage And Precision Evaluation), with human-written ground-truth captions and human-verified atomic checklist items. Specifically, CAPEval decomposes caption quality into Coverage and Precision. The former quantifies how thoroughly a caption covers ground-truth factual content, while the latter reflects the factual correctness rate of all claims expressed in the caption. We select 10 captioners and further conduct controlled downstream end-to-end experiments with them from four model families, where the caption source is the only variable. Empirically, we find a consistent task-dependent dissociation: Coverage serves as the stronger correlate for understanding performance, whereas Precision acts as the dominant predictor for generation performance. This decoupled evaluation paradigm not only delivers a more fine-grained diagnosis of caption quality, but also offers actionable guidance for selecting and optimizing captioners tailored to different downstream tasks.",
-      "abstract_zh": "字幕作为多模态理解和文本到图像生成的主要监督信号，其质量评估在以往研究中常被简化为单一标量目标，这混淆了两个截然不同的属性：(1) 字幕涵盖视觉信息的程度，以及(2) 图像对其陈述主张的支持可靠性。为此，我们设计了一个解耦的字幕评估基准——CAPEval（覆盖度与精确度评估），该基准采用人工撰写的真实字幕和经人工验证的原子检查清单条目。具体而言，CAPEval将字幕质量分解为覆盖度（Coverage）和精确度（Precision）。前者量化字幕对真实事实内容的覆盖全面性，而后者反映字幕中所有陈述主张的事实正确率。我们选取了来自四个模型家族的10种字幕生成器，并以其为变量开展了受控的下游端到端实验。实证研究表明，两者存在一致的任务依赖性分离：覆盖度是理解任务性能的更强关联指标，而精确度则成为生成任务性能的主导预测因子。这种解耦的评估范式不仅为字幕质量提供了更精细的诊断，还为针对不同下游任务选择与优化字幕生成器提供了可操作的指导。",
-      "hf_link": "https://huggingface.co/papers/2608.02589"
+    "2608.04003": {
+      "title": "PAST-Bench: Benchmarking the Foundations of Recursive Self-Improvement in Personal Agents",
+      "abstract": "Recursive self-improvement requires agents to turn accumulated experience into better future behavior. Personal AI agents offer a concrete setting for studying this capability because they retain preferences, task histories, tool routines, and learned skills across sessions. Yet whether retained experience actually improves them over time has not been systematically tested. We introduce PAST-Bench, a benchmark designed to isolate this question. Each agent runs through ordered sequences of fresh-session tasks under matched conditions that turn retained experience on and off. It spans 26 scenarios and 204 episodes across memory, procedural reuse, information gathering, and update. We report both later-task gains and whether those gains follow the intended save, retrieve, and update pathway. Across seven base models and four agent frameworks, improvement is real but uneven across capabilities. Agents with the same headline gain can differ markedly in whether that gain is supported by evidence of the intended pathway. Guided by these findings, we develop Hermes+, which extends Hermes with five targeted interventions across stages of the agent loop. Hermes+ raises the average gain from retained experience and provides clearer pathway evidence, with its strongest improvement on tasks requiring outdated state to be replaced, although the effect remains capability- and model-dependent. Together, PAST-Bench and Hermes+ provide an evaluation and diagnostic foundation for studying how persistent agents can progress from retaining experience to systematically improving through it. Code:this https URL",
+      "abstract_zh": "递归自我改进要求智能体将累积的经验转化为更优的未来行为。个人AI智能体为研究这一能力提供了具体场景，因为它们能在不同会话间保留偏好、任务历史、工具使用惯例及习得技能。然而，留存的经验是否真能随时间推移提升其性能尚未得到系统验证。我们提出PAST-Bench基准测试，旨在隔离该问题进行研究。每个智能体在匹配条件下执行有序的新会话任务序列，通过开关设置控制经验留存机制。该基准涵盖记忆、流程复用、信息收集与更新四大模块，包含26个场景与204个任务片段。我们既评估后续任务的增益表现，也检验这些增益是否符合预设的存储-检索-更新路径。在七种基础模型与四种智能体框架的测试中，改进确实存在但不同能力间表现不均。即使获得相同表面增益的智能体，其改进过程对预设路径的遵循程度也存在显著差异。基于这些发现，我们开发了Hermes+系统，通过在智能体循环的五个关键阶段实施针对性干预来扩展原有Hermes框架。Hermes+提升了经验留存带来的平均增益，并提供了更清晰的路径遵循证据，在需要替换过时状态的任务上改进尤为显著，但效果仍受具体能力与模型差异影响。PAST-Bench与Hermes+共同为研究持久化智能体如何从经验留存走向系统性自我改进提供了评估与诊断基础。代码地址：this https URL",
+      "hf_link": "https://huggingface.co/papers/2608.04003"
     },
     "2608.03316": {
       "title": "Any-OPD: Heterogeneous On-Policy Distillation for Flow-Matching Models via Representation-Space Bridging",
@@ -78,17 +60,35 @@
       "abstract_zh": "策略内蒸馏（on-policy distillation）通常依赖教师模型对学生自身生成的样本进行校正，其前提是两者使用\"相同的语言\"：完全一致的变分自编码器（VAE）隐变量空间、匹配的模型架构以及统一的时间步网格。本文探讨当这些条件均不满足时——例如当可用的最强教师模型与希望部署的学生模型来自不同模型家族——会面临何种挑战，并指出现有标准方法对此缺乏解决方案：教师模型的隐变量无法作为陌生坐标系中的目标，针对随机重绘局部细节的教师模型所采用的逐像素损失会退化为模糊或发散结果，且时间步索引在错配的调度方案间失去意义。我们提出Any-OPD，据我们所知这是首个适用于任意潜在流匹配生成器对的策略内蒸馏框架。Any-OPD将教师模型纯粹视为黑盒采样器，仅通过一个连接点桥接两个模型：在冻结的、与模型无关的视觉表征空间中比较它们独立解码的输出，从而规避所有关于隐变量、特征或架构的假设。通过匹配连续噪声层级而非步长索引来恢复轨迹对应性，并引入简短的锚定阶段——将教师样本通过学生自身的VAE重新编码——确保策略内梯度衡量的是样本质量而非领域差异。将12B参数的FLUX.1-dev模型蒸馏至2.5B参数的SD3.5-Medium模型时，Any-OPD将学生的PickScore从0.846提升至0.884，HPSv3从9.12提升至10.97，使仅具有教师模型五分之一体量的学生模型达到与教师相当的性能，而直接的隐变量回归方法则完全无法训练。",
       "hf_link": "https://huggingface.co/papers/2608.03316"
     },
-    "2608.03509": {
-      "title": "SkillJack: Persistent Skill Backdoors in Self-Evolving Agents",
-      "abstract": "Self-evolving agents increasingly convert interaction histories into reusable skills that persist beyond individual tasks. While prior work studies memory and retrieval poisoning, such attacks only affect agents when poisoned records are retrieved as context. We uncover a new and more fundamental risk: poisoned experiences can be transformed by the agent itself into durable behavioral artifacts. We present \\textbf{SkillJack}, the first attack that exploits the experience-to-skill pipeline of self-evolving agents. Instead of directly manipulating runtime context, SkillJack hijacks the agent's own learning process to implant malicious behaviors into its reusable skill repertoire. We identify three key properties of this transformation: \\emph{sanitization whitewashing}, where malicious intent is obscured during skill extraction; \\emph{cross-layer promotion}, where transient experiences become persistent capabilities; and \\emph{persistence isolation}, where the attack survives removal of its original source records. We evaluate SkillJack on two representative systems, SkillX and Anything2Skill, using a shared dataset of 150 trajectories across four policy-risk categories. Results show that skill extraction substantially reduces attack detectability: in SkillX, safety detection drops from 98.5\\% for poisoned trajectories to 11.4\\% for extracted skills, while Anything2Skill shows a similar effect. Meanwhile, the implanted skills remain effective, achieving attack success rates of 56.2\\% and 89.2\\% on the two systems, respectively. Furthermore, 80.0\\% of skill-mediated attacks persist after deleting the original poisoned records, and some skills unintentionally activate on benign queries. Our findings reveal skill evolution as a new attack surface and motivate provenance-aware skill lifecycle protection. Our code is available atthis https URL.",
-      "abstract_zh": "自我进化智能体日益将交互历史转化为可复用的技能，这些技能能够超越单个任务持续存在。尽管先前研究关注记忆与检索投毒，但此类攻击仅在受污染记录作为上下文被检索时才会影响智能体。我们发现了一种新的、更根本的风险：受污染的体验可被智能体自身转化为持久的行为产物。本文提出 **SkillJack**——首个利用自我进化智能体\"体验转技能\"流程的攻击方法。SkillJack并非直接操纵运行时上下文，而是劫持智能体自身的学习过程，将恶意行为植入其可复用的技能库中。我们揭示了该转化过程的三个关键特性：**净化粉饰**（sanitization whitewashing），即恶意意图在技能提取过程中被掩盖；**跨层晋升**（cross-layer promotion），即瞬时体验转化为持久能力；以及**持久化隔离**（persistence isolation），即攻击在原始源记录被删除后依然存续。我们在两个代表性系统（SkillX与Anything2Skill）上评估SkillJack，使用包含四个策略风险类别的150条轨迹共享数据集。实验结果表明，技能提取显著降低了攻击可检测性：在SkillX系统中，安全检测率从污染轨迹的98.5%骤降至提取技能的11.4%，Anything2Skill系统也呈现相似趋势。与此同时，植入的技能仍保持攻击效力，在两个系统上分别实现56.2%和89.2%的攻击成功率。此外，80.0%的技能媒介攻击在原始污染记录删除后依然持续存在，部分技能甚至会在良性查询时被意外激活。我们的研究揭示了技能演化作为新型攻击面的风险，并为开发基于溯源感知的技能生命周期保护机制提供了依据。代码已发布于this https URL。",
-      "hf_link": "https://huggingface.co/papers/2608.03509"
-    },
     "2608.03457": {
       "title": "LLaDA MoE v2: Scaling Mixture-of-Experts Diffusion Language Models",
       "abstract": "Diffusion language models (dLLMs) offer an alternative to autoregressive (AR) language modeling, yet the scaling behavior of Mixture-of-Experts (MoE) dLLMs remains poorly understood. We systematically characterize how optimization hyperparameters, compute allocation, and architecture scale for MoE dLLMs, identifying quantitative differences from scaling trends previously reported for AR models. Specifically, for optimization, the optimal nominal batch size grows faster, while the optimal learning rate decays more rapidly with compute. For model--data allocation, IsoFLOP analysis reveals a slight data-side tilt: the optimal token budget grows faster than activated model-side computation. For MoE architecture, larger scales increasingly favor larger expert pools at fixed activated capacity, while moderate expert granularity remains consistently effective and the preferred fraction of activated capacity assigned to shared experts remains stable across scales. Guided by these findings, we train LLaDA MoE v2, a 30B-A3B dLLM, from scratch on 23.5T tokens. With approximately 65\\% as many pretraining tokens as Qwen3, LLaDA MoE v2 approaches Qwen3 on several knowledge, reasoning, and coding benchmarks. After supervised fine-tuning alone, it outperforms SDAR Chat on seven of eight reasoning and coding benchmarks and remains close to Qwen3 on several tasks. These results establish practical scaling laws and design principles for MoE dLLMs.",
       "abstract_zh": "扩散语言模型（dLMs）为自回归语言建模提供了一种替代方案，然而专家混合扩散语言模型的扩展规律仍未得到充分理解。我们系统性地探究了专家混合扩散语言模型的优化超参数、计算分配与架构扩展特性，并识别出其与先前报道的自回归模型扩展趋势之间的量化差异。具体而言，在优化方面：随计算量增长，最优名义批处理规模扩大得更快，而最优学习率衰减更为迅速。在模型-数据分配方面，等计算量分析揭示出轻微的数据侧倾向：最优词元预算的增长速度高于激活的模型侧计算量。在专家混合架构方面：随着规模扩大，在固定激活容量下，更大规模的专家池越来越受青睐；中等专家粒度始终保持良好效果；而分配给共享专家的激活容量优选比例在不同规模间保持稳定。基于这些发现，我们以23.5万亿词元从头训练了LLaDA MoE v2——一个300亿总参数/30亿激活参数的扩散语言模型。该模型仅使用Qwen3约65%的预训练词元量，便在多项知识、推理和代码基准测试中接近Qwen3水平。仅经过监督微调后，其在八项推理与代码基准测试中的七项超越SDAR Chat，并在多项任务中与Qwen3表现相当。这些成果为专家混合扩散语言模型确立了实用的扩展定律与设计原则。",
       "hf_link": "https://huggingface.co/papers/2608.03457"
+    },
+    "2608.03812": {
+      "title": "OmniPack: Unified Token Compression for Efficient Omni-modal Large Language Models",
+      "abstract": "Omni-modal large language models (Omni-LLMs) have achieved remarkable performance on audio-visual understanding tasks, but processing long and highly redundant visual and audio token sequences incurs substantial computational overhead, demanding aggressive token compression for efficient deployment. Existing methods often degrade at low token budgets: pre-LLM compression may discard structurally important and globally distributed evidence, whereas inner-LLM compression often underexploits query-conditioned audio-visual collaboration. To address these limitations, we propose OmniPack, a training-free framework that coordinates structural compression before the LLM with task-relevant semantic refinement within the LLM. Before the LLM, OmniPack removes structural redundancy through modality-specific importance, global coverage, and similarity-aware merging. After sufficient multimodal interaction, it further consolidates diverse, task-relevant representations through textual guidance and audio-visual collaboration. Extensive experiments on five benchmarks with three Omni-LLM backbones demonstrate that OmniPack consistently achieves the best performance-efficiency trade-off across diverse retention ratios, outperforming all existing methods. Notably, on Qwen2.5-Omni-7B, OmniPack preserves 98.0% of the original performance while reducing FLOPs to 16.7%, and still retains 92.9% of the original performance with only 6.8% of the original FLOPs.",
+      "abstract_zh": "全模态大语言模型(Omni-LLMs)在视听理解任务上取得了显著性能，但处理长且高度冗余的视觉与音频标记序列会产生大量计算开销，需要积极的标记压缩以实现高效部署。现有方法在低标记预算下往往性能下降：大语言模型(LLM)前压缩可能丢弃结构重要性且全局分布的证据，而大语言模型(LLM)内压缩则常常未能充分利用查询条件化的视听协同。为应对这些局限，我们提出OmniPack——一种无需训练的训练框架，通过在大语言模型(LLM)前进行结构压缩，与大语言模型(LLM)内任务相关语义精炼的协同机制。在大语言模型(LLM)处理前，OmniPack通过模态特定重要性评估、全局覆盖度分析和相似性感知融合来消除结构冗余。在充分的多模态交互后，该框架进一步通过文本引导和视听协作整合多样化且任务相关的表征。在五个基准测试集上对三种全模态大语言模型(Omni-LLM)骨干网络开展的广泛实验表明，OmniPack在不同保留率下始终实现最佳性能-效率权衡，优于所有现有方法。值得注意的是，在Qwen2.5-Omni-7B模型上，OmniPack在将浮点运算量(FLOPs)降至16.7%时仍保持原始性能的98.0%，即使仅保留原始浮点运算量(FLOPs)的6.8%时仍可维持92.9%的原始性能。",
+      "hf_link": "https://huggingface.co/papers/2608.03812"
+    },
+    "2608.02589": {
+      "title": "CAPEval: A Decoupled Caption Evaluation across Understanding and Generation",
+      "abstract": "Captions serve as a primary supervision signal for both multimodal understanding and text-to-image generation. However, previous evaluations treat the caption quality as a single scalar objective, which conflates two distinct properties: (1) how much visual information a caption covers and (2) how reliably the image supports its stated claims. To this end, we design a decoupled caption evaluation benchmark, CAPEval (Coverage And Precision Evaluation), with human-written ground-truth captions and human-verified atomic checklist items. Specifically, CAPEval decomposes caption quality into Coverage and Precision. The former quantifies how thoroughly a caption covers ground-truth factual content, while the latter reflects the factual correctness rate of all claims expressed in the caption. We select 10 captioners and further conduct controlled downstream end-to-end experiments with them from four model families, where the caption source is the only variable. Empirically, we find a consistent task-dependent dissociation: Coverage serves as the stronger correlate for understanding performance, whereas Precision acts as the dominant predictor for generation performance. This decoupled evaluation paradigm not only delivers a more fine-grained diagnosis of caption quality, but also offers actionable guidance for selecting and optimizing captioners tailored to different downstream tasks.",
+      "abstract_zh": "字幕作为多模态理解和文本到图像生成的主要监督信号，其质量评估在以往研究中常被简化为单一标量目标，这混淆了两个截然不同的属性：(1) 字幕涵盖视觉信息的程度，以及(2) 图像对其陈述主张的支持可靠性。为此，我们设计了一个解耦的字幕评估基准——CAPEval（覆盖度与精确度评估），该基准采用人工撰写的真实字幕和经人工验证的原子检查清单条目。具体而言，CAPEval将字幕质量分解为覆盖度（Coverage）和精确度（Precision）。前者量化字幕对真实事实内容的覆盖全面性，而后者反映字幕中所有陈述主张的事实正确率。我们选取了来自四个模型家族的10种字幕生成器，并以其为变量开展了受控的下游端到端实验。实证研究表明，两者存在一致的任务依赖性分离：覆盖度是理解任务性能的更强关联指标，而精确度则成为生成任务性能的主导预测因子。这种解耦的评估范式不仅为字幕质量提供了更精细的诊断，还为针对不同下游任务选择与优化字幕生成器提供了可操作的指导。",
+      "hf_link": "https://huggingface.co/papers/2608.02589"
+    },
+    "2608.03971": {
+      "title": "UniWorld-Design: From Pixel Generation to Layer-Native Design",
+      "abstract": "We introduce UniWorld-Design, a framework that redefines image generation from flat pixel synthesis to structured visual composition, with semantic RGBA layers as the atomic units of generation, understanding, and editing. Our key insight is that pixels define how an image is rendered, whereas layers define how an image is created, understood, and edited. Just as human designers create and manipulate visual content through layers rather than raw pixels, UniWorld-Design equips multimodal generative models with a layer-native design space. UniWorld-Design comprises two models. The Text-to-RGBA (T2RGBA) model generates standalone RGBA assets directly from text. The Image-to-Layer (I2L) model conditions on a finished image, a global instruction and per-layer prompts, and jointly produces ordered, complete semantic RGBA layers. Its instruction interface supports top-level decomposition, recursive decomposition and targeted extraction, making layering an instruction-addressable operation for agentic editing. Because I2L learns complete semantic objects rather than visible-pixel partitions, its layers stay usable when moved or removed. On the Crello benchmark, I2L reduces per-layer RGB L1 error by 37% and achieves a 34% relative improvement in Alpha Soft IoU over Qwen-Image-Layered. Separately, T2RGBA achieves the highest CLIP Score, outperforming LayerDiffuse and OmniAlpha.",
+      "abstract_zh": "我们提出UniWorld-Design框架，该框架将图像生成从平面像素合成重新定义为结构化视觉组合，以语义RGBA层作为生成、理解与编辑的原子单元。我们的核心见解在于：像素定义了图像的渲染方式，而图层定义了图像的创建、理解与编辑方式。正如人类设计师通过图层而非原始像素来创建和操控视觉内容，UniWorld-Design为多模态生成模型提供了原生图层化的设计空间。UniWorld-Design包含两个模型：文本到RGBA（Text-to-RGBA, T2RGBA）模型可直接从文本生成独立的RGBA素材；图像到图层（Image-to-Layer, I2L）模型则基于完成图像、全局指令及逐层提示进行条件化处理，共同生成有序且完整的语义RGBA层。其指令接口支持顶层分解、递归分解与目标提取，使得分层操作成为可指令驱动的智能编辑手段。由于I2L学习的是完整语义对象而非可见像素分区，其图层在移动或移除时仍保持可用性。在Crello基准测试中，I2L将单层RGB L1误差降低了37%，Alpha软交并比（Soft IoU）相比Qwen-Image-Layered实现34%的相对提升。此外，T2RGBA在CLIP评分中取得最高分，性能优于LayerDiffuse与OmniAlpha。",
+      "hf_link": "https://huggingface.co/papers/2608.03971"
+    },
+    "2608.03509": {
+      "title": "SkillJack: Persistent Skill Backdoors in Self-Evolving Agents",
+      "abstract": "Self-evolving agents increasingly convert interaction histories into reusable skills that persist beyond individual tasks. While prior work studies memory and retrieval poisoning, such attacks only affect agents when poisoned records are retrieved as context. We uncover a new and more fundamental risk: poisoned experiences can be transformed by the agent itself into durable behavioral artifacts. We present \\textbf{SkillJack}, the first attack that exploits the experience-to-skill pipeline of self-evolving agents. Instead of directly manipulating runtime context, SkillJack hijacks the agent's own learning process to implant malicious behaviors into its reusable skill repertoire. We identify three key properties of this transformation: \\emph{sanitization whitewashing}, where malicious intent is obscured during skill extraction; \\emph{cross-layer promotion}, where transient experiences become persistent capabilities; and \\emph{persistence isolation}, where the attack survives removal of its original source records. We evaluate SkillJack on two representative systems, SkillX and Anything2Skill, using a shared dataset of 150 trajectories across four policy-risk categories. Results show that skill extraction substantially reduces attack detectability: in SkillX, safety detection drops from 98.5\\% for poisoned trajectories to 11.4\\% for extracted skills, while Anything2Skill shows a similar effect. Meanwhile, the implanted skills remain effective, achieving attack success rates of 56.2\\% and 89.2\\% on the two systems, respectively. Furthermore, 80.0\\% of skill-mediated attacks persist after deleting the original poisoned records, and some skills unintentionally activate on benign queries. Our findings reveal skill evolution as a new attack surface and motivate provenance-aware skill lifecycle protection. Our code is available atthis https URL.",
+      "abstract_zh": "自我进化智能体日益将交互历史转化为可复用的技能，这些技能能够超越单个任务持续存在。尽管先前研究关注记忆与检索投毒，但此类攻击仅在受污染记录作为上下文被检索时才会影响智能体。我们发现了一种新的、更根本的风险：受污染的体验可被智能体自身转化为持久的行为产物。本文提出 **SkillJack**——首个利用自我进化智能体\"体验转技能\"流程的攻击方法。SkillJack并非直接操纵运行时上下文，而是劫持智能体自身的学习过程，将恶意行为植入其可复用的技能库中。我们揭示了该转化过程的三个关键特性：**净化粉饰**（sanitization whitewashing），即恶意意图在技能提取过程中被掩盖；**跨层晋升**（cross-layer promotion），即瞬时体验转化为持久能力；以及**持久化隔离**（persistence isolation），即攻击在原始源记录被删除后依然存续。我们在两个代表性系统（SkillX与Anything2Skill）上评估SkillJack，使用包含四个策略风险类别的150条轨迹共享数据集。实验结果表明，技能提取显著降低了攻击可检测性：在SkillX系统中，安全检测率从污染轨迹的98.5%骤降至提取技能的11.4%，Anything2Skill系统也呈现相似趋势。与此同时，植入的技能仍保持攻击效力，在两个系统上分别实现56.2%和89.2%的攻击成功率。此外，80.0%的技能媒介攻击在原始污染记录删除后依然持续存在，部分技能甚至会在良性查询时被意外激活。我们的研究揭示了技能演化作为新型攻击面的风险，并为开发基于溯源感知的技能生命周期保护机制提供了依据。代码已发布于this https URL。",
+      "hf_link": "https://huggingface.co/papers/2608.03509"
     },
     "2608.04007": {
       "title": "TurnSight: Turn-Level Hindsight Self-Distillation for Tool-Integrated Reasoning",
@@ -108,17 +108,29 @@
       "abstract_zh": "大型语言模型（LLM）代理在软件工程领域的应用正迅速普及。随着代理在代码实际生成中扮演越来越重要的角色，它们所产生的变更也愈发广泛，往往涉及数十至上百行代码。这使得人工审查代理输出结果日渐不可行，促使开发者转而依赖解释来理解已实施的变更。尽管如此，目前仍缺乏评估代理生成解释可信度的基准体系。为填补这一空白，我们提出了ExplainBench——一个用于自动评估代码代理解释能力的基准框架。ExplainBench基于以下核心观点：高质量的解释应能使大型语言模型准确回答问题，从而实现对不同代理解释质量的量化比较。基于此观察，我们构建了一套评估体系，用于检验解释是否能准确描述：（1）问题代码的预期行为；（2）应用代理补丁本身产生的实际效果。\n\n实验首先揭示了解释质量是代理评估的一个独立维度：ExplainBench对代理的排名结果与广泛使用的SWE-bench Verified基准存在显著差异。对代理解释质量的深入剖析显示，解释中普遍存在各类问题，例如解释经常在补丁实际错误时仍声称其正确。基于这一洞察，我们设计并评估了一个解释审计代理，该代理通过运行额外测试来验证和完善解释。该审计代理成功提升了所有受评代理的解释质量，证明代理解释的可靠性可通过自动化方式得到有效增强。",
       "hf_link": "https://huggingface.co/papers/2607.26451"
     },
-    "2608.03700": {
-      "title": "When Agents Learn to Be You: Benchmarking Privacy Leakage, Impersonation Risk, and Defenses in Persona Skills",
-      "abstract": "Persona skills distill personal interaction histories into portable and executable artifacts for downstream agents. While enabling flexible personalization, this process concentrates fragmented personal signals, amplifies their impact through reuse, and challenges defenses designed for individual records or retrieval-based memory. To systematically investigate the safety of the persona-skill pipeline, we introduce AntiSkillBench, an end-to-end benchmark for evaluating risks and defenses across the persona-skill pipeline. It comprises: (i) a dataset of 7,500 persona-grounded dialogue traces, constructed from 50 behaviorally rich profiles spanning diverse task scenarios; (ii) an evaluation suite that measures skill-level privacy leakage and agent-level attribute disclosure and behavioral impersonation across three skill-distillation strategies; and (iii) a defense evaluation covering four configurations across online and post-hoc interventions, including active risk suppression and passive provenance protection. Experiments across three frontier agents show that persona-skill risks persist across agent backbones and distillation protocols, extending from explicit attributes to communication styles and personality traits. Existing defenses exhibit limited and distillation-dependent effectiveness, failing to generalize across risk and distillation strategies. These results highlight AntiSkillBench as a challenging benchmark for developing privacy-preserving and authenticity-aware persona skills.",
-      "abstract_zh": "人物技能将个人互动历史提炼为可移植且可执行的构件，供下游智能体使用。这一过程在实现灵活个性化的同时，也汇集了碎片化的个人信号，并通过复用放大了其影响力，从而对基于个体记录或检索式记忆设计的防御机制构成了挑战。为系统研究人物技能流程的安全性，我们提出了AntiSkillBench——一个用于评估人物技能全流程风险与防御措施的端到端基准测试框架。该框架包含：（i）一个基于50个行为特征丰富的虚拟人物档案构建的、涵盖多样化任务场景的7,500条人物对话轨迹数据集；（ii）一套评估体系，用于测量三种技能提炼策略下技能层面的隐私泄露情况，以及智能体层面的属性披露和行为模仿风险；（iii）覆盖在线与事后干预四种配置的防御评估方案，包括主动风险抑制和被动来源保护。针对三种前沿智能体的实验表明，人物技能风险普遍存在于不同智能体架构与提炼协议中，其影响范围从显性属性延伸至沟通风格与人格特质。现有防御措施的效果有限且依赖特定提炼策略，无法跨越不同风险类型与提炼方法实现泛化。这些结果凸显了AntiSkillBench作为开发隐私保护与真实性感知人物技能所面临的挑战性基准测试平台的价值。",
-      "hf_link": "https://huggingface.co/papers/2608.03700"
+    "2608.01127": {
+      "title": "MiniWorld: Democratizing the Training of Video World Models from Scratch",
+      "abstract": "Video world models predict future observations conditioned on historical observations and control signals, enabling long-horizon generation through autoregressive state transitions. Unlike conventional video generation models that primarily capture visual appearance and motion, video world models learn the underlying dynamics governing environment evolution under agent actions, providing a foundation for embodied AI and interactive simulation. Recent progress has largely relied on adapting pretrained video generation models through post-training or distillation. Although effective, these approaches often require complex training pipelines, substantial computational resources, and suffer from the mismatch between bidirectional pretraining and causal streaming inference. Recent studies have shown that training autoregressive video world models from scratch is feasible and scalable. However, the community still lacks a lightweight, transparent, and fully reproducible baseline trainable end-to-end with modest computational resources. We present MiniWorld, a reproducible framework for training streaming video world models from scratch. MiniWorld employs a block-causal Video Diffusion Transformer trained with Flow Matching in the latent space of a pretrained Video VAE. Building on Diffusion Forcing, it adopts a chunk-wise non-decreasing noise schedule and two-stage continued training to improve temporal modeling and stability. During inference, MiniWorld combines a rolling KV cache with pipelined asynchronous denoising for efficient streaming generation under bounded computation. The entire model can be trained within several days on a single 8-GPU server. By releasing the training and inference codebase and pretrained checkpoints, we hope MiniWorld will facilitate future research on video world modeling.",
+      "abstract_zh": "视频世界模型（Video World Models）通过历史观测与控制信号预测未来观测结果，通过自回归状态转换实现长时程生成。与传统主要捕捉视觉外观与运动的视频生成模型不同，视频世界模型学习智能体（agent）动作下环境演化的内在动态规律，为具身人工智能（embodied AI）与交互仿真奠定基础。近期进展主要依赖通过后训练（post-training）或蒸馏（distillation）改造预训练视频生成模型。尽管有效，这些方法通常需要复杂的训练流程、大量计算资源，并受限于双向预训练与因果流式推断（causal streaming inference）之间的错配。最新研究表明，从头训练自回归视频世界模型具备可行性与可扩展性，但学界仍缺乏一个轻量化、透明化、完全可复现的基线模型，使其能在适度计算资源下进行端到端训练。我们提出MiniWorld——一个可复现的框架，用于从头训练流式视频世界模型。MiniWorld采用在预训练视频变分自编码器（Video VAE）潜空间中通过流匹配（Flow Matching）训练的块因果视频扩散变换器（block-causal Video Diffusion Transformer）。基于扩散强制（Diffusion Forcing）框架，该模型采用分块非递减噪声调度（chunk-wise non-decreasing noise schedule）与两阶段持续训练策略，以提升时序建模能力与训练稳定性。在推断阶段，MiniWorld结合滚动键值缓存（rolling KV cache）与流水线异步去噪（pipelined asynchronous denoising）技术，在有限计算条件下实现高效流式生成。整个模型可在单台8-GPU服务器上数日内完成训练。通过开源训练与推断代码库及预训练检查点，我们希望MiniWorld能推动视频世界建模领域的未来研究。",
+      "hf_link": "https://huggingface.co/papers/2608.01127"
     },
     "2608.03874": {
       "title": "ContinualSkillBench: Can LLM Agents Truly Evolve Their Capabilities?",
       "abstract": "Modern agent frameworks equip large language models with external skill libraries to solve complex tasks. However, it remains unclear whether these systems can effectively evolve their skills and whether the resulting skills improve task-solving capabilities. To bridge this gap, we introduce ContinualSkillBench, a dynamic evaluation framework for in-context continual skill learning. It covers five representative domains, each containing 100 interconnected subtasks ordered by increasing difficulty and opportunities for cross-task skill reuse. Our experiments show that sequential execution generally improves performance, but the gains vary substantially across models and domains. Moreover, in-context learning performs comparably to explicit skill maintenance on average, suggesting that much of the improvement arises from adaptation to prior context and feedback rather than reusable skill abstraction alone. Explicit skills nevertheless provide selective benefits for tasks requiring reusable procedures or precise outputs. We further find that less capable models tend to accumulate larger, more fragmented collections of task-specific skills. These findings show that current in-context skill evolution mechanisms can support continual adaptation, but still struggle to consistently consolidate experience into robust and transferable skills.",
       "abstract_zh": "现代智能体框架为大型语言模型配备了外部技能库以解决复杂任务。然而，这些系统能否有效演化其技能，以及由此产生的技能是否会提升任务解决能力，目前尚不明确。为弥合这一差距，我们提出了ContinualSkillBench——一个用于情境持续技能学习的动态评估框架。该框架涵盖五个代表性领域，每个领域包含100个相互关联的子任务，这些任务按难度递增排序并提供了跨任务技能复用的机会。实验表明，顺序执行通常能提升性能，但不同模型和领域之间的增益差异显著。此外，情境学习与显式技能维护在整体表现上相当，这表明改进主要源于对先前情境和反馈的适应，而非仅靠可复用技能抽象。尽管如此，显式技能对于需要可复用流程或精确输出的任务仍具有选择性优势。我们进一步发现，能力较弱的模型倾向于积累更庞大、更碎片化的任务特定技能集合。这些研究表明，当前的情境技能演化机制虽能支持持续适应，但在将经验系统整合为稳健且可迁移的技能方面仍面临挑战。",
       "hf_link": "https://huggingface.co/papers/2608.03874"
+    },
+    "2608.03700": {
+      "title": "When Agents Learn to Be You: Benchmarking Privacy Leakage, Impersonation Risk, and Defenses in Persona Skills",
+      "abstract": "Persona skills distill personal interaction histories into portable and executable artifacts for downstream agents. While enabling flexible personalization, this process concentrates fragmented personal signals, amplifies their impact through reuse, and challenges defenses designed for individual records or retrieval-based memory. To systematically investigate the safety of the persona-skill pipeline, we introduce AntiSkillBench, an end-to-end benchmark for evaluating risks and defenses across the persona-skill pipeline. It comprises: (i) a dataset of 7,500 persona-grounded dialogue traces, constructed from 50 behaviorally rich profiles spanning diverse task scenarios; (ii) an evaluation suite that measures skill-level privacy leakage and agent-level attribute disclosure and behavioral impersonation across three skill-distillation strategies; and (iii) a defense evaluation covering four configurations across online and post-hoc interventions, including active risk suppression and passive provenance protection. Experiments across three frontier agents show that persona-skill risks persist across agent backbones and distillation protocols, extending from explicit attributes to communication styles and personality traits. Existing defenses exhibit limited and distillation-dependent effectiveness, failing to generalize across risk and distillation strategies. These results highlight AntiSkillBench as a challenging benchmark for developing privacy-preserving and authenticity-aware persona skills.",
+      "abstract_zh": "人物技能将个人互动历史提炼为可移植且可执行的构件，供下游智能体使用。这一过程在实现灵活个性化的同时，也汇集了碎片化的个人信号，并通过复用放大了其影响力，从而对基于个体记录或检索式记忆设计的防御机制构成了挑战。为系统研究人物技能流程的安全性，我们提出了AntiSkillBench——一个用于评估人物技能全流程风险与防御措施的端到端基准测试框架。该框架包含：（i）一个基于50个行为特征丰富的虚拟人物档案构建的、涵盖多样化任务场景的7,500条人物对话轨迹数据集；（ii）一套评估体系，用于测量三种技能提炼策略下技能层面的隐私泄露情况，以及智能体层面的属性披露和行为模仿风险；（iii）覆盖在线与事后干预四种配置的防御评估方案，包括主动风险抑制和被动来源保护。针对三种前沿智能体的实验表明，人物技能风险普遍存在于不同智能体架构与提炼协议中，其影响范围从显性属性延伸至沟通风格与人格特质。现有防御措施的效果有限且依赖特定提炼策略，无法跨越不同风险类型与提炼方法实现泛化。这些结果凸显了AntiSkillBench作为开发隐私保护与真实性感知人物技能所面临的挑战性基准测试平台的价值。",
+      "hf_link": "https://huggingface.co/papers/2608.03700"
+    },
+    "2608.00371": {
+      "title": "Decoding Children's Gait Behavior",
+      "abstract": "We introduce a new problem domain for human action recognition: the fine-grained analysis of children's gait behaviors from standard RGB video. We specifically target the ambulatory patterns of children aged 3-17 years. Such behaviors arise naturally in the diagnosis and treatment of several critical developmental and neuromuscular disorders, such as cerebral palsy and hemiplegia. Despite their clinical value, current 3D sensor-based gait analysis systems are expensive, intrusive, and often impractical for young subjects. To address this, we introduce a new dataset comprising over 1,100 high-frame-rate (60 FPS) video sequences from 110 subjects, accompanied by synchronized, anonymized pose sequences. In each session, the child performs a 5-second \"walk-around\" task, capturing the gait cycle from multiple viewpoints. Crucially, we demonstrate that current state-of-the-art approaches, including gait foundation models and Multimodal Large Language Models (MLLMs), fail to effectively resolve these clinical nuances. We identify the key technical challenges in analyzing these erratic and subtle motor patterns and describe a unified end-to-end framework for decoding fundamental components of pediatric gait. Through comprehensive experimental results, we demonstrate the potential of this dataset to drive novel research questions and establish a rigorous baseline for automated child gait assessment.",
+      "abstract_zh": "我们为人类行为识别引入了一个新的问题领域：基于标准RGB视频对儿童步态行为进行细粒度分析。我们特别关注3至17岁儿童的行走模式。这类行为在多种关键发育性和神经肌肉障碍（如脑瘫（cerebral palsy）和偏瘫（hemiplegia））的诊断与治疗中自然显现。尽管具有临床价值，当前基于三维传感器的步态分析系统价格昂贵、具有侵入性，且对年幼受试者通常不实用。为解决这一问题，我们提出了一个新的数据集，包含来自110名受试者的超过1100段高帧率（60 FPS）视频序列，并配有同步的匿名化姿态序列。在每个记录环节中，儿童执行一项5秒钟的“自由行走”任务，从多视角捕捉步态周期。关键的是，我们证明了当前最先进的方法，包括步态基础模型和多模态大语言模型（Multimodal Large Language Models, MLLMs），均无法有效解析这些临床上的细微差异。我们分析了这些不规律且微妙的运动模式所面临的关键技术挑战，并提出了一个统一的端到端框架，用于解码儿童步态的基本组成部分。通过全面的实验结果，我们展示了该数据集在推动新颖研究问题方面的潜力，并为自动化儿童步态评估建立了严谨的基线。",
+      "hf_link": "https://huggingface.co/papers/2608.00371"
     },
     "2608.00730": {
       "title": "Push-Wiper: Toward General-Purpose Robotic Cleaning across Varied Stains and Surfaces with Segmented Pushing Trajectories",
@@ -137,32 +149,55 @@
       "abstract": "Scientific poster construction compresses a long multimodal paper into a readable, editable canvas. Existing systems hide request-level failures by scoring only completed outputs; direct image generation is not element-editable, while coding-agent workflows are costly. PosterMELD is a template-conditioned multi-agent pipeline: capacity-aware slots guide writing before rendering, and deterministic gates plus vision-language model (VLM) review route failures to bounded repair. Each accepted request exports editable PowerPoint (PPTX) and Portable Network Graphics (PNG) artifacts; explicit design controls yield same-paper variants. Across 621 papers, Print-Ready Rate (PRR) counts requests passing geometric, readability, asset-integrity, and obvious-factual-error checks, with native editability reported separately. A frozen VLM assigns conditional Craftsmanship-Harmony-Expressiveness (CHE) scores to print-ready outputs. PosterMELD attains 81.3% PRR, 3.4 times P2P's rate and 5.2 times PosterGen's, and the highest conditional CHE among generated methods with multiple print-ready outputs. Native editability and explicit design controls are retained at a mean cost of USD 0.38 per request, 3.5% of Codex+Skill's. Code and resources are available atthis https URL.",
       "abstract_zh": "科学海报构建将一篇长篇多模态论文压缩为可读、可编辑的画布。现有系统仅对已完成输出进行评分，从而掩盖了请求级别的失败；直接图像生成不具备元素可编辑性，而代码代理工作流成本高昂。PosterMELD是一种模板条件化多代理流水线：渲染前由容量感知槽指导文本撰写，确定性门控与视觉语言模型（Vision-Language Model, VLM）审查机制将失败路由至有限修复流程。每个被接受的请求可导出可编辑的PowerPoint（PPTX）和便携式网络图形（Portable Network Graphics, PNG）文件；显式设计控制可生成同一论文的多种变体。在621篇论文的测试中，打印就绪率（Print-Ready Rate, PRR）统计了通过几何布局、可读性、素材完整性及明显事实错误检查的请求数量，原生可编辑性另行报告。固定VLM为打印就绪输出分配条件化工艺-和谐-表现力（Craftsmanship-Harmony-Expressiveness, CHE）评分。PosterMELD实现了81.3%的PRR，达到P2P系统的3.4倍和PosterGen系统的5.2倍，并在多打印就绪输出的生成方法中获得最高条件化CHE评分。系统在保持原生可编辑性与显式设计控制的同时，单请求平均成本为0.38美元，仅为Codex+Skill系统的3.5%。代码与资源详见此https链接。",
       "hf_link": "https://huggingface.co/papers/2608.02218"
+    },
+    "2607.28661": {
+      "title": "Are the Financial Reasoning from LLMs Credible? A Real World Test over Long-Horizon Statements",
+      "abstract": "Do Large Language Models (LLMs) possess genuine structural reasoning, or merely rely on surface-level pattern matching? The financial domain, demanding numerical precision and multi-step logic over long contexts, is an ideal testbed. Existing benchmarks fail to capture real-world industrial complexity, predominantly relying on multiple-choice questions or single-hop QA over cropped tables while ignoring intricate cross-statement dynamics and temporal de-cumulation.To bridge this gap, we introduce FinIndices, a large-scale benchmark evaluating data-processing fidelity over uncropped financial statements (up to 32K tokens). Utilizing an automated synthesis pipeline with adversarial traps, FinIndices encompasses Single-Index computation and Table-Index tabulation to test complex domain, temporal, and caliber reasoning.Our evaluation reveals two severe LLM vulnerabilities. First, a \"Knowledge Bottleneck\": despite memorizing formulas during pre-training, models demonstrate fragile pattern matching. Removing explicit formula hints causes performance to collapse (e.g., Gemini-3.1-Pro drops from 70.70% to 38.22% on table tasks), exposing fatal flaws in temporal de-cumulation and stock-flow caliber mismatch. Second, a \"Structural Bottleneck\": the intense cognitive load of generating multi-metric, multi-period tables actively drains reasoning capacity. Under structural pressure, LLMs that flawlessly execute isolated derivations regress to shallow heuristics, such as fetching incorrect adjacent columns or substituting deep accounting adjustments with lazy literal arithmetic. Finally, Supervised Fine-Tuning (SFT) yields substantial zero-hint gains (+8.54% Single, +3.82% Table), validating that structured logic can be partially restored via data-centric alignment.",
+      "abstract_zh": "大型语言模型(Large Language Models, LLMs)是否真正具备结构性推理能力，还是仅仅依赖于表层模式匹配？金融领域对数值精度和长上下文中的多步逻辑有着极高要求，是理想的测试场。现有基准测试未能捕捉现实工业场景的复杂性，主要依赖于选择题或裁剪后表格的单跳问答，而忽略了复杂的跨报表动态关系与时间性去累积处理。为弥补这一差距，我们推出了FinIndices——一个大规模基准测试，用于评估模型在未经裁剪的财务报表（最长可达3.2万词元）上的数据处理保真度。通过采用包含对抗性陷阱的自动化合成流程，FinIndices涵盖单指标计算和表格指标制表两大任务，以测试复杂的领域知识、时间性及计量口径推理能力。\n\n我们的评估揭示出LLMs存在两大严重缺陷。首先是\"知识瓶颈\"：尽管模型在预训练阶段记忆了公式，但其表现出脆弱的模式匹配特性。当移除显式的公式提示时，模型性能会急剧下降（例如Gemini-3.1-Pro在表格任务中的准确率从70.70%骤降至38.22%），暴露出其在时间性去累积处理和存量-流量口径匹配方面的根本性缺陷。其次是\"结构瓶颈\"：生成多指标、多周期表格所需的高强度认知负荷会持续消耗推理能力。在结构性压力下，那些能完美执行独立推导的LLMs会退化为浅层启发式策略，例如提取错误的相邻列数据，或用机械的字面算术替代深入的会计调整。\n\n最后，监督微调(Supervised Fine-Tuning, SFT)在零提示条件下实现了显著性能提升（单指标任务+8.54%，表格任务+3.82%），这验证了通过以数据为中心的校准可以部分恢复结构化逻辑能力。",
+      "hf_link": "https://huggingface.co/papers/2607.28661"
+    },
+    "2608.03994": {
+      "title": "When Attention Goes Blind: Numerical Failure in ALiBi Positional Encodings",
+      "abstract": "We identify a previously overlooked failure mode of ALiBi positional encoding: its linear bias scaling underflows floating-point precision, which zeroes out a large fraction of attention weights and renders the affected attention heads partially blind. We analyze this failure mode, characterize its impact, and examine four mitigation strategies. We further demonstrate its occurrence in state-of-the-art pretrained models based on ALiBi. Comprehensive pretraining experiments with 148M-parameter decoder models help us to disentangle its effects from out-of-context degradation. We find that ALiBi's failure mode can substantially impair token retrieval while having only a minor effect on standard decoder benchmarks. We propose four training-time mitigation strategies and evaluate them individually and in combinations, finding that log-scaled distances yield the most consistent improvements in passkey retrieval. Despite this problem, default ALiBi slopes remain a surprisingly strong baseline, particularly for needle-in-a-haystack retrieval. Based on these findings we provide concrete recommendations on how to train models with ALiBi.",
+      "abstract_zh": "我们发现了一种先前被忽视的ALiBi（注意力线性偏置）位置编码的失效模式：其线性偏置缩放会导致浮点数精度下溢，从而使大量注意力权重归零，并导致受影响的注意力头部分功能失效。我们分析了该失效模式，描述了其影响，并探讨了四种缓解策略。我们进一步证明了该失效模式在基于ALiBi的最新预训练模型中实际存在。使用1.48亿参数解码器模型进行的全面预训练实验有助于将这种影响与上下文外性能下降区分开来。我们发现，ALiBi的失效模式会显著损害令牌检索能力，但对标准解码器基准测试仅有轻微影响。我们提出了四种训练时缓解策略，并对它们分别及组合进行了评估，发现对数缩放距离在密码检索任务中能带来最一致的性能提升。尽管存在这一问题，默认的ALiBi斜率依然是一个令人惊讶的强大基线，特别是在大海捞针式检索任务中。基于这些发现，我们为如何训练采用ALiBi的模型提供了具体建议。",
+      "hf_link": "https://huggingface.co/papers/2608.03994"
+    },
+    "2608.03419": {
+      "title": "Multi-Task Multi-Frame Visual Piano Transcription",
+      "abstract": "Audio-based piano transcription performs well on onset, pitch, and velocity, but the sustain pedal lets sound persist long after key release, so audio systems predict pedal-extended offsets rather than physical key release. Yet existing Visual Piano Transcription (VPT) systems focus on onset detection from short video windows, offset accuracy lags onset by a wide margin, and note-level velocity has not been reported. To address these gaps, we present V2N (Video to Notes), the first complete VPT system: a shared temporal backbone feeds task-specific heads for onset, offset, key hold, and velocity, jointly trained with per-frame supervision rather than only at the window center. Ablations show that multi-task supervision enables offset and velocity prediction while improving onset accuracy; longer temporal context yields further improvements. V2N sets new state-of-the-art results on PianoVAM and R3.",
+      "abstract_zh": "基于音频的钢琴转录在音符起始、音高和力度方面表现出色，但由于延音踏板使声音在琴键释放后持续存在，音频系统预测的是踏板延长的终止时刻而非物理琴键释放点。然而现有的视觉钢琴转录系统主要关注短时视频窗口的起始检测，其终止时刻准确度远落后于起始检测，且尚未有研究报道音符级别的力度信息。为填补这些空白，我们提出首个完整的视觉钢琴转录系统V2N：该系统采用共享时序主干网络为起始、终止、琴键保持和力度四个任务提供专用预测头，通过逐帧监督而非仅窗口中心点的联合训练实现多任务学习。消融实验表明，多任务监督机制在提升起始检测精度的同时，实现了终止时刻与力度预测；扩展时序上下文可带来进一步性能提升。V2N在PianoVAM与R3数据集上取得了当前最优性能。",
+      "hf_link": "https://huggingface.co/papers/2608.03419"
     }
   },
   "hf_votes": {
-    "2608.03974": 0,
     "2607.28956": 0,
-    "2608.02602": 0,
+    "2608.03974": 0,
     "2608.02711": 0,
+    "2608.02602": 0,
+    "2608.03979": 0,
     "2608.02738": 0,
     "2608.01837": 0,
-    "2608.04003": 0,
     "2608.02713": 0,
-    "2608.03979": 0,
-    "2608.03812": 0,
-    "2608.03971": 0,
-    "2608.02589": 0,
+    "2608.04003": 0,
     "2608.03316": 0,
-    "2608.03509": 0,
     "2608.03457": 0,
+    "2608.03812": 0,
+    "2608.02589": 0,
+    "2608.03971": 0,
+    "2608.03509": 0,
     "2608.04007": 0,
     "2608.02392": 0,
     "2607.26451": 0,
-    "2608.03700": 0,
+    "2608.01127": 0,
     "2608.03874": 0,
+    "2608.03700": 0,
+    "2608.00371": 0,
     "2608.00730": 0,
     "2607.28993": 0,
-    "2608.02218": 0
+    "2608.02218": 0,
+    "2607.28661": 0,
+    "2608.03994": 0,
+    "2608.03419": 0
   },
   "focus_sections": {
     "3D生成与重建": [
@@ -175,20 +210,25 @@
       "tags": "计算机图形学;三维内容生成;多模态三维生成与编辑",
       "body_summary": "当前图像生成领域的统一多模态模型展示了整合理解、生成与编辑的潜力，但统一的三维建模仍受限于稀缺的多模态数据，特别是缺乏大规模且几何一致的编辑数据。\n提出了Hunyuan3D-Buffalo 1.0统一框架，在一个架构内支持三维理解、文本生成三维、指令引导三维编辑及文本引导部件生成，通过构建大规模三维多模态语料库进行可扩展训练，并融合视觉语言模型与扩散模型实现了先进性能。"
     },
-    "2608.03974": {
-      "short_zh": "实时视频编辑自动回归扩散框架",
-      "tags": "计算机视觉；视频生成与编辑；实时视频编辑",
-      "body_summary": "视频编辑需要低延迟且保证时序一致\n提出JoyAI框架实现实时编辑，平衡速度与质量"
-    },
     "2607.28956": {
       "short_zh": "大模型电商长程决策评测",
       "tags": "自然语言处理;智能体评估;电商自主运营",
       "body_summary": "现有大模型智能体评测集中于短期任务，缺乏对长期连贯决策能力的评估。\n我们构建了基于真实电商数据的365天模拟环境MerchantBench，评估大模型在长期运营中的连贯决策能力，发现其与人类表现存在显著差距。"
     },
+    "2608.03974": {
+      "short_zh": "实时视频编辑自动回归扩散框架",
+      "tags": "计算机视觉；视频生成与编辑；实时视频编辑",
+      "body_summary": "视频编辑需要低延迟且保证时序一致\n提出JoyAI框架实现实时编辑，平衡速度与质量"
+    },
     "2608.02602": {
       "short_zh": "连续潜在扩散文本生成模型",
       "tags": "自然语言处理;文本生成;连续潜在扩散建模",
       "body_summary": "文本生成的主流方法仍依赖离散单元，而其他模态已转向连续潜在空间建模。\n提出了AURORA-LM，它先构建一个高容量的可解码文本连续潜在表示，再用块因果扩散变换器学习其分布，在多个生成任务上取得优异性能。"
+    },
+    "2608.03979": {
+      "short_zh": "视频深度研究智能体",
+      "tags": "多模态学习;视频理解;工具增强推理",
+      "body_summary": "当前多模态智能体难以处理连续视频流，存在模态偏向和知识泄露问题。\n提出Video-DR框架，通过解耦感知-探索流程与两阶段训练，在复杂视频问答基准上达到先进性能。"
     },
     "2608.02738": {
       "short_zh": "知识解耦刷新推荐模型",
@@ -200,50 +240,45 @@
       "tags": "自然语言处理;智能体强化学习;自蒸馏一致性",
       "body_summary": "大语言模型智能体在复杂交互任务中潜力巨大，但强化学习常受稀疏奖励困扰。\n提出持续性一致自蒸馏，通过局部持续性信号生成细粒度蒸馏权重，结合稠密教师指导和稀疏环境反馈优化。"
     },
-    "2608.04003": {
-      "short_zh": "个人智能体递归自改进评估基准",
-      "tags": "人工智能代理;智能体评估;经验积累与递归自改进",
-      "body_summary": "个人智能体能否通过学习积累的经验实现自我改进尚未被系统验证。\n提出了PAST-Bench基准来测试和改进智能体利用经验的能力，并开发了改进方法Hermes+。"
-    },
     "2608.02713": {
       "short_zh": "构建以智能体为中心的世界模型代理",
       "tags": "强化学习；世界模型；代理交互设计",
       "body_summary": "智能体持续改进需要动态交互反馈，但环境交互成本高、风险大、难并行。\n提出以智能体为中心的交互世界代理，从预测状态转向提供可执行信息，并系统化其设计空间与应用层次。"
     },
-    "2608.03979": {
-      "short_zh": "视频深度研究智能体",
-      "tags": "多模态学习;视频理解;工具增强推理",
-      "body_summary": "当前多模态智能体难以处理连续视频流，存在模态偏向和知识泄露问题。\n提出Video-DR框架，通过解耦感知-探索流程与两阶段训练，在复杂视频问答基准上达到先进性能。"
-    },
-    "2608.03812": {
-      "short_zh": "高效压缩多模态大模型令牌",
-      "tags": "多模态人工智能;大语言模型;令牌压缩",
-      "body_summary": "多模态大语言模型处理冗长音视频令牌序列计算成本高\n提出训练无关框架协调结构压缩与语义提炼以提升效率"
-    },
-    "2608.03971": {
-      "short_zh": "从像素生成到分层原生设计",
-      "tags": "计算机图形学;图像生成与合成;分层图像编辑",
-      "body_summary": "传统图像生成模型直接生成像素图，难以进行结构化编辑。\n提出生成带透明通道RGBA图层的框架，支持从文本生成素材或从图像分解为可独立编辑的语义层。"
-    },
-    "2608.02589": {
-      "short_zh": "解耦评估图像字幕质量",
-      "tags": "计算机视觉;图像字幕;字幕质量评估",
-      "body_summary": "图像字幕是视觉理解和图像生成任务的重要监督信号，但现有方法将其质量视为单一标量，混淆了信息覆盖度和事实准确性。\n本工作设计了CAPEval基准，将字幕质量解耦为覆盖度和精确度，并通过实验发现前者更影响理解任务，后者更预测生成任务。"
+    "2608.04003": {
+      "short_zh": "个人智能体递归自改进评估基准",
+      "tags": "人工智能代理;智能体评估;经验积累与递归自改进",
+      "body_summary": "个人智能体能否通过学习积累的经验实现自我改进尚未被系统验证。\n提出了PAST-Bench基准来测试和改进智能体利用经验的能力，并开发了改进方法Hermes+。"
     },
     "2608.03316": {
       "short_zh": "跨模型蒸馏提升生成质量",
       "tags": "生成模型;知识蒸馏;流匹配模型蒸馏",
       "body_summary": "标准同策略蒸馏要求师生模型结构相同，限制了从强教师模型向异质学生模型的知识迁移。\n本文提出Any-OPD框架，通过表征空间桥接与噪声水平对齐，实现任意流匹配模型间的黑箱蒸馏，显著提升学生模型性能。"
     },
-    "2608.03509": {
-      "short_zh": "技能后门攻击研究",
-      "tags": "智能代理系统；安全与隐私；技能学习安全",
-      "body_summary": "自进化智能体能将交互历史转化为可复用的技能，但此过程存在被恶意利用植入持久后门的新风险。\n本文提出SkillJack攻击，通过污染其经验学习过程，将恶意行为嵌入技能库，实现高隐蔽性、持久性的后门植入。"
-    },
     "2608.03457": {
       "short_zh": "研究MoE扩散语言模型缩放规律",
       "tags": "自然语言处理;语言模型;扩散语言模型缩放",
       "body_summary": "背景/任务是扩散语言模型是自回归语言模型的替代方案，但其混合专家模型的缩放规律尚不明确。\n我们系统研究了MoE扩散模型的超参数、计算分配和架构缩放规律，以此指导训练出性能接近顶尖模型的LLaDA MoE v2。"
+    },
+    "2608.03812": {
+      "short_zh": "高效压缩多模态大模型令牌",
+      "tags": "多模态人工智能;大语言模型;令牌压缩",
+      "body_summary": "多模态大语言模型处理冗长音视频令牌序列计算成本高\n提出训练无关框架协调结构压缩与语义提炼以提升效率"
+    },
+    "2608.02589": {
+      "short_zh": "解耦评估图像字幕质量",
+      "tags": "计算机视觉;图像字幕;字幕质量评估",
+      "body_summary": "图像字幕是视觉理解和图像生成任务的重要监督信号，但现有方法将其质量视为单一标量，混淆了信息覆盖度和事实准确性。\n本工作设计了CAPEval基准，将字幕质量解耦为覆盖度和精确度，并通过实验发现前者更影响理解任务，后者更预测生成任务。"
+    },
+    "2608.03971": {
+      "short_zh": "从像素生成到分层原生设计",
+      "tags": "计算机图形学;图像生成与合成;分层图像编辑",
+      "body_summary": "传统图像生成模型直接生成像素图，难以进行结构化编辑。\n提出生成带透明通道RGBA图层的框架，支持从文本生成素材或从图像分解为可独立编辑的语义层。"
+    },
+    "2608.03509": {
+      "short_zh": "技能后门攻击研究",
+      "tags": "智能代理系统；安全与隐私；技能学习安全",
+      "body_summary": "自进化智能体能将交互历史转化为可复用的技能，但此过程存在被恶意利用植入持久后门的新风险。\n本文提出SkillJack攻击，通过污染其经验学习过程，将恶意行为嵌入技能库，实现高隐蔽性、持久性的后门植入。"
     },
     "2608.04007": {
       "short_zh": "工具推理的改进训练方法",
@@ -260,15 +295,25 @@
       "tags": "软件工程;智能代码生成;代码解释质量评测",
       "body_summary": "随着大语言模型智能体在软件工程中广泛生成代码，人工审查代码变更愈发困难，开发者需要依赖智能体生成的解释来理解变更，但缺乏评估解释可信度的基准。\n本文提出了自动评估代码解释的基准ExplainBench，通过构建问题集检验解释是否准确描述错误代码的预期行为和补丁效果，发现解释质量是独立评估维度且现有解释常不可信，进而实现了解释审查智能体以自动提升解释可信度。"
     },
-    "2608.03700": {
-      "short_zh": "评估人格技能风险与防御",
-      "tags": "自然语言处理;智能体安全;人格技能隐私基准",
-      "body_summary": "研究人格技能将用户交互历史提炼为可执行文件的安全风险。\n构建了AntiSkillBench基准，评估了隐私泄露与冒名风险及防御方法。"
+    "2608.01127": {
+      "short_zh": "训练视频世界模型的轻量开源框架",
+      "tags": "人工智能代理与仿真；视频生成；视频世界模型建模",
+      "body_summary": "视频世界模型通过历史观察和控制信号预测未来，是具身AI的基础，但现有方法依赖复杂预训练改造，缺乏可复现的轻量训练方案。\n提出MiniWorld框架，用块因果视频扩散变换器和流匹配从头训练流式视频世界模型，采用分块噪声调度和两阶段训练提升稳定性，并支持高效流式推理，可在单服务器数天内完成训练。"
     },
     "2608.03874": {
       "short_zh": "LLM智能体能否持续进化技能",
       "tags": "自然语言处理;智能体与强化学习;持续技能学习评估",
       "body_summary": "评估大语言模型智能体能否通过持续学习真正提升能力。\n构建持续技能评估基准，发现智能体能适应但难形成可迁移技能。"
+    },
+    "2608.03700": {
+      "short_zh": "评估人格技能风险与防御",
+      "tags": "自然语言处理;智能体安全;人格技能隐私基准",
+      "body_summary": "研究人格技能将用户交互历史提炼为可执行文件的安全风险。\n构建了AntiSkillBench基准，评估了隐私泄露与冒名风险及防御方法。"
+    },
+    "2608.00371": {
+      "short_zh": "解码儿童步态行为",
+      "tags": "计算机视觉;人体动作识别;儿童步态分析",
+      "body_summary": "背景/任务是针对儿童步态这一重要临床指标，现有基于3D传感器的分析系统昂贵且不实用。\n作者构建了一个新的儿童步态视频数据集，并提出了一个端到端分析框架，为自动评估儿童步态建立了基线。"
     },
     "2608.00730": {
       "short_zh": "机器人分段推刮清洁粘性污渍",
@@ -284,6 +329,21 @@
       "short_zh": "多智能体可控论文海报生成",
       "tags": "计算机图形学;图文生成;学术海报自动排版",
       "body_summary": "现有论文海报生成系统存在请求失败率高、输出不可编辑或成本高昂的问题。\n提出了一个多智能体流程，通过容量感知槽位和视觉语言模型评审，实现高成功率、可编辑和低成本的海报生成，并能导出可直接打印的文件。"
+    },
+    "2607.28661": {
+      "short_zh": "测试大模型金融长报表推理能力",
+      "tags": "自然语言处理;金融文本理解;长序列财务报表推理",
+      "body_summary": "现有金融评测基准难以反映真实工业场景的复杂性与长程依赖，需要构建更贴近实际的评测基准。\n作者提出了FinIndices大规模基准，通过自动化合成流程和对抗陷阱，评估大模型在未裁剪财务报表上的数据处理保真度，揭示了模型在知识瓶颈与结构瓶颈上的严重缺陷。"
+    },
+    "2608.03994": {
+      "short_zh": "ALiBi位置编码数值失效研究",
+      "tags": "自然语言处理;大语言模型;位置编码机制",
+      "body_summary": "研究发现ALiBi位置编码的线性偏置缩放会导致浮点数下溢，使注意力权重归零，影响模型表现。\n分析了失效模式的影响，提出了四种缓解策略，并通过实验评估了它们在训练中的效果。"
+    },
+    "2608.03419": {
+      "short_zh": "视觉钢琴谱识别新框架",
+      "tags": "计算机视觉;音视频分析;视觉钢琴转录",
+      "body_summary": "现有视觉钢琴转录系统聚焦音符起始检测，在音符结束和力度预测上存在不足。\n提出首个完整视觉钢琴转录系统，多任务联合训练提升了音符起始、结束、保持和力度的预测精度。"
     }
   },
   "deep_analysis": {
