@@ -6,6 +6,12 @@
       "abstract_zh": "社交媒体上大量随意捕捉的单目视频和图像为沉浸式内容创作提供了宝贵资源，从这类稀疏观测中生成新视角能极大提升用户体验。然而，当输入覆盖范围极其有限时，如何通过精确的相机控制生成具有照片级真实感且几何一致的新视角仍面临挑战。基于重建的方法（如NeRF和3D高斯溅射[3D Gaussian Splatting，3DGS]）在稀疏输入下性能严重退化，且无法显式处理遮挡问题。生成式方法降低了对数据量的要求，但由于依赖不准确或隐式的几何引导，在大基线视角合成中仍存在困难。为突破这些限制，我们提出了UniWorld-View——一个从单目输入实现可控大基线新视角合成的统一框架。该框架通过将显式三维几何引导与生成式扩散模型相结合，实现了精确的相机控制与几何一致的视角生成。几何引导通过一种遮挡感知的点云渲染策略获得，该策略解决了可见性歧义问题，并为基于扩散的合成提供了准确的先验信息。通过将此渲染策略与强大的视频扩散主干网络耦合，UniWorld-View即使在极端相机运动和宽基线变化的条件下也能实现高保真新视角生成，并能进一步为下游动态3DGS重建提供多视角视频。在WorldScore基准测试和零样本新视角合成基准上的实验表明，UniWorld-View在可控性、几何一致性与视觉保真度方面均展现出卓越性能。",
       "hf_link": "https://huggingface.co/papers/2608.04701"
     },
+    "2608.05102": {
+      "title": "ABSeeker: Training Long-Horizon Search Agents via Answer-Backtracked Credit Assignment",
+      "abstract": "Long-horizon search agents must make multiple sequential actions (steps) to search, retrieve, verify, and integrate evidence to reach a final answer. However, existing methods for training these agents typically treat all steps within a trajectory uniformly during both supervised fine-tuning (SFT) and reinforcement learning (RL), failing to distinguish useful actions from erroneous or redundant ones. In this paper, we propose Answer-Backtracked Credit Assignment (ABC), a fine-grained credit assignment framework for training long-horizon search agents by converting sparse trajectory-level outcomes into dense step-level supervision that rewards useful actions (even in failed trajectories) while suppressing erroneous or redundant actions. Specifically, given a potentially obscure query and its corresponding ground-truth answer, ABC first performs Answer-Backtracked Clue Recovery, which traces back from the answer to recover intermediate clues required to solve the question. It then applies Clue-Anchored Step Scoring to evaluate each search step against these clues, converting sparse binary outcome supervision into dense step-level rewards. Based on these rewards, we develop ABC-SFT, which reweights the loss of each turn, and ABC-GRPO, which uses the step-level scores as rewards in GRPO. Building on this framework, we train ABSeeker based on Qwen3.5-4B with only 8.5k examples. ABSeeker achieves 37.3% on BrowseComp and 39.1% on BrowseComp-ZH. With context management, the scores further improve to 55.3% and 52.9%, respectively, significantly outperforming same-scale (4B) agents and even matching the performance of larger ones (approximately 30B). These results demonstrate the effectiveness of answer-backtracked step-level credit assignment for training long-horizon search agents.",
+      "abstract_zh": "长视野搜索代理必须执行多个顺序动作（步骤）以进行证据的搜索、检索、验证和整合，从而得出最终答案。然而，现有训练这类代理的方法通常在监督微调（SFT）和强化学习（RL）过程中对轨迹内的所有步骤进行统一处理，未能区分有用动作与错误或冗余动作。本文提出答案回溯信用分配（ABC），一种细粒度的信用分配框架，用于训练长视野搜索代理，通过将稀疏的轨迹级结果转化为密集的步骤级监督，从而奖励有用动作（即使在失败轨迹中），同时抑制错误或冗余动作。具体而言，给定一个可能模糊的查询及其对应的真实答案，ABC首先执行答案回溯线索恢复，从答案追溯以恢复解决问题所需的中间线索。随后，它应用线索锚定步骤评分，根据这些线索评估每个搜索步骤，从而将稀疏的二进制结果监督转化为密集的步骤级奖励。基于这些奖励，我们开发了ABC-SFT（用于重新加权每轮损失的监督微调方法）和ABC-GRPO（使用步骤级得分作为GRPO中的奖励）。基于此框架，我们仅使用8.5k个样本基于Qwen3.5-4B训练了ABSeeker代理。ABSeeker在BrowseComp数据集上达到37.3%，在BrowseComp-ZH上达到39.1%。结合上下文管理技术，得分进一步提升至55.3%和52.9%，显著超越同规模（4B）代理，甚至与更大规模（约30B）代理性能相当。这些结果证明了答案回溯的步骤级信用分配在训练长视野搜索代理中的有效性。",
+      "hf_link": "https://huggingface.co/papers/2608.05102"
+    },
     "2608.04436": {
       "title": "ToolArtist: Tool-Using Unified Multimodal Models for Agentic Image Generation",
       "abstract": "Text-to-image (T2I) models can produce visually compelling images, yet they remain limited on open-world tasks that require complex semantic understanding, multi-step reasoning, and the integration of external world knowledge. Existing efforts introduce agent capabilities into image generation, but they either prescribe a fixed workflow or place only a subset of the open-world image generation process under agent control. Consequently, reasoning, tool invocation, and image generation are not coordinated by a single policy. We propose ToolArtist, a fully agentic image generation model obtained by post-training a Unified Multimodal Model (UMM). ToolArtist dynamically orchestrates reasoning, external tool use, and native image generation within one unified policy. During Supervised Fine-Tuning (SFT), we equip a teacher agent with search tools alongside an image-generation tool. We then convert the collected trajectories into a UMM compatible format, where the image-generation tool is concealed while the resulting generated images are retained. During Reinforcement Learning (RL), we develop an agentic RL infrastructure for UMMs and introduce Reason-Act-Draw GRPO (RAD-GRPO), which uses complementary intent and quality rewards to jointly optimize the model. Experiments show that placing the entire open-world image-generation process under an agent policy consistently outperforms approaches with fixed pipelines or only partially agent-controlled components. We release the training data and the complete post-training infrastructure.",
@@ -30,17 +36,17 @@
       "abstract_zh": "大型语言模型（LLM）智能体正日益应用于覆盖工作、学习和生活的开放式日常需求。这些任务具有长周期、跨环境与多模态的特点，迫使智能体在调用异构工具和处理多样附件的同时，必须跨越多个步骤持续保持目标与约束条件。尽管已有研究针对目标漂移、状态丢失、上下文溢出等独立失效模式提出了解决方案，但单一控制框架能否协同管理这些挑战并在不同后端模型中保持效能，尚未得到充分探讨。本文提出OneDayAgent——一种面向自主智能体的长周期控制框架。该框架将开放式请求转化为可管理的执行流程：将任务分解为有界的子任务，在上下文压力下维持执行记忆，并对最终交付成果进行验证与修正。我们在AgentIF-OneDay基准的104项任务上评估OneDayAgent。使用GLM-5.2作为后端模型时，该框架以0.821的综合得分创下最新性能纪录。同一控制框架可跨三个模型家族的五个后端大型语言模型运行，表明该框架无需调优即能适配不同后端，且在同一工作流下会因模型差异催生截然不同的执行风格。",
       "hf_link": "https://huggingface.co/papers/2608.05013"
     },
-    "2608.03632": {
-      "title": "When Teachers Mislead: Spurious-Signal-Aware On-Policy Distillation",
-      "abstract": "On-Policy distillation (OPD) transfers teacher capabilities by supervising student-sampled trajectories with dense token-level teacher signals. Recent selective OPD methods improve this process by prioritizing signals that are confident, informative, or learnable. However, the assumptions overlook a fundamental failure mode of language models: their token-level judgments can be driven by input-agnostic language priors, formatting conventions, or stereotyped reasoning templates rather than task-specific evidence. We refer to such optimization-relevant but weakly input-grounded supervision as spurious signals in OPD, which may produce large gradients while contributing little task-improving direction. To mitigate this issue, we propose SA-OPD, a Spurious-Signal-Aware On-Policy Distillation framework that identifies and filters misleading token-level supervision based on input-groundedness and optimization impact. SA-OPD introduces a lightweight input-groundedness proxy estimating whether a token-level distillation signal truly depends on the input. It then filters only tokens that simultaneously exhibit low input-groundedness and extreme distillation divergence, thereby removing high-impact spurious updates and achieving fine-grained OPD optimization. Extensive experiments on both large language model (LLM) and vision-language model (VLM) settings demonstrate that SA-OPD consistently outperforms Vanilla OPD and competitive selective methods. These results establish input-groundedness as a key dimension for OPD supervision selection and offer a simple, effective strategy for mitigating spurious updates.",
-      "abstract_zh": "基于策略的蒸馏（On-Policy Distillation, OPD）通过利用密集的令牌级别教师信号对学生采样的轨迹进行监督，以此传递教师模型的能力。近期出现的选择性OPD方法通过优先选择置信度高、信息丰富或易于学习的信号来改进这一过程。然而，这些方法的假设忽略了大语言模型（Large Language Model, LLM）的一个根本性失效模式：其令牌级别的判断可能受到与输入无关的语言先验、格式规范或刻板推理模板的驱动，而非基于任务相关的证据。我们将此类与优化相关但缺乏输入关联性的监督称为OPD中的虚假信号（spurious signals），这类信号可能产生较大的梯度，却对任务改进方向的贡献甚微。为缓解这一问题，我们提出了SA-OPD——一种虚假信号感知的基于策略的蒸馏框架，该框架基于输入关联性和优化影响来识别并过滤误导性的令牌级别监督。SA-OPD引入了一个轻量级的输入关联性代理指标，用于估计令牌级别的蒸馏信号是否真正依赖于输入。随后，它仅过滤那些同时表现出低输入关联性和极端蒸馏差异的令牌，从而消除影响显著的虚假更新，实现细粒度的OPD优化。在大语言模型和视觉语言模型（Vision-Language Model, VLM）设置下的大量实验表明，SA-OPD在性能上持续优于标准OPD及有竞争力的选择性方法。这些结果确立了输入关联性作为OPD监督选择的关键维度，并为缓解虚假更新提供了一种简单有效的策略。",
-      "hf_link": "https://huggingface.co/papers/2608.03632"
-    },
     "2608.03764": {
       "title": "GDPevo: Evaluating Agent Self-Evolution on Real Business Tasks",
       "abstract": "Agent self-evolution updates an agent's persistent state from prior experience and reuses it to solve related tasks more effectively. Evaluating self-evolution is difficult: existing benchmarks provide limited coverage of economically valuable task domains, do not always design training and test tasks such that test-time gains can be attributed to training experience, and remain vulnerable to data contamination. We present GDPevo, an evolution-native benchmark grounded in GDP-related enterprise workflows, together with the fully automated data pipeline that generates it. Its core mechanism, rule hybridization, decomposes each enterprise workflow into atomic business rules, distributes subsets of these rules across training tasks, and recombines them in held-out test tasks so that test-time gains are attributable. GDPevo spans CRM, ERP, finance, healthcare, legal, and data-centric workflows. Its V1 release contains 120 tasks in 12 groups, with five training and five held-out test tasks per group. Full automation enables the pipeline to expand the suite to 240 tasks in 24 groups (V2) within two days, providing a practical response to contamination. Using GDPevo, we evaluate four agents, each comprising a harness and a model, under four supervision types. Self-evolution consistently improves held-out accuracy by up to 16.44 percentage points. But the best evolved agents remain far below the fully informed oracle ceiling of 91.6%, indicating that the self-evolution ability of current agents remains far from fully realized. We publicly release the pipeline, benchmark, and full evaluation results atthis https URL.",
       "abstract_zh": "智能体自我进化通过基于先前经验更新智能体的持久状态并加以复用，从而更高效地解决相关任务。评估自我进化能力面临诸多挑战：现有基准测试对具有经济价值的任务领域覆盖有限，其训练与测试任务的设计未必能确保测试阶段的性能提升可归因于训练经验，且仍易受数据污染影响。为此，我们提出了GDPevo——一个根植于GDP相关企业工作流程的进化原生基准测试，以及生成该基准的全自动化数据流水线。其核心机制“规则混合”将每个企业工作流程分解为原子级业务规则，将这些规则的子集分配至训练任务中，并在保留的测试任务中对其进行重组，从而使测试阶段的性能增益具备可归因性。GDPevo涵盖客户关系管理（CRM）、企业资源规划（ERP）、金融、医疗、法律及数据驱动型工作流程。其V1版本包含12个组别共120项任务，每组包含五项训练任务和五项保留测试任务。全自动化流程使该流水线能在两天内将任务集扩展至24个组别240项任务（V2版本），为应对数据污染提供了切实可行的解决方案。基于GDPevo，我们在四种监督类型下评估了由执行框架与模型组成的四个智能体。自我进化持续将保留测试准确率提升最高达16.44个百分点。然而表现最佳的进化智能体仍远低于完全信息先知上限的91.6%，这表明当前智能体的自我进化能力尚未得到充分发挥。我们已公开发布该流水线、基准测试及完整评估结果，详见此https网址。",
       "hf_link": "https://huggingface.co/papers/2608.03764"
+    },
+    "2608.03632": {
+      "title": "When Teachers Mislead: Spurious-Signal-Aware On-Policy Distillation",
+      "abstract": "On-Policy distillation (OPD) transfers teacher capabilities by supervising student-sampled trajectories with dense token-level teacher signals. Recent selective OPD methods improve this process by prioritizing signals that are confident, informative, or learnable. However, the assumptions overlook a fundamental failure mode of language models: their token-level judgments can be driven by input-agnostic language priors, formatting conventions, or stereotyped reasoning templates rather than task-specific evidence. We refer to such optimization-relevant but weakly input-grounded supervision as spurious signals in OPD, which may produce large gradients while contributing little task-improving direction. To mitigate this issue, we propose SA-OPD, a Spurious-Signal-Aware On-Policy Distillation framework that identifies and filters misleading token-level supervision based on input-groundedness and optimization impact. SA-OPD introduces a lightweight input-groundedness proxy estimating whether a token-level distillation signal truly depends on the input. It then filters only tokens that simultaneously exhibit low input-groundedness and extreme distillation divergence, thereby removing high-impact spurious updates and achieving fine-grained OPD optimization. Extensive experiments on both large language model (LLM) and vision-language model (VLM) settings demonstrate that SA-OPD consistently outperforms Vanilla OPD and competitive selective methods. These results establish input-groundedness as a key dimension for OPD supervision selection and offer a simple, effective strategy for mitigating spurious updates.",
+      "abstract_zh": "基于策略的蒸馏（On-Policy Distillation, OPD）通过利用密集的令牌级别教师信号对学生采样的轨迹进行监督，以此传递教师模型的能力。近期出现的选择性OPD方法通过优先选择置信度高、信息丰富或易于学习的信号来改进这一过程。然而，这些方法的假设忽略了大语言模型（Large Language Model, LLM）的一个根本性失效模式：其令牌级别的判断可能受到与输入无关的语言先验、格式规范或刻板推理模板的驱动，而非基于任务相关的证据。我们将此类与优化相关但缺乏输入关联性的监督称为OPD中的虚假信号（spurious signals），这类信号可能产生较大的梯度，却对任务改进方向的贡献甚微。为缓解这一问题，我们提出了SA-OPD——一种虚假信号感知的基于策略的蒸馏框架，该框架基于输入关联性和优化影响来识别并过滤误导性的令牌级别监督。SA-OPD引入了一个轻量级的输入关联性代理指标，用于估计令牌级别的蒸馏信号是否真正依赖于输入。随后，它仅过滤那些同时表现出低输入关联性和极端蒸馏差异的令牌，从而消除影响显著的虚假更新，实现细粒度的OPD优化。在大语言模型和视觉语言模型（Vision-Language Model, VLM）设置下的大量实验表明，SA-OPD在性能上持续优于标准OPD及有竞争力的选择性方法。这些结果确立了输入关联性作为OPD监督选择的关键维度，并为缓解虚假更新提供了一种简单有效的策略。",
+      "hf_link": "https://huggingface.co/papers/2608.03632"
     },
     "2608.05139": {
       "title": "Toward Skill-Native LLMs: Skill Entropy for Benchmarking and Training Long-Horizon Reasoning",
@@ -54,23 +60,35 @@
       "abstract_zh": "我们推出NOLLI，一种程序生成的英语-韩语谜题基准测试集，旨在诊断韩语性能差距的产生环节。该基准包含15种谜题类型（25项任务；7,500个测试项），每个实例均可通过种子复现，经验证具有唯一解，且采用确定性评分机制。我们摒弃了将难度简单等同于数据规模的思路，转而通过行为实验校准难度——调整每个生成器，直至固定参考模型达到目标准确率区间。其三层设计结构融合了严格对应的直译任务、基于韩文字母（音节下的构成字母）的书写体系适配任务，以及植根于韩国文化或正字法的纯韩语任务。\n\n我们评估了15个前沿模型、开源权重模型及韩国本土开发模型。在总体准确率超过3%基准线的12个模型中，英语与韩语对应任务的准确率在±10个百分点范围内具有统计等效性（TOST检验），表明仅呈现语言差异带来的性能损耗较小。书写系统密集型任务则显示出更显著的差距：韩语密码题比英语版本落后高达68.7个百分点，而使用相同韩文字母的字母算术题却未出现系统性劣势，且韩文字母组合任务的准确率能预测韩语密码题的表现。这些对比具有诊断意义而非因果关联，与多步骤音节内操作困难度的假设一致。纯韩语任务进一步区分出规则应用缺陷（其影响方向存在差异）和亲属关系推理缺陷（12个模型均呈现正向缺陷）。\n\n最后值得注意的是，在15类任务中有7类从简单到困难级别的结构复杂度并未增长，这表明结构规模不能可靠替代实证难度。",
       "hf_link": "https://huggingface.co/papers/2608.04397"
     },
-    "2607.24821": {
-      "title": "AVE-Compass: Towards Holistic Evaluation for Audio-Video Editing Abilities",
-      "abstract": "While instruction-based video editing has advanced rapidly, real-world videos contain tightly coupled audio and visual signals, and editing one modality often requires coordinated changes in the other. Existing benchmarks primarily evaluate visual transformations on silent clips or isolated audio editing, leaving complex audio-visual editing and cross-modal consistency underexplored. We introduce AVE-Compass, a comprehensive benchmark with 145 curated source videos, 196 audio-visually coupled editing instructions, and 2,688 fine-grained checklist items. It evaluates Instruction Following, Fidelity Preserving, Realism, and Editing Intent through checklist-based MLLM judging and a dedicated realism rubric, complemented by automated cross-modal, video, and audio metrics. Extensive evaluation shows that state-of-the-art models still struggle to execute cross-modal instructions while preserving non-target content. We further propose AVE-Agent, a modular agent framework that decomposes complex instructions into dependent subtasks and iteratively improves editing results through self-reflection and evaluator feedback. AVE-Agent improves instruction execution, Fidelity Preserving, and audio-visual alignment in joint editing while maintaining competitive perceptual quality.",
-      "abstract_zh": "尽管基于指令的视频编辑技术发展迅速，但现实世界中的视频包含紧密耦合的音频与视觉信号，编辑一种模态往往需要另一模态的协调变化。现有基准主要针对无声片段评估视觉变换或独立的音频编辑，对复杂的视听编辑及跨模态一致性的探索仍显不足。我们推出了AVE-Compass，这是一个包含145条精选源视频、196条视听耦合编辑指令及2，688项细粒度检查条目的综合性基准。该基准通过基于检查表的MLLM（多模态大语言模型）评判与专用的真实度评估准则，从指令遵循性、保真度、真实度及编辑意图四个维度进行评估，并辅以自动化的跨模态、视频及音频指标。大量评估表明，当前最先进的模型在执行跨模态指令时仍难以兼顾非目标内容的保留。我们进一步提出了AVE-Agent，这是一个模块化智能体框架，能够将复杂指令分解为相互依赖的子任务，并通过自我反思与评估器反馈迭代优化编辑结果。AVE-Agent在联合编辑中提升了指令执行度、保真度与视听对齐质量，同时保持了具有竞争力的感知质量。",
-      "hf_link": "https://huggingface.co/papers/2607.24821"
-    },
     "2608.02580": {
       "title": "Ego2Robot: Scalable Robot Data Synthesis from Egocentric Human Data",
       "abstract": "Learning generalizable robot manipulation policies requires large-scale and diverse demonstration data. Egocentric human manipulation videos offer rich scene and task diversity, and prior work has shown that retargeting and rendering such videos into robot-format data can yield effective per-task policies at small scale. However, whether this approach can provide pretraining benefits for vision-language-action models at scale remains unexplored. We present \\textbf{Ego2Robot}, a scalable pipeline that converts egocentric human manipulation videos into robot training data through action retargeting, robot-arm visual synthesis, and multi-level quality curation. Ego2Robot supports both curated datasets and in-the-wild videos, producing 18,561 hours of robot training data spanning 15 robot morphologies, making it the largest ego-to-robot dataset to date. To evaluate generalization, we extend RoboTwin2.0 with disentangled perturbation axes covering visual appearance, scene layout, embodiment morphology, and task semantics. Experiments show that joint pretraining on Ego2Robot-synthesized and robot data consistently improves out-of-distribution generalization across multiple perturbation types, with benefits validated on real-robot deployment. Project page:this https URL",
       "abstract_zh": "学习泛化性强的机器人操作策略需要大规模多样化的演示数据。以自我为中心的人类操作视频提供了丰富的场景和任务多样性，先前研究表明，通过重定向和渲染将这些视频转化为机器人格式数据，可以小规模地生成有效的单任务策略。然而，这种方法能否为视觉-语言-动作模型提供大规模预训练效益仍有待探索。我们提出了**Ego2Robot**，这是一个可扩展的流水线，通过动作重定向、机器人手臂视觉合成和多层次质量筛选，将自我中心的人类操作视频转化为机器人训练数据。Ego2Robot支持经过整理的数据集和真实世界视频，生成了涵盖15种机器人形态的18,561小时机器人训练数据，成为迄今为止最大的自我中心到机器人数据集。为评估泛化能力，我们在RoboTwin2.0平台上扩展了涵盖视觉外观、场景布局、具身形态和任务语义的解耦扰动轴。实验表明，基于Ego2Robot合成数据与机器人数据的联合预训练，能持续提升模型在多种扰动类型下的分布外泛化性能，其优势在实际机器人部署中得到了验证。项目页面：this https URL",
       "hf_link": "https://huggingface.co/papers/2608.02580"
     },
+    "2607.24821": {
+      "title": "AVE-Compass: Towards Holistic Evaluation for Audio-Video Editing Abilities",
+      "abstract": "While instruction-based video editing has advanced rapidly, real-world videos contain tightly coupled audio and visual signals, and editing one modality often requires coordinated changes in the other. Existing benchmarks primarily evaluate visual transformations on silent clips or isolated audio editing, leaving complex audio-visual editing and cross-modal consistency underexplored. We introduce AVE-Compass, a comprehensive benchmark with 145 curated source videos, 196 audio-visually coupled editing instructions, and 2,688 fine-grained checklist items. It evaluates Instruction Following, Fidelity Preserving, Realism, and Editing Intent through checklist-based MLLM judging and a dedicated realism rubric, complemented by automated cross-modal, video, and audio metrics. Extensive evaluation shows that state-of-the-art models still struggle to execute cross-modal instructions while preserving non-target content. We further propose AVE-Agent, a modular agent framework that decomposes complex instructions into dependent subtasks and iteratively improves editing results through self-reflection and evaluator feedback. AVE-Agent improves instruction execution, Fidelity Preserving, and audio-visual alignment in joint editing while maintaining competitive perceptual quality.",
+      "abstract_zh": "尽管基于指令的视频编辑技术发展迅速，但现实世界中的视频包含紧密耦合的音频与视觉信号，编辑一种模态往往需要另一模态的协调变化。现有基准主要针对无声片段评估视觉变换或独立的音频编辑，对复杂的视听编辑及跨模态一致性的探索仍显不足。我们推出了AVE-Compass，这是一个包含145条精选源视频、196条视听耦合编辑指令及2，688项细粒度检查条目的综合性基准。该基准通过基于检查表的MLLM（多模态大语言模型）评判与专用的真实度评估准则，从指令遵循性、保真度、真实度及编辑意图四个维度进行评估，并辅以自动化的跨模态、视频及音频指标。大量评估表明，当前最先进的模型在执行跨模态指令时仍难以兼顾非目标内容的保留。我们进一步提出了AVE-Agent，这是一个模块化智能体框架，能够将复杂指令分解为相互依赖的子任务，并通过自我反思与评估器反馈迭代优化编辑结果。AVE-Agent在联合编辑中提升了指令执行度、保真度与视听对齐质量，同时保持了具有竞争力的感知质量。",
+      "hf_link": "https://huggingface.co/papers/2607.24821"
+    },
     "2608.04574": {
       "title": "When Memory Lies: An Empirical Study of Spatial Memory Staleness in VLM Agents",
       "abstract": "Memory-augmented VLM agents act on persistent spatial knowledge, yet that knowledge silently goes stale as the environment changes. We ask what happens when an agent must reconcile a confident memory claim with a contradicting observation, and whether current models can catch the conflict before it becomes a safety-relevant mistake. Using a dynamic FrozenLake testbed, we pair a staleness-detection task with a downstream navigation task across three closed-source models and three open-weight VLMs under both text and image inputs (1,800 detection runs, and 12,000 text-mode navigation episodes over four LLM navigators at a shared 50-seed scale). Three findings emerge. First, text solvability does not imply visual grounding: models that flag stale entries reliably from text nonetheless span vision F1 from 0.887 down to 0.067 on the identical grids, and the weakest keeps making fluent, confident decisions that ignore the image. Second, consuming stale memory without an audit is a safety liability: in our primary GPT-4o setting, an agent that trusts raw memory dies more than twice as often as the same agent given no memory at all. Third, auditing helps but does not close the gap: a transparent read-time filter removes much of the safety cost in text mode, yet even oracle stale labels bring no further significant gain on the current grid size, and when visual auditing is unreliable, filtering yields no consistent benefit. Together these results frame spatial-memory staleness as a safety failure mode and isolate reliable visual grounding and action selection under memory--observation conflict as the central open challenges for memory-augmented agents.",
       "abstract_zh": "具备记忆增强能力的视觉语言模型(VLM)智能体能够基于持久性空间知识采取行动，然而当环境发生变化时，这些知识会在无声中逐渐过时。我们探讨的核心问题是：当智能体必须协调一个高度确信的记忆主张与矛盾的观测事实时会发生什么？当前模型能否在错误演变为安全隐患之前识别这种冲突？通过构建动态FrozenLake测试环境，我们在文本和图像两种输入模式下，对三个闭源模型和三个开源权重的VLM同时开展了过时性检测任务与下游导航任务的配对实验（共完成1,800次检测运行，并在四个LLM导航器上以共享的50组随机种子进行了12,000次文本模式导航推演）。研究得出三项核心发现：第一，文本解析能力不意味着视觉接地性——在相同网格环境中，虽然部分模型能可靠地从文本中识别过时条目，但其视觉F1分数却分布在0.887至0.067的悬殊区间，表现最弱的模型持续作出流畅而自信的决策，却完全忽略图像信息；第二，未经审计直接使用过时记忆会引发安全隐患——在我们的主要GPT-4o实验设定中，直接信任原始记忆的智能体死亡率比完全不使用记忆的基准智能体高出两倍以上；第三，审计机制虽具改善作用但未能完全弥合差距：透明的读取时过滤器在文本模式下显著降低了安全成本，然而即使在获得完美过时标签的理想情况下，当前网格规模下也未产生进一步的显著增益；当视觉审计不可靠时，过滤机制无法带来持续收益。这些结果共同揭示了空间记忆过时性构成的安全失效模式，并指出在记忆与观测冲突情境下实现可靠的视觉接地与行动选择，是记忆增强智能体面临的核心开放挑战。",
       "hf_link": "https://huggingface.co/papers/2608.04574"
+    },
+    "2608.00782": {
+      "title": "Distill Where You Fail: Recovering Learning Signals of Negative RL-Groups from Adaptive Teacher Guidance",
+      "abstract": "Reinforcement learning with verifiable rewards (RLVR) has become a standard paradigm for post-training large language models (LLMs). While Group Relative Policy Optimization (GRPO) is widely adopted, it suffers from sparse reward signals and loses gradients entirely when all responses within a group receive identical rewards. On-policy distillation (OPD) offers a natural remedy by providing dense, token-level supervision from a teacher model. However, naively combining GRPO with OPD leads to degraded performance, due to three underlying causes: not all samples benefit from distillation; fitting too quickly to the teacher undermines the exploratory capacity of RL; and OPD's advantages are asymmetric, suppressing most tokens. To address these challenges, we propose RSTG (Recovering Learning Signals via Adaptive Teacher Guidance), which applies distillation selectively and precisely where it matters most. At the sample level, OPD is restricted to negative zero-variance prompts with each sample weighted by the teacher's confidence score. At the token level, distillation targets only tokens with high student entropy or large teacher-student divergence. We further augment training with SFT on correct trajectories generated by the teacher model, injecting positive gradient signals where RL yields none. Experiments demonstrate that RSTG substantially outperforms naive GRPO+OPD by +4.02% on math and +3.05% on code.",
+      "abstract_zh": "具备可验证奖励的强化学习(RLVR)已成为大型语言模型(LLM)后训练的标准范式。尽管分组相对策略优化(GRPO)被广泛采用，但其存在奖励信号稀疏的问题，且当组内所有回答获得相同奖励时会完全丧失梯度。在线蒸馏(OPD)通过提供来自教师模型的密集词元级监督，提供了一种自然的补救方案。然而，简单地将GRPO与OPD结合会导致性能下降，这源于三个根本原因：并非所有样本都能从蒸馏中受益；过快拟合教师模型会削弱强化学习的探索能力；以及OPD的优势具有不对称性，会抑制大多数词元。为应对这些挑战，我们提出RSTG（通过自适应教师指导恢复学习信号），该方法在最重要处进行有选择且精确的蒸馏应用。在样本层面，OPD被限制应用于零方差负提示，每个样本的权重由教师模型的置信度评分决定。在词元层面，蒸馏仅针对学生模型高熵值或师生模型差异大的词元。我们进一步通过教师模型生成的正向轨迹进行监督微调(SFT)来增强训练，在强化学习无法产生梯度信号的区域注入正向梯度信号。实验表明，RSTG在数学任务上比原始GRPO+OPD显著提升+4.02%，在代码任务上提升+3.05%。",
+      "hf_link": "https://huggingface.co/papers/2608.00782"
+    },
+    "2608.04530": {
+      "title": "FocusMem: Factorizing Content, Readout, and Trust in Latent GUI Memory",
+      "abstract": "GUI agents must remember both useful experience from earlier tasks and unfinished progress in the current interaction. Latent memory offers a compact solution by compressing multimodal trajectories into a few continuous tokens. Existing methods, however, usually map each trajectory to one fixed memory block and train it mainly through next-action supervision. This creates three practical problems: important details may be lost during compression, the same memory block must serve different decision stages, and irrelevant retrieved trajectories may still mislead the agent. We introduce FocusMem, which separates these responsibilities within a compact latent-memory interface. A role-aware content basis encourages episodic memory to retain reusable experience and working memory to retain task progress. A state-conditioned readout generates a decision-specific view of the same stored evidence, while a lightweight trust gate can suppress memory blocks that appear irrelevant to the current step. All components are trained while the GUI policy remains frozen. Across five GUI-agent benchmarks, FocusMem consistently outperforms a fully matched action-only fixed-memory baseline and prior latent memory adaptations. Further analysis shows that semantic and functional supervision preserve complementary information, state-conditioned readout is more robust as surrounding trajectory context grows, and the trust gate reduces the harm caused by injected irrelevant episodic evidence. These results show that effective latent memory depends not only on compressing past interaction, but also on what is retained, what is exposed, and what is allowed.",
+      "abstract_zh": "GUI代理必须同时记住早期任务的有用经验和当前交互中的未完成进度。潜态记忆提供了一种紧凑的解决方案，通过将多模态轨迹压缩为少量连续令牌来实现。然而，现有方法通常将每个轨迹映射到一个固定的记忆区块，并主要通过下一动作监督进行训练。这导致了三个实际问题：重要细节可能在压缩过程中丢失；同一记忆区块必须服务于不同的决策阶段；不相关的检索轨迹仍可能误导代理。我们提出了FocusMem，在紧凑的潜态记忆接口中分离了这些职责。角色感知的内容基元促使情景记忆保留可重复使用的经验，工作记忆则保留任务进度。状态条件读取机制基于相同存储证据生成决策特异性视图，而轻量级信任门可以抑制与当前步骤看似无关的记忆区块。所有组件均在GUI策略保持冻结的状态下进行训练。在五个GUI代理基准测试中，FocusMem始终优于完全匹配的纯动作固定记忆基线及先前的潜态记忆适配方法。进一步分析表明：语义与功能监督保留了互补信息；状态条件读取机制在轨迹上下文增长时表现出更强鲁棒性；信任门有效降低了注入无关情景证据造成的损害。这些结果证明，有效的潜态记忆不仅依赖于对过往交互的压缩，更取决于保留什么内容、呈现什么信息以及允许哪些操作。",
+      "hf_link": "https://huggingface.co/papers/2608.04530"
     },
     "2608.05070": {
       "title": "HelloWorld: Enabling Socially Interactive Characters in Video World Models",
@@ -84,6 +102,12 @@
       "abstract_zh": "交互式视频世界模型对于长时程规划与探索至关重要，但其存在误差累积的问题。强化学习等训练后方法虽能改进此类模型，却遭遇验证瓶颈：对于任意动作序列，不存在可用于测量长期漂移的真实未来状态。我们的核心洞见在于，可逆动作循环使验证成为可能：由动作序列与其逆序构成的组合必须在理论上返回初始状态，从而为长时程准确性提供无需标注的监督。基于此，我们提出WorldCycle——一个可自验证的强化学习框架。该框架从常规动作序列构建闭合动作循环及其重复执行，并优化两项互补奖励：空间闭合奖励强制对称处理镜像的前向与逆向片段，时间一致性奖励则对齐多次循环执行中的状态。这些奖励迫使模型将动作学习为一致的状态运算符，而非记忆时序模式，并能自然扩展到基础模型难以处理的分布外复合动作循环。我们进一步发布CycleBench，这是一个用于评估复杂动作结构下状态回归能力的诊断基准。WorldCycle将状态回归漂移降低达44%，并将复合动作准确率提升近4倍，为物理基础世界模型奠定了重要基础。",
       "hf_link": "https://huggingface.co/papers/2608.04964"
     },
+    "2608.04349": {
+      "title": "Poly-OPD: Heterogeneous Multi-Teacher On-Policy Distillation for Capability-Selectable Flow Models",
+      "abstract": "Leading open text-to-image models often carry complementary strengths: one may lead on preference-aligned aesthetics while another follows compositional instructions more faithfully. However, differences in their autoencoders and noise schedules make it difficult to transfer these strengths across models. In this paper, we present Poly-OPD, a framework that can consolidate complementary strengths of heterogeneous teachers into a single compact flow-matching student. To bridge the incompatible latent spaces of different teachers, Poly-OPD performs on-policy distillation through a pixel bridge. Each student-generated image is re-encoded by a selected teacher's encoder and refined from a noise level matched by magnitude under the teacher's noise schedule. The resulting target is further matched to the student in frozen DINOv2 space, enabling supervision across incompatible latent spaces. To retain complementary capabilities without cross-teacher interference, Poly-OPD uses a gradient compatibility diagnostic to organize its adapters: attention LoRA modules are shared across teachers, whereas feed-forward adapters remain teacher-specific. During distillation, a gap-aware curriculum devotes more training to compositional categories where the student still falls short of the teacher. As each gap narrows, training shifts toward categories with larger remaining gaps. By distilling FLUX.1-dev and Z-Image into a 2.5B SD3.5-Medium student, Poly-OPD improves GenEval from 67.3 to 73.3, surpassing both larger teachers, and raises DrawBench HPSv3 from 9.34 to 11.35, consolidating both strengths within a switchable model.",
+      "abstract_zh": "当前领先的开放文本到图像模型通常具备互补优势：某些模型在偏好对齐的美学表现上更胜一筹，而另一些模型则能更准确地遵循构图指令。然而，由于这些模型的自编码器（autoencoders）与噪声调度（noise schedules）存在差异，跨模型迁移这些优势变得十分困难。本文提出Poly-OPD框架，能够将异构教师模型的互补优势整合至单个紧凑的流匹配（flow-matching）学生模型中。为弥合不同教师模型间不兼容的潜在空间，Poly-OPD通过像素桥（pixel bridge）进行在轨蒸馏（on-policy distillation）：每个由学生模型生成的图像会被选定教师模型的编码器重新编码，并在该教师模型的噪声调度下，根据幅度匹配的噪声层级进行精炼。所得目标进一步在冻结的DINOv2空间与学生模型对齐，从而实现对不兼容潜在空间的跨模型监督。为保持互补能力并避免教师模型间相互干扰，Poly-OPD采用梯度兼容性诊断机制来组织其适配器：注意力低秩适应（LoRA）模块在教师模型间共享，而前馈适配器则保持教师特异性。在蒸馏过程中，基于差距感知的课程安排（gap-aware curriculum）会将更多训练资源集中于学生模型仍落后于教师模型的构图类别。随着各类别差距逐渐缩小，训练重点会转向剩余差距更大的类别。通过将FLUX.1-dev和Z-Image蒸馏至一个25亿参数的SD3.5-Medium学生模型，Poly-OPD将GenEval得分从67.3提升至73.3，超越了两个更大的教师模型，并将DrawBench HPSv3得分从9.34提升至11.35，成功将双方优势整合于一个可切换的模型中。",
+      "hf_link": "https://huggingface.co/papers/2608.04349"
+    },
     "2608.04505": {
       "title": "K-EXAONE 2.0 Technical Report",
       "abstract": "This technical report presents K-EXAONE 2.0, an open-weight multilingual foundation model developed by LG AI Research as a step in our effort toward global frontier-scale foundation models. Rather than training from scratch, we upcycle K-EXAONE and expand its architecture, yielding a Mixture-of-Experts (MoE) model with 750B total parameters and approximately 37B activated per token---more than three times the capacity of its predecessor. K-EXAONE 2.0 supports context lengths of up to 256K tokens and expands multilingual coverage from six to ten languages. Its training pipeline combines continual pre-training, difficulty-focused mid-training, and post-training to strengthen reasoning, agentic coding, multilingual capability, and safety grounded in Korean sociocultural contexts. Across nine evaluation categories selected to reflect the conditions of practical use, K-EXAONE 2.0 improves over K-EXAONE and remains competitive with open-weight models, showing its largest gains in agentic coding and long-context understanding and its clearest strengths in long-context retrieval and safety. Released under the Apache 2.0 license, K-EXAONE 2.0 enables the wider AI ecosystem to evaluate, deploy, adapt, and build upon it, while marking the beginning---rather than the endpoint---of our challenge toward the global frontier.",
@@ -96,29 +120,17 @@
       "abstract_zh": "利用预训练的视觉-语言模型（VLMs）构建视觉-语言-动作（VLA）模型已成为三维机器人操作领域的一个前景广阔的范式。然而，现有的三维VLA方法仍面临数据需求量大、在分布偏移下泛化能力有限以及缺乏对过往观测的显式记忆等挑战。这些局限阻碍了其在数据稀缺、开放世界和依赖记忆的操作场景中的应用。我们之前的工作BridgeVLA通过保持预训练VLM在三维动作学习过程中的输入-输出对齐，提升了数据效率和泛化能力：原始点云被投影为多视角图像，并在生成机器人动作前预测中间热力图。本研究中，我们通过为BridgeVLA配备统一的时空记忆架构，开发了BridgeVLA++。该架构能够建模持续的空间上下文和时序交互历史，使增强记忆后的框架能够在保持BridgeVLA数据效率与泛化能力的同时，对观测历史进行推理。大量实验表明，我们的框架在空间操作任务中实现了强劲性能，同时展现出鲁棒的泛化能力。BridgeVLA++在两个依赖记忆的复杂操作基准测试中进一步取得了最先进的性能，且未牺牲原始BridgeVLA的数据效率与泛化能力。此外，BridgeVLA++在双手操作场景中表现优异，并在另一真实机器人平台上得到验证，展示了其在任务、环境和机器人平台间的可扩展性。这些成果确立了BridgeVLA++作为统一的三维视觉-语言-动作框架的地位，能够同时支持数据高效学习、鲁棒泛化以及有效的记忆感知机器人操作。项目网站：this https URL。",
       "hf_link": "https://huggingface.co/papers/2608.05042"
     },
-    "2608.00782": {
-      "title": "Distill Where You Fail: Recovering Learning Signals of Negative RL-Groups from Adaptive Teacher Guidance",
-      "abstract": "Reinforcement learning with verifiable rewards (RLVR) has become a standard paradigm for post-training large language models (LLMs). While Group Relative Policy Optimization (GRPO) is widely adopted, it suffers from sparse reward signals and loses gradients entirely when all responses within a group receive identical rewards. On-policy distillation (OPD) offers a natural remedy by providing dense, token-level supervision from a teacher model. However, naively combining GRPO with OPD leads to degraded performance, due to three underlying causes: not all samples benefit from distillation; fitting too quickly to the teacher undermines the exploratory capacity of RL; and OPD's advantages are asymmetric, suppressing most tokens. To address these challenges, we propose RSTG (Recovering Learning Signals via Adaptive Teacher Guidance), which applies distillation selectively and precisely where it matters most. At the sample level, OPD is restricted to negative zero-variance prompts with each sample weighted by the teacher's confidence score. At the token level, distillation targets only tokens with high student entropy or large teacher-student divergence. We further augment training with SFT on correct trajectories generated by the teacher model, injecting positive gradient signals where RL yields none. Experiments demonstrate that RSTG substantially outperforms naive GRPO+OPD by +4.02% on math and +3.05% on code.",
-      "abstract_zh": "具备可验证奖励的强化学习(RLVR)已成为大型语言模型(LLM)后训练的标准范式。尽管分组相对策略优化(GRPO)被广泛采用，但其存在奖励信号稀疏的问题，且当组内所有回答获得相同奖励时会完全丧失梯度。在线蒸馏(OPD)通过提供来自教师模型的密集词元级监督，提供了一种自然的补救方案。然而，简单地将GRPO与OPD结合会导致性能下降，这源于三个根本原因：并非所有样本都能从蒸馏中受益；过快拟合教师模型会削弱强化学习的探索能力；以及OPD的优势具有不对称性，会抑制大多数词元。为应对这些挑战，我们提出RSTG（通过自适应教师指导恢复学习信号），该方法在最重要处进行有选择且精确的蒸馏应用。在样本层面，OPD被限制应用于零方差负提示，每个样本的权重由教师模型的置信度评分决定。在词元层面，蒸馏仅针对学生模型高熵值或师生模型差异大的词元。我们进一步通过教师模型生成的正向轨迹进行监督微调(SFT)来增强训练，在强化学习无法产生梯度信号的区域注入正向梯度信号。实验表明，RSTG在数学任务上比原始GRPO+OPD显著提升+4.02%，在代码任务上提升+3.05%。",
-      "hf_link": "https://huggingface.co/papers/2608.00782"
+    "2608.05131": {
+      "title": "OPD-V: Visual On-Policy Self-Distillation with Modality Balance",
+      "abstract": "On-Policy Self-Distillation (OPSD) has become a standard post-training approach for improving visual reasoning in multimodal large language models (MLLMs). Existing methods draw privileged information from diverse input sources to guide self-distillation. Yet these designs overlook Modality Imbalance, a challenge inherent to MLLM reasoning. When textual information dominates generation, the model cannot fully integrate its multimodal input. Consequently, carefully designed privileged information remains underused, limiting the effectiveness of OPSD. To examine this limitation, we construct a Positive Teacher with the Zoom-In Image and a Negative Teacher with the Mask Image, which exhibit different degrees of Modality Imbalance. Changes in their reasoning correctness and token logits reveal that Modality Balance can itself serve as privileged information. Motivated by this finding, we introduce OPD-V, a visual OPSD paradigm that instantiates such information through the Positive Teacher and Negative Teacher. Positive Modality-Balance Logits Margins define a Modality-Balance Trust Region that selects the on-policy tokens used for self-distillation. Experiments across 6 benchmarks, 4 MLLM backbones, and 5 post-training methods show that OPD-V consistently improves reasoning performance while reducing training cost.",
+      "abstract_zh": "在线策略自蒸馏（On-Policy Self-Distillation，OPSD）已成为提升多模态大语言模型（Multimodal Large Language Models，MLLMs）视觉推理能力的标准后训练方法。现有方法通过从多样化的输入源中提取特权信息来指导自蒸馏。然而，这些设计忽视了模态失衡（Modality Imbalance）这一多模态大语言模型推理中固有的挑战。当文本信息主导生成过程时，模型无法充分整合其多模态输入。因此，精心设计的特权信息未能得到充分利用，限制了在线策略自蒸馏的效果。为探究这一局限，我们构建了使用放大图像的积极教师（Positive Teacher）与使用掩码图像的消极教师（Negative Teacher），二者呈现出不同程度的模态失衡。通过分析其推理正确性和标记对数概率的变化，我们发现模态平衡本身即可作为特权信息。基于这一发现，我们提出了OPD-V——一种视觉在线策略自蒸馏范式，通过积极教师与消极教师将此类信息实例化。积极模态平衡对数概率边界定义了模态平衡信任区域，该区域筛选出用于自蒸馏的在线策略标记。在6个基准测试、4种多模态大语言模型主干架构及5种后训练方法上的实验表明，OPD-V在降低训练成本的同时，能持续提升模型的推理性能。",
+      "hf_link": "https://huggingface.co/papers/2608.05131"
     },
     "2608.05108": {
       "title": "Agent Against Agent: An Agentic System for Automatic Prompt Injection Red Teaming",
       "abstract": "Prompt injection poses significant security risks to LLM agents. Efficient and effective red-teaming is therefore critical, both for evaluating these risks and for collecting training data to improve defenses. Existing state-of-the-art prompt injection red-teaming methods primarily rely on reinforcement learning (RL), producing attacker models that often generalize poorly to new target LLMs. In this work, we develop PIMiner, an agentic system for prompt injection red-teaming. During training, PIMiner is trained on a sequence of (dataset, target model) pairs and builds a strategy library from scratch. At test time, the learned strategy library can be directly transferred to a previously unseen target LLM without additional training. PIMiner requires only a small number of queries to a target agent (e.g., 10) per test sample. Experimental results demonstrate that PIMiner achieves strong performance. On IPIArena, it attains a 76.2% ASR against Gemini-2.5-Pro, 61.9% ASR against GPT-5.1, and 42.9% ASR against Claude-Sonnet-4.5. On AgentDojo, it achieves an 86.7% ASR against Gemini-2.5-Pro, 53.3% ASR against GPT-5.1, and 40.0% ASR against Claude-Sonnet-4.5.",
       "abstract_zh": "提示词注入对LLM智能体构成重大安全风险。因此，高效且有效的红队测试对于评估这些风险以及收集训练数据以提升防御能力至关重要。现有最先进的提示词注入红队测试方法主要依赖强化学习，其生成的攻击模型往往在新目标LLM上泛化能力较差。本研究开发了PIMiner——一个用于提示词注入红队测试的智能体系统。在训练阶段，PIMiner通过一系列（数据集，目标模型）配对进行训练，并从零开始构建策略库。在测试阶段，学习到的策略库可以直接迁移到先前未见过的目标LLM，无需额外训练。PIMiner对每个测试样本仅需向目标智能体发起少量查询（例如10次）。实验结果表明，PIMiner展现出强劲性能：在IPIArena基准上，其对Gemini-2.5-Pro实现76.2%的攻击成功率，对GPT-5.1为61.9%，对Claude-Sonnet-4.5为42.9%；在AgentDojo基准上，其对Gemini-2.5-Pro达到86.7%的攻击成功率，对GPT-5.1为53.3%，对Claude-Sonnet-4.5为40.0%。",
       "hf_link": "https://huggingface.co/papers/2608.05108"
-    },
-    "2608.04349": {
-      "title": "Poly-OPD: Heterogeneous Multi-Teacher On-Policy Distillation for Capability-Selectable Flow Models",
-      "abstract": "Leading open text-to-image models often carry complementary strengths: one may lead on preference-aligned aesthetics while another follows compositional instructions more faithfully. However, differences in their autoencoders and noise schedules make it difficult to transfer these strengths across models. In this paper, we present Poly-OPD, a framework that can consolidate complementary strengths of heterogeneous teachers into a single compact flow-matching student. To bridge the incompatible latent spaces of different teachers, Poly-OPD performs on-policy distillation through a pixel bridge. Each student-generated image is re-encoded by a selected teacher's encoder and refined from a noise level matched by magnitude under the teacher's noise schedule. The resulting target is further matched to the student in frozen DINOv2 space, enabling supervision across incompatible latent spaces. To retain complementary capabilities without cross-teacher interference, Poly-OPD uses a gradient compatibility diagnostic to organize its adapters: attention LoRA modules are shared across teachers, whereas feed-forward adapters remain teacher-specific. During distillation, a gap-aware curriculum devotes more training to compositional categories where the student still falls short of the teacher. As each gap narrows, training shifts toward categories with larger remaining gaps. By distilling FLUX.1-dev and Z-Image into a 2.5B SD3.5-Medium student, Poly-OPD improves GenEval from 67.3 to 73.3, surpassing both larger teachers, and raises DrawBench HPSv3 from 9.34 to 11.35, consolidating both strengths within a switchable model.",
-      "abstract_zh": "当前领先的开放文本到图像模型通常具备互补优势：某些模型在偏好对齐的美学表现上更胜一筹，而另一些模型则能更准确地遵循构图指令。然而，由于这些模型的自编码器（autoencoders）与噪声调度（noise schedules）存在差异，跨模型迁移这些优势变得十分困难。本文提出Poly-OPD框架，能够将异构教师模型的互补优势整合至单个紧凑的流匹配（flow-matching）学生模型中。为弥合不同教师模型间不兼容的潜在空间，Poly-OPD通过像素桥（pixel bridge）进行在轨蒸馏（on-policy distillation）：每个由学生模型生成的图像会被选定教师模型的编码器重新编码，并在该教师模型的噪声调度下，根据幅度匹配的噪声层级进行精炼。所得目标进一步在冻结的DINOv2空间与学生模型对齐，从而实现对不兼容潜在空间的跨模型监督。为保持互补能力并避免教师模型间相互干扰，Poly-OPD采用梯度兼容性诊断机制来组织其适配器：注意力低秩适应（LoRA）模块在教师模型间共享，而前馈适配器则保持教师特异性。在蒸馏过程中，基于差距感知的课程安排（gap-aware curriculum）会将更多训练资源集中于学生模型仍落后于教师模型的构图类别。随着各类别差距逐渐缩小，训练重点会转向剩余差距更大的类别。通过将FLUX.1-dev和Z-Image蒸馏至一个25亿参数的SD3.5-Medium学生模型，Poly-OPD将GenEval得分从67.3提升至73.3，超越了两个更大的教师模型，并将DrawBench HPSv3得分从9.34提升至11.35，成功将双方优势整合于一个可切换的模型中。",
-      "hf_link": "https://huggingface.co/papers/2608.04349"
-    },
-    "2608.05131": {
-      "title": "OPD-V: Visual On-Policy Self-Distillation with Modality Balance",
-      "abstract": "On-Policy Self-Distillation (OPSD) has become a standard post-training approach for improving visual reasoning in multimodal large language models (MLLMs). Existing methods draw privileged information from diverse input sources to guide self-distillation. Yet these designs overlook Modality Imbalance, a challenge inherent to MLLM reasoning. When textual information dominates generation, the model cannot fully integrate its multimodal input. Consequently, carefully designed privileged information remains underused, limiting the effectiveness of OPSD. To examine this limitation, we construct a Positive Teacher with the Zoom-In Image and a Negative Teacher with the Mask Image, which exhibit different degrees of Modality Imbalance. Changes in their reasoning correctness and token logits reveal that Modality Balance can itself serve as privileged information. Motivated by this finding, we introduce OPD-V, a visual OPSD paradigm that instantiates such information through the Positive Teacher and Negative Teacher. Positive Modality-Balance Logits Margins define a Modality-Balance Trust Region that selects the on-policy tokens used for self-distillation. Experiments across 6 benchmarks, 4 MLLM backbones, and 5 post-training methods show that OPD-V consistently improves reasoning performance while reducing training cost.",
-      "abstract_zh": "在线策略自蒸馏（On-Policy Self-Distillation，OPSD）已成为提升多模态大语言模型（Multimodal Large Language Models，MLLMs）视觉推理能力的标准后训练方法。现有方法通过从多样化的输入源中提取特权信息来指导自蒸馏。然而，这些设计忽视了模态失衡（Modality Imbalance）这一多模态大语言模型推理中固有的挑战。当文本信息主导生成过程时，模型无法充分整合其多模态输入。因此，精心设计的特权信息未能得到充分利用，限制了在线策略自蒸馏的效果。为探究这一局限，我们构建了使用放大图像的积极教师（Positive Teacher）与使用掩码图像的消极教师（Negative Teacher），二者呈现出不同程度的模态失衡。通过分析其推理正确性和标记对数概率的变化，我们发现模态平衡本身即可作为特权信息。基于这一发现，我们提出了OPD-V——一种视觉在线策略自蒸馏范式，通过积极教师与消极教师将此类信息实例化。积极模态平衡对数概率边界定义了模态平衡信任区域，该区域筛选出用于自蒸馏的在线策略标记。在6个基准测试、4种多模态大语言模型主干架构及5种后训练方法上的实验表明，OPD-V在降低训练成本的同时，能持续提升模型的推理性能。",
-      "hf_link": "https://huggingface.co/papers/2608.05131"
     },
     "2607.22143": {
       "title": "TriGlue: a Biology-Inspired Generative Model for Generating Molecular Glue-Induced Ternary Complex",
@@ -137,32 +149,48 @@
       "abstract": "As chart images, tabular data, and visualization code play increasingly important roles across diverse domains, cross-representation understanding across these modalities poses fundamental challenges for AI systems: the relationships across representations are inherently \\textit{one-to-many}, supervision is ambiguous and costly, and model optimization lacks a principled signal that is both direction-adaptive and representation-generalizable beyond task-specific objectives. We introduce CoCoEvolve to improve consistency across chart, table, and code representations. Instead of treating cross-representation mapping as a one-to-many problem, we define explicit one-to-one correspondences and optimize models using agreement between representations, without additional annotations. During training, CoCoEvolve@Train performs co-evolution across the chart-table-code cycle, while CoCoEvolve@Test applies the same consistency objective at inference time for test-time co-optimization. We also present CoCoEvolve@Eval, an evaluation suite covering all six cross-representation tasks. Across four benchmarks, CoCoEvolve improves performance in both training-time and test-time settings. Our project page:this https URL.",
       "abstract_zh": "随着图表图像、表格数据和可视化代码在各领域中扮演日益重要的角色，跨这些模态的表征理解对人工智能系统提出了根本性挑战：表征间的关系本质上是**一对多**的，监督信号具有模糊性与高成本性，且模型优化缺乏超越任务特定目标、兼具方向适应性与表征泛化性的原则性信号。我们提出CoCoEvolve以提升图表、表格与代码表征间的一致性。不同于将跨表征映射视为一对多问题，我们定义了明确的一对一对应关系，并利用表征间的一致性进行模型优化，无需额外标注。在训练阶段，CoCoEvolve@Train通过图表-表格-代码循环执行协同演化；而在推理阶段，CoCoEvolve@Test应用相同的一致性目标进行测试时协同优化。我们还提出了CoCoEvolve@Eval评估套件，涵盖全部六类跨表征任务。在四个基准测试中，CoCoEvolve在训练时与测试时设置下均提升了性能表现。项目页面：此https网址。",
       "hf_link": "https://huggingface.co/papers/2608.04926"
+    },
+    "2608.03207": {
+      "title": "DRIFT: Derailing Denoising Trajectories of Flow-Matching VLAs with Adversarial Patch Attack",
+      "abstract": "Flow-matching vision-language-action (VLA) models such as pi0 generate robot actions by integrating a learned denoising velocity field, and have been reported to resist adversarial perturbations that readily fool autoregressive VLAs. We show that this robustness is largely illusory: it stems from prior attacks ignoring the multi-step denoising ODE. We introduce DRIFT (Denoising Redirection via Input perturbation of the Flow-matching Trajectory), a test-time universal adversarial patch placed on the robot's gripper that attacks the denoising velocity field of an off-the-shelf policy. Our central finding is counterintuitive: attacking only the first denoising step is both stronger and cheaper than attacking a wider window of steps, which we explain through a gradient conflict unique to input-space optimization and which is exactly opposite to the training-time backdoor regime. On pi0 and pi0.5 across four LIBERO suites, DRIFT breaks essentially all originally-solvable tasks with a small single patch, far exceeding action- and embedding-space attack baselines.",
+      "abstract_zh": "基于流匹配的视觉-语言-动作模型（如pi0）通过学习去噪速度场来生成机器人动作，据称能够抵抗容易欺骗自回归模型的对抗性扰动。我们揭示这种鲁棒性在很大程度上是虚假的：其源于现有攻击方法忽视了多步去噪常微分方程。我们提出DRIFT（通过流匹配轨迹输入扰动实现去噪重定向），这是一种置于机器人夹具上的测试时通用对抗补丁，能够攻击现成策略的去噪速度场。我们的核心发现反直觉地表明：仅攻击首个去噪步骤比攻击多步窗口更强效且成本更低，我们通过输入空间优化特有的梯度冲突现象解释这一现象——该现象与训练时后门攻击机制完全相反。在涵盖四个LIBERO测试集的pi0与pi0.5模型中，DRIFT仅用单个小型补丁即可破坏所有原本可解任务，其效果远超动作空间与嵌入空间攻击基线方法。",
+      "hf_link": "https://huggingface.co/papers/2608.03207"
+    },
+    "2608.03392": {
+      "title": "Self-Evolving Coding Agents",
+      "abstract": "Large language models are increasingly embedded in software engineering workflows as coding agents that can inspect repositories, invoke tools, execute tests, debug failures, and generate patches. Yet most existing agents remain largely static after deployment, even though software development is a dynamic, feedback-rich process in which repositories evolve, dependencies change, tests fail, and repair attempts leave reusable experience. This tension has motivated a growing body of work on self-evolving coding agents, where the agent improves its future behavior by updating its framework, memory, skills, tools, models, or collaboration structures from prior coding interactions. In this survey, we provide a systematic synthesis of this emerging area. We first define self-evolving coding agents and distinguish them from conventional coding agents and general self-evolving agents. We then develop an object-centered taxonomy that characterizes what evolves in these systems, and complement it with two orthogonal perspectives: when evolution occurs and what software-specific evidence drives it. Across the literature, we find that executable feedback, repository-level context, and coding trajectories give software engineering a distinctive role as a natural domain for agent self-evolution, but also introduce new challenges in feedback reliability, benchmark overfitting, safety, maintainability, cost, and generalization. By organizing existing work around these dimensions, this survey aims to clarify the conceptual boundaries of self-evolving coding agents and provide a foundation for designing more adaptive, reliable, and software-aware agentic systems. The papers we collect can be found atthis https URL.",
+      "abstract_zh": "大型语言模型正日益以编码代理的形式嵌入软件工程工作流中，它们能够检查代码仓库、调用工具、执行测试、调试故障并生成补丁。然而，大多数现有代理在部署后基本保持静态，而软件开发本身是一个动态且充满反馈的过程：代码仓库不断演进、依赖关系发生变化、测试用例可能失败，修复尝试也会留下可复用的经验。这种矛盾促使越来越多研究聚焦于自进化编码代理，这类代理能够通过从先前的编码交互中更新其框架、记忆、技能、工具、模型或协作结构来改进未来行为。本文对这一新兴领域进行了系统性梳理。我们首先界定了自进化编码代理的概念，并将其与传统编码代理及通用自进化代理区分开来。随后提出一种以对象为中心的分类法，用以刻画这些系统中进化的具体要素，并辅以两个正交视角：进化发生的时机以及驱动进化的软件特定证据。通过文献分析，我们发现可执行反馈、仓库级上下文和编码轨迹使软件工程成为代理自进化的天然领域，但同时也带来了反馈可靠性、基准过拟合、安全性、可维护性、成本与泛化能力等方面的新挑战。通过围绕这些维度梳理现有工作，本综述旨在厘清自进化编码代理的概念边界，并为设计更具适应性、可靠性及软件感知能力的代理系统奠定基础。本文收录的论文可访问此链接：https://github.com/self-evolving-coding-agents/survey。",
+      "hf_link": "https://huggingface.co/papers/2608.03392"
     }
   },
   "hf_votes": {
+    "2608.05102": 0,
     "2608.04436": 0,
     "2608.04570": 0,
     "2608.05000": 0,
     "2608.05013": 0,
-    "2608.03632": 0,
     "2608.03764": 0,
+    "2608.03632": 0,
     "2608.05139": 0,
     "2608.04397": 0,
-    "2607.24821": 0,
     "2608.02580": 0,
+    "2607.24821": 0,
     "2608.04574": 0,
+    "2608.00782": 0,
+    "2608.04530": 0,
     "2608.05070": 0,
     "2608.04964": 0,
+    "2608.04349": 0,
     "2608.04505": 0,
     "2608.05042": 0,
-    "2608.00782": 0,
+    "2608.05131": 0,
     "2608.05108": 0,
     "2608.04701": 0,
-    "2608.04349": 0,
-    "2608.05131": 0,
     "2607.22143": 0,
     "2607.28048": 0,
-    "2608.04926": 0
+    "2608.04926": 0,
+    "2608.03207": 0,
+    "2608.03392": 0
   },
   "focus_sections": {
     "3D生成与重建": [
@@ -174,6 +202,11 @@
       "short_zh": "单目视频大基线新视图生成",
       "tags": "计算机图形学；三维视觉；新视图合成",
       "body_summary": "从单目视频等稀疏输入生成高质量新视图存在几何不一致和相机控制难的问题\n提出结合显式三维引导与视频扩散模型的框架，实现可控且几何一致的大基线新视图生成"
+    },
+    "2608.05102": {
+      "short_zh": "长程搜索智能体训练优化",
+      "tags": "自然语言处理;智能体;多步搜索",
+      "body_summary": "现有长程搜索智能体训练方法对所有步骤同等对待，无法区分有用与错误冗余动作。\n提出答案回溯信用分配框架，将稀疏轨迹级结果转为密集步骤级监督，并基于此训练出高效搜索智能体。"
     },
     "2608.04436": {
       "short_zh": "用多模态模型统一规划图像生成",
@@ -195,15 +228,15 @@
       "tags": "自主智能体;任务规划与执行;长时程任务管理",
       "body_summary": "LLM智能体需要处理现实世界中跨环境、多模态的长期复杂任务，面临目标漂移、状态丢失和上下文溢出等挑战。\n开发了OneDayAgent框架，通过任务分解、记忆管理和结果验证来统一管理任务执行流程，在多个后端模型上验证了其有效性与泛化性。"
     },
-    "2608.03632": {
-      "short_zh": "识别过滤误导性蒸馏信号",
-      "tags": "机器学习;模型蒸馏;在线策略蒸馏",
-      "body_summary": "在线策略蒸馏中教师模型可能产生与输入无关的误导性监督信号。\n提出通过评估信号对输入的依赖性和优化影响来过滤误导信号，提升了蒸馏效果。"
-    },
     "2608.03764": {
       "short_zh": "评估智能体自进化在真实业务流程上的表现",
       "tags": "智能代理系统;智能体评估;业务流程基准",
       "body_summary": "现有评估基准难以有效衡量智能体通过经验自我进化提升任务能力的程度。\n推出了GDPevo基准，通过自动化流程生成真实业务任务评估自进化效果，发现现有方法仍有很大提升空间。"
+    },
+    "2608.03632": {
+      "short_zh": "识别过滤误导性蒸馏信号",
+      "tags": "机器学习;模型蒸馏;在线策略蒸馏",
+      "body_summary": "在线策略蒸馏中教师模型可能产生与输入无关的误导性监督信号。\n提出通过评估信号对输入的依赖性和优化影响来过滤误导信号，提升了蒸馏效果。"
     },
     "2608.05139": {
       "short_zh": "长跨度推理技能切换评估训练",
@@ -215,20 +248,30 @@
       "tags": "自然语言处理;多语言评估;韩英模型能力诊断",
       "body_summary": "现有模型在英语和韩语任务上的表现存在差异，但原因尚不明确。\n我们构建了一个名为NOLLI的韩英谜题基准，通过设计多种任务类型并精确校准难度，发现语言本身并非主要障碍，而在处理韩文字母组合等特定任务时，模型能力差异显著。"
     },
-    "2607.24821": {
-      "short_zh": "多模态视频编辑评估框架",
-      "tags": "计算机图形学;视频编辑;音频视频联合编辑",
-      "body_summary": "现有基准难以评估音频和视觉紧密耦合的真实视频编辑能力，且缺乏对跨模态一致性的考量。\n我们提出了一个包含多维度评估指标的基准AVE-Compass，并设计了一个模块化智能体框架AVE-Agent来提升复杂指令下的跨模态编辑效果。"
-    },
     "2608.02580": {
       "short_zh": "利用人视角视频合成机器人训练数据",
       "tags": "机器人;机器人学习;机器人数据合成",
       "body_summary": "学习泛化性强的机器人操作策略需要大规模多样化的演示数据。\n提出了Ego2Robot大规模流水线，将人视角操作视频转换为机器人格式数据，并证明其预训练能提升多种扰动下的泛化能力。"
     },
+    "2607.24821": {
+      "short_zh": "多模态视频编辑评估框架",
+      "tags": "计算机图形学;视频编辑;音频视频联合编辑",
+      "body_summary": "现有基准难以评估音频和视觉紧密耦合的真实视频编辑能力，且缺乏对跨模态一致性的考量。\n我们提出了一个包含多维度评估指标的基准AVE-Compass，并设计了一个模块化智能体框架AVE-Agent来提升复杂指令下的跨模态编辑效果。"
+    },
     "2608.04574": {
       "short_zh": "研究记忆错觉对视觉语言智能体的影响",
       "tags": "计算机视觉;视觉语言模型;空间记忆失效检测",
       "body_summary": "本研究探讨了当环境变化导致记忆过时时，视觉语言智能体如何协调记忆与观察的矛盾。\n通过实验发现，模型难以可靠地检测视觉输入中的记忆失效，直接信任过时记忆会显著降低智能体导航的安全性，而记忆审核机制虽能部分缓解问题，但视觉理解与冲突处理能力仍是关键挑战。"
+    },
+    "2608.00782": {
+      "short_zh": "强化学习中自适应教师指导恢复失败样本",
+      "tags": "自然语言处理;大语言模型对齐;强化学习蒸馏",
+      "body_summary": "强化学习对齐大模型时，组相对策略优化存在奖励稀疏和零方差问题，而直接结合策略蒸馏会损害性能。\n提出了RSTG方法，根据教师置信度有选择地在样本和词元层面进行蒸馏，并辅以监督微调，有效提升了数学和代码任务表现。"
+    },
+    "2608.04530": {
+      "short_zh": "GUI智能体记忆机制优化",
+      "tags": "人机交互;图形界面智能体;潜在记忆接口",
+      "body_summary": "GUI智能体需要在任务中记忆过往经验和当前进度，现有潜在记忆方法存在压缩丢失细节、记忆块功能混杂、无关信息干扰等问题。\n我们提出FocusMem，它将记忆责任分解为内容、读取和信任三个可训练的独立模块，在策略冻结下提升了多个基准上的性能，并证明了有效记忆取决于保留、暴露和筛选。"
     },
     "2608.05070": {
       "short_zh": "HelloWorld:让视频角色能与用户社交互动",
@@ -240,6 +283,11 @@
       "tags": "强化学习;视频世界模型;长期动作序列验证",
       "body_summary": "训练后的视频世界模型存在误差累积问题，但缺乏对任意动作序列长期正确性的验证方法。\n提出WorldCycle框架，通过构造可逆动作循环并设计对称奖励，使模型学习一致的状态操作，显著提升了长期预测的准确性和泛化能力。"
     },
+    "2608.04349": {
+      "short_zh": "多教师模型能力蒸馏整合",
+      "tags": "生成式人工智能;扩散模型;知识蒸馏",
+      "body_summary": "现有文本到图像模型各有优势但难以相互借鉴。\n提出多教师蒸馏框架，通过像素桥和适配器设计，在单一轻量学生模型中整合互补能力。"
+    },
     "2608.04505": {
       "short_zh": "提出韩国版多语言专家混合大模型",
       "tags": "自然语言处理;大规模语言模型;多语言专家混合模型",
@@ -250,25 +298,15 @@
       "tags": "机器人学;具身智能与机器人操作;三维视觉语言动作模型",
       "body_summary": "现有三维视觉语言动作模型数据效率低、泛化能力弱且缺乏记忆能力\n提出记忆增强的BridgeVLA++框架，实现数据高效、泛化强、能处理记忆依赖任务的三维操作"
     },
-    "2608.00782": {
-      "short_zh": "强化学习中自适应教师指导恢复失败样本",
-      "tags": "自然语言处理;大语言模型对齐;强化学习蒸馏",
-      "body_summary": "强化学习对齐大模型时，组相对策略优化存在奖励稀疏和零方差问题，而直接结合策略蒸馏会损害性能。\n提出了RSTG方法，根据教师置信度有选择地在样本和词元层面进行蒸馏，并辅以监督微调，有效提升了数学和代码任务表现。"
+    "2608.05131": {
+      "short_zh": "改进多模态模型的视觉推理",
+      "tags": "多模态学习;视觉语言模型;视觉推理后训练",
+      "body_summary": "现有视觉推理自蒸馏方法存在模态不平衡问题，导致多模态信息利用不充分。\n提出一种基于正负教师的新方法，通过模态平衡信任区域选择蒸馏样本，提升性能并降低成本。"
     },
     "2608.05108": {
       "short_zh": "智能体对抗攻击新方法",
       "tags": "自然语言处理;大语言模型安全;提示注入红队测试",
       "body_summary": "提示注入对大语言模型智能体构成严重安全风险，高效的对抗测试对评估风险和提升防御至关重要。\n本文提出了PIMiner智能体系统，通过构建可迁移的策略库，无需对新目标模型额外训练即可实现高效的黑盒攻击测试。"
-    },
-    "2608.04349": {
-      "short_zh": "多教师模型能力蒸馏整合",
-      "tags": "生成式人工智能;扩散模型;知识蒸馏",
-      "body_summary": "现有文本到图像模型各有优势但难以相互借鉴。\n提出多教师蒸馏框架，通过像素桥和适配器设计，在单一轻量学生模型中整合互补能力。"
-    },
-    "2608.05131": {
-      "short_zh": "改进多模态模型的视觉推理",
-      "tags": "多模态学习;视觉语言模型;视觉推理后训练",
-      "body_summary": "现有视觉推理自蒸馏方法存在模态不平衡问题，导致多模态信息利用不充分。\n提出一种基于正负教师的新方法，通过模态平衡信任区域选择蒸馏样本，提升性能并降低成本。"
     },
     "2607.22143": {
       "short_zh": "分子胶介导的三元复合物生成模型",
@@ -284,6 +322,16 @@
       "short_zh": "一致性驱动跨模态协同进化",
       "tags": "计算机视觉;跨模态表示学习;图表表格代码理解",
       "body_summary": "在图表、表格和代码等多模态数据重要性日益凸显的背景下，实现它们之间的跨模态理解面临一对多映射、标注成本高、缺乏通用优化信号等挑战。\n我们提出了CoCoEvolve方法，通过定义明确的一对一对应关系，在训练和推理时均以提升跨模态一致性为目标进行协同优化，无需额外标注，并在多个基准上提升了性能。"
+    },
+    "2608.03207": {
+      "short_zh": "攻击视觉语言动作模型的鲁棒性",
+      "tags": "机器人;具身智能;视觉语言动作模型鲁棒性",
+      "body_summary": "现有研究表明Flow-matching视觉语言动作模型能抵抗对抗攻击，但作者认为其鲁棒性是假象。\n本文提出了DRIFT攻击方法，通过在机器人夹爪上放置对抗补丁来攻击去噪过程，发现仅攻击第一步效果最好。"
+    },
+    "2608.03392": {
+      "short_zh": "研究编码智能体的自我进化",
+      "tags": "软件工程；智能体辅助编程；编码智能体自进化",
+      "body_summary": "大语言模型越来越多地被用作编码智能体，但现有智能体在部署后大多保持静态，与软件开发动态反馈的特性不符。\n本文系统综述了编码智能体自我进化领域，定义了其概念，建立了以演化对象为核心的分类体系，并分析了其机遇与挑战。"
     }
   },
   "deep_analysis": {
