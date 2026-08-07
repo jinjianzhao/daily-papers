@@ -24,6 +24,12 @@
       "abstract_zh": "训练大规模语言模型智能体以实现长期工具使用，通常依赖于与真实或合成的可执行环境进行交互，这类环境的构建与验证成本高昂，或依赖于难以落地的外部模拟器。我们提出一种名为EnvACE的智能体强化学习方法，该方法在训练过程中用世界预演替代外部环境交互。策略在执行与预演之间交替进行：首先生成工具调用，随后扮演环境角色以生成该动作引发的响应，并基于预演的响应做出后续决策。两种角色均通过任务成功奖励进行端到端的联合优化。通过世界预演，策略将动作与其环境响应之间的关系内化于参数之中，从而形成一个能够直接支持决策的智能体世界模型。在BFCL-v4、tau^2-Bench、VitaBench和FinMCP-Bench等数据集上的实验表明，EnvACE实现了优异且可迁移的性能，在整体评估中超越了基于环境扩展的基线方法。受控研究进一步证明，世界预演在不同模型规模下均能持续提升策略学习效果。在测试阶段，内化的世界模型允许在执行前进行私有预演，在适度预演预算下无需额外外部交互即可获得进一步性能提升。我们的研究确立了世界预演作为突破外部环境限制、扩展LLM智能体训练的新路径。代码已公开于此https网址。",
       "hf_link": "https://huggingface.co/papers/2608.06197"
     },
+    "2608.05747": {
+      "title": "GST-Bench: Can VLMs Develop Global Spatial Awareness from Video?",
+      "abstract": "Spatial intelligence is fundamental to embodied agents, yet existing benchmarks focus on local spatial perception from single or few viewpoints, overlooking global spatial awareness over continuous, long-horizon visual streams. To address this limitation, we introduce the Global-Spatial-Temporal Benchmark (GST-Bench), a VQA benchmark for global spatial intelligence in video understanding, comprising human-verified questions derived from 6,790 minutes of synthetically generated video. It requires models to perform accurate spatial inference from novel viewpoints unseen in the input video and to map egocentric observations onto global top-down images. A comprehensive evaluation of 22 state-of-the-art VLMs exposes a striking gap between models and humans: the strongest zero-shot model attains only 42.68, far below the human score of 79.08. To probe the cause of this gap, we construct GST-Bench-Local and find that models, despite strong local spatial understanding under the same task formulation, still fail to consolidate long-horizon observations into a globally consistent scene representation. We further provide GST-Train, a dataset for global spatial reasoning, as a complementary resource to facilitate future research on this challenge.",
+      "abstract_zh": "空间智能是具身智能体的核心能力，然而现有基准测试主要关注单视角或有限视角下的局部空间感知，忽视了在连续长视野视觉流中对全局空间的认知。为弥补这一缺陷，我们提出了全局时空基准测试（Global-Spatial-Temporal Benchmark，简称GST-Bench）——一个面向视频理解中全局空间智能的视觉问答基准，其包含基于6,790分钟合成生成视频构建并经人工验证的问题。该测试要求模型能够从输入视频未出现的新视角进行精确的空间推理，并将第一人称观察映射到全局俯视图像上。通过对22个前沿视觉语言模型（VLMs）的综合评估，我们发现模型与人类表现存在显著差距：最强的零样本模型仅获得42.68分，远低于人类得分79.08。为探究这一差距的成因，我们构建了GST-Bench-Local子集，并发现即使在相同任务框架下具备较强的局部空间理解能力，模型仍无法将长视野观察整合为全局一致的场景表征。我们进一步提供了面向全局空间推理的数据集GST-Train作为补充资源，以期推动该挑战领域的未来研究。",
+      "hf_link": "https://huggingface.co/papers/2608.05747"
+    },
     "2608.06060": {
       "title": "Learning from Failures: Retrieval-Centric CoT via Hard Negatives for Unified Multimodal Retrieval",
       "abstract": "Unified multimodal retrieval aims to identify candidates that satisfy complex user intent expressed through heterogeneous inputs. Although Large Vision-Language Model (LVLM)-based retrievers are efficient and scalable, directly encoding raw multimodal inputs often misses fine-grained discriminative cues, leading to confusion among semantically similar candidates. Recent methods mitigate this limitation by generating Chain-of-Thought (CoT) rationales to enrich the query representation. However, such reasoning is typically derived from the query alone: it explains what the query describes, but not what the retriever misunderstands. We argue that effective retrieval reasoning should instead be conditioned on retrieval feedback. Based on this insight, we introduce UniME-R1, an embedder-adviser framework that learns to reason over initially retrieved candidates and generate Retrieval-Centric Chain-of-Thought (RC-CoT). The adviser analyzes candidates individually to identify the discriminative cues confused by the embedder. If the target appears in the initial top-k set, UniME-R1 directly reranks the candidates; otherwise, it generates RC-CoT to refine the retrieval direction and performs full-corpus re-retrieval with a dual-mode embedder. To train the framework, we mine hard negatives to simulate realistic retrieval failures, jointly optimize direct retrieval and RC-CoT-augmented retrieval, and align the adviser with retrieval outcomes through supervised learning and retrieval-oriented reinforcement learning. Extensive experiments on MMEB-V2 and a diverse set of general multimodal retrieval benchmarks demonstrate that UniME-R1 consistently improves retrieval performance over strong baselines.",
@@ -35,12 +41,6 @@
       "abstract": "Multimodal large language models excel at passive perception but struggle with complex visual cognitive tasks requiring multi-step temporal reasoning. This degradation largely stems from the inherent ambiguity of language-based reasoning, which often fails to accurately articulate continuous visual transformations. To address this, we propose ChronoVision, a multimodal framework designed to align visual logic with latent imagery. During supervised fine-tuning, a Reconstructive Visual Head predicts the latent representation of the final transformed state, while an ROI Attention Locating module focuses the model on key visual evidence via semantic span queries. In post-training, we apply reinforcement learning with an implicit process grounding mechanism, guided by a composite reward function that evaluates outcome correctness, latent process alignment, and unsupervised visual focus. Furthermore, we introduce Vbvr-VQA, a novel dataset that evaluates temporal tracking by reformulating video reasoning into a strict image-ordering task. Experiments demonstrate that ChronoVision achieves state-of-the-art performance on Vbvr-VQA with 74.8% in-domain and 71.6% out-of-domain accuracy, alongside a strong 55.0% accuracy on IntPhys2, a highly challenging cross-domain benchmark.",
       "abstract_zh": "多模态大语言模型在被动感知方面表现卓越，但在需要多步时序推理的复杂视觉认知任务中存在明显不足。这种能力退化主要源于基于语言的推理存在固有模糊性，往往难以准确描述连续的视觉变换过程。为解决这一问题，我们提出了ChronoVision——一种旨在将视觉逻辑与潜在图像表征对齐的多模态框架。在有监督微调阶段，重构视觉头通过预测最终变换状态的潜在表征来建模视觉演变过程，同时区域关注定位模块借助语义跨度查询使模型聚焦于关键视觉证据。在后训练阶段，我们采用包含隐式过程建模机制的强化学习方法，通过综合奖励函数进行引导，该函数同时评估结果正确性、潜在过程对齐度以及无监督视觉聚焦能力。此外，我们提出了Vbvr-VQA数据集，通过将视频推理重构为严格的图像排序任务，专门评估时序追踪能力。实验表明，ChronoVision在Vbvr-VQA数据集上取得最先进性能，域内准确率达74.8%，域外准确率达71.6%；同时在高难度跨域基准IntPhys2上亦取得55.0%的优异表现。",
       "hf_link": "https://huggingface.co/papers/2608.05631"
-    },
-    "2608.05747": {
-      "title": "GST-Bench: Can VLMs Develop Global Spatial Awareness from Video?",
-      "abstract": "Spatial intelligence is fundamental to embodied agents, yet existing benchmarks focus on local spatial perception from single or few viewpoints, overlooking global spatial awareness over continuous, long-horizon visual streams. To address this limitation, we introduce the Global-Spatial-Temporal Benchmark (GST-Bench), a VQA benchmark for global spatial intelligence in video understanding, comprising human-verified questions derived from 6,790 minutes of synthetically generated video. It requires models to perform accurate spatial inference from novel viewpoints unseen in the input video and to map egocentric observations onto global top-down images. A comprehensive evaluation of 22 state-of-the-art VLMs exposes a striking gap between models and humans: the strongest zero-shot model attains only 42.68, far below the human score of 79.08. To probe the cause of this gap, we construct GST-Bench-Local and find that models, despite strong local spatial understanding under the same task formulation, still fail to consolidate long-horizon observations into a globally consistent scene representation. We further provide GST-Train, a dataset for global spatial reasoning, as a complementary resource to facilitate future research on this challenge.",
-      "abstract_zh": "空间智能是具身智能体的核心能力，然而现有基准测试主要关注单视角或有限视角下的局部空间感知，忽视了在连续长视野视觉流中对全局空间的认知。为弥补这一缺陷，我们提出了全局时空基准测试（Global-Spatial-Temporal Benchmark，简称GST-Bench）——一个面向视频理解中全局空间智能的视觉问答基准，其包含基于6,790分钟合成生成视频构建并经人工验证的问题。该测试要求模型能够从输入视频未出现的新视角进行精确的空间推理，并将第一人称观察映射到全局俯视图像上。通过对22个前沿视觉语言模型（VLMs）的综合评估，我们发现模型与人类表现存在显著差距：最强的零样本模型仅获得42.68分，远低于人类得分79.08。为探究这一差距的成因，我们构建了GST-Bench-Local子集，并发现即使在相同任务框架下具备较强的局部空间理解能力，模型仍无法将长视野观察整合为全局一致的场景表征。我们进一步提供了面向全局空间推理的数据集GST-Train作为补充资源，以期推动该挑战领域的未来研究。",
-      "hf_link": "https://huggingface.co/papers/2608.05747"
     },
     "2608.06020": {
       "title": "From Economic Agents to Agentic Economies: A Systems Blueprint for Economic World Models",
@@ -60,6 +60,12 @@
       "abstract_zh": "随着大语言模型（LLM）越来越多地部署于智能体系统中，其能力不仅取决于模型权重，还依赖于其运行框架：即围绕模型的提示词、工具、控制流、记忆模块及编排代码。这使得自动化框架优化——由AI系统通过迭代和评估引导来改进框架——既成为提升AI系统性能的重要途径，也成为AI系统自身一项要求严苛的能力。然而，目前学术界尚缺乏统一的标准来评估前沿大语言模型在此任务上的表现。我们提出HarnessOpt-Bench这一基准测试，用于在评估成本高昂且具有随机性的场景下进行端到端框架优化评估。优化器（由大语言模型与编码框架组合而成）会接收到目标智能体的初始框架、分级评估反馈以及固定的目标评估预算；它通过修改框架并提交最终候选方案，该方案将根据其在搜索全程不可见的保留测试集上相对于初始框架的标准化增益进行评分。可信执行环境负责强制执行评估边界、计量目标智能体资源使用情况，并保存候选版本以供审计。我们通过111次评分实验，评估了5种前沿大语言模型作为优化器在共享编码框架及其原生框架下，对4项下游任务的优化表现。实验结果表明：优化器模型之间的能力差异大于其所操作的编码框架间的差异；原生框架并非持续优于共享框架；且不同任务与初始框架条件下的性能增益存在显著波动。这些发现确立了框架优化作为一项可量化、具区分度的能力，并显示出巨大的改进空间。",
       "hf_link": "https://huggingface.co/papers/2608.06301"
     },
+    "2608.05138": {
+      "title": "Teaching Nemotron Greek: Mining a Corpus, Adapting Retrieval, and Grounding Generation for Modern Greek across Specialist Domains",
+      "abstract": "Modern Greek is absent from NVIDIA's Nemotron retrieval models and from major multilingual retrieval benchmarks, despite being important for retrieval-augmented generation (RAG) in legal, energy, financial, and medical applications. We present an end-to-end adaptation of the Nemotron retrieval stack for Modern Greek, including corpus mining, synthetic supervision, retrieval model training, reranker adaptation, reader fine-tuning, and a new benchmark called HERA. Our study shows that a parameter-free BM25 baseline outperforms several off-the-shelf multilingual dense retrieval models on specialist Greek corpora. After fine-tuning on 65,773 Greek retrieval pairs, a Nemotron 1B embedder improves nDCG@10 from 0.362 to 0.835 and substantially outperforms its unadapted counterpart. The learned language competence transfers to general-domain Greek, although the advantage over BM25 remains domain-dependent. We further adapt a cross-encoder reranker and demonstrate consistent improvements across specialist domains. Finally, we LoRA-tune a Nemotron 30B-A3B mixture-of-experts reader for grounded generation, increasing judged answer correctness from 29.4% to 66.9% while significantly improving faithfulness and citation quality. We also introduce HERA, the first large-scale Greek benchmark for retrieval-augmented generation, and release our adapted models and benchmark to support future research on Greek-language RAG systems.",
+      "abstract_zh": "尽管现代希腊语在法律、能源、金融和医疗等领域的检索增强生成（RAG）应用中具有重要意义，但其在英伟达（NVIDIA）的Nemotron检索模型及主流多语言检索基准测试中均未得到覆盖。本文提出了针对现代希腊语的Nemotron检索技术栈的端到端适配方案，涵盖语料库挖掘、合成监督、检索模型训练、重排序器（reranker）适配、阅读器（reader）微调以及一个名为HERA的新型基准测试。研究表明，在专业希腊语语料库上，无需参数的BM25基线模型优于多种现成的多语言稠密检索模型。通过对65,773组希腊语检索对进行微调，Nemotron 1B嵌入模型将nDCG@10指标从0.362提升至0.835，显著超越未适配的原始模型。虽然其相对于BM25的优势仍具有领域依赖性，但习得的语言能力可迁移至通用领域的希腊语任务。我们进一步适配了交叉编码器（cross-encoder）重排序器，并在多个专业领域实现了稳定提升。最后，我们使用低秩自适应（LoRA）方法对Nemotron 30B-A3B专家混合（mixture-of-experts）阅读器进行基于依据的生成调优，使人工评判的答案正确率从29.4%提升至66.9%，同时显著改善了答案忠实度与引用质量。此外，我们发布了首个面向希腊语检索增强生成的大规模基准测试HERA，并开源了所有适配模型与基准测试资源，以支持希腊语RAG系统的后续研究。",
+      "hf_link": "https://huggingface.co/papers/2608.05138"
+    },
     "2608.06374": {
       "title": "DyPES-VLA: Learning Shared Dynamics Priors and Embodiment-Specific Control for Cross-Embodiment Manipulation",
       "abstract": "Vision-Language-Action (VLA) models have become a powerful paradigm for robot manipulation, but training a single generalist policy for heterogeneous robot embodiments remains an open problem. Existing methods have two main limitations. First, they underuse dynamics priors shared across diverse visual and interaction data, limiting cross-embodiment transfer. Second, they require extensive manual preprocessing to convert embodiment-specific actions into a common format. To overcome these limitations, we propose DyPES-VLA, a cross-embodiment VLA that learns shared Dynamics Priors and Embodiment-Specific control. First, we learn shared dynamics priors by training the vision-language model (VLM) with a future-prediction objective on cross-embodiment data, driving the shared query representation to capture object motion, contact, and interaction-induced scene changes. Second, an embodiment-specific Mixture-of-Experts (MoE) action head translates these shared dynamics priors into executable controls directly in each embodiment's native action space, without manually pre-aligning heterogeneous actions into a common format. This head shares attention layers to capture common temporal action structures, while its embodiment-specific feed-forward experts resolve the unique kinematic constraints and control semantics of distinct embodiments. As a generalist policy, our \\ourmethod achieves state-of-the-art performance across simulation and real-world evaluations, reaching 98.0% success on LIBERO, 59.25% on RoboCasa-GR1, and 89.02% on RoboTwin~2.0.",
@@ -72,11 +78,23 @@
       "abstract_zh": "视觉-语言-动作（Vision-Language-Action, VLA）模型通常将主视角与腕部视角观测视为平行的视觉输入，忽视了二者在机器人操作中的不同作用。然而，精细操作需在全局任务背景下预测腕部局部交互的可能演变。为突破这一局限，我们提出了World-to-Wrist VLA（W2-VLA），一种面向精细机器人操作的VLA模型，其特点在于具备任务条件约束下的未来腕部建模能力。给定当前多视角观测与任务指令，W2-VLA将一组潜在建模标记（latent modeling tokens）构建为视觉语言模型与腕部预测器之间的紧凑接口。基于此接口及观测到的腕部历史数据，预测器能够预判未来腕部潜在状态，并将其转化为具备未来感知能力的上下文信息以指导动作预测。此外，我们开发了W2-CoT合成流程，可生成结构化标注，描述操作进度、物理转换线索及腕部局部证据。这些标注提供的辅助监督有助于塑造任务条件约束下的潜在接口。在LIBERO、RoboTwin 2.0及现实操作任务上的实验表明，该模型在单臂与双臂场景下均提升了精细操作与接触敏感操作的性能，同时保持高于80赫兹的动作生成速率。",
       "hf_link": "https://huggingface.co/papers/2608.05369"
     },
+    "2608.05565": {
+      "title": "EffectLearner: World-Aware Object-Effect Reasoning for Real-World Video Object Removal",
+      "abstract": "Video object removal must eliminate not only the target object but also its induced effects while maintaining high-fidelity and spatiotemporally coherent restoration. Existing methods mainly learn object-effect correspondences implicitly from predefined effect categories and fixed data distributions, limiting their generalization to complex real-world scenes involving compositional effects, spatially detached or weakly correlated effects, long-tail physical phenomena, and dynamically evolving interactions. We propose EffectLearner, a semantic-reasoning-enhanced framework that combines a VLM-based Object-Effect Reasoner with a DiT-based Video Eraser. Guided by a structured effect-analysis prompt, the Reasoner performs cross-modal reasoning over a target-highlighted video and extracts compact effect-aware context, which guides the Video Eraser toward comprehensive object-effect removal. Motion-aware mask guidance and motion-consistency supervision further improve removal coverage and spatiotemporal stability under object motion and evolving scene dynamics. To fully exploit the framework in challenging real-world scenarios, we further construct EffectWorld, a paired video dataset specifically designed for complex object-induced effects, and introduce a progressive training curriculum that combines common supervision with complex-effect data. On the standard ROSE-Bench, EffectLearner outperforms existing baselines on most metrics and achieves clear advantages on both EffectWorld-Eval and the challenging EffectWorld-Wild, demonstrating its ability to deliver high-quality video object removal in complex real-world scenes.",
+      "abstract_zh": "视频目标移除不仅需要消除目标物体本身，还必须消除其引发的连带效应，同时保持高保真度与时空连贯的修复效果。现有方法主要从预定义的效应类别和固定数据分布中隐式学习物体-效应的对应关系，这限制了其在复杂真实场景中的泛化能力——这些场景通常涉及组合效应、空间分离或弱关联效应、长尾物理现象以及动态演化的交互作用。我们提出EffectLearner，一个结合了基于视觉语言模型（VLM）的物体-效应推理器与基于扩散Transformer（DiT）的视频擦除器的语义推理增强框架。在结构化效应分析提示的引导下，推理器对目标高亮视频进行跨模态推理，提取紧凑的效应感知上下文信息，进而指导视频擦除器实现全面的物体与效应移除。运动感知的掩码引导和运动一致性监督进一步提升了在物体运动及场景动态演变情况下的移除覆盖范围与时空稳定性。为充分挖掘该框架在具有挑战性的真实场景中的潜力，我们进一步构建了EffectWorld——一个专门针对复杂物体诱发效应设计的配对视频数据集，并引入了一种结合常规监督与复杂效应数据的渐进式训练课程。在标准ROSE-Bench评测中，EffectLearner在多数指标上超越了现有基线方法，同时在EffectWorld-Eval及更具挑战性的EffectWorld-Wild数据集上均展现出明显优势，证明了其能够在复杂真实场景中实现高质量的视频目标移除。",
+      "hf_link": "https://huggingface.co/papers/2608.05565"
+    },
     "2608.06352": {
       "title": "CalibForge: Adversarial Solver Calibration for Scaling Learnable Terminal Tasks",
       "abstract": "Training terminal agents requires executable and verifiable tasks that are not merely solvable, but appropriately challenging for learning. Executable validation establishes feasibility, yet does not reveal how a task behaves relative to a given solver setting. In this paper, we present CalibForge, an autonomous terminal-task synthesis system that uses verified solver behavior to revise candidate tasks through adversarial solver calibration. Multi-solver calibration targets disagreement within a heterogeneous solver pool, whereas contrastive solver calibration targets a designated strong-pass/weak-fail relation; both operationalize a solver-relative learnable zone anchored in demonstrated solvability. Using CalibForge, we construct 5,431 calibrated terminal tasks. Our ablations show that both strategies yield more effective supervision than authoring and validation alone or ordinary single-solver feedback. Models trained on the full collection achieve 32.58% and 47.57% on Terminal-Bench 2.0. The largest improvements over the corresponding base model reach 24.71 percentage points on Terminal-Bench 2.0, 27.68 points on SWE-bench Pro, and 30.04 points on Doc2Repo. Together, these results support solver-relative learnability as a practical target for constructing effective and transferable agent training data.",
       "abstract_zh": "训练终端智能体需要可执行且可验证的任务，这些任务不仅要能被解决，还应具备适度的学习挑战性。可执行验证确立了任务的可行性，但并未揭示任务相对于给定求解器设置的行为特性。本文提出CalibForge系统，这是一个自主化的终端任务合成系统，通过利用已验证的求解器行为，借助对抗性求解器校准对候选任务进行迭代修正。多求解器校准针对异构求解器池中的分歧行为，而对比式求解器校准则针对预设的\"强求解器能通过/弱求解器会失败\"关系；这两种策略都将\"基于求解器的可学习区间\"这一概念具象化，该区间以已证实的可解性为锚点。通过CalibForge系统，我们构建了5,431个经过校准的终端任务。消融实验表明，两种校准策略所产生的监督信号均比单纯人工编写验证或普通单求解器反馈更为有效。基于完整任务集训练的模型在Terminal-Bench 2.0基准测试中分别达到32.58%和47.57%的性能指标。相较于对应基线模型的提升幅度最高达到：Terminal-Bench 2.0基准24.71个百分点，SWE-bench Pro基准27.68个百分点，Doc2Repo基准30.04个百分点。这些结果共同印证了\"基于求解器的可学习性\"能作为构建高效可迁移智能体训练数据的实用目标。",
       "hf_link": "https://huggingface.co/papers/2608.06352"
+    },
+    "2608.05137": {
+      "title": "SmartMage: Dynamic Modality Orchestration for 3D Scene Understanding",
+      "abstract": "Understanding 3D scenes is fundamental to embodied intelligence, requiring joint reasoning over heterogeneous information from multiple modalities, including visual and geometric cues. However, the relevance of these modalities often varies across queries. Existing Multimodal Large Language Models (MLLMs) typically rely on fixed modality combinations, overlooking query-dependent modality needs. Such a rigid design can introduce semantic noise from irrelevant modalities while underutilizing more informative ones, leading to wasted computation and diluted reasoning. To address these challenges, this paper proposes SmartMage, a unified MLLM that dynamically orchestrates heterogeneous modalities for semantic-aware 3D scene understanding. Specifically, SmartMage incorporates: (1) a Semantic-guided Modality Adaptive RouTng (SMART) module that selects task-relevant modalities using semantic priors, text-modality alignment, and modality quality; and (2) a Modality-Aware Gating Expert (MAGE) module that leverages modality priors to guide expert activation, fostering adaptive specialization in multimodal reasoning. Empirically, SmartMage achieves state-of-the-art performance across five 3D scene understanding benchmarks, and attains competitive results on RGB-only video understanding benchmarks. In our diagnostic benchmark ScanFacet, tasks are divided into fine-grained semantic categories, enabling analysis of modality combinations preferred by each semantic type. The observed modality-semantic patterns provide further evidence of SmartMage's effectiveness. Project page:this https URL.",
+      "abstract_zh": "理解三维场景是具身智能的基础，需要联合推理来自视觉与几何线索等多模态的异构信息。然而，不同模态的相关性常因查询而异。现有的多模态大语言模型（MLLMs）通常依赖固定的模态组合，忽视了查询依赖的模态需求。这种僵化的设计可能引入无关模态的语义噪声，同时未能充分利用信息更丰富的模态，导致计算浪费和推理能力稀释。为解决这些挑战，本文提出SmartMage——一个统一的MLLM，能够动态编排异构模态以实现语义感知的三维场景理解。具体而言，SmartMage包含：（1）语义引导的模态自适应路由（SMART）模块，该模块利用语义先验、文本-模态对齐和模态质量来选择任务相关模态；（2）模态感知门控专家（MAGE）模块，该模块借助模态先验引导专家激活，促进多模态推理中的自适应专业化。实验表明，SmartMage在五类三维场景理解基准测试中达到最先进性能，并在仅使用RGB的视频理解基准上取得有竞争力的结果。在我们的诊断基准ScanFacet中，任务被划分为细粒度语义类别，从而能够分析每种语义类型偏好的模态组合。观察到的模态-语义模式进一步证明了SmartMage的有效性。项目页面：this https URL。",
+      "hf_link": "https://huggingface.co/papers/2608.05137"
     },
     "2608.06146": {
       "title": "PaDoc: Layout-Grounded Parallel Decoding for Document Parsing",
@@ -84,11 +102,11 @@
       "abstract_zh": "端到端文档解析器提供了统一的接口，但将页面布局和区域内容序列化为单一自回归序列。这种处理方式迫使独立区域进入解码路径，其长度随总内容量增长；而基于裁剪的两阶段解析器虽能实现区域级并行，却需付出重复视觉预填充和碎片化页面上下文的代价。为在保留整页上下文的同时消除依赖关系，我们提出PaDoc——一种以布局为锚点的解析器，将预测的布局视为共享页面表征上的分支结构。基于区域充分性假设，我们推导出前缀条件分解方法，使布局流与区域内容分支能够并行推进，从而将解码深度缩减至最长布局-内容路径。我们在单个多模态大语言模型（MLLM）中实现了该分解：打包式变长祖先注意力机制在标准下一词元训练下保持可见性，而掩码并行解码创建的分支可由评估后的vLLM后端作为并发请求处理，并利用缓存驻留的共享前缀复用。在OmniDocBench Full基准测试中，PaDoc实现了91.1的总体布局F1分数；在端到端解析器中，它以94.24的综合得分位列第一梯队，同时取得最优的文本编辑距离（0.038）和公式内容差异度量（95.59）。在384页子集和单张A800 GPU上，PaDoc在五个并发级别下均为最快的端到端解析器：相较于同骨干网络的顺序监督微调基线，其有效页面吞吐量提升67.4-118%，P95延迟降低39.2-54.9%。代码发布于https://此URL。",
       "hf_link": "https://huggingface.co/papers/2608.06146"
     },
-    "2608.05137": {
-      "title": "SmartMage: Dynamic Modality Orchestration for 3D Scene Understanding",
-      "abstract": "Understanding 3D scenes is fundamental to embodied intelligence, requiring joint reasoning over heterogeneous information from multiple modalities, including visual and geometric cues. However, the relevance of these modalities often varies across queries. Existing Multimodal Large Language Models (MLLMs) typically rely on fixed modality combinations, overlooking query-dependent modality needs. Such a rigid design can introduce semantic noise from irrelevant modalities while underutilizing more informative ones, leading to wasted computation and diluted reasoning. To address these challenges, this paper proposes SmartMage, a unified MLLM that dynamically orchestrates heterogeneous modalities for semantic-aware 3D scene understanding. Specifically, SmartMage incorporates: (1) a Semantic-guided Modality Adaptive RouTng (SMART) module that selects task-relevant modalities using semantic priors, text-modality alignment, and modality quality; and (2) a Modality-Aware Gating Expert (MAGE) module that leverages modality priors to guide expert activation, fostering adaptive specialization in multimodal reasoning. Empirically, SmartMage achieves state-of-the-art performance across five 3D scene understanding benchmarks, and attains competitive results on RGB-only video understanding benchmarks. In our diagnostic benchmark ScanFacet, tasks are divided into fine-grained semantic categories, enabling analysis of modality combinations preferred by each semantic type. The observed modality-semantic patterns provide further evidence of SmartMage's effectiveness. Project page:this https URL.",
-      "abstract_zh": "理解三维场景是具身智能的基础，需要联合推理来自视觉与几何线索等多模态的异构信息。然而，不同模态的相关性常因查询而异。现有的多模态大语言模型（MLLMs）通常依赖固定的模态组合，忽视了查询依赖的模态需求。这种僵化的设计可能引入无关模态的语义噪声，同时未能充分利用信息更丰富的模态，导致计算浪费和推理能力稀释。为解决这些挑战，本文提出SmartMage——一个统一的MLLM，能够动态编排异构模态以实现语义感知的三维场景理解。具体而言，SmartMage包含：（1）语义引导的模态自适应路由（SMART）模块，该模块利用语义先验、文本-模态对齐和模态质量来选择任务相关模态；（2）模态感知门控专家（MAGE）模块，该模块借助模态先验引导专家激活，促进多模态推理中的自适应专业化。实验表明，SmartMage在五类三维场景理解基准测试中达到最先进性能，并在仅使用RGB的视频理解基准上取得有竞争力的结果。在我们的诊断基准ScanFacet中，任务被划分为细粒度语义类别，从而能够分析每种语义类型偏好的模态组合。观察到的模态-语义模式进一步证明了SmartMage的有效性。项目页面：this https URL。",
-      "hf_link": "https://huggingface.co/papers/2608.05137"
+    "2608.05850": {
+      "title": "MameLoshnLM: Yiddish Language Model and Evaluation Benchmark",
+      "abstract": "We present MameLoshnLM, the first open-source 8B-parameter language model built specifically for Yiddish. Despite Yiddish's rich textual tradition, its limited digital presence and the scarcity of reliable evaluation resources have constrained progress in Yiddish language modeling. Existing multilingual corpora and benchmarks are often poor proxies for the language, containing substantial amounts of noisy, machine-translated, and misclassified text. We address these gaps by introducing Oytser, a high-quality Yiddish pretraining corpus that combines contemporary web-native sources with literary materials, and Kashes, a multi-task benchmark spanning translation, linguistic analysis, information extraction, and language understanding. Using these resources, we continue pretraining Llama 3.1 8B to obtain MameLoshnLM. Across the tasks in the benchmark, MameLoshnLM outperforms open baselines of similar scale. Our analyses show that these gains are not only quantitative: relative to general-purpose multilingual models, MameLoshnLM better captures language-defining lexical and morphological patterns, pointing to a broader failure mode of noisy web-scale multilingual data for low-resource languages. Our results provide both a foundation for Yiddish NLP and a practical template for language model development in historically rich but digitally underrepresented languages.",
+      "abstract_zh": "我们推出首个专为意第绪语(Yiddish)构建的开源80亿参数语言模型MameLoshnLM。尽管意第绪语拥有丰富的文本传统，但其有限的数字化存在和可靠评估资源的稀缺性制约了该语言建模的发展。现有的多语言语料库和基准测试常无法有效代表该语言特征，其中包含大量噪声数据、机器翻译文本和错误分类内容。为填补这些空白，我们引入两个核心资源：Oytser——融合当代网络原生资源与文学材料的高质量意第绪语预训练语料库；Kashes——涵盖翻译、语言分析、信息抽取和语言理解的多任务基准测试。基于这些资源，我们通过对Llama 3.1 8B模型进行持续预训练，最终获得MameLoshnLM。在基准测试的各项任务中，MameLoshnLM均优于同等规模的开源基线模型。分析表明这些提升不仅是量化的：相较于通用多语言模型，MameLoshnLM能更好地捕捉定义语言特征的词汇与形态模式，这揭示了网络规模多语言噪声数据对低资源语言的系统性缺陷。我们的研究成果既为意第绪语自然语言处理(NLP)奠定了基石，也为具有历史底蕴但数字表征不足的语言模型开发提供了实践范本。",
+      "hf_link": "https://huggingface.co/papers/2608.05850"
     },
     "2608.04956": {
       "title": "ContextMaster: Interactive Multi-Shot Video Creation via Fixed-Budget Sparse Context Routing",
@@ -102,17 +120,29 @@
       "abstract_zh": "当前的视频世界模型在多玩家环境中面临困境，因其将世界状态与视角相关的视觉潜在变量相互纠缠，导致计算冗余、视角不一致和可扩展性差。为突破这一限制，我们提出了MAS（基于权威共享状态的多玩家世界模型）。受多玩家游戏架构启发，MAS将世界动态与视角渲染解耦。通过学习型逻辑引擎，系统无需任何手工编写的状态转移函数，即可根据联合动作推进全局权威类型化状态，该状态作为唯一的循环记忆与同步参照基准。基于这一共享状态，学习型渲染引擎能够按需为任意指定摄像头生成独立且一致的视图。这种显式解耦设计使MAS在匹配的多玩家贪吃蛇基准测试中，相比最先进的多视角基线方法，实现了更优的状态准确性和更低的跨视角不一致性。该系统能够以1,024名并发玩家的规模推进预测世界达10,000个循环步长。研究结果表明，显式的权威状态建模为可扩展且一致的多智能体世界仿真奠定了实用基础。",
       "hf_link": "https://huggingface.co/papers/2608.06257"
     },
-    "2608.05565": {
-      "title": "EffectLearner: World-Aware Object-Effect Reasoning for Real-World Video Object Removal",
-      "abstract": "Video object removal must eliminate not only the target object but also its induced effects while maintaining high-fidelity and spatiotemporally coherent restoration. Existing methods mainly learn object-effect correspondences implicitly from predefined effect categories and fixed data distributions, limiting their generalization to complex real-world scenes involving compositional effects, spatially detached or weakly correlated effects, long-tail physical phenomena, and dynamically evolving interactions. We propose EffectLearner, a semantic-reasoning-enhanced framework that combines a VLM-based Object-Effect Reasoner with a DiT-based Video Eraser. Guided by a structured effect-analysis prompt, the Reasoner performs cross-modal reasoning over a target-highlighted video and extracts compact effect-aware context, which guides the Video Eraser toward comprehensive object-effect removal. Motion-aware mask guidance and motion-consistency supervision further improve removal coverage and spatiotemporal stability under object motion and evolving scene dynamics. To fully exploit the framework in challenging real-world scenarios, we further construct EffectWorld, a paired video dataset specifically designed for complex object-induced effects, and introduce a progressive training curriculum that combines common supervision with complex-effect data. On the standard ROSE-Bench, EffectLearner outperforms existing baselines on most metrics and achieves clear advantages on both EffectWorld-Eval and the challenging EffectWorld-Wild, demonstrating its ability to deliver high-quality video object removal in complex real-world scenes.",
-      "abstract_zh": "视频目标移除不仅需要消除目标物体本身，还必须消除其引发的连带效应，同时保持高保真度与时空连贯的修复效果。现有方法主要从预定义的效应类别和固定数据分布中隐式学习物体-效应的对应关系，这限制了其在复杂真实场景中的泛化能力——这些场景通常涉及组合效应、空间分离或弱关联效应、长尾物理现象以及动态演化的交互作用。我们提出EffectLearner，一个结合了基于视觉语言模型（VLM）的物体-效应推理器与基于扩散Transformer（DiT）的视频擦除器的语义推理增强框架。在结构化效应分析提示的引导下，推理器对目标高亮视频进行跨模态推理，提取紧凑的效应感知上下文信息，进而指导视频擦除器实现全面的物体与效应移除。运动感知的掩码引导和运动一致性监督进一步提升了在物体运动及场景动态演变情况下的移除覆盖范围与时空稳定性。为充分挖掘该框架在具有挑战性的真实场景中的潜力，我们进一步构建了EffectWorld——一个专门针对复杂物体诱发效应设计的配对视频数据集，并引入了一种结合常规监督与复杂效应数据的渐进式训练课程。在标准ROSE-Bench评测中，EffectLearner在多数指标上超越了现有基线方法，同时在EffectWorld-Eval及更具挑战性的EffectWorld-Wild数据集上均展现出明显优势，证明了其能够在复杂真实场景中实现高质量的视频目标移除。",
-      "hf_link": "https://huggingface.co/papers/2608.05565"
-    },
     "2608.05424": {
       "title": "Invisible Shortcuts: Why Vision Encoders Know Your Camera",
       "abstract": "Deep vision models exploit shortcuts, relying on cues that correlate with supervision signals. Prior work has focused on visible biases, such as object-background or texture correlations. We identify a different source of shortcut learning: invisible metadata traces embedded at the pixel level, for metadata such as image processing and photo acquisition. We hypothesize that large-scale semantic supervision, whether through categorical labels (ImageNet) or billion-scale captions (LAION), naturally induces metadata-semantics correlations during pretraining, leading models to convert low-level signals into predictive features. By introducing controlled metadata-semantics correlations, we show that stronger ones produce systematically higher sensitivity to metadata traces and larger performance degradation under metadata distribution shifts. We further explore mitigation strategies applied during and after pretraining that reduce sensitivity not only to targeted metadata but also to unseen ones, without sacrificing performance on downstream tasks. Metadata sensitivity also has a positive side: it partly explains the strong generated-image detection ability of some encoders, while its mitigation can improve out-of-distribution generalization. Code:this https URL",
       "abstract_zh": "深度视觉模型利用捷径，依赖于与监督信号相关的线索。先前的研究主要关注可见的偏差，例如物体-背景关联或纹理相关性。我们发现了一种不同的捷径学习来源：嵌入在像素层面的不可见元数据痕迹，涉及图像处理与照片获取等元数据。我们假设，大规模语义监督——无论是通过类别标签（ImageNet）还是数十亿规模的描述文本（LAION）——在预训练过程中会自然诱导元数据-语义关联，导致模型将低级信号转化为预测性特征。通过引入受控的元数据-语义关联，我们证明更强的关联会导致对元数据痕迹的系统性更高敏感性，并在元数据分布偏移下引发更大的性能下降。我们进一步探索了在预训练期间及之后应用的缓解策略，这些策略不仅能降低对目标元数据的敏感性，还能减少对未见元数据的敏感度，同时不牺牲下游任务的性能。元数据敏感性也存在积极的一面：它部分解释了一些编码器在生成图像检测方面的强大能力，而对其的缓解可以提升分布外泛化能力。代码：https://this_URL",
       "hf_link": "https://huggingface.co/papers/2608.05424"
+    },
+    "2608.06216": {
+      "title": "Continual Learning in Transition",
+      "abstract": "Classical continual learning (CL) has primarily focused on enabling models to update and retain knowledge through parameter-centric mechanisms, e.g., training strategies, architectural designs, and weight adaptation. However, emerging paradigms are reshaping the scope of CL beyond this traditional model adaptation view. For instance, on-policy learning broadens the space of update mechanisms; test-time training extends CL from the training phase to inference; and external harness components such as memory, skill libraries, and interaction protocols extend the evolutionary boundaries of model capabilities far beyond the static parameter space. Collectively, these developments indicate a transition from parameter-centric learning toward system-level adaptation. To characterize this transition, we examine the evolution of continual learning through three dimensions: When, How, and Where learning occurs. The How dimension encompasses off-policy, on-policy, and beyond-gradient optimization mechanics. The When dimension captures evolution across pre-training, post-training, and inference-time stages. The Where dimension delineates updates occurring within internal parameters versus external structural constraints. Anchored by this tri-axial framework, we systematically survey representative methods, trace the ongoing transition of continual learning, and discuss the key challenges, broader implications, and future directions arising from this paradigm shift.",
+      "abstract_zh": "经典的持续学习（Continual Learning, CL）主要关注通过参数中心机制——例如训练策略、架构设计和权重调整——使模型能够更新并保留知识。然而，新兴范式正在重塑持续学习的范畴，使其超越这种传统的模型适应视角。例如，在线策略学习拓宽了更新机制的空间；测试时训练将持续学习从训练阶段延伸至推理阶段；而外部辅助组件（如记忆库、技能库和交互协议）则将模型能力的演化边界远远扩展到静态参数空间之外。这些发展共同标志着从参数中心学习向系统级适应的转变。为了刻画这一转变，我们通过三个维度审视持续学习的演进：学习发生的“时间”（When）、“方式”（How）与“位置”（Where）。“方式”维度涵盖离线策略、在线策略以及超越梯度的优化机制；“时间”维度捕捉从预训练、训练后到推理阶段的演变；“位置”维度则区分更新发生在内部参数之内还是外部结构约束之中。基于这一三维框架，我们系统性地梳理了代表性方法，追溯持续学习的当前转变，并讨论了这一范式转移所引发的关键挑战、更广泛的影响及未来方向。",
+      "hf_link": "https://huggingface.co/papers/2608.06216"
+    },
+    "2608.01481": {
+      "title": "Interpretable MEG Decoding of Perceived Speech: Cortical Sources and the Stimulus Features That Drive Retrieval",
+      "abstract": "Short segments of perceived speech can be retrieved from non-invasive magnetoencephalographic (MEG) recordings by deep networks trained with a CLIP-style objective against wav2vec 2.0 audio embeddings. Yet their weights do not map onto electrophysiological quantities, and it remains unclear which speech properties drive retrieval.We build on a high-performing MEG-to-audio retrieval architecture but redesign both its front end and decoder. Its spatial attention operates on a flattened sensor layout; we replace it with spherical harmonics defined on the three-dimensional MEG helmet geometry. We reduce the subject-specific representation from 270 to 25 branches, add a temporal filter to each branch to match it to a neuronal source in space and time, and make the convolutional decoder shallower. Ocular and cardiac components are removed before training to reduce the risk of stimulus-locked shortcuts.On MEG-MASC, the model reaches 39.75 +/- 0.34% Top-1 accuracy among 1005 candidates across six trained solutions, with about 20 times fewer decoder parameters. Its weights map to source space, recovering generators consistent with the speech-perception network, while left-lateralized branches carry higher-frequency rhythmic components not evident on the right. Paired MEG occlusion shows that 15 of 19 stimulus features contribute, with the largest effects for silence, sound intensity, vowels, and acoustic onsets. Random word lists behave oppositely: substituting narrative MEG into them improves retrieval, indicating that activity without narrative structure carries less recoverable information than activity during coherent speech. The wav2vec target can be reduced to about twelve learned feature dimensions without loss of accuracy, whereas strong temporal compression causes a clear loss.Together, source mapping and input interventions reveal what drives retrieval.",
+      "abstract_zh": "通过采用与wav2vec 2.0音频嵌入进行CLIP式目标训练的深度网络，可从非侵入性脑磁图（Magnetoencephalographic, MEG）记录中提取感知语音的短片段。然而，其权重并未映射到电生理学量值上，且尚不清楚是哪些语音特性驱动了提取过程。本研究基于一个高性能的MEG到音频检索架构，但重新设计了其前端和解码器部分。原架构的空间注意力机制作用于扁平化的传感器布局；我们将其替换为基于三维MEG头盔几何结构定义的球谐函数。我们将受试者特异性表征从270个分支减少至25个分支，在每个分支上添加时间滤波器以使其在时空维度上匹配神经元源，并使卷积解码器结构更浅层化。训练前剔除了眼动与心电成分，以降低刺激锁定捷径的风险。在MEG-MASC数据集上，该模型在六组训练方案中于1005个候选片段中达到39.75 +/- 0.34%的Top-1准确率，且解码器参数量减少约20倍。其权重可映射到源空间，重建出与语音感知网络一致的神经发生器，同时左侧化分支携带了右侧不显著的高频节律成分。配对MEG遮蔽实验表明，19个刺激特征中有15个具有贡献性，其中静默段、声音强度、元音和声学起始点的效应最为显著。随机词表则呈现相反模式：将叙事性MEG数据代入其中反而提升检索性能，表明缺乏叙事结构的神经活动比连贯语音期间的神经活动携带的可恢复信息更少。wav2vec目标可被压缩至约12个学习特征维度而不损失准确性，而强烈的时间压缩则会导致明显性能下降。综合而言，源映射与输入干预共同揭示了驱动检索过程的核心因素。",
+      "hf_link": "https://huggingface.co/papers/2608.01481"
+    },
+    "2608.05785": {
+      "title": "Task-Conditional Flow Matching for Balanced Multilingual Text Embedding Adaptation",
+      "abstract": "Multilingual text embedding models are commonly adapted using a single training objective across diverse tasks, despite different tasks requiring fundamentally different optimization strategies. We introduce Task-Conditional Flow Matching (TCFM), a multilingual embedding adaptation framework that selectively applies Flow Matching to translation tasks while optimizing retrieval, classification, and pair-classification tasks with objectives better aligned to their learning dynamics. TCFM further combines teacher-guided representation preservation with a three-stage curriculum to enable stable adaptation. Evaluated on the Indic Massive Text Embedding Benchmark, TCFM establishes a new state-of-the-art, consistently improving embedding quality across a diverse set of multilingual tasks and generalizing across embedding model families. We will publicly release the codebase and datasets upon acceptance of the paper.",
+      "abstract_zh": "多语言文本嵌入模型通常在不同任务中采用单一训练目标进行适配，尽管不同任务本质上需要差异化的优化策略。我们提出了任务条件流匹配（Task-Conditional Flow Matching，TCFM），这是一个多语言嵌入适配框架，该框架针对翻译任务选择性应用流匹配技术，同时为检索、分类和配对分类任务采用更契合其学习动态的目标进行优化。TCFM进一步将教师引导的表征保持技术与三阶段课程学习相结合，实现了稳定的模型适配。在印度语系大规模文本嵌入基准（Indic Massive Text Embedding Benchmark）上的评估表明，TCFM创造了新的性能标杆，在多样化的多语言任务中持续提升嵌入质量，并展现出跨不同嵌入模型家族的泛化能力。论文录用后，我们将公开代码库与相关数据集。",
+      "hf_link": "https://huggingface.co/papers/2608.05785"
     }
   },
   "hf_votes": {
@@ -120,21 +150,26 @@
     "2608.05248": 0,
     "2607.28609": 0,
     "2608.06197": 0,
+    "2608.05747": 0,
     "2608.06060": 0,
     "2608.05631": 0,
-    "2608.05747": 0,
     "2608.06020": 0,
     "2608.05802": 0,
     "2608.06301": 0,
+    "2608.05138": 0,
     "2608.06374": 0,
     "2608.05369": 0,
+    "2608.05565": 0,
     "2608.06352": 0,
-    "2608.06146": 0,
     "2608.05137": 0,
+    "2608.06146": 0,
+    "2608.05850": 0,
     "2608.04956": 0,
     "2608.06257": 0,
-    "2608.05565": 0,
-    "2608.05424": 0
+    "2608.05424": 0,
+    "2608.06216": 0,
+    "2608.01481": 0,
+    "2608.05785": 0
   },
   "focus_sections": {
     "3D生成与重建": [
@@ -162,6 +197,11 @@
       "tags": "强化学习;大型语言模型智能体;工具使用序列决策",
       "body_summary": "训练能长期使用工具的智能体通常依赖真实或合成的可执行环境，其构建与验证成本高。\n提出EnvACE方法，让智能体通过内部世界排练学习，在训练中不依赖外部环境交互，交替扮演智能体与环境角色，内化了行动与环境响应的关系，提升了性能与泛化能力。"
     },
+    "2608.05747": {
+      "short_zh": "视觉语言模型视频空间推理评测",
+      "tags": "计算机视觉;视频理解与推理;全局空间感知评测",
+      "body_summary": "现有基准缺乏对视频长时程全局空间感知能力的评估。\n提出GST-Bench评估全局空间推理，发现模型存在显著差距，并发布训练资源。"
+    },
     "2608.06060": {
       "short_zh": "基于失败反馈的检索推理模型",
       "tags": "多模态学习;跨模态检索;统一多模态检索",
@@ -171,11 +211,6 @@
       "short_zh": "重建视觉隐态实现时序推理",
       "tags": "多模态学习;视频理解;时序推理",
       "body_summary": "现有大模型在需要多步时序推理的复杂视觉认知任务上表现不佳。\n提出ChronoVision框架，通过重构隐态和注意力定位提升推理能力，并在新数据集上验证了其有效性。"
-    },
-    "2608.05747": {
-      "short_zh": "视觉语言模型视频空间推理评测",
-      "tags": "计算机视觉;视频理解与推理;全局空间感知评测",
-      "body_summary": "现有基准缺乏对视频长时程全局空间感知能力的评估。\n提出GST-Bench评估全局空间推理，发现模型存在显著差距，并发布训练资源。"
     },
     "2608.06020": {
       "short_zh": "经济世界模型的构建蓝图",
@@ -192,6 +227,11 @@
       "tags": "自然语言处理;智能体与强化学习;系统优化基准构建",
       "body_summary": "现有研究缺乏评估大模型优化其部署系统能力的标准方法。\n提出了一个端到端系统优化基准，并在四个任务上评估了五个前沿大模型，发现其优化能力差异显著且提升空间大。"
     },
+    "2608.05138": {
+      "short_zh": "为希腊语适配Nemotron检索生成模型",
+      "tags": "自然语言处理;信息检索;希腊语检索增强生成",
+      "body_summary": "现代希腊语在主要检索模型中缺失，影响专业领域应用\n我们通过语料挖掘、模型微调及新评测集HERA，提升了希腊语检索与生成效果"
+    },
     "2608.06374": {
       "short_zh": "跨机器人通用操控策略学习",
       "tags": "机器人;具身智能;跨本体操控",
@@ -202,20 +242,30 @@
       "tags": "机器人;视觉语言动作模型;精细操作手腕建模",
       "body_summary": "现有模型未区分全局主视角与局部手腕视角在精细操作中的不同作用，限制了机器人对接触敏感任务的执行能力。\n提出W2-VLA模型，通过任务条件化接口预测未来手腕状态，并构建了W2-CoT数据合成管道提供辅助监督，提升了单臂与双臂精细操作的性能与实时性。"
     },
+    "2608.05565": {
+      "short_zh": "视频中去除物体及其连带影响",
+      "tags": "计算机视觉;视频内容编辑;视频物体移除与修复",
+      "body_summary": "现有视频物体移除方法难以处理复杂真实场景中物体引发的组合、分离或动态演变的连带物理效应。\n我们提出了EffectLearner框架，它通过语义推理识别物体连带效应，并指导扩散模型进行视频修复，同时构建了包含复杂效应的数据集进行训练，在多个评测集上表现优异。"
+    },
     "2608.06352": {
       "short_zh": "对抗校准求解器生成终端任务",
       "tags": "机器学习;强化学习;终端任务自动合成",
       "body_summary": "训练智能体需要可执行且有适当挑战性的任务。\n我们提出了CalibForge系统，通过对抗性求解器校准来生成并优化任务，构建的数据集显著提升了智能体模型的性能。"
+    },
+    "2608.05137": {
+      "short_zh": "动态融合多模态理解三维场景",
+      "tags": "计算机视觉;三维场景理解;多模态大语言模型",
+      "body_summary": "理解三维场景需要联合多种模态的异构信息，但现有方法通常采用固定的模态组合，忽略了查询相关的模态需求。\n本文提出了SmartMage模型，它通过语义引导的模态自适应路由和模态感知门控专家模块，动态选择并融合任务相关的模态信息，从而提升了三维场景理解性能。"
     },
     "2608.06146": {
       "short_zh": "并行解码文档解析模型",
       "tags": "文档智能;文档解析;布局内容并行解码",
       "body_summary": "现有端到端文档解析器将版面与内容串行解码，而裁剪式解析器牺牲了完整上下文以实现并行。\n提出PaDoc模型，以预测版面为分支结构，实现布局流与区域内容的并行解码，提升速度和性能。"
     },
-    "2608.05137": {
-      "short_zh": "动态融合多模态理解三维场景",
-      "tags": "计算机视觉;三维场景理解;多模态大语言模型",
-      "body_summary": "理解三维场景需要联合多种模态的异构信息，但现有方法通常采用固定的模态组合，忽略了查询相关的模态需求。\n本文提出了SmartMage模型，它通过语义引导的模态自适应路由和模态感知门控专家模块，动态选择并融合任务相关的模态信息，从而提升了三维场景理解性能。"
+    "2608.05850": {
+      "short_zh": "首个意第绪语大模型及评测基准",
+      "tags": "自然语言处理;语言模型;低资源语言建模",
+      "body_summary": "意第绪语缺乏高质量数字化语料和可靠的模型评测资源\n我们构建了高质量意第绪语预训练语料和评测基准，并训练出优于基线的专用语言模型"
     },
     "2608.04956": {
       "short_zh": "多镜头视频生成模型",
@@ -227,15 +277,25 @@
       "tags": "机器学习;世界模型;多智能体世界仿真",
       "body_summary": "现有视频世界模型在多玩家环境中因纠缠世界状态与视角相关表征，导致计算冗余、视角不一致且难以扩展。\n提出MASS模型，通过解耦世界动态与视角渲染，利用学习型逻辑引擎和渲染引擎，在多人贪吃蛇基准上实现了更高状态精度和更低跨视角不一致性，并能扩展模拟超千名玩家。"
     },
-    "2608.05565": {
-      "short_zh": "视频中去除物体及其连带影响",
-      "tags": "计算机视觉;视频内容编辑;视频物体移除与修复",
-      "body_summary": "现有视频物体移除方法难以处理复杂真实场景中物体引发的组合、分离或动态演变的连带物理效应。\n我们提出了EffectLearner框架，它通过语义推理识别物体连带效应，并指导扩散模型进行视频修复，同时构建了包含复杂效应的数据集进行训练，在多个评测集上表现优异。"
-    },
     "2608.05424": {
       "short_zh": "视觉模型学习隐藏元数据捷径",
       "tags": "计算机视觉;深度学习可解释性;元数据捷径学习",
       "body_summary": "背景/任务：现有研究多关注视觉模型对可见特征（如纹理）的依赖，本文发现模型还会利用像素中嵌入的不可见元数据（如图像处理信息）作为学习捷径。\n本文通过引入可控的元数据-语义关联，证实强关联会加剧模型对元数据的敏感性并导致分布偏移时性能下降，同时探索了在预训练中和之后应用的缓解策略。"
+    },
+    "2608.06216": {
+      "short_zh": "持续学习研究范式演进",
+      "tags": "机器学习;持续学习;系统级终身学习",
+      "body_summary": "传统持续学习主要围绕模型参数更新与知识保留\n本文提出三维框架梳理范式转变并综述新方法挑战"
+    },
+    "2608.01481": {
+      "short_zh": "脑电解码听语音特征",
+      "tags": "神经科学；脑磁图信号处理；听语音刺激特征解码",
+      "body_summary": "背景/任务：通过脑磁图信号解码感知的语音信息，并理解哪些刺激特征驱动解码过程。\n做了什么：改进了解码模型，使其权重可映射到大脑源空间，识别出对解码贡献最大的语音特征，并发现连贯叙述的语音比随机词表包含更易解码的信息。"
+    },
+    "2608.05785": {
+      "short_zh": "多语言文本嵌入任务自适应优化",
+      "tags": "自然语言处理;多语言模型;文本嵌入适应",
+      "body_summary": "现有方法用单一目标在所有任务上适应多语言文本嵌入模型，但不同任务需要不同的优化策略。\n提出任务条件流匹配框架，为不同任务选择合适优化目标，结合教师指导和课程学习，在多语言基准上取得了最优效果。"
     }
   },
   "deep_analysis": {
