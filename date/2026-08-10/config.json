@@ -1,11 +1,5 @@
 {
   "base_info": {
-    "2608.07468": {
-      "title": "SimWAM: A Simple World Action Model for End-to-End Autonomous Driving",
-      "abstract": "World-Action Models (WAMs) improve end-to-end autonomous driving by transferring video dynamics priors to action prediction, but existing methods require costly future generation at inference. We present SimWAM, a simple yet effective WAM that uses video generation purely as a training signal. It co-trains a pretrained video expert and a lightweight action expert with joint flow matching. An isolated attention mask keeps action prediction independent of future frames, allowing the video branch to be discarded after training and leaving a self-contained planner that directly predicts trajectories. Since the two experts share no parameters and interact only through a unified attention interface, the video backbone could be replaced and the action expert scaled independently without modifying the learning objective or inference pipeline. We further apply reinforcement learning to optimize a compositional driving reward beyond trajectory imitation. Our SimWAM achieves $91.5$ PDMS on NAVSIM, surpasses state-of-the-art WAM-based planners with substantially lower latency, and transfers zero-shot to nuScenes. These results position SimWAM as a simple yet solid baseline that could readily benefit from advances in video generation for efficient autonomous driving. The code and model weights are available atthis https URL",
-      "abstract_zh": "世界动作模型（World-Action Models, WAMs）通过将视频动态先验迁移至动作预测，提升了端到端自动驾驶的性能，但现有方法在推断时需要生成未来帧，计算成本高昂。我们提出了SimWAM——一种简单而有效的世界动作模型，它仅将视频生成作为训练信号使用。该模型通过联合流匹配共同训练一个预训练的视频专家模型和一个轻量级动作专家模型。通过使用独立的注意力掩码，使得动作预测不依赖于未来帧，从而在训练后可丢弃视频分支，仅保留一个独立的、能够直接预测轨迹的规划器。由于两个专家模型不共享参数，仅通过统一的注意力接口进行交互，视频骨干网络可被替换，动作专家模型也可独立扩展，而无需修改学习目标或推断流程。我们进一步应用强化学习来优化超越轨迹模仿的组合式驾驶奖励函数。我们的SimWAM在NAVSIM上实现了91.5 PDMS，以显著更低的延迟超越了基于世界动作模型的最新规划器，并能零样本迁移至nuScenes数据集。这些结果表明SimWAM是一个简洁而坚实的基线方法，能够便捷地受益于视频生成技术的进步，从而实现高效的自动驾驶。代码与模型权重可通过链接https URL获取。",
-      "hf_link": "https://huggingface.co/papers/2608.07468"
-    },
     "2608.03571": {
       "title": "Beyond Simply Environment Scaling: Designing Effective Environment Distributions for Multimodal Agent Learning",
       "abstract": "Recent works train agents by constructing large-scale multimodal environment pools. However, we find that simply increasing the number of multimodal environments does not always benefit. We further analyze the limitations in current multimodal environment distributions through a series of experiments. Based on these findings, we study how to build more effective training environment distributions from two dimensions: **diversity** and **difficulty structure**. For diversity, we propose **Ability-aware Environment Selection (AES)** to obtain diverse environment sets. For difficulty structure, we propose **Hierarchical Difficulty Curriculum (HDC)**, which organizes curriculum learning through two difficulty levels: harness weakening and state-scale progression. Experiments show that AES and HDC effectively improve multimodal agent training.",
@@ -17,6 +11,18 @@
       "abstract": "Supervised Fine-Tuning (SFT) and Reinforcement Learning (RL) exhibit fundamentally different behaviors in enhancing multi-task reasoning for large language models (LLMs). Our preliminary experiments revealed a phenomenon: SFT suffers from severe task conflicts under multi-stage training, whereas RL enables stable coexistence across diverse tasks. Empirically, we trace this to the parameter level, observing that RL induces sparse and approximately orthogonal updates across tasks. We provide a theoretical explanation for this mechanism by analyzing multi-task gradient interference. Our results reveal a distinction: interference in SFT is norm-limited, scaling with the absolute gradient magnitude, whereas interference in RL is variance-limited, bounded by the gradient variance induced by advantage normalization and on-policy optimization. This small variance bound yields near-orthogonal optimization directions across tasks. Leveraging this insight, we propose Parallel-RL, a paradigm that decouples multi-task training, significantly improving efficiency and flexibility.",
       "abstract_zh": "监督微调（Supervised Fine-Tuning, SFT）与强化学习（Reinforcement Learning, RL）在提升大语言模型（Large Language Models, LLMs）的多任务推理能力上表现出根本不同的行为。我们的初步实验揭示了一个现象：在多阶段训练中，SFT 会遭受严重的任务冲突，而 RL 则能实现不同任务间的稳定共存。通过实证研究，我们将此现象追溯到参数层面，观察到 RL 会引发跨任务的稀疏且近似正交的参数更新。我们通过分析多任务梯度干扰，为这一机制提供了理论解释。我们的结果表明一个区别：SFT 中的干扰受范数限制，其规模与梯度绝对幅度成比例；而 RL 中的干扰则受方差限制，其边界由优势归一化和在线策略优化所引入的梯度方差决定。这一小的方差边界导致了跨任务间近似正交的优化方向。基于这一洞见，我们提出了 Parallel-RL，一种解耦多任务训练的新范式，显著提升了效率与灵活性。",
       "hf_link": "https://huggingface.co/papers/2608.03573"
+    },
+    "2608.07468": {
+      "title": "SimWAM: A Simple World Action Model for End-to-End Autonomous Driving",
+      "abstract": "World-Action Models (WAMs) improve end-to-end autonomous driving by transferring video dynamics priors to action prediction, but existing methods require costly future generation at inference. We present SimWAM, a simple yet effective WAM that uses video generation purely as a training signal. It co-trains a pretrained video expert and a lightweight action expert with joint flow matching. An isolated attention mask keeps action prediction independent of future frames, allowing the video branch to be discarded after training and leaving a self-contained planner that directly predicts trajectories. Since the two experts share no parameters and interact only through a unified attention interface, the video backbone could be replaced and the action expert scaled independently without modifying the learning objective or inference pipeline. We further apply reinforcement learning to optimize a compositional driving reward beyond trajectory imitation. Our SimWAM achieves $91.5$ PDMS on NAVSIM, surpasses state-of-the-art WAM-based planners with substantially lower latency, and transfers zero-shot to nuScenes. These results position SimWAM as a simple yet solid baseline that could readily benefit from advances in video generation for efficient autonomous driving. The code and model weights are available atthis https URL",
+      "abstract_zh": "世界动作模型（World-Action Models, WAMs）通过将视频动态先验迁移至动作预测，提升了端到端自动驾驶的性能，但现有方法在推断时需要生成未来帧，计算成本高昂。我们提出了SimWAM——一种简单而有效的世界动作模型，它仅将视频生成作为训练信号使用。该模型通过联合流匹配共同训练一个预训练的视频专家模型和一个轻量级动作专家模型。通过使用独立的注意力掩码，使得动作预测不依赖于未来帧，从而在训练后可丢弃视频分支，仅保留一个独立的、能够直接预测轨迹的规划器。由于两个专家模型不共享参数，仅通过统一的注意力接口进行交互，视频骨干网络可被替换，动作专家模型也可独立扩展，而无需修改学习目标或推断流程。我们进一步应用强化学习来优化超越轨迹模仿的组合式驾驶奖励函数。我们的SimWAM在NAVSIM上实现了91.5 PDMS，以显著更低的延迟超越了基于世界动作模型的最新规划器，并能零样本迁移至nuScenes数据集。这些结果表明SimWAM是一个简洁而坚实的基线方法，能够便捷地受益于视频生成技术的进步，从而实现高效的自动驾驶。代码与模型权重可通过链接https URL获取。",
+      "hf_link": "https://huggingface.co/papers/2608.07468"
+    },
+    "2608.05703": {
+      "title": "StreamArena: Toward Continuous, Interactive, and Long-Horizon Agentic Streaming Video Understanding",
+      "abstract": "Deploying autonomous multimodal agents in continuous, real-world environments requires them to ingest unbounded audio-visual streams and maintain hour-scale memory. However, current evaluations predominantly rely on brief clips and multiple-choice formats. This design allows minimal baselines that process only the last four frames to match or surpass complex streaming models, while answer options also expose language shortcuts. We introduce StreamArena, a benchmark for hour-scale, interactive streaming video understanding. StreamArena contains 243 full-length videos averaging 88.8 minutes and 3,646 rigorously annotated, open-ended question-answer pairs that evaluate real-time perception, historical retrospection, proactive interaction, and multimodal tool utilization. Evaluation across diverse systems exposes a tension between continuous interaction and long-horizon multimodal comprehension. Methods that retain only recent frames cannot recover distant events, methods that convert past observations into text lose visual evidence, and methods that repeatedly compress visual memory struggle to preserve fine-grained details over time. We address this tension with StreamMind, a two-tier architecture that assigns latency-critical interaction and proactive monitoring to independently scheduled frontend workers, while backend workers asynchronously construct persistent multimodal memory and perform historical recall and external search. StreamMind outperforms existing streaming baselines across all four capabilities and reduces query-to-answer latency by reusing persistent state.",
+      "abstract_zh": "在连续的真实世界环境中部署自主多模态智能体(Autonomous Multimodal Agents)需要其能够处理无限制的视听流并维持小时级记忆。然而，当前的评估方法主要依赖于简短片段和多项选择形式。这种设计使得仅处理最后四帧图像的极简基线模型能够达到甚至超越复杂流式模型的性能，同时答案选项也可能暴露语言捷径问题。我们提出了StreamArena基准测试——一个面向小时级交互式流视频理解的评估体系。StreamArena包含243个平均时长88.8分钟的完整视频，以及3,646个经过严格标注的开放式问答对，用于评估实时感知、历史回溯、主动交互和多模态工具使用能力。通过对多样化系统的评估，揭示了持续交互与长程多模态理解之间的内在矛盾：仅保留最近帧的方法无法追溯远期事件；将过往观察转换为文本的方法会丢失视觉证据；而反复压缩视觉记忆的方法则难以长期保持细粒度细节。为此，我们提出StreamMind双层级架构来解决这一矛盾——该架构将延迟敏感的交互和主动监控任务分配给独立调度的前端工作器，而后端工作器则异步构建持久化多模态记忆，并执行历史检索和外部搜索。StreamMind在所有四项能力评估中均优于现有流式基线模型，并通过重用持久化状态显著降低了查询至应答的延迟。",
+      "hf_link": "https://huggingface.co/papers/2608.05703"
     },
     "2608.07051": {
       "title": "YOLO-PEFT: Parameter-Efficient Fine-Tuning on YOLO Family",
@@ -30,17 +36,11 @@
       "abstract_zh": "音频推理对于机器理解声学世界至关重要。带有可验证奖励的强化学习能够激发此类推理，但现有奖励设计在局限性上相互补充：基于结果的奖励仅监督最终答案，允许模型在不关注音频的情况下达成目标；而基于过程的奖励虽对推理本身进行评分，却依赖于粗糙、人工设计且固定的标准，这些标准既无法适应每个问题，也难以扎根于声学证据。此外，不同问题对推理的需求各异——有些依赖感知能力，另一些则需要多步推理——任何静态标准都会随着策略的改进而失效。因此，借助细粒度、声学证据锚定且自适应的奖励来监督推理过程至关重要，但由于此类奖励难以针对每个样本进行人工设计，这一目标颇具挑战性。\n\n为此，我们提出了AudioRubrics（音频准则框架），这是一个通过自我演进、声学证据锚定的准则奖励来监督音频推理的强化学习框架。AudioRubrics从原始波形中合成每个样本的专属准则，并根据模型自身的推演轨迹，按组重新生成并调整权重标准，从而提供持续的学习信号——当静态准则趋于饱和时，该信号能持续针对当前策略的弱点进行优化。在三个音频推理基准上的综合评估表明，AudioRubrics显著优于多种开源及基于训练的基线方法。进一步分析显示，其性能提升与准则生成器和评估器的能力呈正相关，且AudioRubrics能够收敛至稳定的推理长度，避免退化性崩溃或无限制增长。音频感知能力的提升也证明了将监督过程锚定于声学证据的有效性。项目页面详见此链接。",
       "hf_link": "https://huggingface.co/papers/2608.02831"
     },
-    "2608.07408": {
-      "title": "Addressable Memory for Video World Models",
-      "abstract": "We study visual persistence in interactive video world models. These models rely on a Key-Value (KV) cache as a growing visual memory to carry forward previously generated frames. However, we find that models can no longer reliably address stored content once rollouts extend beyond the training horizon, because temporal Rotary Positional Embeddings (RoPE) offsets then fall outside the range seen during training and the model struggles to retrieve the relevant visual information through attention. Moreover, naively compressing the cache in the RoPE-rotated space corrupts memory by averaging together incompatible positional phases. To address this, we propose WorldTrace, a training-free memory framework for long-horizon visual persistence. WorldTrace keeps compressed memory addressable by assigning each summary slot a distinct, in-distribution virtual position. Within this addressable cache, we study two memory compression approaches: WorldTrace-Field compresses history for temporal coherence, while WorldTrace-Landmark stores verbatim scene traces at detected transitions for episodic recall. We further introduce LoopBench, a benchmark evaluating whether a compressed cache can reconstruct a previously visited scene after a long detour. WorldTrace-Field improves temporal consistency by +15.5%, and WorldTrace-Landmark improves episodic recall by +19.5% on LoopBench, extending visually persistent generation without retraining.",
-      "abstract_zh": "本研究探讨交互式视频世界模型中的视觉持久性问题。这些模型依赖不断增长的键值缓存作为视觉记忆来传递先前生成的帧序列。然而我们发现，当推演长度超出训练视野时，模型无法可靠地调用存储内容——由于时间旋转位置编码的偏移量超出训练所见范围，模型难以通过注意力机制检索相关视觉信息。此外，在旋转编码空间中对缓存进行简单压缩会因平均不兼容的位置相位而导致记忆损坏。\n\n为此，我们提出WorldTrace——一种无需训练的长视野视觉持久性记忆框架。该框架通过为每个摘要槽分配独特的分布内虚拟位置，使压缩记忆具备可寻址性。在此可寻址缓存中，我们研究了两种记忆压缩方法：WorldTrace-Field通过压缩历史实现时间连贯性，而WorldTrace-Landmark则在检测到的场景转换点存储逐帧场景轨迹以实现情景记忆。我们进一步构建LoopBench基准测试，用于评估压缩缓存在长距离绕行后能否重建先前访问过的场景。实验表明，WorldTrace-Field将时间一致性提升15.5%，WorldTrace-Landmark在LoopBench上使情景记忆召回率提升19.5%，实现了无需重新训练的视觉持久生成扩展。",
-      "hf_link": "https://huggingface.co/papers/2608.07408"
-    },
-    "2608.05703": {
-      "title": "StreamArena: Toward Continuous, Interactive, and Long-Horizon Agentic Streaming Video Understanding",
-      "abstract": "Deploying autonomous multimodal agents in continuous, real-world environments requires them to ingest unbounded audio-visual streams and maintain hour-scale memory. However, current evaluations predominantly rely on brief clips and multiple-choice formats. This design allows minimal baselines that process only the last four frames to match or surpass complex streaming models, while answer options also expose language shortcuts. We introduce StreamArena, a benchmark for hour-scale, interactive streaming video understanding. StreamArena contains 243 full-length videos averaging 88.8 minutes and 3,646 rigorously annotated, open-ended question-answer pairs that evaluate real-time perception, historical retrospection, proactive interaction, and multimodal tool utilization. Evaluation across diverse systems exposes a tension between continuous interaction and long-horizon multimodal comprehension. Methods that retain only recent frames cannot recover distant events, methods that convert past observations into text lose visual evidence, and methods that repeatedly compress visual memory struggle to preserve fine-grained details over time. We address this tension with StreamMind, a two-tier architecture that assigns latency-critical interaction and proactive monitoring to independently scheduled frontend workers, while backend workers asynchronously construct persistent multimodal memory and perform historical recall and external search. StreamMind outperforms existing streaming baselines across all four capabilities and reduces query-to-answer latency by reusing persistent state.",
-      "abstract_zh": "在连续的真实世界环境中部署自主多模态智能体(Autonomous Multimodal Agents)需要其能够处理无限制的视听流并维持小时级记忆。然而，当前的评估方法主要依赖于简短片段和多项选择形式。这种设计使得仅处理最后四帧图像的极简基线模型能够达到甚至超越复杂流式模型的性能，同时答案选项也可能暴露语言捷径问题。我们提出了StreamArena基准测试——一个面向小时级交互式流视频理解的评估体系。StreamArena包含243个平均时长88.8分钟的完整视频，以及3,646个经过严格标注的开放式问答对，用于评估实时感知、历史回溯、主动交互和多模态工具使用能力。通过对多样化系统的评估，揭示了持续交互与长程多模态理解之间的内在矛盾：仅保留最近帧的方法无法追溯远期事件；将过往观察转换为文本的方法会丢失视觉证据；而反复压缩视觉记忆的方法则难以长期保持细粒度细节。为此，我们提出StreamMind双层级架构来解决这一矛盾——该架构将延迟敏感的交互和主动监控任务分配给独立调度的前端工作器，而后端工作器则异步构建持久化多模态记忆，并执行历史检索和外部搜索。StreamMind在所有四项能力评估中均优于现有流式基线模型，并通过重用持久化状态显著降低了查询至应答的延迟。",
-      "hf_link": "https://huggingface.co/papers/2608.05703"
+    "2608.02148": {
+      "title": "Douyin Multimodal Embedding Model Technical Report",
+      "abstract": "Multimodal representation learning is a cornerstone of modern AI. By encoding multimodal queries and targets into vectors, it powers industrial search and recommendation and underpins modern agents. Real-world platforms with complex modalities and massive-scale content, such as Douyin, Xiaohongshu, and YouTube, demand both efficiency under billion-scale indexing and fine-grained discrimination for hard matching. Existing MLLM embedding models rarely satisfy both. Contrastive models are efficient but rely on pair-level supervision too coarse for fine-grained distinctions, while CoT-based models improve discrimination through explicit generation impractical to serve online. We present Douyin Multimodal Embedding (DME), a model trained in two stages to combine both strengths. Stage 1 performs large-scale contrastive pre-training that establishes a unified multimodal embedding space with broad modality and task coverage. Stage 2 supplements semantic sufficiency, the property that an embedding is grounded in retrieval-relevant evidence and preserves fine-grained counterpart-side semantics, via two mechanisms. Evidence-Grounded Typed Latent Reasoning organizes retrieval evidence through hidden-space latent reasoning, and Cross-Conditional Reconstruction enforces counterpart-side semantics through cross-directional autoregressive reconstruction. Both act only during training and add only marginal query-side overhead, so DME serves as efficiently as a standard contrastive encoder. On MMEB-v2, DME reaches state-of-the-art results at comparable scales for its 2B and 9B variants (74.8 and 78.4), with especially strong video and visual-document tasks. In production, DME delivers a 2.92% relative gain on Douyin's in-house offline evaluation set, is deployed across Douyin scenarios such as generative, image, and AI search, and yields a 0.1% Lifetime (LT) gain in online A/B testing on Douyin search.",
+      "abstract_zh": "多模态表征学习（Multimodal Representation Learning）是现代人工智能的基石。通过将多模态查询与目标编码为向量，该技术为工业级搜索与推荐提供动力，并支撑着现代智能体。面对如抖音、小红书、YouTube等具有复杂模态与海量内容的现实平台，模型需要在亿级索引规模下保持高效，同时具备针对困难匹配场景的细粒度区分能力。现有的多模态大语言模型（MLLM）嵌入模型很少能同时满足这两点。对比学习模型效率高，但其依赖的配对级监督过于粗糙，难以进行细粒度区分；而基于思维链（CoT）的模型虽通过显式生成提升了区分能力，却因在线服务时的不切实际而难以应用。我们提出了抖音多模态嵌入模型（Douyin Multimodal Embedding，DME），该模型通过两阶段训练结合了二者优势。第一阶段进行大规模对比预训练，构建一个覆盖广泛模态与任务的统一多模态嵌入空间。第二阶段通过两种机制补充语义充分性——即嵌入应基于检索相关证据且保留细粒度的对应侧语义。证据驱动的类型化隐式推理（Evidence-Grounded Typed Latent Reasoning）通过隐式空间的潜在推理组织检索证据，而跨条件重构（Cross-Conditional Reconstruction）则通过跨方向自回归重构强化对应侧语义。这两种机制仅在训练阶段生效，且仅引入微小的查询侧开销，因此DME在服务时可如标准对比编码器一般高效。在MMEB-v2基准测试中，DME的20亿参数与90亿参数变体在同等规模下均达到最先进水平（得分分别为74.8与78.4），尤其在视频及视觉文档任务上表现突出。在实际应用中，DME在抖音内部离线评估集上带来2.92%的相对提升，已部署于生成搜索、图像搜索、AI搜索等抖音全场景，并在抖音搜索的在线A/B测试中实现了0.1%的终身价值（Lifetime，LT）增益。",
+      "hf_link": "https://huggingface.co/papers/2608.02148"
     },
     "2608.05597": {
       "title": "Uncertainty-Aware World Model for Aerial Image-Goal Navigation",
@@ -48,23 +48,35 @@
       "abstract_zh": "空中图像目标导航（Aerial image-goal navigation）要求无人机（UAV）抵达由目标图像指定的地点。现有的基于世界模型（world-model）的方法通过预测未来状态对候选轨迹进行排序，但通常仅依赖一个或少量点预测，这在未来状态不确定性较高的大规模户外环境中是不够的。为应对这一局限，我们提出了不确定性感知导航世界模型（Uncertainty-Aware Navigation World Model，UA-NWM），这是一种用于空中图像目标导航的高效潜在世界模型，它将轨迹评分问题构建为条件分布外检测（conditional out-of-distribution detection）。UA-NWM通过不确定性子空间表示可能的未来状态，并将预测与目标之间的差异分解为不确定性可解释部分与不可解释部分。仅使用不可解释的残差进行评分，从而无需多次未来采样即可实现鲁棒的轨迹选择。大量实验表明，UA-NWM在保持较低推理延迟的同时，始终优于现有导航世界模型。真实环境中的无人机实验进一步验证了其实际适用性。项目页面：https URL",
       "hf_link": "https://huggingface.co/papers/2608.05597"
     },
-    "2608.02148": {
-      "title": "Douyin Multimodal Embedding Model Technical Report",
-      "abstract": "Multimodal representation learning is a cornerstone of modern AI. By encoding multimodal queries and targets into vectors, it powers industrial search and recommendation and underpins modern agents. Real-world platforms with complex modalities and massive-scale content, such as Douyin, Xiaohongshu, and YouTube, demand both efficiency under billion-scale indexing and fine-grained discrimination for hard matching. Existing MLLM embedding models rarely satisfy both. Contrastive models are efficient but rely on pair-level supervision too coarse for fine-grained distinctions, while CoT-based models improve discrimination through explicit generation impractical to serve online. We present Douyin Multimodal Embedding (DME), a model trained in two stages to combine both strengths. Stage 1 performs large-scale contrastive pre-training that establishes a unified multimodal embedding space with broad modality and task coverage. Stage 2 supplements semantic sufficiency, the property that an embedding is grounded in retrieval-relevant evidence and preserves fine-grained counterpart-side semantics, via two mechanisms. Evidence-Grounded Typed Latent Reasoning organizes retrieval evidence through hidden-space latent reasoning, and Cross-Conditional Reconstruction enforces counterpart-side semantics through cross-directional autoregressive reconstruction. Both act only during training and add only marginal query-side overhead, so DME serves as efficiently as a standard contrastive encoder. On MMEB-v2, DME reaches state-of-the-art results at comparable scales for its 2B and 9B variants (74.8 and 78.4), with especially strong video and visual-document tasks. In production, DME delivers a 2.92% relative gain on Douyin's in-house offline evaluation set, is deployed across Douyin scenarios such as generative, image, and AI search, and yields a 0.1% Lifetime (LT) gain in online A/B testing on Douyin search.",
-      "abstract_zh": "多模态表征学习（Multimodal Representation Learning）是现代人工智能的基石。通过将多模态查询与目标编码为向量，该技术为工业级搜索与推荐提供动力，并支撑着现代智能体。面对如抖音、小红书、YouTube等具有复杂模态与海量内容的现实平台，模型需要在亿级索引规模下保持高效，同时具备针对困难匹配场景的细粒度区分能力。现有的多模态大语言模型（MLLM）嵌入模型很少能同时满足这两点。对比学习模型效率高，但其依赖的配对级监督过于粗糙，难以进行细粒度区分；而基于思维链（CoT）的模型虽通过显式生成提升了区分能力，却因在线服务时的不切实际而难以应用。我们提出了抖音多模态嵌入模型（Douyin Multimodal Embedding，DME），该模型通过两阶段训练结合了二者优势。第一阶段进行大规模对比预训练，构建一个覆盖广泛模态与任务的统一多模态嵌入空间。第二阶段通过两种机制补充语义充分性——即嵌入应基于检索相关证据且保留细粒度的对应侧语义。证据驱动的类型化隐式推理（Evidence-Grounded Typed Latent Reasoning）通过隐式空间的潜在推理组织检索证据，而跨条件重构（Cross-Conditional Reconstruction）则通过跨方向自回归重构强化对应侧语义。这两种机制仅在训练阶段生效，且仅引入微小的查询侧开销，因此DME在服务时可如标准对比编码器一般高效。在MMEB-v2基准测试中，DME的20亿参数与90亿参数变体在同等规模下均达到最先进水平（得分分别为74.8与78.4），尤其在视频及视觉文档任务上表现突出。在实际应用中，DME在抖音内部离线评估集上带来2.92%的相对提升，已部署于生成搜索、图像搜索、AI搜索等抖音全场景，并在抖音搜索的在线A/B测试中实现了0.1%的终身价值（Lifetime，LT）增益。",
-      "hf_link": "https://huggingface.co/papers/2608.02148"
+    "2608.07222": {
+      "title": "Skaling: Chinchilla's Exponents Meet Kaplan's Coupling",
+      "abstract": "Neural scaling laws are foundational for language model development, yet standard formulations systematically under- and overestimate loss at data-scarce and overtraining extremes. This failure originates in the underlying assumption that model size and training data impact the loss independently. To address this, we introduce the Skaling law, a generalized functional form that couples model capacity and data through a single interaction exponent. This simple extension reduces the Mean Absolute Percentage Error (MAPE) by 1.5-3x across both interpolation and extrapolation regimes. When paired with a sparse grid strategy restricted to low-compute regimes, the Skaling law achieves accurate full-grid extrapolation using approximately 10x less compute than uniform sweeps. By enabling reliable performance prediction from small-scale experiments, the Skaling law provides a more robust and resource-efficient framework for allocating compute budgets in next-generation model training.",
+      "abstract_zh": "神经缩放定律是语言模型发展的基础，然而标准公式在数据稀缺和过度训练两种极端情况下会系统性地低估和高估损失。这一缺陷源于其基本假设，即模型规模与训练数据对损失的影响是相互独立的。为解决此问题，我们提出了Skaling定律，这是一种通过单一交互指数耦合模型容量与数据的广义函数形式。这一简单扩展在插值和外推两种场景下，将平均绝对百分比误差降低了1.5至3倍。当与局限于低计算区域的稀疏网格策略结合时，Skaling定律仅需约十分之一于均匀扫描的计算量，即可实现精确的全网格外推。通过从小规模实验中实现可靠的性能预测，Skaling定律为下一代模型训练中的计算资源分配提供了一个更稳健、更高效的框架。",
+      "hf_link": "https://huggingface.co/papers/2608.07222"
+    },
+    "2608.07408": {
+      "title": "Addressable Memory for Video World Models",
+      "abstract": "We study visual persistence in interactive video world models. These models rely on a Key-Value (KV) cache as a growing visual memory to carry forward previously generated frames. However, we find that models can no longer reliably address stored content once rollouts extend beyond the training horizon, because temporal Rotary Positional Embeddings (RoPE) offsets then fall outside the range seen during training and the model struggles to retrieve the relevant visual information through attention. Moreover, naively compressing the cache in the RoPE-rotated space corrupts memory by averaging together incompatible positional phases. To address this, we propose WorldTrace, a training-free memory framework for long-horizon visual persistence. WorldTrace keeps compressed memory addressable by assigning each summary slot a distinct, in-distribution virtual position. Within this addressable cache, we study two memory compression approaches: WorldTrace-Field compresses history for temporal coherence, while WorldTrace-Landmark stores verbatim scene traces at detected transitions for episodic recall. We further introduce LoopBench, a benchmark evaluating whether a compressed cache can reconstruct a previously visited scene after a long detour. WorldTrace-Field improves temporal consistency by +15.5%, and WorldTrace-Landmark improves episodic recall by +19.5% on LoopBench, extending visually persistent generation without retraining.",
+      "abstract_zh": "本研究探讨交互式视频世界模型中的视觉持久性问题。这些模型依赖不断增长的键值缓存作为视觉记忆来传递先前生成的帧序列。然而我们发现，当推演长度超出训练视野时，模型无法可靠地调用存储内容——由于时间旋转位置编码的偏移量超出训练所见范围，模型难以通过注意力机制检索相关视觉信息。此外，在旋转编码空间中对缓存进行简单压缩会因平均不兼容的位置相位而导致记忆损坏。\n\n为此，我们提出WorldTrace——一种无需训练的长视野视觉持久性记忆框架。该框架通过为每个摘要槽分配独特的分布内虚拟位置，使压缩记忆具备可寻址性。在此可寻址缓存中，我们研究了两种记忆压缩方法：WorldTrace-Field通过压缩历史实现时间连贯性，而WorldTrace-Landmark则在检测到的场景转换点存储逐帧场景轨迹以实现情景记忆。我们进一步构建LoopBench基准测试，用于评估压缩缓存在长距离绕行后能否重建先前访问过的场景。实验表明，WorldTrace-Field将时间一致性提升15.5%，WorldTrace-Landmark在LoopBench上使情景记忆召回率提升19.5%，实现了无需重新训练的视觉持久生成扩展。",
+      "hf_link": "https://huggingface.co/papers/2608.07408"
+    },
+    "2608.03796": {
+      "title": "Efficient Knowledge Distillation for LLMs: Offline Top-K Logits and a Fused Chunked KL Loss",
+      "abstract": "Small language models are often the only option for deployment under tight latency, cost, and on-premises constraints, but they are rarely trained from scratch: a compressed model is usually recovered through knowledge distillation (KD). This recovery step largely decides the final quality, yet it is expensive. We present a practitioner's study of how to make distillation training efficient, organised around two systems contributions. First, we show that offline KD (caching the teacher's top-$K$ logits once and training the student against the cache) matches online distillation at near-identical training loss while removing the teacher from memory, running about 29\\% faster per iteration, and reaching up to 41\\% higher throughput on a single H200 GPU. Second, we introduce a \\emph{fused, chunked KL loss} that never materialises the full vocabulary-sized logit tensor, making peak memory linear in the sequence length. This removes the memory spike that otherwise caps context length and lets us train at four times the context (32{,}768 tokens) on a single GPU. A separate output-head-only toy benchmark isolates the loss kernel and confirms its memory and iteration-rate scaling from 4K to 256K tokens. Together these make large-scale healing and hundreds of ablations affordable. We also report supporting ablations on loss design and sequence packing. We release our chunked-loss implementation:this https URL.",
+      "abstract_zh": "小型语言模型通常是延迟、成本和本地部署约束下唯一可行的选择，但它们很少从头开始训练：压缩模型通常通过知识蒸馏（Knowledge Distillation，KD）恢复。这一恢复步骤在很大程度上决定了最终质量，但其计算成本高昂。本文围绕两项系统贡献，对如何实现高效的蒸馏训练进行了实践性研究。首先，我们证明离线KD（预先缓存教师模型的前K个对数概率，并基于缓存训练学生模型）能达到与在线蒸馏近乎一致的训练损失，同时无需将教师模型驻留内存，使每次迭代速度提升约29%，在单张H200 GPU上实现高达41%的吞吐量提升。其次，我们提出一种融合分块KL损失函数，该函数无需完整构建词汇表规模的对数概率张量，使峰值内存与序列长度呈线性关系。这消除了原本限制上下文长度的内存峰值，使得我们能在单GPU上以四倍于原长度（32，768个标记）的上下文进行训练。通过独立设计的仅含输出头的玩具基准测试，我们分离出损失计算内核，并验证了其在4K至256K标记范围内的内存与迭代速率扩展性。这些改进共同使得大规模修复训练和数百次消融实验变得可行。我们还报告了关于损失函数设计与序列打包的辅助性消融实验结果。我们已发布分块损失函数的实现代码：此https网址。",
+      "hf_link": "https://huggingface.co/papers/2608.03796"
+    },
+    "2608.06714": {
+      "title": "The Optimizer Is the Agent: Reasoning-Driven Search across Prompts, Programs, and ML Workflows",
+      "abstract": "Recent systems for optimizing prompts, programs, and ML workflows typically rely on explicit outer-loop controllers such as evolutionary search, bandits, or textual-gradient methods. We ask a fundamentally different question: how much of this search policy can be internalized by a single tool-using agent? We present ReASearch, a unified framework for reasoning-driven optimization in which the agent autonomously decides what to evaluate, how to diagnose failures, which edits to make, and when to verify or restart. Rather than serving only as a proposal generator guided by hand-designed heuristics, the agent actively analyzes outcomes, allocates budget, and refines its strategy over long horizons through persistent memory. With a shared agent loop and domain-specific tools, ReASearch instantiates the exact same scaffold to optimize prompts, programs, and ML workflows. Across 14 diverse tasks, it is competitive with and mostly better than specialized optimization systems, achieving gains of 2% to 40% over strong domain-specific baselines, and in some cases discovering solutions that improve on prior human best-known results. Crucially, we observe that complex search behaviors, which are typically implemented by explicit controllers, emerge naturally from the agent's reasoning process.",
+      "abstract_zh": "近期用于优化提示词、程序及机器学习工作流的系统通常依赖于显式的外部循环控制器，如进化搜索、多臂赌博机或文本梯度方法。我们提出了一个根本性的问题：这种搜索策略能在多大程度上被单一的工具使用智能体内部化？我们提出了ReASearch——一个推理驱动优化的统一框架，在该框架中智能体自主决定评估内容、诊断故障方式、实施何种修改，以及何时进行验证或重启。它不再仅仅作为受人工设计启发式规则引导的提案生成器，而是通过持久化记忆主动分析结果、分配资源，并在长周期中持续优化策略。通过共享的智能体循环和领域专用工具，ReASearch采用完全相同的架构来优化提示词、程序及机器学习工作流。在14项多样化任务中，该框架与专用优化系统性能相当且多数表现更优，相较于强大的领域专用基线方法实现了2%至40%的性能提升，在某些案例中发现了超越先前人类已知最优解的方案。关键的是，我们观察到那些通常由显式控制器实现的复杂搜索行为，能够自然地从智能体的推理过程中涌现。",
+      "hf_link": "https://huggingface.co/papers/2608.06714"
     },
     "2608.07110": {
       "title": "Modular TTT: Rethinking Test-Time Training as Composable Modules",
       "abstract": "Test-time training (TTT) views sequence modeling as an online learning problem in which fast weights are updated by an internal learning rule. Despite the growing number of TTT variants, existing approaches typically hard-code each variant separately, which makes it difficult to design new TTT methods and to isolate the role of each component. To address this, we propose Modular TTT, a framework that represents the inner learner as a directed acyclic graph and exposes the fast-weight network, loss function, learning rate, weight decay, and normalization as explicit design dimensions. Modular TTT automatically composes primitive-level train-view forward, train-view backward, and causal query-view rules into the full graph-level TTT computation, including the fast-weight state transition. Using Modular TTT, we systematically ablate the components of TTT and find that small learning-rate initialization, weight decay, and a single-layer nonlinearity improve performance, while MSE and inner-product losses perform similarly. Deeper fast-weight networks and normalization tend to hurt performance because they induce excessively large activations, while residual connections and gating provide little measurable benefit. Guided by these findings, we train the best resulting variant as 410M- and 1.45B-parameter models on 100B tokens, and observe training loss and benchmark performance comparable to Gated DeltaNet.",
       "abstract_zh": "测试时训练(Test-time training, TTT)将序列建模视为在线学习问题，通过内部学习规则更新快速权重。尽管TTT变体日益增多，现有方法通常将每个变体分别硬编码实现，这导致新TTT方法的设计过程困难，且难以分离各组件的作用。为解决这一问题，我们提出模块化TTT(Modular TTT)——该框架将内部学习器表示为有向无环图，并将快速权重网络、损失函数、学习率、权重衰减和归一化等要素显式暴露为设计维度。模块化TTT能自动将原始层级的训练视角前向传播、训练视角反向传播及因果查询视角规则组合成全图层级的TTT计算流程，包括快速权重状态转移。利用模块化TTT，我们系统性地对各组件进行消融实验，发现：较小的学习率初始化值、权重衰减及单层非线性结构能提升性能，而均方误差损失与内积损失表现相近；更深的快速权重网络与归一化操作往往损害性能，因其会引发过度激活；残差连接与门控机制则未能带来显著收益。基于这些发现，我们采用最佳变体训练了参数量分别为4.1亿和14.5亿的模型（训练数据规模1000亿标记），观察到其训练损失与基准测试性能可与门控DeltaNet(Gated DeltaNet)相媲美。",
       "hf_link": "https://huggingface.co/papers/2608.07110"
-    },
-    "2608.07222": {
-      "title": "Skaling: Chinchilla's Exponents Meet Kaplan's Coupling",
-      "abstract": "Neural scaling laws are foundational for language model development, yet standard formulations systematically under- and overestimate loss at data-scarce and overtraining extremes. This failure originates in the underlying assumption that model size and training data impact the loss independently. To address this, we introduce the Skaling law, a generalized functional form that couples model capacity and data through a single interaction exponent. This simple extension reduces the Mean Absolute Percentage Error (MAPE) by 1.5-3x across both interpolation and extrapolation regimes. When paired with a sparse grid strategy restricted to low-compute regimes, the Skaling law achieves accurate full-grid extrapolation using approximately 10x less compute than uniform sweeps. By enabling reliable performance prediction from small-scale experiments, the Skaling law provides a more robust and resource-efficient framework for allocating compute budgets in next-generation model training.",
-      "abstract_zh": "神经缩放定律是语言模型发展的基础，然而标准公式在数据稀缺和过度训练两种极端情况下会系统性地低估和高估损失。这一缺陷源于其基本假设，即模型规模与训练数据对损失的影响是相互独立的。为解决此问题，我们提出了Skaling定律，这是一种通过单一交互指数耦合模型容量与数据的广义函数形式。这一简单扩展在插值和外推两种场景下，将平均绝对百分比误差降低了1.5至3倍。当与局限于低计算区域的稀疏网格策略结合时，Skaling定律仅需约十分之一于均匀扫描的计算量，即可实现精确的全网格外推。通过从小规模实验中实现可靠的性能预测，Skaling定律为下一代模型训练中的计算资源分配提供了一个更稳健、更高效的框架。",
-      "hf_link": "https://huggingface.co/papers/2608.07222"
     },
     "2608.06640": {
       "title": "Characterizing the Quality Profile of AI-Generated C++ in Production",
@@ -78,11 +90,17 @@
       "abstract_zh": "特权在线蒸馏通过允许同步教师在每一轮访问仅训练时可见的参考（如成功轨迹）重新评估学生智能体的响应，从而为多轮智能体提供密集监督。然而在交互式环境中，学生智能体的先前行动会持续改变执行状态。当学生采取不同行动或以不同顺序完成子目标时，其执行轨迹可能到达参考轨迹未覆盖的状态，使得参考信息对实际到达状态的指导变得不可靠。因此，不加区分地应用特权蒸馏会导致状态-参考失配。这种失配催生了一个核心目标：提供与智能体当前执行状态保持兼容的特权参考指导。我们提出状态匹配路由与上下文自蒸馏方法，该方法显式地决定特权轨迹应在何时以及如何指导在线学生智能体。在每一轮中，该方法验证学生当前执行状态是否与参考轨迹上的支持状态相匹配。仅当状态匹配时才应用蒸馏，从而过滤掉参考轨迹缺乏局部兼容性指导的轮次。对于每个匹配状态，该方法进一步从成功轨迹构建状态条件化的教师上下文，使监督信息基于实际到达的状态进行适配。在ALFWorld和WebShop环境中，该方法始终优于无条件的完整成功路径蒸馏。使用Qwen3-1.7B模型时，该方法将ALFWorld的任务成功率从0.746提升至0.865，将WebShop的成功率从0.574提升至0.693。控制性路由与上下文消融实验证明，选择局部支持的轮次和构建状态兼容的教师上下文共同促成了性能提升。代码已发布于https://此URL。",
       "hf_link": "https://huggingface.co/papers/2608.05219"
     },
-    "2608.06714": {
-      "title": "The Optimizer Is the Agent: Reasoning-Driven Search across Prompts, Programs, and ML Workflows",
-      "abstract": "Recent systems for optimizing prompts, programs, and ML workflows typically rely on explicit outer-loop controllers such as evolutionary search, bandits, or textual-gradient methods. We ask a fundamentally different question: how much of this search policy can be internalized by a single tool-using agent? We present ReASearch, a unified framework for reasoning-driven optimization in which the agent autonomously decides what to evaluate, how to diagnose failures, which edits to make, and when to verify or restart. Rather than serving only as a proposal generator guided by hand-designed heuristics, the agent actively analyzes outcomes, allocates budget, and refines its strategy over long horizons through persistent memory. With a shared agent loop and domain-specific tools, ReASearch instantiates the exact same scaffold to optimize prompts, programs, and ML workflows. Across 14 diverse tasks, it is competitive with and mostly better than specialized optimization systems, achieving gains of 2% to 40% over strong domain-specific baselines, and in some cases discovering solutions that improve on prior human best-known results. Crucially, we observe that complex search behaviors, which are typically implemented by explicit controllers, emerge naturally from the agent's reasoning process.",
-      "abstract_zh": "近期用于优化提示词、程序及机器学习工作流的系统通常依赖于显式的外部循环控制器，如进化搜索、多臂赌博机或文本梯度方法。我们提出了一个根本性的问题：这种搜索策略能在多大程度上被单一的工具使用智能体内部化？我们提出了ReASearch——一个推理驱动优化的统一框架，在该框架中智能体自主决定评估内容、诊断故障方式、实施何种修改，以及何时进行验证或重启。它不再仅仅作为受人工设计启发式规则引导的提案生成器，而是通过持久化记忆主动分析结果、分配资源，并在长周期中持续优化策略。通过共享的智能体循环和领域专用工具，ReASearch采用完全相同的架构来优化提示词、程序及机器学习工作流。在14项多样化任务中，该框架与专用优化系统性能相当且多数表现更优，相较于强大的领域专用基线方法实现了2%至40%的性能提升，在某些案例中发现了超越先前人类已知最优解的方案。关键的是，我们观察到那些通常由显式控制器实现的复杂搜索行为，能够自然地从智能体的推理过程中涌现。",
-      "hf_link": "https://huggingface.co/papers/2608.06714"
+    "2608.00675": {
+      "title": "Round-Trip Consistency: Bidirectional Diffusion Models Can Predict Their Own Rollout Errors",
+      "abstract": "Autoregressive models accumulate error over long rollouts, yet at deployment there is no ground truth to measure it against. We train a single conditional latent diffusion model that steps a dynamical system forward or backward in time via a direction flag, and show that this bidirectionality supplies a measurement-free test-time error signal: rolling forward $i$ steps and then backward $i$ steps must return the model to its start, so the round-trip discrepancy $\\mathcal{C}_i$ is a self-supervised proxy for the unobservable rollout error: no ensembles, no held-out data, no governing equations, for one extra rollout. We validate on compressible magnetohydrodynamics (MHD), an astrophysical turbulent radiative mixing layer, and natural face videos (CelebV-HQ). On held-out MHD trajectories, $\\mathcal{C}_i$ ranks rollout error (Spearman $0.91$-$0.98$ at fixed depth; $0.69 \\pm 0.16$ within trajectories), and a simple calibrator fit on training rollouts predicts its magnitude to within $1.14\\times$ ($68\\%$) and $1.29\\times$ ($95\\%$) with near-nominal coverage - one nat beyond a depth-only predictor, transferring to all six decoded physical fields. The same signal flags the out-of-distribution Orszag-Tang vortex (AUROC $0.98$; $1.0$ by depth $10$) exactly where sampling-dispersion baselines invert, and it cuts incurred error by $15\\%$ at $80\\%$ coverage - three times the depth-only baseline. Bidirectional training comes at negative cost, beating direction specialists in both directions, and the backward direction doubles as a fast inverse solver. On LE-PDE-UQ's turbulent Navier-Stokes benchmark, a single bidirectional model reaches accuracy within $1.3\\times$ of their ten-model ensemble at a tenth of the training cost, with the best training-free pixel-level calibration. Round-trip consistency turns reversibility into a practical trust signal for generative models.",
+      "abstract_zh": "自回归模型在长序列推演中会积累误差，但在实际部署时缺乏真实值作为参照。我们训练了一个单一的条件潜在扩散模型，该模型通过方向标志在时间维度上向前或向后推进动力系统，并证明这种双向性提供了一种无需测量的测试时误差信号：向前推演$i$步再向后推演$i$步必然使模型回到初始状态，因此往返差异$\\mathcal{C}_i$可作为不可观测推演误差的自监督代理指标——无需集成模型、无需预留数据、无需控制方程，仅需增加一次推演代价。我们在可压缩磁流体动力学（MHD，magnetohydrodynamics）、天体物理湍流辐射混合层以及自然人脸视频（CelebV-HQ）数据集上进行了验证。在预留的MHD轨迹中，$\\mathcal{C}_i$能有效排序推演误差（固定深度下斯皮尔曼系数$0.91$-$0.98$；轨迹内部$0.69 \\pm 0.16$），且通过训练轨迹拟合的简单校准器可将误差幅度预测至$1.14$倍（$68\\%$区间）和$1.29$倍（$95\\%$区间）范围内，其覆盖概率接近理论值——相较于仅依赖深度的预测器提升1纳特，该特性在所有六个解码物理场中均保持有效。同一信号能精准标识分布外的Orszag-Tang涡旋（AUROC $0.98$；深度$10$时达$1.0$），其检测位置恰与采样离散基线发生反转，并在$80\\%$覆盖度下将实际误差降低$15\\%$——达到仅用深度基线效果的三倍。双向训练具有负成本优势，在前后两个方向均超越专用单向模型，且反向推演功能可兼作快速逆求解器。在LE-PDE-UQ的湍流纳维-斯托克斯基准测试中，单个双向模型以十分之一的训练成本达到十模型集成精度的$1.3$倍范围内，并实现最佳的无训练像素级校准。往返一致性将可逆性转化为生成模型中具有实际意义的可信度信号。",
+      "hf_link": "https://huggingface.co/papers/2608.00675"
+    },
+    "2608.07341": {
+      "title": "Zero Gap Is Not Restoration: Stratified Per-Question Probability Evaluation and Step-wise Mitigation of Benchmark Contamination",
+      "abstract": "Test data from public benchmarks inevitably leaks into pretraining corpora, inflating evaluation scores once memorized. \\textbf{Contamination mitigation evaluation} intervenes in the decoding process to suppress memorization and restore a contaminated model's genuine capability, but its prevailing metric, the \\textbf{G-AP} (\\textbf{G}ap of \\textbf{A}ggregate \\textbf{P}erformance), is flawed. Discrete correct/incorrect readouts cannot characterize per-question performance, averaging before differencing lets over- and under-suppression cancel out, and uniform per-question weighting invites strategies to push solve probabilities onto the clean model's high-frequency values. We propose \\textbf{SA-PPG} (\\textbf{S}tratified \\textbf{A}ggregate of \\textbf{P}er-question \\textbf{P}robability \\textbf{G}aps): estimate each question's solve probability by sampling, difference it against the clean model per question, and aggregate within groups defined by the clean model's solve probability. Existing mitigation strategies first estimate where contamination lies and then operate on the estimate, so they are only as correct as the estimate. \\textbf{RailCap} instead judges contamination during generation: whenever a sample falls back onto the greedy trajectory, the next trajectory token is capped to the runner-up, accumulating suppression until the response distribution becomes sufficiently dispersed. Across multiple contaminated models and benchmarks, SA-PPG reveals that prior strategies' restoration is substantially overestimated, while RailCap attains the lowest SA-PPG.",
+      "abstract_zh": "公开基准测试数据不可避免地会泄露至预训练语料库中，一旦被模型记忆就会虚增评估分数。**污染缓解评估**通过干预解码过程来抑制记忆效应，旨在恢复受污染模型的真实能力，但当前主流指标**G-AP**（聚合性能差距）存在缺陷：离散的正误判定无法刻画每个问题的性能表现；先平均后差分的方法会使过度抑制与抑制不足相互抵消；而统一的问题权重分配则可能诱导策略将求解概率推向干净模型的高频值。我们提出**SA-PPG**（分层聚合的逐题概率差距）：通过采样估计每个问题的求解概率，逐题计算其与干净模型的差值，并在依据干净模型求解概率定义的组别内进行聚合。现有缓解策略通常先估计污染位置再基于估计值进行操作，因此其效果受限于估计的准确性。**RailCap**则改为在生成过程中动态判定污染：当采样结果回退至贪婪轨迹时，将下一轨迹标记限定为次优选项，持续积累抑制效应直至响应分布充分分散。在多个受污染模型和基准测试上的实验表明，SA-PPG指标揭示出先前策略的性能恢复程度被严重高估，而RailCap实现了最低的SA-PPG值。",
+      "hf_link": "https://huggingface.co/papers/2608.07341"
     },
     "2608.06485": {
       "title": "Do AI Personas Grow? Analyzing and Benchmarking Personality Evolution in LLM Agents After Life Events",
@@ -96,55 +114,81 @@
       "abstract_zh": "基于大语言模型（LLM）的智能体迅速发展，能够自主调用外部工具来为用户完成多步骤任务。然而，这些智能体常常获取比任务所需更敏感的信息。现有的隐私基准主要审计智能体响应或对外动作所披露的内容，却忽略了数据首次进入智能体上下文的获取阶段。过度获取的信息一旦遭遇操作疏忽或攻击，便面临直接泄露的风险。为评估此现象的普遍性，我们提出了隐私窥探（PrivacyPeek），这是一个用于评估基于大语言模型的智能体在获取阶段隐私泄露的基准，包含1,182个测试案例，覆盖7种获取行为和16个应用领域。具体而言，获取阶段检测（Acquisition Inspection）通过检查智能体的工具调用轨迹——包括其调用的工具和接收的数据——来检测其是否在任务范围外获取了敏感信息。随后，探测诱发（Probe Elicitation）发出后续探测，并测量攻击者能够多轻易地诱使智能体披露其已获取但未主动公开的敏感信息。我们在4个模型系列的10个基于大语言模型的智能体上进行的实验表明，不必要的敏感信息获取现象普遍存在。此外，我们观察到任务完成能力与获取阶段泄露之间存在相关性。提示级别的防御措施仅能减少一小部分获取阶段泄露，大部分泄露问题仍未得到缓解。这些结果表明，对获取阶段隐私进行审计既迫切又必要。我们的数据集与代码可通过以下链接获取：此 HTTPS 网址。",
       "hf_link": "https://huggingface.co/papers/2606.00152"
     },
-    "2608.00675": {
-      "title": "Round-Trip Consistency: Bidirectional Diffusion Models Can Predict Their Own Rollout Errors",
-      "abstract": "Autoregressive models accumulate error over long rollouts, yet at deployment there is no ground truth to measure it against. We train a single conditional latent diffusion model that steps a dynamical system forward or backward in time via a direction flag, and show that this bidirectionality supplies a measurement-free test-time error signal: rolling forward $i$ steps and then backward $i$ steps must return the model to its start, so the round-trip discrepancy $\\mathcal{C}_i$ is a self-supervised proxy for the unobservable rollout error: no ensembles, no held-out data, no governing equations, for one extra rollout. We validate on compressible magnetohydrodynamics (MHD), an astrophysical turbulent radiative mixing layer, and natural face videos (CelebV-HQ). On held-out MHD trajectories, $\\mathcal{C}_i$ ranks rollout error (Spearman $0.91$-$0.98$ at fixed depth; $0.69 \\pm 0.16$ within trajectories), and a simple calibrator fit on training rollouts predicts its magnitude to within $1.14\\times$ ($68\\%$) and $1.29\\times$ ($95\\%$) with near-nominal coverage - one nat beyond a depth-only predictor, transferring to all six decoded physical fields. The same signal flags the out-of-distribution Orszag-Tang vortex (AUROC $0.98$; $1.0$ by depth $10$) exactly where sampling-dispersion baselines invert, and it cuts incurred error by $15\\%$ at $80\\%$ coverage - three times the depth-only baseline. Bidirectional training comes at negative cost, beating direction specialists in both directions, and the backward direction doubles as a fast inverse solver. On LE-PDE-UQ's turbulent Navier-Stokes benchmark, a single bidirectional model reaches accuracy within $1.3\\times$ of their ten-model ensemble at a tenth of the training cost, with the best training-free pixel-level calibration. Round-trip consistency turns reversibility into a practical trust signal for generative models.",
-      "abstract_zh": "自回归模型在长序列推演中会积累误差，但在实际部署时缺乏真实值作为参照。我们训练了一个单一的条件潜在扩散模型，该模型通过方向标志在时间维度上向前或向后推进动力系统，并证明这种双向性提供了一种无需测量的测试时误差信号：向前推演$i$步再向后推演$i$步必然使模型回到初始状态，因此往返差异$\\mathcal{C}_i$可作为不可观测推演误差的自监督代理指标——无需集成模型、无需预留数据、无需控制方程，仅需增加一次推演代价。我们在可压缩磁流体动力学（MHD，magnetohydrodynamics）、天体物理湍流辐射混合层以及自然人脸视频（CelebV-HQ）数据集上进行了验证。在预留的MHD轨迹中，$\\mathcal{C}_i$能有效排序推演误差（固定深度下斯皮尔曼系数$0.91$-$0.98$；轨迹内部$0.69 \\pm 0.16$），且通过训练轨迹拟合的简单校准器可将误差幅度预测至$1.14$倍（$68\\%$区间）和$1.29$倍（$95\\%$区间）范围内，其覆盖概率接近理论值——相较于仅依赖深度的预测器提升1纳特，该特性在所有六个解码物理场中均保持有效。同一信号能精准标识分布外的Orszag-Tang涡旋（AUROC $0.98$；深度$10$时达$1.0$），其检测位置恰与采样离散基线发生反转，并在$80\\%$覆盖度下将实际误差降低$15\\%$——达到仅用深度基线效果的三倍。双向训练具有负成本优势，在前后两个方向均超越专用单向模型，且反向推演功能可兼作快速逆求解器。在LE-PDE-UQ的湍流纳维-斯托克斯基准测试中，单个双向模型以十分之一的训练成本达到十模型集成精度的$1.3$倍范围内，并实现最佳的无训练像素级校准。往返一致性将可逆性转化为生成模型中具有实际意义的可信度信号。",
-      "hf_link": "https://huggingface.co/papers/2608.00675"
-    },
-    "2608.07341": {
-      "title": "Zero Gap Is Not Restoration: Stratified Per-Question Probability Evaluation and Step-wise Mitigation of Benchmark Contamination",
-      "abstract": "Test data from public benchmarks inevitably leaks into pretraining corpora, inflating evaluation scores once memorized. \\textbf{Contamination mitigation evaluation} intervenes in the decoding process to suppress memorization and restore a contaminated model's genuine capability, but its prevailing metric, the \\textbf{G-AP} (\\textbf{G}ap of \\textbf{A}ggregate \\textbf{P}erformance), is flawed. Discrete correct/incorrect readouts cannot characterize per-question performance, averaging before differencing lets over- and under-suppression cancel out, and uniform per-question weighting invites strategies to push solve probabilities onto the clean model's high-frequency values. We propose \\textbf{SA-PPG} (\\textbf{S}tratified \\textbf{A}ggregate of \\textbf{P}er-question \\textbf{P}robability \\textbf{G}aps): estimate each question's solve probability by sampling, difference it against the clean model per question, and aggregate within groups defined by the clean model's solve probability. Existing mitigation strategies first estimate where contamination lies and then operate on the estimate, so they are only as correct as the estimate. \\textbf{RailCap} instead judges contamination during generation: whenever a sample falls back onto the greedy trajectory, the next trajectory token is capped to the runner-up, accumulating suppression until the response distribution becomes sufficiently dispersed. Across multiple contaminated models and benchmarks, SA-PPG reveals that prior strategies' restoration is substantially overestimated, while RailCap attains the lowest SA-PPG.",
-      "abstract_zh": "公开基准测试数据不可避免地会泄露至预训练语料库中，一旦被模型记忆就会虚增评估分数。**污染缓解评估**通过干预解码过程来抑制记忆效应，旨在恢复受污染模型的真实能力，但当前主流指标**G-AP**（聚合性能差距）存在缺陷：离散的正误判定无法刻画每个问题的性能表现；先平均后差分的方法会使过度抑制与抑制不足相互抵消；而统一的问题权重分配则可能诱导策略将求解概率推向干净模型的高频值。我们提出**SA-PPG**（分层聚合的逐题概率差距）：通过采样估计每个问题的求解概率，逐题计算其与干净模型的差值，并在依据干净模型求解概率定义的组别内进行聚合。现有缓解策略通常先估计污染位置再基于估计值进行操作，因此其效果受限于估计的准确性。**RailCap**则改为在生成过程中动态判定污染：当采样结果回退至贪婪轨迹时，将下一轨迹标记限定为次优选项，持续积累抑制效应直至响应分布充分分散。在多个受污染模型和基准测试上的实验表明，SA-PPG指标揭示出先前策略的性能恢复程度被严重高估，而RailCap实现了最低的SA-PPG值。",
-      "hf_link": "https://huggingface.co/papers/2608.07341"
+    "2607.23379": {
+      "title": "When Activation Oracles Learn Not to Read: Concept-Specific Blind Spots in Fine-Tuned Oracles",
+      "abstract": "Activation Oracles (AOs) are language models trained to answer natural-language questions about another model's internal activations. They offer a flexible interface for reading hidden information from model states, especially when relevant information is internally represented but absent or incomplete in visible behavior. However, AOs are themselves learned systems: their answers are shaped by training data, objectives, and learned reporting behavior, rather than being neutral readouts of represented information. We study this in a controlled Taboo Word Guessing setting, where subject models are fine-tuned to internally use a hidden concept while avoiding direct disclosure. Contrary to the expectation that an AO trained on such a subject becomes a specialist reader, we find that fine-tuned AOs can become concept-specific anti-readers: they selectively fail to recover the concept persistently present during their own training. This failure is not simply explained by absence of the concept from the subject or oracle representations: the target remains decodable inside the oracle, while LogitLens and layer-ablation analyses indicate that the failure arises in the AO readout pathway. Our results show that behavioral leakage, representation-level decodability, and AO-verbalizability can come apart, raising a reliability concern for learned interpretability interfaces.",
+      "abstract_zh": "激活预言机（Activation Oracles，AOs）是一种经过训练的语言模型，旨在回答关于另一个模型内部激活的自然语言问题。它们提供了一个灵活的接口，用于从模型状态中读取隐藏信息，特别是在相关信息已在内部表征但未在可见行为中体现或体现不完整的情况下。然而，激活预言机本身是学习系统：其回答受到训练数据、目标函数及习得的报告行为所塑造，而非对所表征信息的中性读取。我们在受控的禁忌词猜测（Taboo Word Guessing）场景中对此进行研究，其中主体模型被微调以在内部使用一个隐藏概念，同时避免直接披露该概念。与训练于此种主体的激活预言机应成为专业读取者的预期相反，我们发现经过微调的激活预言机可能转变为针对特定概念的反读取者：它们会选择性无法恢复在自身训练期间持续存在的概念。这种失败无法简单地归因于概念在主体或预言机表征中的缺失：目标概念在预言机内部仍可被解码，而通过LogitLens和层消融分析表明，失败源于激活预言机的读取路径。我们的研究结果表明，行为泄漏、表征层面的可解码性与激活预言机可言语化能力可能出现分离，这对学习型可解释性接口的可靠性提出了关切。",
+      "hf_link": "https://huggingface.co/papers/2607.23379"
     },
     "2608.06501": {
       "title": "Can MLLMs Decode the Creative Leap? Introducing C4 for Cross-Concept Understanding",
       "abstract": "Creative capabilities of MLLMs matter in design, communication, education, and human--AI collaboration, yet remain difficult to evaluate because explicit targets and reward signals are scarce compared with accuracy-oriented tasks. Cross-concept understanding is a core cognitive capacity underlying receptive creativity. It enables a perceiver to recover intended meaning from non-obvious but meaningful conceptual relations. We operationalize item construction as cross-concept encoding and model inference as cross-concept decoding. We introduce C4, a cognition-inspired evaluation framework for Chengyu (Chinese idiom)-based Cross-Concept Creativity. Its encoding component maps target slots to imageable substitute concepts along bridge paths in a manually annotated and third-party-reviewed cross-concept network, enabling batch generation with explicit structure, difficulty indexed by bridge count and depth, and exact answers. Using this framework, we instantiate the C4 Evaluation Set (C4-Eval), comprising 184 synthetic items and 37 human-created cross-concept chengyu figures collected from online sources. We manually construct and review cross-concept relations, bridge paths, and reasoning processes for the collected figures. Each C4-Eval item is instantiated in five task settings, yielding 884 primary answer-recovery cases. Across ten evaluated MLLMs, the strongest closed models reach 50.7% and 48.0% primary accuracy, while open-source models remain substantially lower. Candidate constraints improve accuracy sharply, but bridge hints and explanation requests provide only modest gains. These results expose a substantial gap in how current MLLMs decode creatively encoded meaning through cross-concept relations. The code is in the supplementary material.",
       "abstract_zh": "多模态大模型(MLLMs)的创造性能力在设计、传播、教育和人机协作领域具有重要意义，但由于缺乏明确的目标与奖励信号，其评估难度远高于以准确性为导向的任务。跨概念理解是接受性创造力的核心认知能力，它使感知者能够从非显而易见却有意义的概念关联中还原出既定含义。我们将题目构建操作化为跨概念编码，将模型推理操作化为跨概念解码。本文提出C4——一个基于成语(Chengyu)的跨概念创造力认知启发式评估框架。其编码组件通过人工标注且经过第三方评审的跨概念网络，将目标槽位沿桥接路径映射为可图像化的替代概念，从而实现具有显式结构、以桥接数量和深度标定难度、且答案精确的批量题目生成。基于该框架，我们实例化了C4评估集(C4-Eval)，包含184道合成题目以及从网络渠道收集的37个人类创作的跨概念成语图像。我们对收集图像中的跨概念关系、桥接路径及推理过程进行了人工构建与审核。每个C4-Eval题目被实例化为五种任务场景，共产生884个核心答案还原案例。在评估的十款多模态大模型中，表现最佳的闭源模型核心准确率分别达到50.7%与48.0%，而开源模型则显著落后。候选约束条件能大幅提升准确率，但桥接提示与解释请求带来的增益有限。这些结果揭示了当前多模态大模型通过跨概念关系解码创造性编码含义的能力存在显著差距。代码详见补充材料。",
       "hf_link": "https://huggingface.co/papers/2608.06501"
+    },
+    "2608.04314": {
+      "title": "Adversarial Attacks for Good: A Survey of Proactive Protection across the Visual Content Lifecycle",
+      "abstract": "Once visual content enters an AI pipeline, its owner often retains little technical control over how it is used. Legal and regulatory remedies can address misuse, but many technical interventions must be applied earlier, when content is released or accessed. This survey examines the protective paradigm that has grown around this intervention point, which we call \\emph{adversarial attacks for good}. Perturbations and structured signals long studied as attacks on learned models are instead applied by data owners, creators, platforms, or auditors to disrupt unauthorized automation or support later accountability. Five research communities have arrived at this inversion largely independently, each addressing a different stage of a visual asset's lifecycle: privacy filters against unwanted recognition at sharing time, unlearnable examples against unauthorized training, generative safeguards against malicious editing or imitation, adversarial CAPTCHAs for access control against automated agents, and provenance mechanisms for post-circulation attribution. Although developed in separate venues with incompatible success criteria, many of these methods exploit persistent gaps between human perception, semantic interpretation, and machine inference, suggesting that the paradigm remains relevant as visual pipelines evolve toward multimodal models and autonomous agents. To make their claims comparable, we evaluate all five families along shared axes of transferability, adaptability, and deployment readiness. Across the lifecycle, we find that most protections are still validated mainly against static or weakly adaptive adversaries, while evidence beyond controlled benchmarks remains scarce. We close by consolidating cross-stage countermeasures and open problems for robust, composable, and deployable owner-side protection.",
+      "abstract_zh": "一旦视觉内容进入人工智能处理流程，其所有者往往对其使用方式缺乏技术控制。法律与监管手段虽能处理滥用行为，但许多技术干预必须在内容发布或访问的早期阶段实施。本综述研究围绕这一干预点形成的保护范式——我们称之为“善用对抗性攻击”。长期以来被视作对学习模型攻击的扰动与结构化信号，在此被数据所有者、创作者、平台或审计方用于阻截未经授权的自动化行为，或为后续问责提供支持。五个研究领域基本独立地实现了这种范式反转，各自针对视觉资产生命周期的不同阶段：在分享阶段防止非自愿识别的隐私滤镜、阻止未经授权训练的抗学习样本、防范恶意编辑或模仿的生成式防护、用于访问控制以抵御自动化代理的对抗性验证码，以及面向流通后溯源的可追溯性机制。尽管这些方法在不同场景中独立发展且成功标准不一，但多数都利用了人类感知、语义解释与机器推断之间持续存在的差距，表明随着视觉处理流程向多模态模型与自主代理演进，该范式仍具现实意义。为使各类方法的声称效果具有可比性，我们沿袭可迁移性、适应性和部署就绪度这三个共同维度评估了所有五类技术。纵观整个生命周期，我们发现大多数保护措施仍主要针对静态或弱适应性攻击者进行验证，而在受控基准测试之外的实证证据依然匮乏。最后，我们整合了跨阶段应对策略，并提出了面向强健性、可组合性及可部署的所有者端保护机制的开放性问题。",
+      "hf_link": "https://huggingface.co/papers/2608.04314"
+    },
+    "2608.06756": {
+      "title": "Capek 0.5: An Execution-Centric Vision-Language Model for Embodied Intelligence",
+      "abstract": "Vision-language models are increasingly serving as the reasoning core of embodied agents. Robot execution is inherently iterative: each action reshapes the scene and physical state, continually renewing what must be perceived, reasoned about, and verified. Meeting these demands requires complementary capabilities that differ in supervision signals, prediction formats, and verification criteria. Existing approaches typically develop these capabilities against isolated, task-specific objectives, leaving open how they should be organized and integrated around execution as a whole. We present Capek 0.5, an embodied vision-language model built around an execution-centric capability taxonomy. Rather than organizing training by datasets or tasks, the taxonomy groups embodied capabilities according to their functional roles throughout execution and comprises four capability families: Spatial Reasoning, Temporal Understanding, Action Guidance, and State Verification. Each capability is first acquired by a dedicated specialist through reinforcement learning with verifiable rewards from a shared backbone, and the specialists are then consolidated into a single inference-time model through weight-space merging followed by routed policy-space distillation. We instantiate Capek 0.5 at the 2B and 35B-A3B scales and evaluate it from three complementary perspectives: comprehensive benchmark suites including Capek-StateBench, a new benchmark for state verification; a controlled study of capability retention from specialists to the unified model; and closed-loop evaluation in simulated embodied environments. Capek 0.5 improves the large majority of matched benchmark rows over its initialization, retains all four specialized capabilities in one checkpoint with quantified losses, and transfers to closed-loop embodied task execution.",
+      "abstract_zh": "视觉-语言模型正日益成为具身智能体的推理核心。机器人执行本质上是迭代过程：每个动作都会重塑场景和物理状态，持续更新需要感知、推理与验证的内容。满足这些需求需要具备不同监督信号、预测格式和验证标准的互补能力。现有方法通常针对孤立的任务特定目标开发这些能力，未解决应如何围绕执行整体进行组织与整合的问题。我们提出Capek 0.5——一个围绕以执行为中心的能力分类体系构建的具身视觉-语言模型。该分类体系并非按数据集或任务组织训练，而是根据各能力在执行过程中的功能角色进行分组，包含四个能力家族：空间推理(Spatial Reasoning)、时序理解(Temporal Understanding)、动作引导(Action Guidance)和状态验证(State Verification)。每种能力首先由专精模型通过共享骨干网络的强化学习获得可验证奖励，随后通过权重空间合并与路由策略空间蒸馏将专精模型整合为单一推理时模型。我们在20亿和350亿-A3B参数量级上实例化Capek 0.5，并从三个互补维度进行评估：包含新型状态验证基准Capek-StateBench的综合测试套件；从专精模型到统一模型的能力保持控制性研究；以及模拟具身环境中的闭环评估。Capek 0.5在初始化基础上改进了绝大多数匹配基准项，在单一检查点中保留了全部四种专业能力且量化损失可控，并能迁移到闭环具身任务执行中。",
+      "hf_link": "https://huggingface.co/papers/2608.06756"
+    },
+    "2608.06013": {
+      "title": "OneEmo: A Unified Multimodal Reasoning Model for Emotion Perception, Understanding, and Interaction",
+      "abstract": "Multimodal Large Language Models (MLLMs) have demonstrated remarkable capabilities in emotional intelligence. However, prevailing research predominantly focuses on task-specific specialization, often neglecting inter-task synergy and leaving latent reasoning potential underexplored. To bridge this gap, we introduce OneEmo, a unified affective generalist capable of mastering emotion perception, comprehension, and interaction. For this purpose, we first construct EmoWorld-130K, a comprehensive dataset that distills specialized affective knowledge into explicit reasoning trajectories via a human-in-the-loop workflow. Supervised fine-tuning on this corpus reveals significant mutual benefits derived from multi-task learning. Second, to fully unlock the latent reasoning potential, we propose Emo-Chord, a novel reinforcement learning strategy that stabilizes optimization through unified multi-task reward allocation. Extensive experiments demonstrate that OneEmo achieves state-of-the-art performance against similarly sized baselines across most benchmarks. Notably, despite having significantly fewer parameters than commercial models, OneEmo delivers highly competitive results. This paper paves the way for more reliable and interpretable affective computing. The code is available atthis https URL.",
+      "abstract_zh": "多模态大语言模型（MLLMs）在情感智能方面展现出了卓越的能力。然而，现有研究主要集中于任务特定的专业化，往往忽视了任务间的协同作用，且未充分挖掘其潜在的推理能力。为弥补这一差距，我们提出了OneEmo——一个能够驾驭情感感知、理解与交互的统一情感通用模型。为此，我们首先构建了EmoWorld-130K数据集，该综合数据集通过人机协同工作流程，将专业化的情感知识提炼为显式的推理轨迹。基于此数据集的监督微调揭示了多任务学习带来的显著互益效应。其次，为充分释放潜在的推理能力，我们提出了Emo-Chord，这是一种新颖的强化学习策略，通过统一的多任务奖励分配来稳定优化过程。大量实验表明，OneEmo在大多数基准测试中，相较于同等规模的基线模型，均取得了最先进的性能。值得注意的是，尽管OneEmo的参数规模远小于商业模型，但其表现却极具竞争力。本文为构建更可靠、可解释的情感计算系统开辟了新路径。相关代码可通过此链接获取：https://this.https.URL。",
+      "hf_link": "https://huggingface.co/papers/2608.06013"
+    },
+    "2603.18846": {
+      "title": "Towards Interpretable Foundation Models for Retinal Fundus Images",
+      "abstract": "Foundation models are used to extract transferable representations from large amounts of unlabeled data, typically via self-supervised learning (SSL). However, many of these models rely on architectures that offer limited interpretability, a critical issue in high-stakes domains such as medical imaging. We propose DualIFM, a foundation model that is interpretable-by-design via a BagNet backbone whose small receptive fields generate class evidence maps that are faithful to the model's decision-making process. Additionally, DualIFM incorporates a $2D$ projection layer during pretraining that enables direct visualization of the representation space, providing a dataset-level view of the learned structure including meaningful clinical clusters as well as potential spurious correlations. We trained DualIFM on over 800,000 color fundus photographs from various sources to learn generalizable representations for different downstream tasks. Our model achieves performance comparable to RETFound, which has $16\\times$ more parameters, while providing interpretable predictions on out-of-distribution data. These results suggest that large-scale SSL pretraining paired with inherent interpretability can lead to robust representations for retinal imaging. Code and pretrained models are available atthis http URL.",
+      "abstract_zh": "基础模型（Foundation models）通常通过自监督学习（SSL）从大量无标注数据中提取可迁移的表征。然而，许多此类模型依赖的架构可解释性有限，这在医学影像等高风险领域是一个关键问题。我们提出了DualIFM，一种通过设计实现可解释性的基础模型，其采用BagNet骨干网络，该网络的小感受野能够生成与模型决策过程高度一致的类别证据图。此外，DualIFM在预训练阶段引入了一个$2D$投影层，可直接可视化表征空间，提供数据集层面的学习结构视图，包括有临床意义的簇群以及潜在的虚假相关性。我们利用来自不同来源的超过80万张彩色眼底照片训练DualIFM，以学习适用于不同下游任务的可泛化表征。我们的模型实现了与参数规模为其$16$倍的RETFound相当的性能，同时能在分布外数据上提供可解释的预测。这些结果表明，大规模自监督预训练与内在可解释性相结合，能够为视网膜影像生成鲁棒的表征。代码和预训练模型可通过此链接获取：this http URL。",
+      "hf_link": "https://huggingface.co/papers/2603.18846"
+    },
+    "2608.01310": {
+      "title": "FATE: Frame-Level Audio-Visual Temporal Embedding",
+      "abstract": "When a dog opens its mouth and barks, humans naturally recognize what the sound is and when it occurs. Building audio-visual models with this same ability requires representations that capture both semantic and temporal alignment. Current approaches fall short on one side or the other: embedding models match semantic but lose temporal information; synchronization models capture temporal offsets but lack semantic understanding. To bridge this gap, we propose FATE, Frame-level Audio-visual Temporal Embedding. Unlike prior embedding models that pool each modality into a single embedding and discard temporal information, FATE retains frame-level sequences, aligns them on the physical timeline, and computes similarity over strictly aligned frame pairs. Unlike synchronization models that output only an offset prediction, FATE encodes synchronization in a reusable embedding space, trained with a joint objective combining cross-video semantic and within-video temporal contrastive learning to capture both what sounds and when it occurs. Across three tasks, FATE surpasses the strongest baseline on temporal and semantic retrieval by a large margin, matches fully supervised methods on event localization in a zero-shot setting, and achieves the best correlation with human judgments as a generation evaluation metric. The source code can be found at \\texttt{this https URL}.",
+      "abstract_zh": "当一只狗张开嘴巴吠叫时，人类能够自然地识别出这是什么声音以及它何时发生。构建具备相同能力的视听模型，需要能够同时捕捉语义和时间对齐关系的表征。现有方法往往偏重其中一方面而有所不足：嵌入模型能够匹配语义但丢失了时间信息；同步模型可以捕捉时间偏移但缺乏语义理解。为弥合这一差距，我们提出了FATE（Frame-level Audio-visual Temporal Embedding，帧级视听时序嵌入）。与先前将每种模态池化为单一嵌入而丢弃时间信息的嵌入模型不同，FATE保留了帧级序列，将其在物理时间线上对齐，并通过严格对齐的帧对计算相似度。与仅输出偏移预测的同步模型相比，FATE将同步信息编码至可重用的嵌入空间，并通过结合跨视频语义对比学习和视频内时序对比学习的联合目标进行训练，从而同时捕捉\"什么声音\"和\"何时发生\"的信息。在三个任务中，FATE在时序检索和语义检索方面大幅超越最强基线模型，在零样本设置下的事件定位任务中达到与全监督方法相当的性能，并作为生成评估指标实现了与人类判断最高的相关性。源代码可在 \\texttt{此 https URL} 获取。",
+      "hf_link": "https://huggingface.co/papers/2608.01310"
     }
   },
   "hf_votes": {
-    "2608.07468": 0,
     "2608.03571": 0,
     "2608.03573": 0,
+    "2608.07468": 0,
+    "2608.05703": 0,
     "2608.07051": 0,
     "2608.02831": 0,
-    "2608.07408": 0,
-    "2608.05703": 0,
-    "2608.05597": 0,
     "2608.02148": 0,
-    "2608.07110": 0,
+    "2608.05597": 0,
     "2608.07222": 0,
+    "2608.07408": 0,
+    "2608.03796": 0,
+    "2608.06714": 0,
+    "2608.07110": 0,
     "2608.06640": 0,
     "2608.05219": 0,
-    "2608.06714": 0,
-    "2608.06485": 0,
-    "2606.00152": 0,
     "2608.00675": 0,
     "2608.07341": 0,
-    "2608.06501": 0
+    "2608.06485": 0,
+    "2606.00152": 0,
+    "2607.23379": 0,
+    "2608.06501": 0,
+    "2608.04314": 0,
+    "2608.06756": 0,
+    "2608.06013": 0,
+    "2603.18846": 0,
+    "2608.01310": 0
   },
   "focus_sections": {
     "3D生成与重建": []
   },
   "summaries": {
-    "2608.07468": {
-      "short_zh": "简单世界行动模型用于端到端自动驾驶",
-      "tags": "机器人;自动驾驶;端到端轨迹预测",
-      "body_summary": "现有世界行动模型在推理时需要生成未来视频帧，计算成本高昂。\n我们提出了SimWAM，它仅将视频生成作为训练信号，并联合训练视频专家与轻量级动作专家，推理时只需动作专家直接预测轨迹，实现了高效高性能的驾驶规划。"
-    },
     "2608.03571": {
       "short_zh": "增强多模态智能体训练环境设计",
       "tags": "机器学习;强化学习;多模态智能体训练",
@@ -154,6 +198,16 @@
       "short_zh": "大模型多任务训练中SFT与RL差异研究",
       "tags": "自然语言处理;大语言模型训练;多任务优化",
       "body_summary": "研究大模型多任务训练中监督微调和强化学习的不同表现。\n理论结合实验分析RL更新稀疏正交机制，并提出了更高效的并行训练范式。"
+    },
+    "2608.07468": {
+      "short_zh": "简单世界行动模型用于端到端自动驾驶",
+      "tags": "机器人;自动驾驶;端到端轨迹预测",
+      "body_summary": "现有世界行动模型在推理时需要生成未来视频帧，计算成本高昂。\n我们提出了SimWAM，它仅将视频生成作为训练信号，并联合训练视频专家与轻量级动作专家，推理时只需动作专家直接预测轨迹，实现了高效高性能的驾驶规划。"
+    },
+    "2608.05703": {
+      "short_zh": "长视频智能体理解与交互评测",
+      "tags": "多模态人工智能;视频理解与交互;长时流视频理解与交互评测",
+      "body_summary": "当前评测基于短视频和多选题，难以评估智能体在连续、长时、交互式视频环境中的表现。\n提出了StreamArena长时流视频理解评测基准和StreamMind框架，后者采用前后端架构分别处理即时交互与持久记忆以提升性能。"
     },
     "2608.07051": {
       "short_zh": "为YOLO设计高效调参框架",
@@ -165,35 +219,40 @@
       "tags": "机器学习;强化学习;音频推理与强化学习",
       "body_summary": "音频推理对机器理解声学世界至关重要，但现有强化学习奖励设计存在局限，要么只监督最终答案，要么依赖粗糙、固定的过程评分标准。\n本文提出AudioRubrics框架，为每个音频样本生成自演化、基于音频证据的评分标准作为奖励，动态监督推理过程，从而在多个基准上显著提升模型性能。"
     },
-    "2608.07408": {
-      "short_zh": "长视频世界模型记忆增强",
-      "tags": "视频生成；世界模型；记忆压缩",
-      "body_summary": "交互式视频世界模型在长序列生成中存在视觉记忆定位与压缩难题。\n提出训练无关框架，通过可寻址压缩记忆提升长程视觉一致性与场景回想能力。"
-    },
-    "2608.05703": {
-      "short_zh": "长视频智能体理解与交互评测",
-      "tags": "多模态人工智能;视频理解与交互;长时流视频理解与交互评测",
-      "body_summary": "当前评测基于短视频和多选题，难以评估智能体在连续、长时、交互式视频环境中的表现。\n提出了StreamArena长时流视频理解评测基准和StreamMind框架，后者采用前后端架构分别处理即时交互与持久记忆以提升性能。"
+    "2608.02148": {
+      "short_zh": "抖音多模态向量模型技术报告",
+      "tags": "多模态学习;多模态检索;多模态向量模型",
+      "body_summary": "大规模内容平台需要兼顾检索效率与细粒度区分能力。\n提出两阶段训练的向量模型，融合对比学习与增强语义保持机制，实现高效精准检索。"
     },
     "2608.05597": {
       "short_zh": "无人机视觉目标导航不确定性建模",
       "tags": "机器人;机器人导航;无人机视觉目标导航",
       "body_summary": "无人机需根据目标图像飞到指定位置，但现有方法因未来状态不确定性大，在户外场景中表现不佳。\n本文提出一种高效潜世界模型，通过不确定性分解实现鲁棒轨迹评分，实验证明其性能优越且延迟低。"
     },
-    "2608.02148": {
-      "short_zh": "抖音多模态向量模型技术报告",
-      "tags": "多模态学习;多模态检索;多模态向量模型",
-      "body_summary": "大规模内容平台需要兼顾检索效率与细粒度区分能力。\n提出两阶段训练的向量模型，融合对比学习与增强语义保持机制，实现高效精准检索。"
+    "2608.07222": {
+      "short_zh": "语言模型缩放律改进",
+      "tags": "机器学习;神经网络缩放律;缩放律建模与预测",
+      "body_summary": "现有缩放律公式在数据稀缺和过度训练场景下预测损失不准确。\n提出耦合模型规模与数据的Skaling定律，用更少计算量实现了更准确的性能预测。"
+    },
+    "2608.07408": {
+      "short_zh": "长视频世界模型记忆增强",
+      "tags": "视频生成；世界模型；记忆压缩",
+      "body_summary": "交互式视频世界模型在长序列生成中存在视觉记忆定位与压缩难题。\n提出训练无关框架，通过可寻址压缩记忆提升长程视觉一致性与场景回想能力。"
+    },
+    "2608.03796": {
+      "short_zh": "大模型高效蒸馏技术",
+      "tags": "自然语言处理;模型压缩;知识蒸馏",
+      "body_summary": "在资源受限时，小型语言模型需通过知识蒸馏从大模型获取能力，但蒸馏训练成本高昂。\n本文提出了离线缓存教师模型Top-K输出和一种融合分块KL损失函数，显著提升了蒸馏训练的速度与内存效率，支持更长上下文训练。"
+    },
+    "2608.06714": {
+      "short_zh": "智能体主导的优化搜索",
+      "tags": "机器学习;自动机器学习;优化智能体",
+      "body_summary": "当前优化提示、程序和机器学习工作流的系统通常依赖显式的外部循环控制器。\n我们提出了ReASearch，一个由智能体自主进行推理驱动的优化框架，它在多种任务上表现优异，甚至能超越特定领域的基线系统。"
     },
     "2608.07110": {
       "short_zh": "模块化测试时训练框架设计",
       "tags": "自然语言处理;序列建模;测试时训练",
       "body_summary": "测试时训练将序列建模视为在线学习问题，但现有方法难以灵活设计和分析组件。\n提出模块化测试时训练框架，通过系统消融研究优化模块并训练出高性能模型。"
-    },
-    "2608.07222": {
-      "short_zh": "语言模型缩放律改进",
-      "tags": "机器学习;神经网络缩放律;缩放律建模与预测",
-      "body_summary": "现有缩放律公式在数据稀缺和过度训练场景下预测损失不准确。\n提出耦合模型规模与数据的Skaling定律，用更少计算量实现了更准确的性能预测。"
     },
     "2608.06640": {
       "short_zh": "AI生成C++代码质量分析",
@@ -205,10 +264,15 @@
       "tags": "强化学习;智能体学习;多轮交互任务",
       "body_summary": "在训练多轮交互智能体时，直接套用最优轨迹进行监督，会因为智能体实际执行状态与参考状态不匹配而产生误导。\n本文提出状态匹配路由与情境自蒸馏方法，仅在智能体状态与参考轨迹状态匹配时才进行蒸馏，并构建状态相关的教师上下文，从而提供更可靠的指导。"
     },
-    "2608.06714": {
-      "short_zh": "智能体主导的优化搜索",
-      "tags": "机器学习;自动机器学习;优化智能体",
-      "body_summary": "当前优化提示、程序和机器学习工作流的系统通常依赖显式的外部循环控制器。\n我们提出了ReASearch，一个由智能体自主进行推理驱动的优化框架，它在多种任务上表现优异，甚至能超越特定领域的基线系统。"
+    "2608.00675": {
+      "short_zh": "双向扩散模型自评误差",
+      "tags": "生成模型;扩散模型;物理系统模拟",
+      "body_summary": "自回归模型在长序列预测中误差会累积，但运行时无法获得真实值来测量误差。\n我们训练了一个双向条件潜在扩散模型，通过前向和后向推理的一致性差异作为无监督的误差代理信号，并验证了其在多个复杂系统上的有效性。"
+    },
+    "2608.07341": {
+      "short_zh": "评估基准污染并提出新方法",
+      "tags": "自然语言处理;语言模型评估;基准污染缓解",
+      "body_summary": "公开测试数据泄露到预训练数据中，导致模型评估分数虚高（基准污染），现有评估指标存在缺陷。\n提出新评估指标SA-PGG，以更准确衡量污染缓解效果；并提出新缓解策略RailCap，在生成时动态抑制记忆内容。"
     },
     "2608.06485": {
       "short_zh": "大模型人格代理的性格演化分析",
@@ -220,20 +284,40 @@
       "tags": "大语言模型代理;隐私与安全;隐私获取泄露审计",
       "body_summary": "LLM智能体在执行任务时可能过度获取敏感信息，现有隐私评估方法忽视获取阶段。\n提出PrivacyPeek基准评估获取阶段泄露，发现泄露普遍且与任务能力相关，提示防御效果有限。"
     },
-    "2608.00675": {
-      "short_zh": "双向扩散模型自评误差",
-      "tags": "生成模型;扩散模型;物理系统模拟",
-      "body_summary": "自回归模型在长序列预测中误差会累积，但运行时无法获得真实值来测量误差。\n我们训练了一个双向条件潜在扩散模型，通过前向和后向推理的一致性差异作为无监督的误差代理信号，并验证了其在多个复杂系统上的有效性。"
-    },
-    "2608.07341": {
-      "short_zh": "评估基准污染并提出新方法",
-      "tags": "自然语言处理;语言模型评估;基准污染缓解",
-      "body_summary": "公开测试数据泄露到预训练数据中，导致模型评估分数虚高（基准污染），现有评估指标存在缺陷。\n提出新评估指标SA-PGG，以更准确衡量污染缓解效果；并提出新缓解策略RailCap，在生成时动态抑制记忆内容。"
+    "2607.23379": {
+      "short_zh": "微调神谕模型出现概念盲区",
+      "tags": "自然语言处理;可解释人工智能;激活神谕可靠性",
+      "body_summary": "激活神谕模型旨在读取其他模型内部信息，但其自身的训练可能导致偏见。\n研究发现，微调后的神谕会选择性失明，无法读出训练中持续存在的特定隐藏概念。"
     },
     "2608.06501": {
       "short_zh": "评估MLLM跨概念创意理解",
       "tags": "多模态大模型评测;创造力评估;成语跨概念解码",
       "body_summary": "现有方法难以评估MLLM在创意任务中的表现，特别是其理解非显性概念关系的能力。\n提出了基于成语的C4评测框架与数据集，发现现有模型在该任务上表现不佳。"
+    },
+    "2608.04314": {
+      "short_zh": "对抗攻击用于视觉内容保护",
+      "tags": "计算机视觉;对抗攻击;视觉内容生命周期保护",
+      "body_summary": "视觉内容进入AI流水线后，所有者对其后续使用缺乏技术控制，需在早期进行技术干预以防范滥用。\n本文综述了围绕此干预点的五种防护方法，评估其通用性与可行性，并整合跨阶段对策与开放问题。"
+    },
+    "2608.06756": {
+      "short_zh": "构建执行中心具身视觉语言模型",
+      "tags": "机器人学;具身智能;视觉语言模型",
+      "body_summary": "现有视觉语言模型作为具身智能体核心，但能力训练分散，难以围绕执行过程整合。\n提出Capek 0.5模型，按执行功能划分四类能力进行专项训练与融合，在基准测试和闭环任务中表现提升。"
+    },
+    "2608.06013": {
+      "short_zh": "多模态情感智能统一模型",
+      "tags": "多模态学习;情感计算;多任务情感推理",
+      "body_summary": "当前多模态大模型在情感智能方面研究存在任务孤立、协同不足、潜力未充分挖掘的问题。\n本文提出了统一模型OneEmo，并通过构建大规模数据集和设计多任务强化学习策略，实现了情感感知、理解与交互的协同提升。"
+    },
+    "2603.18846": {
+      "short_zh": "设计眼底图可解释基础模型",
+      "tags": "医学影像;计算机视觉;自监督基础模型",
+      "body_summary": "背景/任务：基础模型能从未标记数据中学习可迁移表示，但其架构通常缺乏可解释性，这在医学影像等高风险领域至关重要。\n做了什么：我们提出了DualIFM模型，它通过设计实现了可解释性，用较少参数取得了与更大模型相当的性能，并在分布外数据上提供了可理解的预测。"
+    },
+    "2608.01310": {
+      "short_zh": "视听帧级时序嵌入模型",
+      "tags": "多模态学习;视听表征;视听时序对齐",
+      "body_summary": "现有视听模型难以同时捕捉语义和时间对齐信息。\n提出FATE模型，通过帧级序列对齐和联合对比学习，在多个任务中实现先进的语义和时序检索能力。"
     }
   },
   "deep_analysis": {},
