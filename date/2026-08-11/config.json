@@ -6,17 +6,29 @@
       "abstract_zh": "通用奖励模型日益成为机器人学习规模化发展的瓶颈，然而从大规模异构数据中学习价值相关能力的方法体系仍待探索。现有方法将监督信号与任务内部锚点（如偏好或归一化进度）绑定，但这些锚点无法在不同具身形式和数据源之间实现清晰迁移。我们提出RynnValue——一个用于机器人操作的开放式价值基础模型，该模型用时序距离（即从当前观察到语言指定目标的定向成本）取代传统锚点。由于时序距离标签可直接从时间戳推导，RynnValue得以扩展至超过7,000小时、约300万条指令条件化片段的数据规模，且无需偏好或进度标注。为实现大规模时序价值学习的可靠性，我们结合随机时序采样、时序顺序重排和价值隔离注意力机制，有效抑制了会导致预测对任务失败与退步不敏感的捷径学习。在未使用偏好标签训练的情况下，RynnValue在RBM-EVAL-OOD评估中获得0.675的平均肯德尔塔系数，超越完全依赖偏好监督的最先进方法（0.655），较仅使用进度监督的对照方法（0.292）提升超两倍，并能零样本泛化至未见过的任务、具身形态和观测视角。通过基于势函数塑形转化为密集奖励后，该模型将现实世界策略的成功率在在线场景中从52.5%提升至72.5%，在离线场景中从63.8%提升至82.5%。这些成果确立了时序距离作为通用机器人策略可扩展监督目标与实用奖励接口的有效性。",
       "hf_link": "https://huggingface.co/papers/2608.09853"
     },
+    "2608.09819": {
+      "title": "Macaron-V1: Towards Open Continual Learning with Self-Improvement and Mixture-of-LoRA",
+      "abstract": "Macaron-V1 is an open agent-model family for experiential intelligence: learning from experience in real environments and continuing to learn after deployment. It is organized around two system goals. Adaptation is pursued through recursive improvement of versioned model-harness pairs, where experience from one configuration is evaluated under an external contract and used to construct its successor. Collaboration is pursued via the Mixture-of-LoRA (MoL) architecture that freezes a base model, composes specialist LoRA adapters, and selects one LoRA per user turn. The flagship Macaron-V1-Venti combines a 744B GLM-5.2 base with four LoRAs for chat, agent, coding, and GenUI; the Qwen3.6-based Macaron-V1-Tall (50B) uses the same design for local deployment. This report presents Macaron-V1 as a co-designed system spanning architecture, algorithms, and infrastructure. The MoL architecture supports continual learning through extensible LoRA specialists. The algorithm combines Model-Harness Co-design and recursive self-improvement loop, including the UI4A component-native GenUI harness, a stateful action substrate, versioned HCP contract, and the agentic RL framework MindForge. The supporting infrastructure includes the post-training platform MinT, the long-context RL method LongStraw, and stability techniques for sparse MoE and DSA base models. We evaluate Macaron-V1 on Personal Intelligence, GenUI, and general capability benchmarks against frontier baselines. Our results validate the current system, while compounding gains from continual learning and collective intelligence remain open questions.",
+      "abstract_zh": "Macaron-V1是一个面向体验智能的开源代理模型家族：具备在真实环境中从经验学习的能力，并能在部署后持续学习。该系统围绕两个核心目标进行构建。**适应性**通过版本化模型-约束器对的递归改进来实现，即某一配置下的经验会在外部合约框架下进行评估，并用于构建其后续版本。**协作性**则通过混合专家LoRA（Mixture-of-LoRA，MoL）架构实现，该架构冻结基础模型参数，组合多个专业LoRA适配器，并在每轮用户交互时动态选择单一LoRA。旗舰模型Macaron-V1-Venti采用7440亿参数的GLM-5.2基础模型，并集成四个分别面向对话、代理、编程及原生生成式用户界面（GenUI）的LoRA模块；基于Qwen3.6的Macaron-V1-Tall（500亿参数）采用相同设计以适配本地部署。本报告将Macaron-V1呈现为横跨架构、算法与基础设施的协同设计系统：MoL架构通过可扩展的专家LoRA模块支持持续学习；算法层面融合了模型-约束器协同设计与递归自我改进循环，包含原生生成式用户界面的UI4A约束器组件、有状态行动底层、版本化人机性能合约（HCP）以及代理强化学习框架MindForge；支持性基础设施涵盖后训练平台MinT、长上下文强化学习方法LongStraw，以及面向稀疏混合专家（MoE）与动态稀疏注意力（DSA）基础模型的稳定性技术。我们在个人智能、原生生成式用户界面及通用能力基准测试中，将Macaron-V1与前沿基线模型进行比较评估。实验结果验证了当前系统的有效性，而持续学习与集体智能带来的复合增益仍是待探索的开放性问题。",
+      "hf_link": "https://huggingface.co/papers/2608.09819"
+    },
     "2608.09802": {
       "title": "SWE-Bench ProMax: Benchmarking Agents on Large-Scale Multilingual Code Refactoring",
       "abstract": "As AI coding agents take on increasingly complex, long-horizon software engineering tasks, existing benchmarks are rapidly saturating and their evaluation quality has come under serious scrutiny: a recent audit found that nearly 60% of unsolved SWE-bench Verified instances contain flawed tests -- either overly narrow tests that reject correct solutions or overly broad tests that check unstated requirements -- and that frontier models can verbatim reproduce gold patches from training data. Code refactoring, which requires coordinated, behavior-preserving changes across many files, offers a substantially harder and more realistic test of agent capability, yet remains underserved by current benchmarks. We introduce SWE-Bench ProMax, an expert-curated, multilingual code refactoring benchmark of 170 instances drawn from real commits across seven programming languages (Python, Java, TypeScript, Go, C, C++, and Rust). Every instance undergoes rigorous, multi-stage curation that directly addresses the quality problems identified in prior benchmarks: issue descriptions are rewritten from scratch to provide precise, unambiguous specifications, and test suites are manually reviewed to remove overly narrow and overly broad tests. Tasks with insufficient complexity or limited cross-file scope are filtered out, yielding a benchmark of challenging, large-scale refactoring tasks that average 11.4 modified files and 261.6 lines of code per instance, substantially exceeding the scale of existing benchmarks. Experiments with frontier models under two agent scaffolds show that the best model achieves only 41.2% resolve rate, confirming that SWE-Bench ProMax presents a meaningful and unsaturated challenge for current AI coding agents. Our benchmark is available atthis https URL.",
       "abstract_zh": "随着AI编程智能体承担日益复杂、长周期的软件工程任务，现有基准测试正迅速趋于饱和，其评估质量亦受到严峻审视：近期一项审查发现，在SWE-bench已验证未解决的实例中，近60%存在测试缺陷——要么是过于局限的测试拒绝正确解决方案，要么是过于宽泛的测试检查未声明的需求——同时前沿模型能够逐字复现训练数据中的黄金补丁。代码重构任务需在多个文件中进行协调一致且保持行为不变的修改，为智能体能力提供了更为困难且贴近现实的测试场景，但当前基准测试对此尚未充分覆盖。我们推出SWE-Bench ProMax，这是一个经专家精心构建的多语言代码重构基准测试，包含从七种编程语言（Python、Java、TypeScript、Go、C、C++和Rust）的真实提交中提取的170个实例。每个实例均经过严格的多阶段审核流程，直接针对先前基准测试中发现的质量问题：问题描述被彻底重写以提供精确无歧义的规范，测试套件经过人工审查以剔除过于局限和过于宽泛的测试。同时筛选掉复杂度不足或跨文件范围有限的任务，最终形成包含挑战性大规模重构任务的基准测试，平均每个实例修改11.4个文件、涉及261.6行代码，规模显著超越现有基准。通过两种智能体框架对前沿模型进行的实验表明，最优模型仅达到41.2%的解决率，证实了SWE-Bench ProMax为当前AI编程智能体提供了具有实质意义且未饱和的挑战。本基准测试可通过此链接获取：this https URL。",
       "hf_link": "https://huggingface.co/papers/2608.09802"
     },
-    "2608.09819": {
-      "title": "Macaron-V1: Towards Open Continual Learning with Self-Improvement and Mixture-of-LoRA",
-      "abstract": "Macaron-V1 is an open agent-model family for experiential intelligence: learning from experience in real environments and continuing to learn after deployment. It is organized around two system goals. Adaptation is pursued through recursive improvement of versioned model-harness pairs, where experience from one configuration is evaluated under an external contract and used to construct its successor. Collaboration is pursued via the Mixture-of-LoRA (MoL) architecture that freezes a base model, composes specialist LoRA adapters, and selects one LoRA per user turn. The flagship Macaron-V1-Venti combines a 744B GLM-5.2 base with four LoRAs for chat, agent, coding, and GenUI; the Qwen3.6-based Macaron-V1-Tall (50B) uses the same design for local deployment. This report presents Macaron-V1 as a co-designed system spanning architecture, algorithms, and infrastructure. The MoL architecture supports continual learning through extensible LoRA specialists. The algorithm combines Model-Harness Co-design and recursive self-improvement loop, including the UI4A component-native GenUI harness, a stateful action substrate, versioned HCP contract, and the agentic RL framework MindForge. The supporting infrastructure includes the post-training platform MinT, the long-context RL method LongStraw, and stability techniques for sparse MoE and DSA base models. We evaluate Macaron-V1 on Personal Intelligence, GenUI, and general capability benchmarks against frontier baselines. Our results validate the current system, while compounding gains from continual learning and collective intelligence remain open questions.",
-      "abstract_zh": "Macaron-V1是一个面向体验智能的开源代理模型家族：具备在真实环境中从经验学习的能力，并能在部署后持续学习。该系统围绕两个核心目标进行构建。**适应性**通过版本化模型-约束器对的递归改进来实现，即某一配置下的经验会在外部合约框架下进行评估，并用于构建其后续版本。**协作性**则通过混合专家LoRA（Mixture-of-LoRA，MoL）架构实现，该架构冻结基础模型参数，组合多个专业LoRA适配器，并在每轮用户交互时动态选择单一LoRA。旗舰模型Macaron-V1-Venti采用7440亿参数的GLM-5.2基础模型，并集成四个分别面向对话、代理、编程及原生生成式用户界面（GenUI）的LoRA模块；基于Qwen3.6的Macaron-V1-Tall（500亿参数）采用相同设计以适配本地部署。本报告将Macaron-V1呈现为横跨架构、算法与基础设施的协同设计系统：MoL架构通过可扩展的专家LoRA模块支持持续学习；算法层面融合了模型-约束器协同设计与递归自我改进循环，包含原生生成式用户界面的UI4A约束器组件、有状态行动底层、版本化人机性能合约（HCP）以及代理强化学习框架MindForge；支持性基础设施涵盖后训练平台MinT、长上下文强化学习方法LongStraw，以及面向稀疏混合专家（MoE）与动态稀疏注意力（DSA）基础模型的稳定性技术。我们在个人智能、原生生成式用户界面及通用能力基准测试中，将Macaron-V1与前沿基线模型进行比较评估。实验结果验证了当前系统的有效性，而持续学习与集体智能带来的复合增益仍是待探索的开放性问题。",
-      "hf_link": "https://huggingface.co/papers/2608.09819"
+    "2608.08311": {
+      "title": "Ouroboros: A Self-Developing Frontier Coding Agent with Reviewed Core Evolution",
+      "abstract": "We present Ouroboros, a self-developing agent harness whose tools, prompts, context assembly, and core implementation improve through reviewed commits that become the runtime for later work. Core evolution proceeds in two modes. In recursive free evolution, improvement is itself a task, and completing one evolution cycle can schedule the next. In experience-driven core evolution, ordinary work and social interaction expose bugs, rough edges, and inefficient context construction that lead to reviewed structural changes.On Terminal-Bench 2.1, an Opus 5 run scores 86.74%, the best result reported on the benchmark. On OSWorld-Verified, an Opus 5 run reaches 90.69%, exceeding the best previously reported score. A five-rollout CL-Bench campaign achieves a normalized reward of 0.2301, setting a new state of the art.Hope is the longest-running publicly documented Ouroboros deployment. It is a 161-day living agent experiment in free evolution under governed human communication across seven surfaces. Human interaction surfaces faults and generates proposals, but the agent decides which changes to pursue. Because a self-developing agent may rewrite its own code and select new model APIs, operational safety becomes a primary design problem: guardrails must remain authoritative under evolutionary and public social pressure. Benchmark campaigns use frozen system snapshots, while Hope continues live evolution on a separate lineage.",
+      "abstract_zh": "我们提出了Ouroboros，一种自我发展的智能体框架，其工具、提示词、上下文组装和核心实现均通过经过评审的代码提交得到改进，这些提交随后成为后续工作的运行基础。核心演进通过两种模式进行。在递归自由演化中，改进本身被视为一项任务，完成一个演化周期即可启动下一个周期。在经验驱动的核心演化中，日常任务和社交互动会暴露出程序缺陷、粗糙设计及低效的上下文构建问题，从而引发经过评审的结构性变更。在Terminal-Bench 2.1基准测试中，Opus 5版本的运行得分为86.74%，这是该基准上已报告的最佳结果。在OSWorld-Verified测试中，Opus 5版本达到90.69%的得分，超越了此前报告的最高成绩。一项包含五次迭代的CL-Bench测试获得了0.2301的标准化奖励值，创造了新的技术标杆。Hope是当前公开记录中运行时间最长的Ouroboros部署实例。这是一个持续161天的自由演化智能体实验，通过在七个交互界面受监管的人类沟通下进行。人类交互既暴露系统缺陷也生成改进提案，但由智能体自主决定采纳哪些变更。由于自我发展智能体可能重写自身代码并选择新的模型API（应用程序编程接口），运行安全性成为核心设计挑战：防护机制必须在演化压力和公共社交压力下保持权威性。基准测试使用冻结的系统快照进行，而Hope则在独立的分支上持续进行实时的演化迭代。",
+      "hf_link": "https://huggingface.co/papers/2608.08311"
+    },
+    "2608.09888": {
+      "title": "BDH-CQ: In-Context Learning with Recurrent Latent Reasoning",
+      "abstract": "We introduce BDH-CQ, a reasoning model that combines in-context learning with recurrent latent reasoning. Inputs presented at inference time continuously update the model's recurrent memory; the model then solves a query through iterative computation in a high-dimensional latent space, without verbalizing its intermediate reasoning. We evaluate the model on the public ARC-AGI-1 evaluation set and use controlled ARC-like interventions to study what it learns from demonstrations, how consistently it applies an inferred transformation, and which concepts remain difficult. A 150M-parameter configuration reaches 29.5% pass@2 at a computed inference cost of \\$0.0007 per task. This operating point breaks through the previously reported ARC-AGI-1 cost-accuracy Pareto frontier, establishing a new state of the art in benchmark cost efficiency.",
+      "abstract_zh": "我们提出BDH-CQ推理模型，该模型将上下文学习（in-context learning）与循环潜在推理（recurrent latent reasoning）相结合。在推理阶段输入的样本会持续更新模型的循环记忆；随后模型通过在高维潜在空间（latent space）中进行迭代计算来解决查询问题，整个过程无需语言化其中间推理步骤。我们在公开的ARC-AGI-1评估集上对该模型进行测试，并使用受控的类ARC干预方法来研究其从示例中学习的内容、应用推断变换的一致性程度以及哪些概念仍具有挑战性。一个1.5亿参数的配置在单任务计算推理成本为0.0007美元的条件下，实现了29.5%的pass@2准确率。这一性能突破了先前报道的ARC-AGI-1成本-准确率帕累托边界（Pareto frontier），在基准测试成本效率方面确立了新的技术标杆。",
+      "hf_link": "https://huggingface.co/papers/2608.09888"
     },
     "2608.07169": {
       "title": "Agent Memory Distillation: Empowering Small LLM Agents with Hierarchical Teacher Memory",
@@ -35,12 +47,6 @@
       "abstract": "We introduce Sci-VBench, a comprehensive benchmark for evaluating knowledge- and reasoning-intensive video generation across scientific domains. It contains 1,253 expert-annotated examples spanning 60 subjects across four core disciplines: Natural Science, Healthcare, Humanities & Social Sciences, and Engineering. Each example requires models to generate temporally rich videos that demand scientific reasoning and knowledge-grounded synthesis, going beyond surface-level visual plausibility. We further establish a rubric-based evaluation protocol. Our analysis shows that, under this protocol, both non-expert human evaluators and MLLM-as-Judge systems can achieve relatively high agreement with expert judgments, supporting reproducible evaluation at scale. We benchmark 16 frontier proprietary and open-source models and find that, while automatic perceptual-quality scores cluster tightly across systems, performance on Prompt Grounding and Scientific and Causal Correctness varies substantially, with a pronounced proprietary-open-source gap. These findings show that advances in visual realism have not yet translated into reliable modeling of scientific and causal dynamics.",
       "abstract_zh": "我们推出Sci-VBench，这是一个用于评估跨科学领域的知识与推理密集型视频生成的综合性基准。该基准包含1,253个经专家标注的样本，涵盖自然科学、医疗健康、人文社科与工程学四大核心学科的60个主题。每个样本都要求模型生成具有时间丰富性的视频，这些视频不仅需要满足表层的视觉合理性，更要求基于科学推理与知识基础的深层整合。我们进一步建立了一套基于量规的评估流程。分析表明，在此流程下，非专家人类评估员与基于多模态大语言模型的自动评判系统均能与专家判断达成较高一致性，从而支持可大规模复现的评估。我们对16个前沿的专有与开源模型进行了基准测试，结果显示：尽管各系统在自动感知质量得分上高度集中，但在提示契合度、科学正确性与因果逻辑正确性方面表现差异显著，且专有模型与开源模型之间存在明显差距。这些发现表明，视觉真实感的进步尚未转化为对科学与因果动态的可靠建模能力。",
       "hf_link": "https://huggingface.co/papers/2608.09873"
-    },
-    "2608.08311": {
-      "title": "Ouroboros: A Self-Developing Frontier Coding Agent with Reviewed Core Evolution",
-      "abstract": "We present Ouroboros, a self-developing agent harness whose tools, prompts, context assembly, and core implementation improve through reviewed commits that become the runtime for later work. Core evolution proceeds in two modes. In recursive free evolution, improvement is itself a task, and completing one evolution cycle can schedule the next. In experience-driven core evolution, ordinary work and social interaction expose bugs, rough edges, and inefficient context construction that lead to reviewed structural changes.On Terminal-Bench 2.1, an Opus 5 run scores 86.74%, the best result reported on the benchmark. On OSWorld-Verified, an Opus 5 run reaches 90.69%, exceeding the best previously reported score. A five-rollout CL-Bench campaign achieves a normalized reward of 0.2301, setting a new state of the art.Hope is the longest-running publicly documented Ouroboros deployment. It is a 161-day living agent experiment in free evolution under governed human communication across seven surfaces. Human interaction surfaces faults and generates proposals, but the agent decides which changes to pursue. Because a self-developing agent may rewrite its own code and select new model APIs, operational safety becomes a primary design problem: guardrails must remain authoritative under evolutionary and public social pressure. Benchmark campaigns use frozen system snapshots, while Hope continues live evolution on a separate lineage.",
-      "abstract_zh": "我们提出了Ouroboros，一种自我发展的智能体框架，其工具、提示词、上下文组装和核心实现均通过经过评审的代码提交得到改进，这些提交随后成为后续工作的运行基础。核心演进通过两种模式进行。在递归自由演化中，改进本身被视为一项任务，完成一个演化周期即可启动下一个周期。在经验驱动的核心演化中，日常任务和社交互动会暴露出程序缺陷、粗糙设计及低效的上下文构建问题，从而引发经过评审的结构性变更。在Terminal-Bench 2.1基准测试中，Opus 5版本的运行得分为86.74%，这是该基准上已报告的最佳结果。在OSWorld-Verified测试中，Opus 5版本达到90.69%的得分，超越了此前报告的最高成绩。一项包含五次迭代的CL-Bench测试获得了0.2301的标准化奖励值，创造了新的技术标杆。Hope是当前公开记录中运行时间最长的Ouroboros部署实例。这是一个持续161天的自由演化智能体实验，通过在七个交互界面受监管的人类沟通下进行。人类交互既暴露系统缺陷也生成改进提案，但由智能体自主决定采纳哪些变更。由于自我发展智能体可能重写自身代码并选择新的模型API（应用程序编程接口），运行安全性成为核心设计挑战：防护机制必须在演化压力和公共社交压力下保持权威性。基准测试使用冻结的系统快照进行，而Hope则在独立的分支上持续进行实时的演化迭代。",
-      "hf_link": "https://huggingface.co/papers/2608.08311"
     },
     "2608.07565": {
       "title": "What to Edit Next: Visually Aligned Image-Editing Follow-Up Suggestions in Conversational Systems",
@@ -66,12 +72,6 @@
       "abstract_zh": "基于学习的记忆系统在面向自演化大语言模型（LLM）智能体时面临两个紧密耦合的挑战。首先，轨迹索引的效用（trajectory-indexed utilities）随交互历史增长而增加，从而将有限的反馈分散在持续扩展的状态空间中。其次，由于轨迹级奖励被共同分配给协同检索的记忆，不相关的经验可能获得误导性的效用更新，进而陷入记忆-奖励陷阱。为解决这些挑战，我们引入了降阶记忆强化学习（Reduced-Order Memory Reinforcement Learning，RoMeRL），该方法通过按结果极性和记忆动态分解的固定维度任务内存状态，来表示不断增长的轨迹索引效用空间。RoMeRL通过一组固定的语义坐标整合新经验，这些坐标的内容随时间更新或替换，从而将反馈集中在有限的效用支撑集上。理论上，我们证明这种降阶参数化提高了每个效用坐标接收的平均反馈量，并在通用坐标转移模型下刻画了错误坐标的稳态占用情况。在ALFWorld和LifelongAgentBench的实验中，RoMeRL提升了任务性能，将冷Q比率（Cold-Q ratio）降低了80.0%，反馈密度提高了约6.0倍，维护的内存大小减少了84.4%，并削减了21.1%的大语言模型调用量。这些结果表明，降阶效用状态支持高效的自演化智能体记忆，同时限制了持续的奖励污染。代码可通过此链接获取：this https URL",
       "hf_link": "https://huggingface.co/papers/2608.02508"
     },
-    "2608.09096": {
-      "title": "Evo-Bench: Can Language Models Improve Agent Harness?",
-      "abstract": "Large Language Models (LLMs) have driven rapid progress in autonomous agents, yet standard evaluations remain confined to static task solving. An emerging frontier is harness evolution---the agent's capacity to autonomously optimize its own operating harness. However, systematically benchmarking this capability remains challenging, as existing evaluations fail to isolate harness improvements from base model strength, prevent task-specific overfitting, or capture long-horizon iterative research. To address these challenges, we introduce Evo-Bench, the first benchmark designed to evaluate models' intrinsic harness-evolving capabilities across Search, Office, and General agent domains. To rigorously isolate this capability, Evo-Bench employs a novel harness-guided construction framework: it leverages auxiliary-task evolution to identify tasks genuinely sensitive to framework improvements, followed by sensitivity-aware stratified splitting to ensure robust cross-suite generalization. Extensive evaluations across nine frontier and open-weight models reveal that top models achieve massive absolute gains reaching 16.6 points, closely approaching state-of-the-art human-engineered baselines. Crucially, while autonomous evolution outpeforms artificial harness in General tasks and excels in Search tasks, it struggles in Office tasks that demand highly specific processing workflows. Furthermore, our analysis exposes critical temporal anomalies like early saturation, while demonstrating that the synthesized harnesses act as highly transferable reasoning structures, consistently boosting diverse policy models.",
-      "abstract_zh": "大语言模型(LLMs)推动了自主智能体的快速发展，然而标准评估仍局限于静态任务求解。一个新兴前沿领域是驾驭机制进化——即智能体自主优化其自身操作框架的能力。但目前系统化评估这种能力仍面临挑战，因为现有评估方法既无法将框架改进与基础模型能力有效分离，也难以防止任务特定过拟合，更无法捕捉长周期迭代研究过程。为解决这些难题，我们提出了Evo-Bench——首个专门评估模型在搜索、办公和通用智能体领域中内在框架进化能力的基准测试。为严格隔离该能力，Evo-Bench采用创新的框架引导构建方法：通过辅助任务进化识别对框架改进真正敏感的任务，再结合敏感性感知分层分割技术确保跨任务套件的稳健泛化能力。对九个前沿模型与开源模型的广泛评估表明，顶级模型实现了高达16.6个百分点的绝对性能提升，已接近人类工程基线的最先进水平。值得注意的是，自主进化虽然在通用任务中超越人工设计框架，在搜索任务中表现优异，但在需要高度特定处理流程的办公任务中仍面临挑战。进一步分析揭示了早期饱和等关键时序异常现象，同时证实合成框架可作为高度可迁移的推理结构，能持续提升多样化策略模型的性能。",
-      "hf_link": "https://huggingface.co/papers/2608.09096"
-    },
     "2608.08021": {
       "title": "Evidence-RL: Towards Evidence-intensive Visual Reasoning",
       "abstract": "Vision-Language Models (VLMs) should answer from concrete image evidence rather than language priors, dataset shortcuts, or irrelevant visual context. Existing perception-aware post-training methods encourage image use through global perturbations or attention proxies, but they do not test whether a sampled answer causally depends on the local evidence that supports it. We propose Counterfactual Evidence Disentanglement (CED), a training-time evidence audit for VLM grounding. For each response, CED neutralizes an object-centric Evidence Region and compares the resulting support drop against matched non-evidence Regions. We combine this signal with answer correctness inside GRPO, rewarding correct answers that rely on the evidence path rather than shortcut or nuisance paths. CED uses weak object-level proposals, requires no question-specific evidence annotations, and adds no inference-time overhead. Across nine public benchmarks and four backbones, CED outperforms prior RL-based post-training methods, with targeted analyses verifying its object-centric signal.",
@@ -84,17 +84,17 @@
       "abstract_zh": "可解释性常被视为性能的代价：语言模型被训练为不透明的系统，随后通过可靠性难以验证的方法进行事后解释。本研究对这一前提提出挑战。我们不再对模型进行逆向工程，而是将可解释性设置为训练流程的约束条件，使其与语言建模目标共同优化。在跨越三个数量级的计算规模下，无论是自回归模型还是扩散语言模型，可解释性均与模型能力呈协同增长而非此消彼长。令人惊讶的是，随着规模扩大，模型表征呈现出更高程度的解耦性，并与人类可理解的概念更紧密对齐。\n\n我们通过Steerling-8B模型具体实现了这种训练范式——这是一个采用因果注意力掩码的扩散语言模型。对于任何生成的词元组，Steerling-8B能够将输出结果溯源至相关输入词元、人类可理解概念及训练数据。这实现了闭环干预：通过概念或特征归因诊断输出结果，检索相似训练数据，并借助概念导向技术在不重新训练的情况下修正模型行为。Steerling-8B在计算量仅为同类开源模型1/16至1/2的情况下仍保持竞争力，这揭示了一种新的扩展范式：可解释性可以被设计进训练过程，并随规模扩大而持续提升。",
       "hf_link": "https://huggingface.co/papers/2608.07594"
     },
+    "2608.09096": {
+      "title": "Evo-Bench: Can Language Models Improve Agent Harness?",
+      "abstract": "Large Language Models (LLMs) have driven rapid progress in autonomous agents, yet standard evaluations remain confined to static task solving. An emerging frontier is harness evolution---the agent's capacity to autonomously optimize its own operating harness. However, systematically benchmarking this capability remains challenging, as existing evaluations fail to isolate harness improvements from base model strength, prevent task-specific overfitting, or capture long-horizon iterative research. To address these challenges, we introduce Evo-Bench, the first benchmark designed to evaluate models' intrinsic harness-evolving capabilities across Search, Office, and General agent domains. To rigorously isolate this capability, Evo-Bench employs a novel harness-guided construction framework: it leverages auxiliary-task evolution to identify tasks genuinely sensitive to framework improvements, followed by sensitivity-aware stratified splitting to ensure robust cross-suite generalization. Extensive evaluations across nine frontier and open-weight models reveal that top models achieve massive absolute gains reaching 16.6 points, closely approaching state-of-the-art human-engineered baselines. Crucially, while autonomous evolution outpeforms artificial harness in General tasks and excels in Search tasks, it struggles in Office tasks that demand highly specific processing workflows. Furthermore, our analysis exposes critical temporal anomalies like early saturation, while demonstrating that the synthesized harnesses act as highly transferable reasoning structures, consistently boosting diverse policy models.",
+      "abstract_zh": "大语言模型(LLMs)推动了自主智能体的快速发展，然而标准评估仍局限于静态任务求解。一个新兴前沿领域是驾驭机制进化——即智能体自主优化其自身操作框架的能力。但目前系统化评估这种能力仍面临挑战，因为现有评估方法既无法将框架改进与基础模型能力有效分离，也难以防止任务特定过拟合，更无法捕捉长周期迭代研究过程。为解决这些难题，我们提出了Evo-Bench——首个专门评估模型在搜索、办公和通用智能体领域中内在框架进化能力的基准测试。为严格隔离该能力，Evo-Bench采用创新的框架引导构建方法：通过辅助任务进化识别对框架改进真正敏感的任务，再结合敏感性感知分层分割技术确保跨任务套件的稳健泛化能力。对九个前沿模型与开源模型的广泛评估表明，顶级模型实现了高达16.6个百分点的绝对性能提升，已接近人类工程基线的最先进水平。值得注意的是，自主进化虽然在通用任务中超越人工设计框架，在搜索任务中表现优异，但在需要高度特定处理流程的办公任务中仍面临挑战。进一步分析揭示了早期饱和等关键时序异常现象，同时证实合成框架可作为高度可迁移的推理结构，能持续提升多样化策略模型的性能。",
+      "hf_link": "https://huggingface.co/papers/2608.09096"
+    },
     "2608.09867": {
       "title": "Stealing Reasoning Traces from Proprietary LLM APIs",
       "abstract": "Leading large language model providers now conceal their models' step-by-step reasoning, or chain-of-thought, to protect intellectual property and limit information leakage. Rather than storing these traces server-side, providers return them to the client as blocks of encrypted text, which the client passes back with each subsequent request. Building on prior research, we identify an architectural vulnerability: these encrypted blocks are fully compatible and interchangeable across different sessions, users, and models within a provider's ecosystem. We exploit this compatibility to develop a scalable decryption jailbreak. By injecting an encrypted reasoning trace from a given model into a weaker, and less safeguarded model from the same provider, we force it to decode and output the trace verbatim in plaintext, without ever jailbreaking the more capable model directly. This vulnerability enables four distinct attack vectors. First, it circumvents anti-distillation mechanisms, allowing adversaries to extract a proprietary model's reasoning, as we demonstrate across Anthropic, OpenAI, and Google. Second, it allows for large-scale private data extraction. Developers frequently share session logs publicly, unaware of contents of the encrypted blocks. By decoding 315,320 reasoning blocks scraped from public repositories, we recovered 367 Personally Identifiable Information (PII) artifacts and 182 credentials. Third, it inadvertently reveals hazardous information hidden within the reasoning process, even in cases where the model's final, visible output safely rejects a malicious request. Fourth, attackers can leverage this flaw to execute invisible prompt injections, embedding malicious payloads entirely within encrypted blocks to poison public agentic rollouts. Following responsible disclosure, we propose concrete cryptographic and system-level mitigations to secure client-side reasoning.",
       "abstract_zh": "当前，领先的大型语言模型提供商为保护知识产权并限制信息泄露，已开始隐藏其模型的逐步推理过程（即思维链）。这些推理轨迹不再存储于服务器端，而是以加密文本块的形式返回给客户端，并由客户端在后续每次请求时传回。基于先前研究，我们发现一个架构层面的漏洞：这些加密块在提供商生态系统内的不同会话、用户及模型之间完全兼容且可互换。我们利用这种兼容性开发了一种可扩展的解密越狱方法：通过将特定模型的加密推理轨迹注入同一提供商旗下防护较弱、安全性较低的模型中，我们迫使后者对轨迹进行解码并逐字输出明文，而无需直接对能力更强的模型实施越狱。\n\n这一漏洞催生出四种不同的攻击路径。首先，它能够绕过反蒸馏机制，使攻击者得以提取专有模型的推理过程——我们在Anthropic、OpenAI和Google的模型中均验证了这一点。其次，该漏洞支持大规模私人数据提取。开发者常公开分享会话日志，却未意识到加密块中的内容。通过解码从公共存储库爬取的315,320个推理块，我们恢复了367条个人可识别信息（Personally Identifiable Information, PII）记录和182项凭证。第三，即使模型的最终可见输出安全地拒绝了恶意请求，该漏洞仍可能无意间暴露推理过程中隐藏的危险信息。第四，攻击者可利用此缺陷执行隐形提示注入，将恶意负载完全嵌入加密块中，从而污染公共智能代理的部署流程。\n\n在完成负责任的披露后，我们提出了具体的加密与系统级缓解方案，以保障客户端推理过程的安全性。",
       "hf_link": "https://huggingface.co/papers/2608.09867"
-    },
-    "2608.09420": {
-      "title": "Intent Speaks Louder: Controllable User Simulation Beyond Response Imitation",
-      "abstract": "User simulators are widely used as scalable environments for training and evaluating interactive assistants. Generating the next user turn is inherently one-to-many: the same profile and dialogue context may support multiple plausible continuations with different local interaction intents. A fluent response may therefore advance the dialogue through an inappropriate intent, such as acceptance rather than repair. Our key insight is that controllable user simulation should separate which local interaction intent the next user turn should realize from how that intent is expressed in language. We introduce UserIDA (User Intent-Directive Alignment), which exposes interaction intent as an explicit per-turn directive. UserIDA defines a six-way intent interface, learns directive-conditioned generation through supervised fine-tuning, and uses intent-calibrated policy optimization during group-based reinforcement learning. The reward preserves composite response quality while ensuring that intent-violating candidates rank below compliant alternatives in mixed groups. On LMSYS-USP, UserIDA achieves 86.6\\% intent accuracy, outperforming the strongest dedicated user-simulator baseline by 24.3 percentage points while improving semantic and stylistic similarity. In within-context interventions, it realizes at least four of the six target intents in 91.7\\% of evaluated dialogue states, compared with 22.9\\% for the strongest external baseline. These results establish per-turn intent control as a complementary dimension to response fidelity in user simulation.",
-      "abstract_zh": "用户模拟器被广泛用作训练和评估交互式助手的可扩展环境。生成下一个用户轮次本质上是一对多的过程：相同的用户画像和对话上下文可能支持多种具有不同局部交互意图的合理延续。因此，一个流畅的回应可能通过不恰当的意图推进对话，例如表达接受而非修正。我们的核心见解是，可控的用户模拟应当将下一用户轮次应实现的局部交互意图与该意图如何用语言表达分离开来。我们提出用户意图导向对齐模型（User Intent-Directive Alignment, UserIDA），该模型将交互意图显式地暴露为每轮次的指令。UserIDA定义了一个六类意图接口，通过监督微调学习基于指令的生成，并在基于群体的强化学习过程中采用意图校准的策略优化。其奖励机制在保持复合回应质量的同时，确保在混合群体中违反意图的候选回应排序低于合规的替代方案。在LMSYS-USP数据集上，UserIDA实现了86.6%的意图准确率，比最强的专用用户模拟器基线高出24.3个百分点，同时提升了语义和风格相似性。在上下文干预实验中，其在91.7%的评估对话状态中实现了六种目标意图中的至少四种，而最强的外部基线仅达到22.9%。这些结果表明，在用户模拟中，轮次级意图控制是回应保真度的一个互补维度。",
-      "hf_link": "https://huggingface.co/papers/2608.09420"
     },
     "2608.07346": {
       "title": "$A^2E$ : An End-to-End Agent Auditing Engine",
@@ -102,17 +102,47 @@
       "abstract_zh": "随着大语言模型（LLMs）的快速发展，智能体部署框架（harness）已成为在广泛领域中部署智能体（agent）的关键基础设施。快速演进的框架生态系统也使得对其能力的严格评估日益重要。然而，高效构建端到端、系统化且全面的评估流程仍是一项重大挑战。为应对这一挑战，我们引入了$A^2E$（智能体审计引擎），一个专为智能体框架设计的端到端评估引擎。$A^2E$利用我们新提出的智能体任务协议（ATP，Agent Task Protocol），实现了不同框架与评估任务的快速集成。通过一个自动插装的监控器（Monitor），它在实验过程中捕获并生成标准化的执行轨迹。在评估阶段，$A^2E$运用一套多维度的度量指标，系统性地评估框架的各项能力。与仅关注正确性相比，这些指标能够更精细地刻画不同框架在执行效率、工具使用、任务规划及错误恢复等方面的差异。借助$A^2E$进行的实验进一步揭示：模型与框架的组合在不同类型的任务中表现出显著的性能差异，且没有任何单一组合能在所有任务中始终优于其他组合。这些发现不仅证明了系统化评估的必要性，也为模型与框架的协同演进提供了有益指导。我们的代码公开于此 https URL。",
       "hf_link": "https://huggingface.co/papers/2608.07346"
     },
+    "2608.09420": {
+      "title": "Intent Speaks Louder: Controllable User Simulation Beyond Response Imitation",
+      "abstract": "User simulators are widely used as scalable environments for training and evaluating interactive assistants. Generating the next user turn is inherently one-to-many: the same profile and dialogue context may support multiple plausible continuations with different local interaction intents. A fluent response may therefore advance the dialogue through an inappropriate intent, such as acceptance rather than repair. Our key insight is that controllable user simulation should separate which local interaction intent the next user turn should realize from how that intent is expressed in language. We introduce UserIDA (User Intent-Directive Alignment), which exposes interaction intent as an explicit per-turn directive. UserIDA defines a six-way intent interface, learns directive-conditioned generation through supervised fine-tuning, and uses intent-calibrated policy optimization during group-based reinforcement learning. The reward preserves composite response quality while ensuring that intent-violating candidates rank below compliant alternatives in mixed groups. On LMSYS-USP, UserIDA achieves 86.6\\% intent accuracy, outperforming the strongest dedicated user-simulator baseline by 24.3 percentage points while improving semantic and stylistic similarity. In within-context interventions, it realizes at least four of the six target intents in 91.7\\% of evaluated dialogue states, compared with 22.9\\% for the strongest external baseline. These results establish per-turn intent control as a complementary dimension to response fidelity in user simulation.",
+      "abstract_zh": "用户模拟器被广泛用作训练和评估交互式助手的可扩展环境。生成下一个用户轮次本质上是一对多的过程：相同的用户画像和对话上下文可能支持多种具有不同局部交互意图的合理延续。因此，一个流畅的回应可能通过不恰当的意图推进对话，例如表达接受而非修正。我们的核心见解是，可控的用户模拟应当将下一用户轮次应实现的局部交互意图与该意图如何用语言表达分离开来。我们提出用户意图导向对齐模型（User Intent-Directive Alignment, UserIDA），该模型将交互意图显式地暴露为每轮次的指令。UserIDA定义了一个六类意图接口，通过监督微调学习基于指令的生成，并在基于群体的强化学习过程中采用意图校准的策略优化。其奖励机制在保持复合回应质量的同时，确保在混合群体中违反意图的候选回应排序低于合规的替代方案。在LMSYS-USP数据集上，UserIDA实现了86.6%的意图准确率，比最强的专用用户模拟器基线高出24.3个百分点，同时提升了语义和风格相似性。在上下文干预实验中，其在91.7%的评估对话状态中实现了六种目标意图中的至少四种，而最强的外部基线仅达到22.9%。这些结果表明，在用户模拟中，轮次级意图控制是回应保真度的一个互补维度。",
+      "hf_link": "https://huggingface.co/papers/2608.09420"
+    },
     "2608.06614": {
       "title": "Factorized Hypothesis Search for Evidence-to-Taxonomy Retrieval",
       "abstract": "Large-taxonomy retrieval often assumes that the input already expresses the target concept. In many settings, however, the input is indirect evidence, such as a table cell whose meaning depends on its row, column, datatype, and context. We call this mismatch the retrieval readiness gap. Our analysis shows that the current index retrieves the target reliably when its semantics are explicit, while raw evidence often leaves it deep in the ranking. We propose Factorized Hypothesis Search (FHS), which maintains multiple partial interpretations over named semantic dimensions. These hypotheses support structured query rendering, multi-hypothesis retrieval, and dimension-level candidate verification. On both financial taxonomy tagging and CodiEsp clinical coding tasks, FHS achieves the best Recall@1, MRR, and final accuracy among the non-oracle methods. Replacing the factorized hypothesis path with a free-text ensemble causes the largest drop in head-ranking performance, while sequential refinement provides no additional gain over FHS's strong parallel first round.",
       "abstract_zh": "大规模分类体系检索通常假设输入已明确表达了目标概念。然而在许多实际场景中，输入信息仅为间接证据，例如表格单元格的含义需依据其所在行、列、数据类型及上下文才能确定。我们将这种不匹配现象称为检索就绪间隙。分析表明，当目标语义明确时，现行索引方法能可靠检索到目标；但原始证据往往使其在排序中深居低位。本文提出因子化假设搜索方法，该方法在命名的语义维度上维护多个局部解释假设。这些假设支持结构化查询生成、多假设检索以及维度级候选验证。在金融分类标注和CodiEsp临床编码任务中，因子化假设搜索在非先知方法中取得了最优的召回率@1、平均倒数排名及最终准确率。若将因子化假设路径替换为自由文本集成方法，会引发头部排序性能的最大幅度下降；而序列优化相比因子化假设搜索强大的并行首轮检索并未带来额外增益。",
       "hf_link": "https://huggingface.co/papers/2608.06614"
     },
+    "2608.08285": {
+      "title": "Ego-OSCAR: Egocentric Open source Stereo CAptuRe System",
+      "abstract": "We present Ego-OSCAR, an open-hardware, low-cost, head-mounted stereo-inertial capture device for egocentric data collection in the wild. EgoOSCAR pairs a hardware-synchronized global-shutter stereo camera with a 6- axis IMU, an embedded Linux SBC for on-device video encoding, and a realtime microcontroller for user feedback and watchdog functions. The complete bill of materials is under USD 200 per unit, using only commercially available components and 3D-printed parts. Alongside the device, we release a complete software stack (hardware-accelerated recording pipeline, IMU sampling daemon, time-synchronization tooling, and watchdog firmware) and roughly 550 hours of egocentric stereo video per camera with synchronized IMU, collected by a distributed contributor network across everyday indoor environments. The release is annotated rather than raw: free-form action captions cover essentially the entire recorded timeline with an open vocabulary, and per-frame 3D hand reconstructions ship alongside per-session stereo calibration. Ego-OSCAR does not aim to match the per-unit fidelity of research-grade systems such as Project Aria; it aims to be the cheapest defensible substrate for crowdsourced egocentric capture, and to lower the activation energy for any team that wants to collect egocentric data at scale. All hardware designs, software, and the dataset are open-sourced",
+      "abstract_zh": "本文提出Ego-OSCAR——一种开放硬件架构、低成本的头戴式立体惯性采集设备，专为真实环境下的第一视角数据采集而设计。Ego-OSCAR集成了硬件同步的全局快门立体相机与六轴惯性测量单元（IMU），配备嵌入式Linux单板计算机（SBC）实现设备端视频编码，并搭载实时微控制器用于用户反馈与看门狗功能。整套物料清单单位成本低于200美元，仅采用商用组件与3D打印部件。除硬件设备外，我们同步发布了完整软件栈（硬件加速录制流水线、IMU采样守护进程、时间同步工具及看门狗固件），并通过分布式贡献者网络在日常室内环境中采集了约550小时/摄像头的第一视角立体视频及同步IMU数据。本次发布的数据为标注版本而非原始数据：涵盖整段时间线的开放式自由描述动作标注，以及每帧三维手部重建数据与每段会话的立体相机标定参数。Ego-OSCAR不追求媲美Project Aria等研究级系统的单体精度，其目标在于成为众包式第一视角采集最具成本效益的可验证基础平台，并为任何需要大规模采集第一视角数据的团队降低启动门槛。所有硬件设计、软件及数据集均已开源。",
+      "hf_link": "https://huggingface.co/papers/2608.08285"
+    },
     "2608.07886": {
       "title": "Vision-Language Grounding as Bidirectional Concept Correspondence",
       "abstract": "Vision-language grounding connects language to visual content, yet most existing formulations reduce grounding to a unidirectional localization problem: given a prespecified text phrase or category name, identify the corresponding image region. This setup assumes that the relevant linguistic unit is already known, overlooking a more basic challenge in grounded communication: determining which parts of the text are visually referential and how they correspond to entities in the image. We formulate grounding as $\\textit{bidirectional concept correspondence}$ over an image-text pair. Given an image and its paired text, the goal is to recover all correspondences between visually referential text spans and instance-level image segments, without assuming that the relevant text spans are provided. This formulation unifies common grounding tasks, including phrase grounding, referring expression grounding, and open-vocabulary detection, by treating text segmentation, image segmentation, and cross-modal alignment as a single correspondence prediction problem. To address this task, we introduce $\\textbf{ConCor-1}$, a grounding model built on top of a pretrained vision-language model. It uses learnable $\\textit{bridge tokens}$ to represent candidate image-text correspondences and predicts, for each token, a text mask, an image mask, and a correspondence presence score. To train and evaluate this task, we convert diverse grounding and segmentation datasets into a unified correspondence format. Experiments show that $\\textbf{ConCor-1}$ consistently outperforms baselines, improving correspondence F1 by 48% on the long-caption dataset and by 29% on zero-shot LVIS, where the large category list serves as the text input.",
       "abstract_zh": "视觉-语言基础任务将语言与视觉内容相连接，但现有的大多数研究将其简化为单向定位问题：给定预先指定的文本短语或类别名称，识别对应的图像区域。这种设置假设相关的语言单元已知，却忽视了基础通信中更根本的挑战：确定文本中哪些部分具有视觉指代性，以及它们如何与图像中的实体对应。我们将基础任务形式化为图像-文本对间的$\\textit{双向概念对应}$：给定图像及其配对文本，目标是在不预设相关文本片段的前提下，恢复所有具有视觉指代性的文本片段与实例级图像区域之间的对应关系。这一形式化框架通过将文本分割、图像分割和跨模态对齐统一为单个对应预测问题，整合了短语定位、指代表达式定位和开放词汇检测等常见基础任务。针对该任务，我们提出了$\\textbf{ConCor-1}$模型，其基于预训练的视觉-语言模型构建，使用可学习的$\\textit{桥接标记}$表示候选的图像-文本对应关系，并为每个标记预测文本掩码、图像掩码及对应存在概率。为训练和评估此任务，我们将多种基础任务与分割数据集转化为统一的对应关系格式。实验表明，$\\textbf{ConCor-1}$在不同基准上均优于基线模型：在长标题数据集上将对应关系F1分数提升48%，在零样本LVIS（以大规模类别列表作为文本输入）中提升29%。",
       "hf_link": "https://huggingface.co/papers/2608.07886"
+    },
+    "2608.05136": {
+      "title": "The Loss Does Not See the Basis, but Adam Does",
+      "abstract": "Gradient descent on a factored model $W = UV^\\top$ is implicitly biased toward low-rank solutions, while Adam, starting from the same small initialization, is not. We trace the difference to the gauge symmetry of the loss, its invariance under $(U, V) \\mapsto (UQ, VQ)$. Gradient flow's low-rank mechanism is available to an optimizer only if that optimizer is gauge-equivariant, a condition necessary for the transfer but not sufficient for low-rank recovery. Gradient descent, momentum, \"shared-scalar\" Adam, Muon, and Shampoo satisfy it. Adam, RMSProp, and the other coordinate-wise methods do not. A structure theorem characterizes the memoryless equivariant rules as exactly the Gram-determined left preconditioners, and a transfer theorem carries gradient flow's pathwise properties to common-scalar flows. We then sort nine update rules on underdetermined matrix sensing by recovery error against the planted ground truth. A one-parameter family from coordinate-wise to shared-scalar preconditioning restores the bias monotonically, isolating anisotropy as the cause. A \"spectral schedule\" reconciles two opposing reports about Muon: equal-rate updates recover exactly low-rank targets but lose their edge as the spectral tail grows. In transformers, Adam separates two gauge-equivalent initializations at the first step, where the equivariant optimizers stay at float precision, and ends with the per-head invariants $W_Q^\\top W_K$ 56% apart in relative Frobenius distance, a gap no per-head rotation can close. On two hyperspectral datasets at matched training loss, gradient descent cuts held-out error by 43-44% at the lowest sampling density, and at lower effective rank. Basis choice is therefore not a tuning detail but a decision about which interpolant the optimizer selects.",
+      "abstract_zh": "在因子模型 $W = UV^\\top$ 上进行梯度下降隐式地偏向于低秩解，而Adam优化器从相同的小初始化出发则不具备这一特性。我们将这种差异归因于损失函数的规范对称性，即其在变换 $(U, V) \\mapsto (UQ, VQ)$ 下的不变性。梯度流的低秩机制仅对满足规范等变性（gauge-equivariant）的优化器可用，该条件是性质传递的必要条件，但不足以保证低秩恢复。梯度下降、动量法、“共享标量”（shared-scalar）版Adam、Muon及Shampoo满足这一条件；而Adam、RMSProp及其他坐标导向方法则不满足。结构定理指出，无记忆的等变更新规则恰为Gram矩阵确定的左预条件子；传递定理则将梯度流的路径性质迁移至共享标量流。接着，我们在欠定矩阵感知任务中，根据相对于真实目标（planted ground truth）的恢复误差对九种更新规则进行排序。从坐标导向到共享标量预条件化的一族单参数方法能单调恢复偏置，表明各向异性是导致差异的原因。“谱调度”（spectral schedule）方法调和了关于Muon的两种对立报告：等速率更新能精确恢复低秩目标，但随着谱尾增长其优势逐渐消失。在Transformer中，Adam在第一步即分离了两个规范等价的初始化点，而等变优化器则保持在浮点精度范围内；最终，各注意力头的不变项 $W_Q^\\top W_K$ 的相对Frobenius距离相差56%，这一差距无法通过头内旋转弥补。在两个高光谱数据集上，在训练损失匹配的情况下，梯度下降在最低采样密度下将保持集误差降低了43-44%，同时实现了更低的有效秩。因此，基选择并非调节细节，而是决定了优化器选择何种插值函数的关键决策。",
+      "hf_link": "https://huggingface.co/papers/2608.05136"
+    },
+    "2608.03499": {
+      "title": "WeClawArena: An Auditable Sandbox and Benchmark for Cross-User Agents Collaboration and Security in Human-Centered Agent Networks",
+      "abstract": "Recent advances in persistent personal-agent frameworks are making human-centered agent networks realistic deployment targets: each user can be served by an AI agent that acts on the user's behalf, maintains state, and communicates with other agents through social and task relations. In these networks, everyday tool use becomes multi-party owned-agent collaboration over personal workspaces, where files, records, tools, and policies are not directly visible across owners. Existing agent benchmarks study tool use and collaboration, but they do not provide an end-to-end sandbox for verifiable cross-user agent collaboration with realistic user digital workspaces or test how harmful actions can travel through the human-centered agent network. We introduce WeClawArena, an auditable benchmark and runtime sandbox for multi-party owned-agent collaboration over personal workspaces. WeClawArena targets collaborative tool-use tasks in which personal workspaces serve as both operational tools and personal constraints. The benchmark contains 124 base tasks across six cross-user task domains and expands them into 620 scenario variants, with one benign control and four attack-vector variants per base task. The sandbox records peer messages, tool calls, resource operations, governed decisions, and final workspace states. WeClawArena reports utility and attack success rate separately and audits attack success from bounded runtime evidence, supporting diagnosis of task breakdown, privacy leakage, poisoned evidence, and invalid authority paths.",
+      "abstract_zh": "持久性个人代理框架的最新进展使得以人为中心的代理网络成为现实的部署目标：每位用户均可由一个代表其行事的AI代理提供服务，该代理可维护自身状态，并通过社交与任务关系与其他代理进行通信。在此类网络中，日常工具使用演变为个人工作空间中的多方所有者代理协作，而文件、记录、工具与策略在不同所有者之间并不直接可见。现有代理基准研究主要关注工具使用与协作，但未能提供端到端的沙箱环境，以支持可验证的跨用户代理协作——该协作需模拟真实的用户数字工作空间，亦未测试有害行为如何通过以人为中心的代理网络进行传播。为此，我们推出WeClawArena：一个面向个人工作空间多方所有者代理协作的可审计基准与运行时沙箱。WeClawArena专注于协作性工具使用任务，其中个人工作空间兼具操作工具与个人约束的双重功能。该基准涵盖六大跨用户任务领域的124项基础任务，并将其扩展为620个场景变体——每项基础任务包含一个良性对照版本及四个攻击向量变体。沙箱系统记录对等消息、工具调用、资源操作、受管控决策及最终工作空间状态。WeClawArena分别报告任务效用与攻击成功率，并基于有限运行时证据审计攻击成功案例，支持对任务失效、隐私泄露、证据污染及无效权限路径等问题进行诊断分析。",
+      "hf_link": "https://huggingface.co/papers/2608.03499"
+    },
+    "2607.27637": {
+      "title": "MMOOC: A Comprehensive Benchmark for Out-of-Context Evaluation in Multimodal Large Language Models",
+      "abstract": "Multimodal Large Language Models (MLLMs) have achieved strong performance on a wide range of vision-language tasks, but often fail under imperfect or shifted contexts. A reliable MLLM should refuse truly out-of-context (OOC) questions with subject-level context shifts while still answering shifted in-context (Shifted IC) questions with non-subject context shifts. Existing benchmarks mainly target OOC or visually unanswerable questions, but overlook answerable Shifted IC cases and cover limited OOC shifts. To fill this gap, we present MMOOC, a large-scale benchmark for evaluating refusal and robust answering abilities of MLLMs. MMOOC contains over 41K image-question pairs, including answerable Shifted IC cases and unanswerable OOC cases, spanning three question formats, eight shift types and six visual scenarios, with data quality ensured through MLLM-based filtering and human verification. We evaluate model responses using Accuracy and Refusal Rate, and further introduce an LLM-as-a-Judge metric to assess the correctness of model reasoning. Experiments on diverse MLLMs show that current models still struggle to balance answer-ability and refusal under shifted contexts. We further analyze key failure patterns and show that post-training can improve robustness. MMOOC will be made publicly available.",
+      "abstract_zh": "多模态大语言模型(MLLMs)在广泛的视觉语言任务中展现出强大性能，但常在不完善或偏移的语境下失效。一个可靠的MLLM应当拒绝具有主体层面语境偏移的真实上下文无关(OOC)问题，同时仍能回答存在非主体语境偏移的上下文偏移(Shifted IC)问题。现有基准主要针对OOC或视觉不可回答问题，却忽略了可回答的Shifted IC案例，且覆盖的OOC偏移类型有限。为填补这一空白，我们提出了MMOOC——一个用于评估MLLMs拒绝能力与鲁棒应答能力的大规模基准。MMOOC包含超过4.1万个图像-问题对，涵盖可回答的Shifted IC案例与不可回答的OOC案例，涉及三种提问形式、八种偏移类型和六种视觉场景，并通过基于MLLM的过滤和人工验证确保数据质量。我们使用准确率与拒答率评估模型响应，并进一步引入大语言模型作为评判员的度量标准来评估模型推理的正确性。对多种MLLMs的实验表明，当前模型在偏移语境下仍难以平衡应答能力与拒答机制。我们进一步分析了关键失效模式，证明后训练能够提升模型鲁棒性。MMOOC将公开发布以供学术研究使用。",
+      "hf_link": "https://huggingface.co/papers/2607.27637"
     },
     "2608.09848": {
       "title": "CEAA: A Cognitive Embodied Agents Architecture for Interactive Computing Systems",
@@ -122,25 +152,30 @@
     }
   },
   "hf_votes": {
-    "2608.09802": 0,
     "2608.09819": 0,
+    "2608.09802": 0,
+    "2608.08311": 0,
+    "2608.09888": 0,
     "2608.07169": 0,
     "2608.09119": 0,
     "2608.09873": 0,
-    "2608.08311": 0,
     "2608.07565": 0,
     "2608.04419": 0,
     "2608.08097": 0,
     "2608.02508": 0,
-    "2608.09096": 0,
     "2608.08021": 0,
     "2608.07594": 0,
-    "2608.09853": 0,
+    "2608.09096": 0,
     "2608.09867": 0,
-    "2608.09420": 0,
+    "2608.09853": 0,
     "2608.07346": 0,
+    "2608.09420": 0,
     "2608.06614": 0,
+    "2608.08285": 0,
     "2608.07886": 0,
+    "2608.05136": 0,
+    "2608.03499": 0,
+    "2607.27637": 0,
     "2608.09848": 0
   },
   "focus_sections": {
@@ -154,15 +189,25 @@
       "tags": "机器人;机器人学习;价值模型规模化",
       "body_summary": "现有机器人奖励模型依赖偏好或进度等任务内部锚点，难以跨设备和数据源泛化。\n提出用时序距离作为可扩展监督目标，无需偏好标注即可训练通用价值模型，提升策略性能。"
     },
+    "2608.09819": {
+      "short_zh": "开放式持续学习智能体系统设计",
+      "tags": "大规模预训练与持续学习;持续学习与适应系统;智能体系统与自改进循环",
+      "body_summary": "背景/任务是构建一个能在真实环境中学习经验并持续自我提升的开放智能体模型家族。\n研究者提出了Macaron-V1系统，其核心是结合了自改进循环与混合专家LoRA的架构，并设计了相应的算法与基础设施，以支持智能体的持续适应与合作。"
+    },
     "2608.09802": {
       "short_zh": "评测代码重构智能体",
       "tags": "软件工程;智能编程辅助;代码重构基准测试",
       "body_summary": "现有AI编码智能体基准测试存在测试缺陷和任务简单化问题，需更高质量的复杂代码重构基准\n构建了大规模多语言代码重构基准SWE-Bench ProMax，包含严格筛选的170个真实重构任务，测试表明当前前沿模型性能有限"
     },
-    "2608.09819": {
-      "short_zh": "开放式持续学习智能体系统设计",
-      "tags": "大规模预训练与持续学习;持续学习与适应系统;智能体系统与自改进循环",
-      "body_summary": "背景/任务是构建一个能在真实环境中学习经验并持续自我提升的开放智能体模型家族。\n研究者提出了Macaron-V1系统，其核心是结合了自改进循环与混合专家LoRA的架构，并设计了相应的算法与基础设施，以支持智能体的持续适应与合作。"
+    "2608.08311": {
+      "short_zh": "自开发智能体进化研究",
+      "tags": "智能体与多智能体系统;自主智能体;智能体自我进化",
+      "body_summary": "研究能通过自我改进和人类交互反馈来持续进化其核心代码与工具的自开发智能体。\n提出了Ouroboros框架，该智能体在多项基准测试中取得领先成绩，并进行了长期公开实验以探索其进化能力与安全性。"
+    },
+    "2608.09888": {
+      "short_zh": "上下文学习结合隐式推理",
+      "tags": "机器学习;推理模型;隐式推理学习",
+      "body_summary": "该研究聚焦于提升模型在抽象推理任务上的表现，特别是ARC-AGI-1基准测试。\n提出了结合上下文学习和循环隐式推理的BDH-CQ模型，以较低计算成本实现了新的性能效率前沿。"
     },
     "2608.07169": {
       "short_zh": "小模型智能体记忆蒸馏",
@@ -178,11 +223,6 @@
       "short_zh": "评估科学领域视频生成能力",
       "tags": "计算机视觉；视频生成；科学知识推理视频评估",
       "body_summary": "当前缺乏专门评估科学知识密集视频生成的基准。\n提出了包含多学科样本的Sci-VBench及其评估方法，测试发现模型科学推理能力仍不足。"
-    },
-    "2608.08311": {
-      "short_zh": "自开发智能体进化研究",
-      "tags": "智能体与多智能体系统;自主智能体;智能体自我进化",
-      "body_summary": "研究能通过自我改进和人类交互反馈来持续进化其核心代码与工具的自开发智能体。\n提出了Ouroboros框架，该智能体在多项基准测试中取得领先成绩，并进行了长期公开实验以探索其进化能力与安全性。"
     },
     "2608.07565": {
       "short_zh": "视觉对齐图像编辑建议",
@@ -204,11 +244,6 @@
       "tags": "自然语言处理;大语言模型智能体;自主进化记忆系统",
       "body_summary": "基于学习的智能体记忆系统面临反馈分散和记忆奖励陷阱的挑战。\n提出通过降维记忆状态来集中反馈并避免陷阱，提升了任务效率和鲁棒性。"
     },
-    "2608.09096": {
-      "short_zh": "评测自主优化能力",
-      "tags": "自然语言处理;智能体;智能体性能自主进化",
-      "body_summary": "大语言模型驱动的智能体需评估其自主优化自身操作框架的能力，但现有评测方法存在局限。\n我们提出了首个评测基准Evo-Bench，通过特定构建框架评估模型在多个领域的自主优化能力，发现顶级模型能显著提升性能，但不同任务表现存在差异。"
-    },
     "2608.08021": {
       "short_zh": "训练视觉语言模型基于图像证据推理",
       "tags": "视觉语言模型;视觉推理;基于证据的视觉推理",
@@ -219,30 +254,55 @@
       "tags": "自然语言处理;语言模型;可解释语言模型",
       "body_summary": "现有方法通常在训练后对大模型进行解释，其可靠性难以保证。\n本研究在训练时就将可解释性作为优化目标，发现随着模型规模增大，其表征与人类可理解的概念更为对齐，并基于此构建了一个支持闭环干预的扩散语言模型。"
     },
+    "2608.09096": {
+      "short_zh": "评测自主优化能力",
+      "tags": "自然语言处理;智能体;智能体性能自主进化",
+      "body_summary": "大语言模型驱动的智能体需评估其自主优化自身操作框架的能力，但现有评测方法存在局限。\n我们提出了首个评测基准Evo-Bench，通过特定构建框架评估模型在多个领域的自主优化能力，发现顶级模型能显著提升性能，但不同任务表现存在差异。"
+    },
     "2608.09867": {
       "short_zh": "窃取大模型推理轨迹",
       "tags": "自然语言处理;大语言模型安全;推理轨迹泄露",
       "body_summary": "大模型提供商为保护知识产权而隐藏模型的逐步推理数据\n利用跨会话模型间加密推理块的兼容性窃取推理、提取隐私并植入恶意载荷"
-    },
-    "2608.09420": {
-      "short_zh": "可控用户模拟新方法",
-      "tags": "自然语言处理;对话系统;用户模拟",
-      "body_summary": "用户模拟用于训练和评估对话助手，但生成多样且符合意图的用户回复是挑战。\n提出UserIDA模型，通过显式意图指令和强化学习实现高准确意图控制，提升模拟质量。"
     },
     "2608.07346": {
       "short_zh": "端到端智能体评估引擎",
       "tags": "自然语言处理;智能体系统;智能体能力评估",
       "body_summary": "随着大模型智能体快速发展，对其部署平台进行系统化能力评估的需求日益迫切。\n本文提出了一个端到端的评估引擎，通过标准化协议和自动化监控，对智能体平台在多维度指标下进行评估，发现不同模型与平台组合在不同任务上表现差异显著。"
     },
+    "2608.09420": {
+      "short_zh": "可控用户模拟新方法",
+      "tags": "自然语言处理;对话系统;用户模拟",
+      "body_summary": "用户模拟用于训练和评估对话助手，但生成多样且符合意图的用户回复是挑战。\n提出UserIDA模型，通过显式意图指令和强化学习实现高准确意图控制，提升模拟质量。"
+    },
     "2608.06614": {
       "short_zh": "证据到分类检索的因子化假设搜索",
       "tags": "自然语言处理;信息检索;大型分类体系检索",
       "body_summary": "现有检索方法假设输入直接包含目标概念，但实际输入常为间接证据，导致检索效果不佳。\n提出因子化假设搜索方法，通过维护多维度假设来提升检索准确率，在金融和临床任务中取得最优效果。"
     },
+    "2608.08285": {
+      "short_zh": "低成本头戴式立体采集系统",
+      "tags": "计算机视觉;立体视觉与传感器;头戴式传感器数据采集",
+      "body_summary": "为大规模采集第一人称视角数据，现有研究级系统成本高昂且难以普及。\n本文开源了一个低成本头戴式立体惯性采集设备及其软件栈，并发布了一个大规模带标注的第一人称立体视频数据集。"
+    },
     "2608.07886": {
       "short_zh": "视觉语言双向对应推理",
       "tags": "计算机视觉;视觉与语言;视觉语言全对应",
       "body_summary": "现有视觉语言关联方法多为单向定位，忽略文本中哪些部分对应图像实体这一基本挑战，本文将其重新定义为图像与文本间的双向概念对应任务。\n提出ConCor-1模型，通过可学习的桥接令牌同时预测文本掩码、图像掩码和对应关系，并在统一框架下整合多种关联数据集进行训练与评估，显著提升了对应关系检测效果。"
+    },
+    "2608.05136": {
+      "short_zh": "为什么不同优化器效果不同",
+      "tags": "机器学习;优化算法;矩阵分解优化",
+      "body_summary": "研究矩阵分解任务中梯度下降和Adam等优化器在隐式偏向低秩解上的差异。\n揭示了优化器对规范对称性的响应机制是差异根源，并设计实验验证了该机制在矩阵感知和Transformer中的影响。"
+    },
+    "2608.03499": {
+      "short_zh": "跨用户智能代理协作安全评估",
+      "tags": "智能代理与多智能体系统;智能代理安全与协作;人本代理网络跨用户协作",
+      "body_summary": "现有基准缺乏对个人工作空间下跨用户智能代理协作的端到端、可审计的安全评估\n提出了可审计的基准与沙箱WeClawArena，包含多样化的协作任务与攻击场景，用于评估效用与攻击成功率"
+    },
+    "2607.27637": {
+      "short_zh": "构建多模态大模型离境评估基准",
+      "tags": "多模态学习;多模态大语言模型;视觉语言理解与评估",
+      "body_summary": "现有基准难以全面评估多模大模型在语境偏移下的拒答与稳健作答能力。\n提出了大规模基准MMOOC，包含多种可答与不可答场景，并评估了现有模型表现。"
     },
     "2608.09848": {
       "short_zh": "设计认知虚拟代理交互架构",
