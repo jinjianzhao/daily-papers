@@ -1,0 +1,300 @@
+{
+  "base_info": {
+    "2608.10744": {
+      "title": "Beyond Pixels: From Video Priors to 4D Worlds",
+      "abstract": "4D generation synthesizes dynamic 3D scenes from conditions such as text or images. Existing methods either reconstruct generated RGB videos with a separate 4D model or adapt a particular video generator to predict geometry directly. The former suffers from distribution mismatch and error propagation, whereas the latter ties 4D prediction to a specific generator and may require retraining when the generator or conditioning regime changes. We ask whether the final denoised latents of video models that share a variational autoencoder (VAE) can instead provide a reusable interface to explicit 4D prediction. Building on this insight, we introduce direct latent-to-4D generation and instantiate it as Latent-to-4D, which bypasses RGB by aligning a video latent with the token grid of a pretrained 4D decoder and refining it through frame-wise and global spatiotemporal attention. Trained on roughly 1K existing reconstruction clips, a single checkpoint transfers unchanged across multiple video diffusion transformers within the same VAE family. On Text4D-200 and I4D-200, Latent-to-4D surpasses matched same-latent Wan+4RC cascades in projection-based DINO-F1 by 2.88--3.45 and 5.81 points, respectively, while also being preferred by human raters for geometry, temporal stability, and overall quality.",
+      "abstract_zh": "四维生成技术能够基于文本或图像等条件合成动态三维场景。现有方法要么通过独立的四维模型重建生成的RGB视频，要么适配特定的视频生成器直接预测几何结构。前者受限于分布不匹配与误差传播问题，而后者将四维预测绑定于特定生成器，当生成器或条件机制改变时可能需要重新训练。我们提出疑问：共享变分自编码器（Variational Autoencoder, VAE）的视频模型中最终去噪的隐变量，能否为显式四维预测提供一个可复用的接口？基于这一洞见，我们提出直接隐变量到四维的生成方法，并将其实例化为\"Latent-to-4D\"框架。该框架通过将视频隐变量与预训练四维解码器的令牌网格对齐，并借助逐帧注意力与全局时空注意力进行优化，从而绕过RGB生成环节。在约一千段现有重建视频片段上训练后，单个模型检查点可在同一VAE族系的多个视频扩散Transformer中直接迁移使用。在Text4D-200和I4D-200数据集上，Latent-to-4D在基于投影的DINO-F1指标上分别以2.88至3.45分和5.81分的优势超越匹配同隐变量的Wan+4RC级联方法，同时在几何结构、时序稳定性与整体质量方面获得人工评估者的更高评价。",
+      "hf_link": "https://huggingface.co/papers/2608.10744"
+    },
+    "2607.27749": {
+      "title": "Articulated Object Reconstruction from Rest-State Observation",
+      "abstract": "Building interactive digital twins requires recovering both 3D geometry and the kinematic structures that govern how objects articulate. Yet existing methods for articulated object reconstruction require explicitly observable motion from multiple articulation states. We introduce a rest-state formulation that reconstructs articulated objects from a single closed configuration, an inherently ill-posed setting where geometry, semantics, and motion priors compensate for the absence of motion cues. Our framework adopts an explicit mesh as an intermediate representation for cross-model verification and fusion, reconciling noisy outputs from vision-language and segmentation models into spatially consistent part structures. To estimate joint parameters without observed motion, we use a video diffusion model to synthesize articulation hypotheses and validate them through geometric consistency. Our approach achieves accurate part decomposition and physically plausible articulation, performing competitively with motion-observing reconstruction-based, generation-based, and modular pretrained-model baselines.",
+      "abstract_zh": "构建交互式数字孪生体(Digital Twins)需要同时恢复三维几何结构与控制物体运动方式的运动学结构。然而现有关节物体重建方法均需依赖从多个关节状态中显式观测到的运动信息。本文提出一种静息状态重构框架，仅需从单一闭合构型即可重建关节化物体——该设定本身欠定，需通过几何、语义与运动先验来补偿运动线索的缺失。我们的框架采用显式网格作为跨模型验证与融合的中间表示，将视觉-语言模型与分割模型产生的噪声输出协调为空间一致的部分结构。为在未观测运动的情况下估计关节参数，我们利用视频扩散模型合成关节运动假设，并通过几何一致性进行验证。该方法实现了精确的部件分解与物理合理的关节结构，其性能与基于运动观测的重建方法、生成式方法及模块化预训练模型基线相比具有竞争力。",
+      "hf_link": "https://huggingface.co/papers/2607.27749"
+    },
+    "2608.10299": {
+      "title": "Co-Evolution in Agentic Systems: Toward Self-Directed Evolution Beyond Human Design",
+      "abstract": "Agentic systems are increasingly expected to improve after deployment, yet single-entity self-evolution is often bounded by a static learning context, such as fixed tasks and feedback. This survey focuses on co-evolution in agentic systems, a multi-component form of self-evolution in which multiple agents and their environment impose adaptive pressure on one another. To organize existing papers, we propose a progressive three-stage taxonomy that traces how the system gradually sheds human-engineered constraints. Agent--Agent Co-Evolution studies how agents adapt through dynamic peers, including adversarial, collaborative, and organizational adaptation. Agent--Environment Co-Evolution extends this loop to adaptive tasks, feedback, and interaction spaces that change with the agents. Meta Co-Evolution further explores the possibility of making the evolution mechanism itself evolvable. We also discuss open challenges in evaluating such systems, scaling them across multiple components, and keeping increasingly autonomous evolutionary processes safe and controllable. This survey provides a unified foundation for building robust and open-ended agentic systems that can improve beyond fixed human-designed paths.",
+      "abstract_zh": "智能体系统在部署后日益被期望持续改进，然而单一实体的自我演化往往受限于静态学习环境，例如固定任务与反馈机制。本综述聚焦于智能体系统中的协同演化——这是一种多组件的自我演化形式，多个智能体及其所处环境通过相互施加适应压力实现共同进化。为系统梳理现有文献，我们提出一个渐进式的三阶段分类框架，追溯系统如何逐步摆脱人为设计的约束：智能体间协同演化研究智能体如何通过动态对等实体进行适应，包括对抗性适应、协作性适应与组织性适应；智能体-环境协同演化将此循环扩展至适应性任务、反馈机制以及随智能体变化而动态调整的交互空间；元协同演化进一步探索使演化机制本身具备可演化性的可能途径。我们还讨论了评估此类系统、跨多组件规模化扩展以及确保日益自主的演化过程安全可控等开放挑战。本综述为构建超越固定人为设计路径、具备稳健性与开放进化能力的智能体系统提供了统一的理论基础。",
+      "hf_link": "https://huggingface.co/papers/2608.10299"
+    },
+    "2608.10915": {
+      "title": "ComBodied Agents: a New Paradigm of Human-Centric Agentic AI",
+      "abstract": "After an older adult misses a medication dose, a software agent can send another reminder and an embodied agent can bring the medication. Yet neither explains whether the person forgot, is confused, has side effects, or deliberately refused, nor what support is appropriate. This reveals a structural gap in Agentic AI: Digital Agents primarily transform software states, while Embodied Agents transform physical states; neither makes a person's evolving state and agency the primary object of modeling, intervention, and evaluation. We introduce Combodied Agents, a human-centered paradigm that perceives, models, predicts, and supports individual human-state trajectories over time, using software tools, sensors, wearables, robots, and human services as action channels rather than end goals. We unify fragmented capabilities across personal assistants, health agents, AI companions, and adaptive human--AI systems into a closed loop: event-based multimodal perception reconstructs meaningful personal events; longitudinal, correctable memory provides temporal context; Personal World Models estimate future personal states and outcomes under alternative decisions and interventions; and an admissible intervention policy selects proportionate support under consent, uncertainty, safety, reversibility, and user control. Feedback from the person and environment updates the loop. Rather than requiring an exhaustive Human Digital Twin, the framework uses purpose-bounded, uncertainty-aware, user-correctable representations. We organize the design space by human-state targets, relational contexts, and agent roles, and propose scenario-centered evaluation, agency-preservation metrics, benchmark requirements, edge-native personal models, and governance directions. Combodied Agents shift Agentic AI from external task completion toward sustained human benefit.",
+      "abstract_zh": "当老年人错过一次服药后，软件代理可以发送另一条提醒，而具身代理（Embodied Agent）能够递送药物。然而，两者都无法解释当事人是遗忘、困惑、出现副作用，还是故意拒绝服药，亦无法判断何种支持方式更为合适。这揭示了代理式人工智能（Agentic AI）中存在结构性断裂：数字代理（Digital Agents）主要处理软件状态转化，具身代理则聚焦物理状态改变；二者均未将个体动态变化的状态与能动性作为建模、干预和评估的核心对象。我们提出\"共身代理\"（Combodied Agents）这一以人为本的范式，通过软件工具、传感器、可穿戴设备、机器人及人工服务作为行动渠道（而非终极目标），系统性地感知、建模、预测并持续支持个体人类状态轨迹。该框架将个人助理、健康代理、AI伴侣及自适应人机系统中碎片化的能力整合为闭环系统：基于事件的多模态感知重构有意义的个人事件；可修正的纵向记忆提供时序语境；个人世界模型（Personal World Models）评估不同决策与干预下的未来个人状态及结果；在知情同意、不确定性、安全性、可逆性与用户控制原则下，许可干预策略选择适度支持方案。来自用户与环境反馈持续更新该闭环系统。区别于构建全息数字孪生体（Human Digital Twin），本框架采用目标约束、不确定性感知、用户可修正的表征方式。我们依据人类状态目标、关系情境与代理角色三个维度构建设计空间，并提出场景中心化评估、能动性保护指标、基准测试要求、边缘原生个人模型及治理方向。共身代理将代理式人工智能从外部任务完成导向，转向对人类长期福祉的持续支持。",
+      "hf_link": "https://huggingface.co/papers/2608.10915"
+    },
+    "2608.11205": {
+      "title": "AdvFD: Boosting Visual Generation via Adversarial Fr'echet Distance Loss",
+      "abstract": "Fréchet distance has recently emerged as an effective distribution-level objective for generator post-training, complementing the conventional sample-level diffusion and flow-matching losses. However, directly optimizing Fréchet objectives can cause Fréchet hacking. The target metrics keep improving, but visual quality and Fréchet alignment in other feature spaces may stagnate or deteriorate. We attribute this failure to the static pretrained feature spaces used by existing Fréchet losses. These feature spaces provide incomplete and fixed views of the differences between real and generated distributions. To address this limitation, we propose Adversarial Fréchet Distance (AdvFD), which complements the static representation targets in FD-Loss with a calibrated adversarially learned representation. AdvFD augments the original static Fréchet objective with a learnable representation that adversarially maximizes the Fréchet discrepancy between real and generated samples, while the generator minimizes the same discrepancy in the resulting adaptive feature space. To prevent the adversarial representation from trivially increasing the objective through feature amplification, we further introduce real-feature whitening, which normalizes its scale and covariance geometry and stabilizes the min--max optimization. Extensive experiments show that AdvFD consistently improves one-step generator post-training across both JiT and pMF backbones and across different model scales.",
+      "abstract_zh": "弗雷歇距离(Fréchet distance)作为一种有效的分布级目标，在生成器后训练中崭露头角，与传统的样本级扩散损失和流匹配损失形成互补。然而，直接优化弗雷歇目标可能导致弗雷歇投机行为：目标度量持续改进，但视觉质量及其他特征空间中的弗雷歇对齐效果可能停滞甚至恶化。我们将此问题归因于现有弗雷歇损失所采用的静态预训练特征空间，这些空间为真实分布与生成分布之间的差异提供了不完整且固化的视角。为突破此局限，我们提出对抗性弗雷歇距离，通过校准的对抗学习表征来补充FD-Loss中的静态表征目标。该方法在原始静态弗雷歇目标基础上，引入了一个可学习的表征空间——该空间通过对抗性学习最大化真实样本与生成样本间的弗雷歇差异，而生成器则在由此形成的自适应特征空间中最小化该差异。为防止对抗表征通过特征放大机制使目标函数产生平凡增长，我们进一步引入真实特征白化操作，对特征尺度和协方差几何结构进行归一化，从而稳定极小-极大优化过程。大量实验表明，在即时训练与概率掩码函数两种骨干架构以及不同模型规模下，AdvFD均能持续提升单步生成器后训练的性能。",
+      "hf_link": "https://huggingface.co/papers/2608.11205"
+    },
+    "2608.07645": {
+      "title": "Mendel Gödel Machine: Recursive Self-Improving Coding Agents via Comparative Evolution",
+      "abstract": "Self-improving coding agents that iteratively rewrite their own source code have demonstrated impressive performance on coding tasks. However, existing solutions generally derive self-modification from a single failure trajectory at a time, overlooking rich comparative signals available in the agent's expanding archive of past attempts. According to Mendelian principles of controlled inheritance, we introduce Mendel Gödel Machine (MGM). In addition to the general single-trajectory clonal mutation, MGM includes two new types of self-modification that better utilizes evidences accumulated: the reaction-norm mutation edits an agent based on its trajectories on multiple tasks simultaneously, and the cross-lineage hybridization edits an agent using the trajectory of a reference agent from another lineage on the same task. Under an additive fitness landscape model, we prove theoretically and demonstrate via controlled surrogate simulation that the new strategies facilitate a faster and better convergence over single-trajectory baselines. Experiments on SWE-bench and Polyglot confirm MGM's consistent improvement in performance, efficiency, and generalizability.",
+      "abstract_zh": "能够迭代重写自身源代码的自改进编程智能体已在编码任务中展现出卓越性能。然而，现有解决方案通常仅从单一失败轨迹中推导自我修改方案，忽略了智能体不断积累的过往尝试档案中所蕴含的丰富对比信号。借鉴孟德尔受控遗传原则，我们提出了孟德尔哥德尔机（Mendel Gödel Machine，MGM）。除常规的单轨迹克隆突变外，MGM引入了两种新型自我修改机制以更充分利用累积证据：反应规范突变（reaction-norm mutation）基于智能体在多个任务上的轨迹进行同步编辑，而跨谱系杂交（cross-lineage hybridization）则利用同一任务中其他谱系参考智能体的轨迹进行编辑。在加合适应度景观模型下，我们通过理论证明与受控代理模拟验证，相较于单轨迹基线方法，新策略能实现更快速、更优质的收敛。在SWE-bench和Polyglot基准测试上的实验证实，MGM在性能、效率和泛化能力方面均取得持续提升。",
+      "hf_link": "https://huggingface.co/papers/2608.07645"
+    },
+    "2608.10875": {
+      "title": "VibeLifeBench: Can Your Life Agent Be Proactive and Persistent in a Living World?",
+      "abstract": "Large language model (LLM) agents are increasingly deployed as personal assistants. Existing evaluations, however, mostly use short, self-contained requests in static environments. Everyday life assistance is different. A task runs for weeks rather than minutes. The world keeps changing while the agent is not being prompted. Many constraints are never stated outright. An agent that merely answers the request in front of it will fail at such a task. What is needed instead is an agent that stays proactive and consistent. It decides on its own when to act, when to ask, and when to stay silent. It notices changes that nobody announced. It keeps one plan coherent from the first day to the last. No current benchmark measures this. We introduce VibeLifeBench, a benchmark of 200 long-horizon tasks across ten everyday-life domains. Each task is a scripted multi-week timeline in a simulated world of 22 mock services. The world advances on its own clock, and many of its changes are silent, so only an agent that re-inspects the world discovers them. Every task is graded by fine-grained, weighted checks that read only what the agent actually left behind, covering the end state, the timeliness of its actions, and whether it upheld the implicit constraints. We evaluate seven frontier models. All of them score low, which shows how far current agents are from assisting with real life. We will open-source all tasks, environments, and the evaluation framework.",
+      "abstract_zh": "大型语言模型（LLM）智能体正日益被部署为个人助手。然而，现有的评估大多基于静态环境中简短、自包含的请求。日常生活辅助任务则与此不同：一项任务可能持续数周而非数分钟；在智能体未被提示时，世界仍在持续变化；许多约束条件从未被明确说明。仅机械响应眼前请求的智能体在此类任务中必将失败。真正需要的是具备主动性与一致性的智能体：它能自主决定何时行动、何时询问、何时保持静默；能察觉无人告知的变化；能自始至终保持计划的前后连贯。目前尚无基准测试能衡量这种能力。为此，我们推出**VibeLifeBench**——一个涵盖十个日常生活领域、包含200项长视野任务的基准测试。每项任务均设定于模拟世界（包含22个模拟服务）中按脚本运行的多周时间线。世界按照自主时钟推进，其多数变化是静默发生的，只有主动重新探查环境的智能体才能发现。每项任务均通过细粒度加权检查进行评分，这些检查仅读取智能体实际留下的痕迹，涵盖最终状态、行动及时性及对隐性约束的遵守情况。我们对七种前沿模型进行了评估，所有模型得分均较低，这表明当前智能体距离真正辅助现实生活仍有很大差距。我们将开源所有任务、环境及评估框架。",
+      "hf_link": "https://huggingface.co/papers/2608.10875"
+    },
+    "2608.10720": {
+      "title": "Ex-Omni-2D: Expressive Omni-Modal Dialogue Models with Native Visual Presence",
+      "abstract": "Omni-modal dialogue models can understand multimodal inputs and synthesize spoken replies, yet their responses remain visually disembodied. We introduce \\textbf{Ex-Omni-2D}, an omni-modal dialogue framework that generates a coordinated response comprising text, personalized speech, and reference-conditioned video. Given a multimodal query, reference image, and reference audio, the model predicts a structured \\textit{Visual Thought Plan} (VTP) describing scene, emotion, and motion, followed by response text and native multi-codebook speech units. These units form a shared acoustic-temporal interface: they are decoded into speech and aligned online with video frames. This interface enables the response and avatar pathways to be learned from heterogeneous speech, dialogue, and avatar-video data, avoiding the need for large-scale query--text--speech--video supervision. A full-sequence Video Generator serves as the primary Teacher. For efficient incremental generation, we further distill it into a few-step block-causal \\emph{Streaming Student} whose Prefix Streaming mechanism carries a clean latent across consecutive chunks to reduce cumulative late-chunk degradation. With four-step inference, the complete four-GPU pipeline achieves an end-to-end RTF of 1.293 at $400\\times720$/$720\\times400$, providing a practical quality--efficiency operating point.",
+      "abstract_zh": "全模态对话模型能够理解多模态输入并合成语音回复，但其响应仍缺乏视觉具身性。我们提出**Ex-Omni-2D**，一种能生成包含文本、个性化语音及参考条件视频的协调响应的全模态对话框架。给定多模态查询、参考图像与参考音频，模型首先预测描述场景、情感与动作的结构化**视觉思维计划**，随后生成响应文本与原生多码本语音单元。这些单元构成共享的声学-时间接口：它们被解码为语音并与视频帧在线对齐。该接口使得响应路径与虚拟形象路径能够从异构的语音、对话及虚拟形象视频数据中学习，从而避免了对大规模查询-文本-语音-视频监督数据的需求。全序列视频生成器作为核心教师模型。为实现高效增量生成，我们进一步将其蒸馏为少步长块因果的**流式学生模型**，其前缀流式机制在连续片段间传递纯净潜变量，以减少累积的末端片段质量衰退。通过四步推理，完整的四GPU流水线在$400\\times720$/$720\\times400$分辨率下实现了1.293的端到端实时因子，为质量与效率提供了实用的平衡点。",
+      "hf_link": "https://huggingface.co/papers/2608.10720"
+    },
+    "2608.09900": {
+      "title": "Decoding-Level Taboo: A Diagnostic Stress Test for LLM Robustness",
+      "abstract": "Large language model evaluations typically focus on performance under nominal conditions, creating an illusion of capability where models comfortably walk a narrow, highly optimized generation corridor. In real-world deployments, however, complex system prompts, safety guardrails, and structural constraints continuously force models off this nominal path, driving a divergence between benchmark scores and deployment performance. To address this issue, we introduce Decoding-Level Taboo, a zero-prompt diagnostic stress test that intervenes directly in logit space at runtime, forcing models out of their nominal paths. By dynamically masking primary candidate tokens at word boundaries, Taboo forces machine circumlocution.Evaluating Taboo across several open-weight model families reveals that off-path robustness is heavily influenced by both parameter scale and post-training instruction alignment, with robustness generally improving with model size and alignment. Beyond the results presented in this paper, Taboo provides a novel primitive for generating diverse synthetic datasets, stress-testing runtime safety guardrails, and auditing model reliability prior to real-world deployment.",
+      "abstract_zh": "大语言模型的评估通常聚焦于标称条件下的性能表现，这种评估方式营造出一种能力假象——模型仅在经过高度优化的狭窄生成通道中从容行进。然而在实际部署场景中，复杂的系统提示、安全护栏与结构化约束会持续迫使模型偏离标称路径，导致基准测试分数与部署性能之间产生显著差异。为解决这一问题，我们提出\"解码层禁忌测试\"——一种零提示诊断性压力测试方法，通过在运行时直接干预对数概率空间，强制模型脱离其标称路径。该方法通过动态屏蔽词边界处的首要候选标记，迫使模型进行迂回表达。对多个开源模型家族的禁忌测试评估表明，路径外鲁棒性同时受到参数量级和训练后指令对齐的显著影响，且鲁棒性普遍随模型规模与对齐程度的提升而增强。除本文呈现的结果外，禁忌测试还为生成多样化合成数据集、压力测试运行时安全护栏，以及在真实部署前审计模型可靠性提供了新的基础工具。",
+      "hf_link": "https://huggingface.co/papers/2608.09900"
+    },
+    "2608.11079": {
+      "title": "SkillZip: Evaluation-Free Skill Compression for Self-Evolving Agents by Discovering Reusable Structure",
+      "abstract": "Self-evolving agents accumulate reusable skills by appending successful procedures and failure fixes. Over time, the same requirement is often restated in several branches, examples, and warnings, while common action sequences are copied rather than reused. The resulting skill becomes expensive to inject and difficult to maintain. Generic prompt compression is ill-suited to this setting because a skill is not a flat passage: its name and description define when it applies, its workflow controls execution, its tool and output contracts constrain validity, and rare exceptions may remain essential even when no sampled task activates them. Evaluation-guided compression can test these behaviors, but it introduces rollouts, cost, and dependence on the compression-time evaluation set. We present SkillZip, an evaluation-free method that compresses a skill by finding its shortest faithful structural explanation. The intuition is explain once, reference many: state a repeated rule once at the scope where it applies, factor a repeated action sequence into a shared procedure, and keep only the differences as explicit exceptions. We formalize this intuition as a typed minimum description-length objective over a skill contract and a residual, subject to a hard coverage constraint for every extracted trigger, workflow edge, tool requirement, obligation, and output field. The formulation provides simple sharing thresholds, preserves unique rare rules by construction, and supports efficient local updates. SkillZip has a one-shot mode with one structured extraction call and deterministic optimization, and a continual Zip-on-Write mode that integrates each self-evolution patch without replaying tasks or reparsing the full history. Through comprehensive experimental evaluations, we demonstrate the effectiveness and superiority of SkillZip in compression performance, generalizability, and cost overhead.",
+      "abstract_zh": "自我演化智能体通过积累成功的操作流程与故障修复方案来形成可复用的技能。随着时间推移，同一需求往往会在多个分支、示例和警告中被反复表述，而常见的操作序列则被复制而非复用。由此产生的技能不仅注入成本高昂，维护难度也日益增加。通用提示词压缩方法并不适用于此场景，因为技能并非扁平文本段落：其名称与描述定义了适用场景，工作流控制着执行过程，工具与输出契约约束着有效性边界，且某些罕见例外情况即使未被当前采样任务触发也依然至关重要。虽然评估引导的压缩方法可通过测试这些行为来实施压缩，但会引入任务推演、计算成本以及对压缩时评估集的依赖性。本文提出SkillZip——一种无需评估的压缩方法，通过寻找技能的最短忠实结构解释来实现压缩。其核心思想是\"一次解释，多处引用\"：在适用范围内仅陈述一次重复规则，将重复操作序列提取为共享流程，仅保留差异部分作为显式例外。我们将这一思想形式化为类型化最小描述长度目标，该目标作用于技能契约与残差项，并强制要求每个提取的触发条件、工作流边、工具需求、约束条件和输出字段都满足严格的覆盖约束。该形式化方案提供了简洁的共享阈值，通过构造过程保留了独特的罕见规则，并支持高效的局部更新。SkillZip具备两种模式：单次模式通过一次结构化提取调用与确定性优化完成压缩；持续写入压缩模式则能在集成每个自我演化补丁时，无需重放任务或重新解析完整历史记录。通过全面的实验评估，我们证明了SkillZip在压缩性能、泛化能力和成本开销方面的有效性与优越性。",
+      "hf_link": "https://huggingface.co/papers/2608.11079"
+    },
+    "2608.10692": {
+      "title": "SPIEval: Evaluating Large Language Models as Mobile Assistants over Scattered Personal Information",
+      "abstract": "Large language models (LLMs) are increasingly deployed as mobile assistants, where a key challenge is leveraging personal information scattered across multiple applications (apps) to complete user instructions. However, due to the lack of dedicated benchmarks, their capabilities remain poorly understood. To address this gap, we introduce SPIEval, a human-curated benchmark grounded in five cognitive capabilities (i.e., reasoning, disambiguation, integration, preference inference, and multi-intent decomposition). SPIEval comprises 250 tasks spanning 4,335 personal records distributed across 10 apps and supports multi-turn interaction through 21 tools. Analysis shows that the benchmark exhibits diverse scenarios, challenging tasks, scattered information, controllable environments, and verifiable outcomes. We evaluate nine representative LLMs and find substantial room for improvement. The best-performing model, GPT-5.5 (xhigh), achieves only 57.3% accuracy, while the weakest achieves just 16.4%. Further analysis reveals that 79% of failures stem from inaccurate information localization, as LLMs often commit to plausible but incorrect information instead of continuing retrieval for verification. We also find that fewer than 2% of retrieval actions employ advanced search methods and observe substantial variation in search efficiency across models. These findings expose fundamental limitations of current LLM-based mobile assistants and motivate future research in this direction. Data and code are available atthis https URL.",
+      "abstract_zh": "大型语言模型(LLMs)正日益被部署为移动助手，其面临的核心挑战在于如何利用分散在多个应用程序(apps)中的个人信息来完成用户指令。然而，由于缺乏专门的评估基准，对这些模型能力的理解仍十分有限。为填补这一空白，我们引入了SPIEval——一个基于五大认知能力(即推理、消歧、整合、偏好推断和多意图分解)构建的人工标注基准。SPIEval包含250项任务，涵盖分布在10个应用程序中的4335条个人记录，并通过21种工具支持多轮交互。分析表明，该基准具有场景多样、任务复杂、信息分散、环境可控及结果可验证的特点。我们对九个代表性大型语言模型进行评估，发现其仍有巨大改进空间：表现最佳的GPT-5.5 (xhigh)模型准确率仅为57.3%，而最弱模型仅达到16.4%。进一步分析显示，79%的失败案例源于信息定位不准确，因为大型语言模型往往倾向于采用看似合理但实际错误的信息，而非持续检索验证。我们还发现仅有不足2%的检索操作采用了高级搜索方法，且不同模型间的搜索效率存在显著差异。这些发现揭示了当前基于大型语言模型的移动助理存在根本性局限，为该领域的未来研究指明了方向。数据与代码可通过此链接获取：https://xxx。",
+      "hf_link": "https://huggingface.co/papers/2608.10692"
+    },
+    "2608.08389": {
+      "title": "Not Worth Another Token: Marginal Value Estimation for Efficient Deep Research Agents",
+      "abstract": "Long-horizon research agents solve open-ended tasks through iterative retrieval, aggregation, and synthesis, but context grows rapidly while the marginal value of additional evidence often declines. This leads to unnecessary token cost, higher latency, and noisier inputs for final report generation. We study marginal value estimation for context management in deep research agents and present the first systematic stage-aware comparison of pruning strategies across the pipeline. We evaluate lightweight heuristic criteria and a learned value model at pre-retrieval, post-retrieval, and pre-synthesis stages. Our results show that pruning effectiveness depends more on where pruning is applied than on the specific scoring rule: early pruning yields the largest end-to-end savings, while later pruning mainly refines the final synthesis context. Lightweight heuristics reduce token usage by up to 73% with little quality degradation, learned pruning remains competitive on selected trade-offs, and no single method dominates across quality, efficiency, and faithfulness. These findings provide practical guidance for designing efficient long-horizon agentic systems.",
+      "abstract_zh": "长期研究智能体通过迭代检索、聚合与综合来解决开放性问题，然而其上下文规模会快速膨胀，而新增证据的边际价值往往递减。这会导致不必要的令牌消耗、更高的延迟，以及最终报告生成时更嘈杂的输入信息。我们研究了深度研究智能体中面向上下文管理的边际价值估计问题，并首次在流程各阶段进行了系统性的阶段感知剪枝策略比较。我们在预检索、后检索与预综合阶段分别评估了轻量级启发式准则与基于学习的价值模型。结果显示：剪枝效果更多取决于其应用阶段而非具体评分规则——早期剪枝能实现最大的端到端节省，而后期剪枝主要优化最终综合上下文；轻量级启发式方法能以极小的质量损失将令牌使用量降低高达73%，基于学习的剪枝在特定权衡场景中仍具竞争力，且没有单一方法能在质量、效率与忠实度三个维度上全面占优。这些发现为设计高效的长期智能体系统提供了实用指导。",
+      "hf_link": "https://huggingface.co/papers/2608.08389"
+    },
+    "2608.10812": {
+      "title": "Reference-Free Post-Training of Open Large Language Models for Multilingual Machine Translation",
+      "abstract": "We study reference-free post-training for multilingual machine translation with open large language models. Starting from the supervised-finetuned MiLMMT-46-v0.1 models, we apply Group Relative Policy Optimization (GRPO) with a reward that averages two reference-free quality estimation models and is gated by language identification. We then linearly interpolate the supervised fine-tuning (SFT) and reinforcement learning (RL) model checkpoints to obtain MiLMMT-46-v1.0. Across 46 languages, the resulting models consistently improve translation quality over their SFT counterparts, outperform strong recent open baselines, including Seed-X, HY-MT2, and TranslateGemma, and achieve leading reference-free scores against evaluated proprietary systems such as Google Translate, Gemini 3 Pro, and GPT-5. We further investigate on-policy distillation and find that it reaches, but does not surpass, the quality frontier achieved by RL with checkpoint interpolation. We release the models and code to facilitate future research.",
+      "abstract_zh": "本研究探讨了基于开放大型语言模型的无参考后训练方法在机器翻译中的应用。我们从监督微调的MiLMMT-46-v0.1模型出发，采用组相对策略优化（Group Relative Policy Optimization, GRPO）方法，其奖励函数综合了两个无参考质量评估模型的结果，并通过语言识别机制进行门控。随后，我们将监督微调（Supervised Fine-Tuning, SFT）模型与强化学习（Reinforcement Learning, RL）模型的检查点进行线性插值，最终得到MiLMMT-46-v1.0模型。在涵盖46种语言的测试中，该系列模型相比其监督微调版本持续提升了翻译质量，超越了包括Seed-X、HY-MT2和TranslateGemma在内的近期先进开源基线模型，并在与谷歌翻译（Google Translate）、双子座3专业版（Gemini 3 Pro）和GPT-5等评估专有系统的无参考评分对比中取得领先成绩。我们进一步研究了策略内蒸馏方法，发现其虽能达到强化学习结合检查点插值所实现的质量边界，但未能实现超越。我们公开了模型与代码，以促进未来研究。",
+      "hf_link": "https://huggingface.co/papers/2608.10812"
+    },
+    "2608.03216": {
+      "title": "iFAN: Inference-Aware Learning for Plain Mask Transformers",
+      "abstract": "Query-based mask transformers assemble segmentation outputs through pixel-wise competition among query predictions of the final layer, yet this inference process is not explicitly optimized during training. We identify two key mismatches: the query with the highest probability-mask score does not necessarily produce the most accurate mask, and final-layer decoding may discard superior predictions from intermediate layers. To address these issues, we propose Inference-Aware Learning (iFAN), a general training framework for plain mask transformers. iFAN introduces Adjusted Probability-Mask Ranking (APMR), which aligns query competition with predicted mask quality and suppresses high-confidence but inaccurate competitors. We further employ Cross-Layer Self-Distillation (CLSD) to transfer stronger intermediate predictions to the final layer. The ranking and distillation objectives are training-only, while inference retains efficient final-layer decoding. Experiments on COCO, ADE20K, and Cityscapes demonstrate consistent improvements across panoptic, instance, and semantic segmentation, as well as across different architectures, backbone scales, and input resolutions. Overall, iFAN improves performance by an average of 1.20 PQ, 1.30 AP, and 0.63 mIoU, with negligible additional parameters, FLOPs and inference latency.",
+      "abstract_zh": "基于查询的掩码变换器通过最终层查询预测之间的像素级竞争来组装分割输出，然而这一推理过程在训练期间并未得到显式优化。我们发现了两个关键不匹配问题：具有最高概率-掩码分数的查询未必能产生最准确的掩码，而最终层解码可能会丢弃中间层更优的预测。为解决这些问题，我们提出了推理感知学习（Inference-Aware Learning, iFAN）——一种面向朴素掩码变换器的通用训练框架。iFAN引入了调整概率-掩码排序（Adjusted Probability-Mask Ranking, APMR），该机制将查询竞争与预测掩码质量对齐，并抑制高置信度但低准确性的竞争项。我们进一步采用跨层自蒸馏（Cross-Layer Self-Distillation, CLSD）将更强的中间层预测迁移至最终层。排序与蒸馏目标仅用于训练阶段，而推理过程仍保持高效的最终层解码机制。在COCO、ADE20K和Cityscapes数据集上的实验表明，该方法在全景分割、实例分割和语义分割任务中均取得稳定提升，且适用于不同架构、骨干网络规模和输入分辨率。整体而言，iFAN平均提升了1.20 PQ、1.30 AP和0.63 mIoU，而增加的参数量、计算量和推理延迟可忽略不计。",
+      "hf_link": "https://huggingface.co/papers/2608.03216"
+    },
+    "2608.10636": {
+      "title": "DistilVDR: A Compact End-to-End Visual Document Retriever via Dual-Student Distillation",
+      "abstract": "Visual document retrieval (VDR) is dominated by multi-billion-parameter models that are slow to index at full corpus scale and expensive to serve. Prior compression routes either train a smaller multi-vector encoder from scratch or distil only the query side; neither yields a compact single-vector retriever end-to-end. We present DistilVDR, a 524M end-to-end VDR system distilled bilaterally from a single 8B vision-language teacher under a pointwise cosine alignment loss. All supervision comes from the frozen teacher's embedding space, which was itself trained with relevance supervision, so the student objective needs no relevance labels, negative sampling, or contrastive term. We match VDR's text-query and image-document input asymmetry with an asymmetric encoder-only student that concentrates visual capacity on the document side and keeps the query side at 70M parameters. We release two variants that share the same encoders and training and differ only in the document encoder's visual-tile budget: DistilVDR-HiRes attains 61.74 average NDCG@5 on ViDoRe v1+v2+v3 (86.9% of the 8B teacher) and leads every reproduced sub-1B baseline on the high-resolution-sensitive v3 benchmark, while DistilVDR-Fast attains 59.98 at a 3 times smaller visual-token budget. Both variants store one million documents in a 15.6 times smaller index than the strongest sub-1B multi-vector baseline and index the corpus an order of magnitude faster. The code is available atthis https URL.",
+      "abstract_zh": "视觉文档检索（Visual Document Retrieval，VDR）领域目前由数十亿参数模型主导，这些模型在全量语料库规模上索引速度缓慢且服务成本高昂。先前的压缩路径要么从头训练较小的多向量编码器，要么仅对查询端进行知识蒸馏；两者均未能实现端到端的紧凑单向量检索器。本文提出DistilVDR，这是一个5.24亿参数的端到端VDR系统，通过点式余弦对齐损失从单个80亿参数的视觉-语言教师模型进行双向蒸馏。所有监督信号均来自冻结教师模型的嵌入空间（该空间本身经过相关性监督训练），因此学生模型无需相关性标注、负采样或对比项。我们采用非对称的纯编码器学生架构匹配VDR的文本查询与图像文档输入不对称特性：将视觉计算能力集中于文档端，而将查询端参数保持在7000万。我们发布两个变体——其编码器架构与训练流程完全相同，仅文档编码器的视觉分块预算不同：DistilVDR-HiRes在ViDoRe v1+v2+v3测试集上达到61.74平均NDCG@5（达到80亿教师模型的86.9%），并在高分辨率敏感的v3基准测试中领先所有复现的十亿参数以下基线模型；而DistilVDR-Fast以三分之一的视觉标记预算达到59.98指标。两种变体在存储百万级文档时，其索引体积比最强的十亿参数以下多向量基线缩小15.6倍，且语料库索引速度提升一个数量级。代码发布于此https网址。",
+      "hf_link": "https://huggingface.co/papers/2608.10636"
+    },
+    "2608.08627": {
+      "title": "UniMoMo: Expert Merging-Based MoE Acceleration for Large Recommendation Models",
+      "abstract": "Sparse mixture-of-experts (MoE) layers expand recommendation capacity through conditional computation, yet a trained checkpoint still stores and routes over its full expert bank. We study a deployment problem: convert that checkpoint to a smaller standard MoE under an explicit expert budget, without adding a compression-specific online module. To address this, we introduce UniMoMo, a post-training compression framework formulated as a constrained graph coarsening problem. Rather than relying on parameter distance, UniMoMo groups experts based on their functional similarity, using an unlabeled calibration set to measure how similarly experts respond to shared recommendation states. To prevent performance degradation, we introduce a layer-adaptive protection mechanism that restricts the merging of high-traffic experts based on their routing exposure. Across Amazon Beauty, KuaiRec, and TenRec with 2, 4, and 6 MoE blocks, the final four-expert checkpoints obtain source-relative five-run mean NDCG@10 ratios of 99.92%--102.30% and measured A100 speedups of 1.28$\\times$--1.63$\\times$. An aggressive two-expert, top-1 operating point obtains ratios of 98.36%--104.24% and speedups of 1.47$\\times$--2.21$\\times$. These endpoint results evaluate the complete conversion-and-adaptation workflow and show that a trained recommendation MoE can be exported at multiple serving budgets.",
+      "abstract_zh": "稀疏混合专家（Sparse Mixture-of-Experts, MoE）层通过条件计算扩展了推荐模型的容量，但训练好的检查点仍需存储并路由至其完整的专家库。我们研究了一个部署问题：在明确的专家预算下，如何将检查点转换为更小规模的标准MoE，而无需添加针对压缩的在线模块。为此，我们提出了UniMoMo，一种后训练压缩框架，该框架被形式化为一个约束图粗化问题。UniMoMo不依赖于参数距离，而是基于专家功能相似性进行分组，使用未标注的校准集来衡量专家对共享推荐状态的响应相似度。为防止性能下降，我们引入了一种层自适应保护机制，该机制根据专家的路由暴露程度限制高流量专家的合并。在Amazon Beauty、KuaiRec和TenRec数据集上，针对包含2、4和6个MoE块的模型，最终的四专家检查点获得了相对于源模型五轮平均NDCG@10比例在99.92%至102.30%之间，实测A100加速比为1.28倍至1.63倍。激进的二专家、Top-1操作点获得了98.36%至104.24%的比例和1.47倍至2.21倍的加速比。这些最终结果评估了完整的转换与适配工作流程，表明训练好的推荐MoE模型可以在多种服务预算下进行导出。",
+      "hf_link": "https://huggingface.co/papers/2608.08627"
+    },
+    "2608.08119": {
+      "title": "TSDS-Toolbox: A Toolbox for Measuring Time-Series Dataset Similarity",
+      "abstract": "The rapid advancement of artificial intelligence (AI) has significantly accelerated research in time-series analysis, particularly in forecasting, classification, and generation tasks. Recent models, especially foundation models, benefit from time-series dataset similarity due to its significant role in source dataset selection for fine-tuning. However, many existing implementations for benchmarking time-series dataset similarity methods are fragmented and difficult to extend. To address this, we present a unified framework, the Time-Series Dataset Similarity Toolbox (TSDS-Toolbox). Our work enables (1) systematic and reproducible comparisons of time-series dataset similarity methods; (2) flexible extensibility for users to add customized datasets, similarity methods, and downstream time-series tasks; and (3) consistent evaluation of both dataset-level and series-level similarity methods through integrated time-series dataset reducers. The effectiveness of TSDS-Toolbox is validated through comprehensive experiments under diverse experimental settings. Our toolbox is publicly available.",
+      "abstract_zh": "人工智能（AI）的快速发展显著推动了时间序列分析领域的研究，特别是在预测、分类与生成任务方面。近期模型，尤其是基础模型（foundation models），得益于时间序列数据集的相似性，因为这对微调（fine-tuning）时的源数据集选择至关重要。然而，现有许多用于评估时间序列数据集相似性方法的基准实现较为零散且难以扩展。为此，我们提出了一个统一框架——时间序列数据集相似性工具箱（TSDS-Toolbox）。本工作实现了：（1）对时间序列数据集相似性方法进行系统化、可复现的比较；（2）允许用户灵活扩展，以添加自定义数据集、相似性方法和下游时间序列任务；（3）通过集成的时间序列数据集降维工具，对数据集层面和序列层面的相似性方法进行一致性评估。TSDS-Toolbox的有效性已在多种实验设置下的综合实验中得以验证。本工具箱已公开提供使用。",
+      "hf_link": "https://huggingface.co/papers/2608.08119"
+    },
+    "2607.27670": {
+      "title": "JigShape: Evaluating Visual-Geometric Reasoning in VLMs through Jigsaw Puzzles",
+      "abstract": "Jigsaw puzzle solving requires jointly reasoning about visual content and geometric constraints, yet existing benchmarks use rectangular cuts that create ambiguous ground truth in texture-repeated regions. We introduce \\textit{\\ours{}}, a benchmark with tab-and-blank interlocking pieces where geometric constraints provide strong local compatibility requirements that, combined with visual content, yield unambiguous ground truth. Across 95K instances at four grid densities (4$\\times$4 to 16$\\times$16), we find that \\textbf{zero-shot VLMs largely lack geometric reasoning}: only one of five frontier models (GPT-5.5) exceeds random baseline on 4$\\times$4 puzzles, while all others perform at chance level. While supervised fine-tuning achieves $>$97\\% on 4$\\times$4, \\textbf{all models collapse on larger grids}: GPT-5.5 drops from 70\\% to near-random on 8$\\times$8, and even fine-tuned models fall below 5\\% on 12$\\times$12. This ``scaling cliff'' suggests current architectures cannot maintain consistent constraint satisfaction as the number of pieces increases. \\ours{} establishes scalable geometric reasoning as an open challenge for vision-language models.",
+      "abstract_zh": "拼图求解需要同时对视觉内容与几何约束进行联合推理，然而现有基准采用矩形切割方式，导致纹理重复区域存在模糊的真实标注。我们引入\\ours{}基准，该基准采用凸榫与凹槽相互咬合的拼图形状，其几何约束提供了严格的局部兼容性要求，结合视觉内容可产生明确的真实标注。通过对四种网格密度（4×4至16×16）下共计9.5万个实例的分析，我们发现**零样本视觉语言模型普遍缺乏几何推理能力**：五个前沿模型中仅有一个（GPT-5.5）在4×4拼图上超越随机基线，其余模型均处于随机猜测水平。虽然监督微调能在4×4拼图上达到>97%的准确率，**但所有模型在更大网格上均出现性能崩溃**：GPT-5.5在8×8拼图上准确率从70%骤降至接近随机水平，即使经过微调的模型在12×12拼图上准确率也低于5%。这种“规模断崖”现象表明，当前架构无法在拼图数量增加时保持一致的约束满足能力。\\ours{}基准将可扩展的几何推理确立为视觉语言模型亟待解决的核心挑战。",
+      "hf_link": "https://huggingface.co/papers/2607.27670"
+    },
+    "2608.10366": {
+      "title": "DSAgentBench: Can Agents Automate End-to-End Data-Science Workflows in Real Computer Environments?",
+      "abstract": "Real-world data science involves long-horizon workflows that span data wrangling, exploration, modeling, visualization, and validation, and require coordinated use of tools such as notebooks, IDEs, terminals, browsers, and databases within real operating environments. Yet existing benchmarks lack real-computer interaction and do not evaluate whether agents can execute complete end-to-end data-science workflows in realistic computing environments, failing to capture the multi-stage, multi-tool nature of data-science practice. We introduce DSAgentBench, the first benchmark to evaluate whether agents can automate full data-science workflows inside real computer environments. DSAgentBench contains 275 diverse tasks covering the entire data-science life-cycle, reflecting the complexity and tool coordination required in practice. Each task requires grounding decisions in intermediate outputs and coordinated tool use, and includes a deterministic evaluator that verifies analytical correctness, visual outputs, and model performance rather than code-only execution. Our extensive experiments with 15 closed- and open-source models show that even the strongest agent, Claude-4.6-Sonnet, achieves only 56.70% task success, while all open-source agents remain below 1%, frequently failing at tool orchestration, OS grounding, and multi-step reasoning. These results reveal a substantial capability gap between current agentic systems and real data-science workflows, positioning DSAgentBench as a foundation for developing grounded, verifiable, autonomous data-science agents. We release DSAgentBench atthis https URL.",
+      "abstract_zh": "现实世界的数据科学工作涉及长周期的流程，涵盖数据整理（data wrangling）、探索、建模、可视化与验证，并需要在真实操作环境中协调使用多种工具，如笔记本、集成开发环境（IDEs）、终端、浏览器和数据库。然而，现有基准测试缺乏真实计算机交互能力，未能评估智能体（agents）是否能在实际计算环境中执行完整的端到端数据科学工作流，因而无法捕捉数据科学实践中多阶段、多工具并用的特点。我们提出 DSAgentBench，这是首个用于评估智能体能否在真实计算机环境中自动化完成完整数据科学工作流的基准。DSAgentBench 包含 275 项多样化任务，覆盖整个数据科学生命周期，反映了实践中所需的复杂性与工具协调能力。每项任务都要求基于中间输出进行决策并协调使用多种工具，且包含可确定性执行的评估器，不仅验证代码执行，还检验分析正确性、可视化输出与模型性能。我们对 15 个闭源与开源模型进行了广泛实验，结果表明，即使是最强的智能体 Claude-4.6-Sonnet 也仅达到 56.70% 的任务成功率，而所有开源智能体成功率均低于 1%，常在工具编排、操作系统（OS）基础操作与多步推理环节失败。这些结果揭示了当前智能体系统与实际数据科学工作流之间存在显著能力差距，DSAgentBench 由此成为开发具备现实基础、可验证、自主化数据科学智能体的重要基石。我们已在 this https URL 公开发布 DSAgentBench。",
+      "hf_link": "https://huggingface.co/papers/2608.10366"
+    },
+    "2608.08814": {
+      "title": "360CityArena: A Realistic Virtual Urban Navigation Benchmark for Embodied Agents",
+      "abstract": "We present 360CityArena, a benchmark for evaluating the urban exploration capabilities of embodied agents within a photorealistic environment constructed from 360-degree videos. Existing outdoor benchmarks either lack sufficient photorealism or complexity, resulting in a considerable gap from real-world urban environments. 360CityArena is built on a realistic reconstruction of the Akihabara district in Tokyo, Japan, using 602 360-degree video segments covering 85 streets, and consists of 175 meticulously human-crafted tasks. It encompasses three task categories: Environment Understanding, Path Reasoning, and Spatial Reasoning, covering fundamental abilities required for urban exploration, such as localization, landmark search, path planning, and relational spatial reasoning, thereby enabling comprehensive evaluation in realistic urban scenes. Our evaluation using state-of-the-art LMM-based agents shows that even the strongest model, Gemini 2.5 Flash, performs far below human level (human: 77.3% vs. Gemini 2.5 Flash: 17.1%), revealing substantial challenges that remain in city-scale embodied navigation and reasoning. 360CityArena provides a necessary and challenging testbed for photorealistic urban-district navigation and spatial reasoning.",
+      "abstract_zh": "我们提出了360CityArena，这是一个用于评估具身智能体在基于360度视频构建的逼真环境中的城市探索能力的基准测试平台。现有的户外基准测试要么缺乏足够的真实感，要么复杂度不足，导致与真实城市环境存在显著差距。360CityArena基于日本东京秋叶原地区的真实场景重建而成，使用了覆盖85条街道的602段360度视频片段，并包含了175项精心设计的人工任务。该平台涵盖三大任务类别：环境理解、路径推理和空间推理，覆盖了城市探索所需的基本能力，如定位、地标搜索、路径规划和关联性空间推理，从而能够在真实的城市场景中进行全面评估。我们使用基于最先进LMM（大型多模态模型）的智能体进行评估，结果表明，即使是最强的模型Gemini 2.5 Flash，其表现也远低于人类水平（人类：77.3% vs. Gemini 2.5 Flash：17.1%），这揭示了在城市尺度的具身导航与推理领域仍存在的巨大挑战。360CityArena为逼真城市街区导航与空间推理的研究提供了一个必要且富有挑战性的测试平台。",
+      "hf_link": "https://huggingface.co/papers/2608.08814"
+    }
+  },
+  "hf_votes": {
+    "2608.10299": 0,
+    "2608.10915": 0,
+    "2608.10744": 0,
+    "2607.27749": 0,
+    "2608.11205": 0,
+    "2608.07645": 0,
+    "2608.10875": 0,
+    "2608.10720": 0,
+    "2608.09900": 0,
+    "2608.11079": 0,
+    "2608.10692": 0,
+    "2608.08389": 0,
+    "2608.10812": 0,
+    "2608.03216": 0,
+    "2608.10636": 0,
+    "2608.08627": 0,
+    "2608.08119": 0,
+    "2607.27670": 0,
+    "2608.10366": 0,
+    "2608.08814": 0
+  },
+  "focus_sections": {
+    "3D生成与重建": [
+      "2607.27749",
+      "2608.10744"
+    ]
+  },
+  "summaries": {
+    "2608.10744": {
+      "short_zh": "从视频潜空间生成4D场景",
+      "tags": "计算机图形学;三维重建;4D生成",
+      "body_summary": "现有方法通过重建生成视频或直接预测几何，存在分布不匹配或难以复用的问题。\n我们提出直接潜空间到4D的生成方法，训练单一模型适配多种视频生成器，在几何质量上超越级联方法。"
+    },
+    "2607.27749": {
+      "short_zh": "从静止状态重建关节物体",
+      "tags": "计算机图形学;三维重建;关节物体重建",
+      "body_summary": "现有方法需要观测物体多个关节状态。\n本方法仅从闭合静止状态恢复几何与运动结构，并使用显式网格与视频扩散模型补偿运动信息缺失。"
+    },
+    "2608.10299": {
+      "short_zh": "智能体协同进化综述",
+      "tags": "智能体系统；智能体学习与交互；多智能体协同进化",
+      "body_summary": "智能体系统被期望能在部署后持续改进，但传统的单智能体进化受限于固定任务和反馈。\n本文提出一个三阶段分类框架，梳理智能体之间、智能体与环境以及元进化机制的研究，旨在构建超越人类预设的开放进化系统。"
+    },
+    "2608.10915": {
+      "short_zh": "人本智能体新范式",
+      "tags": "智能体；具身智能；人本状态建模",
+      "body_summary": "当前智能体仅关注软件或物理状态改变，忽略了以人为中心的个性化建模与支持。\n提出“共身智能体”范式，通过感知、建模、预测和干预人的状态轨迹，实现闭环的人本支持系统。"
+    },
+    "2608.11205": {
+      "short_zh": "用对抗特征提升生成质量",
+      "tags": "生成模型;图像合成;生成器微调",
+      "body_summary": "现有Fréchet距离损失用于生成器后训练时，因使用静态特征空间而存在度量欺骗问题。\n我们提出对抗Fréchet距离，通过可学习的对抗表征和真实特征白化来稳定优化，从而提升单步生成器的表现。"
+    },
+    "2608.07645": {
+      "short_zh": "比较进化的递归自改进代码智能体",
+      "tags": "机器学习;自动编程;代码智能体自改进",
+      "body_summary": "现有自改进代码智能体仅依赖单一失败轨迹，忽略了历史尝试中的丰富比较信息。\n本文提出Mendel Gödel Machine，通过增加基于多任务和跨谱系比较的新自修改策略，实现更高效、更强泛化能力的自我改进。"
+    },
+    "2608.10875": {
+      "short_zh": "构建生活智能体长期主动能力评测基准",
+      "tags": "智能体与机器人技术；具身智能与任务规划；长期生活任务评测",
+      "body_summary": "现有大模型智能体评测多关注静态环境下的简短任务，但真实生活辅助需要智能体在动态世界中长期主动、一致地执行任务。\n为此，我们提出了VibeLifeBench基准，包含多领域长周期任务与动态模拟环境，用以系统评估智能体的主动性与持久性，发现当前前沿模型在此类任务上表现不佳。"
+    },
+    "2608.10720": {
+      "short_zh": "生成多模态对话视频",
+      "tags": "多模态对话系统;视听生成;具身对话生成",
+      "body_summary": "当前全模态对话模型能处理多模态输入，但生成的回答缺乏视觉形象。\n我们提出Ex-Omni-2D框架，能同步生成文本、个性化语音和参考视频，并通过视觉思维规划、共享声学-时间接口及学生-教师蒸馏机制实现高效推理。"
+    },
+    "2608.09900": {
+      "short_zh": "解码层禁语测试大模型稳健性",
+      "tags": "自然语言处理;大语言模型评测;模型稳健性压力测试",
+      "body_summary": "大型语言模型的标准评测未能反映其在真实约束下的真实性能。\n我们提出一种零提示词的压力测试方法，直接干预解码过程以评估和提升模型稳健性。"
+    },
+    "2608.11079": {
+      "short_zh": "无需评估的技能压缩方法",
+      "tags": "智能体与多智能体系统;技能学习与演化;技能库压缩与重构",
+      "body_summary": "智能体在自我演化中积累的技能库会因重复和冗余导致成本高昂且难以维护。本文提出了一种无需评估的方法来压缩技能库，通过发现可重用的结构，在保留完整功能的前提下实现最小化描述长度，并支持持续更新。"
+    },
+    "2608.10692": {
+      "short_zh": "评估大模型处理分散个人信息能力",
+      "tags": "自然语言处理;智能助手;移动场景个人信息整合",
+      "body_summary": "背景/任务：大模型作为移动助手需整合用户散落在多个应用中的个人信息来完成任务，但缺乏专门评估基准。\n做了什么：提出了基于五项认知能力的人工构建基准SPIEval，评估了九种大模型发现其准确率低且信息定位是主要瓶颈。"
+    },
+    "2608.08389": {
+      "short_zh": "长程研究智能体上下文价值估计",
+      "tags": "自然语言处理;智能体系统;长程任务上下文管理",
+      "body_summary": "长程研究智能体通过迭代检索与合成解决开放任务，但上下文快速增长而新增信息的边际价值递减，导致效率低下。\n系统评估了在流程不同阶段应用启发式和学习模型的剪枝策略，发现早期剪枝效率提升最大，轻量方法可显著节省计算量且性能降幅小。"
+    },
+    "2608.10812": {
+      "short_zh": "无参考训练提升大语言模型多语言翻译性能",
+      "tags": "自然语言处理;机器翻译;大语言模型后训练",
+      "body_summary": "我们研究如何对开放大语言模型进行无参考后训练，以提升其在多语言机器翻译任务上的性能。\n我们从监督微调模型出发，应用结合质量估计和语言识别的强化学习方法，通过检查点插值得到最终模型，在46种语言上实现了翻译质量的显著提升。"
+    },
+    "2608.03216": {
+      "short_zh": "改进掩码变换器训练算法",
+      "tags": "计算机视觉;图像分割;基于查询的掩码变换器",
+      "body_summary": "基于查询的掩码变换器在训练时未显式优化其推理时通过查询竞争得出分割结果的过程，导致预测质量与竞争得分不匹配等问题。\n提出推理感知学习框架，引入调整概率掩码排序以对齐查询竞争与掩码质量，并利用跨层自蒸馏提升最终层性能，在多个分割任务上取得一致提升。"
+    },
+    "2608.10636": {
+      "short_zh": "小型视觉文档检索模型训练",
+      "tags": "多模态信息处理;视觉文档检索;模型压缩与蒸馏",
+      "body_summary": "视觉文档检索模型参数量大、索引慢、服务成本高，现有压缩方法未能实现紧凑的端到端单向量检索。\n提出DistilVDR，通过双学生蒸馏法从大教师模型训练出紧凑的端到端单向量检索模型，无需相关标签，并推出高精度和快速两个变体。"
+    },
+    "2608.08627": {
+      "short_zh": "专家合并压缩推荐模型",
+      "tags": "推荐系统;模型压缩;稀疏专家混合层压缩",
+      "body_summary": "大推荐模型中的稀疏专家混合层因存储和计算开销大，难以部署。\n提出UniMoMo框架，通过基于功能相似性的专家合并，将大模型压缩为小模型，保持性能并提升推理速度。"
+    },
+    "2608.08119": {
+      "short_zh": "时间序列数据集相似度测量工具箱",
+      "tags": "时间序列分析;时间序列相似性;数据集相似度",
+      "body_summary": "时间序列分析快速发展，相似性对模型微调数据选择至关重要，但现有评估方法分散。\n提出了一个统一工具箱，支持相似度方法评测、灵活扩展，并通过实验验证其有效性。"
+    },
+    "2607.27670": {
+      "short_zh": "评估视觉语言模型拼图几何推理能力",
+      "tags": "视觉语言模型评估;几何推理与视觉理解;拼图基准构建与评估",
+      "body_summary": "现有基准在纹理重复区域存在歧义，需构建几何约束更强的拼图基准评估视觉语言模型。\n提出JigShape基准，发现模型几何推理能力弱且随规模扩大表现骤降，凸显持续约束满足难题。"
+    },
+    "2608.10366": {
+      "short_zh": "评估智能体自动化数据科学工作流程能力",
+      "tags": "机器学习;智能体系统;数据科学工作流程自动化",
+      "body_summary": "现有基准缺乏真实计算机交互，无法评估智能体在真实环境中执行端到端数据科学工作流程的能力。\n提出了DSAgentBench基准，包含275个真实任务和确定性评估器，实验显示当前智能体与真实数据科学工作流程存在显著能力差距。"
+    },
+    "2608.08814": {
+      "short_zh": "真实城市场景智能体导航评估基准",
+      "tags": "机器人学;具身智能;城市街区导航",
+      "body_summary": "现有户外基准缺乏真实感和复杂度，与真实城市场景有较大差距。\n提出了基于360度视频重建的真实城市基准360CityArena，包含多类任务，评估发现现有智能体性能远低于人类。"
+    }
+  },
+  "deep_analysis": {
+    "2608.10744": "好的，我们先来理清这篇论文的核心内容。我会用尽可能简单清晰的语言来解释。\n\n### (1) 这篇论文所在的任务是什么？\n*   **任务输入**：一段**视频的潜在特征**。这个特征不是普通的视频像素，而是经过一个叫做**VAE（变分自编码器）** 模型编码压缩后的、代表视频内容和运动的“代码”。这篇论文特别强调，这个输入是从一个**已经训练好的视频生成模型**（比如文生视频或图生视频模型）的最后一步得到的“干净”的潜在特征。\n*   **任务输出**：一个**动态的3D场景（4D世界）**。这指的是一个可以在三维空间中自由观看、并且会随着时间（第四维）变化和运动的物体或场景。它包含明确的几何形状（比如3D网格）和运动轨迹。\n*   **任务功能**：**4D生成**。论文的目标是直接从视频的“潜在特征”一步到位地生成动态的3D场景，而不是先生成视频，再想办法把视频转换成3D。\n\n### (2) 这篇论文想解决什么问题？\n现有的4D生成方法主要有两种，但都有问题：\n1.  **“先生成，再重建”法**：先用视频生成模型生成一段RGB视频，再用一个单独的4D重建模型把视频变成3D。\n    *   **问题**：视频生成模型可能产生不符合真实物理规律或视角不连贯的画面（分布不匹配），这些错误会直接传给后面的重建模型，导致生成的3D几何很糟糕（错误传播）。\n2.  **“集成式”法**：直接修改视频生成模型，让它能同时输出视频和3D几何。\n    *   **问题**：这种方法和**特定的**视频生成模型绑死了。如果你想换一个更好的视频生成模型，或者换一种输入条件（比如从文字换成图片），整个模型就得重新训练，非常麻烦。\n\n**核心问题**：如何在**不依赖生成RGB视频**的前提下，高效地利用视频生成模型的强大能力（先验知识）来生成4D内容，并且这种方法还能**通用**于多个不同的视频生成模型？\n\n### (3) 这篇论文的贡献是什么？\n1.  **新思路（概念贡献）**：提出了“**直接潜在特征到4D生成**”的想法。他们发现，很多不同的视频生成模型虽然内部结构不同，但都使用同一个**VAE模型**来压缩和还原视频。因此，这些模型最终产生的“干净”的潜在特征都在**同一个共享的潜在空间**里。论文提出把这个共享的潜在特征作为连接不同视频生成器和4D生成任务的**通用接口**。\n2.  **新方法（技术贡献）**：提出了一个名为 **Latent-to-4D** 的框架，其中核心是一个 **L4AR（潜在特征对齐与精炼）** 网络。这个网络负责将来自视频生成器的潜在特征“翻译”并优化成适合4D解码器理解的形式。\n3.  **好效果（实证贡献）**：他们只用了大约1000个现有的4D重建数据片段进行训练，得到一个Latent-to-4D模型。这个模型**无需任何改动**，就能直接接入多个使用相同VAE的视频生成器（文本生成视频、图像生成视频），生成质量不错的4D场景，并且在多项指标上超过了“先生成，再重建”的方法。\n\n### (4) 论文的整体思路和模型结构\n**核心思想**：跳过“生成RGB视频”这个中间步骤，直接从视频生成模型产生的“高级指令”（潜在特征）来构建4D世界。\n\n**基模（Base Model）是谁？**\n*   **视频生成器**：使用的是基于 **DiT（扩散Transformer）** 架构的文生视频/图生视频模型。论文中测试了多个不同的DiT。\n*   **VAE**：所有视频生成器**共享同一个**预训练好的VAE编码器/解码器。\n*   **4D解码器**：使用了一个**预训练好的4D重建模型**（如论文中提到的Wan等的工作）作为基础，并对其进行修改和初始化。\n\n**整体流程（对照图1理解）：**\n\n1.  **训练阶段（图1下半部分）**：\n    *   **输入**：一段真实的、带有4D标注（如3D形状和相机位姿）的短视频。\n    *   **步骤1：编码**：用**冻结的（不更新参数）共享VAE编码器**将这段真实视频编码成潜在特征 `z_video`。这模拟了视频生成器最终会输出的那种潜在特征。\n    *   **步骤2：对齐与精炼（L4AR）**：`z_video` 的形状和特征空间与4D解码器期望的输入不匹配。L4AR网络首先进行**空间对齐**，调整特征图的分辨率和通道数。然后，它使用**帧内注意力**（处理单帧内的结构）和**全局时空注意力**（处理帧与帧之间的连贯运动和全局结构）来精炼这些特征，得到高质量的特征 `z_4d`。\n    *   **步骤3：4D解码**：将 `z_4d` 送入**基于预训练4D重建模型初始化的解码器**。这个解码器会预测出每个时间点的相机参数和动态的3D几何（比如变形的3D网格）。\n    *   **训练目标**：只训练**L4AR网络**和**解码器的预测头**，让预测的4D场景和真实的4D标注尽可能接近。视频生成器和VAE的权重在整个过程中都是冻结的。\n\n2.  **推理阶段（图1上半部分）**：\n    *   **输入**：用户给出一段文字描述（如“一只猫在跳跃”）或一张图片。\n    *   **步骤1：视频生成**：用一个兼容的DiT视频生成器（如CogVideoX、Sora-1.5i等）根据输入生成视频。**关键的一步**：我们不要它最后解码出来的RGB视频，而是截取它**去噪过程结束后、尚未送入VAE解码器之前的那个“干净的”潜在特征** `z_gen`。\n    *   **步骤2：直接转换**：把训练好的Latent-to-4D模型拿过来，将 `z_gen` 直接输入给L4AR网络。因为 `z_gen` 和训练时用的 `z_video` 来自同一个VAE空间，所以模型能直接理解并处理它。\n    *   **步骤3：得到4D输出**：经过L4AR和4D解码器，直接输出动态的3D场景。**全程没有出现RGB视频**。\n\n### (5) 结果怎么样？\n论文在名为Text4D-200和I4D-200的两个评测数据集上进行了测试。\n\n*   **定量结果**：使用一种叫“投影DINO-F1”的指标（衡量生成的3D几何与多视角图片的匹配程度）。Latent-to-4D相比“先生成，再重建”的基线方法，在两个数据集上分别提升了 **2.88-3.45分** 和 **5.81分**。\n*   **定性（主观）结果**：邀请了人类评估员从多个角度观看生成的4D场景。Latent-to-4D在**几何合理性、完整性和时间稳定性**（即动态是否平滑自然）方面，都更受人类青睐。\n\n**简单总结**：这篇论文就像发明了一个“万能翻译器”。视频生成器说“DiT语言”（输出潜在特征），4D重建器说“3D建模语言”。以前的方法需要先把DiT语言翻译成“视频语言”（RGB），再让3D建模师去猜。现在这个“万能翻译器”（Latent-to-4D）可以直接把DiT语言翻译成3D建模语言，不仅翻译得更准确（质量高），还能听懂好几个不同口音的DiT说的话（通用性强）。",
+    "2607.27749": "这篇论文的题目是《**Articulated Object Reconstruction from Rest-State Observation**》，作者们提出了一个叫 **Rest2Art** 的框架。下面我用通俗易懂的语言为你梳理一下这篇论文的核心内容。\n\n### (1) 论文所在的任务是什么？\n*   **任务名称**：**关节化物体重建**。\n*   **任务输入**：**一个处于闭合/静止状态的物体的一组多视角RGB图像**。比如，一个关闭的柜子、一个合上的笔记本电脑、一个未拉开的抽屉。\n*   **任务输出**：\n    1.  **带有部件级分割的3D网格模型**：比如，把柜子的柜体、两个门、一个抽屉分别分割出来。\n    2.  **每个可动部件的关节参数**：比如，门是绕着哪个轴旋转的（铰链位置和方向），抽屉是沿着哪个方向滑动的（滑动轴）。\n*   **任务功能**：从物体的一个静止状态，推测出它的3D几何结构、哪些部分可以动，以及它们会如何运动。这就像你看到一个关着的柜子，就能在脑子里想象出它的门怎么开、抽屉怎么拉。\n\n### (2) 想解决什么问题？\n现有的方法大多需要**观察物体在至少两个不同运动状态下的样子**（比如开着的和关着的），才能重建出它的关节结构。这篇论文想解决一个更困难、也更实际的问题：**如果只能看到物体完全闭合的一个状态，还能不能重建它？**\n这个问题很难，因为静止状态下，运动线索（比如门和柜体之间的缝隙）是缺失的，属于“**病态问题**”。人脑会依靠常识来猜测，但计算机需要一种系统的方法。\n\n### (3) 主要贡献是什么？\n1.  **提出并定义了“静止状态重建”这个新设定**：强调了从单一闭合状态出发进行推理的挑战和实用价值。\n2.  **用“显式网格”作为核心中间表示**：作者认为，像VLM、分割模型、视频生成模型等“基模”的预测结果往往是杂乱、不一致的。他们提出用一个具体的3D网格（Mesh）作为“**裁判场**”，所有模型的预测都投射到这个网格上进行对齐、验证和融合，从而得到空间一致的、可靠的结果。\n3.  **一个** **“协同精炼”** **的部件分割流程**：让一个**视觉语言模型（VLM）** 和一个**图像分割大模型（SAM3）** 互相“辩论”和纠正，共同推理出物体由哪些部件组成以及它们的层级关系（比如，柜门是柜体的一部分）。\n4.  **用“视频扩散模型”来“脑补”运动**：既然没有真实运动可看，就利用一个**视频扩散模型（如Sora, Stable Video Diffusion）**，根据静止图像生成物体“可能如何打开”的假设视频。然后从这些生成的视频中提取运动轨迹，来估计关节类型（旋转、平移）和具体参数。\n\n### (4) 整体思路与模型结构\n**核心思想**：利用多个强大的预训练模型（“基模”）提供的**语义、几何和运动先验知识**，并将它们不可靠的输出**统一到一个可靠的3D网格上进行“仲裁”和融合**。\n\n**主要基模**：\n*   **视觉语言模型**：用于理解物体部件及其层级关系（如 `GR-1`, `Fuyu`）。\n*   **图像分割大模型**：用于在2D图像上分割部件（**SAM3**）。\n*   **视频扩散模型**：用于生成假设的运动视频（如 **Sora**）。\n*   **3D重建模型**：用于从多视角图像生成初始的物体3D网格（如 **NeRF, Gaussian Splatting** 等方法）。\n\n**整体流程（参照图1和图2）**：\n1.  **输入与3D重建**：输入多视角的静止状态RGB图像。首先，使用一个现成的3D重建方法（如NeRF或3D高斯溅射）生成一个**粗糙的、完整的物体3D网格**。这个网格是整个流程的基础。\n2.  **部件分割协同精炼**：\n    *   **VLM提出假设**：从不同视角渲染网格的图像，喂给VLM。VLM会输出一个**部件列表和层级树**（比如：“这是一个柜子，它包含一个主体、一扇左门、一扇右门、一个抽屉”）。\n    *   **SAM3进行验证和反驳**：同样从多视角渲染图像，让SAM3根据VLM提出的部件名称（如“左门”）进行分割。如果SAM3在某些视角下无法分割出“左门”，或者分割结果很差，就说明VLM的假设可能有问题。\n    *   **网格上的证据融合**：将SAM3在所有视角下的分割结果（带有置信度）**投影回3D网格的每个面上**，进行加权投票。置信度高的视角贡献更大。\n    *   **图优化精炼**：将3D网格视为一个图（顶点是节点，边是连接），利用图割算法对部件标签进行平滑优化，得到最终**清晰、一致的3D部件分割**。\n3.  **关节参数估计**：\n    *   **“脑补”运动视频**：从最能看清部件细节的视角渲染图像，输入给**视频扩散模型**，并提示它“生成这个物体打开过程的视频”。模型会生成多个可能打开方式的视频（例如，门是左开还是右开？抽屉是滑出还是翻下？）。\n    *   **提取和分析运动**：从生成的视频中，追踪每个部件（利用上一步得到的3D分割）在2D图像上的运动轨迹。\n    *   **拟合关节参数**：根据这些2D轨迹，结合3D网格的几何信息，逆向推导出3D空间的运动类型（旋转轴或平移方向）和具体参数（如铰链位置）。\n4.  **网格补全**：对于某些部件（如抽屉内部），在闭合状态下是看不见的。论文使用简单的几何规则（如拉伸、添加厚度）来补全这些隐藏部分的网格，形成一个完整的、可动画的部件模型。\n5.  **输出**：最终输出一个**带有部件标签的、水密的3D网格**，以及一个描述每个可动部件关节类型和参数的**运动学树**（类似于URDF文件）。\n\n### (5) 结果怎么样？\n论文在合成数据集（如PartNet-Mobility）和真实世界扫描数据（ScanNet, MultiScan）上进行了测试。\n\n*   **部件分割**：与需要真实运动信息的方法相比，Rest2Art在仅使用静止图像的情况下，取得了非常有竞争力的分割精度，甚至超过了部分需要两状态输入的方法。\n*   **关节估计**：在估计运动类型（旋转/平移）和关节参数（如旋转轴方向）的任务上，Rest2Art同样表现良好。虽然不如那些能看到真实运动的方法精确，但它在**没有任何真实运动观察**的情况下，成功预测出了物理上合理的关节。\n*   **消融实验**：证明了“协同精炼”、“网格证据融合”和“视频生成假设”这三个核心设计都是有效的，缺少任何一个都会导致性能下降。\n*   **泛化性**：方法能够处理多种类别的家具（柜子、冰箱、笔记本电脑等），并且对输入来源（高质量重建、带噪声的扫描）有较好的鲁棒性。\n\n**总结**：这篇论文巧妙地将多个前沿的AI基模（VLM、SAM3、视频生成模型）组织起来，通过3D网格这个“粘合剂”和“仲裁者”，解决了从单一静止状态重建关节化物体这个极具挑战性的问题，取得了令人印象深刻的效果，为构建“数字孪生”和具身智能中的物体交互理解提供了新思路。"
+  },
+  "figures": {
+    "2608.10744": [
+      {
+        "path": "https://arxiv.org/html/2608.10744v1/x2.png",
+        "caption": "Figure 2:Latent-to-4D training pipeline.A frozen video VAE encodes an observed video into a VAE-space latent. L4AR aligns the latent grid through a learned 3D convolution, reuses frozen camera and time tokens, and refines the representation through alternating frame-wise and global attention. The 4D decoder predicts cameras and dynamic world-space geometry.",
+        "role": "pipeline_1",
+        "caption_zh": "图2：潜在空间至4D训练流程。冻结的视频变分自编码器（VAE）将观测视频编码为VAE空间潜在表示。L4AR通过学习的3D卷积对齐潜在网格，复用冻结的相机与时间标记，并交替使用帧级注意力与全局注意力细化表征。4D解码器预测相机参数与动态世界空间几何结构。"
+      },
+      {
+        "path": "https://arxiv.org/html/2608.10744v1/x1.png",
+        "caption": "Figure 1:Comparison of video-to-4D interfaces.Previous methods decode video latents to RGB before reconstruction, whereas ours maps them directly to 4D through L4AR.",
+        "role": "pipeline_2",
+        "caption_zh": "图1：视频到4D重建的界面对比。先前方法需先将视频隐变量解码为RGB再进行重建，而我们的方法通过L4AR将其直接映射至4D空间。"
+      },
+      {
+        "path": "https://arxiv.org/html/2608.10744v1/x3.png",
+        "caption": "Figure 3:Text-to-4D comparison.Texts are abbreviated for display. RGB baselines reconstruct the decoded video, whereas Ours consumes its terminal latent directly.",
+        "role": "pipeline_3",
+        "caption_zh": "图3：文本生成4D结果对比。文本为便于展示进行缩写。RGB基线方法重建解码后的视频，而我们的方法直接使用其末端潜在表征。"
+      }
+    ],
+    "2607.27749": [
+      {
+        "path": "https://arxiv.org/html/2607.27749v1/fig3_overview.png",
+        "caption": "Figure 3:Method overview.Rest2Artreconstructs articulated objects from rest-state inputs by co-refining part hierarchies and masks, lifting evidence onto the mesh, synthesizing videos for joint estimation, and completing interior geometry.",
+        "role": "pipeline_1",
+        "caption_zh": "图 3：方法总览。Rest2Art 通过对部件层级与掩码的协同优化、将证据映射至网格、合成视频以估计关节运动，并补全内部几何结构，从而从静止状态输入重建出关节化物体。"
+      },
+      {
+        "path": "https://arxiv.org/html/2607.27749v1/fig4_corefince.png",
+        "caption": "Figure 4:Co-refinement of hierarchy and part masks.Disagreements between the VLM hierarchy tree and SAM3 masks drive mutual correction. Validated masks are then back-projected onto the mesh to enforce cross-view consistency.",
+        "role": "pipeline_2",
+        "caption_zh": "图4：层次结构与部件掩码的协同优化。视觉语言模型层次树与SAM3掩码之间的不一致性驱动相互校正，经验证的掩码随后被反向投影至网格以强化跨视图一致性。"
+      },
+      {
+        "path": "https://arxiv.org/html/2607.27749v1/fig1_teaser.png",
+        "caption": "Figure 1:We proposeRest2Art, an approach for reconstructing articulated objects with part-level geometry and joint parameters from rest-state observations alone.",
+        "role": "pipeline_3",
+        "caption_zh": "图 1：我们提出 Rest2Art 方法，该方法仅通过静止状态观测即可重建具有部件级几何和关节参数的铰接物体。"
+      }
+    ]
+  }
+}
