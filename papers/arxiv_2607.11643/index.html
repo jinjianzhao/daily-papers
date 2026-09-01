@@ -1,0 +1,1011 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Xiaomi-Robotics-U0: Unified Embodied Synthesis with World Foundation Model</title>
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <style>
+/*! PhotoSwipe main CSS by Dmytro Semenov | photoswipe.com */
+
+.pswp {
+  --pswp-bg: #000;
+  --pswp-placeholder-bg: #222;
+
+
+  --pswp-root-z-index: 100000;
+
+  --pswp-preloader-color: rgba(79, 79, 79, 0.4);
+  --pswp-preloader-color-secondary: rgba(255, 255, 255, 0.9);
+
+  /* defined via js:
+  --pswp-transition-duration: 333ms; */
+
+  --pswp-icon-color: #fff;
+  --pswp-icon-color-secondary: #4f4f4f;
+  --pswp-icon-stroke-color: #4f4f4f;
+  --pswp-icon-stroke-width: 2px;
+
+  --pswp-error-text-color: var(--pswp-icon-color);
+}
+
+
+/*
+	Styles for basic PhotoSwipe (pswp) functionality (sliding area, open/close transitions)
+*/
+
+.pswp {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: var(--pswp-root-z-index);
+	display: none;
+	touch-action: none;
+	outline: 0;
+	opacity: 0.003;
+	contain: layout style size;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* Prevents focus outline on the root element,
+  (it may be focused initially) */
+.pswp:focus {
+  outline: 0;
+}
+
+.pswp * {
+  box-sizing: border-box;
+}
+
+.pswp img {
+  max-width: none;
+}
+
+.pswp--open {
+	display: block;
+}
+
+.pswp,
+.pswp__bg {
+	transform: translateZ(0);
+	will-change: opacity;
+}
+
+.pswp__bg {
+  opacity: 0.005;
+	background: var(--pswp-bg);
+}
+
+.pswp,
+.pswp__scroll-wrap {
+	overflow: hidden;
+}
+
+.pswp__scroll-wrap,
+.pswp__bg,
+.pswp__container,
+.pswp__item,
+.pswp__content,
+.pswp__img,
+.pswp__zoom-wrap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.pswp__img,
+.pswp__zoom-wrap {
+	width: auto;
+	height: auto;
+}
+
+.pswp--click-to-zoom.pswp--zoom-allowed .pswp__img {
+	cursor: -webkit-zoom-in;
+	cursor: -moz-zoom-in;
+	cursor: zoom-in;
+}
+
+.pswp--click-to-zoom.pswp--zoomed-in .pswp__img {
+	cursor: move;
+	cursor: -webkit-grab;
+	cursor: -moz-grab;
+	cursor: grab;
+}
+
+.pswp--click-to-zoom.pswp--zoomed-in .pswp__img:active {
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+  cursor: grabbing;
+}
+
+/* :active to override grabbing cursor */
+.pswp--no-mouse-drag.pswp--zoomed-in .pswp__img,
+.pswp--no-mouse-drag.pswp--zoomed-in .pswp__img:active,
+.pswp__img {
+	cursor: -webkit-zoom-out;
+	cursor: -moz-zoom-out;
+	cursor: zoom-out;
+}
+
+
+/* Prevent selection and tap highlights */
+.pswp__container,
+.pswp__img,
+.pswp__button,
+.pswp__counter {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.pswp__item {
+	/* z-index for fade transition */
+	z-index: 1;
+	overflow: hidden;
+}
+
+.pswp__hidden {
+	display: none !important;
+}
+
+/* Allow to click through pswp__content element, but not its children */
+.pswp__content {
+  pointer-events: none;
+}
+.pswp__content > * {
+  pointer-events: auto;
+}
+
+
+/*
+
+  PhotoSwipe UI
+
+*/
+
+/*
+	Error message appears when image is not loaded
+	(JS option errorMsg controls markup)
+*/
+.pswp__error-msg-container {
+  display: grid;
+}
+.pswp__error-msg {
+	margin: auto;
+	font-size: 1em;
+	line-height: 1;
+	color: var(--pswp-error-text-color);
+}
+
+/*
+class pswp__hide-on-close is applied to elements that
+should hide (for example fade out) when PhotoSwipe is closed
+and show (for example fade in) when PhotoSwipe is opened
+ */
+.pswp .pswp__hide-on-close {
+	opacity: 0.005;
+	will-change: opacity;
+	transition: opacity var(--pswp-transition-duration) cubic-bezier(0.4, 0, 0.22, 1);
+	z-index: 10; /* always overlap slide content */
+	pointer-events: none; /* hidden elements should not be clickable */
+}
+
+/* class pswp--ui-visible is added when opening or closing transition starts */
+.pswp--ui-visible .pswp__hide-on-close {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+/* <button> styles, including css reset */
+.pswp__button {
+	position: relative;
+	display: block;
+	width: 50px;
+	height: 60px;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	cursor: pointer;
+	background: none;
+	border: 0;
+	box-shadow: none;
+	opacity: 0.85;
+	-webkit-appearance: none;
+	-webkit-touch-callout: none;
+}
+
+.pswp__button:hover,
+.pswp__button:active,
+.pswp__button:focus {
+  transition: none;
+  padding: 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  opacity: 1;
+}
+
+.pswp__button:disabled {
+  opacity: 0.3;
+  cursor: auto;
+}
+
+.pswp__icn {
+  fill: var(--pswp-icon-color);
+  color: var(--pswp-icon-color-secondary);
+}
+
+.pswp__icn {
+  position: absolute;
+  top: 14px;
+  left: 9px;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.pswp__icn-shadow {
+  stroke: var(--pswp-icon-stroke-color);
+  stroke-width: var(--pswp-icon-stroke-width);
+  fill: none;
+}
+
+.pswp__icn:focus {
+	outline: 0;
+}
+
+/*
+	div element that matches size of large image,
+	large image loads on top of it,
+	used when msrc is not provided
+*/
+div.pswp__img--placeholder,
+.pswp__img--with-bg {
+	background: var(--pswp-placeholder-bg);
+}
+
+.pswp__top-bar {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 60px;
+	display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+	z-index: 10;
+
+	/* allow events to pass through top bar itself */
+	pointer-events: none !important;
+}
+.pswp__top-bar > * {
+  pointer-events: auto;
+  /* this makes transition significantly more smooth,
+     even though inner elements are not animated */
+  will-change: opacity;
+}
+
+
+/*
+
+  Close button
+
+*/
+.pswp__button--close {
+  margin-right: 6px;
+}
+
+
+/*
+
+  Arrow buttons
+
+*/
+.pswp__button--arrow {
+  position: absolute;
+  top: 0;
+  width: 75px;
+  height: 100px;
+  top: 50%;
+  margin-top: -50px;
+}
+
+.pswp__button--arrow:disabled {
+  display: none;
+  cursor: default;
+}
+
+.pswp__button--arrow .pswp__icn {
+  top: 50%;
+  margin-top: -30px;
+  width: 60px;
+  height: 60px;
+  background: none;
+  border-radius: 0;
+}
+
+.pswp--one-slide .pswp__button--arrow {
+  display: none;
+}
+
+/* hide arrows on touch screens */
+.pswp--touch .pswp__button--arrow {
+  visibility: hidden;
+}
+
+/* show arrows only after mouse was used */
+.pswp--has_mouse .pswp__button--arrow {
+  visibility: visible;
+}
+
+.pswp__button--arrow--prev {
+  right: auto;
+  left: 0px;
+}
+
+.pswp__button--arrow--next {
+  right: 0px;
+}
+.pswp__button--arrow--next .pswp__icn {
+  left: auto;
+  right: 14px;
+  /* flip horizontally */
+  transform: scale(-1, 1);
+}
+
+/*
+
+  Zoom button
+
+*/
+.pswp__button--zoom {
+  display: none;
+}
+
+.pswp--zoom-allowed .pswp__button--zoom {
+  display: block;
+}
+
+/* "+" => "-" */
+.pswp--zoomed-in .pswp__zoom-icn-bar-v {
+  display: none;
+}
+
+
+/*
+
+  Loading indicator
+
+*/
+.pswp__preloader {
+  position: relative;
+  overflow: hidden;
+  width: 50px;
+  height: 60px;
+  margin-right: auto;
+}
+
+.pswp__preloader .pswp__icn {
+  opacity: 0;
+  transition: opacity 0.2s linear;
+  animation: pswp-clockwise 600ms linear infinite;
+}
+
+.pswp__preloader--active .pswp__icn {
+  opacity: 0.85;
+}
+
+@keyframes pswp-clockwise {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+/*
+
+  "1 of 10" counter
+
+*/
+.pswp__counter {
+  height: 30px;
+  margin-top: 15px;
+  margin-inline-start: 20px;
+  font-size: 14px;
+  line-height: 30px;
+  color: var(--pswp-icon-color);
+  text-shadow: 1px 1px 3px var(--pswp-icon-color-secondary);
+  opacity: 0.85;
+}
+
+.pswp--one-slide .pswp__counter {
+  display: none;
+}
+
+    :root { color-scheme: light; font-family: Inter, "PingFang SC", "Microsoft YaHei", sans-serif; }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: #1b1f24; background: #f5f7f8; line-height: 1.72; }
+    main { width: min(920px, calc(100% - 40px)); margin: 0 auto; padding: 52px 0 80px; }
+    article { background: #fff; border: 1px solid #dfe4e8; border-radius: 8px; padding: 42px 48px; box-shadow: 0 4px 18px rgba(25, 31, 36, .06); }
+    h1, h2, h3 { color: #111418; line-height: 1.3; letter-spacing: 0; }
+    h1, h2 { font-weight: 750; }
+    h1 { margin: 0 0 28px; font-size: 30px; }
+    h2 { margin: 38px 0 14px; padding-bottom: 8px; border-bottom: 1px solid #e5e8eb; font-size: 21px; }
+    h3 { margin: 28px 0 10px; font-size: 17px; }
+    h1 { color: #1769aa; }
+    h2 { color: #1769aa; }
+    p, li { font-size: 15px; }
+    ul, ol { padding-left: 26px; }
+    ul ul, ul ol, ol ul, ol ol { margin-top: 7px; margin-bottom: 0; }
+    li + li { margin-top: 7px; }
+    .embedded-image { display: block; margin: 20px 0; }
+    .embedded-image .pswp-image { display: block; color: inherit; text-decoration: none; }
+    .embedded-image img { display: block; width: auto; max-width: 100%; height: auto; margin: 0 auto; border: 1px solid #dfe4e8; border-radius: 6px; cursor: zoom-in; }
+    .image-caption { display: block; margin-top: 8px; color: #606870; font-size: 13px; text-align: center; }
+    code { padding: 2px 5px; border-radius: 4px; background: #eef1f3; color: #a12632; font-family: "SFMono-Regular", Consolas, monospace; font-size: .92em; }
+    pre { overflow-x: auto; padding: 18px; border: 1px solid #dfe4e8; border-radius: 6px; background: #f7f8fa; line-height: 1.55; }
+    pre code { padding: 0; background: none; color: #24292f; }
+    blockquote { margin: 20px 0; padding: 12px 18px; border-left: 4px solid #2f6f62; background: #f1f7f5; color: #34443f; }
+    .mermaid { display: flex; justify-content: center; overflow-x: auto; margin: 22px 0; padding: 22px; border: 1px solid #dfe4e8; border-radius: 6px; background: #fbfcfc; }
+    .table-wrap { overflow-x: auto; margin: 18px 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { padding: 10px 12px; border: 1px solid #dfe4e8; text-align: left; vertical-align: top; }
+    th { background: #f2f4f5; font-weight: 650; }
+    a { color: #1769aa; }
+    @media (max-width: 640px) { main { width: 100%; padding: 0; } article { border: 0; border-radius: 0; padding: 28px 22px 56px; } }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+    body { background: #f8fafc; }
+    .academic-shell { width: min(1440px, calc(100% - 40px)); margin: 0 auto; padding: 32px 0 80px; display: grid; grid-template-columns: 272px minmax(0, 980px); justify-content: center; gap: 32px; align-items: start; }
+    .academic-sidebar { position: sticky; top: 24px; max-height: calc(100vh - 48px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #cbd5e1 transparent; }
+    .toc-panel { border: 1px solid #e2e8f0; border-radius: 16px; background: rgba(255, 255, 255, .96); padding: 16px 12px; box-shadow: 0 8px 24px rgba(15, 23, 42, .05); }
+    .toc-heading { margin: 0 8px 10px; color: #94a3b8; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .toc-nav { display: grid; gap: 2px; }
+    .toc-link { display: block; padding: 7px 10px; border-left: 2px solid transparent; border-radius: 7px; color: #64748b; font-size: 12px; line-height: 1.45; text-decoration: none; overflow-wrap: anywhere; transition: color .15s, background .15s, border-color .15s; }
+    .toc-link:hover { color: #4338ca; background: #eef2ff; }
+    .toc-link.toc-active { color: #4338ca; border-left-color: #6366f1; background: #eef2ff; font-weight: 700; }
+    .toc-level-1 { font-weight: 700; color: #334155; }
+    .toc-level-2 { padding-left: 16px; }
+    .toc-level-3 { padding-left: 28px; font-size: 11px; }
+    .toc-level-4 { padding-left: 36px; font-size: 11px; }
+    .toc-level-5 { padding-left: 44px; font-size: 11px; }
+    .toc-level-6 { padding-left: 52px; font-size: 11px; }
+    .toc-empty { margin: 8px; color: #94a3b8; font-size: 12px; }
+    .toc-collapse-button { display: inline-flex; position: fixed; z-index: 70; top: 24px; left: 12px; align-items: center; gap: 7px; padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 8px; background: rgba(255, 255, 255, .96); color: #475569; font: inherit; font-size: 12px; font-weight: 700; box-shadow: 0 6px 18px rgba(15, 23, 42, .08); cursor: pointer; }
+    body.toc-collapsed .academic-shell { grid-template-columns: minmax(0, 980px); gap: 0; }
+    body.toc-collapsed .academic-sidebar { display: none; }
+    .academic-main { width: 100%; min-width: 0; margin: 0; padding: 0; }
+    .academic-main article { border-color: #e2e8f0; border-radius: 18px; padding: 48px 56px 64px; box-shadow: 0 10px 32px rgba(15, 23, 42, .06); }
+    .academic-main h1, .academic-main h2, .academic-main h3 { scroll-margin-top: 24px; }
+    .academic-main h1 { font-size: 32px; }
+    .academic-main h2 { margin-top: 44px; padding-bottom: 10px; border-bottom-color: #e2e8f0; font-size: 22px; }
+    .academic-main h3 { margin-top: 32px; font-size: 18px; }
+    .academic-main .embedded-image { margin: 26px 0; }
+    .academic-main .embedded-image img { border-color: #e2e8f0; border-radius: 10px; }
+    .toc-menu-button { display: none; }
+    .toc-backdrop { display: none; }
+    @media (max-width: 960px) {
+      .toc-collapse-button { display: none; }
+      .academic-shell { width: min(920px, calc(100% - 32px)); display: block; padding-top: 68px; }
+      .academic-sidebar { position: fixed; z-index: 80; top: 0; left: 0; width: min(320px, 86vw); height: 100vh; max-height: none; padding: 16px; background: #f8fafc; transform: translateX(-105%); transition: transform .2s ease; }
+      body.toc-open .academic-sidebar { transform: translateX(0); }
+      .toc-panel { min-height: calc(100vh - 32px); }
+      .toc-menu-button { display: inline-flex; position: fixed; z-index: 70; top: 16px; left: 16px; align-items: center; gap: 7px; padding: 9px 12px; border: 1px solid #cbd5e1; border-radius: 10px; background: rgba(255, 255, 255, .96); color: #475569; font: inherit; font-size: 13px; font-weight: 700; box-shadow: 0 6px 18px rgba(15, 23, 42, .1); cursor: pointer; }
+      .toc-backdrop { position: fixed; z-index: 75; inset: 0; background: rgba(15, 23, 42, .32); }
+      body.toc-open .toc-backdrop { display: block; }
+      .academic-main article { padding: 38px 36px 56px; }
+    }
+    @media (max-width: 640px) {
+      .academic-shell { width: 100%; padding: 60px 0 0; }
+      .academic-main article { padding: 30px 22px 52px; border: 0; border-radius: 0; }
+    }
+
+
+
+  </style>
+</head>
+<body>
+
+  <button class="toc-collapse-button" id="toc-collapse-button" type="button" aria-controls="academic-sidebar" aria-expanded="true">◀ 收起目录</button>
+  <button class="toc-menu-button" id="toc-menu-button" type="button" aria-controls="academic-sidebar" aria-expanded="false">☰ 目录</button>
+  <div class="toc-backdrop" id="toc-backdrop"></div>
+  <div class="academic-shell">
+    <aside class="academic-sidebar" id="academic-sidebar" aria-label="文档目录">
+      <div class="toc-panel">
+        <p class="toc-heading">目录</p>
+        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#xiaomi-robotics-u0-unified-embodied-synthesis-with-world-foundation-model">Xiaomi-Robotics-U0: Unified Embodied Synthesis with World Foundation Model</a><a class="toc-link toc-level-2" href="#快速理解">快速理解</a><a class="toc-link toc-level-2" href="#中文摘要">中文摘要</a><a class="toc-link toc-level-2" href="#详细分析">详细分析</a><a class="toc-link toc-level-1" href="#一句话概括">一句话概括</a><a class="toc-link toc-level-1" href="#1-任务输入-输出-功能和边界">1. 任务输入、输出、功能和边界</a><a class="toc-link toc-level-2" href="#1-1-输入是什么">1.1 输入是什么</a><a class="toc-link toc-level-2" href="#1-2-输出是什么">1.2 输出是什么</a><a class="toc-link toc-level-3" href="#1-text-to-image-t2i">（1）Text-to-Image，T2I</a><a class="toc-link toc-level-3" href="#2-any-to-image-x2i">（2）Any-to-Image，X2I</a><a class="toc-link toc-level-3" href="#3-具身场景生成">（3）具身场景生成</a><a class="toc-link toc-level-3" href="#4-具身迁移">（4）具身迁移</a><a class="toc-link toc-level-3" href="#5-具身视频生成">（5）具身视频生成</a><a class="toc-link toc-level-2" href="#1-3-它的功能是什么">1.3 它的功能是什么</a><a class="toc-link toc-level-2" href="#1-4-它不是什么">1.4 它不是什么</a><a class="toc-link toc-level-1" href="#2-论文要解决的问题-以及问题为什么发生">2. 论文要解决的问题，以及问题为什么发生</a><a class="toc-link toc-level-2" href="#2-1-普通图像-视频生成模型为什么不能直接用于机器人">2.1 普通图像/视频生成模型为什么不能直接用于机器人</a><a class="toc-link toc-level-3" href="#问题一-多视角必须对应同一个三维场景">问题一：多视角必须对应同一个三维场景</a><a class="toc-link toc-level-3" href="#问题二-机器人身体和摄像机有明确几何约束">问题二：机器人身体和摄像机有明确几何约束</a><a class="toc-link toc-level-3" href="#问题三-交互过程需要符合时间和物理关系">问题三：交互过程需要符合时间和物理关系</a><a class="toc-link toc-level-2" href="#2-2-为什么已有机器人世界模型会损失通用能力">2.2 为什么已有机器人世界模型会损失通用能力</a><a class="toc-link toc-level-1" href="#3-核心-insight-与主要贡献">3. 核心 insight 与主要贡献</a><a class="toc-link toc-level-2" href="#3-1-核心-insight-把具身生成看成图像-视频生成的扩展">3.1 核心 insight：把具身生成看成图像/视频生成的扩展</a><a class="toc-link toc-level-2" href="#3-2-主要贡献">3.2 主要贡献</a><a class="toc-link toc-level-3" href="#贡献一-统一的具身合成框架">贡献一：统一的具身合成框架</a><a class="toc-link toc-level-3" href="#贡献二-多视角且可控的具身迁移">贡献二：多视角且可控的具身迁移</a><a class="toc-link toc-level-3" href="#贡献三-将世界模型用作数据引擎">贡献三：将世界模型用作数据引擎</a><a class="toc-link toc-level-1" href="#4-基模与从输入到输出的整体流程">4. 基模与从输入到输出的整体流程</a><a class="toc-link toc-level-2" href="#4-1-使用的基模">4.1 使用的基模</a><a class="toc-link toc-level-2" href="#4-2-图像如何进入-transformer">4.2 图像如何进入 Transformer</a><a class="toc-link toc-level-2" href="#4-3-单步任务流程">4.3 单步任务流程</a><a class="toc-link toc-level-3" href="#具身场景生成">具身场景生成</a><a class="toc-link toc-level-3" href="#具身迁移">具身迁移</a><a class="toc-link toc-level-2" href="#4-4-序列任务流程">4.4 序列任务流程</a><a class="toc-link toc-level-1" href="#5-每个关键机制-为什么需要-怎么做-得到什么">5. 每个关键机制：为什么需要、怎么做、得到什么</a><a class="toc-link toc-level-2" href="#5-1-通用任务与具身任务联合训练">5.1 通用任务与具身任务联合训练</a><a class="toc-link toc-level-3" href="#为什么需要">为什么需要</a><a class="toc-link toc-level-3" href="#怎么做">怎么做</a><a class="toc-link toc-level-3" href="#得到什么">得到什么</a><a class="toc-link toc-level-2" href="#5-2-结构化具身迁移">5.2 结构化具身迁移</a><a class="toc-link toc-level-3" href="#为什么需要-2">为什么需要</a><a class="toc-link toc-level-3" href="#怎么做-2">怎么做</a><a class="toc-link toc-level-3" href="#得到什么-2">得到什么</a><a class="toc-link toc-level-2" href="#5-3-深度条件与多视角一致性">5.3 深度条件与多视角一致性</a><a class="toc-link toc-level-3" href="#为什么需要-3">为什么需要</a><a class="toc-link toc-level-3" href="#怎么做-3">怎么做</a><a class="toc-link toc-level-3" href="#得到什么-3">得到什么</a><a class="toc-link toc-level-2" href="#5-4-统一数据标注流程">5.4 统一数据标注流程</a><a class="toc-link toc-level-3" href="#为什么需要-4">为什么需要</a><a class="toc-link toc-level-3" href="#怎么做-4">怎么做</a><a class="toc-link toc-level-3" href="#得到什么-4">得到什么</a><a class="toc-link toc-level-2" href="#5-5-多帧率视频与子任务-子目标序列">5.5 多帧率视频与子任务—子目标序列</a><a class="toc-link toc-level-3" href="#为什么需要-5">为什么需要</a><a class="toc-link toc-level-3" href="#怎么做-5">怎么做</a><a class="toc-link toc-level-3" href="#得到什么-5">得到什么</a><a class="toc-link toc-level-2" href="#5-6-flashar-推理加速">5.6 FlashAR+ 推理加速</a><a class="toc-link toc-level-3" href="#为什么需要-6">为什么需要</a><a class="toc-link toc-level-3" href="#怎么做-6">怎么做</a><a class="toc-link toc-level-3" href="#得到什么-6">得到什么</a><a class="toc-link toc-level-1" href="#6-数据-训练和实验结果">6. 数据、训练和实验结果</a><a class="toc-link toc-level-2" href="#6-1-数据规模">6.1 数据规模</a><a class="toc-link toc-level-2" href="#6-2-具身迁移结果">6.2 具身迁移结果</a><a class="toc-link toc-level-2" href="#6-3-具身场景生成结果">6.3 具身场景生成结果</a><a class="toc-link toc-level-2" href="#6-4-下游真实机器人策略">6.4 下游真实机器人策略</a><a class="toc-link toc-level-1" href="#7-消融结果-论文实际证明了什么">7. 消融结果：论文实际证明了什么</a><a class="toc-link toc-level-2" href="#7-1-原始-ar-flashar-flashar-vllm">7.1 原始 AR、FlashAR+、FlashAR+ vLLM</a><a class="toc-link toc-level-2" href="#7-2-original-与-u0-aug">7.2 Original 与 U0-Aug</a><a class="toc-link toc-level-2" href="#7-3-gpt-image-2-与-u0">7.3 GPT-Image-2 与 U0</a><a class="toc-link toc-level-1" href="#8-可视化结论及其证据边界">8. 可视化结论及其证据边界</a><a class="toc-link toc-level-2" href="#8-1-可视化支持的结论">8.1 可视化支持的结论</a><a class="toc-link toc-level-3" href="#多视角一致性更好">多视角一致性更好</a><a class="toc-link toc-level-3" href="#文本修改可以与几何条件同时生效">文本修改可以与几何条件同时生效</a><a class="toc-link toc-level-3" href="#合成数据可以改变机器人策略看到的视觉外观">合成数据可以改变机器人策略看到的视觉外观</a><a class="toc-link toc-level-2" href="#8-2-可视化不能证明的结论">8.2 可视化不能证明的结论</a><a class="toc-link toc-level-1" href="#9-局限性">9. 局限性</a><a class="toc-link toc-level-2" href="#9-1-物理真实性仍然不充分">9.1 物理真实性仍然不充分</a><a class="toc-link toc-level-2" href="#9-2-深度条件并不等于真实三维重建">9.2 深度条件并不等于真实三维重建</a><a class="toc-link toc-level-2" href="#9-3-数据标注依赖强大的外部-vlm">9.3 数据标注依赖强大的外部 VLM</a><a class="toc-link toc-level-2" href="#9-4-真实机器人验证规模有限">9.4 真实机器人验证规模有限</a><a class="toc-link toc-level-2" href="#9-5-生成数据可能引入错误偏差">9.5 生成数据可能引入错误偏差</a><a class="toc-link toc-level-2" href="#9-6-缺少充分的模块消融">9.6 缺少充分的模块消融</a><a class="toc-link toc-level-2" href="#9-7-论文中存在结果表述需要核对的地方">9.7 论文中存在结果表述需要核对的地方</a><a class="toc-link toc-level-1" href="#10-最终判断">10. 最终判断</a><a class="toc-link toc-level-2" href="#10-1-论文最有价值的地方">10.1 论文最有价值的地方</a><a class="toc-link toc-level-2" href="#10-2-论文最可信的结论">10.2 论文最可信的结论</a><a class="toc-link toc-level-2" href="#10-3-尚不能完全确认的结论">10.3 尚不能完全确认的结论</a><a class="toc-link toc-level-2" href="#10-4-总体评价">10.4 总体评价</a></nav>
+      </div>
+    </aside>
+    <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../date/">← 返回日报目录</a></p>
+<h1 id="xiaomi-robotics-u0-unified-embodied-synthesis-with-world-foundation-model">Xiaomi-Robotics-U0: Unified Embodied Synthesis with World Foundation Model</h1>
+<p><strong>一句话主题：</strong> 面向机器人具身场景的统一多模态生成</p>
+<p><strong>领域标签：</strong> 人工智能 / 具身智能 / 世界基础模型 / 多视角场景生成 / 机器人数据合成</p>
+<h2 id="快速理解">快速理解</h2>
+<p><strong>背景与任务：</strong> 现有图像和视频基础生成模型虽具备强泛化能力，但难以直接满足具身场景中的多视角一致性、几何一致性和机器人约束。</p>
+<p><strong>核心工作：</strong> 作者提出38B参数多模态自回归模型Xiaomi-Robotics-U0，统一支持具身场景生成、迁移和视频生成，并在多项任务中取得领先效果。</p>
+<h2 id="中文摘要">中文摘要</h2>
+<p>近期的基础图像和视频生成模型具有很强的泛化能力和可控性，但由于多视角一致性、几何连贯性以及机器人具身约束等要求，它们在具身场景中的直接应用受到限制。现有方法通常使用有限的机器人数据来适配基础模型，往往会牺牲在大规模预训练期间获得的视觉知识。我们提出 Xiaomi-Robotics-U0，一个拥有 380 亿参数的多模态自回归模型，用于统一的具身合成。它将具身生成视为基础图像和视频生成的扩展，并联合优化文本到图像生成、图像编辑、具身场景生成、具身迁移和具身视频生成。该统一框架在将预训练世界基础模型适配到具身环境的同时，保留了其泛化能力。Xiaomi-Robotics-U0 是首个支持跨多种机器人具身形态的高质量多视角场景生成的模型，并引入了结构化、可控的具身迁移，用于在保持多视角一致性和交互动态的同时进行细粒度编辑。它在单步和序列生成任务上取得了最先进的结果：在具身场景生成和迁移的人类评估中优于 GPT-Image-2.0；在用于具身视频生成的 World Arena 上排名第一；并且在具有挑战性的真实世界操作任务中，将 pi_0.5 的分布外成功率从 36.9% 提高到 63.2%。这些结果表明，基础世界模型既可以作为具身世界模型，也可以作为具身智能的可扩展数据引擎。代码和检查点可在 https://robotics.xiaomi.com/xiaomi-robotics-u0.html 获取。</p>
+<h2 id="详细分析">详细分析</h2>
+<h1 id="一句话概括">一句话概括</h1>
+<p>Xiaomi-Robotics-U0 不是一个只负责输出机器人动作的策略模型，而是一个<strong>能够生成机器人所处场景、修改场景外观、预测机器人操作视频，并用这些合成数据增强下游策略</strong>的统一多模态世界模型。</p>
+<p>它的核心做法是：从一个已经具备强大图像生成能力的 380 亿参数自回归模型出发，不把模型改造成单一的机器人专用网络，而是继续同时训练通用图像任务和具身任务，使模型学习：</p>
+<p>\[ \text{文本/图像/深度/机器人控制条件} \longrightarrow \text{图像、多视角观测或未来视频} \]</p>
+<hr>
+<h1 id="1-任务输入-输出-功能和边界">1. 任务输入、输出、功能和边界</h1>
+<h2 id="1-1-输入是什么">1.1 输入是什么</h2>
+<p>模型统一接受多模态上下文：</p>
+<p>\[ \mathcal C=\{x_1,x_2,\ldots,x_n\} \]</p>
+<p>其中的元素可以是：</p>
+<ul><li>文本 token；</li><li>图像 token；</li><li>多视角 RGB 图像；</li><li>多视角深度图；</li><li>机器人 embodiment 信息，例如机械臂类型、相机视角、机器人结构；</li><li>任务指令，例如“把耳机放入盒中”；</li><li>机器人动作对应的 mask 图像；</li><li>相机参数、机器人 URDF 等几何或动作条件；</li><li>在序列任务中，已经观察到的历史帧或中间子任务描述。</li></ul>
+<p>这里的 <strong>embodiment</strong> 指机器人本身的身体形态和传感器配置，例如机械臂的外形、关节结构、夹爪形式、相机位置等。模型不能只生成“看起来像在操作”的图像，还应生成符合某个具体机器人和摄像机配置的观测。</p>
+<h2 id="1-2-输出是什么">1.2 输出是什么</h2>
+<p>论文覆盖五类主要输出任务：</p>
+<h3 id="1-text-to-image-t2i">（1）Text-to-Image，T2I</h3>
+<p>输入文本，输出普通图像。</p>
+<p>例如：</p>
+<blockquote>“一个机器人在明亮桌面上抓取红色杯子。”</blockquote>
+<p>输出是一张符合描述的图像。</p>
+<h3 id="2-any-to-image-x2i">（2）Any-to-Image，X2I</h3>
+<p>输入文本和一张或多张参考图像，输出编辑后的目标图像。它包括：</p>
+<ul><li>文本到图像；</li><li>图像到图像编辑；</li><li>多参考图像生成；</li><li>受相机、时间、深度、边缘或语义 mask 控制的生成。</li></ul>
+<h3 id="3-具身场景生成">（3）具身场景生成</h3>
+<p>输入：</p>
+<ul><li>机器人类型；</li><li>场景文字描述；</li><li>工作空间、物体、光照、背景等条件。</li></ul>
+<p>输出：</p>
+<ul><li>同一个机器人在多个摄像机视角下的初始 RGB 观测。</li></ul>
+<p>重点是多个视角应描述<strong>同一个三维场景</strong>，而不是每个视角独立生成一张“看起来合理”的图片。</p>
+<h3 id="4-具身迁移">（4）具身迁移</h3>
+<p>输入：</p>
+<ul><li>原始场景的多视角深度图；</li><li>当前机器人和相机的几何信息；</li><li>修改后的场景描述。</li></ul>
+<p>输出：</p>
+<ul><li>多视角 RGB 图像。</li></ul>
+<p>它可以保持机器人、桌面和物体的几何布局，同时修改：</p>
+<ul><li>背景；</li><li>工作空间；</li><li>光照；</li><li>与任务无关的物体；</li><li>目标物体；</li><li>场景外观。</li></ul>
+<p>例如，保持机械臂和杯子的空间关系不变，把原来的木桌、室内背景和白光改成另一种桌布、背景和灯光。</p>
+<h3 id="5-具身视频生成">（5）具身视频生成</h3>
+<p>输入：</p>
+<ul><li>初始观测；</li><li>语言任务指令；</li><li>机器人动作或动作 mask；</li><li>相机和机器人结构信息。</li></ul>
+<p>输出：</p>
+<ul><li>后续多帧机器人操作视频；</li><li>或者交错的“子任务描述—完成后的观测”序列。</li></ul>
+<p>目标是预测“机器人接下来会看到什么”，而不仅是生成静态图片。</p>
+<hr>
+<h2 id="1-3-它的功能是什么">1.3 它的功能是什么</h2>
+<p>论文声称模型可以同时充当：</p>
+<ol><li><strong>具身场景生成器</strong>：生成多视角、特定机器人对应的初始场景；</li><li><strong>具身图像编辑器</strong>：在保持几何结构的前提下改变场景属性；</li><li><strong>具身视频预测器</strong>：预测任务执行过程中的未来观测；</li><li><strong>合成数据引擎</strong>：自动制造不同背景、光照和外观下的训练轨迹；</li><li><strong>通用图像生成模型</strong>：继续支持普通 T2I 和图像编辑。</li></ol>
+<p>整体任务关系如下。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2607.11643v1/alltask_refine.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2607.11643v1/alltask_refine.png" alt="Figure 2：Xiaomi-Robotics-U0 中所有任务的概览。灰色：输入；橙色：输出。" loading="lazy"></a><span class="image-caption">Figure 2：Xiaomi-Robotics-U0 中所有任务的概览。灰色：输入；橙色：输出。</span></span></p>
+<h2 id="1-4-它不是什么">1.4 它不是什么</h2>
+<p>需要明确边界：</p>
+<ul><li>它不是论文中用于最终执行动作的机器人策略本身；</li><li>它不会直接保证真实机器人一定成功；</li><li>它不是严格意义上的物理模拟器；</li><li>它生成的视频不等同于真实世界中可执行的动作轨迹；</li><li>它的输出虽然可以作为策略训练数据，但仍可能出现视觉合理、物理错误的结果；</li><li>它不能仅凭一张图像精确恢复真实三维世界；</li><li>它对深度、相机、机器人结构和训练分布的依赖仍然存在。</li></ul>
+<p>在真实机器人实验中，U0 <strong>不在执行时参与控制</strong>。它只负责生成风格迁移后的训练数据，之后由 π₀.₅ 策略独立执行。</p>
+<hr>
+<h1 id="2-论文要解决的问题-以及问题为什么发生">2. 论文要解决的问题，以及问题为什么发生</h1>
+<h2 id="2-1-普通图像-视频生成模型为什么不能直接用于机器人">2.1 普通图像/视频生成模型为什么不能直接用于机器人</h2>
+<p>普通生成模型的主要目标通常是：</p>
+<blockquote>生成一张或一段视觉上逼真的图像/视频，并符合文本语义。</blockquote>
+<p>但机器人场景还要求满足更严格的约束。</p>
+<h3 id="问题一-多视角必须对应同一个三维场景">问题一：多视角必须对应同一个三维场景</h3>
+<p>假设机器人有头部相机和两个腕部相机。模型需要生成三张图像，但这三张图像必须满足：</p>
+<ul><li>同一个机械臂；</li><li>同一个物体；</li><li>物体位置在不同视角下投影一致；</li><li>遮挡关系合理；</li><li>尺寸和深度关系一致。</li></ul>
+<p>普通图像模型可能分别生成三张漂亮图片，却出现：</p>
+<ul><li>杯子在不同视角中位于不同位置；</li><li>物体大小不一致；</li><li>机械臂形状变化；</li><li>某个视角中物体被遮挡，另一个视角却暴露在不可能的位置。</li></ul>
+<p>这不是简单的图像质量问题，而是跨视角三维一致性问题。</p>
+<h3 id="问题二-机器人身体和摄像机有明确几何约束">问题二：机器人身体和摄像机有明确几何约束</h3>
+<p>机器人不是普通物体。它的：</p>
+<ul><li>关节连接关系；</li><li>连杆长度；</li><li>夹爪姿态；</li><li>相机内外参；</li><li>末端执行器位置；</li></ul>
+<p>都必须相互兼容。</p>
+<p>生成一张“机器人抓杯子”的图片时，不能只保证语义上有机器人和杯子，还要保证：</p>
+<ul><li>机械臂关节没有断裂；</li><li>夹爪确实能到达杯子；</li><li>机器人在多个视角下姿态相同；</li><li>相机看到的区域符合实际安装位置。</li></ul>
+<h3 id="问题三-交互过程需要符合时间和物理关系">问题三：交互过程需要符合时间和物理关系</h3>
+<p>在视频中，机器人应当：</p>
+<ol><li>接近物体；</li><li>夹爪闭合；</li><li>抓住物体；</li><li>抬起或移动；</li><li>放到目标位置。</li></ol>
+<p>普通视频生成模型可能产生视觉连续的动作，但出现：</p>
+<ul><li>物体突然穿过夹爪；</li><li>物体在没有抓取的情况下移动；</li><li>手臂动作和物体运动不匹配；</li><li>变形物体的形变不合理；</li><li>任务前后状态不连续。</li></ul>
+<p>因此，机器人视频要求的不只是“时间上平滑”，还包括接触、抓取、放置和物体状态变化的合理性。</p>
+<h2 id="2-2-为什么已有机器人世界模型会损失通用能力">2.2 为什么已有机器人世界模型会损失通用能力</h2>
+<p>已有方法通常从图像或视频基础模型出发，然后只用机器人数据继续训练。</p>
+<p>问题在于机器人数据具有以下特点：</p>
+<ul><li>规模较小；</li><li>场景重复；</li><li>任务种类有限；</li><li>视角和机器人平台相对固定；</li><li>真实世界采集昂贵；</li><li>长尾物体、背景和光照覆盖不足。</li></ul>
+<p>如果继续训练阶段几乎只看到机器人轨迹，模型可能发生类似灾难性遗忘的现象：</p>
+<ul><li>普通图像生成能力下降；</li><li>文本理解能力变弱；</li><li>图像编辑的可控性下降；</li><li>对未见物体和场景的泛化能力下降；</li><li>生成结果趋向少数机器人数据中的固定外观。</li></ul>
+<p>论文将这一矛盾概括为：</p>
+<blockquote>机器人适配需要引入具身约束，但机器人数据又不足以替代互联网规模的视觉数据。</blockquote>
+<hr>
+<h1 id="3-核心-insight-与主要贡献">3. 核心 insight 与主要贡献</h1>
+<h2 id="3-1-核心-insight-把具身生成看成图像-视频生成的扩展">3.1 核心 insight：把具身生成看成图像/视频生成的扩展</h2>
+<p>论文最重要的观点不是“给机器人模型增加一个动作 head”，而是：</p>
+<blockquote>具身场景生成可以被表述为一种带有机器人、几何和时间条件的图像/视频生成任务。</blockquote>
+<p>因此，普通图像生成能力和机器人世界建模能力不应被拆成两个完全独立的系统，而可以使用同一个自回归模型、同一个离散视觉词表和同一个 next-token prediction 目标来训练。</p>
+<p>模型的抽象目标是：</p>
+<p>\[ P(\mathcal Y|\mathcal C) = \prod_{t=1}^{T} P(y_t|y_{&lt;t},\mathcal C) \]</p>
+<p>也就是：给定已经看到的文本、图像和控制条件，逐个预测后续多模态 token。</p>
+<p>这一设计的直接好处是：</p>
+<ul><li>T2I、图像编辑和具身生成共享视觉知识；</li><li>场景理解和未来预测共享序列建模能力；</li><li>不需要为每项任务设计完全不同的预测头；</li><li>继续加入通用 T2I/X2I 数据，可以减少机器人适配导致的能力退化。</li></ul>
+<p>整体结构如下。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2607.11643v1/figure2_structure_refine.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2607.11643v1/figure2_structure_refine.png" alt="Figure 3：Xiaomi-Robotics-U0 的整体结构。该模型以统一的 next-token prediction 目标进行大规模端到端训练，并提供高效的推理扩展。" loading="lazy"></a><span class="image-caption">Figure 3：Xiaomi-Robotics-U0 的整体结构。该模型以统一的 next-token prediction 目标进行大规模端到端训练，并提供高效的推理扩展。</span></span></p>
+<h2 id="3-2-主要贡献">3.2 主要贡献</h2>
+<p>论文的主要贡献可以归纳为三点：</p>
+<h3 id="贡献一-统一的具身合成框架">贡献一：统一的具身合成框架</h3>
+<p>在单一自回归模型内共同支持：</p>
+<ul><li>T2I；</li><li>X2I；</li><li>具身场景生成；</li><li>具身迁移；</li><li>具身视频生成；</li><li>交错的子任务—子目标预测。</li></ul>
+<h3 id="贡献二-多视角且可控的具身迁移">贡献二：多视角且可控的具身迁移</h3>
+<p>模型不仅改变图像风格，而是尝试将场景拆成多个语义维度：</p>
+<ul><li>workspace：工作空间；</li><li>background：背景；</li><li>irrelevant objects：与当前任务无关的物体；</li><li>target objects：任务目标物体；</li><li>lighting：光照。</li></ul>
+<p>这样可以只修改某些因素，例如只改变背景和光照，同时保留目标物体、机器人状态和几何结构。</p>
+<h3 id="贡献三-将世界模型用作数据引擎">贡献三：将世界模型用作数据引擎</h3>
+<p>模型可以先生成新场景，再预测机器人在新场景中的操作视频，从而得到合成轨迹：</p>
+<p>\[ \text{文本场景} \rightarrow \text{多视角初始观测} \rightarrow \text{未来操作视频} \rightarrow \text{策略训练数据} \]</p>
+<p>这使世界模型不只是“预测未来”，还可以主动扩大机器人策略看到的视觉分布。</p>
+<hr>
+<h1 id="4-基模与从输入到输出的整体流程">4. 基模与从输入到输出的整体流程</h1>
+<h2 id="4-1-使用的基模">4.1 使用的基模</h2>
+<p>U0 以开源的 <strong>EMU3.5</strong> 作为初始化模型。</p>
+<p>EMU3.5 的基础结构包括：</p>
+<ul><li>Qwen-3-32B decoder-only Transformer；</li><li>IBQ 离散图像 tokenizer；</li><li>图像—文本交错建模能力；</li><li>图像生成能力。</li></ul>
+<p>U0 最终规模为约 <strong>380 亿参数</strong>。</p>
+<h2 id="4-2-图像如何进入-transformer">4.2 图像如何进入 Transformer</h2>
+<p>图像首先经过 IBQ Tokenizer，被压缩为离散图像 token。</p>
+<p>论文给出的空间压缩比例是 \(16\times16\)。直观地说，一张 \(1024\times1024\) 图像不会以约一百万个像素直接进入 Transformer，而是先被编码为较少数量的离散视觉 token。</p>
+<p>然后：</p>
+<ol><li>文本被编码为文本 token；</li><li>图像被编码为 IBQ codebook 中的离散 token；</li><li>通过扩展 Qwen 原有词表，把文本 token 和图像 token 放入同一个离散词表；</li><li>Transformer 统一预测后续 token；</li><li>生成的图像 token 再经 tokenizer 的解码器还原为 RGB 图像。</li></ol>
+<p>因此，模型并不是通过一个图像扩散 head 和一个视频 head 分别工作，而是把不同模态都当作序列中的 token 来处理。</p>
+<h2 id="4-3-单步任务流程">4.3 单步任务流程</h2>
+<h3 id="具身场景生成">具身场景生成</h3>
+<p>\[ \text{机器人类型} + \text{结构化场景描述} \rightarrow \text{多视角 RGB 图像} \]</p>
+<p>模型需要从文本中理解：</p>
+<ul><li>工作台布局；</li><li>物体类别和位置；</li><li>光照；</li><li>背景；</li><li>机器人类型。</li></ul>
+<h3 id="具身迁移">具身迁移</h3>
+<p>\[ \text{多视角深度} + \text{修改后的场景描述} \rightarrow \text{多视角 RGB} \]</p>
+<p>深度提供空间几何，文本提供要改变的语义内容。模型负责根据两者合成具有真实外观的图像。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2607.11643v1/transfer_wide_refine.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2607.11643v1/transfer_wide_refine.png" alt="Figure 8：具身迁移的定性结果。对于每个示例，我们展示场景描述、用于提取深度条件的原始多视角 RGB 图像，以及 Xiaomi-Robotics-U0 生成的图像。从原始图像出发，我们估计其多视角深度图并编辑场景描述（编辑文本高亮显示）；随后将深度图与编辑后的描述一起输入 Xiaomi-Robotics-U0，合成既符合编辑文本又遵循输入几何的多视角一致 RGB 图像。" loading="lazy"></a><span class="image-caption">Figure 8：具身迁移的定性结果。对于每个示例，我们展示场景描述、用于提取深度条件的原始多视角 RGB 图像，以及 Xiaomi-Robotics-U0 生成的图像。从原始图像出发，我们估计其多视角深度图并编辑场景描述（编辑文本高亮显示）；随后将深度图与编辑后的描述一起输入 Xiaomi-Robotics-U0，合成既符合编辑文本又遵循输入几何的多视角一致 RGB 图像。</span></span></p>
+<h2 id="4-4-序列任务流程">4.4 序列任务流程</h2>
+<p>视频生成的输入可以是：</p>
+<ul><li>初始图像；</li><li>语言任务；</li><li>机器人动作渲染出的 mask 序列；</li><li>相机参数；</li><li>URDF 结构。</li></ul>
+<p>输出是未来 RGB 帧：</p>
+<p>\[ (\text{初始观测},\text{指令},\text{动作条件}) \rightarrow (\text{未来帧}_1,\ldots,\text{未来帧}_T) \]</p>
+<p>此外，论文使用多帧率视频：</p>
+<ul><li>1 FPS：强调较长时间跨度和任务阶段变化；</li><li>3 FPS：兼顾阶段和局部动作；</li><li>5 FPS：捕捉抓取、接触、移动等细粒度变化。</li></ul>
+<hr>
+<h1 id="5-每个关键机制-为什么需要-怎么做-得到什么">5. 每个关键机制：为什么需要、怎么做、得到什么</h1>
+<h2 id="5-1-通用任务与具身任务联合训练">5.1 通用任务与具身任务联合训练</h2>
+<h3 id="为什么需要">为什么需要</h3>
+<p>如果只用机器人数据继续训练，模型容易忘记原有的图像生成和编辑能力；如果只用互联网图像数据，又无法学习机器人几何和交互约束。</p>
+<h3 id="怎么做">怎么做</h3>
+<p>单步训练同时加入：</p>
+<ul><li>T2I；</li><li>X2I；</li><li>具身场景生成；</li><li>具身迁移。</li></ul>
+<p>其中 T2I 和 X2I 充当通用能力保持项，具身任务负责学习机器人相关约束。</p>
+<h3 id="得到什么">得到什么</h3>
+<p>论文声称模型既保留了普通图像生成能力，也能生成多视角机器人场景。Geneval 和 ImageEdit 评测用于说明通用生成能力没有明显丢失，但正文提供的内容没有给出完整表格，因此这一结论需要依赖论文实验章节的具体数值，而不能仅凭摘要判断。</p>
+<hr>
+<h2 id="5-2-结构化具身迁移">5.2 结构化具身迁移</h2>
+<h3 id="为什么需要-2">为什么需要</h3>
+<p>直接要求模型“把场景换成另一种风格”会让模型同时修改大量内容，容易误改：</p>
+<ul><li>目标物体；</li><li>机器人状态；</li><li>物体位置；</li><li>相机几何；</li><li>遮挡关系。</li></ul>
+<p>机器人策略真正需要的通常是<strong>外观变化不改变任务状态</strong>。例如换桌布可以，但不能把杯子从左边变到右边。</p>
+<h3 id="怎么做-2">怎么做</h3>
+<p>论文把场景描述解耦为五个维度：</p>
+<ol><li>工作空间；</li><li>背景；</li><li>无关物体；</li><li>目标物体；</li><li>光照。</li></ol>
+<p>同时输入多视角深度图。训练目标是从几何条件和文字条件恢复对应 RGB 图像。</p>
+<h3 id="得到什么-2">得到什么</h3>
+<p>模型可以在保留空间结构的同时生成新的视觉外观，支持更细粒度的数据增强。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2607.11643v1/trans_keyframe_orig_refine.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2607.11643v1/trans_keyframe_orig_refine.png" alt="Figure 10：利用 Xiaomi-Robotics-U0 的具身迁移能力，对多视角操作轨迹的关键帧进行 zero-shot 增强。我们使用 Qwen3-VL 为背景、工作空间和光照条件生成 1000 条描述，并随机替换原始条件。左侧面板为原始关键帧，右侧为迁移后的关键帧。" loading="lazy"></a><span class="image-caption">Figure 10：利用 Xiaomi-Robotics-U0 的具身迁移能力，对多视角操作轨迹的关键帧进行 zero-shot 增强。我们使用 Qwen3-VL 为背景、工作空间和光照条件生成 1000 条描述，并随机替换原始条件。左侧面板为原始关键帧，右侧为迁移后的关键帧。</span></span></p>
+<hr>
+<h2 id="5-3-深度条件与多视角一致性">5.3 深度条件与多视角一致性</h2>
+<h3 id="为什么需要-3">为什么需要</h3>
+<p>文本本身通常不足以确定精确三维布局。“桌上有一个杯子”并没有说明杯子到底离机械臂多远，也没有规定它在不同摄像机中的投影位置。</p>
+<p>深度图可以提供每个像素的相对距离，从而约束：</p>
+<ul><li>前后关系；</li><li>物体轮廓；</li><li>工作空间形状；</li><li>机器人和物体的空间关系。</li></ul>
+<h3 id="怎么做-3">怎么做</h3>
+<p>论文使用 Video Depth Anything 从图像或视频中提取时间一致的逆深度图：</p>
+<ul><li>亮区域表示更近；</li><li>暗区域表示更远。</li></ul>
+<p>具身迁移时，深度图作为输入条件，RGB 图像作为预测目标。</p>
+<h3 id="得到什么-3">得到什么</h3>
+<p>在 300 个样本的具身迁移基准上，U0 相比 GPT-Image-2 有更好的深度一致性、边缘结构和目标分割指标。</p>
+<p>例如：</p>
+<ul><li>Easy split 的 SI-RMSE：GPT-Image-2 为 0.4007，U0 为 0.1407；</li><li>Easy split 的深度 \(\delta_1\)：0.5307 提升到 0.8017；</li><li>Easy split 的分割 mIoU：0.4105 提升到 0.7621。</li></ul>
+<p>这些指标支持“生成结果更遵守输入几何”的判断。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2607.11643v1/transfer_compare_wide_refine.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2607.11643v1/transfer_compare_wide_refine.png" alt="Figure 9：GPT-Image-2 与 Xiaomi-Robotics-U0 在具身迁移基准上的定性比较。GPT-Image-2 生成合理且对齐良好的图像，但违背输入深度并产生多视角不一致的结果；而 Xiaomi-Robotics-U0 遵循每个视角的几何并保持视角之间相互一致。" loading="lazy"></a><span class="image-caption">Figure 9：GPT-Image-2 与 Xiaomi-Robotics-U0 在具身迁移基准上的定性比较。GPT-Image-2 生成合理且对齐良好的图像，但违背输入深度并产生多视角不一致的结果；而 Xiaomi-Robotics-U0 遵循每个视角的几何并保持视角之间相互一致。</span></span></p>
+<hr>
+<h2 id="5-4-统一数据标注流程">5.4 统一数据标注流程</h2>
+<h3 id="为什么需要-4">为什么需要</h3>
+<p>机器人原始数据通常只有：</p>
+<ul><li>图像；</li><li>动作；</li><li>粗略任务名；</li><li>时间戳。</li></ul>
+<p>这些信息不足以支持精细文本控制，例如“只换背景，不换目标物体”。</p>
+<h3 id="怎么做-4">怎么做</h3>
+<p>论文使用 Qwen3-VL-235B 生成四类标注：</p>
+<ol><li>通用场景描述；</li><li>结构化具身场景描述；</li><li>深度图；</li><li>轨迹级子任务分解。</li></ol>
+<p>轨迹分段使用末端执行器位姿和夹爪信号，通过 HDBSCAN 聚类寻找：</p>
+<ul><li>运动阶段边界；</li><li>抓取或释放事件；</li><li>具有密集交互的关键帧。</li></ul>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2607.11643v1/data_label.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2607.11643v1/data_label.png" alt="Figure 5：统一数据标注流程概览。上半部分展示场景描述生成，其中每个样本都用结构化语义属性标注。下半部分展示轨迹级子任务分解，包括基于动作的片段分割、关键帧采样和子任务生成。该流程在异构机器人数据集上提供一致的场景、几何和动作级监督。" loading="lazy"></a><span class="image-caption">Figure 5：统一数据标注流程概览。上半部分展示场景描述生成，其中每个样本都用结构化语义属性标注。下半部分展示轨迹级子任务分解，包括基于动作的片段分割、关键帧采样和子任务生成。该流程在异构机器人数据集上提供一致的场景、几何和动作级监督。</span></span></p>
+<h3 id="得到什么-4">得到什么</h3>
+<p>异构数据被重新组织成三类训练样本：</p>
+<ul><li>场景生成样本；</li><li>具身迁移样本；</li><li>视频生成样本。</li></ul>
+<p>这使不同机器人平台、模拟器和真实数据能够使用相同的训练接口。</p>
+<hr>
+<h2 id="5-5-多帧率视频与子任务-子目标序列">5.5 多帧率视频与子任务—子目标序列</h2>
+<h3 id="为什么需要-5">为什么需要</h3>
+<p>单一帧率难以同时捕捉：</p>
+<ul><li>长时间跨度的任务进展；</li><li>抓取、接触、释放等短时间动作。</li></ul>
+<h3 id="怎么做-5">怎么做</h3>
+<p>论文联合训练：</p>
+<ul><li>低帧率的交错“子任务描述—完成后观测”序列；</li><li>1、3、5 FPS 的机器人操作视频。</li></ul>
+<h3 id="得到什么-5">得到什么</h3>
+<p>论文认为模型能够同时学习：</p>
+<ul><li>高层任务阶段；</li><li>低层动作动态；</li><li>从初始场景到后续操作的序列变化。</li></ul>
+<p>在 WorldArena 上，模型总体 EWMScore 为 73.64，并在论文列出的模型中排名第一。它在 Instruction Following、Interaction Quality、Perspectivity 和 Motion Smoothness 等指标上表现较强。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2607.11643v1/video-gen_refine.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2607.11643v1/video-gen_refine.png" alt="Figure 22：Xiaomi-Robotics-U0 的定性视频生成结果。第 1–5 行：以语言指令和初始观测为条件的 WorldArena 基准样本。第 6–10 行：由 Xiaomi-Robotics-U0 生成的场景图像生成的视频。每行显示初始帧和语言指令，随后是预测的未来帧。" loading="lazy"></a><span class="image-caption">Figure 22：Xiaomi-Robotics-U0 的定性视频生成结果。第 1–5 行：以语言指令和初始观测为条件的 WorldArena 基准样本。第 6–10 行：由 Xiaomi-Robotics-U0 生成的场景图像生成的视频。每行显示初始帧和语言指令，随后是预测的未来帧。</span></span></p>
+<hr>
+<h2 id="5-6-flashar-推理加速">5.6 FlashAR+ 推理加速</h2>
+<h3 id="为什么需要-6">为什么需要</h3>
+<p>自回归图像生成通常按 token 一个接一个生成。图像 token 数量较多，1024×1024 分辨率下延迟很高。</p>
+<h3 id="怎么做-6">怎么做</h3>
+<p>FlashAR+ 将目标图像 token 按反对角线分组。对位置 \((r,c)\)，定义其生成步：</p>
+<p>\[ s(r,c)=r+c \]</p>
+<p>同一条反对角线上的 token 可以并行预测，下一条反对角线只能看到更早的反对角线：</p>
+<p>\[ M(q,k)= \mathbf 1[ s(r_k,c_k)&lt;s(r_q,c_q) ] \]</p>
+<p>这样可以避免同一步 token 互相偷看未来信息。</p>
+<p>模型使用：</p>
+<ul><li>horizontal head；</li><li>vertical head；</li><li>gated fusion。</li></ul>
+<p>融合 logits 为：</p>
+<p>\[ z_{\text{fuse}}(r,c) = g(r,c)z_h(r,c) + (1-g(r,c))z_v(r,c) \]</p>
+<p>并加入水平、垂直方向的辅助损失，以及原始 AR 模型的蒸馏损失。</p>
+<h3 id="得到什么-6">得到什么</h3>
+<p>在单张 H20 GPU、1024×1024 T2I 设置下：</p>
+<ul><li>原始 AR：450.77 秒；</li><li>FlashAR+：16.56 秒，约 27.22 倍加速；</li><li>FlashAR+ + vLLM：5.44 秒，相比 FlashAR+ 进一步约 3.04 倍加速。</li></ul>
+<p>论文称最高可达到 82.9 倍加速，但具体速度取决于任务和实现配置。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2607.11643v1/flashar_vs_ar.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2607.11643v1/flashar_vs_ar.png" alt="Figure 7：AR、FlashAR+ 以及带 vLLM 的 FlashAR+ 的定性和效率比较。FlashAR+ 在 Embodied Transfer 和 Embodied Scene Generation 上保持较高视觉质量，同时显著降低生成延迟。" loading="lazy"></a><span class="image-caption">Figure 7：AR、FlashAR+ 以及带 vLLM 的 FlashAR+ 的定性和效率比较。FlashAR+ 在 Embodied Transfer 和 Embodied Scene Generation 上保持较高视觉质量，同时显著降低生成延迟。</span></span></p>
+<hr>
+<h1 id="6-数据-训练和实验结果">6. 数据、训练和实验结果</h1>
+<h2 id="6-1-数据规模">6.1 数据规模</h2>
+<p>论文收集：</p>
+<ul><li>单步生成样本：950 万，对应 564 亿 token；</li><li>序列生成视频片段：260 万，对应 496 亿 token。</li></ul>
+<p>数据来源包括：</p>
+<ul><li>通用图像—文本数据；</li><li>AgiBotWorld-Beta；</li><li>Open X-Embodiment；</li><li>MiBot；</li><li>RoboTwin2.0；</li><li>GenieSim；</li><li>自动驾驶数据；</li><li>第一视角视频；</li><li>3D 重建数据；</li><li>游戏数据。</li></ul>
+<p>这些数据的作用不同：</p>
+<ul><li>通用图像数据提供视觉和语言先验；</li><li>机器人数据提供操作和 embodiment 约束；</li><li>3D 数据提供多视角对应关系；</li><li>自动驾驶和第一视角数据增加场景、运动和摄像机分布；</li><li>模拟数据扩展难以真实采集的任务。</li></ul>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2607.11643v1/dataset_single_v2.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2607.11643v1/dataset_single_v2.png" alt="Figure 4：构建的单步生成数据集示意图。除具身迁移和具身场景生成数据外，我们还引入 Text-to-Image (T2I) 和 Any-to-Image (X2I) 数据进行联合训练。具体来说，我们加入 camera-control 和 time-control 数据以提升空间和时间理解能力。为进行结构和几何感知，我们使用先进的计算机视觉工具构建 skeleton、depth、edge 和 semantic mask 数据集。为保持预训练模型的能力，我们引入通用 T2I 和 X2I 数据集进行联合训练。" loading="lazy"></a><span class="image-caption">Figure 4：构建的单步生成数据集示意图。除具身迁移和具身场景生成数据外，我们还引入 Text-to-Image (T2I) 和 Any-to-Image (X2I) 数据进行联合训练。具体来说，我们加入 camera-control 和 time-control 数据以提升空间和时间理解能力。为进行结构和几何感知，我们使用先进的计算机视觉工具构建 skeleton、depth、edge 和 semantic mask 数据集。为保持预训练模型的能力，我们引入通用 T2I 和 X2I 数据集进行联合训练。</span></span></p>
+<h2 id="6-2-具身迁移结果">6.2 具身迁移结果</h2>
+<p>具身迁移基准有 300 个样本：</p>
+<ul><li>Easy：150 个；</li><li>Hard：150 个。</li></ul>
+<p>U0 在以下方面均优于 GPT-Image-2：</p>
+<ul><li>深度一致性；</li><li>Canny 边缘结构；</li><li>目标分割；</li><li>语义召回。</li></ul>
+<p>论文将其解释为：U0 不仅生成了语义上合理的图像，还更好地遵守了深度条件和跨视角结构。</p>
+<p>但这里的评价仍有一个重要边界：参考 RGB 图像来自原始场景，而测试文本被人为编辑。某些指标是使用参考图像计算的，因此不能完全等价于“真实世界三维几何误差”。它们更准确地说明：在该数据分布和该深度估计流程下，U0 的输出与参考结构更接近。</p>
+<h2 id="6-3-具身场景生成结果">6.3 具身场景生成结果</h2>
+<p>具身场景生成基准包含 400 个文本提示：</p>
+<ul><li>Easy：常见室内操作场景；</li><li>Hard：开放域场景。</li></ul>
+<p>人工成对比较的标准是：</p>
+<ol><li>多视角几何一致性；</li><li>文本指令遵循。</li></ol>
+<p>结果显示，U0 在多数比较中胜过 GPT-Image-2，尤其是在跨视角一致性上更有优势；文本遵循能力大体可比。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2607.11643v1/pair_compare_refine.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2607.11643v1/pair_compare_refine.png" alt="Figure 14：具身迁移和具身场景生成的成对评估结果。" loading="lazy"></a><span class="image-caption">Figure 14：具身迁移和具身场景生成的成对评估结果。</span></span></p>
+<p>不过，人工成对评价存在一定主观性，且论文摘要提到“outperforming GPT-Image-2.0”，正文实验部分主要写作 GPT-Image-2。两者是否完全是同一基线版本，应以正式实验表格和代码配置为准。</p>
+<h2 id="6-4-下游真实机器人策略">6.4 下游真实机器人策略</h2>
+<p>论文使用 U0 为真实演示数据生成风格迁移版本：</p>
+<ul><li>原始数据：约 40 小时/任务；</li><li>增强数据：约 40 小时/任务；</li><li>改变背景、光照、桌面纹理等；</li><li>保持机器人状态和动作标签。</li></ul>
+<p>下游策略是 π₀.₅。对比：</p>
+<ul><li>Original：只用原始数据；</li><li>U0-Aug：原始数据加 U0 生成的增强数据。</li></ul>
+<p>任务包括：</p>
+<ul><li>Store Earphones；</li><li>Fold Towel；</li><li>Pack Box。</li></ul>
+<p>评测分为：</p>
+<ul><li>base：改变物体布局，但背景和光照接近训练分布；</li><li>interference：使用未见过的桌布、低光、彩色光和动态投影光。</li></ul>
+<p>结果是：</p>
+<ul><li>base 条件下，U0-Aug 与 Original 基本相当，某些任务略有下降；</li><li>interference 条件下，U0-Aug 在所有任务上都更好。</li></ul>
+<p>进度指标不是简单的成功率，而是完成里程碑的比例：</p>
+<p>\[ \text{Progress} = \frac{1}{N} \sum_{i=1}^{N} \frac{\ell_i}{K_t} \]</p>
+<p>其中 \(K_t\) 是任务总里程碑数，\(\ell_i\) 是第 \(i\) 次试验完成的前置里程碑数。</p>
+<p>这说明增强数据主要提升的是<strong>分布外视觉鲁棒性</strong>，而非必然提高原始分布内的最优表现。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2607.11643v1/layout_refine.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2607.11643v1/layout_refine.png" alt="Figure 16：三个任务的任务布局。base 组改变每个任务的物体布局。对于 Store Earphones，不同布局改变耳机盒和耳机的位置。对于 Fold Towel，毛巾以随机配置初始化，在左上角插图所示的左腕视角中更清楚。对于 Pack Box，通过将四个物体随机放置在桌面上生成新布局。interference 组使用相同的布局随机化，但额外引入桌布和光照的显著变化。" loading="lazy"></a><span class="image-caption">Figure 16：三个任务的任务布局。base 组改变每个任务的物体布局。对于 Store Earphones，不同布局改变耳机盒和耳机的位置。对于 Fold Towel，毛巾以随机配置初始化，在左上角插图所示的左腕视角中更清楚。对于 Pack Box，通过将四个物体随机放置在桌面上生成新布局。interference 组使用相同的布局随机化，但额外引入桌布和光照的显著变化。</span></span></p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2607.11643v1/episode_earphone_refine.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2607.11643v1/episode_earphone_refine.png" alt="Figure 18：Store Earphones、Fold Towel 和 Pack Box（从上到下）在干扰场景下的 Xiaomi-Robotics-U0-Aug rollout。每个任务内三行分别为头部视角、左腕视角和右腕视角，帧从轨迹中采样。" loading="lazy"></a><span class="image-caption">Figure 18：Store Earphones、Fold Towel 和 Pack Box（从上到下）在干扰场景下的 Xiaomi-Robotics-U0-Aug rollout。每个任务内三行分别为头部视角、左腕视角和右腕视角，帧从轨迹中采样。</span></span></p>
+<hr>
+<h1 id="7-消融结果-论文实际证明了什么">7. 消融结果：论文实际证明了什么</h1>
+<p>严格来说，正文提供的材料中没有看到完整的模块级消融表，例如：</p>
+<ul><li>去掉通用 T2I/X2I 联合训练；</li><li>去掉结构化五维控制；</li><li>去掉深度条件；</li><li>去掉多帧率训练；</li><li>只用真实数据、不用模拟数据；</li><li>去掉子任务—子目标序列；</li><li>不使用某种数据平衡策略。</li></ul>
+<p>因此不能把所有设计选择都说成已经被独立消融验证。</p>
+<p>论文能够直接支持的比较主要有以下几类。</p>
+<h2 id="7-1-原始-ar-flashar-flashar-vllm">7.1 原始 AR、FlashAR+、FlashAR+ vLLM</h2>
+<p>这是推理效率比较，而不是能力来源的严格消融。</p>
+<p>它说明：</p>
+<ul><li>反对角线并行显著降低解码延迟；</li><li>vLLM 的批处理和 KV cache 管理进一步提升速度；</li><li>定性结果中视觉质量大体保持。</li></ul>
+<p>但它不能证明 FlashAR+ 在所有任务、所有分辨率下都无损，也不能推断加速后的生成一定与原始 AR 完全相同。</p>
+<h2 id="7-2-original-与-u0-aug">7.2 Original 与 U0-Aug</h2>
+<p>这是下游数据增强比较。</p>
+<p>它表明：</p>
+<ul><li>U0 生成的数据对未见背景和光照有帮助；</li><li>合成数据并不一定提高同分布条件下的性能；</li><li>生成数据的价值体现在扩展视觉变化，而不是简单增加样本数量。</li></ul>
+<h2 id="7-3-gpt-image-2-与-u0">7.3 GPT-Image-2 与 U0</h2>
+<p>这是基线比较。</p>
+<p>它支持以下结论：</p>
+<ul><li>在具身迁移的深度、边缘和分割指标上，U0 更强；</li><li>在多视角场景生成的人工评价中，U0 更受偏好；</li><li>GPT-Image-2 单视角图像可能很逼真，但容易破坏多视角几何一致性。</li></ul>
+<p>但它不能证明 U0 在所有图像生成任务上都优于 GPT-Image-2，也不能排除提示词、参考图像、推理配置和评测协议的影响。</p>
+<hr>
+<h1 id="8-可视化结论及其证据边界">8. 可视化结论及其证据边界</h1>
+<h2 id="8-1-可视化支持的结论">8.1 可视化支持的结论</h2>
+<p>论文图像主要支持三类观察：</p>
+<h3 id="多视角一致性更好">多视角一致性更好</h3>
+<p>具身迁移和具身场景生成图中，U0 的机械臂、目标物体和桌面布局在多个视角之间更一致。</p>
+<h3 id="文本修改可以与几何条件同时生效">文本修改可以与几何条件同时生效</h3>
+<p>输入深度基本保持空间结构，编辑文本改变背景、光照或物体外观。</p>
+<h3 id="合成数据可以改变机器人策略看到的视觉外观">合成数据可以改变机器人策略看到的视觉外观</h3>
+<p>U0-Aug 生成了原始演示中没有出现的桌布、背景和灯光组合，下游策略在这些条件下更不容易失败。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2607.11643v1/init_scene_results_refine.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2607.11643v1/init_scene_results_refine.png" alt="Figure 12：具身场景生成的定性结果。" loading="lazy"></a><span class="image-caption">Figure 12：具身场景生成的定性结果。</span></span></p>
+<h2 id="8-2-可视化不能证明的结论">8.2 可视化不能证明的结论</h2>
+<p>仅凭图像和视频不能证明：</p>
+<ul><li>输出一定满足真实物理定律；</li><li>生成的视频动作一定对应可执行的机器人动作；</li><li>所有生成轨迹都能用于策略训练；</li><li>多视角图像具有精确的真实尺度；</li><li>模型在未见过的机器人 embodiment 上普遍有效；</li><li>模型能够长期稳定地滚动生成无限可靠轨迹。</li></ul>
+<p>特别是“闭环无限视频生成”是论文提出的愿景和展示方向，但若没有长期 rollout 的失败率、误差累积和真实执行验证，就不能理解成已经实现了可靠的无限闭环世界模拟。</p>
+<hr>
+<h1 id="9-局限性">9. 局限性</h1>
+<h2 id="9-1-物理真实性仍然不充分">9.1 物理真实性仍然不充分</h2>
+<p>模型主要通过图像、深度、动作 mask 和文本学习物理规律，而不是显式求解：</p>
+<ul><li>刚体动力学；</li><li>接触力；</li><li>摩擦；</li><li>质量和惯量；</li><li>柔性物体的材料参数；</li><li>碰撞约束。</li></ul>
+<p>所以它可能生成视觉上合理、但在真实机器人中不可执行的视频。</p>
+<h2 id="9-2-深度条件并不等于真实三维重建">9.2 深度条件并不等于真实三维重建</h2>
+<p>论文使用 Video Depth Anything 提取深度。单目或视频深度通常具有：</p>
+<ul><li>尺度不确定性；</li><li>遮挡区域缺失；</li><li>估计误差；</li><li>跨摄像机不完全一致。</li></ul>
+<p>因此，U0 的几何一致性部分依赖输入深度的质量。</p>
+<h2 id="9-3-数据标注依赖强大的外部-vlm">9.3 数据标注依赖强大的外部 VLM</h2>
+<p>Qwen3-VL-235B 被用于生成结构化描述和子任务标注。这带来两个问题：</p>
+<ul><li>标注错误可能被模型学习；</li><li>训练流程对大型 VLM 和自动标注管线有较强依赖。</li></ul>
+<p>论文没有充分展示标注错误率、人工校验比例或错误标注对性能的影响。</p>
+<h2 id="9-4-真实机器人验证规模有限">9.4 真实机器人验证规模有限</h2>
+<p>真实实验只涉及少数任务和一个双臂平台，且每个条件的试验次数有限。虽然结果有意义，但还不能说明：</p>
+<ul><li>对更多机器人平台都有效；</li><li>对更长任务都有效；</li><li>对室外、拥挤环境和动态人机协作都有效；</li><li>对更复杂物体和工具使用都有效。</li></ul>
+<h2 id="9-5-生成数据可能引入错误偏差">9.5 生成数据可能引入错误偏差</h2>
+<p>风格迁移假设“改变外观、保持任务状态”，但实际可能发生：</p>
+<ul><li>目标物体边界变化；</li><li>遮挡关系变化；</li><li>深度与纹理不匹配；</li><li>机器人夹爪接触关系变化；</li><li>生成图像与动作标签不再完全对应。</li></ul>
+<p>如果大量错误合成数据进入策略训练，可能反而伤害策略性能。论文显示 base 条件下某些任务略有下降，说明这种风险确实存在。</p>
+<h2 id="9-6-缺少充分的模块消融">9.6 缺少充分的模块消融</h2>
+<p>从给出的正文内容看，尚未充分隔离：</p>
+<ul><li>联合训练的作用；</li><li>结构化控制的作用；</li><li>深度条件的作用；</li><li>多帧率训练的作用；</li><li>数据平衡的作用；</li><li>不同数据源的贡献。</li></ul>
+<p>因此，论文证明了整体系统有效，但对“究竟是哪一个机制带来了多少收益”的解释仍不完整。</p>
+<h2 id="9-7-论文中存在结果表述需要核对的地方">9.7 论文中存在结果表述需要核对的地方</h2>
+<p>摘要提到：</p>
+<blockquote>将 π₀.₅ 的分布外成功率从 36.9% 提升到 63.2%。</blockquote>
+<p>但正文真实机器人实验主要报告的是三个任务上的里程碑进度，并没有在提供的内容中看到完整的“36.9% 到 63.2%”计算过程或对应表格。</p>
+<p>因此，正式阅读论文时应核对：</p>
+<ul><li>这两个数字对应成功率还是进度；</li><li>是否来自另一个实验设置；</li><li>是否包含四个任务；</li><li>与正文的三任务设置如何对应。</li></ul>
+<hr>
+<h1 id="10-最终判断">10. 最终判断</h1>
+<h2 id="10-1-论文最有价值的地方">10.1 论文最有价值的地方</h2>
+<p>这项工作的价值主要不在于提出了一个全新的 Transformer 结构，而在于提出了一种<strong>统一训练范式</strong>：</p>
+<ul><li>保留通用视觉生成能力；</li><li>加入机器人几何和交互约束；</li><li>统一处理图像、深度、文本、动作和视频；</li><li>最终把生成模型用于扩大机器人策略训练数据。</li></ul>
+<p>尤其是具身迁移的思路比较实用：对于真实机器人，采集“同一任务在各种背景、光照和桌面外观下”的演示成本很高，而如果模型能够保持机器人状态和几何关系，只改变视觉因素，就可以降低数据采集成本。</p>
+<h2 id="10-2-论文最可信的结论">10.2 论文最可信的结论</h2>
+<p>根据现有正文，较可信的结论是：</p>
+<ol><li>U0 能够在统一自回归框架中支持多种通用和具身生成任务；</li><li>在论文构造的具身迁移基准上，它比 GPT-Image-2 更遵守深度和多视角结构；</li><li>它能够生成具有一定多视角一致性的机器人场景；</li><li>使用其生成的风格迁移数据，可以提升少数真实任务在未见背景和光照下的策略表现；</li><li>FlashAR+ 和 vLLM 可以显著降低图像生成延迟。</li></ol>
+<h2 id="10-3-尚不能完全确认的结论">10.3 尚不能完全确认的结论</h2>
+<p>仍不能仅凭这些实验确认：</p>
+<ul><li>U0 是一个可靠的通用物理世界模型；</li><li>它可以稳定生成可执行的长时程机器人轨迹；</li><li>它能在任意新机器人上零样本工作；</li><li>生成数据可以大规模替代真实机器人数据；</li><li>“无限闭环数据引擎”已经在真实世界中成立。</li></ul>
+<h2 id="10-4-总体评价">10.4 总体评价</h2>
+<p>总体而言，这是一项较强的系统型工作。它把问题从：</p>
+<blockquote>“如何把图像生成模型改造成机器人模型？”</blockquote>
+<p>重新表述为：</p>
+<blockquote>“如何让同一个世界基础模型同时生成普通视觉内容和满足机器人几何、视角、 embodiment 及交互约束的内容？”</blockquote>
+<p>这个重新表述是论文最核心的 insight。实验结果表明该方向具有实际潜力，特别是在多视角场景合成、可控视觉增强和分布外策略鲁棒性方面。</p>
+<p>但它更适合被理解为：</p>
+<blockquote>一个具有较强视觉先验、能够生成具身场景和操作视频的多模态生成模型，以及一个有前景的机器人数据增强工具，</blockquote>
+<p>而不是已经解决了真实世界物理推理、长期闭环控制和可验证轨迹生成的完整世界模型。</p></div></article></main>
+  </div>
+  <script>/*!
+  * PhotoSwipe 5.4.4 - https://photoswipe.com
+  * (c) 2024 Dmytro Semenov
+  */
+!function(t,i){"object"==typeof exports&&"undefined"!=typeof module?module.exports=i():"function"==typeof define&&define.amd?define(i):(t="undefined"!=typeof globalThis?globalThis:t||self).PhotoSwipe=i()}(this,(function(){"use strict";function t(t,i,s){const h=document.createElement(i);return t&&(h.className=t),s&&s.appendChild(h),h}function i(t,i){return t.x=i.x,t.y=i.y,void 0!==i.id&&(t.id=i.id),t}function s(t){t.x=Math.round(t.x),t.y=Math.round(t.y)}function h(t,i){const s=Math.abs(t.x-i.x),h=Math.abs(t.y-i.y);return Math.sqrt(s*s+h*h)}function e(t,i){return t.x===i.x&&t.y===i.y}function n(t,i,s){return Math.min(Math.max(t,i),s)}function o(t,i,s){let h=`translate3d(${t}px,${i||0}px,0)`;return void 0!==s&&(h+=` scale3d(${s},${s},1)`),h}function r(t,i,s,h){t.style.transform=o(i,s,h)}function a(t,i,s,h){t.style.transition=i?`${i} ${s}ms ${h||"cubic-bezier(.4,0,.22,1)"}`:"none"}function l(t,i,s){t.style.width="number"==typeof i?`${i}px`:i,t.style.height="number"==typeof s?`${s}px`:s}const c="idle",d="loading",u="loaded",p="error";function m(){return!(!navigator.vendor||!navigator.vendor.match(/apple/i))}let v=!1;try{window.addEventListener("test",null,Object.defineProperty({},"passive",{get:()=>{v=!0}}))}catch(t){}class f{constructor(){this.t=[]}add(t,i,s,h){this.i(t,i,s,h)}remove(t,i,s,h){this.i(t,i,s,h,!0)}removeAll(){this.t.forEach((t=>{this.i(t.target,t.type,t.listener,t.passive,!0,!0)})),this.t=[]}i(t,i,s,h,e,n){if(!t)return;const o=e?"removeEventListener":"addEventListener";i.split(" ").forEach((i=>{if(i){n||(e?this.t=this.t.filter((h=>h.type!==i||h.listener!==s||h.target!==t)):this.t.push({target:t,type:i,listener:s,passive:h}));const r=!!v&&{passive:h||!1};t[o](i,s,r)}}))}}function w(t,i){if(t.getViewportSizeFn){const s=t.getViewportSizeFn(t,i);if(s)return s}return{x:document.documentElement.clientWidth,y:window.innerHeight}}function g(t,i,s,h,e){let n=0;if(i.paddingFn)n=i.paddingFn(s,h,e)[t];else if(i.padding)n=i.padding[t];else{const s="padding"+t[0].toUpperCase()+t.slice(1);i[s]&&(n=i[s])}return Number(n)||0}function y(t,i,s,h){return{x:i.x-g("left",t,i,s,h)-g("right",t,i,s,h),y:i.y-g("top",t,i,s,h)-g("bottom",t,i,s,h)}}class _{constructor(t){this.slide=t,this.currZoomLevel=1,this.center={x:0,y:0},this.max={x:0,y:0},this.min={x:0,y:0}}update(t){this.currZoomLevel=t,this.slide.width?(this.o("x"),this.o("y"),this.slide.pswp.dispatch("calcBounds",{slide:this.slide})):this.reset()}o(t){const{pswp:i}=this.slide,s=this.slide["x"===t?"width":"height"]*this.currZoomLevel,h=g("x"===t?"left":"top",i.options,i.viewportSize,this.slide.data,this.slide.index),e=this.slide.panAreaSize[t];this.center[t]=Math.round((e-s)/2)+h,this.max[t]=s>e?Math.round(e-s)+h:this.center[t],this.min[t]=s>e?h:this.center[t]}reset(){this.center.x=0,this.center.y=0,this.max.x=0,this.max.y=0,this.min.x=0,this.min.y=0}correctPan(t,i){return n(i,this.max[t],this.min[t])}}class x{constructor(t,i,s,h){this.pswp=h,this.options=t,this.itemData=i,this.index=s,this.panAreaSize=null,this.elementSize=null,this.fit=1,this.fill=1,this.vFill=1,this.initial=1,this.secondary=1,this.max=1,this.min=1}update(t,i,s){const h={x:t,y:i};this.elementSize=h,this.panAreaSize=s;const e=s.x/h.x,n=s.y/h.y;this.fit=Math.min(1,e<n?e:n),this.fill=Math.min(1,e>n?e:n),this.vFill=Math.min(1,n),this.initial=this.l(),this.secondary=this.u(),this.max=Math.max(this.initial,this.secondary,this.p()),this.min=Math.min(this.fit,this.initial,this.secondary),this.pswp&&this.pswp.dispatch("zoomLevelsUpdate",{zoomLevels:this,slideData:this.itemData})}m(t){const i=t+"ZoomLevel",s=this.options[i];if(s)return"function"==typeof s?s(this):"fill"===s?this.fill:"fit"===s?this.fit:Number(s)}u(){let t=this.m("secondary");return t||(t=Math.min(1,3*this.fit),this.elementSize&&t*this.elementSize.x>4e3&&(t=4e3/this.elementSize.x),t)}l(){return this.m("initial")||this.fit}p(){return this.m("max")||Math.max(1,4*this.fit)}}class b{constructor(i,s,h){this.data=i,this.index=s,this.pswp=h,this.isActive=s===h.currIndex,this.currentResolution=0,this.panAreaSize={x:0,y:0},this.pan={x:0,y:0},this.isFirstSlide=this.isActive&&!h.opener.isOpen,this.zoomLevels=new x(h.options,i,s,h),this.pswp.dispatch("gettingData",{slide:this,data:this.data,index:s}),this.content=this.pswp.contentLoader.getContentBySlide(this),this.container=t("pswp__zoom-wrap","div"),this.holderElement=null,this.currZoomLevel=1,this.width=this.content.width,this.height=this.content.height,this.heavyAppended=!1,this.bounds=new _(this),this.prevDisplayedWidth=-1,this.prevDisplayedHeight=-1,this.pswp.dispatch("slideInit",{slide:this})}setIsActive(t){t&&!this.isActive?this.activate():!t&&this.isActive&&this.deactivate()}append(t){this.holderElement=t,this.container.style.transformOrigin="0 0",this.data&&(this.calculateSize(),this.load(),this.updateContentSize(),this.appendHeavy(),this.holderElement.appendChild(this.container),this.zoomAndPanToInitial(),this.pswp.dispatch("firstZoomPan",{slide:this}),this.applyCurrentZoomPan(),this.pswp.dispatch("afterSetContent",{slide:this}),this.isActive&&this.activate())}load(){this.content.load(!1),this.pswp.dispatch("slideLoad",{slide:this})}appendHeavy(){const{pswp:t}=this;!this.heavyAppended&&t.opener.isOpen&&!t.mainScroll.isShifted()&&(this.isActive,1)&&(this.pswp.dispatch("appendHeavy",{slide:this}).defaultPrevented||(this.heavyAppended=!0,this.content.append(),this.pswp.dispatch("appendHeavyContent",{slide:this})))}activate(){this.isActive=!0,this.appendHeavy(),this.content.activate(),this.pswp.dispatch("slideActivate",{slide:this})}deactivate(){this.isActive=!1,this.content.deactivate(),this.currZoomLevel!==this.zoomLevels.initial&&this.calculateSize(),this.currentResolution=0,this.zoomAndPanToInitial(),this.applyCurrentZoomPan(),this.updateContentSize(),this.pswp.dispatch("slideDeactivate",{slide:this})}destroy(){this.content.hasSlide=!1,this.content.remove(),this.container.remove(),this.pswp.dispatch("slideDestroy",{slide:this})}resize(){this.currZoomLevel!==this.zoomLevels.initial&&this.isActive?(this.calculateSize(),this.bounds.update(this.currZoomLevel),this.panTo(this.pan.x,this.pan.y)):(this.calculateSize(),this.currentResolution=0,this.zoomAndPanToInitial(),this.applyCurrentZoomPan(),this.updateContentSize())}updateContentSize(t){const i=this.currentResolution||this.zoomLevels.initial;if(!i)return;const s=Math.round(this.width*i)||this.pswp.viewportSize.x,h=Math.round(this.height*i)||this.pswp.viewportSize.y;(this.sizeChanged(s,h)||t)&&this.content.setDisplayedSize(s,h)}sizeChanged(t,i){return(t!==this.prevDisplayedWidth||i!==this.prevDisplayedHeight)&&(this.prevDisplayedWidth=t,this.prevDisplayedHeight=i,!0)}getPlaceholderElement(){var t;return null===(t=this.content.placeholder)||void 0===t?void 0:t.element}zoomTo(t,i,h,e){const{pswp:o}=this;if(!this.isZoomable()||o.mainScroll.isShifted())return;o.dispatch("beforeZoomTo",{destZoomLevel:t,centerPoint:i,transitionDuration:h}),o.animations.stopAllPan();const r=this.currZoomLevel;e||(t=n(t,this.zoomLevels.min,this.zoomLevels.max)),this.setZoomLevel(t),this.pan.x=this.calculateZoomToPanOffset("x",i,r),this.pan.y=this.calculateZoomToPanOffset("y",i,r),s(this.pan);const a=()=>{this.v(t),this.applyCurrentZoomPan()};h?o.animations.startTransition({isPan:!0,name:"zoomTo",target:this.container,transform:this.getCurrentTransform(),onComplete:a,duration:h,easing:o.options.easing}):a()}toggleZoom(t){this.zoomTo(this.currZoomLevel===this.zoomLevels.initial?this.zoomLevels.secondary:this.zoomLevels.initial,t,this.pswp.options.zoomAnimationDuration)}setZoomLevel(t){this.currZoomLevel=t,this.bounds.update(this.currZoomLevel)}calculateZoomToPanOffset(t,i,s){if(0===this.bounds.max[t]-this.bounds.min[t])return this.bounds.center[t];i||(i=this.pswp.getViewportCenterPoint()),s||(s=this.zoomLevels.initial);const h=this.currZoomLevel/s;return this.bounds.correctPan(t,(this.pan[t]-i[t])*h+i[t])}panTo(t,i){this.pan.x=this.bounds.correctPan("x",t),this.pan.y=this.bounds.correctPan("y",i),this.applyCurrentZoomPan()}isPannable(){return Boolean(this.width)&&this.currZoomLevel>this.zoomLevels.fit}isZoomable(){return Boolean(this.width)&&this.content.isZoomable()}applyCurrentZoomPan(){this.g(this.pan.x,this.pan.y,this.currZoomLevel),this===this.pswp.currSlide&&this.pswp.dispatch("zoomPanUpdate",{slide:this})}zoomAndPanToInitial(){this.currZoomLevel=this.zoomLevels.initial,this.bounds.update(this.currZoomLevel),i(this.pan,this.bounds.center),this.pswp.dispatch("initialZoomPan",{slide:this})}g(t,i,s){s/=this.currentResolution||this.zoomLevels.initial,r(this.container,t,i,s)}calculateSize(){const{pswp:t}=this;i(this.panAreaSize,y(t.options,t.viewportSize,this.data,this.index)),this.zoomLevels.update(this.width,this.height,this.panAreaSize),t.dispatch("calcSlideSize",{slide:this})}getCurrentTransform(){const t=this.currZoomLevel/(this.currentResolution||this.zoomLevels.initial);return o(this.pan.x,this.pan.y,t)}v(t){t!==this.currentResolution&&(this.currentResolution=t,this.updateContentSize(),this.pswp.dispatch("resolutionChanged"))}}class S{constructor(t){this.gestures=t,this.pswp=t.pswp,this.startPan={x:0,y:0}}start(){this.pswp.currSlide&&i(this.startPan,this.pswp.currSlide.pan),this.pswp.animations.stopAll()}change(){const{p1:t,prevP1:i,dragAxis:h}=this.gestures,{currSlide:e}=this.pswp;if("y"===h&&this.pswp.options.closeOnVerticalDrag&&e&&e.currZoomLevel<=e.zoomLevels.fit&&!this.gestures.isMultitouch){const s=e.pan.y+(t.y-i.y);if(!this.pswp.dispatch("verticalDrag",{panY:s}).defaultPrevented){this._("y",s,.6);const t=1-Math.abs(this.S(e.pan.y));this.pswp.applyBgOpacity(t),e.applyCurrentZoomPan()}}else{this.M("x")||(this.M("y"),e&&(s(e.pan),e.applyCurrentZoomPan()))}}end(){const{velocity:t}=this.gestures,{mainScroll:i,currSlide:s}=this.pswp;let h=0;if(this.pswp.animations.stopAll(),i.isShifted()){const s=(i.x-i.getCurrSlideX())/this.pswp.viewportSize.x;t.x<-.5&&s<0||t.x<.1&&s<-.5?(h=1,t.x=Math.min(t.x,0)):(t.x>.5&&s>0||t.x>-.1&&s>.5)&&(h=-1,t.x=Math.max(t.x,0)),i.moveIndexBy(h,!0,t.x)}s&&s.currZoomLevel>s.zoomLevels.max||this.gestures.isMultitouch?this.gestures.zoomLevels.correctZoomPan(!0):(this.P("x"),this.P("y"))}P(t){const{velocity:i}=this.gestures,{currSlide:s}=this.pswp;if(!s)return;const{pan:h,bounds:e}=s,o=h[t],r=this.pswp.bgOpacity<1&&"y"===t,a=o+function(t,i){return t*i/(1-i)}(i[t],.995);if(r){const t=this.S(o),i=this.S(a);if(t<0&&i<-.4||t>0&&i>.4)return void this.pswp.close()}const l=e.correctPan(t,a);if(o===l)return;const c=l===a?1:.82,d=this.pswp.bgOpacity,u=l-o;this.pswp.animations.startSpring({name:"panGesture"+t,isPan:!0,start:o,end:l,velocity:i[t],dampingRatio:c,onUpdate:i=>{if(r&&this.pswp.bgOpacity<1){const t=1-(l-i)/u;this.pswp.applyBgOpacity(n(d+(1-d)*t,0,1))}h[t]=Math.floor(i),s.applyCurrentZoomPan()}})}M(t){const{p1:i,dragAxis:s,prevP1:h,isMultitouch:e}=this.gestures,{currSlide:n,mainScroll:o}=this.pswp,r=i[t]-h[t],a=o.x+r;if(!r||!n)return!1;if("x"===t&&!n.isPannable()&&!e)return o.moveTo(a,!0),!0;const{bounds:l}=n,c=n.pan[t]+r;if(this.pswp.options.allowPanToNext&&"x"===s&&"x"===t&&!e){const i=o.getCurrSlideX(),s=o.x-i,h=r>0,e=!h;if(c>l.min[t]&&h){if(l.min[t]<=this.startPan[t])return o.moveTo(a,!0),!0;this._(t,c)}else if(c<l.max[t]&&e){if(this.startPan[t]<=l.max[t])return o.moveTo(a,!0),!0;this._(t,c)}else if(0!==s){if(s>0)return o.moveTo(Math.max(a,i),!0),!0;if(s<0)return o.moveTo(Math.min(a,i),!0),!0}else this._(t,c)}else"y"===t&&(o.isShifted()||l.min.y===l.max.y)||this._(t,c);return!1}S(t){var i,s;return(t-(null!==(i=null===(s=this.pswp.currSlide)||void 0===s?void 0:s.bounds.center.y)&&void 0!==i?i:0))/(this.pswp.viewportSize.y/3)}_(t,i,s){const{currSlide:h}=this.pswp;if(!h)return;const{pan:e,bounds:n}=h;if(n.correctPan(t,i)!==i||s){const h=Math.round(i-e[t]);e[t]+=h*(s||.35)}else e[t]=i}}function z(t,i,s){return t.x=(i.x+s.x)/2,t.y=(i.y+s.y)/2,t}class M{constructor(t){this.gestures=t,this.C={x:0,y:0},this.T={x:0,y:0},this.A={x:0,y:0},this.D=!1,this.I=1}start(){const{currSlide:t}=this.gestures.pswp;t&&(this.I=t.currZoomLevel,i(this.C,t.pan)),this.gestures.pswp.animations.stopAllPan(),this.D=!1}change(){const{p1:t,startP1:i,p2:s,startP2:e,pswp:n}=this.gestures,{currSlide:o}=n;if(!o)return;const r=o.zoomLevels.min,a=o.zoomLevels.max;if(!o.isZoomable()||n.mainScroll.isShifted())return;z(this.T,i,e),z(this.A,t,s);let l=1/h(i,e)*h(t,s)*this.I;if(l>o.zoomLevels.initial+o.zoomLevels.initial/15&&(this.D=!0),l<r)if(n.options.pinchToClose&&!this.D&&this.I<=o.zoomLevels.initial){const t=1-(r-l)/(r/1.2);n.dispatch("pinchClose",{bgOpacity:t}).defaultPrevented||n.applyBgOpacity(t)}else l=r-.15*(r-l);else l>a&&(l=a+.05*(l-a));o.pan.x=this.L("x",l),o.pan.y=this.L("y",l),o.setZoomLevel(l),o.applyCurrentZoomPan()}end(){const{pswp:t}=this.gestures,{currSlide:i}=t;(!i||i.currZoomLevel<i.zoomLevels.initial)&&!this.D&&t.options.pinchToClose?t.close():this.correctZoomPan()}L(t,i){const s=i/this.I;return this.A[t]-(this.T[t]-this.C[t])*s}correctZoomPan(t){const{pswp:s}=this.gestures,{currSlide:h}=s;if(null==h||!h.isZoomable())return;0===this.A.x&&(t=!0);const o=h.currZoomLevel;let r,a=!0;o<h.zoomLevels.initial?r=h.zoomLevels.initial:o>h.zoomLevels.max?r=h.zoomLevels.max:(a=!1,r=o);const l=s.bgOpacity,c=s.bgOpacity<1,d=i({x:0,y:0},h.pan);let u=i({x:0,y:0},d);t&&(this.A.x=0,this.A.y=0,this.T.x=0,this.T.y=0,this.I=o,i(this.C,d)),a&&(u={x:this.L("x",r),y:this.L("y",r)}),h.setZoomLevel(r),u={x:h.bounds.correctPan("x",u.x),y:h.bounds.correctPan("y",u.y)},h.setZoomLevel(o);const p=!e(u,d);if(!p&&!a&&!c)return h.v(r),void h.applyCurrentZoomPan();s.animations.stopAllPan(),s.animations.startSpring({isPan:!0,start:0,end:1e3,velocity:0,dampingRatio:1,naturalFrequency:40,onUpdate:t=>{if(t/=1e3,p||a){if(p&&(h.pan.x=d.x+(u.x-d.x)*t,h.pan.y=d.y+(u.y-d.y)*t),a){const i=o+(r-o)*t;h.setZoomLevel(i)}h.applyCurrentZoomPan()}c&&s.bgOpacity<1&&s.applyBgOpacity(n(l+(1-l)*t,0,1))},onComplete:()=>{h.v(r),h.applyCurrentZoomPan()}})}}function P(t){return!!t.target.closest(".pswp__container")}class C{constructor(t){this.gestures=t}click(t,i){const s=i.target.classList,h=s.contains("pswp__img"),e=s.contains("pswp__item")||s.contains("pswp__zoom-wrap");h?this.k("imageClick",t,i):e&&this.k("bgClick",t,i)}tap(t,i){P(i)&&this.k("tap",t,i)}doubleTap(t,i){P(i)&&this.k("doubleTap",t,i)}k(t,i,s){var h;const{pswp:e}=this.gestures,{currSlide:n}=e,o=t+"Action",r=e.options[o];if(!e.dispatch(o,{point:i,originalEvent:s}).defaultPrevented)if("function"!=typeof r)switch(r){case"close":case"next":e[r]();break;case"zoom":null==n||n.toggleZoom(i);break;case"zoom-or-close":null!=n&&n.isZoomable()&&n.zoomLevels.secondary!==n.zoomLevels.initial?n.toggleZoom(i):e.options.clickToCloseNonZoomable&&e.close();break;case"toggle-controls":null===(h=this.gestures.pswp.element)||void 0===h||h.classList.toggle("pswp--ui-visible")}else r.call(e,i,s)}}class T{constructor(t){this.pswp=t,this.dragAxis=null,this.p1={x:0,y:0},this.p2={x:0,y:0},this.prevP1={x:0,y:0},this.prevP2={x:0,y:0},this.startP1={x:0,y:0},this.startP2={x:0,y:0},this.velocity={x:0,y:0},this.Z={x:0,y:0},this.B={x:0,y:0},this.F=0,this.O=[],this.R="ontouchstart"in window,this.N=!!window.PointerEvent,this.supportsTouch=this.R||this.N&&navigator.maxTouchPoints>1,this.F=0,this.U=0,this.V=!1,this.isMultitouch=!1,this.isDragging=!1,this.isZooming=!1,this.raf=null,this.G=null,this.supportsTouch||(t.options.allowPanToNext=!1),this.drag=new S(this),this.zoomLevels=new M(this),this.tapHandler=new C(this),t.on("bindEvents",(()=>{t.events.add(t.scrollWrap,"click",this.$.bind(this)),this.N?this.q("pointer","down","up","cancel"):this.R?(this.q("touch","start","end","cancel"),t.scrollWrap&&(t.scrollWrap.ontouchmove=()=>{},t.scrollWrap.ontouchend=()=>{})):this.q("mouse","down","up")}))}q(t,i,s,h){const{pswp:e}=this,{events:n}=e,o=h?t+h:"";n.add(e.scrollWrap,t+i,this.onPointerDown.bind(this)),n.add(window,t+"move",this.onPointerMove.bind(this)),n.add(window,t+s,this.onPointerUp.bind(this)),o&&n.add(e.scrollWrap,o,this.onPointerUp.bind(this))}onPointerDown(t){const s="mousedown"===t.type||"mouse"===t.pointerType;if(s&&t.button>0)return;const{pswp:h}=this;h.opener.isOpen?h.dispatch("pointerDown",{originalEvent:t}).defaultPrevented||(s&&(h.mouseDetected(),this.H(t,"down")),h.animations.stopAll(),this.K(t,"down"),1===this.F&&(this.dragAxis=null,i(this.startP1,this.p1)),this.F>1?(this.W(),this.isMultitouch=!0):this.isMultitouch=!1):t.preventDefault()}onPointerMove(t){this.H(t,"move"),this.F&&(this.K(t,"move"),this.pswp.dispatch("pointerMove",{originalEvent:t}).defaultPrevented||(1!==this.F||this.isDragging?this.F>1&&!this.isZooming&&(this.j(),this.isZooming=!0,this.X(),this.zoomLevels.start(),this.Y(),this.J()):(this.dragAxis||this.tt(),this.dragAxis&&!this.isDragging&&(this.isZooming&&(this.isZooming=!1,this.zoomLevels.end()),this.isDragging=!0,this.W(),this.X(),this.U=Date.now(),this.V=!1,i(this.B,this.p1),this.velocity.x=0,this.velocity.y=0,this.drag.start(),this.Y(),this.J()))))}j(){this.isDragging&&(this.isDragging=!1,this.V||this.it(!0),this.drag.end(),this.dragAxis=null)}onPointerUp(t){this.F&&(this.K(t,"up"),this.pswp.dispatch("pointerUp",{originalEvent:t}).defaultPrevented||(0===this.F&&(this.Y(),this.isDragging?this.j():this.isZooming||this.isMultitouch||this.st(t)),this.F<2&&this.isZooming&&(this.isZooming=!1,this.zoomLevels.end(),1===this.F&&(this.dragAxis=null,this.X()))))}J(){(this.isDragging||this.isZooming)&&(this.it(),this.isDragging?e(this.p1,this.prevP1)||this.drag.change():e(this.p1,this.prevP1)&&e(this.p2,this.prevP2)||this.zoomLevels.change(),this.ht(),this.raf=requestAnimationFrame(this.J.bind(this)))}it(t){const s=Date.now(),h=s-this.U;h<50&&!t||(this.velocity.x=this.et("x",h),this.velocity.y=this.et("y",h),this.U=s,i(this.B,this.p1),this.V=!0)}st(t){const{mainScroll:s}=this.pswp;if(s.isShifted())return void s.moveIndexBy(0,!0);if(t.type.indexOf("cancel")>0)return;if("mouseup"===t.type||"mouse"===t.pointerType)return void this.tapHandler.click(this.startP1,t);const e=this.pswp.options.doubleTapAction?300:0;this.G?(this.W(),h(this.Z,this.startP1)<25&&this.tapHandler.doubleTap(this.startP1,t)):(i(this.Z,this.startP1),this.G=setTimeout((()=>{this.tapHandler.tap(this.startP1,t),this.W()}),e))}W(){this.G&&(clearTimeout(this.G),this.G=null)}et(t,i){const s=this.p1[t]-this.B[t];return Math.abs(s)>1&&i>5?s/i:0}Y(){this.raf&&(cancelAnimationFrame(this.raf),this.raf=null)}H(t,i){this.pswp.applyFilters("preventPointerEvent",!0,t,i)&&t.preventDefault()}K(t,s){if(this.N){const h=t,e=this.O.findIndex((t=>t.id===h.pointerId));"up"===s&&e>-1?this.O.splice(e,1):"down"===s&&-1===e?this.O.push(this.nt(h,{x:0,y:0})):e>-1&&this.nt(h,this.O[e]),this.F=this.O.length,this.F>0&&i(this.p1,this.O[0]),this.F>1&&i(this.p2,this.O[1])}else{const i=t;this.F=0,i.type.indexOf("touch")>-1?i.touches&&i.touches.length>0&&(this.nt(i.touches[0],this.p1),this.F++,i.touches.length>1&&(this.nt(i.touches[1],this.p2),this.F++)):(this.nt(t,this.p1),"up"===s?this.F=0:this.F++)}}ht(){i(this.prevP1,this.p1),i(this.prevP2,this.p2)}X(){i(this.startP1,this.p1),i(this.startP2,this.p2),this.ht()}tt(){if(this.pswp.mainScroll.isShifted())this.dragAxis="x";else{const t=Math.abs(this.p1.x-this.startP1.x)-Math.abs(this.p1.y-this.startP1.y);if(0!==t){const i=t>0?"x":"y";Math.abs(this.p1[i]-this.startP1[i])>=10&&(this.dragAxis=i)}}}nt(t,i){return i.x=t.pageX-this.pswp.offset.x,i.y=t.pageY-this.pswp.offset.y,"pointerId"in t?i.id=t.pointerId:void 0!==t.identifier&&(i.id=t.identifier),i}$(t){this.pswp.mainScroll.isShifted()&&(t.preventDefault(),t.stopPropagation())}}class A{constructor(t){this.pswp=t,this.x=0,this.slideWidth=0,this.ot=0,this.rt=0,this.lt=-1,this.itemHolders=[]}resize(t){const{pswp:i}=this,s=Math.round(i.viewportSize.x+i.viewportSize.x*i.options.spacing),h=s!==this.slideWidth;h&&(this.slideWidth=s,this.moveTo(this.getCurrSlideX())),this.itemHolders.forEach(((i,s)=>{h&&r(i.el,(s+this.lt)*this.slideWidth),t&&i.slide&&i.slide.resize()}))}resetPosition(){this.ot=0,this.rt=0,this.slideWidth=0,this.lt=-1}appendHolders(){this.itemHolders=[];for(let i=0;i<3;i++){const s=t("pswp__item","div",this.pswp.container);s.setAttribute("role","group"),s.setAttribute("aria-roledescription","slide"),s.setAttribute("aria-hidden","true"),s.style.display=1===i?"block":"none",this.itemHolders.push({el:s})}}canBeSwiped(){return this.pswp.getNumItems()>1}moveIndexBy(t,i,s){const{pswp:h}=this;let e=h.potentialIndex+t;const n=h.getNumItems();if(h.canLoop()){e=h.getLoopedIndex(e);const i=(t+n)%n;t=i<=n/2?i:i-n}else e<0?e=0:e>=n&&(e=n-1),t=e-h.potentialIndex;h.potentialIndex=e,this.ot-=t,h.animations.stopMainScroll();const o=this.getCurrSlideX();if(i){h.animations.startSpring({isMainScroll:!0,start:this.x,end:o,velocity:s||0,naturalFrequency:30,dampingRatio:1,onUpdate:t=>{this.moveTo(t)},onComplete:()=>{this.updateCurrItem(),h.appendHeavy()}});let t=h.potentialIndex-h.currIndex;if(h.canLoop()){const i=(t+n)%n;t=i<=n/2?i:i-n}Math.abs(t)>1&&this.updateCurrItem()}else this.moveTo(o),this.updateCurrItem();return Boolean(t)}getCurrSlideX(){return this.slideWidth*this.ot}isShifted(){return this.x!==this.getCurrSlideX()}updateCurrItem(){var t;const{pswp:i}=this,s=this.rt-this.ot;if(!s)return;this.rt=this.ot,i.currIndex=i.potentialIndex;let h,e=Math.abs(s);e>=3&&(this.lt+=s+(s>0?-3:3),e=3,this.itemHolders.forEach((t=>{var i;null===(i=t.slide)||void 0===i||i.destroy(),t.slide=void 0})));for(let t=0;t<e;t++)s>0?(h=this.itemHolders.shift(),h&&(this.itemHolders[2]=h,this.lt++,r(h.el,(this.lt+2)*this.slideWidth),i.setContent(h,i.currIndex-e+t+2))):(h=this.itemHolders.pop(),h&&(this.itemHolders.unshift(h),this.lt--,r(h.el,this.lt*this.slideWidth),i.setContent(h,i.currIndex+e-t-2)));Math.abs(this.lt)>50&&!this.isShifted()&&(this.resetPosition(),this.resize()),i.animations.stopAllPan(),this.itemHolders.forEach(((t,i)=>{t.slide&&t.slide.setIsActive(1===i)})),i.currSlide=null===(t=this.itemHolders[1])||void 0===t?void 0:t.slide,i.contentLoader.updateLazy(s),i.currSlide&&i.currSlide.applyCurrentZoomPan(),i.dispatch("change")}moveTo(t,i){if(!this.pswp.canLoop()&&i){let i=(this.slideWidth*this.ot-t)/this.slideWidth;i+=this.pswp.currIndex;const s=Math.round(t-this.x);(i<0&&s>0||i>=this.pswp.getNumItems()-1&&s<0)&&(t=this.x+.35*s)}this.x=t,this.pswp.container&&r(this.pswp.container,t),this.pswp.dispatch("moveMainScroll",{x:t,dragging:null!=i&&i})}}const D={Escape:27,z:90,ArrowLeft:37,ArrowUp:38,ArrowRight:39,ArrowDown:40,Tab:9},I=(t,i)=>i?t:D[t];class E{constructor(t){this.pswp=t,this.ct=!1,t.on("bindEvents",(()=>{t.options.trapFocus&&(t.options.initialPointerPos||this.dt(),t.events.add(document,"focusin",this.ut.bind(this))),t.events.add(document,"keydown",this.vt.bind(this))}));const i=document.activeElement;t.on("destroy",(()=>{t.options.returnFocus&&i&&this.ct&&i.focus()}))}dt(){!this.ct&&this.pswp.element&&(this.pswp.element.focus(),this.ct=!0)}vt(t){const{pswp:i}=this;if(i.dispatch("keydown",{originalEvent:t}).defaultPrevented)return;if(function(t){return"button"in t&&1===t.button||t.ctrlKey||t.metaKey||t.altKey||t.shiftKey}(t))return;let s,h,e=!1;const n="key"in t;switch(n?t.key:t.keyCode){case I("Escape",n):i.options.escKey&&(s="close");break;case I("z",n):s="toggleZoom";break;case I("ArrowLeft",n):h="x";break;case I("ArrowUp",n):h="y";break;case I("ArrowRight",n):h="x",e=!0;break;case I("ArrowDown",n):e=!0,h="y";break;case I("Tab",n):this.dt()}if(h){t.preventDefault();const{currSlide:n}=i;i.options.arrowKeys&&"x"===h&&i.getNumItems()>1?s=e?"next":"prev":n&&n.currZoomLevel>n.zoomLevels.fit&&(n.pan[h]+=e?-80:80,n.panTo(n.pan.x,n.pan.y))}s&&(t.preventDefault(),i[s]())}ut(t){const{template:i}=this.pswp;i&&document!==t.target&&i!==t.target&&!i.contains(t.target)&&i.focus()}}const L="cubic-bezier(.4,0,.22,1)";class k{constructor(t){var i;this.props=t;const{target:s,onComplete:h,transform:e,onFinish:n=(()=>{}),duration:o=333,easing:r=L}=t;this.onFinish=n;const l=e?"transform":"opacity",c=null!==(i=t[l])&&void 0!==i?i:"";this.ft=s,this.wt=h,this.gt=!1,this.yt=this.yt.bind(this),this._t=setTimeout((()=>{a(s,l,o,r),this._t=setTimeout((()=>{s.addEventListener("transitionend",this.yt,!1),s.addEventListener("transitioncancel",this.yt,!1),this._t=setTimeout((()=>{this.xt()}),o+500),s.style[l]=c}),30)}),0)}yt(t){t.target===this.ft&&this.xt()}xt(){this.gt||(this.gt=!0,this.onFinish(),this.wt&&this.wt())}destroy(){this._t&&clearTimeout(this._t),a(this.ft),this.ft.removeEventListener("transitionend",this.yt,!1),this.ft.removeEventListener("transitioncancel",this.yt,!1),this.gt||this.xt()}}class Z{constructor(t,i,s){this.velocity=1e3*t,this.bt=i||.75,this.St=s||12,this.zt=this.St,this.bt<1&&(this.zt*=Math.sqrt(1-this.bt*this.bt))}easeFrame(t,i){let s,h=0;i/=1e3;const e=Math.E**(-this.bt*this.St*i);if(1===this.bt)s=this.velocity+this.St*t,h=(t+s*i)*e,this.velocity=h*-this.St+s*e;else if(this.bt<1){s=1/this.zt*(this.bt*this.St*t+this.velocity);const n=Math.cos(this.zt*i),o=Math.sin(this.zt*i);h=e*(t*n+s*o),this.velocity=h*-this.St*this.bt+e*(-this.zt*t*o+this.zt*s*n)}return h}}class B{constructor(t){this.props=t,this.Mt=0;const{start:i,end:s,velocity:h,onUpdate:e,onComplete:n,onFinish:o=(()=>{}),dampingRatio:r,naturalFrequency:a}=t;this.onFinish=o;const l=new Z(h,r,a);let c=Date.now(),d=i-s;const u=()=>{this.Mt&&(d=l.easeFrame(d,Date.now()-c),Math.abs(d)<1&&Math.abs(l.velocity)<50?(e(s),n&&n(),this.onFinish()):(c=Date.now(),e(d+s),this.Mt=requestAnimationFrame(u)))};this.Mt=requestAnimationFrame(u)}destroy(){this.Mt>=0&&cancelAnimationFrame(this.Mt),this.Mt=0}}class F{constructor(){this.activeAnimations=[]}startSpring(t){this.Pt(t,!0)}startTransition(t){this.Pt(t)}Pt(t,i){const s=i?new B(t):new k(t);return this.activeAnimations.push(s),s.onFinish=()=>this.stop(s),s}stop(t){t.destroy();const i=this.activeAnimations.indexOf(t);i>-1&&this.activeAnimations.splice(i,1)}stopAll(){this.activeAnimations.forEach((t=>{t.destroy()})),this.activeAnimations=[]}stopAllPan(){this.activeAnimations=this.activeAnimations.filter((t=>!t.props.isPan||(t.destroy(),!1)))}stopMainScroll(){this.activeAnimations=this.activeAnimations.filter((t=>!t.props.isMainScroll||(t.destroy(),!1)))}isPanRunning(){return this.activeAnimations.some((t=>t.props.isPan))}}class O{constructor(t){this.pswp=t,t.events.add(t.element,"wheel",this.Ct.bind(this))}Ct(t){t.preventDefault();const{currSlide:i}=this.pswp;let{deltaX:s,deltaY:h}=t;if(i&&!this.pswp.dispatch("wheel",{originalEvent:t}).defaultPrevented)if(t.ctrlKey||this.pswp.options.wheelToZoom){if(i.isZoomable()){let s=-h;1===t.deltaMode?s*=.05:s*=t.deltaMode?1:.002,s=2**s;const e=i.currZoomLevel*s;i.zoomTo(e,{x:t.clientX,y:t.clientY})}}else i.isPannable()&&(1===t.deltaMode&&(s*=18,h*=18),i.panTo(i.pan.x-s,i.pan.y-h))}}class R{constructor(i,s){var h;const e=s.name||s.className;let n=s.html;if(!1===i.options[e])return;"string"==typeof i.options[e+"SVG"]&&(n=i.options[e+"SVG"]),i.dispatch("uiElementCreate",{data:s});let o="";s.isButton?(o+="pswp__button ",o+=s.className||`pswp__button--${s.name}`):o+=s.className||`pswp__${s.name}`;let r=s.isButton?s.tagName||"button":s.tagName||"div";r=r.toLowerCase();const a=t(o,r);if(s.isButton){"button"===r&&(a.type="button");let{title:t}=s;const{ariaLabel:h}=s;"string"==typeof i.options[e+"Title"]&&(t=i.options[e+"Title"]),t&&(a.title=t);const n=h||t;n&&a.setAttribute("aria-label",n)}a.innerHTML=function(t){if("string"==typeof t)return t;if(!t||!t.isCustomSVG)return"";const i=t;let s='<svg aria-hidden="true" class="pswp__icn" viewBox="0 0 %d %d" width="%d" height="%d">';return s=s.split("%d").join(i.size||32),i.outlineID&&(s+='<use class="pswp__icn-shadow" xlink:href="#'+i.outlineID+'"/>'),s+=i.inner,s+="</svg>",s}(n),s.onInit&&s.onInit(a,i),s.onClick&&(a.onclick=t=>{"string"==typeof s.onClick?i[s.onClick]():"function"==typeof s.onClick&&s.onClick(t,a,i)});const l=s.appendTo||"bar";let c=i.element;"bar"===l?(i.topBar||(i.topBar=t("pswp__top-bar pswp__hide-on-close","div",i.scrollWrap)),c=i.topBar):(a.classList.add("pswp__hide-on-close"),"wrapper"===l&&(c=i.scrollWrap)),null===(h=c)||void 0===h||h.appendChild(i.applyFilters("uiElement",a,s))}}function N(t,i,s){t.classList.add("pswp__button--arrow"),t.setAttribute("aria-controls","pswp__items"),i.on("change",(()=>{i.options.loop||(t.disabled=s?!(i.currIndex<i.getNumItems()-1):!(i.currIndex>0))}))}const U={name:"arrowPrev",className:"pswp__button--arrow--prev",title:"Previous",order:10,isButton:!0,appendTo:"wrapper",html:{isCustomSVG:!0,size:60,inner:'<path d="M29 43l-3 3-16-16 16-16 3 3-13 13 13 13z" id="pswp__icn-arrow"/>',outlineID:"pswp__icn-arrow"},onClick:"prev",onInit:N},V={name:"arrowNext",className:"pswp__button--arrow--next",title:"Next",order:11,isButton:!0,appendTo:"wrapper",html:{isCustomSVG:!0,size:60,inner:'<use xlink:href="#pswp__icn-arrow"/>',outlineID:"pswp__icn-arrow"},onClick:"next",onInit:(t,i)=>{N(t,i,!0)}},G={name:"close",title:"Close",order:20,isButton:!0,html:{isCustomSVG:!0,inner:'<path d="M24 10l-2-2-6 6-6-6-2 2 6 6-6 6 2 2 6-6 6 6 2-2-6-6z" id="pswp__icn-close"/>',outlineID:"pswp__icn-close"},onClick:"close"},$={name:"zoom",title:"Zoom",order:10,isButton:!0,html:{isCustomSVG:!0,inner:'<path d="M17.426 19.926a6 6 0 1 1 1.5-1.5L23 22.5 21.5 24l-4.074-4.074z" id="pswp__icn-zoom"/><path fill="currentColor" class="pswp__zoom-icn-bar-h" d="M11 16v-2h6v2z"/><path fill="currentColor" class="pswp__zoom-icn-bar-v" d="M13 12h2v6h-2z"/>',outlineID:"pswp__icn-zoom"},onClick:"toggleZoom"},q={name:"preloader",appendTo:"bar",order:7,html:{isCustomSVG:!0,inner:'<path fill-rule="evenodd" clip-rule="evenodd" d="M21.2 16a5.2 5.2 0 1 1-5.2-5.2V8a8 8 0 1 0 8 8h-2.8Z" id="pswp__icn-loading"/>',outlineID:"pswp__icn-loading"},onInit:(t,i)=>{let s,h=null;const e=i=>{var h,e;s!==i&&(s=i,h="active",e=i,t.classList.toggle("pswp__preloader--"+h,e))},n=()=>{var t;if(null===(t=i.currSlide)||void 0===t||!t.content.isLoading())return e(!1),void(h&&(clearTimeout(h),h=null));h||(h=setTimeout((()=>{var t;e(Boolean(null===(t=i.currSlide)||void 0===t?void 0:t.content.isLoading())),h=null}),i.options.preloaderDelay))};i.on("change",n),i.on("loadComplete",(t=>{i.currSlide===t.slide&&n()})),i.ui&&(i.ui.updatePreloaderVisibility=n)}},H={name:"counter",order:5,onInit:(t,i)=>{i.on("change",(()=>{t.innerText=i.currIndex+1+i.options.indexIndicatorSep+i.getNumItems()}))}};function K(t,i){t.classList.toggle("pswp--zoomed-in",i)}class W{constructor(t){this.pswp=t,this.isRegistered=!1,this.uiElementsData=[],this.items=[],this.updatePreloaderVisibility=()=>{},this.Tt=void 0}init(){const{pswp:t}=this;this.isRegistered=!1,this.uiElementsData=[G,U,V,$,q,H],t.dispatch("uiRegister"),this.uiElementsData.sort(((t,i)=>(t.order||0)-(i.order||0))),this.items=[],this.isRegistered=!0,this.uiElementsData.forEach((t=>{this.registerElement(t)})),t.on("change",(()=>{var i;null===(i=t.element)||void 0===i||i.classList.toggle("pswp--one-slide",1===t.getNumItems())})),t.on("zoomPanUpdate",(()=>this.At()))}registerElement(t){this.isRegistered?this.items.push(new R(this.pswp,t)):this.uiElementsData.push(t)}At(){const{template:t,currSlide:i,options:s}=this.pswp;if(this.pswp.opener.isClosing||!t||!i)return;let{currZoomLevel:h}=i;if(this.pswp.opener.isOpen||(h=i.zoomLevels.initial),h===this.Tt)return;this.Tt=h;const e=i.zoomLevels.initial-i.zoomLevels.secondary;if(Math.abs(e)<.01||!i.isZoomable())return K(t,!1),void t.classList.remove("pswp--zoom-allowed");t.classList.add("pswp--zoom-allowed");K(t,(h===i.zoomLevels.initial?i.zoomLevels.secondary:i.zoomLevels.initial)<=h),"zoom"!==s.imageClickAction&&"zoom-or-close"!==s.imageClickAction||t.classList.add("pswp--click-to-zoom")}}class j{constructor(t,i){this.type=t,this.defaultPrevented=!1,i&&Object.assign(this,i)}preventDefault(){this.defaultPrevented=!0}}class X{constructor(i,s){if(this.element=t("pswp__img pswp__img--placeholder",i?"img":"div",s),i){const t=this.element;t.decoding="async",t.alt="",t.src=i,t.setAttribute("role","presentation")}this.element.setAttribute("aria-hidden","true")}setDisplayedSize(t,i){this.element&&("IMG"===this.element.tagName?(l(this.element,250,"auto"),this.element.style.transformOrigin="0 0",this.element.style.transform=o(0,0,t/250)):l(this.element,t,i))}destroy(){var t;null!==(t=this.element)&&void 0!==t&&t.parentNode&&this.element.remove(),this.element=null}}class Y{constructor(t,i,s){this.instance=i,this.data=t,this.index=s,this.element=void 0,this.placeholder=void 0,this.slide=void 0,this.displayedImageWidth=0,this.displayedImageHeight=0,this.width=Number(this.data.w)||Number(this.data.width)||0,this.height=Number(this.data.h)||Number(this.data.height)||0,this.isAttached=!1,this.hasSlide=!1,this.isDecoding=!1,this.state=c,this.data.type?this.type=this.data.type:this.data.src?this.type="image":this.type="html",this.instance.dispatch("contentInit",{content:this})}removePlaceholder(){this.placeholder&&!this.keepPlaceholder()&&setTimeout((()=>{this.placeholder&&(this.placeholder.destroy(),this.placeholder=void 0)}),1e3)}load(i,s){if(this.slide&&this.usePlaceholder())if(this.placeholder){const t=this.placeholder.element;t&&!t.parentElement&&this.slide.container.prepend(t)}else{const t=this.instance.applyFilters("placeholderSrc",!(!this.data.msrc||!this.slide.isFirstSlide)&&this.data.msrc,this);this.placeholder=new X(t,this.slide.container)}this.element&&!s||this.instance.dispatch("contentLoad",{content:this,isLazy:i}).defaultPrevented||(this.isImageContent()?(this.element=t("pswp__img","img"),this.displayedImageWidth&&this.loadImage(i)):(this.element=t("pswp__content","div"),this.element.innerHTML=this.data.html||""),s&&this.slide&&this.slide.updateContentSize(!0))}loadImage(t){var i,s;if(!this.isImageContent()||!this.element||this.instance.dispatch("contentLoadImage",{content:this,isLazy:t}).defaultPrevented)return;const h=this.element;this.updateSrcsetSizes(),this.data.srcset&&(h.srcset=this.data.srcset),h.src=null!==(i=this.data.src)&&void 0!==i?i:"",h.alt=null!==(s=this.data.alt)&&void 0!==s?s:"",this.state=d,h.complete?this.onLoaded():(h.onload=()=>{this.onLoaded()},h.onerror=()=>{this.onError()})}setSlide(t){this.slide=t,this.hasSlide=!0,this.instance=t.pswp}onLoaded(){this.state=u,this.slide&&this.element&&(this.instance.dispatch("loadComplete",{slide:this.slide,content:this}),this.slide.isActive&&this.slide.heavyAppended&&!this.element.parentNode&&(this.append(),this.slide.updateContentSize(!0)),this.state!==u&&this.state!==p||this.removePlaceholder())}onError(){this.state=p,this.slide&&(this.displayError(),this.instance.dispatch("loadComplete",{slide:this.slide,isError:!0,content:this}),this.instance.dispatch("loadError",{slide:this.slide,content:this}))}isLoading(){return this.instance.applyFilters("isContentLoading",this.state===d,this)}isError(){return this.state===p}isImageContent(){return"image"===this.type}setDisplayedSize(t,i){if(this.element&&(this.placeholder&&this.placeholder.setDisplayedSize(t,i),!this.instance.dispatch("contentResize",{content:this,width:t,height:i}).defaultPrevented&&(l(this.element,t,i),this.isImageContent()&&!this.isError()))){const s=!this.displayedImageWidth&&t;this.displayedImageWidth=t,this.displayedImageHeight=i,s?this.loadImage(!1):this.updateSrcsetSizes(),this.slide&&this.instance.dispatch("imageSizeChange",{slide:this.slide,width:t,height:i,content:this})}}isZoomable(){return this.instance.applyFilters("isContentZoomable",this.isImageContent()&&this.state!==p,this)}updateSrcsetSizes(){if(!this.isImageContent()||!this.element||!this.data.srcset)return;const t=this.element,i=this.instance.applyFilters("srcsetSizesWidth",this.displayedImageWidth,this);(!t.dataset.largestUsedSize||i>parseInt(t.dataset.largestUsedSize,10))&&(t.sizes=i+"px",t.dataset.largestUsedSize=String(i))}usePlaceholder(){return this.instance.applyFilters("useContentPlaceholder",this.isImageContent(),this)}lazyLoad(){this.instance.dispatch("contentLazyLoad",{content:this}).defaultPrevented||this.load(!0)}keepPlaceholder(){return this.instance.applyFilters("isKeepingPlaceholder",this.isLoading(),this)}destroy(){this.hasSlide=!1,this.slide=void 0,this.instance.dispatch("contentDestroy",{content:this}).defaultPrevented||(this.remove(),this.placeholder&&(this.placeholder.destroy(),this.placeholder=void 0),this.isImageContent()&&this.element&&(this.element.onload=null,this.element.onerror=null,this.element=void 0))}displayError(){if(this.slide){var i,s;let h=t("pswp__error-msg","div");h.innerText=null!==(i=null===(s=this.instance.options)||void 0===s?void 0:s.errorMsg)&&void 0!==i?i:"",h=this.instance.applyFilters("contentErrorElement",h,this),this.element=t("pswp__content pswp__error-msg-container","div"),this.element.appendChild(h),this.slide.container.innerText="",this.slide.container.appendChild(this.element),this.slide.updateContentSize(!0),this.removePlaceholder()}}append(){if(this.isAttached||!this.element)return;if(this.isAttached=!0,this.state===p)return void this.displayError();if(this.instance.dispatch("contentAppend",{content:this}).defaultPrevented)return;const t="decode"in this.element;this.isImageContent()?t&&this.slide&&(!this.slide.isActive||m())?(this.isDecoding=!0,this.element.decode().catch((()=>{})).finally((()=>{this.isDecoding=!1,this.appendImage()}))):this.appendImage():this.slide&&!this.element.parentNode&&this.slide.container.appendChild(this.element)}activate(){!this.instance.dispatch("contentActivate",{content:this}).defaultPrevented&&this.slide&&(this.isImageContent()&&this.isDecoding&&!m()?this.appendImage():this.isError()&&this.load(!1,!0),this.slide.holderElement&&this.slide.holderElement.setAttribute("aria-hidden","false"))}deactivate(){this.instance.dispatch("contentDeactivate",{content:this}),this.slide&&this.slide.holderElement&&this.slide.holderElement.setAttribute("aria-hidden","true")}remove(){this.isAttached=!1,this.instance.dispatch("contentRemove",{content:this}).defaultPrevented||(this.element&&this.element.parentNode&&this.element.remove(),this.placeholder&&this.placeholder.element&&this.placeholder.element.remove())}appendImage(){this.isAttached&&(this.instance.dispatch("contentAppendImage",{content:this}).defaultPrevented||(this.slide&&this.element&&!this.element.parentNode&&this.slide.container.appendChild(this.element),this.state!==u&&this.state!==p||this.removePlaceholder()))}}function J(t,i,s){const h=i.createContentFromData(t,s);let e;const{options:n}=i;if(n){let o;e=new x(n,t,-1),o=i.pswp?i.pswp.viewportSize:w(n,i);const r=y(n,o,t,s);e.update(h.width,h.height,r)}return h.lazyLoad(),e&&h.setDisplayedSize(Math.ceil(h.width*e.initial),Math.ceil(h.height*e.initial)),h}class Q{constructor(t){this.pswp=t,this.limit=Math.max(t.options.preload[0]+t.options.preload[1]+1,5),this.Dt=[]}updateLazy(t){const{pswp:i}=this;if(i.dispatch("lazyLoad").defaultPrevented)return;const{preload:s}=i.options,h=void 0===t||t>=0;let e;for(e=0;e<=s[1];e++)this.loadSlideByIndex(i.currIndex+(h?e:-e));for(e=1;e<=s[0];e++)this.loadSlideByIndex(i.currIndex+(h?-e:e))}loadSlideByIndex(t){const i=this.pswp.getLoopedIndex(t);let s=this.getContentByIndex(i);s||(s=function(t,i){const s=i.getItemData(t);if(!i.dispatch("lazyLoadSlide",{index:t,itemData:s}).defaultPrevented)return J(s,i,t)}(i,this.pswp),s&&this.addToCache(s))}getContentBySlide(t){let i=this.getContentByIndex(t.index);return i||(i=this.pswp.createContentFromData(t.data,t.index),this.addToCache(i)),i.setSlide(t),i}addToCache(t){if(this.removeByIndex(t.index),this.Dt.push(t),this.Dt.length>this.limit){const t=this.Dt.findIndex((t=>!t.isAttached&&!t.hasSlide));if(-1!==t){this.Dt.splice(t,1)[0].destroy()}}}removeByIndex(t){const i=this.Dt.findIndex((i=>i.index===t));-1!==i&&this.Dt.splice(i,1)}getContentByIndex(t){return this.Dt.find((i=>i.index===t))}destroy(){this.Dt.forEach((t=>t.destroy())),this.Dt=[]}}const tt=.003;class it{constructor(t){this.pswp=t,this.isClosed=!0,this.isOpen=!1,this.isClosing=!1,this.isOpening=!1,this.It=void 0,this.Et=!1,this.Lt=!1,this.kt=!1,this.Zt=!1,this.Bt=void 0,this.Ft=void 0,this.Ot=void 0,this.Rt=void 0,this.Nt=void 0,this.Ut=this.Ut.bind(this),t.on("firstZoomPan",this.Ut)}open(){this.Ut(),this.Pt()}close(){if(this.isClosed||this.isClosing||this.isOpening)return;const t=this.pswp.currSlide;this.isOpen=!1,this.isOpening=!1,this.isClosing=!0,this.It=this.pswp.options.hideAnimationDuration,t&&t.currZoomLevel*t.width>=this.pswp.options.maxWidthToAnimate&&(this.It=0),this.Vt(),setTimeout((()=>{this.Pt()}),this.Lt?30:0)}Ut(){if(this.pswp.off("firstZoomPan",this.Ut),!this.isOpening){const t=this.pswp.currSlide;this.isOpening=!0,this.isClosing=!1,this.It=this.pswp.options.showAnimationDuration,t&&t.zoomLevels.initial*t.width>=this.pswp.options.maxWidthToAnimate&&(this.It=0),this.Vt()}}Vt(){const{pswp:t}=this,i=this.pswp.currSlide,{options:s}=t;var h,e;("fade"===s.showHideAnimationType?(s.showHideOpacity=!0,this.Nt=void 0):"none"===s.showHideAnimationType?(s.showHideOpacity=!1,this.It=0,this.Nt=void 0):this.isOpening&&t.Gt?this.Nt=t.Gt:this.Nt=this.pswp.getThumbBounds(),this.Bt=null==i?void 0:i.getPlaceholderElement(),t.animations.stopAll(),this.Et=Boolean(this.It&&this.It>50),this.$t=Boolean(this.Nt)&&(null==i?void 0:i.content.usePlaceholder())&&(!this.isClosing||!t.mainScroll.isShifted()),this.$t)?this.kt=null!==(h=s.showHideOpacity)&&void 0!==h&&h:(this.kt=!0,this.isOpening&&i&&(i.zoomAndPanToInitial(),i.applyCurrentZoomPan()));if(this.Zt=!this.kt&&this.pswp.options.bgOpacity>tt,this.Ft=this.kt?t.element:t.bg,!this.Et)return this.It=0,this.$t=!1,this.Zt=!1,this.kt=!0,void(this.isOpening&&(t.element&&(t.element.style.opacity=String(tt)),t.applyBgOpacity(1)));this.$t&&this.Nt&&this.Nt.innerRect?(this.Lt=!0,this.Ot=this.pswp.container,this.Rt=null===(e=this.pswp.currSlide)||void 0===e?void 0:e.holderElement,t.container&&(t.container.style.overflow="hidden",t.container.style.width=t.viewportSize.x+"px")):this.Lt=!1;this.isOpening?(this.kt?(t.element&&(t.element.style.opacity=String(tt)),t.applyBgOpacity(1)):(this.Zt&&t.bg&&(t.bg.style.opacity=String(tt)),t.element&&(t.element.style.opacity="1")),this.$t&&(this.qt(),this.Bt&&(this.Bt.style.willChange="transform",this.Bt.style.opacity=String(tt)))):this.isClosing&&(t.mainScroll.itemHolders[0]&&(t.mainScroll.itemHolders[0].el.style.display="none"),t.mainScroll.itemHolders[2]&&(t.mainScroll.itemHolders[2].el.style.display="none"),this.Lt&&0!==t.mainScroll.x&&(t.mainScroll.resetPosition(),t.mainScroll.resize()))}Pt(){this.isOpening&&this.Et&&this.Bt&&"IMG"===this.Bt.tagName?new Promise((t=>{let i=!1,s=!0;var h;(h=this.Bt,"decode"in h?h.decode().catch((()=>{})):h.complete?Promise.resolve(h):new Promise(((t,i)=>{h.onload=()=>t(h),h.onerror=i}))).finally((()=>{i=!0,s||t(!0)})),setTimeout((()=>{s=!1,i&&t(!0)}),50),setTimeout(t,250)})).finally((()=>this.Ht())):this.Ht()}Ht(){var t,i;null===(t=this.pswp.element)||void 0===t||t.style.setProperty("--pswp-transition-duration",this.It+"ms"),this.pswp.dispatch(this.isOpening?"openingAnimationStart":"closingAnimationStart"),this.pswp.dispatch("initialZoom"+(this.isOpening?"In":"Out")),null===(i=this.pswp.element)||void 0===i||i.classList.toggle("pswp--ui-visible",this.isOpening),this.isOpening?(this.Bt&&(this.Bt.style.opacity="1"),this.Kt()):this.isClosing&&this.Wt(),this.Et||this.jt()}jt(){const{pswp:t}=this;if(this.isOpen=this.isOpening,this.isClosed=this.isClosing,this.isOpening=!1,this.isClosing=!1,t.dispatch(this.isOpen?"openingAnimationEnd":"closingAnimationEnd"),t.dispatch("initialZoom"+(this.isOpen?"InEnd":"OutEnd")),this.isClosed)t.destroy();else if(this.isOpen){var i;this.$t&&t.container&&(t.container.style.overflow="visible",t.container.style.width="100%"),null===(i=t.currSlide)||void 0===i||i.applyCurrentZoomPan()}}Kt(){const{pswp:t}=this;this.$t&&(this.Lt&&this.Ot&&this.Rt&&(this.Xt(this.Ot,"transform","translate3d(0,0,0)"),this.Xt(this.Rt,"transform","none")),t.currSlide&&(t.currSlide.zoomAndPanToInitial(),this.Xt(t.currSlide.container,"transform",t.currSlide.getCurrentTransform()))),this.Zt&&t.bg&&this.Xt(t.bg,"opacity",String(t.options.bgOpacity)),this.kt&&t.element&&this.Xt(t.element,"opacity","1")}Wt(){const{pswp:t}=this;this.$t&&this.qt(!0),this.Zt&&t.bgOpacity>.01&&t.bg&&this.Xt(t.bg,"opacity","0"),this.kt&&t.element&&this.Xt(t.element,"opacity","0")}qt(t){if(!this.Nt)return;const{pswp:s}=this,{innerRect:h}=this.Nt,{currSlide:e,viewportSize:n}=s;if(this.Lt&&h&&this.Ot&&this.Rt){const i=-n.x+(this.Nt.x-h.x)+h.w,s=-n.y+(this.Nt.y-h.y)+h.h,e=n.x-h.w,a=n.y-h.h;t?(this.Xt(this.Ot,"transform",o(i,s)),this.Xt(this.Rt,"transform",o(e,a))):(r(this.Ot,i,s),r(this.Rt,e,a))}e&&(i(e.pan,h||this.Nt),e.currZoomLevel=this.Nt.w/e.width,t?this.Xt(e.container,"transform",e.getCurrentTransform()):e.applyCurrentZoomPan())}Xt(t,i,s){if(!this.It)return void(t.style[i]=s);const{animations:h}=this.pswp,e={duration:this.It,easing:this.pswp.options.easing,onComplete:()=>{h.activeAnimations.length||this.jt()},target:t};e[i]=s,h.startTransition(e)}}const st={allowPanToNext:!0,spacing:.1,loop:!0,pinchToClose:!0,closeOnVerticalDrag:!0,hideAnimationDuration:333,showAnimationDuration:333,zoomAnimationDuration:333,escKey:!0,arrowKeys:!0,trapFocus:!0,returnFocus:!0,maxWidthToAnimate:4e3,clickToCloseNonZoomable:!0,imageClickAction:"zoom-or-close",bgClickAction:"close",tapAction:"toggle-controls",doubleTapAction:"zoom",indexIndicatorSep:" / ",preloaderDelay:2e3,bgOpacity:.8,index:0,errorMsg:"The image cannot be loaded",preload:[1,2],easing:"cubic-bezier(.4,0,.22,1)"};return class extends class extends class{constructor(){this.Yt={},this.Jt={},this.pswp=void 0,this.options=void 0}addFilter(t,i,s=100){var h,e,n;this.Jt[t]||(this.Jt[t]=[]),null===(h=this.Jt[t])||void 0===h||h.push({fn:i,priority:s}),null===(e=this.Jt[t])||void 0===e||e.sort(((t,i)=>t.priority-i.priority)),null===(n=this.pswp)||void 0===n||n.addFilter(t,i,s)}removeFilter(t,i){this.Jt[t]&&(this.Jt[t]=this.Jt[t].filter((t=>t.fn!==i))),this.pswp&&this.pswp.removeFilter(t,i)}applyFilters(t,...i){var s;return null===(s=this.Jt[t])||void 0===s||s.forEach((t=>{i[0]=t.fn.apply(this,i)})),i[0]}on(t,i){var s,h;this.Yt[t]||(this.Yt[t]=[]),null===(s=this.Yt[t])||void 0===s||s.push(i),null===(h=this.pswp)||void 0===h||h.on(t,i)}off(t,i){var s;this.Yt[t]&&(this.Yt[t]=this.Yt[t].filter((t=>i!==t))),null===(s=this.pswp)||void 0===s||s.off(t,i)}dispatch(t,i){var s;if(this.pswp)return this.pswp.dispatch(t,i);const h=new j(t,i);return null===(s=this.Yt[t])||void 0===s||s.forEach((t=>{t.call(this,h)})),h}}{getNumItems(){var t;let i=0;const s=null===(t=this.options)||void 0===t?void 0:t.dataSource;s&&"length"in s?i=s.length:s&&"gallery"in s&&(s.items||(s.items=this.Qt(s.gallery)),s.items&&(i=s.items.length));const h=this.dispatch("numItems",{dataSource:s,numItems:i});return this.applyFilters("numItems",h.numItems,s)}createContentFromData(t,i){return new Y(t,this,i)}getItemData(t){var i;const s=null===(i=this.options)||void 0===i?void 0:i.dataSource;let h={};Array.isArray(s)?h=s[t]:s&&"gallery"in s&&(s.items||(s.items=this.Qt(s.gallery)),h=s.items[t]);let e=h;e instanceof Element&&(e=this.ti(e));const n=this.dispatch("itemData",{itemData:e||{},index:t});return this.applyFilters("itemData",n.itemData,t)}Qt(t){var i,s;return null!==(i=this.options)&&void 0!==i&&i.children||null!==(s=this.options)&&void 0!==s&&s.childSelector?function(t,i,s=document){let h=[];if(t instanceof Element)h=[t];else if(t instanceof NodeList||Array.isArray(t))h=Array.from(t);else{const e="string"==typeof t?t:i;e&&(h=Array.from(s.querySelectorAll(e)))}return h}(this.options.children,this.options.childSelector,t)||[]:[t]}ti(t){const i={element:t},s="A"===t.tagName?t:t.querySelector("a");if(s){i.src=s.dataset.pswpSrc||s.href,s.dataset.pswpSrcset&&(i.srcset=s.dataset.pswpSrcset),i.width=s.dataset.pswpWidth?parseInt(s.dataset.pswpWidth,10):0,i.height=s.dataset.pswpHeight?parseInt(s.dataset.pswpHeight,10):0,i.w=i.width,i.h=i.height,s.dataset.pswpType&&(i.type=s.dataset.pswpType);const e=t.querySelector("img");var h;if(e)i.msrc=e.currentSrc||e.src,i.alt=null!==(h=e.getAttribute("alt"))&&void 0!==h?h:"";(s.dataset.pswpCropped||s.dataset.cropped)&&(i.thumbCropped=!0)}return this.applyFilters("domItemData",i,t,s)}lazyLoadData(t,i){return J(t,this,i)}}{constructor(t){super(),this.options=this.ii(t||{}),this.offset={x:0,y:0},this.si={x:0,y:0},this.viewportSize={x:0,y:0},this.bgOpacity=1,this.currIndex=0,this.potentialIndex=0,this.isOpen=!1,this.isDestroying=!1,this.hasMouse=!1,this.hi={},this.Gt=void 0,this.topBar=void 0,this.element=void 0,this.template=void 0,this.container=void 0,this.scrollWrap=void 0,this.currSlide=void 0,this.events=new f,this.animations=new F,this.mainScroll=new A(this),this.gestures=new T(this),this.opener=new it(this),this.keyboard=new E(this),this.contentLoader=new Q(this)}init(){if(this.isOpen||this.isDestroying)return!1;this.isOpen=!0,this.dispatch("init"),this.dispatch("beforeOpen"),this.ei();let t="pswp--open";return this.gestures.supportsTouch&&(t+=" pswp--touch"),this.options.mainClass&&(t+=" "+this.options.mainClass),this.element&&(this.element.className+=" "+t),this.currIndex=this.options.index||0,this.potentialIndex=this.currIndex,this.dispatch("firstUpdate"),this.scrollWheel=new O(this),(Number.isNaN(this.currIndex)||this.currIndex<0||this.currIndex>=this.getNumItems())&&(this.currIndex=0),this.gestures.supportsTouch||this.mouseDetected(),this.updateSize(),this.offset.y=window.pageYOffset,this.hi=this.getItemData(this.currIndex),this.dispatch("gettingData",{index:this.currIndex,data:this.hi,slide:void 0}),this.Gt=this.getThumbBounds(),this.dispatch("initialLayout"),this.on("openingAnimationEnd",(()=>{const{itemHolders:t}=this.mainScroll;t[0]&&(t[0].el.style.display="block",this.setContent(t[0],this.currIndex-1)),t[2]&&(t[2].el.style.display="block",this.setContent(t[2],this.currIndex+1)),this.appendHeavy(),this.contentLoader.updateLazy(),this.events.add(window,"resize",this.ni.bind(this)),this.events.add(window,"scroll",this.oi.bind(this)),this.dispatch("bindEvents")})),this.mainScroll.itemHolders[1]&&this.setContent(this.mainScroll.itemHolders[1],this.currIndex),this.dispatch("change"),this.opener.open(),this.dispatch("afterInit"),!0}getLoopedIndex(t){const i=this.getNumItems();return this.options.loop&&(t>i-1&&(t-=i),t<0&&(t+=i)),n(t,0,i-1)}appendHeavy(){this.mainScroll.itemHolders.forEach((t=>{var i;null===(i=t.slide)||void 0===i||i.appendHeavy()}))}goTo(t){this.mainScroll.moveIndexBy(this.getLoopedIndex(t)-this.potentialIndex)}next(){this.goTo(this.potentialIndex+1)}prev(){this.goTo(this.potentialIndex-1)}zoomTo(...t){var i;null===(i=this.currSlide)||void 0===i||i.zoomTo(...t)}toggleZoom(){var t;null===(t=this.currSlide)||void 0===t||t.toggleZoom()}close(){this.opener.isOpen&&!this.isDestroying&&(this.isDestroying=!0,this.dispatch("close"),this.events.removeAll(),this.opener.close())}destroy(){var t;if(!this.isDestroying)return this.options.showHideAnimationType="none",void this.close();this.dispatch("destroy"),this.Yt={},this.scrollWrap&&(this.scrollWrap.ontouchmove=null,this.scrollWrap.ontouchend=null),null===(t=this.element)||void 0===t||t.remove(),this.mainScroll.itemHolders.forEach((t=>{var i;null===(i=t.slide)||void 0===i||i.destroy()})),this.contentLoader.destroy(),this.events.removeAll()}refreshSlideContent(t){this.contentLoader.removeByIndex(t),this.mainScroll.itemHolders.forEach(((i,s)=>{var h,e;let n=(null!==(h=null===(e=this.currSlide)||void 0===e?void 0:e.index)&&void 0!==h?h:0)-1+s;var o;(this.canLoop()&&(n=this.getLoopedIndex(n)),n===t)&&(this.setContent(i,t,!0),1===s&&(this.currSlide=i.slide,null===(o=i.slide)||void 0===o||o.setIsActive(!0)))})),this.dispatch("change")}setContent(t,i,s){if(this.canLoop()&&(i=this.getLoopedIndex(i)),t.slide){if(t.slide.index===i&&!s)return;t.slide.destroy(),t.slide=void 0}if(!this.canLoop()&&(i<0||i>=this.getNumItems()))return;const h=this.getItemData(i);t.slide=new b(h,i,this),i===this.currIndex&&(this.currSlide=t.slide),t.slide.append(t.el)}getViewportCenterPoint(){return{x:this.viewportSize.x/2,y:this.viewportSize.y/2}}updateSize(t){if(this.isDestroying)return;const s=w(this.options,this);!t&&e(s,this.si)||(i(this.si,s),this.dispatch("beforeResize"),i(this.viewportSize,this.si),this.oi(),this.dispatch("viewportSize"),this.mainScroll.resize(this.opener.isOpen),!this.hasMouse&&window.matchMedia("(any-hover: hover)").matches&&this.mouseDetected(),this.dispatch("resize"))}applyBgOpacity(t){this.bgOpacity=Math.max(t,0),this.bg&&(this.bg.style.opacity=String(this.bgOpacity*this.options.bgOpacity))}mouseDetected(){var t;this.hasMouse||(this.hasMouse=!0,null===(t=this.element)||void 0===t||t.classList.add("pswp--has_mouse"))}ni(){this.updateSize(),/iPhone|iPad|iPod/i.test(window.navigator.userAgent)&&setTimeout((()=>{this.updateSize()}),500)}oi(){this.setScrollOffset(0,window.pageYOffset)}setScrollOffset(t,i){this.offset.x=t,this.offset.y=i,this.dispatch("updateScrollOffset")}ei(){this.element=t("pswp","div"),this.element.setAttribute("tabindex","-1"),this.element.setAttribute("role","dialog"),this.template=this.element,this.bg=t("pswp__bg","div",this.element),this.scrollWrap=t("pswp__scroll-wrap","section",this.element),this.container=t("pswp__container","div",this.scrollWrap),this.scrollWrap.setAttribute("aria-roledescription","carousel"),this.container.setAttribute("aria-live","off"),this.container.setAttribute("id","pswp__items"),this.mainScroll.appendHolders(),this.ui=new W(this),this.ui.init(),(this.options.appendToEl||document.body).appendChild(this.element)}getThumbBounds(){return function(t,i,s){const h=s.dispatch("thumbBounds",{index:t,itemData:i,instance:s});if(h.thumbBounds)return h.thumbBounds;const{element:e}=i;let n,o;if(e&&!1!==s.options.thumbSelector){const t=s.options.thumbSelector||"img";o=e.matches(t)?e:e.querySelector(t)}return o=s.applyFilters("thumbEl",o,i,t),o&&(n=i.thumbCropped?function(t,i,s){const h=t.getBoundingClientRect(),e=h.width/i,n=h.height/s,o=e>n?e:n,r=(h.width-i*o)/2,a=(h.height-s*o)/2,l={x:h.left+r,y:h.top+a,w:i*o};return l.innerRect={w:h.width,h:h.height,x:r,y:a},l}(o,i.width||i.w||0,i.height||i.h||0):function(t){const i=t.getBoundingClientRect();return{x:i.left,y:i.top,w:i.width}}(o)),s.applyFilters("thumbBounds",n,i,t)}(this.currIndex,this.currSlide?this.currSlide.data:this.hi,this)}canLoop(){return this.options.loop&&this.getNumItems()>2}ii(t){return window.matchMedia("(prefers-reduced-motion), (update: slow)").matches&&(t.showHideAnimationType="none",t.zoomAnimationDuration=0),{...st,...t}}}}));
+</script>
+  <script>/*!
+  * PhotoSwipe Lightbox 5.4.4 - https://photoswipe.com
+  * (c) 2024 Dmytro Semenov
+  */
+!function(t,i){"object"==typeof exports&&"undefined"!=typeof module?module.exports=i():"function"==typeof define&&define.amd?define(i):(t="undefined"!=typeof globalThis?globalThis:t||self).PhotoSwipeLightbox=i()}(this,(function(){"use strict";function t(t,i,s){const h=document.createElement(i);return t&&(h.className=t),s&&s.appendChild(h),h}function i(t,i,s){t.style.width="number"==typeof i?`${i}px`:i,t.style.height="number"==typeof s?`${s}px`:s}const s="idle",h="loading",e="loaded",n="error";function o(t,i,s=document){let h=[];if(t instanceof Element)h=[t];else if(t instanceof NodeList||Array.isArray(t))h=Array.from(t);else{const e="string"==typeof t?t:i;e&&(h=Array.from(s.querySelectorAll(e)))}return h}function r(){return!(!navigator.vendor||!navigator.vendor.match(/apple/i))}class l{constructor(t,i){this.type=t,this.defaultPrevented=!1,i&&Object.assign(this,i)}preventDefault(){this.defaultPrevented=!0}}class a{constructor(i,s){if(this.element=t("pswp__img pswp__img--placeholder",i?"img":"div",s),i){const t=this.element;t.decoding="async",t.alt="",t.src=i,t.setAttribute("role","presentation")}this.element.setAttribute("aria-hidden","true")}setDisplayedSize(t,s){this.element&&("IMG"===this.element.tagName?(i(this.element,250,"auto"),this.element.style.transformOrigin="0 0",this.element.style.transform=function(t,i,s){let h=`translate3d(${t}px,${i||0}px,0)`;return void 0!==s&&(h+=` scale3d(${s},${s},1)`),h}(0,0,t/250)):i(this.element,t,s))}destroy(){var t;null!==(t=this.element)&&void 0!==t&&t.parentNode&&this.element.remove(),this.element=null}}class d{constructor(t,i,h){this.instance=i,this.data=t,this.index=h,this.element=void 0,this.placeholder=void 0,this.slide=void 0,this.displayedImageWidth=0,this.displayedImageHeight=0,this.width=Number(this.data.w)||Number(this.data.width)||0,this.height=Number(this.data.h)||Number(this.data.height)||0,this.isAttached=!1,this.hasSlide=!1,this.isDecoding=!1,this.state=s,this.data.type?this.type=this.data.type:this.data.src?this.type="image":this.type="html",this.instance.dispatch("contentInit",{content:this})}removePlaceholder(){this.placeholder&&!this.keepPlaceholder()&&setTimeout((()=>{this.placeholder&&(this.placeholder.destroy(),this.placeholder=void 0)}),1e3)}load(i,s){if(this.slide&&this.usePlaceholder())if(this.placeholder){const t=this.placeholder.element;t&&!t.parentElement&&this.slide.container.prepend(t)}else{const t=this.instance.applyFilters("placeholderSrc",!(!this.data.msrc||!this.slide.isFirstSlide)&&this.data.msrc,this);this.placeholder=new a(t,this.slide.container)}this.element&&!s||this.instance.dispatch("contentLoad",{content:this,isLazy:i}).defaultPrevented||(this.isImageContent()?(this.element=t("pswp__img","img"),this.displayedImageWidth&&this.loadImage(i)):(this.element=t("pswp__content","div"),this.element.innerHTML=this.data.html||""),s&&this.slide&&this.slide.updateContentSize(!0))}loadImage(t){var i,s;if(!this.isImageContent()||!this.element||this.instance.dispatch("contentLoadImage",{content:this,isLazy:t}).defaultPrevented)return;const e=this.element;this.updateSrcsetSizes(),this.data.srcset&&(e.srcset=this.data.srcset),e.src=null!==(i=this.data.src)&&void 0!==i?i:"",e.alt=null!==(s=this.data.alt)&&void 0!==s?s:"",this.state=h,e.complete?this.onLoaded():(e.onload=()=>{this.onLoaded()},e.onerror=()=>{this.onError()})}setSlide(t){this.slide=t,this.hasSlide=!0,this.instance=t.pswp}onLoaded(){this.state=e,this.slide&&this.element&&(this.instance.dispatch("loadComplete",{slide:this.slide,content:this}),this.slide.isActive&&this.slide.heavyAppended&&!this.element.parentNode&&(this.append(),this.slide.updateContentSize(!0)),this.state!==e&&this.state!==n||this.removePlaceholder())}onError(){this.state=n,this.slide&&(this.displayError(),this.instance.dispatch("loadComplete",{slide:this.slide,isError:!0,content:this}),this.instance.dispatch("loadError",{slide:this.slide,content:this}))}isLoading(){return this.instance.applyFilters("isContentLoading",this.state===h,this)}isError(){return this.state===n}isImageContent(){return"image"===this.type}setDisplayedSize(t,s){if(this.element&&(this.placeholder&&this.placeholder.setDisplayedSize(t,s),!this.instance.dispatch("contentResize",{content:this,width:t,height:s}).defaultPrevented&&(i(this.element,t,s),this.isImageContent()&&!this.isError()))){const i=!this.displayedImageWidth&&t;this.displayedImageWidth=t,this.displayedImageHeight=s,i?this.loadImage(!1):this.updateSrcsetSizes(),this.slide&&this.instance.dispatch("imageSizeChange",{slide:this.slide,width:t,height:s,content:this})}}isZoomable(){return this.instance.applyFilters("isContentZoomable",this.isImageContent()&&this.state!==n,this)}updateSrcsetSizes(){if(!this.isImageContent()||!this.element||!this.data.srcset)return;const t=this.element,i=this.instance.applyFilters("srcsetSizesWidth",this.displayedImageWidth,this);(!t.dataset.largestUsedSize||i>parseInt(t.dataset.largestUsedSize,10))&&(t.sizes=i+"px",t.dataset.largestUsedSize=String(i))}usePlaceholder(){return this.instance.applyFilters("useContentPlaceholder",this.isImageContent(),this)}lazyLoad(){this.instance.dispatch("contentLazyLoad",{content:this}).defaultPrevented||this.load(!0)}keepPlaceholder(){return this.instance.applyFilters("isKeepingPlaceholder",this.isLoading(),this)}destroy(){this.hasSlide=!1,this.slide=void 0,this.instance.dispatch("contentDestroy",{content:this}).defaultPrevented||(this.remove(),this.placeholder&&(this.placeholder.destroy(),this.placeholder=void 0),this.isImageContent()&&this.element&&(this.element.onload=null,this.element.onerror=null,this.element=void 0))}displayError(){if(this.slide){var i,s;let h=t("pswp__error-msg","div");h.innerText=null!==(i=null===(s=this.instance.options)||void 0===s?void 0:s.errorMsg)&&void 0!==i?i:"",h=this.instance.applyFilters("contentErrorElement",h,this),this.element=t("pswp__content pswp__error-msg-container","div"),this.element.appendChild(h),this.slide.container.innerText="",this.slide.container.appendChild(this.element),this.slide.updateContentSize(!0),this.removePlaceholder()}}append(){if(this.isAttached||!this.element)return;if(this.isAttached=!0,this.state===n)return void this.displayError();if(this.instance.dispatch("contentAppend",{content:this}).defaultPrevented)return;const t="decode"in this.element;this.isImageContent()?t&&this.slide&&(!this.slide.isActive||r())?(this.isDecoding=!0,this.element.decode().catch((()=>{})).finally((()=>{this.isDecoding=!1,this.appendImage()}))):this.appendImage():this.slide&&!this.element.parentNode&&this.slide.container.appendChild(this.element)}activate(){!this.instance.dispatch("contentActivate",{content:this}).defaultPrevented&&this.slide&&(this.isImageContent()&&this.isDecoding&&!r()?this.appendImage():this.isError()&&this.load(!1,!0),this.slide.holderElement&&this.slide.holderElement.setAttribute("aria-hidden","false"))}deactivate(){this.instance.dispatch("contentDeactivate",{content:this}),this.slide&&this.slide.holderElement&&this.slide.holderElement.setAttribute("aria-hidden","true")}remove(){this.isAttached=!1,this.instance.dispatch("contentRemove",{content:this}).defaultPrevented||(this.element&&this.element.parentNode&&this.element.remove(),this.placeholder&&this.placeholder.element&&this.placeholder.element.remove())}appendImage(){this.isAttached&&(this.instance.dispatch("contentAppendImage",{content:this}).defaultPrevented||(this.slide&&this.element&&!this.element.parentNode&&this.slide.container.appendChild(this.element),this.state!==e&&this.state!==n||this.removePlaceholder()))}}function c(t,i,s,h,e){let n=0;if(i.paddingFn)n=i.paddingFn(s,h,e)[t];else if(i.padding)n=i.padding[t];else{const s="padding"+t[0].toUpperCase()+t.slice(1);i[s]&&(n=i[s])}return Number(n)||0}class u{constructor(t,i,s,h){this.pswp=h,this.options=t,this.itemData=i,this.index=s,this.panAreaSize=null,this.elementSize=null,this.fit=1,this.fill=1,this.vFill=1,this.initial=1,this.secondary=1,this.max=1,this.min=1}update(t,i,s){const h={x:t,y:i};this.elementSize=h,this.panAreaSize=s;const e=s.x/h.x,n=s.y/h.y;this.fit=Math.min(1,e<n?e:n),this.fill=Math.min(1,e>n?e:n),this.vFill=Math.min(1,n),this.initial=this.t(),this.secondary=this.i(),this.max=Math.max(this.initial,this.secondary,this.o()),this.min=Math.min(this.fit,this.initial,this.secondary),this.pswp&&this.pswp.dispatch("zoomLevelsUpdate",{zoomLevels:this,slideData:this.itemData})}l(t){const i=t+"ZoomLevel",s=this.options[i];if(s)return"function"==typeof s?s(this):"fill"===s?this.fill:"fit"===s?this.fit:Number(s)}i(){let t=this.l("secondary");return t||(t=Math.min(1,3*this.fit),this.elementSize&&t*this.elementSize.x>4e3&&(t=4e3/this.elementSize.x),t)}t(){return this.l("initial")||this.fit}o(){return this.l("max")||Math.max(1,4*this.fit)}}function p(t,i,s){const h=i.createContentFromData(t,s);let e;const{options:n}=i;if(n){let o;e=new u(n,t,-1),o=i.pswp?i.pswp.viewportSize:function(t,i){if(t.getViewportSizeFn){const s=t.getViewportSizeFn(t,i);if(s)return s}return{x:document.documentElement.clientWidth,y:window.innerHeight}}(n,i);const r=function(t,i,s,h){return{x:i.x-c("left",t,i,s,h)-c("right",t,i,s,h),y:i.y-c("top",t,i,s,h)-c("bottom",t,i,s,h)}}(n,o,t,s);e.update(h.width,h.height,r)}return h.lazyLoad(),e&&h.setDisplayedSize(Math.ceil(h.width*e.initial),Math.ceil(h.height*e.initial)),h}return class extends class extends class{constructor(){this.u={},this.p={},this.pswp=void 0,this.options=void 0}addFilter(t,i,s=100){var h,e,n;this.p[t]||(this.p[t]=[]),null===(h=this.p[t])||void 0===h||h.push({fn:i,priority:s}),null===(e=this.p[t])||void 0===e||e.sort(((t,i)=>t.priority-i.priority)),null===(n=this.pswp)||void 0===n||n.addFilter(t,i,s)}removeFilter(t,i){this.p[t]&&(this.p[t]=this.p[t].filter((t=>t.fn!==i))),this.pswp&&this.pswp.removeFilter(t,i)}applyFilters(t,...i){var s;return null===(s=this.p[t])||void 0===s||s.forEach((t=>{i[0]=t.fn.apply(this,i)})),i[0]}on(t,i){var s,h;this.u[t]||(this.u[t]=[]),null===(s=this.u[t])||void 0===s||s.push(i),null===(h=this.pswp)||void 0===h||h.on(t,i)}off(t,i){var s;this.u[t]&&(this.u[t]=this.u[t].filter((t=>i!==t))),null===(s=this.pswp)||void 0===s||s.off(t,i)}dispatch(t,i){var s;if(this.pswp)return this.pswp.dispatch(t,i);const h=new l(t,i);return null===(s=this.u[t])||void 0===s||s.forEach((t=>{t.call(this,h)})),h}}{getNumItems(){var t;let i=0;const s=null===(t=this.options)||void 0===t?void 0:t.dataSource;s&&"length"in s?i=s.length:s&&"gallery"in s&&(s.items||(s.items=this.v(s.gallery)),s.items&&(i=s.items.length));const h=this.dispatch("numItems",{dataSource:s,numItems:i});return this.applyFilters("numItems",h.numItems,s)}createContentFromData(t,i){return new d(t,this,i)}getItemData(t){var i;const s=null===(i=this.options)||void 0===i?void 0:i.dataSource;let h={};Array.isArray(s)?h=s[t]:s&&"gallery"in s&&(s.items||(s.items=this.v(s.gallery)),h=s.items[t]);let e=h;e instanceof Element&&(e=this.m(e));const n=this.dispatch("itemData",{itemData:e||{},index:t});return this.applyFilters("itemData",n.itemData,t)}v(t){var i,s;return null!==(i=this.options)&&void 0!==i&&i.children||null!==(s=this.options)&&void 0!==s&&s.childSelector?o(this.options.children,this.options.childSelector,t)||[]:[t]}m(t){const i={element:t},s="A"===t.tagName?t:t.querySelector("a");if(s){i.src=s.dataset.pswpSrc||s.href,s.dataset.pswpSrcset&&(i.srcset=s.dataset.pswpSrcset),i.width=s.dataset.pswpWidth?parseInt(s.dataset.pswpWidth,10):0,i.height=s.dataset.pswpHeight?parseInt(s.dataset.pswpHeight,10):0,i.w=i.width,i.h=i.height,s.dataset.pswpType&&(i.type=s.dataset.pswpType);const e=t.querySelector("img");var h;if(e)i.msrc=e.currentSrc||e.src,i.alt=null!==(h=e.getAttribute("alt"))&&void 0!==h?h:"";(s.dataset.pswpCropped||s.dataset.cropped)&&(i.thumbCropped=!0)}return this.applyFilters("domItemData",i,t,s)}lazyLoadData(t,i){return p(t,this,i)}}{constructor(t){super(),this.options=t||{},this.g=0,this.shouldOpen=!1,this._=void 0,this.onThumbnailsClick=this.onThumbnailsClick.bind(this)}init(){o(this.options.gallery,this.options.gallerySelector).forEach((t=>{t.addEventListener("click",this.onThumbnailsClick,!1)}))}onThumbnailsClick(t){if(function(t){return"button"in t&&1===t.button||t.ctrlKey||t.metaKey||t.altKey||t.shiftKey}(t)||window.pswp)return;let i={x:t.clientX,y:t.clientY};i.x||i.y||(i=null);let s=this.getClickedIndex(t);s=this.applyFilters("clickedIndex",s,t,this);const h={gallery:t.currentTarget};s>=0&&(t.preventDefault(),this.loadAndOpen(s,h,i))}getClickedIndex(t){if(this.options.getClickedIndexFn)return this.options.getClickedIndexFn.call(this,t);const i=t.target,s=o(this.options.children,this.options.childSelector,t.currentTarget).findIndex((t=>t===i||t.contains(i)));return-1!==s?s:this.options.children||this.options.childSelector?-1:0}loadAndOpen(t,i,s){if(window.pswp||!this.options)return!1;if(!i&&this.options.gallery&&this.options.children){const t=o(this.options.gallery);t[0]&&(i={gallery:t[0]})}return this.options.index=t,this.options.initialPointerPos=s,this.shouldOpen=!0,this.preload(t,i),!0}preload(t,i){const{options:s}=this;i&&(s.dataSource=i);const h=[],e=typeof s.pswpModule;if("function"==typeof(n=s.pswpModule)&&n.prototype&&n.prototype.goTo)h.push(Promise.resolve(s.pswpModule));else{if("string"===e)throw new Error("pswpModule as string is no longer supported");if("function"!==e)throw new Error("pswpModule is not valid");h.push(s.pswpModule())}var n;"function"==typeof s.openPromise&&h.push(s.openPromise()),!1!==s.preloadFirstSlide&&t>=0&&(this._=function(t,i){const s=i.getItemData(t);if(!i.dispatch("lazyLoadSlide",{index:t,itemData:s}).defaultPrevented)return p(s,i,t)}(t,this));const o=++this.g;Promise.all(h).then((t=>{if(this.shouldOpen){const i=t[0];this.I(i,o)}}))}I(t,i){if(i!==this.g&&this.shouldOpen)return;if(this.shouldOpen=!1,window.pswp)return;const s="object"==typeof t?new t.default(this.options):new t(this.options);this.pswp=s,window.pswp=s,Object.keys(this.u).forEach((t=>{var i;null===(i=this.u[t])||void 0===i||i.forEach((i=>{s.on(t,i)}))})),Object.keys(this.p).forEach((t=>{var i;null===(i=this.p[t])||void 0===i||i.forEach((i=>{s.addFilter(t,i.fn,i.priority)}))})),this._&&(s.contentLoader.addToCache(this._),this._=void 0),s.on("destroy",(()=>{this.pswp=void 0,delete window.pswp})),s.init()}destroy(){var t;null===(t=this.pswp)||void 0===t||t.destroy(),this.shouldOpen=!1,this.u={},o(this.options.gallery,this.options.gallerySelector).forEach((t=>{t.removeEventListener("click",this.onThumbnailsClick,!1)}))}}}));
+</script>
+  <script>
+    const imageGallery = document.querySelector(".markdown-image-gallery");
+    if (imageGallery && window.PhotoSwipe && window.PhotoSwipeLightbox) {
+      imageGallery.querySelectorAll("a.pswp-image").forEach((item) => {
+        const image = item.querySelector("img");
+        if (image) {
+          const syncImageMetadata = () => {
+            item.dataset.pswpSrc = image.currentSrc || image.src;
+            if (item.dataset.referenceImage === "true" && image.naturalWidth && image.naturalHeight) {
+              item.dataset.pswpWidth = String(image.naturalWidth);
+              item.dataset.pswpHeight = String(image.naturalHeight);
+            }
+          };
+          syncImageMetadata();
+          image.addEventListener("load", syncImageMetadata, { once: true });
+        }
+      });
+      const imageLightbox = new PhotoSwipeLightbox({
+        gallery: imageGallery,
+        children: "a.pswp-image",
+        pswpModule: PhotoSwipe,
+        wheelToZoom: true,
+        initialZoomLevel: "fit",
+        secondaryZoomLevel: "fill",
+        maxZoomLevel: "max",
+        imageClickAction: "zoom",
+        bgClickAction: "close",
+        tapAction: "toggle-controls",
+        doubleTapAction: "zoom"
+      });
+      imageLightbox.init();
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: "neutral",
+        securityLevel: "strict",
+        flowchart: { htmlLabels: true, curve: "basis" }
+      });
+    }
+  </script>
+  <script>
+
+    const tocCollapseButton = document.getElementById("toc-collapse-button");
+    const tocMenuButton = document.getElementById("toc-menu-button");
+    const tocBackdrop = document.getElementById("toc-backdrop");
+    const tocNav = document.getElementById("toc-nav");
+    const tocLinks = tocNav ? Array.from(tocNav.querySelectorAll("a.toc-link")) : [];
+    const tocHeadings = tocLinks.map((link) => document.getElementById(decodeURIComponent(link.hash.slice(1)))).filter(Boolean);
+    function setTocOpen(open) {
+      document.body.classList.toggle("toc-open", open);
+      if (tocMenuButton) tocMenuButton.setAttribute("aria-expanded", String(open));
+    }
+    function setDesktopTocCollapsed(collapsed) {
+      document.body.classList.toggle("toc-collapsed", collapsed);
+      if (tocCollapseButton) {
+        tocCollapseButton.setAttribute("aria-expanded", String(!collapsed));
+        tocCollapseButton.textContent = collapsed ? "▶ 打开目录" : "◀ 收起目录";
+      }
+    }
+    if (tocCollapseButton) tocCollapseButton.addEventListener("click", () => {
+      setDesktopTocCollapsed(!document.body.classList.contains("toc-collapsed"));
+    });
+    if (tocMenuButton) tocMenuButton.addEventListener("click", () => setTocOpen(!document.body.classList.contains("toc-open")));
+    if (tocBackdrop) tocBackdrop.addEventListener("click", () => setTocOpen(false));
+    if (tocNav) tocNav.addEventListener("click", () => setTocOpen(false));
+    if (tocHeadings.length) {
+      let ticking = false;
+      const updateToc = () => {
+        const offset = 48;
+        let current = tocHeadings[0];
+        tocHeadings.forEach((heading) => { if (heading.getBoundingClientRect().top <= offset) current = heading; });
+        tocLinks.forEach((link) => {
+          const active = decodeURIComponent(link.hash.slice(1)) === current.id;
+          link.classList.toggle("toc-active", active);
+          if (active) {
+            link.setAttribute("aria-current", "location");
+            link.scrollIntoView({ block: "nearest" });
+          } else {
+            link.removeAttribute("aria-current");
+          }
+        });
+        ticking = false;
+      };
+      window.addEventListener("scroll", () => {
+        if (!ticking) { ticking = true; window.requestAnimationFrame(updateToc); }
+      }, { passive: true });
+      updateToc();
+    }
+
+
+
+  </script>
+</body>
+</html>

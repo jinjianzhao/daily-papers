@@ -4,6 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>2026-W35 · 论文周报</title>
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
   <style>
 /*! PhotoSwipe main CSS by Dmytro Semenov | photoswipe.com */
 
@@ -902,6 +913,11 @@ div.pswp__img--placeholder,
               const diagrams = Array.from(body.querySelectorAll(".mermaid"));
               if (diagrams.length) window.mermaid.run({ nodes: diagrams }).catch(() => {});
             }
+
+            if (window.MathJax && typeof window.MathJax.typesetPromise === "function") {
+              window.MathJax.typesetPromise([body]).catch(() => {});
+            }
+
           } catch (error) {
             panel.replaceChildren();
             const message = document.createElement("p");
