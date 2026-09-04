@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>2026-09 · 论文月报</title>
+  <title>Puffin-World: Scaling a Unified Multimodal Model with Native 3D World States</title>
 
   <script>
     window.MathJax = {
@@ -516,32 +516,6 @@ div.pswp__img--placeholder,
     }
 
 
-    .inline-html-entry { margin: 18px 0; padding: 16px 18px 18px; border: 1px solid #d8e2eb; border-left: 3px solid #91abc2; border-radius: 6px; background: #fbfdff; transition: border-color .15s, background .15s; }
-    .inline-html-entry.is-expanded { border-color: #b7c9d9; border-left-color: #1769aa; background: #fff; }
-    .inline-report-title { margin: 24px 0 8px; color: #1769aa; font-size: 19px; font-weight: 750; line-height: 1.42; }
-    .inline-report-meta { margin: 4px 0; color: #52606d; font-size: 13px; line-height: 1.55; }
-    .inline-report-thumbnail { margin: 10px 0 2px; }
-    .inline-report-thumbnail .embedded-image { margin: 0; }
-    .inline-report-thumbnail .embedded-image img { max-height: 220px; margin-left: 0; object-fit: contain; }
-    .inline-report-thumbnail .image-caption { max-width: 760px; text-align: left; font-size: 12px; }
-    .inline-html-summary { margin-top: 0; margin-bottom: 0; }
-    .inline-html-actions { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-left: 10px; vertical-align: middle; }
-    .inline-html-toggle, .inline-html-standalone, .inline-html-close { display: inline-flex; min-height: 30px; align-items: center; justify-content: center; padding: 5px 10px; border: 1px solid #b9c9d8; border-radius: 6px; background: #fff; color: #37516a; font: inherit; font-size: 12px; font-weight: 700; line-height: 1.35; text-decoration: none; cursor: pointer; }
-    .inline-html-source-link { display: none; }
-    .inline-html-toggle:hover, .inline-html-standalone:hover, .inline-html-close:hover { border-color: #1769aa; color: #1769aa; }
-    .inline-html-toggle:disabled { cursor: wait; opacity: .6; }
-    .inline-html-panel { margin: 18px 0 0; padding-top: 24px; border-top: 1px solid #e2e8f0; }
-    .inline-html-panel[hidden] { display: none; }
-    .inline-html-body h1:first-child { display: none; }
-    .inline-html-status { color: #64748b; font-size: 14px; }
-    .inline-html-error { color: #9f1239; }
-    .inline-html-footer { display: flex; justify-content: flex-end; margin-top: 30px; padding-top: 16px; border-top: 1px solid #e2e8f0; }
-    @media (max-width: 640px) {
-      .inline-html-entry { padding: 14px 14px 16px; }
-      .inline-html-actions { display: flex; margin: 10px 0 0; }
-      .inline-html-toggle, .inline-html-standalone, .inline-html-close { min-height: 36px; }
-    }
-
 
   </style>
 </head>
@@ -554,115 +528,78 @@ div.pswp__img--placeholder,
     <aside class="academic-sidebar" id="academic-sidebar" aria-label="文档目录">
       <div class="toc-panel">
         <p class="toc-heading">目录</p>
-        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#2026-09-论文月报">2026-09 · 论文月报</a><a class="toc-link toc-level-2" href="#重点解析">重点解析</a><a class="toc-link toc-level-3" href="#3d">3D</a><a class="toc-link toc-level-4" href="#2026-09-04">2026-09-04</a><a class="toc-link toc-level-5" href="#puffin-world-scaling-a-unified-multimodal-model-with-native-3d-world-states">Puffin-World: Scaling a Unified Multimodal Model with Native 3D World States</a><a class="toc-link toc-level-5" href="#scal3r-learning-efficient-multi-relative-pose-query-for-scalable-online-3d-reconstruction">Scal3R: Learning Efficient Multi-Relative Pose Query for Scalable Online 3D Reconstruction</a><a class="toc-link toc-level-4" href="#2026-09-03">2026-09-03</a><a class="toc-link toc-level-5" href="#kirin-animal-motion-generation-from-in-the-wild-video">Kirin: Animal Motion Generation from In-the-Wild Video</a><a class="toc-link toc-level-5" href="#ziptok3d-high-fidelity-3d-tokenization-with-compact-token-prefixes">ZipTok3D: High-Fidelity 3D Tokenization with Compact Token Prefixes</a><a class="toc-link toc-level-4" href="#2026-09-01">2026-09-01</a><a class="toc-link toc-level-5" href="#blarm-animating-3d-objects-from-video-via-blending-latent-rigid-motion-primitives">BLARM: Animating 3D Objects from Video via Blending Latent Rigid Motion Primitives</a><a class="toc-link toc-level-5" href="#lucida-parse-generate-and-place-for-composable-real-to-sim-scene-modeling">Lucida: Parse, Generate, and Place for Composable Real-to-Sim Scene Modeling</a><a class="toc-link toc-level-3" href="#视频">视频</a><a class="toc-link toc-level-4" href="#2026-09-04-2">2026-09-04</a><a class="toc-link toc-level-5" href="#puffin-world-scaling-a-unified-multimodal-model-with-native-3d-world-states-2">Puffin-World: Scaling a Unified Multimodal Model with Native 3D World States</a><a class="toc-link toc-level-5" href="#flashrender-few-step-generative-rendering-via-camera-controlled-video-meanflow">FlashRender: Few-Step Generative Rendering via Camera-Controlled Video MeanFlow</a><a class="toc-link toc-level-5" href="#worldreward-reward-modeling-for-camera-conditioned-world-models">WorldReward: Reward Modeling for Camera-Conditioned World Models</a><a class="toc-link toc-level-4" href="#2026-09-03-2">2026-09-03</a><a class="toc-link toc-level-5" href="#solarwm-open-data-and-scalable-training-for-long-horizon-video-world-models">SolarWM: Open Data and Scalable Training for Long-Horizon Video World Models</a><a class="toc-link toc-level-4" href="#2026-09-02">2026-09-02</a><a class="toc-link toc-level-5" href="#h3-world-turning-language-understanding-into-world-control">H3-World: Turning Language Understanding into World Control</a><a class="toc-link toc-level-5" href="#zimablue-evolving-generalizable-world-action-models-through-scalable-video-pre-training">ZimaBlue: Evolving Generalizable World Action Models through Scalable Video Pre-training</a><a class="toc-link toc-level-4" href="#2026-09-01-2">2026-09-01</a><a class="toc-link toc-level-5" href="#dreamx-creator-democratizing-native-audio-video-generation-at-2k-resolution">DreamX-Creator: Democratizing Native Audio-Video Generation at 2K Resolution</a><a class="toc-link toc-level-5" href="#matrix-game-3-5-enhancing-real-time-streaming-interactive-world-models-with-patch-memory">Matrix-Game 3.5: Enhancing Real-Time Streaming Interactive World Models with Patch Memory</a><a class="toc-link toc-level-2" href="#全量论文简报">全量论文简报</a><a class="toc-link toc-level-3" href="#2026-09-04-3">2026-09-04</a><a class="toc-link toc-level-3" href="#2026-09-03-3">2026-09-03</a><a class="toc-link toc-level-3" href="#2026-09-02-2">2026-09-02</a><a class="toc-link toc-level-3" href="#2026-09-01-3">2026-09-01</a></nav>
+        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#puffin-world-scaling-a-unified-multimodal-model-with-native-3d-world-states">Puffin-World: Scaling a Unified Multimodal Model with Native 3D World States</a><a class="toc-link toc-level-2" href="#快速理解">快速理解</a><a class="toc-link toc-level-2" href="#中文摘要">中文摘要</a><a class="toc-link toc-level-2" href="#详细分析">详细分析</a><a class="toc-link toc-level-2" href="#1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</a><a class="toc-link toc-level-2" href="#2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</a><a class="toc-link toc-level-2" href="#3-核心贡献-约300字">3. 核心贡献（约300字）</a><a class="toc-link toc-level-2" href="#4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</a><a class="toc-link toc-level-2" href="#5-核心方法-按论文-method-小节总结-约600字">5. 核心方法：按论文 Method 小节总结（约600字）</a><a class="toc-link toc-level-3" href="#3-1-preliminary-预备">3.1 Preliminary（预备）</a><a class="toc-link toc-level-3" href="#3-2-puffin-world">3.2 Puffin-World</a><a class="toc-link toc-level-3" href="#3-3-training-recipe-训练方案">3.3 Training Recipe（训练方案）</a><a class="toc-link toc-level-3" href="#3-4-multi-task-synergy-多任务协同">3.4 Multi-Task Synergy（多任务协同）</a><a class="toc-link toc-level-2" href="#6-局限性和展望-约300字">6. 局限性和展望（约300字）</a></nav>
       </div>
     </aside>
-    <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../index.html">论文阅读首页</a> <a href="../../date/index.html">日报目录</a> <a href="../../week/index.html">周报目录</a> <a href="../index.html">月报目录</a></p>
-<h1 id="2026-09-论文月报">2026-09 · 论文月报</h1>
-<blockquote>收录 <strong>131 篇</strong>论文，重点解析 <strong>13 篇</strong>。正文按需展开，或可单独打开。</blockquote>
-<h2 id="重点解析">重点解析</h2>
-<h3 id="3d">3D</h3>
-<h4 id="2026-09-04">2026-09-04</h4>
-<h5 id="puffin-world-scaling-a-unified-multimodal-model-with-native-3d-world-states">Puffin-World: Scaling a Unified Multimodal Model with Native 3D World States</h5>
-<p><strong>分类：</strong> 视频 / 3D；video world model、3d generation、3D reconstruction、3D world model</p>
-<p>提出统一多模态模型Puffin-World，联合建模物理、几何与外观，实现3D世界生成与重建。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.04196v1/teaser_new_sub1_crop.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.04196v1/teaser_new_sub1_crop.png" alt="Puffin-World: Scaling a Unified Multimodal Model with Native 3D World States 论文图" loading="lazy"></a><span class="image-caption">Puffin-World: Scaling a Unified Multimodal Model with Native 3D World States 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.04196">arXiv</a> · <a href="https://huggingface.co/papers/2609.04196">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.04196">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.04196/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="scal3r-learning-efficient-multi-relative-pose-query-for-scalable-online-3d-reconstruction">Scal3R: Learning Efficient Multi-Relative Pose Query for Scalable Online 3D Reconstruction</h5>
-<p><strong>分类：</strong> 3D；3D reconstruction</p>
-<p>提出Scal3R，用多参考相对姿态查询和位姿图优化实现高效在线3D重建，降低长视频漂移。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.04201v1/pipeline.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.04201v1/pipeline.png" alt="Scal3R: Learning Efficient Multi-Relative Pose Query for Scalable Online 3D Reconstruction 论文图" loading="lazy"></a><span class="image-caption">Scal3R: Learning Efficient Multi-Relative Pose Query for Scalable Online 3D Reconstruction 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.04201v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.04201">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.04201">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.04201/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-09-03">2026-09-03</h4>
-<h5 id="kirin-animal-motion-generation-from-in-the-wild-video">Kirin: Animal Motion Generation from In-the-Wild Video</h5>
-<p><strong>分类：</strong> 3D；3d animation generation</p>
-<p>构建动物运动生成框架Kirin，从野外视频生成逼真3D动物动画。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.01823v1/method_v2.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.01823v1/method_v2.png" alt="Kirin: Animal Motion Generation from In-the-Wild Video 论文图" loading="lazy"></a><span class="image-caption">Kirin: Animal Motion Generation from In-the-Wild Video 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.01823v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.01823">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.01823">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.01823/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="ziptok3d-high-fidelity-3d-tokenization-with-compact-token-prefixes">ZipTok3D: High-Fidelity 3D Tokenization with Compact Token Prefixes</h5>
-<p><strong>分类：</strong> 3D；3D reconstruction</p>
-<p>提出ZipTok3D 3D分词器，用紧凑全局token前缀和迭代解码实现极短序列高保真重建。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.01740v1/figures/headfig.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.01740v1/figures/headfig.png" alt="ZipTok3D: High-Fidelity 3D Tokenization with Compact Token Prefixes 论文图" loading="lazy"></a><span class="image-caption">ZipTok3D: High-Fidelity 3D Tokenization with Compact Token Prefixes 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.01740v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.01740">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.01740">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.01740/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-09-01">2026-09-01</h4>
-<h5 id="blarm-animating-3d-objects-from-video-via-blending-latent-rigid-motion-primitives">BLARM: Animating 3D Objects from Video via Blending Latent Rigid Motion Primitives</h5>
-<p><strong>分类：</strong> 3D；3d animation generation</p>
-<p>提出BLARM，一种从单目视频驱动静态3D网格动画的前馈方法，利用刚性运动基元混合实现。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.31113v1/Architecture.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.31113v1/Architecture.png" alt="BLARM: Animating 3D Objects from Video via Blending Latent Rigid Motion Primitives 论文图" loading="lazy"></a><span class="image-caption">BLARM: Animating 3D Objects from Video via Blending Latent Rigid Motion Primitives 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2608.31113v1">arXiv</a> · <a href="https://huggingface.co/papers/2608.31113">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2608.31113">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2608.31113/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="lucida-parse-generate-and-place-for-composable-real-to-sim-scene-modeling">Lucida: Parse, Generate, and Place for Composable Real-to-Sim Scene Modeling</h5>
-<p><strong>分类：</strong> 3D；3D reconstruction</p>
-<p>提出Lucida，通过解析-生成-放置流程实现可组合的真实到仿真场景建模，提升精度。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.30821v1/teaser.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.30821v1/teaser.png" alt="Lucida: Parse, Generate, and Place for Composable Real-to-Sim Scene Modeling 论文图" loading="lazy"></a><span class="image-caption">Lucida: Parse, Generate, and Place for Composable Real-to-Sim Scene Modeling 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2608.30821v1">arXiv</a> · <a href="https://huggingface.co/papers/2608.30821">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2608.30821">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2608.30821/index.html" data-inline-html="true">展开正文</a></p>
-<h3 id="视频">视频</h3>
-<h4 id="2026-09-04-2">2026-09-04</h4>
-<h5 id="puffin-world-scaling-a-unified-multimodal-model-with-native-3d-world-states-2">Puffin-World: Scaling a Unified Multimodal Model with Native 3D World States</h5>
-<p><strong>分类：</strong> 视频 / 3D；video world model、3d generation、3D reconstruction、3D world model</p>
-<p>提出统一多模态模型Puffin-World，联合建模物理、几何与外观，实现3D世界生成与重建。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.04196v1/teaser_new_sub1_crop.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.04196v1/teaser_new_sub1_crop.png" alt="Puffin-World: Scaling a Unified Multimodal Model with Native 3D World States 论文图" loading="lazy"></a><span class="image-caption">Puffin-World: Scaling a Unified Multimodal Model with Native 3D World States 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.04196">arXiv</a> · <a href="https://huggingface.co/papers/2609.04196">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.04196">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.04196/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="flashrender-few-step-generative-rendering-via-camera-controlled-video-meanflow">FlashRender: Few-Step Generative Rendering via Camera-Controlled Video MeanFlow</h5>
-<p><strong>分类：</strong> 视频；video diffusion model</p>
-<p>提出FlashRender框架，通过RETA对齐、MeanFlow和流图蒸馏实现少步生成式渲染，成本降低25倍。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.03563v1/teaser.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.03563v1/teaser.png" alt="FlashRender: Few-Step Generative Rendering via Camera-Controlled Video MeanFlow 论文图" loading="lazy"></a><span class="image-caption">FlashRender: Few-Step Generative Rendering via Camera-Controlled Video MeanFlow 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.03563v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.03563">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.03563">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.03563/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="worldreward-reward-modeling-for-camera-conditioned-world-models">WorldReward: Reward Modeling for Camera-Conditioned World Models</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出WorldReward奖励模型，统一评估相机条件世界模型的行动一致性与视觉质量。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.03952v1/train_data_pipeline.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.03952v1/train_data_pipeline.png" alt="WorldReward: Reward Modeling for Camera-Conditioned World Models 论文图" loading="lazy"></a><span class="image-caption">WorldReward: Reward Modeling for Camera-Conditioned World Models 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.03952v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.03952">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.03952">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.03952/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-09-03-2">2026-09-03</h4>
-<h5 id="solarwm-open-data-and-scalable-training-for-long-horizon-video-world-models">SolarWM: Open Data and Scalable Training for Long-Horizon Video World Models</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出开放式视频世界模型框架SolarWM，统一多源数据处理，支持异构模型训练与长时交互。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.02886v1/pipeline_2.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.02886v1/pipeline_2.png" alt="SolarWM: Open Data and Scalable Training for Long-Horizon Video World Models 论文图" loading="lazy"></a><span class="image-caption">SolarWM: Open Data and Scalable Training for Long-Horizon Video World Models 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.02886v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.02886">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.02886">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.02886/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-09-02">2026-09-02</h4>
-<h5 id="h3-world-turning-language-understanding-into-world-control">H3-World: Turning Language Understanding into World Control</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>将视频生成器MiniMax-H3转变为交互式世界模型，通过语言指令实现精准时空控制。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.01560v1/H3-World-Method.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.01560v1/H3-World-Method.png" alt="H3-World: Turning Language Understanding into World Control 论文图" loading="lazy"></a><span class="image-caption">H3-World: Turning Language Understanding into World Control 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.01560v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.01560">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.01560">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.01560/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="zimablue-evolving-generalizable-world-action-models-through-scalable-video-pre-training">ZimaBlue: Evolving Generalizable World Action Models through Scalable Video Pre-training</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出ZimaBlue，通过大规模视频预训练学习通用世界动作模型，提升机器人操作零样本泛化能力。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.00188v1/main_architecture_2.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.00188v1/main_architecture_2.png" alt="ZimaBlue: Evolving Generalizable World Action Models through Scalable Video Pre-training 论文图" loading="lazy"></a><span class="image-caption">ZimaBlue: Evolving Generalizable World Action Models through Scalable Video Pre-training 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.00188v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.00188">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.00188">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.00188/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-09-01-2">2026-09-01</h4>
-<h5 id="dreamx-creator-democratizing-native-audio-video-generation-at-2k-resolution">DreamX-Creator: Democratizing Native Audio-Video Generation at 2K Resolution</h5>
-<p><strong>分类：</strong> 视频；video diffusion model</p>
-<p>提出DreamX-Creator 1.0，一个7B参数的原生音视频联合生成系统，支持2K分辨率生成。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.31106v1/pipeline_v2.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.31106v1/pipeline_v2.png" alt="DreamX-Creator: Democratizing Native Audio-Video Generation at 2K Resolution 论文图" loading="lazy"></a><span class="image-caption">DreamX-Creator: Democratizing Native Audio-Video Generation at 2K Resolution 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2608.31106v1">arXiv</a> · <a href="https://huggingface.co/papers/2608.31106">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2608.31106">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2608.31106/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="matrix-game-3-5-enhancing-real-time-streaming-interactive-world-models-with-patch-memory">Matrix-Game 3.5: Enhancing Real-Time Streaming Interactive World Models with Patch Memory</h5>
-<p><strong>分类：</strong> 视频；video world model、video diffusion model</p>
-<p>提出交互世界模型Matrix-Game3.5，用补丁记忆等三改进实现几何一致和长时实时生成。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.29910v1/teaser_white_Riemann.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.29910v1/teaser_white_Riemann.png" alt="Matrix-Game 3.5: Enhancing Real-Time Streaming Interactive World Models with Patch Memory 论文图" loading="lazy"></a><span class="image-caption">Matrix-Game 3.5: Enhancing Real-Time Streaming Interactive World Models with Patch Memory 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2608.29910">arXiv</a> · <a href="https://huggingface.co/papers/2608.29910">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2608.29910">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2608.29910/index.html" data-inline-html="true">展开正文</a></p>
-<h2 id="全量论文简报">全量论文简报</h2>
-<h3 id="2026-09-04-3">2026-09-04</h3>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.04196">Puffin-World</a></td><td>视频 / 3D</td><td>提出统一多模态模型Puffin-World，联合建模物理、几何与外观，实现3D世界生成与重建。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.04201v1">Scal3R</a></td><td>3D</td><td>提出Scal3R，用多参考相对姿态查询和位姿图优化实现高效在线3D重建，降低长视频漂移。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.03563v1">FlashRender</a></td><td>视频</td><td>提出FlashRender框架，通过RETA对齐、MeanFlow和流图蒸馏实现少步生成式渲染，成本降低25倍。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.03952v1">WorldReward</a></td><td>视频</td><td>提出WorldReward奖励模型，统一评估相机条件世界模型的行动一致性与视觉质量。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.04131">Beyond Retrieval</a></td><td>其他</td><td>提出LatentStream渐进潜记忆框架，将流式视频记忆从存储检索转为检索内化，实现高效流式理解。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.04199">Compile by Training</a></td><td>其他</td><td>提出“编译即训练”方法，将自然语言规范转化为可复用的本地神经函数，在FuzzyBench-Hard达83.6%语义准确率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.04083">CORE</a></td><td>其他</td><td>提出CORE方法，通过重排序器蒸馏提升多模态嵌入模型的组合推理能力，取得最优结果。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.04094">DRACO</a></td><td>其他</td><td>提出DRACO，通过动态rubrics和细粒度信用分配提升长时程智能体训练效果，无需验证器。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.04034">Editable Visual Design</a></td><td>其他</td><td>提出可编辑视觉设计范式，结合编码智能体与图像生成模型，实现美观且可分层编辑的设计。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.04128">Environment Evolution for Terminal Agents</a></td><td>其他</td><td>提出环境进化方法，离策略逐步提升难度并调度生成，为终端代理提供持续学习信号。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.26730">Knowing When Not to Reuse</a></td><td>其他</td><td>提出条件经验迁移(BCIT)方法，在自主大模型后训练中有条件授权经验重用，避免有害更新并提升效果。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.04173">Last Translation Benchmark</a></td><td>其他</td><td>提出Last Translation Benchmark，用多模态对抗样例和验证规则评估机器翻译极限。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.01507">LatentPress</a></td><td>其他</td><td>提出LatentPress，把上下文压缩成连续记忆token，冻结解码器直接读取，无需重建文本。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.01072">Let Confidence Change, Not the Prediction</a></td><td>其他</td><td>提出CORD方法，修复校准后概率向量以保持原始预测不变，实现零预测改变率且不损校准性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.03796">LLaDA-Image</a></td><td>其他</td><td>提出LLaDA-Image，结合DiT与扩散语言模型，实现高质量图像生成与编辑，开源全部训练细节。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.03293">PACE</a></td><td>其他</td><td>提出PACE数据集和PaceMaker框架，用于检测个性化助手中用户请求与潜在约束的隐含冲突。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.02373">Percolation Dynamics in Optimization</a></td><td>其他</td><td>将随机梯度流建模为渗流过程，揭示子网络离散合并与方差尖峰，并扩展至Adam和AdamW。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.04200">Principia</a></td><td>其他</td><td>提出Principia基准，通过物体间关系一致性评估视频模型的牛顿物理推理，无需相机校准。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.29253">QCell</a></td><td>其他</td><td>提出QCell查询模型，通过实例重组与对比查询对齐提升显微图像重叠细胞分割精度。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.03430">Random Attention</a></td><td>其他</td><td>提出Random Attention，无需评分随机驱逐KV缓存，匹配最优压缩效果并显著提升吞吐。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.27831">RealSWE</a></td><td>其他</td><td>构建RealSWE基准，发现真实用户请求与SWE-bench差异，评估编码代理性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.04172">Rethinking On-Policy Distillation of Large Language Models II</a></td><td>其他</td><td>本文研究大语言模型在线策略蒸馏中训练数据的作用，发现单查询训练即覆盖大量状态，数据远多于需求。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.03820">Select, Compress, Reinvest</a></td><td>其他</td><td>研究长视频多模态模型中视觉token分配策略，通过受控实验评估选择、压缩与再投资的影响。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.04148">Terminal-Universe</a></td><td>其他</td><td>将终端智能体轨迹重建为可复用环境，并合成新任务提升训练效果。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.02367">The Missing Temporal Link</a></td><td>其他</td><td>提出时间上下文路由TCR，将剧本时间映射到音视频生成轴，显著提升镜头与对白时间对齐。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.30391">Using Grounded Theory for Agent Behavior Analysis at Scale</a></td><td>其他</td><td>提出可扩展的自动化扎根理论方法，分析智能体轨迹行为，生成分类体系并提升失败预测。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.04098">Why Gated DeltaNet Survives 4-Bit Quantization</a></td><td>其他</td><td>研究混合27B大模型中门控DeltaNet层的4比特量化，提出NVFP4 W4A4全量化方案并解释其稳健机制。</td></tr></tbody></table></div>
-<h3 id="2026-09-03-3">2026-09-03</h3>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.01823v1">Kirin</a></td><td>3D</td><td>构建动物运动生成框架Kirin，从野外视频生成逼真3D动物动画。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.01740v1">ZipTok3D</a></td><td>3D</td><td>提出ZipTok3D 3D分词器，用紧凑全局token前缀和迭代解码实现极短序列高保真重建。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.02886v1">SolarWM</a></td><td>视频</td><td>提出开放式视频世界模型框架SolarWM，统一多源数据处理，支持异构模型训练与长时交互。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.00591">A Glance Is All You Need</a></td><td>其他</td><td>提出SimLoss，一种引用无关的嵌入空间目标，实现单遍细粒度图像描述，兼具多阶段质量与单遍速度。</td></tr><tr><td><a href="https://arxiv.org/abs/2504.15476">An Empirical Study on Zero-Data Bootstrapping for Conversational Recommender Systems</a></td><td>其他</td><td>研究无对话数据场景下，利用非对话信号生成合成数据以冷启动构建对话推荐系统的实证方法。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.31111">Aspire</a></td><td>其他</td><td>提出模糊目标自我演化基准ASPIRE，发现模型在仅给定自然语言目标时难获稳定跨任务提升。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.30751">Autoregressive Mosaics</a></td><td>其他</td><td>提出AM-Bench基准，探究纯文本语言模型在二维空间推理中的能力与差异。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.21450">Beyond Visual Similarity</a></td><td>其他</td><td>提出KBMR，首个基于MLLM的实体对齐检索器，用于知识型视觉问答，显著提升检索和问答准确率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.02817">Cliff</a></td><td>其他</td><td>提出Cliff奖励塑形策略，利用首次错误分解推理过程以提升LLM强化学习性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.01925">CRISP</a></td><td>其他</td><td>提出CRISP方法，用结构代理和噪声感知阈值实现输入自适应稀疏预填充，加速长上下文注意力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.02496">Debias-SparseGPT</a></td><td>其他</td><td>提出Debias-SparseGPT，在剪枝中减少大语言模型偏见，兼顾性能与公平。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.02783">EarlyEval</a></td><td>其他</td><td>提出EarlyEval，通过早期结果预测提前终止智能体运行，降低评估成本。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.01865">ExecRetrieval</a></td><td>其他</td><td>提出ExecRetrieval基准，评估代码嵌入检索对功能正确性的判别能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.00474">Exploring Collaboration between a language and a non-language agent</a></td><td>其他</td><td>实现语言与非语言智能体协作，用潜在状态内化消除语言化瓶颈，在国际象棋任务上超越前沿模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.00377">FoldingAgent</a></td><td>其他</td><td>提出FoldingAgent框架，从折纸演示视频推断参数化折叠程序。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.01437">HarnessDev</a></td><td>其他</td><td>提出HarnessDev基准，评估LLM自主创建和进化自身智能体执行框架（harness）的能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.30322">Ignorance or Incompetence? Constructing Knowledge-Gated, Verifiable Tasks for LLM Agents</a></td><td>其他</td><td>提出知识门控任务构建协议，分离任务指令与私有约定工件，实现可验证的LLM评测。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.29846">Influence-Directed Distillation</a></td><td>其他</td><td>提出基于熵影响分析的采样token在线蒸馏方法，解决多样性蒸馏瓶颈。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.18972">Institutional Newspapers Pipeline</a></td><td>其他</td><td>设计模块化流水线，从历史报纸扫描图中提取高质量结构化数据，并开源数据集与模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.00638">It Takes Two to Match</a></td><td>其他</td><td>提出CoGR框架，用强化学习协同训练双生成器，直接构建查询和物品侧检索表示并匹配。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.02737">Language Models Can Control Their Own Attention</a></td><td>其他</td><td>提出声明式注意力协议，让模型在思维链中声明关注区域，以减少KV缓存读取和注意力开销。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.30949">MULTI3IR</a></td><td>其他</td><td>提出多视角多领域多模态检索基准Multi3IR，并设计参数高效的嵌入优化方法SPIN以提升视角覆盖。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.01657">NeoMME</a></td><td>其他</td><td>提出NeoMME，一种单塔多模态多语言编码器，用于高效微调与推理的文档检索。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.01147">On the Design Fundamentals of Pixel Text Representation Learning</a></td><td>其他</td><td>研究像素文本表示学习的设计原则，提出Pixel Linguist II模型，实现多语言视觉文本检索与压缩。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.02272">PaperCompiler</a></td><td>其他</td><td>提出PaperCompiler框架，将论文编译为仓库级实现规范，提升论文到代码生成保真度</td></tr><tr><td><a href="https://arxiv.org/abs/2608.29692">Portfolio Risk Bounds without Cross-Asset Return Covariances</a></td><td>其他</td><td>用企业级分布特征替代资产协方差，构建组合风险上界与配置规则。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.02849">Post-Training Language Models for Gold-Medal Performance in Coding Competitions</a></td><td>其他</td><td>提出端到端后训练流程与GenCorrect，使AI在IOI竞赛中首次超越人类最高分。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.00834">Replacing Training with Memory</a></td><td>其他</td><td>提出免微调的列表式选择器MaP-SQL，用记忆替代训练，提升Text-to-SQL候选查询选择准确率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.02749">Repo-To-Skill</a></td><td>其他</td><td>将GitHub仓库蒸馏为可复用AI技能，构建技能库显著提升自主科研智能体表现。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.31100">S3Gym</a></td><td>其他</td><td>提出S3Gym基准，评估大语言模型通过自测试、自判断实现自我改进的能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.30005">Small Language Models as Judges for Rubric-Based Reinforcement Learning</a></td><td>其他</td><td>研究小型语言模型作为基于rubric的奖励评判者，提出Probe方法提升效率与一致性。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.29607">SnapBench</a></td><td>其他</td><td>提出SnapBench基准和MOOR方法，评估并提升移动端拍照问答多模态检索的鲁棒性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.01936">Sparse Readout Prism</a></td><td>其他</td><td>本文提出Sparse Readout Prism，通过分解读出矩阵来解释透镜分数，揭示特征层面的分析单元。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.02812">VibeVoice-ASR-Streaming Technical Report</a></td><td>其他</td><td>提出基于LLM的流式说话人属性语音识别方法VibeVoice-ASR-Streaming，实现实时“谁说了什么”。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.29669">Wasserstein-Barycentric Interaction Fields for Spatial Factor Models</a></td><td>其他</td><td>用Wasserstein重心场从语言模型嵌入构建空间因子模型，验证其优于传统权重并检验显著性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.00196">WHALE</a></td><td>其他</td><td>提出WHALE方法，交替优化智能体模型参数与执行框架，提升联合性能。</td></tr></tbody></table></div>
-<h3 id="2026-09-02-2">2026-09-02</h3>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.01560v1">H3-World</a></td><td>视频</td><td>将视频生成器MiniMax-H3转变为交互式世界模型，通过语言指令实现精准时空控制。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.00188v1">ZimaBlue</a></td><td>视频</td><td>提出ZimaBlue，通过大规模视频预训练学习通用世界动作模型，提升机器人操作零样本泛化能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.00374">Adapting Without Gradients</a></td><td>其他</td><td>提出无梯度测试时适应方法CASTER，用仿射统计迁移冻结模型并引入可传输性证书。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.01836">Agent Memory Is a Surface for Endogenous Authorization Laundering</a></td><td>其他</td><td>研究LLM代理持久记忆中的内生授权洗白现象，提出EAL-Bench基准并评估防护措施。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.26623">AgentJudgeBench</a></td><td>其他</td><td>提出AgentJudgeBench基准，系统评估LLM裁判在智能体工具调用工作流DAG上的可靠性。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.30478">Agents in the Large</a></td><td>其他</td><td>提出感知为中心的持久智能体架构Pera，用于描述和指导长时运行语言智能体的设计与开发。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.00621">Control-Data Flow Separation</a></td><td>其他</td><td>提出控制-数据流分离，将执行协议结构化，防止提示词漂移，提升多智能体LLM稳定性与性能</td></tr><tr><td><a href="https://arxiv.org/abs/2609.00768">DiagEvo</a></td><td>其他</td><td>提出DiagEvo，利用求解器自身失败历史分层记忆错误原因，驱动无外部资源的自进化训练。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.01453">Does Imitation Learning Preserve Temporal Robustness in Dexterous Manipulation? An Expert-Learner Comparison Across Task Execution Speeds</a></td><td>其他</td><td>对比模仿学习策略与专家在灵巧操作任务中不同执行速度下的时间鲁棒性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.00646">DramaChain Bench</a></td><td>其他</td><td>提出首个端到端短剧生成基准DramaChain Bench，评估从剧本到成片全流程各阶段质量。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.30730">E-Commerce Bench</a></td><td>其他</td><td>提出电商长周期自主经营基准E-Commerce Bench，评估18个LLM智能体的多轮谈判与动态事件应对能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.00551">EM^2Mem</a></td><td>其他</td><td>提出事件中心多模态记忆框架EM^2Mem，将异构证据绑定事件锚点，提升长视频问答性能与效率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.01404">Evaluating Multimodal LLMs as Generalist Vision-Language-Action Agents for Drone Control</a></td><td>其他</td><td>本文提出DroneCATS基准和DroneCATS-Agent架构，评估多模态大模型作为无人机控制智能体的能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.01572">From Production Traffic to Post-Training</a></td><td>其他</td><td>针对企业自托管LLM的GPU碎片化问题，通过生产流量分析、GRPO专家合并与两阶段SLERP，训练出覆盖多任务的小型模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.01481">Harness-of-Harness</a></td><td>其他</td><td>提出Harness-of-Harness框架，使LLM编码代理在多日自主开发中持续改进软件，显著提升性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.30468">Hi-Q</a></td><td>其他</td><td>提出Hi-Q框架，通过证据引导的层次查询细化解决多跳问答中问题与证据粒度不匹配问题。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.28612">InternReviewer &amp; InternAdvocate</a></td><td>其他</td><td>提出学术审稿与反驳智能体框架，用统一奖励和强化学习提升推理与引用准确性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.01532">Knowledge Distillation During Mid-Training Favors Reasoning over Factual Recall</a></td><td>其他</td><td>研究发现中训练阶段前向KL蒸馏削弱事实回忆，提出熵路由的Switch蒸馏以兼顾推理与知识。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.30457">Learning Where Outcomes Change</a></td><td>其他</td><td>提出信用可寻址推理，通过代码式思维链和事件级强化学习提升多模态几何推理准确率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.00111">Qwen-Drive-1.0</a></td><td>其他</td><td>提出统一驾驶视觉语言基础模型Qwen-Drive-1.0，集成3D感知、问答与运动规划。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.00137">Recursive Criticality of AI Self-Improvement</a></td><td>其他</td><td>研究AI自我改进的递归反馈条件，提出递归再生数判定自放大临界。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.00968">ReFlowSET</a></td><td>其他</td><td>提出ReFlowSET，用潜流匹配和表征对齐实现SAR到EO图像翻译。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.00092">Safin-1</a></td><td>其他</td><td>提出Safin-1模型，通过内存原生状态演化实现安全内建，提升长程任务安全能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.01343">SMELT</a></td><td>其他</td><td>研究预算匹配下MoE循环Transformer的扩展律，提出SMELT配方并验证性能提升。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.01591">StudentSim</a></td><td>其他</td><td>提出StudentSim框架，用少量学生数据训练个性化模拟器，用于AI辅导响应评估。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.27509">The Mechanics of Democratic Dominance</a></td><td>其他</td><td>提出动态同意工程范式，融合伯内斯与系统动力学，建模并验证政治支配的机制。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.31082">Token-Efficient Data Reasoning Agents via Adaptive Structuring of Unstructured Data</a></td><td>其他</td><td>提出代理数据破解方法，按需自适应结构化非结构化数据，降低LLM推理成本并保持精度。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.00028">UI-Venus-2 Technical Report</a></td><td>其他</td><td>提出UI-Venus-2通用GUI智能体，统一框架覆盖多端环境，扩展数据规模与验证机制。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.01607">Uncovering Understanding-Generation Synergy in Native Unified Multimodal Models</a></td><td>其他</td><td>研究统一多模态模型中理解与生成的协同效应，从表示、任务、系统三层面揭示其协同条件。</td></tr></tbody></table></div>
-<h3 id="2026-09-01-3">2026-09-01</h3>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2608.31113v1">BLARM</a></td><td>3D</td><td>提出BLARM，一种从单目视频驱动静态3D网格动画的前馈方法，利用刚性运动基元混合实现。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.30821v1">Lucida</a></td><td>3D</td><td>提出Lucida，通过解析-生成-放置流程实现可组合的真实到仿真场景建模，提升精度。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.31106v1">DreamX-Creator</a></td><td>视频</td><td>提出DreamX-Creator 1.0，一个7B参数的原生音视频联合生成系统，支持2K分辨率生成。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.29910">Matrix-Game 3.5</a></td><td>视频</td><td>提出交互世界模型Matrix-Game3.5，用补丁记忆等三改进实现几何一致和长时实时生成。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.30147">CAST</a></td><td>其他</td><td>提出CAST框架，将稀疏任务结果转化为动作级监督，训练critique模型和策略模型，提升长程工具调用智能体可靠性。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.29464">Chain-of-Thought Faithfulness of Reasoning Models Varies with Where and How Preference Cues Are Delivered</a></td><td>其他</td><td>提出FACE-Eval，评估偏好线索位置与显式性对推理模型思维链忠实性的影响。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.29137">Chat-Edit-3D++</a></td><td>其他</td><td>提出基于大语言模型的对话式3D/4D场景编辑方法CE3D++，通过Hash-Atlas网络解耦2D编辑与3D重建。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.30968">CogEvol</a></td><td>其他</td><td>提出CogEvol模型，高效可靠地将课程简报生成为幻灯片或交互式HTML学习环境。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.29847">ContextBias</a></td><td>其他</td><td>提出ContextBias框架与ContextBench基准，评估文生图模型在上下文变化下职业角色偏见是否持续。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.28958">CoVA-SFT</a></td><td>其他</td><td>构建视觉抽象链数据集CoVA-SFT及基准CoVA-Bench，训练和评估多模态视觉抽象推理。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.29613">Cross-lingual Functional Vectors for Emotion Detection in Large Language Models</a></td><td>其他</td><td>研究跨语言功能向量在情感检测中的迁移性，无需演示即可提升多语言情感分类性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.30209">DICS</a></td><td>其他</td><td>提出基于数据内在一致性的视觉指令选择方法，提升视觉语言模型微调效率。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.31046">Does On-Policy Distillation Really Distill? From Noisy Teacher to Self-Improvement</a></td><td>其他</td><td>论文研究on-policy蒸馏机制，发现其增益来自抑制低概率token，并提出无监督自改进方法OPSA。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.29252">Dynamic Important Example Mining for Reinforcement Finetuning</a></td><td>其他</td><td>提出动态重要样本挖掘方法，在强化微调中自适应选择训练样本以提升推理能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.28833">Evaluating the Hidden Costs of Personalization in Large Language Models</a></td><td>其他</td><td>针对大模型个性化带来的隐藏风险，提出PRISK评估框架并量化其负面影响。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.29387">EvoGenUI-Bench</a></td><td>其他</td><td>提出EvoGenUI-Bench基准，评估大语言模型在多轮生成式UI维护中的表现。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.29335">GenFirst</a></td><td>其他</td><td>提出生成先于重建的端到端潜在生成建模方法，避免潜在塌缩并稳定训练。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.24293">Keep-or-Drop? Adaptive Tokenizer for Compact Video Representation</a></td><td>其他</td><td>提出自适应视频Tokenizer KATok，通过丢弃无信息token实现高压缩比并保持生成质量。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.31076">Learning to Evaluate Before Improving</a></td><td>其他</td><td>提出评估优先框架，在执行前归纳任务专属评估标准，引导科研代理提升表现。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.30428">Lies We Can See</a></td><td>其他</td><td>研究VLM智能体在3D多模态社交推演游戏中的言语与非言语联合欺骗行为及评测框架</td></tr><tr><td><a href="https://arxiv.org/abs/2608.30935">LightNav-0</a></td><td>其他</td><td>提出轻量通用导航模型LightNav-0，激发预训练视觉语言模型空间智能，统一多任务具身导航。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.29681">MMMMM</a></td><td>其他</td><td>提出多语言多模态虚假信息统一分类法，构建数据集并自动化标注分析。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.31022">MNIST-PRO</a></td><td>其他</td><td>提出MNIST-PRO基准，将MNIST转为部分可观察的glimpse搜索任务，揭示AI代理感知状态构建与更新的瓶颈。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.31036">Normalized Low-Rank Adaptation</a></td><td>其他</td><td>提出NoRA方法，通过归一化下投影矩阵加速LoRA收敛并提升稳定性，无需额外参数。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.30320">On the Design of Qwen3.8-Next Architecture</a></td><td>其他</td><td>设计Qwen3.8-Next稀疏MoE架构，在降低激活参数和训练成本的同时保持性能并提升训练稳定性。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.30241">PaperBanana-Interact</a></td><td>其他</td><td>提出多轮人机交互的论文图表优化基准与多智能体系统PaperBanana-Interact</td></tr><tr><td><a href="https://arxiv.org/abs/2608.31119">PaperGym</a></td><td>其他</td><td>提出PaperGym框架，利用论文结构构建训练环境，以rubric为中心生成研究计划。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.26671">RECAP-Forcing</a></td><td>其他</td><td>提出基于外观新颖性组织记忆的RECAP-Forcing方法，提升长视频生成的一致性与质量。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.29098">SafeAtlas-VL</a></td><td>其他</td><td>构建大规模五级安全分级数据集并训练多模态安全护栏模型SafeAtlas-VL，显著提升风险判断能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.30396">Scaffolding Foundation Models into Physical-World Agents Pushes the Frontier of Long-Horizon Navigation</a></td><td>其他</td><td>提出NavMCP框架，耦合VLM与导航基础模型，实现长时程物理世界导航。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.31075">Scaling Large Reasoning Models beyond Human Supervision</a></td><td>其他</td><td>本文研究大推理模型在人类监督减少时，通过奖励与经验双轴持续扩展的学习框架与风险。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.28600">SHAPE of Chain-of-Thought in Math Reasoning</a></td><td>其他</td><td>提出SHAPE框架，从数学教育视角分析思维链的语义空间与启发式，并用于诊断和提升LLM数学推理。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.29974">SpanCalib-VLM</a></td><td>其他</td><td>提出混合双系统SpanCalib-VLM，结合序列标注与生成模型校准幻觉跨度检测。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.29310">Super Library Agent</a></td><td>其他</td><td>提出超库智能体问题，通过共享库生成并维护多个相关应用，减少冗余、避免结构退化。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.00519">The Safeguard Worked. Is the LLM System Safer?</a></td><td>其他</td><td>提出评估LLM防护措施与部署安全关系的方法，分析测试指标含义。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.30795">Uncertainty-Aware End-to-End AI Weather Forecasting</a></td><td>其他</td><td>将端到端天气预报系统改造为概率模型，分离观测与模型不确定性并提升预报性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.30135">Verification-Aware Training for Speculative Decoding</a></td><td>其他</td><td>提出验证感知训练框架，通过模拟验证监督草稿模型，提升投机解码的接受长度和加速比。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.28695">Weaving Visual Narratives</a></td><td>其他</td><td>提出图像束组合新范式及BundleWeaver智能体框架，解决照片检索中的关系性组合问题</td></tr><tr><td><a href="https://arxiv.org/abs/2608.30530">WebWorld</a></td><td>其他</td><td>提出一种以浏览器为世界模型的网页代码自改进框架，用可执行验证证书驱动视觉语言模型，提升交互网页生成。</td></tr></tbody></table></div></div></article></main>
+    <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../date/">← 返回日报目录</a></p>
+<h1 id="puffin-world-scaling-a-unified-multimodal-model-with-native-3d-world-states">Puffin-World: Scaling a Unified Multimodal Model with Native 3D World States</h1>
+<p><strong>一句话主题：</strong> 构建原生3D世界状态的统一多模态模型，实现物理一致的3D世界生成与交互。</p>
+<p><strong>领域标签：</strong> 多模态模型 / 3D世界生成 / 物理建模</p>
+<h2 id="快速理解">快速理解</h2>
+<p><strong>背景与任务：</strong> 现有多模态模型缺乏对3D世界物理、几何与外观的统一建模，依赖外部模块。</p>
+<p><strong>核心工作：</strong> 作者提出Puffin-World架构及Puffin-16M数据集，统一物理、深度和图像生成，支持闭环世界探索。</p>
+<h2 id="中文摘要">中文摘要</h2>
+<p>我们提出了Puffin-World，一种统一的多模态架构，无需依赖外部离线模块即可整合物理理解、空间模拟以及3D世界生成与重建。为了可靠地构建并与3D世界交互，我们的框架联合建模三种原生世界状态：物理（重力场和纬度）、几何（深度）和外观（图像），并配以统一的Omni-Camera表示，以支持多样化的任务和灵活的运动。除了对这些状态进行建模之外，我们还引入了一种在跨未来帧传播物理动力学的策略。通过将绝对相机属性锚定在真实世界中，Puffin-World能够实现物理一致且视觉稳定的世界生成。我们进一步在单一生成过程中耦合外观和几何，联合合成每个未来视图并重建其底层几何。这种统一范式使得需要多任务协同的交错闭环应用成为可能，包括模仿和自校准的世界探索。为了将Puffin-World扩展到复杂场景，我们构建了Puffin-16M，包含1500万个视觉-语言-相机三元组和100万条具有各种挑战性运动的轨迹。为了促进该领域的进一步研究，我们发布了代码、模型和数据集。</p>
+<h2 id="详细分析">详细分析</h2>
+<h2 id="1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</h2>
+<p>Puffin-World 输入文本提示、一张或多张参考图像，以及由 Omni-Camera 表示的期望相机轨迹；输出相机绝对物理状态、可控 RGB 图像、逐视图深度，以及“图像+深度”构成的 3D 重建。功能覆盖物理感知、自由视点空间模拟、多视点世界生成与重建；边界是不依赖外部离线模块，所有任务由同一个多模态模型完成。</p>
+<h2 id="2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</h2>
+<p>现有生成世界模型几乎只在 RGB 外观层面预测未来帧，没有显式表示相机在真实世界中的朝向和场景几何；统一多模态模型又局限于 2D 语义；3D 世界模型虽然能用相机位姿或 Plücker 射线控制生成，但主要基于相对运动，缺少全局物理锚点，因此在长轨迹、剧烈旋转和单视图条件下容易产生方向漂移。同时，生成、理解、重建通常被拆成独立任务，数据集的旋转多样性也很有限。</p>
+<p>论文的核心 insight 是：物理世界应被表示为物理、几何、外观三个原生状态，并放进同一个生成过程中；相机表示需要同时包含“绝对物理锚定”和“相对连续运动”。为此，论文提出 Omni-Camera 表示，把重力场、纬度等绝对方向信息与射线原点、方向等相对几何信息拼接起来；再通过物理传播，把参考视图感知到的绝对重力方向沿相对旋转传播到未来帧，使整条轨迹共享同一个绝对世界坐标系。为了规模化这套方法，论文还构建了带绝对相机标签和剧烈运动轨迹的 Puffin-16M 数据。</p>
+<h2 id="3-核心贡献-约300字">3. 核心贡献（约300字）</h2>
+<p>论文的贡献包括：</p>
+<ul><li>提出 Puffin-World，一个以原生 3D 世界状态（外观、几何、物理）为核心的多模态模型，可在同一框架内进行物理感知、空间模拟、3D 生成与重建，无需外部离线模块。</li><li>提出 Omni-Camera 表示，将重力锚定的绝对方向场与射线型相对几何场合成 9 通道稠密相机条件；并提出物理传播机制，将参考视图估计的绝对重力方向沿相对旋转传播到整条轨迹。</li><li>构建 Puffin-16M，包含 15M 视觉-语言-相机三元组和 1M 条挑战性运动轨迹；同时为 28 个公开数据集补充约 4450 万张图像的绝对相机标注。</li><li>开源代码、模型与数据集，并通过实验验证：在相机到世界理解上达到最佳中位误差和多数 AUC，在自由视点模拟和 3D 世界建模上优于强基线。</li></ul>
+<p>图4展示数据集规模与轨迹设计，图8展示公开数据集标注范围。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.04196v1/Puffin-16M.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.04196v1/Puffin-16M.png" alt="图4：构建的Puffin-16M数据集概述。它包含1500万个视觉-语言-相机三元组，具有多样的分辨率和宽高比（左），以及100万条具有多样且具有挑战性的旋转相机运动的轨迹（右）。" loading="lazy"></a><span class="image-caption">图4：构建的Puffin-16M数据集概述。它包含1500万个视觉-语言-相机三元组，具有多样的分辨率和宽高比（左），以及100万条具有多样且具有挑战性的旋转相机运动的轨迹（右）。</span></span></p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.04196v1/camera_datasets_overview.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.04196v1/camera_datasets_overview.png" alt="图8：由Puffin-World标注的公开数据集概述，共28个数据集，涵盖约4450万张图像，分布在不同场景分布中。" loading="lazy"></a><span class="image-caption">图8：由Puffin-World标注的公开数据集概述，共28个数据集，涵盖约4450万张图像，分布在不同场景分布中。</span></span></p>
+<h2 id="4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</h2>
+<p>实际使用时，模型由 C-RADIO 视觉编码器、Qwen 语言模型、SD3.5 扩散主干和 VAE 作为基础模块协作完成推理。视觉编码器负责把参考视图变为视觉特征，语言模型负责空间推理与条件生成，扩散主干负责把条件变成目标图像的潜变量，VAE 负责最终解码。图2概括了模型的关键能力。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.04196v1/teaser_new_sub1_crop.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.04196v1/teaser_new_sub1_crop.png" alt="图2：我们模型的多功能能力示意图。它展示了在物理世界感知的相机到世界理解上的最佳性能（AUC ⊳ 5°）；用于自由视点空间模拟的灵活相机可控能力；具有灵活自由度动作和原生世界状态的3D世界生成与重建。红色框标记模型的输入。" loading="lazy"></a><span class="image-caption">图2：我们模型的多功能能力示意图。它展示了在物理世界感知的相机到世界理解上的最佳性能（AUC ⊳ 5°）；用于自由视点空间模拟的灵活相机可控能力；具有灵活自由度动作和原生世界状态的3D世界生成与重建。红色框标记模型的输入。</span></span></p>
+<ol><li>用户输入文本、参考视图和目标相机轨迹。若存在参考视图，视觉编码器和语言模型先推理场景内容、重力方向和初始相机参数，输出结构化场景描述、物理状态和语言模型隐藏状态。</li><li>系统根据目标轨迹的相对旋转，把参考视图估计出的重力方向传播到每个未来视点；再结合相对射线几何，得到每个视点的 9 通道 Omni-Camera 条件，并用角色掩码区分参考视图、生成目标、图像条件视图和几何视图。</li><li>语言模型隐藏状态经连接器变为扩散主干可用的条件向量；条件向量与 Omni-Camera 条件一起送入扩散主干。</li><li>扩散主干对目标视图的 RGB 潜变量和深度潜变量同时去噪。所有视图在同一个联合注意力序列中生成，因此外观与几何可以相互约束，并保持跨视图一致。</li><li>VAE 解码器把 RGB 潜变量还原为图像，深度潜变量经逆颜色映射还原为深度。若需要 3D 模型，可以使用图像加深度反投影得到几何。</li><li>若轨迹超过单次建模窗口，最后生成视图的潜变量作为下一段的参考，返回第 2 步继续生成。自校准世界探索还可以生成“预期视图”并与实际结果比较，自动修正重力偏差。</li></ol>
+<p>图7展示了两种依赖理解与生成协同的闭环应用。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.04196v1/applications_crop.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.04196v1/applications_crop.png" alt="图7：Puffin-World的闭环应用：模仿世界探索（左）和自校准世界探索，两者都需要涉及理解和生成的多任务协同。每个子任务的类型用带圈的U（理解）和G（生成）标记。" loading="lazy"></a><span class="image-caption">图7：Puffin-World的闭环应用：模仿世界探索（左）和自校准世界探索，两者都需要涉及理解和生成的多任务协同。每个子任务的类型用带圈的U（理解）和G（生成）标记。</span></span></p>
+<p>下图给出推理主流程与反馈循环：</p>
+<div class="mermaid">flowchart TD
+    A[用户输入：文本、参考视图、目标相机轨迹] --&gt; B[视觉编码器与语言模型理解场景和相机状态]
+    B --&gt; C[生成各目标视图的 Omni-Camera 条件与角色掩码]
+    C --&gt; D[物理传播：将绝对重力方向扩展到未来视点]
+    D --&gt; E[扩散主干联合去噪 RGB 与深度潜变量]
+    E --&gt; F[VAE 解码并输出图像、深度与物理状态]
+    F --&gt; G{还有下一段视点？}
+    G -- 是 --&gt; H[回传：以最后生成视图的潜变量作为新参考]
+    H --&gt; C
+    G -- 否 --&gt; I[输出完整轨迹与3D重建]</div>
+<h2 id="5-核心方法-按论文-method-小节总结-约600字">5. 核心方法：按论文 Method 小节总结（约600字）</h2>
+<h3 id="3-1-preliminary-预备">3.1 Preliminary（预备）</h3>
+<h4 id="3-1-1-3d-native-world-states-3d原生世界状态">3.1.1 3D Native World States（3D原生世界状态）</h4>
+<p>论文把 3D 世界组织为三个层次的原生状态：物理状态表示重力场和纬度，几何状态表示场景深度，外观状态表示 RGB 观察。仅做外观层预测无法支撑稳定的物理世界建模；Puffin-World 在统一框架中联合感知、传播并生成这三个状态，使物理线索引导未来视图生成。</p>
+<h4 id="3-1-2-unifying-camera-representations-统一相机表示">3.1.2 Unifying Camera Representations（统一相机表示）</h4>
+<p>现有相机表示可分为相对表示和绝对表示：相对表示适合跨视图连续建模，但缺少全局物理锚点；绝对表示能给出重力、水平面等物理朝向，但难以直接用于连续多视图控制。Omni-Camera 表示将两者逐像素拼接：</p>
+<p>\[ \mathbf{c}_{\mathbf{x}}=\mathrm{Concat}(\mathbf{a}_{\mathbf{x}},\mathbf{p}_{\mathbf{x}})\in\mathbb{R}^{9}, \]</p>
+<p>其中绝对项 \(\mathbf{a}_{\mathbf{x}}\) 包含像素级上向量 \(\mathbf{u}_{\mathbf{x}}\) 和纬度角 \(\varphi_{\mathbf{x}}\)，相对项 \(\mathbf{p}_{\mathbf{x}}\) 包含射线原点 \(\mathbf{o}\) 和方向 \(\mathbf{d}_{\mathbf{x}}\)。这样既可以锚定重力方向，也能表达连续相对运动。</p>
+<h3 id="3-2-puffin-world">3.2 Puffin-World</h3>
+<p>Puffin-World 的统一性来自三层设计：表示统一——外观和几何共用同一 VAE，所有相机运动都用 Omni-Camera 表示；模态统一——同一个语言模型既输出理解结果，也通过连接器为扩散生成器提供条件；任务统一——通过改变输入组合（文本、参考视图、目标相机、角色掩码）支持不同任务。图3给出整体架构。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.04196v1/framework_crop.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.04196v1/framework_crop.png" alt="图3：我们的Puffin-World的网络架构。它主要包含3D世界理解、生成和重建，在一个框架内构建原生3D世界状态。Omni-Camera表示和role mask都以参考视图和目标视图为条件。为了清晰起见，我们省略了相机可控的文本到图像生成以及从理解结果到物理世界状态的数学映射。" loading="lazy"></a><span class="image-caption">图3：我们的Puffin-World的网络架构。它主要包含3D世界理解、生成和重建，在一个框架内构建原生3D世界状态。Omni-Camera表示和role mask都以参考视图和目标视图为条件。为了清晰起见，我们省略了相机可控的文本到图像生成以及从理解结果到物理世界状态的数学映射。</span></span></p>
+<h4 id="3-2-1-physics-perception-物理感知">3.2.1 Physics Perception（物理感知）</h4>
+<p>给定单张图像，Puffin-World 输出相机的绝对物理状态，包括相对重力的横滚角、俯仰角、垂直视场角以及场景语义描述。该任务被建模为自回归多模态序列建模：几何对齐的视觉编码器提取图像特征，经 MLP 投影到语言模型输入空间，语言模型先生成结构化场景与空间分析，再输出数值相机参数。这样可以利用语言模型的序列建模能力和全局场景理解，使相机估计更稳健。</p>
+<h4 id="3-2-2-free-viewpoint-spatial-simulation-自由视点空间模拟">3.2.2 Free-Viewpoint Spatial Simulation（自由视点空间模拟）</h4>
+<p>该部分支持“文本+Omni-Camera 条件→图像”的单视点生成。语言模型隐藏状态经可学习查询和连接器变为扩散条件；扩散主干通过 flow-matching 目标去噪目标潜变量，再由 VAE 解码。与 Puffin 将 3 通道 Perspective Field 用 VAE 编码不同，Puffin-World 将 Omni-Camera 条件直接融合进扩散潜变量空间：</p>
+<p>\[ \mathbf{h}^{0}=\mathcal{P}\big(\mathbf{z}+\mathcal{F}([\mathbf{C};\mathbf{m}])\big), \]</p>
+<p>并在稀疏的 Transformer 层中再次注入同一条件。条件融合模块初始化为近零输出，以保留已有生成能力；多层重注入则保证相机信号在深层仍然有效。</p>
+<h4 id="3-2-3-3d-world-modeling-3d世界建模">3.2.3 3D World Modeling（3D世界建模）</h4>
+<p>该部分把单视图生成扩展到多视图轨迹，并同时生成几何。所有目标视图在同一个联合注意力序列中去噪：参考视图提供干净潜变量，目标视图带噪声；每个视图关联自己的 Omni-Camera 条件，并通过视图轴位置编码保持身份。</p>
+<p>物理传播用于给轨迹提供绝对锚定：先由参考视图感知得到重力方向 \(\mathbf{g}_{0}\)，再利用参考帧到未来帧的相对旋转 \(\mathbf{R}^{\mathrm{rel}}_{t\leftarrow0}\) 传播：</p>
+<p>\[ \mathcal{G}=\{\mathbf{g}_{t}\}_{t=0}^{T-1}=\{\mathbf{R}^{\mathrm{rel}}_{t\leftarrow0}\mathbf{g}_{0}\}_{t=0}^{T-1}. \]</p>
+<p>每个未来帧由此得到一致的重力方向，再渲染为绝对相机条件，与相对射线图拼接成完整 Omni-Camera 条件。</p>
+<p>外观-几何联合建模方面，深度被映射为彩色图并用与 RGB 相同的 VAE 编码，因此不需要专门的深度编码器。深度潜变量作为额外 token 加入，用角色掩码的几何通道区分。整体损失是 RGB 视图和几何视图各自的 flow-matching 损失之和，并用时间相关权重让几何损失从零开始线性增加，以避免破坏已收敛的外观模型。注意力采用非对称设计：外观和文本不能注意几何 token，几何 token 可以注意所有模态。</p>
+<p>对于长轨迹，模型按块自回归生成：把上一块最后生成视图的潜变量直接作为下一块的参考，避免反复 VAE 编解码造成的漂移；物理传播跨越整条轨迹，使所有块共享同一个绝对物理坐标系。</p>
+<h3 id="3-3-training-recipe-训练方案">3.3 Training Recipe（训练方案）</h3>
+<p>训练分为四个阶段。Stage I 只训练 MLP 投影器、可学习查询和连接器，用于对齐视觉、语言与相机条件。Stage II 解冻视觉编码器、语言模型、扩散模型等主要模块，在单视图理解与生成数据上做全模型微调，并对视觉编码器梯度乘以 0.1 以稳定优化。Stage III 进入多视图 3D 世界建模后训练，冻结视觉编码器和语言模型，训练扩散主干、连接器和条件融合模块，数据包含大平移、原地旋转、360° 探索等轨迹。Stage IV 激活几何分支，在生成外观的同时生成深度，使用分权重目标联合训练，并引入深度模态嵌入。</p>
+<h3 id="3-4-multi-task-synergy-多任务协同">3.4 Multi-Task Synergy（多任务协同）</h3>
+<p>Puffin-World 能完成需要多任务闭环协作的应用。模仿世界探索从同一初始视点出发，沿共享相机轨迹生成 3D 世界；自校准世界探索通过预测动作和想象的目标观察来检测并修正重力偏差。两类应用都只依赖同一个模型内部的理解与生成能力，不调用外部模块。</p>
+<h2 id="6-局限性和展望-约300字">6. 局限性和展望（约300字）</h2>
+<p>论文没有单独设立局限性章节，但从方法可以推断出若干边界。首先，物理传播依赖参考视图感知阶段给出的重力方向；如果输入图像极其模糊、畸变严重或视角非常极端，误差会沿相对旋转传播到后续帧。其次，Omni-Camera 表示需要已知或可估计的相机内外参；当轨迹位姿本身不可靠时，条件本身也会引入误差。第三，深度采用颜色映射和 VAE 潜变量表示，深度范围和解码精度受限于颜色编码的有限离散程度，不一定适合高精度的工业级重建。第四，长轨迹采用滑窗式自回归生成，虽然避免了逐帧 VAE 编解码伪影，但错误仍可能跨窗口累积，且上下文窗口大小限制了空间记忆长度。</p>
+<p>展望方面，可以将该方法从静态场景扩展到动态物体和可交互物理仿真，引入更丰富的物理量如速度、加速度、材质属性；也可以把 Omni-Camera 与更精确的在线位姿估计、闭环控制结合，用于具身智能和虚拟现实。当前 Puffin-World 已把理解、生成、重建统一到一个模型，未来若能进一步扩大数据规模、覆盖更多真实世界分布，并加入显式不确定性估计，将更接近通用的空间智能体。</p></div></article></main>
   </div>
   <script>/*!
   * PhotoSwipe 5.4.4 - https://photoswipe.com
@@ -769,224 +706,6 @@ div.pswp__img--placeholder,
       updateToc();
     }
 
-
-    (() => {
-      const cache = new Map();
-
-      async function fetchLinkedPage(url) {
-        if (!cache.has(url)) {
-          const request = fetch(url, { credentials: "same-origin" })
-            .then(async (response) => {
-              if (!response.ok) throw new Error(`HTTP ${response.status}`);
-              return { text: await response.text(), url: response.url };
-            })
-            .catch((error) => {
-              cache.delete(url);
-              throw error;
-            });
-          cache.set(url, request);
-        }
-        return cache.get(url);
-      }
-
-      function rewriteReferences(root, pageUrl) {
-        root.querySelectorAll("[src], [href]").forEach((node) => {
-          ["src", "href"].forEach((attribute) => {
-            const value = node.getAttribute(attribute);
-            if (!value || value.startsWith("#") || /^(?:data|blob|mailto|tel|javascript):/i.test(value)) return;
-            try {
-              node.setAttribute(attribute, new URL(value, pageUrl).href);
-            } catch (_) {
-              // Leave malformed references unchanged; the browser will expose the failure.
-            }
-          });
-        });
-      }
-
-      function isolateIds(root, prefix) {
-        const replacements = new Map();
-        root.querySelectorAll("[id]").forEach((node) => {
-          const original = node.id;
-          const replacement = `${prefix}-${original}`;
-          replacements.set(original, replacement);
-          node.id = replacement;
-        });
-        root.querySelectorAll('a[href^="#"]').forEach((node) => {
-          const original = decodeURIComponent(node.getAttribute("href").slice(1));
-          if (replacements.has(original)) node.setAttribute("href", `#${replacements.get(original)}`);
-        });
-      }
-
-      function prepareDynamicImages(root) {
-        root.querySelectorAll("a.pswp-image").forEach((item) => {
-          const image = item.querySelector("img");
-          if (!image) return;
-          const sync = () => {
-            item.dataset.pswpSrc = image.currentSrc || image.src;
-            if (item.dataset.referenceImage === "true" && image.naturalWidth && image.naturalHeight) {
-              item.dataset.pswpWidth = String(image.naturalWidth);
-              item.dataset.pswpHeight = String(image.naturalHeight);
-            }
-          };
-          sync();
-          image.addEventListener("load", sync, { once: true });
-        });
-      }
-
-      document.querySelectorAll('a[data-inline-html="true"]').forEach((link, index) => {
-        const summary = link.closest("p, li, blockquote, td") || link.parentElement;
-        if (!summary) return;
-        const dedicatedExpand = link.textContent.trim() === "展开正文";
-        if (dedicatedExpand) {
-          let candidate = summary.previousElementSibling;
-          while (candidate && !/^H[1-6]$/.test(candidate.tagName)) {
-            if (candidate.matches("p")) {
-              candidate.classList.add("inline-report-meta");
-              if (candidate.querySelector(".embedded-image")) {
-                candidate.classList.add("inline-report-thumbnail");
-              }
-            }
-            candidate = candidate.previousElementSibling;
-          }
-          if (candidate) candidate.classList.add("inline-report-title");
-        }
-
-        let entry = summary.closest(".inline-html-entry");
-        if (!entry) {
-          if (summary.tagName === "LI" || summary.tagName === "TD") {
-            entry = summary;
-            entry.classList.add("inline-html-entry");
-          } else {
-            entry = document.createElement("section");
-            entry.className = "inline-html-entry";
-            summary.before(entry);
-            entry.append(summary);
-          }
-        }
-        summary.classList.add("inline-html-summary");
-        if (dedicatedExpand) {
-          link.classList.add("inline-html-source-link");
-        }
-
-        const panel = document.createElement("section");
-        panel.className = "inline-html-panel";
-        panel.id = `inline-html-panel-${index + 1}`;
-        panel.hidden = true;
-        panel.setAttribute("aria-live", "polite");
-
-        const actions = document.createElement("span");
-        actions.className = "inline-html-actions";
-        const toggle = document.createElement("button");
-        toggle.className = "inline-html-toggle";
-        toggle.type = "button";
-        toggle.textContent = "展开正文";
-        toggle.setAttribute("aria-controls", panel.id);
-        toggle.setAttribute("aria-expanded", "false");
-        const standalone = document.createElement("a");
-        standalone.className = "inline-html-standalone";
-        standalone.href = link.href;
-        standalone.textContent = "单独打开";
-        actions.append(toggle, standalone);
-        summary.append(document.createTextNode(" "), actions);
-        entry.append(panel);
-
-        let state = "idle";
-
-        function setOpen(open, returnToSummary = false) {
-          panel.hidden = !open;
-          entry.classList.toggle(
-            "is-expanded",
-            Boolean(entry.querySelector(".inline-html-panel:not([hidden])"))
-          );
-          const expanded = String(open);
-          toggle.setAttribute("aria-expanded", expanded);
-          link.setAttribute("aria-expanded", expanded);
-          toggle.textContent = open ? (state === "error" ? "重试加载" : "收起正文") : "展开正文";
-          if (!open && returnToSummary) {
-            summary.scrollIntoView({ behavior: "smooth", block: "start" });
-            toggle.focus({ preventScroll: true });
-          }
-        }
-
-        function appendCloseFooter(target) {
-          const footer = document.createElement("div");
-          footer.className = "inline-html-footer";
-          const close = document.createElement("button");
-          close.className = "inline-html-close";
-          close.type = "button";
-          close.textContent = "收起正文并返回摘要";
-          close.addEventListener("click", () => setOpen(false, true));
-          footer.append(close);
-          target.append(footer);
-        }
-
-        async function toggleInlinePage() {
-          if (state === "loaded") {
-            setOpen(panel.hidden);
-            return;
-          }
-          if (state === "loading") return;
-
-          state = "loading";
-          toggle.disabled = true;
-          panel.replaceChildren();
-          const loading = document.createElement("p");
-          loading.className = "inline-html-status";
-          loading.textContent = "正在加载完整正文…";
-          panel.append(loading);
-          setOpen(true);
-
-          try {
-            const fetched = await fetchLinkedPage(link.href);
-            const parsed = new DOMParser().parseFromString(fetched.text, "text/html");
-            const source = parsed.querySelector(".markdown-image-gallery")
-              || parsed.querySelector("main article")
-              || parsed.querySelector("article")
-              || parsed.querySelector("main");
-            if (!source) throw new Error("linked page does not contain a readable article");
-            const body = source.cloneNode(true);
-            if (body.firstElementChild && body.firstElementChild.tagName === "H1") {
-              body.firstElementChild.remove();
-            }
-            isolateIds(body, `inline-${index + 1}`);
-            rewriteReferences(body, fetched.url);
-            body.classList.add("inline-html-body");
-            panel.replaceChildren(body);
-            appendCloseFooter(panel);
-            prepareDynamicImages(body);
-            state = "loaded";
-            setOpen(true);
-            if (window.mermaid && typeof window.mermaid.run === "function") {
-              const diagrams = Array.from(body.querySelectorAll(".mermaid"));
-              if (diagrams.length) window.mermaid.run({ nodes: diagrams }).catch(() => {});
-            }
-
-            if (window.MathJax && typeof window.MathJax.typesetPromise === "function") {
-              window.MathJax.typesetPromise([body]).catch(() => {});
-            }
-
-          } catch (error) {
-            panel.replaceChildren();
-            const message = document.createElement("p");
-            message.className = "inline-html-status inline-html-error";
-            message.textContent = `正文加载失败：${error.message}`;
-            panel.append(message);
-            appendCloseFooter(panel);
-            state = "error";
-            setOpen(true);
-          } finally {
-            toggle.disabled = false;
-          }
-        }
-
-        toggle.addEventListener("click", toggleInlinePage);
-        link.addEventListener("click", (event) => {
-          if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-          event.preventDefault();
-          toggleInlinePage();
-        });
-      });
-    })();
 
 
   </script>
