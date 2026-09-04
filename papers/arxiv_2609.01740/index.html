@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>2026-08-30 · 论文日报</title>
+  <title>ZipTok3D: High-Fidelity 3D Tokenization with Compact Token Prefixes</title>
 
   <script>
     window.MathJax = {
@@ -516,32 +516,6 @@ div.pswp__img--placeholder,
     }
 
 
-    .inline-html-entry { margin: 18px 0; padding: 16px 18px 18px; border: 1px solid #d8e2eb; border-left: 3px solid #91abc2; border-radius: 6px; background: #fbfdff; transition: border-color .15s, background .15s; }
-    .inline-html-entry.is-expanded { border-color: #b7c9d9; border-left-color: #1769aa; background: #fff; }
-    .inline-report-title { margin: 24px 0 8px; color: #1769aa; font-size: 19px; font-weight: 750; line-height: 1.42; }
-    .inline-report-meta { margin: 4px 0; color: #52606d; font-size: 13px; line-height: 1.55; }
-    .inline-report-thumbnail { margin: 10px 0 2px; }
-    .inline-report-thumbnail .embedded-image { margin: 0; }
-    .inline-report-thumbnail .embedded-image img { max-height: 220px; margin-left: 0; object-fit: contain; }
-    .inline-report-thumbnail .image-caption { max-width: 760px; text-align: left; font-size: 12px; }
-    .inline-html-summary { margin-top: 0; margin-bottom: 0; }
-    .inline-html-actions { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-left: 10px; vertical-align: middle; }
-    .inline-html-toggle, .inline-html-standalone, .inline-html-close { display: inline-flex; min-height: 30px; align-items: center; justify-content: center; padding: 5px 10px; border: 1px solid #b9c9d8; border-radius: 6px; background: #fff; color: #37516a; font: inherit; font-size: 12px; font-weight: 700; line-height: 1.35; text-decoration: none; cursor: pointer; }
-    .inline-html-source-link { display: none; }
-    .inline-html-toggle:hover, .inline-html-standalone:hover, .inline-html-close:hover { border-color: #1769aa; color: #1769aa; }
-    .inline-html-toggle:disabled { cursor: wait; opacity: .6; }
-    .inline-html-panel { margin: 18px 0 0; padding-top: 24px; border-top: 1px solid #e2e8f0; }
-    .inline-html-panel[hidden] { display: none; }
-    .inline-html-body h1:first-child { display: none; }
-    .inline-html-status { color: #64748b; font-size: 14px; }
-    .inline-html-error { color: #9f1239; }
-    .inline-html-footer { display: flex; justify-content: flex-end; margin-top: 30px; padding-top: 16px; border-top: 1px solid #e2e8f0; }
-    @media (max-width: 640px) {
-      .inline-html-entry { padding: 14px 14px 16px; }
-      .inline-html-actions { display: flex; margin: 10px 0 0; }
-      .inline-html-toggle, .inline-html-standalone, .inline-html-close { min-height: 36px; }
-    }
-
 
   </style>
 </head>
@@ -554,65 +528,92 @@ div.pswp__img--placeholder,
     <aside class="academic-sidebar" id="academic-sidebar" aria-label="文档目录">
       <div class="toc-panel">
         <p class="toc-heading">目录</p>
-        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#2026-08-30-论文日报">2026-08-30 · 论文日报</a><a class="toc-link toc-level-2" href="#重点解析">重点解析</a><a class="toc-link toc-level-3" href="#3d">3D</a><a class="toc-link toc-level-4" href="#agentic-game-development-as-a-verifiable-trajectory-data-engine-for-scaling-world-models">Agentic Game Development as a Verifiable Trajectory Data Engine for Scaling World Models</a><a class="toc-link toc-level-4" href="#gamewam-a-world-action-model-for-video-games">GameWAM: A World Action Model for Video Games</a><a class="toc-link toc-level-4" href="#luce-relightable-gaussians-for-3d-asset-generation">Luce: Relightable Gaussians for 3D Asset Generation</a><a class="toc-link toc-level-4" href="#pawbench-how-far-are-we-from-probabilistically-aligned-world-modeling">PAWBench: How Far Are We from Probabilistically Aligned World Modeling?</a><a class="toc-link toc-level-4" href="#procedura-agentic-3d-modeling-with-procedural-control">Procedura: Agentic 3D Modeling with Procedural Control</a><a class="toc-link toc-level-3" href="#视频">视频</a><a class="toc-link toc-level-4" href="#gamewam-a-world-action-model-for-video-games-2">GameWAM: A World Action Model for Video Games</a><a class="toc-link toc-level-4" href="#pawbench-how-far-are-we-from-probabilistically-aligned-world-modeling-2">PAWBench: How Far Are We from Probabilistically Aligned World Modeling?</a><a class="toc-link toc-level-4" href="#editalive-unified-character-video-editing-for-live-streaming">EditaLive! Unified Character Video Editing for Live Streaming</a><a class="toc-link toc-level-2" href="#全量论文简报">全量论文简报</a></nav>
+        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#ziptok3d-high-fidelity-3d-tokenization-with-compact-token-prefixes">ZipTok3D: High-Fidelity 3D Tokenization with Compact Token Prefixes</a><a class="toc-link toc-level-2" href="#快速理解">快速理解</a><a class="toc-link toc-level-2" href="#中文摘要">中文摘要</a><a class="toc-link toc-level-2" href="#详细分析">详细分析</a><a class="toc-link toc-level-2" href="#1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</a><a class="toc-link toc-level-2" href="#2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</a><a class="toc-link toc-level-2" href="#3-核心贡献-约300字">3. 核心贡献（约300字）</a><a class="toc-link toc-level-2" href="#4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</a><a class="toc-link toc-level-2" href="#5-核心方法-按论文-method-小节总结-约600字">5. 核心方法：按论文 Method 小节总结（约600字）</a><a class="toc-link toc-level-3" href="#3-1-overview-概述">3.1 Overview（概述）</a><a class="toc-link toc-level-3" href="#3-2-learning-a-reconstructive-prefix-code-学习重建前缀编码">3.2 Learning a Reconstructive Prefix Code（学习重建前缀编码）</a><a class="toc-link toc-level-3" href="#3-3-iterative-global-to-spatial-refinement-迭代式全局到空间细化">3.3 Iterative Global-to-Spatial Refinement（迭代式全局到空间细化）</a><a class="toc-link toc-level-3" href="#3-4-training-objective-训练目标">3.4 Training Objective（训练目标）</a><a class="toc-link toc-level-2" href="#6-局限性和展望-约300字">6. 局限性和展望（约300字）</a></nav>
       </div>
     </aside>
-    <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../index.html">论文阅读首页</a> <a href="../index.html">日报目录</a> <a href="../../week/index.html">周报目录</a> <a href="../../month/index.html">月报目录</a></p>
-<h1 id="2026-08-30-论文日报">2026-08-30 · 论文日报</h1>
-<blockquote>收录 <strong>23 篇</strong>论文，重点解析 <strong>6 篇</strong>。正文按需展开，或可单独打开。</blockquote>
-<h2 id="重点解析">重点解析</h2>
-<h3 id="3d">3D</h3>
-<h4 id="agentic-game-development-as-a-verifiable-trajectory-data-engine-for-scaling-world-models">Agentic Game Development as a Verifiable Trajectory Data Engine for Scaling World Models</h4>
-<p><strong>分类：</strong> 3D；world model</p>
-<p>提出用游戏开发验证轨迹数据来扩展世界模型</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.25518v1/fig_reward_comparison.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.25518v1/fig_reward_comparison.png" alt="Agentic Game Development as a Verifiable Trajectory Data Engine for Scaling World Models 论文图" loading="lazy"></a><span class="image-caption">Agentic Game Development as a Verifiable Trajectory Data Engine for Scaling World Models 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2608.25518v1">arXiv</a> · <a href="https://huggingface.co/papers/2608.25518">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2608.25518">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2608.25518/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="gamewam-a-world-action-model-for-video-games">GameWAM: A World Action Model for Video Games</h4>
-<p><strong>分类：</strong> 3D / 视频；world model、video world model</p>
-<p>提出面向视频游戏的世界-动作模型GameWAM</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.26200v1/gamewam_overview.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.26200v1/gamewam_overview.png" alt="GameWAM: A World Action Model for Video Games 论文图" loading="lazy"></a><span class="image-caption">GameWAM: A World Action Model for Video Games 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2608.26200v1">arXiv</a> · <a href="https://huggingface.co/papers/2608.26200">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2608.26200">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2608.26200/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="luce-relightable-gaussians-for-3d-asset-generation">Luce: Relightable Gaussians for 3D Asset Generation</h4>
-<p><strong>分类：</strong> 3D；3d generation、3d texture generation</p>
-<p>提出可重光照的三维高斯表示用于单图生成3D资产</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.23943v1/figures/banner/luce_robot_snapshot_demo_seed_14_r145_cz001_bright.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.23943v1/figures/banner/luce_robot_snapshot_demo_seed_14_r145_cz001_bright.png" alt="Luce: Relightable Gaussians for 3D Asset Generation 论文图" loading="lazy"></a><span class="image-caption">Luce: Relightable Gaussians for 3D Asset Generation 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2608.23943v1">arXiv</a> · <a href="https://huggingface.co/papers/2608.23943">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2608.23943">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2608.23943/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="pawbench-how-far-are-we-from-probabilistically-aligned-world-modeling">PAWBench: How Far Are We from Probabilistically Aligned World Modeling?</h4>
-<p><strong>分类：</strong> 3D / 视频；world model、video world model</p>
-<p>提出PAWBench评估视频生成是否匹配物理行为分布</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.27345v2/one_plausible_future.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.27345v2/one_plausible_future.png" alt="PAWBench: How Far Are We from Probabilistically Aligned World Modeling? 论文图" loading="lazy"></a><span class="image-caption">PAWBench: How Far Are We from Probabilistically Aligned World Modeling? 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2608.27345">arXiv</a> · <a href="https://huggingface.co/papers/2608.27345">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2608.27345">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2608.27345/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="procedura-agentic-3d-modeling-with-procedural-control">Procedura: Agentic 3D Modeling with Procedural Control</h4>
-<p><strong>分类：</strong> 3D；3d generation</p>
-<p>Procedura用智能体将文本生成可编辑、可装配的参数化3D程序模型。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.26238v1/pipeline-Overview-v7.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.26238v1/pipeline-Overview-v7.png" alt="Procedura: Agentic 3D Modeling with Procedural Control 论文图" loading="lazy"></a><span class="image-caption">Procedura: Agentic 3D Modeling with Procedural Control 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2608.26238v1">arXiv</a> · <a href="https://huggingface.co/papers/2608.26238">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2608.26238">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2608.26238/index.html" data-inline-html="true">展开正文</a></p>
-<h3 id="视频">视频</h3>
-<h4 id="gamewam-a-world-action-model-for-video-games-2">GameWAM: A World Action Model for Video Games</h4>
-<p><strong>分类：</strong> 3D / 视频；world model、video world model</p>
-<p>提出面向视频游戏的世界-动作模型GameWAM</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.26200v1/gamewam_overview.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.26200v1/gamewam_overview.png" alt="GameWAM: A World Action Model for Video Games 论文图" loading="lazy"></a><span class="image-caption">GameWAM: A World Action Model for Video Games 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2608.26200v1">arXiv</a> · <a href="https://huggingface.co/papers/2608.26200">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2608.26200">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2608.26200/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="pawbench-how-far-are-we-from-probabilistically-aligned-world-modeling-2">PAWBench: How Far Are We from Probabilistically Aligned World Modeling?</h4>
-<p><strong>分类：</strong> 3D / 视频；world model、video world model</p>
-<p>提出PAWBench评估视频生成是否匹配物理行为分布</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.27345v2/one_plausible_future.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.27345v2/one_plausible_future.png" alt="PAWBench: How Far Are We from Probabilistically Aligned World Modeling? 论文图" loading="lazy"></a><span class="image-caption">PAWBench: How Far Are We from Probabilistically Aligned World Modeling? 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2608.27345">arXiv</a> · <a href="https://huggingface.co/papers/2608.27345">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2608.27345">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2608.27345/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="editalive-unified-character-video-editing-for-live-streaming">EditaLive! Unified Character Video Editing for Live Streaming</h4>
-<p><strong>分类：</strong> 视频；video diffusion model</p>
-<p>EditaLive提出面向直播人物视频的实时统一编辑框架。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.27123v1/fig_architecture.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.27123v1/fig_architecture.png" alt="EditaLive! Unified Character Video Editing for Live Streaming 论文图" loading="lazy"></a><span class="image-caption">EditaLive! Unified Character Video Editing for Live Streaming 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2608.27123">arXiv</a> · <a href="https://huggingface.co/papers/2608.27123">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2608.27123">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2608.27123/index.html" data-inline-html="true">展开正文</a></p>
-<h2 id="全量论文简报">全量论文简报</h2>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2608.25518v1">Agentic Game Development as a Verifiable Trajectory Data Engine for Scaling World Models</a></td><td>3D</td><td>提出用游戏开发验证轨迹数据来扩展世界模型</td></tr><tr><td><a href="https://arxiv.org/abs/2608.26200v1">GameWAM</a></td><td>3D / 视频</td><td>提出面向视频游戏的世界-动作模型GameWAM</td></tr><tr><td><a href="https://arxiv.org/abs/2608.23943v1">Luce</a></td><td>3D</td><td>提出可重光照的三维高斯表示用于单图生成3D资产</td></tr><tr><td><a href="https://arxiv.org/abs/2608.27345">PAWBench</a></td><td>3D / 视频</td><td>提出PAWBench评估视频生成是否匹配物理行为分布</td></tr><tr><td><a href="https://arxiv.org/abs/2608.26238v1">Procedura</a></td><td>3D</td><td>Procedura用智能体将文本生成可编辑、可装配的参数化3D程序模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.27123">EditaLive! Unified Character Video Editing for Live Streaming</a></td><td>视频</td><td>EditaLive提出面向直播人物视频的实时统一编辑框架。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.26993">Aphanta</a></td><td>其他</td><td>评估图像编辑中间体对多模态推理的作用</td></tr><tr><td><a href="https://arxiv.org/abs/2608.23172">CaRGo-T</a></td><td>其他</td><td>CaRGo-T用因果图推理提升多模态幽默理解与检测效果。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.25500">CaSKG</a></td><td>其他</td><td>CaSKG通过反事实因果校准技能图，提升智能体技能检索效果。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.27455">CritICL</a></td><td>其他</td><td>CritICL利用小模型失败模式，在推理时高效提升大模型推理能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.27168">Magpie</a></td><td>其他</td><td>Magpie提出面向交互游戏的实时生成式世界渲染系统。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.26530">PILOT in the Loop</a></td><td>其他</td><td>PILOT实现长程智能体运行中实时纠偏与自我进化。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.26872">Self-OPD</a></td><td>其他</td><td>本文提出无教师的Self-OPD，用自探索优势监督流匹配模型对齐优化。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.25798">TacForcing</a></td><td>其他</td><td>TacForcing利用执行时触觉反馈实现接触操作流式动作生成。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.26809">Thinking on Shots</a></td><td>其他</td><td>论文提出多指令多镜头长视频编辑框架，实现一致连贯的精准编辑。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.15763">Training Agents to Evolve with Their Harness</a></td><td>其他</td><td>论文提出HAT训练方法，让小模型数字人主播适应不断变化的工具与提示配置。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.27448">TTPO</a></td><td>其他</td><td>TTPO用测试时策略优化在无标签下提升大模型数学推理。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.27351">Understanding Evolution Strategies for LLM Reasoning</a></td><td>其他</td><td>论文系统分析ES在大模型推理后训练中的机制，并证明其比GRPO具备更广的推理覆盖。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.27456">UrbanGround</a></td><td>其他</td><td>研究大模型智能体在真实城市中由感知到导航的空间行动能力</td></tr><tr><td><a href="https://arxiv.org/abs/2608.19269">What Does an Evaluation License? A Commit-Bound Census of Claim-Relative Inference in Inspect Evals</a></td><td>其他</td><td>论文审计Inspect Evals评测单元，分析其是否足以支持对应性能结论。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.27260">What Makes Good Agentic Data? An ACE Lens on Data Generation for LLM Agents</a></td><td>其他</td><td>提出ACE框架，分析LLM智能体数据生成质量</td></tr><tr><td><a href="https://arxiv.org/abs/2608.27454">WikiSkill</a></td><td>其他</td><td>WikiSkill通过持久知识库沉淀经验，持续进化并提升智能体技能。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.26103">Zero-WAM</a></td><td>其他</td><td>Zero-WAM利用人类视频上下文引导机器人零样本完成未见操作任务。</td></tr></tbody></table></div></div></article></main>
+    <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../date/">← 返回日报目录</a></p>
+<h1 id="ziptok3d-high-fidelity-3d-tokenization-with-compact-token-prefixes">ZipTok3D: High-Fidelity 3D Tokenization with Compact Token Prefixes</h1>
+<p><strong>一句话主题：</strong> 3D tokenization：从极短token序列高保真重建三维几何</p>
+<p><strong>领域标签：</strong> 3D生成 / tokenizer / 三维重建</p>
+<h2 id="快速理解">快速理解</h2>
+<p><strong>背景与任务：</strong> 现有3D分词器在极低token预算下重建质量严重下降，难以实现高效3D生成。</p>
+<p><strong>核心工作：</strong> 作者提出ZipTok3D，使用嵌套dropout的全局token前缀和参数共享Transformer迭代解码，实现极短序列高保真重建。</p>
+<h2 id="中文摘要">中文摘要</h2>
+<p>紧凑的token序列对于高效的3D生成至关重要。然而，现有的3D tokenizer通常将潜在表示组织为空间区域或固定大小的全局token集合，两者在压缩到极低token预算时都会出现严重的重建退化。在本文中，我们提出了ZipTok3D，一种专为从极短token序列进行高保真重建而设计的3D tokenizer。其关键思想是将物体几何组织为信息逐渐丰富的全局token前缀，并通过迭代解码展开这些紧凑表示。具体而言，nested dropout在训练期间编码后随机截断潜在序列，并要求每个保留的前缀重建完整物体，从而将重要的几何信息优先放在前面的token中。解码器随后重复应用参数共享的Transformer块，从每个前缀恢复细粒度几何，无需单独的生成采样阶段。在相同token维度下，ZipTok3D在ShapeNet上仅使用一个token、在TRELLIS上使用四个token即可达到与32-token COD-VAE基线相当的重建质量，token序列分别缩短了32倍和8倍。</p>
+<h2 id="详细分析">详细分析</h2>
+<h2 id="1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</h2>
+<p>3D tokenization 的任务是把一个三维形状的表面点云压缩为一条紧凑的潜变量 token 序列，使下游生成模型能够高效处理，并可从该序列重建出高保真几何。输入包括表面采样点和查询点；输出是形状的 token 前缀，或由 token 前缀解码得到的占用场/网格。本文边界是：只处理几何占用，不处理纹理、颜色或开放场景，并且目标 token 数量极少（1、2、4 个）。</p>
+<h2 id="2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</h2>
+<p>现有 3D tokenizer 大致分为两类：一类把潜变量组织在空间区域上，例如点云、稀疏网格或八叉树；另一类把整个物体压缩成固定数量的全局 token，例如 VecSet、COD-VAE。前者在低 token 预算下需要依赖更粗的空间结构，后者虽然能得到更短序列，但当 token 数降到几个时，重建质量会急剧下降。</p>
+<p>问题在于：固定预算训练只约束“完整 token 集合共同携带的信息”，不约束“信息在 token 位置上如何分配”。当 token 数很少时，全局结构与局部细节会在有限的容量里竞争；而解码器又是一次性前馈，难以把极短的全局向量展开成空间上精细的占用场。</p>
+<p>核心 insight 有两点。第一，用嵌套前缀结构显式规定信息优先级：短前缀先保存物体级几何，后续 token 再补充残差细节。第二，用参数共享的迭代解码器逐步展开紧凑前缀；不是增加更多不同的解码层，而是反复使用同一 Transformer 块，逐步把全局信息“摊开”到空间表示中。图 1 展示了这一目标：ZipTok3D 只用一个 token，就能接近其他方法用几十甚至几百个 token 的重建效果。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.01740v1/figures/headfig.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.01740v1/figures/headfig.png" alt="图1：不同token预算下的定性重建。左上角显示真实形状。VecSet使用512个全局token，而COD-VAE使用32个。ZipTok3D从其有序潜变量序列的第一个token开始，经过五个共享细化步骤重建相同对象。" loading="lazy"></a><span class="image-caption">图1：不同token预算下的定性重建。左上角显示真实形状。VecSet使用512个全局token，而COD-VAE使用32个。ZipTok3D从其有序潜变量序列的第一个token开始，经过五个共享细化步骤重建相同对象。</span></span></p>
+<h2 id="3-核心贡献-约300字">3. 核心贡献（约300字）</h2>
+<p>论文提出 ZipTok3D，一个面向极短 token 序列的高保真 3D tokenizer。它的主要贡献包括：</p>
+<ul><li>提出“重建前缀”机制：通过嵌套 dropout 让每个被保留的前缀都能重建完整物体，从而把最重要的几何信息集中到序列开头的 token 中，而不是均匀或随机地分散在所有 token 里。</li><li>提出参数共享的迭代细化解码：解码器反复使用同一个 Transformer 块，把短前缀逐步展开成三平面特征；不需要引入额外的生成式补全或潜变量采样阶段。</li><li>在训练目标中结合最终输出监督、随机中间状态监督和自蒸馏，使中间细化状态也具备合理重建能力，并稳定端到端优化。</li></ul>
+<p>实验验证方面：在 ShapeNet 上，1 个 ZipTok3D token 的重建质量接近 32-token COD-VAE；在 TRELLIS 上，4 个 token 在查询 IoU、网格 CD 和 F1 上优于 COD-VAE-32，分别缩短 32 倍和 8 倍 token 序列。两 token 的 stage-2 表示也能用于类别条件生成，采样吞吐更高。图 3 给出典型定性重建结果。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.01740v1/figures/effectfig.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.01740v1/figures/effectfig.png" alt="图3：ShapeNet（上）和TRELLIS（下）上的定性重建。各列分别显示真实值、K=32和K=64的COD-VAE、K=512的VecSet，以及K=1和K=2的ZipTok3D。两种ZipTok3D设置均使用五个细化步骤。" loading="lazy"></a><span class="image-caption">图3：ShapeNet（上）和TRELLIS（下）上的定性重建。各列分别显示真实值、K=32和K=64的COD-VAE、K=512的VecSet，以及K=1和K=2的ZipTok3D。两种ZipTok3D设置均使用五个细化步骤。</span></span></p>
+<h2 id="4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</h2>
+<p>部署后的 ZipTok3D 由几个基础模块协作完成推理：编码器负责把输入点云转换为有序潜 token 前缀；选择/初始化模块负责让三平面 token 与前缀交互；参数共享 Transformer 块作为迭代细化器；占用 MLP 负责从三平面特征预测空间占用；最终由等值面提取得到网格。图 2 给出整体数据流。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.01740v1/figures/mainfig.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.01740v1/figures/mainfig.png" alt="图2：ZipTok3D概述。嵌套dropout将几何信息集中到重建前缀Z_{:K}中，而参数共享块在L个细化步骤中逐步将其展开为三平面特征。蓝色和绿色分别表示潜变量token和三平面token；阴影token表示被遮蔽的后缀。" loading="lazy"></a><span class="image-caption">图2：ZipTok3D概述。嵌套dropout将几何信息集中到重建前缀Z_{:K}中，而参数共享块在L个细化步骤中逐步将其展开为三平面特征。蓝色和绿色分别表示潜变量token和三平面token；阴影token表示被遮蔽的后缀。</span></span></p>
+<p>推理步骤如下：</p>
+<ol><li><strong>输入表面点云 → 编码器 → 有序潜序列前缀</strong>  </li></ol>
+<p>用户输入一个形状的表面采样点。编码器把点云压缩成一条有序潜 token 序列，但只保留前 \(K\) 个 token 作为有效的紧凑表示，输出给下一模块。</p>
+<ol><li><strong>输入前缀与三平面 token → 选择/初始化模块 → 初始三平面状态</strong>  </li></ol>
+<p>系统维护一组三平面 token，它们对应二维特征平面上的 Patch。选择/初始化模块让这组 token 与步骤 1 的前缀交互，产生一个携带全局信息的初始三平面状态，同时保留一部分未选中 token 供后续恢复完整表示。</p>
+<ol><li><strong>输入初始三平面状态与前缀 → 参数共享 Transformer 块 → 更新后的三平面状态</strong>  </li></ol>
+<p>同一个共享 Transformer 块被反复应用 \(L\) 次。每次迭代把当前三平面状态作为输入，结合固定前缀输出一个更新后的三平面状态；该状态又作为下一次迭代的输入。迭代结束后得到最终三平面表示。</p>
+<ol><li><strong>输入最终三平面与查询点坐标 → 占用 MLP → 占用概率</strong>  </li></ol>
+<p>对用户关心的任意空间查询点，占用 MLP 从三平面表示中采样对应位置的特征，并输出该点位于物体内部或外部的概率。</p>
+<ol><li><strong>输入稠密占用概率场 → 等值面提取 → 重建网格</strong>  </li></ol>
+<p>在规则网格上稠密查询占用概率后，用 marching cubes 等标准等值面提取方法恢复出最终网格。</p>
+<div class="mermaid">graph TD
+    A[&quot;输入点云：表面采样点&quot;] --&gt; B[&quot;编码器&quot;]
+    B --&gt; C[&quot;有序潜序列前缀&quot;]
+    C --&gt; D[&quot;选择/初始化模块：三平面 token 与前缀交互&quot;]
+    D --&gt; E[&quot;初始三平面状态&quot;]
+    E --&gt; F[&quot;参数共享 Transformer 块&quot;]
+    F --&gt; G[&quot;更新后的三平面状态&quot;]
+    G --&gt;|&quot;迭代 L 次&quot;| F
+    G --&gt; H[&quot;最终三平面表示&quot;]
+    H --&gt; I[&quot;占用 MLP 按查询点采样&quot;]
+    I --&gt; J[&quot;占用概率场&quot;]
+    J --&gt; K[&quot;等值面提取&quot;]
+    K --&gt; L[&quot;重建网格&quot;]</div>
+<h2 id="5-核心方法-按论文-method-小节总结-约600字">5. 核心方法：按论文 Method 小节总结（约600字）</h2>
+<h3 id="3-1-overview-概述">3.1 Overview（概述）</h3>
+<p>ZipTok3D 的总体框架如下：设输入表面点为 \(\mathcal{X}=\{x_i\}_{i=1}^N\subset\mathbb{R}^3\)，查询点为 \(\mathcal{Q}\)，对应占用标签为 \(\mathcal{Y}\)。渐进式点编码器 \(E_\phi\) 把 \(\mathcal{X}\) 映射为长度 \(M\) 的潜序列：</p>
+<p>\[ Z=E_\phi(\mathcal{X})=(z_1,\ldots,z_M)\in\mathbb{R}^{M\times d}. \]</p>
+<p>解码时，可学习三平面 token \(T^0\) 先与保留前缀 \(Z_{:K}\) 在选择模块 \(\mathcal{S}_\omega\) 中交互。选择模块把三平面 token 分成两部分：被选中的状态 \(H_K^0\) 和被跳过的冗余 token \(R_K\)。随后参数共享 Transformer 块 \(g_\theta\) 对 \(H_K^0\) 迭代细化 \(L\) 次。每次细化后，更新后的状态与 \(R_K\) 被恢复到完整三平面表示 \(T_K^\ell\)。最后占用 MLP \(h_{\mathrm{occ}}\) 查询三平面特征并输出占用概率。序列长度 \(K\) 与细化深度 \(L\) 是两个独立的推理控制量，分别决定“保留多少信息”和“用多少计算展开信息”。</p>
+<h3 id="3-2-learning-a-reconstructive-prefix-code-学习重建前缀编码">3.2 Learning a Reconstructive Prefix Code（学习重建前缀编码）</h3>
+<p>仅用完整序列的重建损失，只能约束所有 token 联合携带的信息，无法决定信息在不同 token 位置上的分配。ZipTok3D 因此优化一族嵌套前缀：短前缀是长前缀的子集，每个前缀都必须能够独立重建完整物体。</p>
+<p>训练时，编码器先生成长度 \(M=128\) 的完整序列，然后从指数间隔的 token 预算集合</p>
+<p>\[ \mathcal{K}=\{1,2,4,8,16,32,64,128\} \]</p>
+<p>中均匀采样一个保留长度 \(K\)。后缀 \(Z_{K+1:M}\) 会从三平面选择与迭代细化中被完全掩蔽，因此重建目标只能由前缀 \(Z_{:K}\) 完成。推理时直接截断后缀，同一个检查点可以支持所有已训练 token 预算。这种嵌套结构迫使前几个 token 保存物体级几何，后面的 token 逐步补充细节。</p>
+<h3 id="3-3-iterative-global-to-spatial-refinement-迭代式全局到空间细化">3.3 Iterative Global-to-Spatial Refinement（迭代式全局到空间细化）</h3>
+<p>短前缀虽然保留了关键几何信息，但从少量全局向量直接恢复精细 3D 场仍然很困难。单次前馈解码需要一步完成“全局信息分配到大量空间位置”的变换，容量不足。ZipTok3D 改为重复使用同一参数共享 Transformer 块：</p>
+<p>\[ H_K^\ell=g_\theta(H_K^{\ell-1},Z_{:K}),\quad \ell=1,\ldots,L. \]</p>
+<p>每一步中，前缀 \(Z_{:K}\) 固定不变，只更新三平面状态。更新后的状态与冗余 token 恢复到完整三平面：</p>
+<p>\[ T_K^\ell=\mathcal{R}(H_K^\ell,R_K). \]</p>
+<p>然后对任意查询点 \(q_j\) 预测占用：</p>
+<p>\[ \hat{y}_{K,j}^\ell=\sigma(h_{\mathrm{occ}}(T_K^\ell,q_j)). \]</p>
+<p>最终输出是 \(\hat{\mathcal{Y}}_K^L\)，但中间步骤 \(\hat{\mathcal{Y}}_K^\ell\) 也构成同一细化轨迹上的预测。这个过程把全局信息逐步“展开”为空间细节，而不引入额外的生成式采样阶段。图 4 和图 5 分别显示前缀长度与细化深度的作用，以及细化次数增加时从粗略结构到精细结构的定性变化。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.01740v1/figures/loopeffect.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.01740v1/figures/loopeffect.png" alt="图5：K=1时的定性细化。各列分别显示真实值、K=32的COD-VAE，以及经过L=1、L=3和L=5次细化迭代后K=1的ZipTok3D重建结果。" loading="lazy"></a><span class="image-caption">图5：K=1时的定性细化。各列分别显示真实值、K=32的COD-VAE，以及经过L=1、L=3和L=5次细化迭代后K=1的ZipTok3D重建结果。</span></span></p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.01740v1/figures/token_refinement_recommended_palette.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.01740v1/figures/token_refinement_recommended_palette.png" alt="图4：前缀长度K和细化深度L对ShapeNet（上）和TRELLIS（下）查询IoU的影响。图左在固定L时改变K，图右在固定K时改变L。" loading="lazy"></a><span class="image-caption">图4：前缀长度K和细化深度L对ShapeNet（上）和TRELLIS（下）查询IoU的影响。图左在固定L时改变K，图右在固定K时改变L。</span></span></p>
+<h3 id="3-4-training-objective-训练目标">3.4 Training Objective（训练目标）</h3>
+<p>参数共享本身不能保证每个中间状态都是有效重建。若只监督最后一步，前面的细化状态可能不受约束。ZipTok3D 因此同时监督最终输出和一个随机采样的中间输出。</p>
+<p>查询点被分为均匀采样体积查询 \(\mathcal{Q}_{\mathrm{vol}}\) 和近表面查询 \(\mathcal{Q}_{\mathrm{near}}\)，重建损失是加权 BCE：</p>
+<p>\[ \mathcal{L}_{\mathrm{rec}}(\hat{\mathcal{Y}}_K^\ell,\mathcal{Y}) = \frac{1}{N_{\mathrm{vol}}}\sum_{j\in\mathcal{I}_{\mathrm{vol}}} \operatorname{BCE}(\hat{y}_{K,j}^\ell,y_j) + \frac{\lambda_{\mathrm{near}}}{N_{\mathrm{near}}}\sum_{j\in\mathcal{I}_{\mathrm{near}}} \operatorname{BCE}(\hat{y}_{K,j}^\ell,y_j), \]</p>
+<p>其中 \(\lambda_{\mathrm{near}}=0.1\)。此外继承 COD-VAE 的两个辅助损失：</p>
+<p>\[ \mathcal{L}_{\mathrm{aux}}=\lambda_{\mathrm{init}}\mathcal{L}_{\mathrm{init}}+\lambda_{\mathrm{unc}}\mathcal{L}_{\mathrm{unc}}, \]</p>
+<p>其中 \(\mathcal{L}_{\mathrm{init}}\) 监督初始三平面预测，\(\mathcal{L}_{\mathrm{unc}}\) 监督 token 选择所用的不确定性估计。中间状态监督使用 \(\ell\in\{1,\ldots,L-1\}\) 的均匀采样，并同时使用真实标签重建损失和自蒸馏损失，后者让中间预测逼近 detach 后的最终预测：</p>
+<p>\[ \mathcal{L}_{\mathrm{dist}}(\hat{\mathcal{Y}}_K^\ell,\mathrm{sg}(\hat{\mathcal{Y}}_K^L)). \]</p>
+<p>总目标为：</p>
+<p>\[ \mathcal{L}_{K,\ell} = \underbrace{\mathcal{L}_{\mathrm{rec}}(\hat{\mathcal{Y}}_K^L,\mathcal{Y})+\mathcal{L}_{\mathrm{aux}}}_{\text{最终与辅助监督}} + \beta\, \underbrace{\left[ \alpha_t\mathcal{L}_{\mathrm{rec}}(\hat{\mathcal{Y}}_K^\ell,\mathcal{Y}) + (1-\alpha_t)\mathcal{L}_{\mathrm{dist}}(\hat{\mathcal{Y}}_K^\ell,\mathrm{sg}(\hat{\mathcal{Y}}_K^L)) \right]}_{\text{中间监督}}, \]</p>
+<p>其中 \(\beta=0.5\)，\(\alpha_t=\max(0,1-t/T_\alpha)\) 随优化步数退火，使训练早期更依赖真实标签，后期更依赖最终预测。</p>
+<h2 id="6-局限性和展望-约300字">6. 局限性和展望（约300字）</h2>
+<p>论文明确说明的限制主要在实验范围：类别条件生成只在 ShapeNet 的五个类别上验证，且 stage-2 表示固定为两个 token；相比 COD-VAE-32，生成分布指标如 MMD、COV、1-NNA 仍略有差距。未来工作论文提到两点：设计更能利用短潜序列的生成模型，以及根据输入自适应分配前缀长度和细化深度。</p>
+<p>可以谨慎推断的限制包括：ZipTok3D 的重建质量以几何占用为评价对象，没有处理纹理或颜色；重建流程依赖 watertight 预处理，因此对开放网格、非水密输入或复杂场景的适应性可能受限。模型目前使用固定最大长度 \(M=128\) 和离散的指数 token 预算，若某个物体特别复杂或特别简单，仍需要统一的 \(K\) 和 \(L\)，缺少逐物体自适应。另外，迭代细化会增加解码延迟，虽然参数不随 \(L\) 增长，但计算时间线性增加，在实时应用或大规模生成中可能需要权衡。总体而言，ZipTok3D 证明了“极短 token 前缀 + 共享迭代解码”是高保真 3D 重建的一个有效方向，后续若能结合自适应长度和更高效的生成模型，有望进一步释放短序列 3D tokenizer 的潜力。</p></div></article></main>
   </div>
   <script>/*!
   * PhotoSwipe 5.4.4 - https://photoswipe.com
@@ -719,224 +720,6 @@ div.pswp__img--placeholder,
       updateToc();
     }
 
-
-    (() => {
-      const cache = new Map();
-
-      async function fetchLinkedPage(url) {
-        if (!cache.has(url)) {
-          const request = fetch(url, { credentials: "same-origin" })
-            .then(async (response) => {
-              if (!response.ok) throw new Error(`HTTP ${response.status}`);
-              return { text: await response.text(), url: response.url };
-            })
-            .catch((error) => {
-              cache.delete(url);
-              throw error;
-            });
-          cache.set(url, request);
-        }
-        return cache.get(url);
-      }
-
-      function rewriteReferences(root, pageUrl) {
-        root.querySelectorAll("[src], [href]").forEach((node) => {
-          ["src", "href"].forEach((attribute) => {
-            const value = node.getAttribute(attribute);
-            if (!value || value.startsWith("#") || /^(?:data|blob|mailto|tel|javascript):/i.test(value)) return;
-            try {
-              node.setAttribute(attribute, new URL(value, pageUrl).href);
-            } catch (_) {
-              // Leave malformed references unchanged; the browser will expose the failure.
-            }
-          });
-        });
-      }
-
-      function isolateIds(root, prefix) {
-        const replacements = new Map();
-        root.querySelectorAll("[id]").forEach((node) => {
-          const original = node.id;
-          const replacement = `${prefix}-${original}`;
-          replacements.set(original, replacement);
-          node.id = replacement;
-        });
-        root.querySelectorAll('a[href^="#"]').forEach((node) => {
-          const original = decodeURIComponent(node.getAttribute("href").slice(1));
-          if (replacements.has(original)) node.setAttribute("href", `#${replacements.get(original)}`);
-        });
-      }
-
-      function prepareDynamicImages(root) {
-        root.querySelectorAll("a.pswp-image").forEach((item) => {
-          const image = item.querySelector("img");
-          if (!image) return;
-          const sync = () => {
-            item.dataset.pswpSrc = image.currentSrc || image.src;
-            if (item.dataset.referenceImage === "true" && image.naturalWidth && image.naturalHeight) {
-              item.dataset.pswpWidth = String(image.naturalWidth);
-              item.dataset.pswpHeight = String(image.naturalHeight);
-            }
-          };
-          sync();
-          image.addEventListener("load", sync, { once: true });
-        });
-      }
-
-      document.querySelectorAll('a[data-inline-html="true"]').forEach((link, index) => {
-        const summary = link.closest("p, li, blockquote, td") || link.parentElement;
-        if (!summary) return;
-        const dedicatedExpand = link.textContent.trim() === "展开正文";
-        if (dedicatedExpand) {
-          let candidate = summary.previousElementSibling;
-          while (candidate && !/^H[1-6]$/.test(candidate.tagName)) {
-            if (candidate.matches("p")) {
-              candidate.classList.add("inline-report-meta");
-              if (candidate.querySelector(".embedded-image")) {
-                candidate.classList.add("inline-report-thumbnail");
-              }
-            }
-            candidate = candidate.previousElementSibling;
-          }
-          if (candidate) candidate.classList.add("inline-report-title");
-        }
-
-        let entry = summary.closest(".inline-html-entry");
-        if (!entry) {
-          if (summary.tagName === "LI" || summary.tagName === "TD") {
-            entry = summary;
-            entry.classList.add("inline-html-entry");
-          } else {
-            entry = document.createElement("section");
-            entry.className = "inline-html-entry";
-            summary.before(entry);
-            entry.append(summary);
-          }
-        }
-        summary.classList.add("inline-html-summary");
-        if (dedicatedExpand) {
-          link.classList.add("inline-html-source-link");
-        }
-
-        const panel = document.createElement("section");
-        panel.className = "inline-html-panel";
-        panel.id = `inline-html-panel-${index + 1}`;
-        panel.hidden = true;
-        panel.setAttribute("aria-live", "polite");
-
-        const actions = document.createElement("span");
-        actions.className = "inline-html-actions";
-        const toggle = document.createElement("button");
-        toggle.className = "inline-html-toggle";
-        toggle.type = "button";
-        toggle.textContent = "展开正文";
-        toggle.setAttribute("aria-controls", panel.id);
-        toggle.setAttribute("aria-expanded", "false");
-        const standalone = document.createElement("a");
-        standalone.className = "inline-html-standalone";
-        standalone.href = link.href;
-        standalone.textContent = "单独打开";
-        actions.append(toggle, standalone);
-        summary.append(document.createTextNode(" "), actions);
-        entry.append(panel);
-
-        let state = "idle";
-
-        function setOpen(open, returnToSummary = false) {
-          panel.hidden = !open;
-          entry.classList.toggle(
-            "is-expanded",
-            Boolean(entry.querySelector(".inline-html-panel:not([hidden])"))
-          );
-          const expanded = String(open);
-          toggle.setAttribute("aria-expanded", expanded);
-          link.setAttribute("aria-expanded", expanded);
-          toggle.textContent = open ? (state === "error" ? "重试加载" : "收起正文") : "展开正文";
-          if (!open && returnToSummary) {
-            summary.scrollIntoView({ behavior: "smooth", block: "start" });
-            toggle.focus({ preventScroll: true });
-          }
-        }
-
-        function appendCloseFooter(target) {
-          const footer = document.createElement("div");
-          footer.className = "inline-html-footer";
-          const close = document.createElement("button");
-          close.className = "inline-html-close";
-          close.type = "button";
-          close.textContent = "收起正文并返回摘要";
-          close.addEventListener("click", () => setOpen(false, true));
-          footer.append(close);
-          target.append(footer);
-        }
-
-        async function toggleInlinePage() {
-          if (state === "loaded") {
-            setOpen(panel.hidden);
-            return;
-          }
-          if (state === "loading") return;
-
-          state = "loading";
-          toggle.disabled = true;
-          panel.replaceChildren();
-          const loading = document.createElement("p");
-          loading.className = "inline-html-status";
-          loading.textContent = "正在加载完整正文…";
-          panel.append(loading);
-          setOpen(true);
-
-          try {
-            const fetched = await fetchLinkedPage(link.href);
-            const parsed = new DOMParser().parseFromString(fetched.text, "text/html");
-            const source = parsed.querySelector(".markdown-image-gallery")
-              || parsed.querySelector("main article")
-              || parsed.querySelector("article")
-              || parsed.querySelector("main");
-            if (!source) throw new Error("linked page does not contain a readable article");
-            const body = source.cloneNode(true);
-            if (body.firstElementChild && body.firstElementChild.tagName === "H1") {
-              body.firstElementChild.remove();
-            }
-            isolateIds(body, `inline-${index + 1}`);
-            rewriteReferences(body, fetched.url);
-            body.classList.add("inline-html-body");
-            panel.replaceChildren(body);
-            appendCloseFooter(panel);
-            prepareDynamicImages(body);
-            state = "loaded";
-            setOpen(true);
-            if (window.mermaid && typeof window.mermaid.run === "function") {
-              const diagrams = Array.from(body.querySelectorAll(".mermaid"));
-              if (diagrams.length) window.mermaid.run({ nodes: diagrams }).catch(() => {});
-            }
-
-            if (window.MathJax && typeof window.MathJax.typesetPromise === "function") {
-              window.MathJax.typesetPromise([body]).catch(() => {});
-            }
-
-          } catch (error) {
-            panel.replaceChildren();
-            const message = document.createElement("p");
-            message.className = "inline-html-status inline-html-error";
-            message.textContent = `正文加载失败：${error.message}`;
-            panel.append(message);
-            appendCloseFooter(panel);
-            state = "error";
-            setOpen(true);
-          } finally {
-            toggle.disabled = false;
-          }
-        }
-
-        toggle.addEventListener("click", toggleInlinePage);
-        link.addEventListener("click", (event) => {
-          if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-          event.preventDefault();
-          toggleInlinePage();
-        });
-      });
-    })();
 
 
   </script>

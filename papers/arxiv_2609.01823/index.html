@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>2026-W35 · 论文周报</title>
+  <title>Kirin: Animal Motion Generation from In-the-Wild Video</title>
 
   <script>
     window.MathJax = {
@@ -516,32 +516,6 @@ div.pswp__img--placeholder,
     }
 
 
-    .inline-html-entry { margin: 18px 0; padding: 16px 18px 18px; border: 1px solid #d8e2eb; border-left: 3px solid #91abc2; border-radius: 6px; background: #fbfdff; transition: border-color .15s, background .15s; }
-    .inline-html-entry.is-expanded { border-color: #b7c9d9; border-left-color: #1769aa; background: #fff; }
-    .inline-report-title { margin: 24px 0 8px; color: #1769aa; font-size: 19px; font-weight: 750; line-height: 1.42; }
-    .inline-report-meta { margin: 4px 0; color: #52606d; font-size: 13px; line-height: 1.55; }
-    .inline-report-thumbnail { margin: 10px 0 2px; }
-    .inline-report-thumbnail .embedded-image { margin: 0; }
-    .inline-report-thumbnail .embedded-image img { max-height: 220px; margin-left: 0; object-fit: contain; }
-    .inline-report-thumbnail .image-caption { max-width: 760px; text-align: left; font-size: 12px; }
-    .inline-html-summary { margin-top: 0; margin-bottom: 0; }
-    .inline-html-actions { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-left: 10px; vertical-align: middle; }
-    .inline-html-toggle, .inline-html-standalone, .inline-html-close { display: inline-flex; min-height: 30px; align-items: center; justify-content: center; padding: 5px 10px; border: 1px solid #b9c9d8; border-radius: 6px; background: #fff; color: #37516a; font: inherit; font-size: 12px; font-weight: 700; line-height: 1.35; text-decoration: none; cursor: pointer; }
-    .inline-html-source-link { display: none; }
-    .inline-html-toggle:hover, .inline-html-standalone:hover, .inline-html-close:hover { border-color: #1769aa; color: #1769aa; }
-    .inline-html-toggle:disabled { cursor: wait; opacity: .6; }
-    .inline-html-panel { margin: 18px 0 0; padding-top: 24px; border-top: 1px solid #e2e8f0; }
-    .inline-html-panel[hidden] { display: none; }
-    .inline-html-body h1:first-child { display: none; }
-    .inline-html-status { color: #64748b; font-size: 14px; }
-    .inline-html-error { color: #9f1239; }
-    .inline-html-footer { display: flex; justify-content: flex-end; margin-top: 30px; padding-top: 16px; border-top: 1px solid #e2e8f0; }
-    @media (max-width: 640px) {
-      .inline-html-entry { padding: 14px 14px 16px; }
-      .inline-html-actions { display: flex; margin: 10px 0 0; }
-      .inline-html-toggle, .inline-html-standalone, .inline-html-close { min-height: 36px; }
-    }
-
 
   </style>
 </head>
@@ -554,68 +528,47 @@ div.pswp__img--placeholder,
     <aside class="academic-sidebar" id="academic-sidebar" aria-label="文档目录">
       <div class="toc-panel">
         <p class="toc-heading">目录</p>
-        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#2026-w35-论文周报">2026-W35 · 论文周报</a><a class="toc-link toc-level-2" href="#重点解析">重点解析</a><a class="toc-link toc-level-3" href="#3d">3D</a><a class="toc-link toc-level-4" href="#2026-08-30">2026-08-30</a><a class="toc-link toc-level-5" href="#agentic-game-development-as-a-verifiable-trajectory-data-engine-for-scaling-world-models">Agentic Game Development as a Verifiable Trajectory Data Engine for Scaling World Models</a><a class="toc-link toc-level-5" href="#gamewam-a-world-action-model-for-video-games">GameWAM: A World Action Model for Video Games</a><a class="toc-link toc-level-5" href="#luce-relightable-gaussians-for-3d-asset-generation">Luce: Relightable Gaussians for 3D Asset Generation</a><a class="toc-link toc-level-5" href="#pawbench-how-far-are-we-from-probabilistically-aligned-world-modeling">PAWBench: How Far Are We from Probabilistically Aligned World Modeling?</a><a class="toc-link toc-level-5" href="#procedura-agentic-3d-modeling-with-procedural-control">Procedura: Agentic 3D Modeling with Procedural Control</a><a class="toc-link toc-level-3" href="#视频">视频</a><a class="toc-link toc-level-4" href="#2026-08-30-2">2026-08-30</a><a class="toc-link toc-level-5" href="#gamewam-a-world-action-model-for-video-games-2">GameWAM: A World Action Model for Video Games</a><a class="toc-link toc-level-5" href="#pawbench-how-far-are-we-from-probabilistically-aligned-world-modeling-2">PAWBench: How Far Are We from Probabilistically Aligned World Modeling?</a><a class="toc-link toc-level-5" href="#editalive-unified-character-video-editing-for-live-streaming">EditaLive! Unified Character Video Editing for Live Streaming</a><a class="toc-link toc-level-2" href="#全量论文简报">全量论文简报</a><a class="toc-link toc-level-3" href="#2026-08-30-3">2026-08-30</a></nav>
+        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#kirin-animal-motion-generation-from-in-the-wild-video">Kirin: Animal Motion Generation from In-the-Wild Video</a><a class="toc-link toc-level-2" href="#快速理解">快速理解</a><a class="toc-link toc-level-2" href="#中文摘要">中文摘要</a><a class="toc-link toc-level-2" href="#详细分析">详细分析</a><a class="toc-link toc-level-2" href="#1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</a><a class="toc-link toc-level-2" href="#2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</a><a class="toc-link toc-level-2" href="#3-核心贡献-约300字">3. 核心贡献（约300字）</a><a class="toc-link toc-level-2" href="#4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</a></nav>
       </div>
     </aside>
-    <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../index.html">论文阅读首页</a> <a href="../../date/index.html">日报目录</a> <a href="../index.html">周报目录</a> <a href="../../month/index.html">月报目录</a></p>
-<h1 id="2026-w35-论文周报">2026-W35 · 论文周报</h1>
-<blockquote>收录 <strong>23 篇</strong>论文，重点解析 <strong>6 篇</strong>。正文按需展开，或可单独打开。</blockquote>
-<h2 id="重点解析">重点解析</h2>
-<h3 id="3d">3D</h3>
-<h4 id="2026-08-30">2026-08-30</h4>
-<h5 id="agentic-game-development-as-a-verifiable-trajectory-data-engine-for-scaling-world-models">Agentic Game Development as a Verifiable Trajectory Data Engine for Scaling World Models</h5>
-<p><strong>分类：</strong> 3D；world model</p>
-<p>提出用游戏开发验证轨迹数据来扩展世界模型</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.25518v1/fig_reward_comparison.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.25518v1/fig_reward_comparison.png" alt="Agentic Game Development as a Verifiable Trajectory Data Engine for Scaling World Models 论文图" loading="lazy"></a><span class="image-caption">Agentic Game Development as a Verifiable Trajectory Data Engine for Scaling World Models 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2608.25518v1">arXiv</a> · <a href="https://huggingface.co/papers/2608.25518">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2608.25518">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2608.25518/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="gamewam-a-world-action-model-for-video-games">GameWAM: A World Action Model for Video Games</h5>
-<p><strong>分类：</strong> 3D / 视频；world model、video world model</p>
-<p>提出面向视频游戏的世界-动作模型GameWAM</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.26200v1/gamewam_overview.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.26200v1/gamewam_overview.png" alt="GameWAM: A World Action Model for Video Games 论文图" loading="lazy"></a><span class="image-caption">GameWAM: A World Action Model for Video Games 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2608.26200v1">arXiv</a> · <a href="https://huggingface.co/papers/2608.26200">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2608.26200">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2608.26200/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="luce-relightable-gaussians-for-3d-asset-generation">Luce: Relightable Gaussians for 3D Asset Generation</h5>
-<p><strong>分类：</strong> 3D；3d generation、3d texture generation</p>
-<p>提出可重光照的三维高斯表示用于单图生成3D资产</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.23943v1/figures/banner/luce_robot_snapshot_demo_seed_14_r145_cz001_bright.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.23943v1/figures/banner/luce_robot_snapshot_demo_seed_14_r145_cz001_bright.png" alt="Luce: Relightable Gaussians for 3D Asset Generation 论文图" loading="lazy"></a><span class="image-caption">Luce: Relightable Gaussians for 3D Asset Generation 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2608.23943v1">arXiv</a> · <a href="https://huggingface.co/papers/2608.23943">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2608.23943">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2608.23943/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="pawbench-how-far-are-we-from-probabilistically-aligned-world-modeling">PAWBench: How Far Are We from Probabilistically Aligned World Modeling?</h5>
-<p><strong>分类：</strong> 3D / 视频；world model、video world model</p>
-<p>提出PAWBench评估视频生成是否匹配物理行为分布</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.27345v2/one_plausible_future.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.27345v2/one_plausible_future.png" alt="PAWBench: How Far Are We from Probabilistically Aligned World Modeling? 论文图" loading="lazy"></a><span class="image-caption">PAWBench: How Far Are We from Probabilistically Aligned World Modeling? 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2608.27345">arXiv</a> · <a href="https://huggingface.co/papers/2608.27345">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2608.27345">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2608.27345/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="procedura-agentic-3d-modeling-with-procedural-control">Procedura: Agentic 3D Modeling with Procedural Control</h5>
-<p><strong>分类：</strong> 3D；3d generation</p>
-<p>Procedura用智能体将文本生成可编辑、可装配的参数化3D程序模型。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.26238v1/pipeline-Overview-v7.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.26238v1/pipeline-Overview-v7.png" alt="Procedura: Agentic 3D Modeling with Procedural Control 论文图" loading="lazy"></a><span class="image-caption">Procedura: Agentic 3D Modeling with Procedural Control 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2608.26238v1">arXiv</a> · <a href="https://huggingface.co/papers/2608.26238">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2608.26238">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2608.26238/index.html" data-inline-html="true">展开正文</a></p>
-<h3 id="视频">视频</h3>
-<h4 id="2026-08-30-2">2026-08-30</h4>
-<h5 id="gamewam-a-world-action-model-for-video-games-2">GameWAM: A World Action Model for Video Games</h5>
-<p><strong>分类：</strong> 3D / 视频；world model、video world model</p>
-<p>提出面向视频游戏的世界-动作模型GameWAM</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.26200v1/gamewam_overview.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.26200v1/gamewam_overview.png" alt="GameWAM: A World Action Model for Video Games 论文图" loading="lazy"></a><span class="image-caption">GameWAM: A World Action Model for Video Games 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2608.26200v1">arXiv</a> · <a href="https://huggingface.co/papers/2608.26200">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2608.26200">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2608.26200/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="pawbench-how-far-are-we-from-probabilistically-aligned-world-modeling-2">PAWBench: How Far Are We from Probabilistically Aligned World Modeling?</h5>
-<p><strong>分类：</strong> 3D / 视频；world model、video world model</p>
-<p>提出PAWBench评估视频生成是否匹配物理行为分布</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.27345v2/one_plausible_future.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.27345v2/one_plausible_future.png" alt="PAWBench: How Far Are We from Probabilistically Aligned World Modeling? 论文图" loading="lazy"></a><span class="image-caption">PAWBench: How Far Are We from Probabilistically Aligned World Modeling? 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2608.27345">arXiv</a> · <a href="https://huggingface.co/papers/2608.27345">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2608.27345">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2608.27345/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="editalive-unified-character-video-editing-for-live-streaming">EditaLive! Unified Character Video Editing for Live Streaming</h5>
-<p><strong>分类：</strong> 视频；video diffusion model</p>
-<p>EditaLive提出面向直播人物视频的实时统一编辑框架。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.27123v1/fig_architecture.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.27123v1/fig_architecture.png" alt="EditaLive! Unified Character Video Editing for Live Streaming 论文图" loading="lazy"></a><span class="image-caption">EditaLive! Unified Character Video Editing for Live Streaming 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2608.27123">arXiv</a> · <a href="https://huggingface.co/papers/2608.27123">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2608.27123">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2608.27123/index.html" data-inline-html="true">展开正文</a></p>
-<h2 id="全量论文简报">全量论文简报</h2>
-<h3 id="2026-08-30-3">2026-08-30</h3>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2608.25518v1">Agentic Game Development as a Verifiable Trajectory Data Engine for Scaling World Models</a></td><td>3D</td><td>提出用游戏开发验证轨迹数据来扩展世界模型</td></tr><tr><td><a href="https://arxiv.org/abs/2608.26200v1">GameWAM</a></td><td>3D / 视频</td><td>提出面向视频游戏的世界-动作模型GameWAM</td></tr><tr><td><a href="https://arxiv.org/abs/2608.23943v1">Luce</a></td><td>3D</td><td>提出可重光照的三维高斯表示用于单图生成3D资产</td></tr><tr><td><a href="https://arxiv.org/abs/2608.27345">PAWBench</a></td><td>3D / 视频</td><td>提出PAWBench评估视频生成是否匹配物理行为分布</td></tr><tr><td><a href="https://arxiv.org/abs/2608.26238v1">Procedura</a></td><td>3D</td><td>Procedura用智能体将文本生成可编辑、可装配的参数化3D程序模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.27123">EditaLive! Unified Character Video Editing for Live Streaming</a></td><td>视频</td><td>EditaLive提出面向直播人物视频的实时统一编辑框架。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.26993">Aphanta</a></td><td>其他</td><td>评估图像编辑中间体对多模态推理的作用</td></tr><tr><td><a href="https://arxiv.org/abs/2608.23172">CaRGo-T</a></td><td>其他</td><td>CaRGo-T用因果图推理提升多模态幽默理解与检测效果。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.25500">CaSKG</a></td><td>其他</td><td>CaSKG通过反事实因果校准技能图，提升智能体技能检索效果。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.27455">CritICL</a></td><td>其他</td><td>CritICL利用小模型失败模式，在推理时高效提升大模型推理能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.27168">Magpie</a></td><td>其他</td><td>Magpie提出面向交互游戏的实时生成式世界渲染系统。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.26530">PILOT in the Loop</a></td><td>其他</td><td>PILOT实现长程智能体运行中实时纠偏与自我进化。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.26872">Self-OPD</a></td><td>其他</td><td>本文提出无教师的Self-OPD，用自探索优势监督流匹配模型对齐优化。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.25798">TacForcing</a></td><td>其他</td><td>TacForcing利用执行时触觉反馈实现接触操作流式动作生成。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.26809">Thinking on Shots</a></td><td>其他</td><td>论文提出多指令多镜头长视频编辑框架，实现一致连贯的精准编辑。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.15763">Training Agents to Evolve with Their Harness</a></td><td>其他</td><td>论文提出HAT训练方法，让小模型数字人主播适应不断变化的工具与提示配置。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.27448">TTPO</a></td><td>其他</td><td>TTPO用测试时策略优化在无标签下提升大模型数学推理。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.27351">Understanding Evolution Strategies for LLM Reasoning</a></td><td>其他</td><td>论文系统分析ES在大模型推理后训练中的机制，并证明其比GRPO具备更广的推理覆盖。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.27456">UrbanGround</a></td><td>其他</td><td>研究大模型智能体在真实城市中由感知到导航的空间行动能力</td></tr><tr><td><a href="https://arxiv.org/abs/2608.19269">What Does an Evaluation License? A Commit-Bound Census of Claim-Relative Inference in Inspect Evals</a></td><td>其他</td><td>论文审计Inspect Evals评测单元，分析其是否足以支持对应性能结论。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.27260">What Makes Good Agentic Data? An ACE Lens on Data Generation for LLM Agents</a></td><td>其他</td><td>提出ACE框架，分析LLM智能体数据生成质量</td></tr><tr><td><a href="https://arxiv.org/abs/2608.27454">WikiSkill</a></td><td>其他</td><td>WikiSkill通过持久知识库沉淀经验，持续进化并提升智能体技能。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.26103">Zero-WAM</a></td><td>其他</td><td>Zero-WAM利用人类视频上下文引导机器人零样本完成未见操作任务。</td></tr></tbody></table></div></div></article></main>
+    <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../date/">← 返回日报目录</a></p>
+<h1 id="kirin-animal-motion-generation-from-in-the-wild-video">Kirin: Animal Motion Generation from In-the-Wild Video</h1>
+<p><strong>一句话主题：</strong> 从野外视频生成动物运动并用于3D动画</p>
+<p><strong>领域标签：</strong> 动物运动生成 / 视频理解 / 3D动画</p>
+<h2 id="快速理解">快速理解</h2>
+<p><strong>背景与任务：</strong> 动物运动数据稀缺，难以像人体运动那样捕捉，限制了动画等应用。</p>
+<p><strong>核心工作：</strong> 构建大规模视频-文本-运动数据集AiM3D，并提出基于文本和图像条件的动物运动生成框架。</p>
+<h2 id="中文摘要">中文摘要</h2>
+<p>理解动物运动是模拟动物行为和生物力学的基础，然而，由于缺乏高质量的运动数据，该领域的进展远远落后于人类运动研究。虽然人类运动可以在受控环境中捕捉，但对大多数动物物种而言并不现实，导致数据集规模小且领域受限，限制了动画等下游应用。为应对这一挑战，我们提出了Kirin，一个从视频重建运动、大规模学习运动先验并生成可直接应用于动画资产的逼真运动的框架。利用大量野外动物视频，我们重建3D运动序列并将其与描述配对，创建了AiM3D——首个为四足动物提供对齐的视频-文本-运动三元组的大规模数据集。在此数据集基础上，我们开发了一个视觉引导的运动生成模型，该模型同时以文本和图像为条件，引导跨多样动物物种的逼真运动生成。最后，通过利用现成的图像到3D模型，我们使用生成的运动自动为3D网格绑定骨架并制作动画，生成可直接渲染的动画动物。总之，我们的数据集和框架为大规模、文本和图像条件驱动的动物运动生成与动画建立了新基础。项目页面：https://kirin-ani.github.io/。</p>
+<h2 id="详细分析">详细分析</h2>
+<h2 id="1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</h2>
+<p>Kirin 的输入是一张动物图像和一段描述期望动作的文本（例如“一只马在向左走”），输出是一个可直接渲染的 3D 动画网格序列。功能上，它既支持文本生成运动，也支持用图像约束动物的体型、种类和步态，并自动完成网格绑定与动画。当前边界是面向四足动物，使用 SMAL 参数化模板，不适用于非四足或需要精细手指等部位的运动。</p>
+<h2 id="2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</h2>
+<p>动物运动理解是行为学和生物力学的基础，但进展远落后于人体运动研究。原因很直接：高质量动物运动数据极度稀缺。人类可以在实验室中穿戴动捕设备获得精确数据，但大多数动物无法进入受控环境，野生或濒危物种更不可能。以往数据集要么依赖人工和动画师制作（如 DeformingThings4D、Truebones Zoo），要么从游戏提取（如 AniMo4D），这些数据只覆盖少量预设动作，无法体现真实世界中的行为多样性。同时，视频数据虽然互联网上大量存在，但已有的动物视频数据（如 AiM）只提供 2D 信息，缺乏 3D 运动，无法直接用于生成任务。</p>
+<p>核心 insight 在于：<strong>将“从视频重建运动”与“大规模运动生成”结合起来，用非受控、无标注的野生视频作为数据源，绕过人工制作瓶颈。</strong> 论文指出，近年 3D 重建和 3D 点跟踪技术已经足够成熟，可以从单目视频中恢复较稳定的 3D 动物姿态；另一方面，扩散模型已经能生成高质量人体运动。因此，Kirin 的洞察是：先用重建管道从视频自动生成“视频—文本—3D 运动”三元组，再训练一个同时接受文本和图像条件的运动扩散模型。为了对齐文本和视频，他们用视觉语言模型自动生成描述；为了弥补文本对体型、方向、步态等信息的不足，他们引入图像条件，让模型能参考具体动物外观。最终，结合图像到 3D 模型和自动蒙皮，形成一个从图像到动画的端到端系统。</p>
+<h2 id="3-核心贡献-约300字">3. 核心贡献（约300字）</h2>
+<p>论文的贡献可以归纳为四个方面：</p>
+<ol><li><strong>构建了 AiM3D 数据集</strong>。基于 AiM 中的近 3 万段野生四足动物视频，Kirin 重建出带全局平移的 3D 运动序列，并用 Gemini 2.5 Flash 为每段视频生成 6 条文本描述，形成约 18 万条“文本—视频—运动”对齐的数据集。这是首个大规模、覆盖 23 个四足类别的动物运动生成数据集。</li></ol>
+<ol><li><strong>提出首个文本+图像双条件动物运动生成模型</strong>。以 MDM 为骨干，增加图像条件分支，通过 DINOv3 提取全局视觉特征，并与 DistilBERT 文本特征相加后注入 Transformer 解码器。模型支持文本-only、图像-only 和文本+图像三种推理模式，比现有的 AniMo 等模型更适应形态差异。</li></ol>
+<ol><li><strong>验证了数据质量与模型泛化能力</strong>。在 AiM3D 测试集上优于 AniMo，在外部数据集 AnimalML3D 上也取得最佳结果，说明 AiM3D 能帮助模型泛化到未见动作和物种。</li></ol>
+<ol><li><strong>实现了全自动动画管线</strong>。结合 Rodin 图像到 3D 模型，自动完成 T-pose 网格恢复、SMAL 模板拟合、蒙皮权重转移和线性蒙皮动画，能够将一条生成的骨骼运动直接绑定到任意输入图像对应的网格上，输出可渲染的动画资产。</li></ol>
+<h2 id="4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</h2>
+<p>推理时，Kirin 依赖三个预先存在的基模：<strong>DistilBERT</strong> 负责提取文本语义特征，<strong>DINOv3</strong> 负责提取图像全局外观特征，二者共同为运动扩散模型提供条件；<strong>Rodin</strong> 作为图像到 3D 模型，从输入图像生成带纹理的 T 形网格。运动扩散模型本身是训练好的去噪器，它接受文本、图像和去噪时间步的融合条件，逐步去除噪声，输出关节旋转序列。整个推理过程不需要任何训练或微调，完全前向。</p>
+<p>推理步骤如下：</p>
+<ol><li><strong>输入解析</strong>：用户上传一张动物图像和一句文本（例如“一只猫在坐下”）。系统将图像分别传给 DINOv3 和 Rodin，将文本传给 DistilBERT；DINOv3 输出全局图像特征，DistilBERT 输出文本 token 特征，Rodin 返回一个 T 形姿态的 3D 网格资产。</li><li><strong>条件融合</strong>：图像特征、文本特征与扩散时间步嵌入在特征维度上直接相加，得到一个融合条件向量；该向量被输入到运动扩散模型中，作为去噪过程的引导条件。</li><li><strong>运动生成</strong>：扩散模型从随机噪声开始，根据融合条件迭代去噪，输出一段指定长度的 3D 骨骼运动序列（包含每帧关节旋转和根节点位移）。若用户只给文本或只给图像，则相应模态特征置空，模型仍可生成。</li><li><strong>自动绑定</strong>：系统将 SMAL 参数化模板拟合到 Rodin 生成的 T 形网格上，估计网格的形状参数和绑定姿态，并通过 k 近邻把 SMAL 的蒙皮权重转移到目标网格顶点上。</li><li><strong>运动重定向与动画</strong>：把第 3 步生成的骨骼运动映射到目标网格的关节变换上，用线性混合蒙皮（LBS）逐帧变形网格顶点，得到最终的 3D 动画网格序列。</li><li><strong>输出</strong>：输出可直接导入渲染引擎的网格动画（如 FBX/glTF），也可以渲染成视频；用户可调整文本或图像后重新生成。</li></ol>
+<div class="mermaid">graph TD
+    A[输入: 动物图像 + 文本描述] --&gt; B1[文本编码器 DistilBERT]
+    A --&gt; B2[图像编码器 DINOv3]
+    A --&gt; B3[图像到3D模型 Rodin]
+
+    B2 --&gt; C[条件融合: 图像特征 + 文本特征 + 时间步嵌入]
+    B1 --&gt; C
+    C --&gt; D[运动扩散模型去噪]
+    D --&gt; E[生成的骨骼运动序列]
+
+    B3 --&gt; F[T形网格]
+    F --&gt;
+</div></div></article></main>
   </div>
   <script>/*!
   * PhotoSwipe 5.4.4 - https://photoswipe.com
@@ -722,224 +675,6 @@ div.pswp__img--placeholder,
       updateToc();
     }
 
-
-    (() => {
-      const cache = new Map();
-
-      async function fetchLinkedPage(url) {
-        if (!cache.has(url)) {
-          const request = fetch(url, { credentials: "same-origin" })
-            .then(async (response) => {
-              if (!response.ok) throw new Error(`HTTP ${response.status}`);
-              return { text: await response.text(), url: response.url };
-            })
-            .catch((error) => {
-              cache.delete(url);
-              throw error;
-            });
-          cache.set(url, request);
-        }
-        return cache.get(url);
-      }
-
-      function rewriteReferences(root, pageUrl) {
-        root.querySelectorAll("[src], [href]").forEach((node) => {
-          ["src", "href"].forEach((attribute) => {
-            const value = node.getAttribute(attribute);
-            if (!value || value.startsWith("#") || /^(?:data|blob|mailto|tel|javascript):/i.test(value)) return;
-            try {
-              node.setAttribute(attribute, new URL(value, pageUrl).href);
-            } catch (_) {
-              // Leave malformed references unchanged; the browser will expose the failure.
-            }
-          });
-        });
-      }
-
-      function isolateIds(root, prefix) {
-        const replacements = new Map();
-        root.querySelectorAll("[id]").forEach((node) => {
-          const original = node.id;
-          const replacement = `${prefix}-${original}`;
-          replacements.set(original, replacement);
-          node.id = replacement;
-        });
-        root.querySelectorAll('a[href^="#"]').forEach((node) => {
-          const original = decodeURIComponent(node.getAttribute("href").slice(1));
-          if (replacements.has(original)) node.setAttribute("href", `#${replacements.get(original)}`);
-        });
-      }
-
-      function prepareDynamicImages(root) {
-        root.querySelectorAll("a.pswp-image").forEach((item) => {
-          const image = item.querySelector("img");
-          if (!image) return;
-          const sync = () => {
-            item.dataset.pswpSrc = image.currentSrc || image.src;
-            if (item.dataset.referenceImage === "true" && image.naturalWidth && image.naturalHeight) {
-              item.dataset.pswpWidth = String(image.naturalWidth);
-              item.dataset.pswpHeight = String(image.naturalHeight);
-            }
-          };
-          sync();
-          image.addEventListener("load", sync, { once: true });
-        });
-      }
-
-      document.querySelectorAll('a[data-inline-html="true"]').forEach((link, index) => {
-        const summary = link.closest("p, li, blockquote, td") || link.parentElement;
-        if (!summary) return;
-        const dedicatedExpand = link.textContent.trim() === "展开正文";
-        if (dedicatedExpand) {
-          let candidate = summary.previousElementSibling;
-          while (candidate && !/^H[1-6]$/.test(candidate.tagName)) {
-            if (candidate.matches("p")) {
-              candidate.classList.add("inline-report-meta");
-              if (candidate.querySelector(".embedded-image")) {
-                candidate.classList.add("inline-report-thumbnail");
-              }
-            }
-            candidate = candidate.previousElementSibling;
-          }
-          if (candidate) candidate.classList.add("inline-report-title");
-        }
-
-        let entry = summary.closest(".inline-html-entry");
-        if (!entry) {
-          if (summary.tagName === "LI" || summary.tagName === "TD") {
-            entry = summary;
-            entry.classList.add("inline-html-entry");
-          } else {
-            entry = document.createElement("section");
-            entry.className = "inline-html-entry";
-            summary.before(entry);
-            entry.append(summary);
-          }
-        }
-        summary.classList.add("inline-html-summary");
-        if (dedicatedExpand) {
-          link.classList.add("inline-html-source-link");
-        }
-
-        const panel = document.createElement("section");
-        panel.className = "inline-html-panel";
-        panel.id = `inline-html-panel-${index + 1}`;
-        panel.hidden = true;
-        panel.setAttribute("aria-live", "polite");
-
-        const actions = document.createElement("span");
-        actions.className = "inline-html-actions";
-        const toggle = document.createElement("button");
-        toggle.className = "inline-html-toggle";
-        toggle.type = "button";
-        toggle.textContent = "展开正文";
-        toggle.setAttribute("aria-controls", panel.id);
-        toggle.setAttribute("aria-expanded", "false");
-        const standalone = document.createElement("a");
-        standalone.className = "inline-html-standalone";
-        standalone.href = link.href;
-        standalone.textContent = "单独打开";
-        actions.append(toggle, standalone);
-        summary.append(document.createTextNode(" "), actions);
-        entry.append(panel);
-
-        let state = "idle";
-
-        function setOpen(open, returnToSummary = false) {
-          panel.hidden = !open;
-          entry.classList.toggle(
-            "is-expanded",
-            Boolean(entry.querySelector(".inline-html-panel:not([hidden])"))
-          );
-          const expanded = String(open);
-          toggle.setAttribute("aria-expanded", expanded);
-          link.setAttribute("aria-expanded", expanded);
-          toggle.textContent = open ? (state === "error" ? "重试加载" : "收起正文") : "展开正文";
-          if (!open && returnToSummary) {
-            summary.scrollIntoView({ behavior: "smooth", block: "start" });
-            toggle.focus({ preventScroll: true });
-          }
-        }
-
-        function appendCloseFooter(target) {
-          const footer = document.createElement("div");
-          footer.className = "inline-html-footer";
-          const close = document.createElement("button");
-          close.className = "inline-html-close";
-          close.type = "button";
-          close.textContent = "收起正文并返回摘要";
-          close.addEventListener("click", () => setOpen(false, true));
-          footer.append(close);
-          target.append(footer);
-        }
-
-        async function toggleInlinePage() {
-          if (state === "loaded") {
-            setOpen(panel.hidden);
-            return;
-          }
-          if (state === "loading") return;
-
-          state = "loading";
-          toggle.disabled = true;
-          panel.replaceChildren();
-          const loading = document.createElement("p");
-          loading.className = "inline-html-status";
-          loading.textContent = "正在加载完整正文…";
-          panel.append(loading);
-          setOpen(true);
-
-          try {
-            const fetched = await fetchLinkedPage(link.href);
-            const parsed = new DOMParser().parseFromString(fetched.text, "text/html");
-            const source = parsed.querySelector(".markdown-image-gallery")
-              || parsed.querySelector("main article")
-              || parsed.querySelector("article")
-              || parsed.querySelector("main");
-            if (!source) throw new Error("linked page does not contain a readable article");
-            const body = source.cloneNode(true);
-            if (body.firstElementChild && body.firstElementChild.tagName === "H1") {
-              body.firstElementChild.remove();
-            }
-            isolateIds(body, `inline-${index + 1}`);
-            rewriteReferences(body, fetched.url);
-            body.classList.add("inline-html-body");
-            panel.replaceChildren(body);
-            appendCloseFooter(panel);
-            prepareDynamicImages(body);
-            state = "loaded";
-            setOpen(true);
-            if (window.mermaid && typeof window.mermaid.run === "function") {
-              const diagrams = Array.from(body.querySelectorAll(".mermaid"));
-              if (diagrams.length) window.mermaid.run({ nodes: diagrams }).catch(() => {});
-            }
-
-            if (window.MathJax && typeof window.MathJax.typesetPromise === "function") {
-              window.MathJax.typesetPromise([body]).catch(() => {});
-            }
-
-          } catch (error) {
-            panel.replaceChildren();
-            const message = document.createElement("p");
-            message.className = "inline-html-status inline-html-error";
-            message.textContent = `正文加载失败：${error.message}`;
-            panel.append(message);
-            appendCloseFooter(panel);
-            state = "error";
-            setOpen(true);
-          } finally {
-            toggle.disabled = false;
-          }
-        }
-
-        toggle.addEventListener("click", toggleInlinePage);
-        link.addEventListener("click", (event) => {
-          if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-          event.preventDefault();
-          toggleInlinePage();
-        });
-      });
-    })();
 
 
   </script>
