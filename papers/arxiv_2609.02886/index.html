@@ -528,7 +528,7 @@ div.pswp__img--placeholder,
     <aside class="academic-sidebar" id="academic-sidebar" aria-label="文档目录">
       <div class="toc-panel">
         <p class="toc-heading">目录</p>
-        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#solarwm-open-data-and-scalable-training-for-long-horizon-video-world-models">SolarWM: Open Data and Scalable Training for Long-Horizon Video World Models</a><a class="toc-link toc-level-2" href="#快速理解">快速理解</a><a class="toc-link toc-level-2" href="#中文摘要">中文摘要</a><a class="toc-link toc-level-2" href="#详细分析">详细分析</a><a class="toc-link toc-level-2" href="#1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</a><a class="toc-link toc-level-2" href="#2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</a><a class="toc-link toc-level-2" href="#3-核心贡献-约300字">3. 核心贡献（约300字）</a><a class="toc-link toc-level-2" href="#4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</a><a class="toc-link toc-level-2" href="#5-核心方法-按论文-method-小节总结-约600字">5. 核心方法：按论文 Method 小节总结（约600字）</a><a class="toc-link toc-level-3" href="#4-1-bidirectional-adaptation-双向适配">4.1 Bidirectional Adaptation（双向适配）</a><a class="toc-link toc-level-3" href="#4-2-teacher-forced-anyflow-initialization-教师强制的-anyflow-自回归初始化">4.2 Teacher-Forced AnyFlow Initialization（教师强制的 AnyFlow 自回归初始化）</a><a class="toc-link toc-level-3" href="#4-3-dmd-based-causal-training-基于分布匹配蒸馏的因果训练">4.3 DMD-based Causal Training（基于分布匹配蒸馏的因果训练）</a><a class="toc-link toc-level-2" href="#6-局限性和展望-约300字">6. 局限性和展望（约300字）</a></nav>
+        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#solarwm-open-data-and-scalable-training-for-long-horizon-video-world-models">SolarWM: Open Data and Scalable Training for Long-Horizon Video World Models</a><a class="toc-link toc-level-2" href="#快速理解">快速理解</a><a class="toc-link toc-level-2" href="#中文摘要">中文摘要</a><a class="toc-link toc-level-2" href="#详细分析">详细分析</a><a class="toc-link toc-level-2" href="#1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</a><a class="toc-link toc-level-2" href="#2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</a><a class="toc-link toc-level-2" href="#3-核心贡献-约300字">3. 核心贡献（约300字）</a><a class="toc-link toc-level-2" href="#4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</a><a class="toc-link toc-level-2" href="#5-核心方法-按论文-method-小节总结-约600字">5. 核心方法：按论文 Method 小节总结（约600字）</a><a class="toc-link toc-level-3" href="#4-training-pipeline-训练流程">4 Training Pipeline（训练流程）</a><a class="toc-link toc-level-2" href="#6-局限性和展望-约300字">6. 局限性和展望（约300字）</a></nav>
       </div>
     </aside>
     <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../date/">← 返回日报目录</a></p>
@@ -539,43 +539,57 @@ div.pswp__img--placeholder,
 <p><strong>背景与任务：</strong> 视频世界模型训练面临多源数据异构和不同视频骨干架构不一致的挑战。</p>
 <p><strong>核心工作：</strong> 作者提出SolarWM框架，包括统一数据引擎、骨干适配和联合训练策略，并开源数据和模型。</p>
 <h2 id="中文摘要">中文摘要</h2>
-<p>我们提出SolarWM，一个完全开放的基础框架，用于构建从数据准备到长时程推理的交互式视频世界模型。跨异构数据源和视频骨干网络进行训练具有挑战性：数据集在时间尺度、相机几何、视觉质量、运动和描述风格上各不相同，而视频生成器使用不同的表示和架构。因此，朴素的数据混合和特定于模型的实现会产生不一致的监督信号，并使结果难以复现和比较。SolarWM通过可重构的多源数据引擎和骨干原生适配框架来解决这一耦合问题。该引擎将来自10个数据集的143万条规范片段转换为统一的、帧对齐的契约，涵盖视觉观测、度量相机几何、描述、质量元数据、选择决策和来源信息，同时将源数据处理与混合构建解耦。在共享的相机条件、训练和推理接口下，我们基于Wan2.2、LTX-2.5和MiniMax-H3实例化了四个5B至33B规模的模型，同时保留其原生表示和目标函数。一个统一的三阶段方案结合了双向适配、教师强制自回归初始化和分布匹配蒸馏。由此产生的因果模型在仅用5秒序列训练后，即可在从数分钟到数小时的回滚上实现实时交互。通过发布所得数据、流程、配方、权重和框架，SolarWM为交互式世界模型研究提供了可复现且可扩展的基础。</p>
+<p>我们提出 SolarWM，一个完全开源的基础，用于构建交互式视频世界模型，覆盖从数据准备到长时程推理。在异构数据源和视频骨干网络上进行训练具有挑战性：数据集在时间尺度、相机几何、视觉质量、运动以及描述风格上各不相同，而视频生成器使用不同的表示和架构。因此，朴素的数据混合和针对特定模型的实现会产生不一致的监督，并使结果难以复现和比较。SolarWM 通过一个可重构的多源数据引擎和一个骨干网络原生适配框架来解决这一耦合问题。该引擎将来自10个数据集的143万个标准片段转换为一个统一的、帧对齐的契约，涵盖视觉观测、度量相机几何、文本描述、质量元数据、选择决策和来源，同时将源处理与混合构建解耦。在共享的相机条件、训练和推理接口下，我们基于 Wan2.2、LTX-2.5 和 MiniMax-H3 实例化了四个参数量为5B至33B的模型，并保留其原生表示与目标。一个统一的三阶段方案结合了双向适配、教师强制的自回归初始化和分布匹配蒸馏。由此产生的因果模型在仅经过5秒序列训练后，即可在从几分钟到几小时的推演（rollouts）中实现实时交互。通过发布由此产生的数据、流程、方案、权重和框架，SolarWM 为交互式世界模型研究提供了一个可复现且可扩展的基础。</p>
 <h2 id="详细分析">详细分析</h2>
 <h2 id="1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</h2>
-<p>SolarWM 是一个交互式视频世界模型系统。输入为一张初始图像、一段场景文本描述和一条逐帧相机轨迹；输出为按照该轨迹连续延伸的、可交互探索的视频片段或长时展开。功能覆盖真实、合成、游戏域，支持从 10 秒到分钟/小时级自回归生成。边界：以相机控制为主，不直接处理离散动作或强化学习接口；动态人物/车辆在数据中被清洗，因此对这些实体的建模不是重点。</p>
+<p>SolarWM 的任务是：给定一张首帧图像、一段场景文本和一条帧对齐的相机轨迹，持续生成与它们一致的未来视频帧。输出是 10 秒到小时级、可继续生成的视频序列。系统以相机运动为主要交互控制，覆盖真实、合成与游戏环境；它不处理物理精确碰撞、音频内容或任意实体动作控制。</p>
 <h2 id="2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</h2>
-<p>要训练可交互的长时间视频世界模型，必须同时解决两个相互耦合的问题。第一，数据来源高度异构：不同数据集在时间尺度、相机几何、画质、运动分布、字幕风格上差异巨大，简单拼接会让模型收到不一致的监督；第二，视频生成骨干在隐空间表示、注意力结构、条件注入方式上各不相同，统一的适配策略容易损害原有生成能力，而逐模型定制又难以扩展和比较。现有开放系统往往只使用受限数据源、按特定模型写死训练流程、不发布完整数据选择记录和可执行配置，导致复现与横向对比困难。</p>
-<p>核心 insight 是：把底层数据源的预处理/标注与上层训练混合配方的构建解耦；同时把共享的相机条件、训练/推理接口与各骨干原生的表示和目标解耦。这样同一个数据引擎可以产出可重组的训练语料，同一套三阶段流程可以适配不同骨干，并且可以在不重跑昂贵标注的情况下重配数据。作者据此论证，只要数据构造、骨干适配和训练阶段正确对齐，仅用 5 秒训练序列也能得到分钟到小时级长程因果展开。</p>
+<p>交互式视频世界模型需要同时解决两个紧密耦合的问题。在数据侧，现有数据集在时间尺度、相机几何、视觉质量、运动分布、字幕风格上差异很大，简单混合会给出不一致的监督信号，导致多源训练时模型性能下降。在模型侧，不同视频生成器具有不同的潜变量表示、注意力结构和条件注入方式；统一适配可能破坏其原有能力，而逐模型定制又会阻碍系统化比较与复现。已有开放系统往往只使用受限数据源，并依赖模型专属实现，缺少能同时协调数据构建和骨干适配的通用基础。</p>
+<p>核心 insight 有两层。第一，数据准备应被设计成“可重配置引擎”：先把所有来源统一成帧对齐的规范样本，再在训练配方层决定过滤、加权和窗口选择，从而把计算量大的源数据处理与训练混合构建解耦。第二，模型侧应保留各视频生成器的原生表示与优化目标，只统一相机条件、训练和推理接口，而不是用同一套内部结构去替换所有骨干。论文进一步发现，只要这三层设计正确对齐，简单的三阶段流程就足以得到高效的长时程世界模型：大部分优化在双向阶段完成，自回归初始化快速收敛，DMD 只需少量步骤；只在 5 秒序列上训练也能支持分钟到小时级 rollout。</p>
 <h2 id="3-核心贡献-约300字">3. 核心贡献（约300字）</h2>
-<p>论文的贡献是一个完全开放的统一基础，具体包括四方面。</p>
-<p>第一，可重配置的多源数据引擎：处理约 143 万条规范化片段，覆盖 10 个数据集、14 个数据所有者、约 25 TB 物理数据；每条片段统一包含视频、度量相机位姿、内参、密集字幕、质量元数据、选择决策与来源追踪，并保留被拒绝的样本及其原因，用户可只改筛选/配比而不重跑底层处理。</p>
-<p>第二，骨干原生适配框架：在共享的数据、相机、训练和推理接口下，实例化基于 Wan2.2、LTX-2.5、MiniMax-H3 的 4 个 5B–33B 模型，保留各骨干原有表示与目标。</p>
-<p>第三，统一高效三阶段训练流程：双向相机条件适配、教师强制的 AnyFlow（任意噪声水平间直接学习流映射）自回归初始化、基于分布匹配蒸馏（DMD）的因果训练；该流程不需要专门的 ODE 或一致性蒸馏初始化，且用很小步数即可完成蒸馏。</p>
-<p>第四，开源完整工件：数据、处理管线、训练配方、模型权重、推理代码均会发布，支持可复现重构与多骨干对比。</p>
+<p>SolarWM 提出并验证了三点贡献。</p>
+<ul><li><strong>完全开放的统一基础。</strong> 将多源数据基础设施与骨干原生适配框架整合为一个可复现、可扩展的交互式视频世界模型研究栈，并计划开放数据、流程、配方、权重与框架。</li><li><strong>可重配置的多源数据基础设施。</strong> 构建了约 143 万条规范片段，覆盖 10 个来源数据集、14 个独立可寻址的数据 owner，并发布完整处理流程。所有样本统一为帧对齐的视频、相机位姿、内参、字幕、质量元数据与谱系信息；用户可在不重跑源处理的情况下修改过滤阈值、采样权重和时间窗口。图 2 给出数据引擎整体路径，图 5 给出片段长度与质量等级分布。</li></ul>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.02886v1/solar_data_engine.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.02886v1/solar_data_engine.png" alt="Figure 2：Solar open data engine 概览。" loading="lazy"></a><span class="image-caption">Figure 2：Solar open data engine 概览。</span></span></p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.02886v1/data_frame_distribution.svg" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.02886v1/data_frame_distribution.svg" alt="Figure 5：规范片段按片段长度和质量等级的分布。" loading="lazy"></a><span class="image-caption">Figure 5：规范片段按片段长度和质量等级的分布。</span></span></p>
+<ul><li><strong>骨干原生适配框架与模型族。</strong> 在统一数据配方、相机接口和训练/推理接口下，得到 5B–33B 的四个模型，覆盖 Wan2.2-5B、Wan2.2-14B、LTX-2.5 与 MiniMax-H3 三种骨干族。统一三阶段流程为双向适配、教师强制 AnyFlow 初始化、DMD 因果训练；模型仅用 5 秒序列训练即可支持分钟到小时级开放 rollout。</li></ul>
 <h2 id="4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</h2>
-<p>推理基模是论文发布的因果学生模型 SolarWM-wan2.2-5B-fast。它的角色是把用户给定的首帧、固定场景文本和逐帧相机轨迹，逐步“想象”出后续视频块，并在生成过程中始终以模型自己生成的先前帧作为历史条件，从而实现不重置的长时展开。</p>
-<ol><li><strong>用户输入</strong>：输入一张首帧图像、一段场景文本、一条相机轨迹以及目标时长 → 系统将图像作为视觉起点、文本描述场景、轨迹指定每一帧的相机位置/朝向，并把它们对齐为统一的推理条件 → 条件表示交给生成器。</li><li><strong>初始化上下文</strong>：系统根据首帧和首段时间的相机轨迹构建第一批视频潜变量，作为自回归生成的起始状态 → 得到“当前已有视频块”的历史上下文。</li><li><strong>因果生成本块</strong>：生成器以历史上下文和当前块的轨迹为条件，生成一个新视频块（若干帧） → 新块追加到已有视频后。</li><li><strong>查询是否达到目标时长</strong>：检查已生成视频长度是否满足用户指定时长 → 若未达到，将新块并入历史上下文并返回第 3 步；若达到，进入第 5 步。</li><li><strong>解码输出</strong>：把最终累积的视频潜变量转换为像素帧，合并为连续视频返回给用户。整个过程中，相机轨迹是唯一的时变外部控制，文本提示保持不变；系统依靠自身历史反馈维持场景一致性。</li></ol>
+<p>部署后的系统以因果视频生成器为核心基模，例如 SolarWM-wan2.2-5B-fast。它负责把首帧图像、场景文本和相机轨迹合成为后续视频帧。推理时模型只能看到已经生成的历史帧，因此每一步都模拟从当前观测继续探索世界。</p>
+<ol><li>输入：首帧图像、场景文本、相机轨迹、目标时长与帧率。  </li></ol>
+<p>黑箱模块：条件装配模块将图像作为初始观测，把文本和轨迹整理成与帧对齐的控制指令，并建立只含首帧的初始历史。 输出：条件包与初始历史，交给生成器。</p>
+<ol><li>输入：条件包与当前历史。  </li></ol>
+<p>黑箱模块：因果视频生成器按当前控制生成下一段视频帧；该模块不访问未来帧，只依据已有历史做预测。 输出：新生成的一段视频帧，交给历史管理模块。</p>
+<ol><li>输入：新视频片段与剩余控制。  </li></ol>
+<p>黑箱模块：反馈与历史管理模块将新片段追加到历史中，消费对应的相机控制；若用户中途修改轨迹或暂停，则把后续控制替换为新指令。 输出：更新后的历史与剩余控制，继续交给生成器。</p>
+<ol><li>重复步骤 2–3，直至达到目标时长或用户停止。  </li></ol>
+<p>输出：完整视频序列；若未达到终点，则自动回到步骤 2 继续生成。</p>
 <div class="mermaid">flowchart LR
-    A[用户输入: 首帧图像 + 场景文本 + 相机轨迹 + 目标时长] --&gt; B[统一条件编码: 对齐图像/文本/轨迹]
-    B --&gt; C[初始化历史上下文: 由首帧构造起始视频块]
-    C --&gt; D[因果生成: 基于历史上下文生成下一视频块]
-    D --&gt; E{达到目标时长?}
-    E -- 否 --&gt; F[将新块追加为历史上下文]
-    F --&gt; D
-    E -- 是 --&gt; G[解码合并并输出连续视频]</div>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.02886v1/pipeline_2.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.02886v1/pipeline_2.png" alt="Figure 11 : SolarWM-wan2.2-5B-fast因果学生模型生成的小时级世界展开。在单个不间断的自回归会话中采样稀疏帧，该会话从保留验证池中的真实第一帧初始化，跨越从初始观察到60分钟终点。场景提示不变，模型遵循预定相机轨迹。" loading="lazy"></a><span class="image-caption">Figure 11 : SolarWM-wan2.2-5B-fast因果学生模型生成的小时级世界展开。在单个不间断的自回归会话中采样稀疏帧，该会话从保留验证池中的真实第一帧初始化，跨越从初始观察到60分钟终点。场景提示不变，模型遵循预定相机轨迹。</span></span></p>
+    A[&quot;用户输入：首帧图像、场景文本、相机轨迹、目标时长&quot;] --&gt; B[&quot;条件装配模块&quot;]
+    B --&gt; C[&quot;因果视频生成器生成下一段视频帧&quot;]
+    C --&gt; D[&quot;反馈与历史管理：追加片段并更新控制&quot;]
+    D --&gt; E{&quot;是否达到目标时长或用户停止？&quot;}
+    E -- 否 --&gt; C
+    E -- 是 --&gt; F[&quot;输出完整视频&quot;]</div>
 <h2 id="5-核心方法-按论文-method-小节总结-约600字">5. 核心方法：按论文 Method 小节总结（约600字）</h2>
-<p>论文的方法部分对应第 4 节 Training Pipeline，包含三个连续阶段。</p>
-<h3 id="4-1-bidirectional-adaptation-双向适配">4.1 Bidirectional Adaptation（双向适配）</h3>
-<p>这一阶段把预训练的双向视频生成器适配到带相机控制的世界模型数据，同时保留骨干的原生 flow/velocity 预测目标。给定干净视频隐变量 \(\mathbf{z}_0\) 和文本/图像/相机条件 \(\mathbf{c}\)，对任意噪声层 \(\mathbf{z}_t\)，模型输出骨干对应目标 \(\mathbf{u}_t\)，损失为 \[ \mathcal{L}_{\mathrm{bid}}=\mathbb{E}_{\mathbf{z}_0,t,\boldsymbol{\epsilon}}\left[\|f_\theta(\mathbf{z}_t,t,\mathbf{c})-\mathbf{u}_t\|_2^2\right]. \] 注意力在全窗口上是双向的，因此保留完整时间上下文。相机控制通过 fused-PRoPE（融合投影旋转位置编码）注入自注意力路径，不新增独立控制分支。该阶段输出两个对象：后续因果训练所需的初始化权重，以及 DMD 中固定的双向教师参考模型。</p>
-<h3 id="4-2-teacher-forced-anyflow-initialization-教师强制的-anyflow-自回归初始化">4.2 Teacher-Forced AnyFlow Initialization（教师强制的 AnyFlow 自回归初始化）</h3>
-<p>这一阶段在保持全监督的同时引入因果性。潜变量序列被划分为有序块；预测当前块时只能访问当前块带噪状态和过去块的真实干净历史，未来块被隐藏。对每个块采样噪声水平对 \((t,r)\)，目标为 \[ \mathcal{L}_{\mathrm{TF-AF}}=\mathbb{E}\left[\sum_k\ell_{\mathrm{AF}}\left(f_\phi;\mathbf{z}_t^k,t,r,\mathbf{z}_0^{&lt;k},\mathbf{c}\right)\right], \] 其中 AnyFlow 损失直接监督两个任意噪声水平之间的流映射，使模型从一开始就支持少步自回归采样。由于该阶段由双向模型初始化，主要工作是激活因果预测，而不是重新学习外观和运动；因此可以跳过单独的 Causal ODE 或一致性蒸馏初始化阶段。</p>
-<h3 id="4-3-dmd-based-causal-training-基于分布匹配蒸馏的因果训练">4.3 DMD-based Causal Training（基于分布匹配蒸馏的因果训练）</h3>
-<p>教师强制阶段仍使用真实历史，而推理时模型看到的是自己生成的历史，存在暴露偏差。DMD 阶段用模型自己生成的轨迹来消除这一偏差。因果学生在推理时相同的因果规则下生成轨迹，并通过 detach 的 rollout-and-replay 机制保留 KV 缓存梯度；固定双向教师提供真实分布估计 \(s_{\mathrm{real}}\)，可训练的 fake-distribution 模型跟踪学生当前输出分布 \(s_{\mathrm{fake}}\)，两者之差给出分布匹配方向。更新形式为 \[ \nabla_{\psi}\mathcal{L}_{\mathrm{DMD}}=\mathbb{E}\left[J_{G_\psi}^{\top}w(t)\left(s_{\mathrm{fake}}(\mathbf{z}_t,t,\mathbf{c})-s_{\mathrm{real}}(\mathbf{z}_t,t,\mathbf{c})\right)\right], \] 其中 \(J_{G_\psi}\) 将分布匹配信号映射回生成器参数。这样得到的因果模型可以在推理分布上持续稳定地生成，仅用 5 秒训练序列就能支持分钟到小时级展开。</p>
+<p>论文的 Method 章节为第 4 节 Training Pipeline，包含三个小节。三阶段共享同一数据配方、相机条件接口和推理接口，但保留各骨干的原生表示与目标。</p>
+<h3 id="4-training-pipeline-训练流程">4 Training Pipeline（训练流程）</h3>
+<p>图 1 给出 SolarWM-5B 的三阶段训练流程与小时级推理结果概览。第一阶段在双向注意力下适配相机条件；第二阶段引入因果注意力并建立少步自回归初始化；第三阶段用 DMD 让生成器适应自身 rollout 分布。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.02886v1/pipeline_2.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.02886v1/pipeline_2.png" alt="Figure 1：SolarWM-5B 训练流程与小时级推理结果概览。" loading="lazy"></a><span class="image-caption">Figure 1：SolarWM-5B 训练流程与小时级推理结果概览。</span></span></p>
+<h4 id="4-1-bidirectional-adaptation-双向适配">4.1 Bidirectional Adaptation（双向适配）</h4>
+<p>目的是在保留骨干原生双向注意力能力的前提下，把预训练视频生成器适配到相机条件的世界数据。令 \(\mathbf{z}_0\) 为干净视频潜变量，\(\mathbf{z}_t\) 为加噪潜变量，\(\mathbf{c}\) 为文本、图像与相机条件。模型 \(f_\theta\) 在完整训练窗口上使用双向注意力，预测该骨干原生的 flow 或 velocity 目标 \(\mathbf{u}_t\)。训练目标为：</p>
+<p>\[ \mathcal{L}_{\mathrm{bid}}=\mathbb{E}_{\mathbf{z}_0,t,\epsilon}\left[\left\|f_\theta(\mathbf{z}_t,t,\mathbf{c})-\mathbf{u}_t\right\|_2^2\right]. \]</p>
+<p>相机控制通过 fused-PRoPE 注入：相机位姿与内参产生投影旋转，直接作用于已有自注意力路径中的 query、key、value，不需要单独控制分支或额外的注意力计算。该阶段产出的检查点既作为后续因果训练的初始化，也作为 DMD 中固定的双向教师模型。</p>
+<h4 id="4-2-teacher-forced-anyflow-initialization-教师强制-anyflow-初始化">4.2 Teacher-Forced AnyFlow Initialization（教师强制 AnyFlow 初始化）</h4>
+<p>目的是在保持完全监督的同时引入因果性，并让模型直接获得少步自回归生成能力。潜变量序列被划分为有序块；预测当前块时，模型只能看到当前块噪声状态和前面块的真实干净历史，未来块被隐藏。对每个块采样一对噪声水平 \((t,r)\)，损失为：</p>
+<p>\[ \mathcal{L}_{\mathrm{TF\text{-}AF}}=\mathbb{E}\left[\sum_k \ell_{\mathrm{AF}}\left(f_\phi;\mathbf{z}_t^k,t,r,\mathbf{z}_0^{&lt;k},\mathbf{c}\right)\right]. \]</p>
+<p>其中 \(\ell_{\mathrm{AF}}\) 监督任意两个噪声水平之间的 flow map，使模型能直接用少步采样完成自回归生成。教师强制提供稳定的干净历史，AnyFlow 目标则模拟少步采样中的有限噪声转移。二者结合直接产出少步自回归初始化模型，不需要 Causal Forcing 中的 Causal ODE 或 Consistency Distillation 初始化阶段。</p>
+<h4 id="4-3-dmd-based-causal-training-基于-dmd-的因果训练">4.3 DMD-based Causal Training（基于 DMD 的因果训练）</h4>
+<p>教师强制训练时模型看到的是干净历史，而推理时模型看到的是自己生成的历史。DMD 阶段用于消除这一不一致。因果学生模型在推理时相同的时序规则下生成轨迹，并通过 detached rollout-and-replay 过程允许 KV Cache 梯度流动。冻结的双向教师模型估计目标分布，可训练的 fake-distribution 模型跟踪学生模型不断变化的 rollout 分布；两者之差构成学生的分布匹配方向。记生成器为 \(G_\psi\)，教师与 fake 模型的分数分别为 \(s_{\mathrm{real}}\) 与 \(s_{\mathrm{fake}}\)：</p>
+<p>\[ \nabla_\psi \mathcal{L}_{\mathrm{DMD}}=\mathbb{E}\left[J_{G_\psi}^{\top}w(t)\left(s_{\mathrm{fake}}(\mathbf{z}_t,t,\mathbf{c})-s_{\mathrm{real}}(\mathbf{z}_t,t,\mathbf{c})\right)\right]. \]</p>
+<p>教师固定不变，fake 模型只在生成样本上优化，因此训练信号能跟踪学生分布变化，同时保留稳定质量参考。该阶段输出最终的少步因果模型，支持实时交互式长时程生成。</p>
 <h2 id="6-局限性和展望-约300字">6. 局限性和展望（约300字）</h2>
-<p>论文明确说明的限制主要体现在数据设计上：为了得到干净的相机控制监督，Clean Plate 清洗流程会移除行人、车辆等动态实体，因此训练语料中的动态目标被人为减少；同时，大量片段被分入 rejected 分区，说明当前语料对画质、运动、几何和字幕都有较严格的筛选。论文没有宣称模型具备物理精确预测或通用动作控制能力，实验也主要集中在相机轨迹控制下的视觉展开。</p>
-<p>可谨慎推断的限制包括：正文以 SolarWM-wan2.2-5B-fast 的分钟/小时级定性演示为主，对其他三个更大模型的长期展开未给出同等详细证据；目前缺少系统的长时漂移量化指标，长时间场景一致性和多轨迹组合下的误差累积仍有风险；由于动态实体被清洗，涉及人物、车辆或可交互物体状态变化的场景可能超出模型主要能力范围。</p>
-<p>未来展望包括：将相机控制扩展到更丰富的动作/语义控制，与强化学习或具身智能体结合；在更多骨干和更大模型上验证同一套三阶段配方；增加动态实体保留或可控编辑的数据管道；以及建立长时世界模型的定量评估协议。</p></div></article></main>
+<p>论文没有单独设置 Limitations 章节，以下区分明确边界与可谨慎推断的边界。</p>
+<p>明确可见的边界包括：数据语料固定在 10 个源数据集与 14 个数据 owner，虽然覆盖真实、合成和游戏环境，但分布并不均衡；Clean Plate 输出不自动继承源质量，可能引入纹理伪影、时间不连续或运动统计变化。模型族只覆盖 Wan2.2、LTX-2.5、MiniMax-H3 三种骨干族，不能保证统一配方可无修改迁移到所有视频生成器。可谨慎推断的限制是：已展示的可变控制主要是相机轨迹和场景文本，对实体动作、按键类交互或细粒度对象控制没有显式实验；长时程结果以定性视觉样例为主，缺少系统化的长程一致性、轨迹服从度和漂移量化指标；小时级 rollout 展示了可行性，但没有给出长时间退化边界或失败模式分析。</p>
+<p>展望方面，可加入定量长程评估和用户研究，扩展动作条件、音频与多模态控制，并在更多骨干上验证三阶段配方是否仍保持“短训练、长推理”的效率。数据引擎的过滤、加权和时间窗口接口也适合用来系统消融不同数据配方对 rollout 稳定性的影响。</p></div></article></main>
   </div>
   <script>/*!
   * PhotoSwipe 5.4.4 - https://photoswipe.com
