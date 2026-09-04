@@ -528,7 +528,7 @@ div.pswp__img--placeholder,
     <aside class="academic-sidebar" id="academic-sidebar" aria-label="文档目录">
       <div class="toc-panel">
         <p class="toc-heading">目录</p>
-        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#kirin-animal-motion-generation-from-in-the-wild-video">Kirin: Animal Motion Generation from In-the-Wild Video</a><a class="toc-link toc-level-2" href="#快速理解">快速理解</a><a class="toc-link toc-level-2" href="#中文摘要">中文摘要</a><a class="toc-link toc-level-2" href="#详细分析">详细分析</a><a class="toc-link toc-level-2" href="#1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</a><a class="toc-link toc-level-2" href="#2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</a><a class="toc-link toc-level-2" href="#3-核心贡献-约300字">3. 核心贡献（约300字）</a><a class="toc-link toc-level-2" href="#4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</a></nav>
+        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#kirin-animal-motion-generation-from-in-the-wild-video">Kirin: Animal Motion Generation from In-the-Wild Video</a><a class="toc-link toc-level-2" href="#快速理解">快速理解</a><a class="toc-link toc-level-2" href="#中文摘要">中文摘要</a><a class="toc-link toc-level-2" href="#详细分析">详细分析</a><a class="toc-link toc-level-2" href="#1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</a><a class="toc-link toc-level-2" href="#2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</a><a class="toc-link toc-level-2" href="#3-核心贡献-约300字">3. 核心贡献（约300字）</a><a class="toc-link toc-level-2" href="#4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</a><a class="toc-link toc-level-2" href="#5-核心方法-按论文-method-小节总结-约600字">5. 核心方法：按论文 Method 小节总结（约600字）</a><a class="toc-link toc-level-3" href="#3-1-extracting-animal-motions-from-web-videos-从网络视频中提取动物运动">3.1 Extracting Animal Motions from Web Videos（从网络视频中提取动物运动）</a><a class="toc-link toc-level-3" href="#3-2-image-conditioned-motion-diffusion-图像条件运动扩散">3.2 Image-Conditioned Motion Diffusion（图像条件运动扩散）</a><a class="toc-link toc-level-3" href="#3-3-applying-motions-to-generated-assets-将运动应用于生成资产">3.3 Applying Motions to Generated Assets（将运动应用于生成资产）</a><a class="toc-link toc-level-2" href="#6-局限性和展望-约300字">6. 局限性和展望（约300字）</a></nav>
       </div>
     </aside>
     <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../date/">← 返回日报目录</a></p>
@@ -539,36 +539,84 @@ div.pswp__img--placeholder,
 <p><strong>背景与任务：</strong> 动物运动数据稀缺，难以像人体运动那样捕捉，限制了动画等应用。</p>
 <p><strong>核心工作：</strong> 构建大规模视频-文本-运动数据集AiM3D，并提出基于文本和图像条件的动物运动生成框架。</p>
 <h2 id="中文摘要">中文摘要</h2>
-<p>理解动物运动是模拟动物行为和生物力学的基础，然而，由于缺乏高质量的运动数据，该领域的进展远远落后于人类运动研究。虽然人类运动可以在受控环境中捕捉，但对大多数动物物种而言并不现实，导致数据集规模小且领域受限，限制了动画等下游应用。为应对这一挑战，我们提出了Kirin，一个从视频重建运动、大规模学习运动先验并生成可直接应用于动画资产的逼真运动的框架。利用大量野外动物视频，我们重建3D运动序列并将其与描述配对，创建了AiM3D——首个为四足动物提供对齐的视频-文本-运动三元组的大规模数据集。在此数据集基础上，我们开发了一个视觉引导的运动生成模型，该模型同时以文本和图像为条件，引导跨多样动物物种的逼真运动生成。最后，通过利用现成的图像到3D模型，我们使用生成的运动自动为3D网格绑定骨架并制作动画，生成可直接渲染的动画动物。总之，我们的数据集和框架为大规模、文本和图像条件驱动的动物运动生成与动画建立了新基础。项目页面：https://kirin-ani.github.io/。</p>
+<p>理解动物运动是建模动物行为和生物力学的基础，然而由于高质量运动数据的匮乏，该领域的进展远落后于人类运动研究。人类运动可以在受控环境中捕捉，但对大多数动物物种而言这并不现实，导致数据集规模小且局限于特定领域，制约了动画等下游应用。为应对这一挑战，我们提出Kirin，一个从视频重建运动、大规模学习运动先验、并生成可直接应用于动画资产的逼真运动的框架。利用大量野外动物视频，我们重建3D运动序列并配以文本描述，构建了AiM3D，首个为四足动物提供对齐的视频-文本-运动三元组的大规模数据集。基于该数据集，我们开发了一个视觉引导的运动生成模型，同时以文本和图像为条件，引导生成跨多样动物物种的逼真运动。最后，借助现成的图像到3D模型，我们利用生成的运动自动为3D网格绑定骨骼并驱动动画，产出可直接渲染的动物动画。我们的数据集与框架共同为大规模、文本与图像条件的动物运动生成和动画奠定了新基础。项目页面：https://kirin-ani.github.io/。</p>
 <h2 id="详细分析">详细分析</h2>
 <h2 id="1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</h2>
-<p>Kirin 的输入是一张动物图像和一段描述期望动作的文本（例如“一只马在向左走”），输出是一个可直接渲染的 3D 动画网格序列。功能上，它既支持文本生成运动，也支持用图像约束动物的体型、种类和步态，并自动完成网格绑定与动画。当前边界是面向四足动物，使用 SMAL 参数化模板，不适用于非四足或需要精细手指等部位的运动。</p>
+<p>Kirin 的输入是一段描述动物动作的文本（如“马在后退站立”）和一张动物参考图像；输出是一段可直接渲染的 3D 动画网格序列，即这只动物按照文本动作运动的三维模型。功能包括：从网络视频重建动物 3D 运动、构建文本-视频-运动数据集、以文本和图像为条件生成运动、自动绑定骨骼并驱动网格。边界是：面向 SMAL 四足动物模板，覆盖 23 类四足动物；每段视频只含单只动物，不处理多动物或非四足运动。</p>
 <h2 id="2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</h2>
-<p>动物运动理解是行为学和生物力学的基础，但进展远落后于人体运动研究。原因很直接：高质量动物运动数据极度稀缺。人类可以在实验室中穿戴动捕设备获得精确数据，但大多数动物无法进入受控环境，野生或濒危物种更不可能。以往数据集要么依赖人工和动画师制作（如 DeformingThings4D、Truebones Zoo），要么从游戏提取（如 AniMo4D），这些数据只覆盖少量预设动作，无法体现真实世界中的行为多样性。同时，视频数据虽然互联网上大量存在，但已有的动物视频数据（如 AiM）只提供 2D 信息，缺乏 3D 运动，无法直接用于生成任务。</p>
-<p>核心 insight 在于：<strong>将“从视频重建运动”与“大规模运动生成”结合起来，用非受控、无标注的野生视频作为数据源，绕过人工制作瓶颈。</strong> 论文指出，近年 3D 重建和 3D 点跟踪技术已经足够成熟，可以从单目视频中恢复较稳定的 3D 动物姿态；另一方面，扩散模型已经能生成高质量人体运动。因此，Kirin 的洞察是：先用重建管道从视频自动生成“视频—文本—3D 运动”三元组，再训练一个同时接受文本和图像条件的运动扩散模型。为了对齐文本和视频，他们用视觉语言模型自动生成描述；为了弥补文本对体型、方向、步态等信息的不足，他们引入图像条件，让模型能参考具体动物外观。最终，结合图像到 3D 模型和自动蒙皮，形成一个从图像到动画的端到端系统。</p>
+<p>动物运动研究滞后于人体运动研究，主要瓶颈不是模型能力，而是缺少大规模高质量 3D 运动数据。实验室动捕无法覆盖大多数物种，艺术家手工制作的数据只有少数动作，且现有视频数据集如 AiM 虽然有近 3 万段视频，却没有 3D 运动；Ponymation 只针对马且无法做文本条件控制。论文的核心观察是：互联网上有大量自然动物视频，而现成的单帧 3D 重建已经能恢复骨骼，因此可以先把这些视频“变成”运动数据库，再训练生成模型。</p>
+<p>另一个 insight 是：文本提示对动物运动是欠定的。仅说“狗在走”无法区分柯基和灵缇，而参考图像能提供体型、物种、姿态等约束，使生成的运动在语义和形态上都更合理。最后，把生成的运动与 image-to-3D 网格结合，就能得到无需手工绑定即可渲染的动画资产。Kirin 正是把这三个观察串成“重建数据 → 条件生成 → 自动绑定动画”的完整框架。</p>
 <h2 id="3-核心贡献-约300字">3. 核心贡献（约300字）</h2>
-<p>论文的贡献可以归纳为四个方面：</p>
-<ol><li><strong>构建了 AiM3D 数据集</strong>。基于 AiM 中的近 3 万段野生四足动物视频，Kirin 重建出带全局平移的 3D 运动序列，并用 Gemini 2.5 Flash 为每段视频生成 6 条文本描述，形成约 18 万条“文本—视频—运动”对齐的数据集。这是首个大规模、覆盖 23 个四足类别的动物运动生成数据集。</li></ol>
-<ol><li><strong>提出首个文本+图像双条件动物运动生成模型</strong>。以 MDM 为骨干，增加图像条件分支，通过 DINOv3 提取全局视觉特征，并与 DistilBERT 文本特征相加后注入 Transformer 解码器。模型支持文本-only、图像-only 和文本+图像三种推理模式，比现有的 AniMo 等模型更适应形态差异。</li></ol>
-<ol><li><strong>验证了数据质量与模型泛化能力</strong>。在 AiM3D 测试集上优于 AniMo，在外部数据集 AnimalML3D 上也取得最佳结果，说明 AiM3D 能帮助模型泛化到未见动作和物种。</li></ol>
-<ol><li><strong>实现了全自动动画管线</strong>。结合 Rodin 图像到 3D 模型，自动完成 T-pose 网格恢复、SMAL 模板拟合、蒙皮权重转移和线性蒙皮动画，能够将一条生成的骨骼运动直接绑定到任意输入图像对应的网格上，输出可渲染的动画资产。</li></ol>
+<p>本文的贡献可归纳为四点。</p>
+<p>第一，方法层面：提出 Kirin 框架，将视频运动重建、运动生成和 3D 动画绑定串联成一条自动流水线，使“输入文本+图像，输出动画网格”成为可能。</p>
+<p>第二，数据层面：基于 AiM 的 29,979 段网络视频重建出带 3D 运动的序列，并用 Gemini 2.5 Flash 为每段视频生成 6 条描述，得到 AiM3D——这是第一个大规模的、对齐了视频-文本-3D 运动四元组的四足动物数据集，包含约 18 万条文本描述，支持文本条件生成。</p>
+<p>第三，模型层面：首次提出同时以文本和图像为条件的动物运动生成模型，扩展 MDM 并加入 DINOv3 图像条件分支，利用视觉形态约束生成运动。</p>
+<p>第四，验证与系统层面：在内部测试集和外部 AnimalML3D 上取得当前最好结果；结合 Rodin 和自动绑定管线，能自动把普通 2D 图片变成可渲染的 3D 动画序列，比现有 4D 动画方法更稳定高效。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.01823v1/data_examples.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.01823v1/data_examples.png" alt="图5：数据示例的动物关节可视化。每一行中，左侧显示两个运动文本描述，之后是视频帧和对应的重建3D运动。" loading="lazy"></a><span class="image-caption">图5：数据示例的动物关节可视化。每一行中，左侧显示两个运动文本描述，之后是视频帧和对应的重建3D运动。</span></span></p>
 <h2 id="4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</h2>
-<p>推理时，Kirin 依赖三个预先存在的基模：<strong>DistilBERT</strong> 负责提取文本语义特征，<strong>DINOv3</strong> 负责提取图像全局外观特征，二者共同为运动扩散模型提供条件；<strong>Rodin</strong> 作为图像到 3D 模型，从输入图像生成带纹理的 T 形网格。运动扩散模型本身是训练好的去噪器，它接受文本、图像和去噪时间步的融合条件，逐步去除噪声，输出关节旋转序列。整个推理过程不需要任何训练或微调，完全前向。</p>
-<p>推理步骤如下：</p>
-<ol><li><strong>输入解析</strong>：用户上传一张动物图像和一句文本（例如“一只猫在坐下”）。系统将图像分别传给 DINOv3 和 Rodin，将文本传给 DistilBERT；DINOv3 输出全局图像特征，DistilBERT 输出文本 token 特征，Rodin 返回一个 T 形姿态的 3D 网格资产。</li><li><strong>条件融合</strong>：图像特征、文本特征与扩散时间步嵌入在特征维度上直接相加，得到一个融合条件向量；该向量被输入到运动扩散模型中，作为去噪过程的引导条件。</li><li><strong>运动生成</strong>：扩散模型从随机噪声开始，根据融合条件迭代去噪，输出一段指定长度的 3D 骨骼运动序列（包含每帧关节旋转和根节点位移）。若用户只给文本或只给图像，则相应模态特征置空，模型仍可生成。</li><li><strong>自动绑定</strong>：系统将 SMAL 参数化模板拟合到 Rodin 生成的 T 形网格上，估计网格的形状参数和绑定姿态，并通过 k 近邻把 SMAL 的蒙皮权重转移到目标网格顶点上。</li><li><strong>运动重定向与动画</strong>：把第 3 步生成的骨骼运动映射到目标网格的关节变换上，用线性混合蒙皮（LBS）逐帧变形网格顶点，得到最终的 3D 动画网格序列。</li><li><strong>输出</strong>：输出可直接导入渲染引擎的网格动画（如 FBX/glTF），也可以渲染成视频；用户可调整文本或图像后重新生成。</li></ol>
-<div class="mermaid">graph TD
-    A[输入: 动物图像 + 文本描述] --&gt; B1[文本编码器 DistilBERT]
-    A --&gt; B2[图像编码器 DINOv3]
-    A --&gt; B3[图像到3D模型 Rodin]
-
-    B2 --&gt; C[条件融合: 图像特征 + 文本特征 + 时间步嵌入]
-    B1 --&gt; C
-    C --&gt; D[运动扩散模型去噪]
-    D --&gt; E[生成的骨骼运动序列]
-
-    B3 --&gt; F[T形网格]
-    F --&gt;
-</div></div></article></main>
+<p>推理时使用的基础模型包括：冻结的 DistilBERT 文本编码器、冻结的 DINOv3 图像编码器、基于 Transformer 的运动扩散去噪模型，以及 image-to-3D 模型 Rodin。它们分别负责把文本/图像转为条件特征、把条件特征转为 3D 骨骼运动、把单张参考图转为 T-pose 网格。最后通过 SMAL 模板匹配和线性蒙皮（LBS）把运动绑定到网格。</p>
+<p>图2展示了整体推理流程。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.01823v1/method_v2.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.01823v1/method_v2.png" alt="图2：左：Kirin生成流水线概览。文本描述和图像作为输入。文本和图像用于运动生成，同时图像还用于生成T-pose网格。动画模块随后将生成的运动绑定到网格上，以生成最终的动画3D模型。右：运动生成架构概览。使用冻结的DistilBERT编码器提取文本特征，使用冻结的DINOv3编码器提取图像特征。文本、图像和去噪步嵌入被组合并馈送到具有交叉注意力的Transformer解码器中以生成运动序列。" loading="lazy"></a><span class="image-caption">图2：左：Kirin生成流水线概览。文本描述和图像作为输入。文本和图像用于运动生成，同时图像还用于生成T-pose网格。动画模块随后将生成的运动绑定到网格上，以生成最终的动画3D模型。右：运动生成架构概览。使用冻结的DistilBERT编码器提取文本特征，使用冻结的DINOv3编码器提取图像特征。文本、图像和去噪步嵌入被组合并馈送到具有交叉注意力的Transformer解码器中以生成运动序列。</span></span></p>
+<p>实际使用时，推理步骤如下：</p>
+<ol><li>用户输入文本描述和参考图像（也可只用其中一种）→ 文本编码器把文本转为 token 特征，图像编码器输出一个全局图像特征，两者与去噪时间步特征相加融合 → 得到运动条件向量。</li><li>条件向量与随机初始化的运动噪声序列 → 运动扩散 Transformer 在条件向量引导下迭代去噪 → 输出一段 3D 骨骼运动序列，交给下一步绑定。</li><li>同一条参考图像 → Rodin image-to-3D 模型 → 生成带纹理的 T-pose 3D 网格。</li><li>3D 骨骼运动序列和 T-pose 网格 → 自动绑定模块：先把 SMAL 模板与网格形状匹配，再把 SMAL 的蒙皮权重近邻插值到网格，最后用线性蒙皮按每帧关节旋转驱动网格 → 输出可直接渲染的 3D 动画网格序列。</li><li>用户检查渲染结果；若不满意可修改文本或图像并重新执行上述步骤，形成反馈循环。</li></ol>
+<div class="mermaid">flowchart TD
+    A[用户输入：文本描述 + 参考图像] --&gt; B[文本编码 DistilBERT 和图像编码 DINOv3]
+    B --&gt; C[融合条件特征]
+    C --&gt; D[运动扩散 Transformer 生成 3D 骨骼运动]
+    A --&gt; E[Rodin 图像转 3D 生成 T-pose 网格]
+    D --&gt; F[SMAL 模板匹配 + 蒙皮权重传递]
+    E --&gt; F
+    F --&gt; G[线性蒙皮 LBS 驱动网格]
+    G --&gt; H[3D 动画网格序列]
+    H --&gt;|用户不满意可修改输入再生成| A</div>
+<h2 id="5-核心方法-按论文-method-小节总结-约600字">5. 核心方法：按论文 Method 小节总结（约600字）</h2>
+<h3 id="3-1-extracting-animal-motions-from-web-videos-从网络视频中提取动物运动">3.1 Extracting Animal Motions from Web Videos（从网络视频中提取动物运动）</h3>
+<p>本节解决“如何把网络视频变成高质量 3D 运动”。SMAL 是参数化四足动物模板，包含形状参数 \(\boldsymbol{\beta}\in\mathbb{R}^{41}\)、姿态参数 \(\boldsymbol{\theta}\in\mathbb{R}^{35\times3}\) 和 35 个关节。作者先解耦全局平移与局部关节：用 AniMer 产生单帧初始值，再对整段视频做序列级优化，并用 SpatialTrackerV2 单独估计根关节位移。图10展示了这个双支路重建过程。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.01823v1/reconstruction_method.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.01823v1/reconstruction_method.png" alt="图10：运动重建方法概览。我们利用现成的3D四足动物重建方法和3D跟踪方法分别推断关节和全局平移。我们将它们组合起来以获得最终的运动重建作为我们的运动数据。" loading="lazy"></a><span class="image-caption">图10：运动重建方法概览。我们利用现成的3D四足动物重建方法和3D跟踪方法分别推断关节和全局平移。我们将它们组合起来以获得最终的运动重建作为我们的运动数据。</span></span></p>
+<h4 id="initialization-初始化">Initialization（初始化）</h4>
+<p>对每一帧 \(\mathbf{I}_t\)，使用预计算掩码 \(\mathbf{M}_t\) 和 2D 关键点 \(\mathbf{P}_t\)，用 AniMer 得到单帧形状、姿态和弱透视相机。初始化时取所有帧形状的均值作为序列共享形状 \(\boldsymbol{\beta}^{(0)}\)，把姿态转为 6D 旋转表示 \(\mathbf{r}_t^{(0)}\)，并固定相机。</p>
+<h4 id="objective-优化目标">Objective（优化目标）</h4>
+<p>优化目标是序列共享形状 \(\boldsymbol{\beta}\) 和每帧 6D 旋转 \(\{\mathbf{r}_t\}\)。目标函数为：</p>
+<p>\[ \min_{\boldsymbol{\beta},\{\mathbf{r}_t\}} \mathcal{L} = \lambda_{\text{proj}}\mathcal{L}_{\text{proj}}</p>
+<ul><li>\lambda_{\text{smooth}}\mathcal{L}_{\text{smooth}},</li></ul>
+<p>\]</p>
+<p>其中 \(\mathcal{L}_{\text{proj}}\) 是加权关键点重投影误差，\(\mathcal{L}_{\text{smooth}}\) 用 SO(3) 测地距离约束相邻帧旋转的平滑性和加速度。这样能把单帧预测变成时间上稳定、像素对齐的 3D 运动。</p>
+<h4 id="optimization-details-优化细节">Optimization details（优化细节）</h4>
+<p>使用 Adam 优化，学习率 \(0.001\)，优化 20 轮；权重设为 \(\lambda_{\text{proj}}=1.0\)、\(\lambda_{\text{smooth}}=100.0\)、\(\alpha=0.2\)。平均运行时间小于 1 秒/帧。</p>
+<h4 id="why-this-matters-为什么这很重要">Why this matters?（为什么这很重要）</h4>
+<p>序列级优化将强但 noisy 的单帧预测转化为时间稳定的运动；作者认为这是后续生成质量的关键。</p>
+<h4 id="global-translation-全局平移">Global Translation（全局平移）</h4>
+<p>由于之前的优化在中心裁剪视频上进行，丢失了全局位移。作者用 SpatialTrackerV2 在原始未裁剪视频上跟踪动物身上的 3D 点，求平均得到全局平移轨迹，再与 SMAL 骨骼尺度对齐。图6展示了重建运动中的全局平移轨迹。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.01823v1/motion_data_global_v2.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.01823v1/motion_data_global_v2.png" alt="图6：数据示例的全局平移可视化。每个数据示例显示根关节在地面上的投影轨迹，可视化重建运动的全局平移。" loading="lazy"></a><span class="image-caption">图6：数据示例的全局平移可视化。每个数据示例显示根关节在地面上的投影轨迹，可视化重建运动的全局平移。</span></span></p>
+<h4 id="dataset-数据集">Dataset（数据集）</h4>
+<p>最终构建 AiM3D：29,979 段运动，其中 230 段作为测试集，其余 29,749 段作为训练集；用 Gemini 2.5 Flash 为每段视频生成 6 条文本描述，共 179,874 条描述，形成对齐的视频-文本-运动数据。</p>
+<h4 id="data-validation-数据验证">Data Validation（数据验证）</h4>
+<p>对测试集随机抽取 100 个样本进行人工验证：86 个重建运动被认为是满意的；文本描述平均得分 4.62，90 个样本的描述全部正确。主要失败情况包括俯视、正对头部或背对镜头导致腿部不可见，以及快速运动或相机抖动造成重建抖动。</p>
+<h3 id="3-2-image-conditioned-motion-diffusion-图像条件运动扩散">3.2 Image-Conditioned Motion Diffusion（图像条件运动扩散）</h3>
+<p>本节提出同时以文本和图像为条件的运动扩散模型。文本对动物运动是欠定的：例如“狗在走”无法表达柯基和灵缇的步态差异，因此引入图像条件提供物种、体型和姿态信息。图12示例了同一文本在不同图像下的运动差异。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.01823v1/image_condition.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.01823v1/image_condition.png" alt="图12：图像条件化的影响。生成的运动使用相同的输入文本提示：“一个动物正在行走”。结果显示基于输入图像的适当骨架变化和步态模式。" loading="lazy"></a><span class="image-caption">图12：图像条件化的影响。生成的运动使用相同的输入文本提示：“一个动物正在行走”。结果显示基于输入图像的适当骨架变化和步态模式。</span></span></p>
+<h4 id="architecture-架构">Architecture（架构）</h4>
+<p>以 MDM 为骨架，使用冻结的 DistilBERT 得到文本 token 特征 \(\mathbf{z}_{\text{text}}\in\mathbb{R}^{l\times d}\)，冻结的 DINOv3 得到全局图像特征 \(\mathbf{z}_{\text{img}}\in\mathbb{R}^{1\times d}\)，与去噪时间步嵌入 \(\mathbf{z}_t\in\mathbb{R}^{1\times d}\) 广播相加，得到条件特征 \(\mathbf{z}_c\)，注入 Transformer 解码器的交叉注意力。</p>
+<h4 id="training-and-sampling-训练与采样">Training and sampling（训练与采样）</h4>
+<p>采用标准扩散噪声预测目标：</p>
+<p>\[ \mathcal{L}_{\text{DDPM}} = \mathbb{E}_{\mathbf{x}_0,c,t,\boldsymbol{\epsilon}} \big\| \boldsymbol{\epsilon} - \mathcal{G}_\theta(\mathbf{x}_t,t,\mathbf{z}_c) \big\|_2^2. \]</p>
+<p>训练时分别以 \(0.2\) 的概率丢弃文本或图像条件，实现 classifier-free guidance；推理时支持仅文本、仅图像、文本+图像三种输入。</p>
+<h3 id="3-3-applying-motions-to-generated-assets-将运动应用于生成资产">3.3 Applying Motions to Generated Assets（将运动应用于生成资产）</h3>
+<p>生成的运动需要绑定到任意 3D 网格上。先用 Rodin 从参考图像得到 T-pose 网格 \(\mathcal{M}=\{\mathbf{V},\mathbf{F}\}\)，然后通过三步完成动画化。</p>
+<h4 id="smal-template-fitting-smal模板拟合">SMAL template fitting（SMAL模板拟合）</h4>
+<p>将 SMAL 模板网格与资产网格对齐，求解形状 \(\boldsymbol{\beta}\) 和 bind 姿态 \(\boldsymbol{\theta}_{\text{bind}}\)：</p>
+<p>\[ \min_{\boldsymbol{\beta},\boldsymbol{\theta}_{\text{bind}}} \lambda_{\text{ch}}\,D_{\text{ch}} \big( \mathbf{V}_{\text{smal}}(\boldsymbol{\beta},\boldsymbol{\theta}_{\text{bind}}), \mathbf{V} \big) + \lambda_{\text{e}}\,E_{\text{edge}}, \]</p>
+<p>其中 \(D_{\text{ch}}\) 是双向 Chamfer 距离，\(E_{\text{edge}}\) 保持边长，从而得到每个关节的 bind 变换。</p>
+<h4 id="skinning-transfer-蒙皮权重传递">Skinning transfer（蒙皮权重传递）</h4>
+<p>对资产网格的每个顶点，在拟合后的 SMAL 网格上找 \(k=10\) 个最近邻顶点，用反距离权重混合 SMAL 的 LBS 蒙皮权重，得到新网格的权重。</p>
+<h4 id="animation-动画">Animation（动画）</h4>
+<p>把生成的运动参数拟合为每帧关节变换 \(\mathbf{G}_{j,t}\)，再用线性蒙皮：</p>
+<p>\[ \tilde{\mathbf{v}}_t = \sum_{j=1}^{J} \mathbf{w}_j(\mathbf{v}) \; \big( \mathbf{G}_{j,t}\,\mathbf{B}_j^{-1} \big) \tilde{\mathbf{v}}. \]</p>
+<p>最终输出带纹理、可渲染的 3D 动画网格序列。</p>
+<h2 id="6-局限性和展望-约300字">6. 局限性和展望（约300字）</h2>
+<p>论文明确指出的限制包括：重建在纯俯视、正对头部、背对镜头或腿部被遮挡的视频上会缺失腿部运动；快速运动或相机抖动会造成重建抖动；VLM 生成的文本描述有少量动作或方向错误；图像条件会降低生成动作的多样性。</p>
+<p>可谨慎推断的限制还有：SMAL 是统一四足模板，因此 Kirin 不能处理非四足动物（如鸟类、灵长类或水生动物），也难以覆盖超出 23 个类别的形态；数据来自网络视频，行为分布偏向常见家畜和大型野生动物，长尾行为可能仍不足；动画质量依赖 image-to-3D 模型生成的 T-pose 网格质量，若网格与 SMAL 拓扑差异很大，蒙皮权重传递可能产生局部失真；重建精度受 2D 关键点、掩码和单帧重建器的误差影响。</p>
+<p>展望方面，可以扩大物种范围、加入物理约束和更细粒度的行为标签，也可以把重建、生成和绑定进行端到端联合优化，使动物运动生成更通用、更可控、更易于应用到动画和生物力学研究。</p></div></article></main>
   </div>
   <script>/*!
   * PhotoSwipe 5.4.4 - https://photoswipe.com
