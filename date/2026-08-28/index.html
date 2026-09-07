@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Procedura: Agentic 3D Modeling with Procedural Control</title>
+  <title>2026-08-28 · 论文日报</title>
 
   <script>
     window.MathJax = {
@@ -515,10 +515,37 @@ div.pswp__img--placeholder,
       .academic-main article { padding: 30px 22px 52px; border: 0; border-radius: 0; }
     }
 
+    h3 { font-size: 20px; }
+    h4 { font-size: 18px; }
+
+    .inline-html-entry { margin: 18px 0; padding: 16px 18px 18px; border: 1px solid #d8e2eb; border-left: 3px solid #91abc2; border-radius: 6px; background: #fbfdff; transition: border-color .15s, background .15s; }
+    .inline-html-entry.is-expanded { border-color: #b7c9d9; border-left-color: #1769aa; background: #fff; }
+    .inline-html-summary { margin-top: 0; margin-bottom: 0; }
+    .inline-html-actions { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-left: 10px; vertical-align: middle; }
+    .inline-html-toggle, .inline-html-standalone, .inline-html-close { display: inline-flex; min-height: 30px; align-items: center; justify-content: center; padding: 5px 10px; border: 1px solid #b9c9d8; border-radius: 6px; background: #fff; color: #37516a; font: inherit; font-size: 12px; font-weight: 700; line-height: 1.35; text-decoration: none; cursor: pointer; }
+    .inline-html-source-link { display: none; }
+    .inline-html-toggle:hover, .inline-html-standalone:hover, .inline-html-close:hover { border-color: #1769aa; color: #1769aa; }
+    .inline-html-toggle:disabled { cursor: wait; opacity: .6; }
+    .inline-html-panel { margin: 18px 0 0; padding-top: 24px; border-top: 1px solid #e2e8f0; }
+    .inline-html-panel[hidden] { display: none; }
+    .inline-html-body h1:first-child { display: none; }
+    .inline-html-status { color: #64748b; font-size: 14px; }
+    .inline-html-error { color: #9f1239; }
+    .inline-html-footer { display: flex; justify-content: flex-end; margin-top: 30px; padding-top: 16px; border-top: 1px solid #e2e8f0; }
+    @media (max-width: 640px) {
+      .inline-html-entry { padding: 14px 14px 16px; }
+      .inline-html-actions { display: flex; margin: 10px 0 0; }
+      .inline-html-toggle, .inline-html-standalone, .inline-html-close { min-height: 36px; }
+    }
 
 
 
-  </style>
+    /* A focused entry is emitted as title, classification, then one-line summary. */
+    .academic-main h4 + p,
+    .academic-main h4 + p + p,
+    .academic-main h5 + p,
+    .academic-main h5 + p + p { font-size: 16px; }
+</style>
 </head>
 <body>
 
@@ -529,67 +556,59 @@ div.pswp__img--placeholder,
     <aside class="academic-sidebar" id="academic-sidebar" aria-label="文档目录">
       <div class="toc-panel">
         <p class="toc-heading">目录</p>
-        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#procedura-agentic-3d-modeling-with-procedural-control">Procedura: Agentic 3D Modeling with Procedural Control</a><a class="toc-link toc-level-2" href="#快速理解">快速理解</a><a class="toc-link toc-level-2" href="#中文摘要">中文摘要</a><a class="toc-link toc-level-2" href="#详细分析">详细分析</a><a class="toc-link toc-level-2" href="#1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</a><a class="toc-link toc-level-2" href="#2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</a><a class="toc-link toc-level-2" href="#3-核心贡献-约300字">3. 核心贡献（约300字）</a><a class="toc-link toc-level-2" href="#4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</a><a class="toc-link toc-level-2" href="#5-核心方法-按论文-method-小节总结-约600字">5. 核心方法：按论文 Method 小节总结（约600字）</a><a class="toc-link toc-level-3" href="#3-1-procedural-assembly-representation-程序化装配表示">3.1 Procedural Assembly Representation（程序化装配表示）</a><a class="toc-link toc-level-3" href="#3-2-assembly-graph-planning-装配图规划">3.2 Assembly-Graph Planning（装配图规划）</a><a class="toc-link toc-level-3" href="#3-3-mate-driven-building-mate-驱动的构建">3.3 Mate-Driven Building（Mate 驱动的构建）</a><a class="toc-link toc-level-3" href="#3-4-decoupled-critic-refinement-解耦批评器的细化">3.4 Decoupled-Critic Refinement（解耦批评器的细化）</a><a class="toc-link toc-level-3" href="#3-5-materials-材质">3.5 Materials（材质）</a><a class="toc-link toc-level-3" href="#3-6-articulation-关节">3.6 Articulation（关节）</a><a class="toc-link toc-level-2" href="#6-局限性和展望-约300字">6. 局限性和展望（约300字）</a></nav>
+        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#2026-08-28-论文日报">2026-08-28 · 论文日报</a><a class="toc-link toc-level-2" href="#重点解析">重点解析</a><a class="toc-link toc-level-3" href="#3d">3D</a><a class="toc-link toc-level-4" href="#agentic-game-development-as-a-verifiable-trajectory-data-engine-for-scaling-world-models">Agentic Game Development as a Verifiable Trajectory Data Engine for Scaling World Models</a><a class="toc-link toc-level-4" href="#gamewam-a-world-action-model-for-video-games">GameWAM: A World Action Model for Video Games</a><a class="toc-link toc-level-4" href="#luce-relightable-gaussians-for-3d-asset-generation">Luce: Relightable Gaussians for 3D Asset Generation</a><a class="toc-link toc-level-4" href="#pawbench-how-far-are-we-from-probabilistically-aligned-world-modeling">PAWBench: How Far Are We from Probabilistically Aligned World Modeling?</a><a class="toc-link toc-level-4" href="#procedura-agentic-3d-modeling-with-procedural-control">Procedura: Agentic 3D Modeling with Procedural Control</a><a class="toc-link toc-level-3" href="#视频">视频</a><a class="toc-link toc-level-4" href="#gamewam-a-world-action-model-for-video-games-2">GameWAM: A World Action Model for Video Games</a><a class="toc-link toc-level-4" href="#pawbench-how-far-are-we-from-probabilistically-aligned-world-modeling-2">PAWBench: How Far Are We from Probabilistically Aligned World Modeling?</a><a class="toc-link toc-level-2" href="#全量论文简报">全量论文简报</a></nav>
       </div>
     </aside>
-    <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../date/">← 返回日报目录</a></p>
-<h1 id="procedura-agentic-3d-modeling-with-procedural-control">Procedura: Agentic 3D Modeling with Procedural Control</h1>
-<p><strong>一句话主题：</strong> 基于LLM的程序化3D建模智能体</p>
-<p><strong>领域标签：</strong> 3D建模 / 程序化生成 / 智能体框架</p>
-<h2 id="快速理解">快速理解</h2>
-<p><strong>背景与任务：</strong> 现有原生3D生成器从单图生成网格，但缺乏锐利边缘、部件分解和可编辑参数。</p>
-<p><strong>核心工作：</strong> 作者提出Procedura，将3D形状表示为带部件和可编辑参数的程序化装配，通过编译与视觉校验迭代生成高质量可编辑模型。</p>
-<h2 id="中文摘要">中文摘要</h2>
-<p>原生3D生成器现在能从单张图像恢复出令人印象深刻的网格几何。然而，密集网格在机械加工物体本应尖锐的地方仍然柔软，它不包含零件分解，也不暴露用户可编辑的参数。为了解决这个问题，我们探索了“3D形状即代码”的范式，利用并扩展LLM的编码能力进行3D建模。我们提出了Procedura，一个新颖的3D建模智能体框架，它将物体写成程序化装配体——一个参数化程序，其命名零件通过带类型且可机器检查的配合连接。根据文本提示，该智能体将物体规划为装配图，并逐部分编写程序，从配合坐标系求解每个放置位置而非猜测，且仅在编译、配合和连通性检查通过后才接受一个零件。然后，一个解耦的视觉评判器一次进行一个诊断修复来优化装配体。此外，同一个图还携带每个零件的材质和经模拟器验证的关节结构。我们在P3D-Bench上使用其装配评判器进行评估，并在我们的硬表面基准MechBench-36上使用相同的评判器进行评估。在这两个基准上，Procedura在评判质量上优于最先进的原生3D生成器和所有先前的3D代码智能体，在我们评估的所有方法中产生最锐利的边缘，并且是唯一一个输出可编辑、零件结构化的程序的方法。</p>
-<h2 id="详细分析">详细分析</h2>
-<h2 id="1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</h2>
-<p>任务输入是单条文本提示。输出不是一个孤立网格，而是一个可编辑的“程序化装配”：由参数化 CSG（构造实体几何）程序、命名部件、类型化装配约束（mate）、每部件 PBR 材质和经仿真验证的关节组成，同时可编译得到精确网格。功能边界是面向机械件、载具、工具等硬表面对象；不处理有机自由曲面，也不依赖用户提供图像或修改底层模型。</p>
-<h2 id="2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</h2>
-<p>原生 3D 生成器能从图像重建出外观逼真的密集网格，但网格在机械件需要锐利棱边的地方是发软的；网格没有部件归属，分割需要事后模型；也没有任何可供用户修改的参数。另一条路线是“把形状写成代码”，让 LLM 直接输出 3D 程序，但一次性生成的多部件对象往往很简陋：一次调用必须同时决定所有部件、尺寸和位置，模型看不到代码构建出的结果，部件之间的装配关系也没有被表示。近年 agentic 系统虽引入“写代码—渲染—修改”循环，但部件仍靠模型从渲染图中估计原始变换，而不是由确定的几何约束求出；自批评也往往发现不了自己的错误。</p>
-<p>核心 insight 是：3D 形状应该被写成“有结构的程序化装配”，而不是裸的三角形网格或一段一次性代码。CSG 的面是精确平面和圆柱面，所以锐边天然存在；类型化 mate 把部件连接变成机器可检查的关系；一次大而盲的生成被拆成“一个部件一次调用”的小步，每步都由编译、配合和连通性检查守护；修复由独立视觉批评器驱动。图 9 可以看出，先前智能体把机械结构塌缩成几个大块，而 Procedura 保留每个独立部件。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.26238v1/figures/results/rowA/00001198_llm.jpg" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.26238v1/figures/results/rowA/00001198_llm.jpg" alt="Figure 9：与 LLM 驱动的 3D 生成的定性比较。六个基准对象，每行一个，每个由下方打印的提示生成；每种方法接收相同的参考图像和渲染装置。先前的代理恢复了粗略轮廓，但将机制压缩成几个盒子，而 Procedura 将每个部分解析为自身的实体。" loading="lazy"></a><span class="image-caption">Figure 9：与 LLM 驱动的 3D 生成的定性比较。六个基准对象，每行一个，每个由下方打印的提示生成；每种方法接收相同的参考图像和渲染装置。先前的代理恢复了粗略轮廓，但将机制压缩成几个盒子，而 Procedura 将每个部分解析为自身的实体。</span></span></p>
-<h2 id="3-核心贡献-约300字">3. 核心贡献（约300字）</h2>
-<p>论文提出、构建并验证了三点贡献。</p>
-<p>第一，提出 Procedura，一个“3D 形状即代码”的建模智能体。它利用冻结的强 LLM 的写代码能力，把文本提示转成参数化 CSG 程序，不进行任何 3D 训练。输出不是一层不可分的网格，而是天然带部件结构的程序；每个部件都是可寻址、可重新参数化的命名模块，如图 2 所示。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.26238v1/figures/teaser_explode_buggy_darkfloor_gallery_neat.jpg" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.26238v1/figures/teaser_explode_buggy_darkfloor_gallery_neat.jpg" alt="Figure 2：以代码编写的形状天然具有部分结构。Procedura 将每个对象构建为参数化程序，每个物理部件对应一个命名模块，因此模型无需额外成本即可分解为有意义、可编辑的片段，因为没有事后分割步骤。左侧的突击越野车以每部分颜色显示，并展开为其命名部件（防滚架、炮塔、座椅、车轮、传动系统、面板），旁边还有其他对象和单个部件库。生成的网格是单一不透明表面。相比之下，这里的每个部分都可单独寻址和重新参数化，同样的分解驱动每部分材质（第 3.5 节）和关节（第 3.6 节）。" loading="lazy"></a><span class="image-caption">Figure 2：以代码编写的形状天然具有部分结构。Procedura 将每个对象构建为参数化程序，每个物理部件对应一个命名模块，因此模型无需额外成本即可分解为有意义、可编辑的片段，因为没有事后分割步骤。左侧的突击越野车以每部分颜色显示，并展开为其命名部件（防滚架、炮塔、座椅、车轮、传动系统、面板），旁边还有其他对象和单个部件库。生成的网格是单一不透明表面。相比之下，这里的每个部分都可单独寻址和重新参数化，同样的分解驱动每部分材质（第 3.5 节）和关节（第 3.6 节）。</span></span></p>
-<p>第二，提出“带类型化 mate 的程序化装配”表示。部件的位姿由 mate 框架求解而不是模型猜测；每个提交都通过编译、mate 和连通性检查。同一张装配图还携带每部件材质和可被仿真验证的关节。</p>
-<p>第三，构建并验证了基准结果。在 P3D-Bench 和新的硬表面基准 MechBench-36 上，Procedura 在盲评中超过原生 3D 生成器和此前所有 3D 代码智能体，输出锐利边最多，且是唯一能重新打开为可编辑、部件化程序的系统。</p>
-<h2 id="4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</h2>
-<p>推理时使用的基模是一个深度推理多模态 LLM（默认 Gemini 3.7 Flash；论文也报告了 GPT-5.6-sol 变体）。它承担规划、逐部件代码生成、批评和修复决策。文本到图像模型负责合成参考视图；OpenSCAD 编译、Blender 渲染、Isaac Sim 验证是确定性环境模块。</p>
-<ol><li>输入：用户文本提示。→ 文本到图像模型：合成一张参考视图。→ 输出：参考图像，作为后续所有阶段的视觉锚点。</li><li>输入：提示 + 参考图。→ LLM 规划器：把对象分解为有序命名部件列表，每个部件带说明、细节层级、依附关系和要发布的类型化 mate。→ 输出：装配图。</li><li>输入：装配图 + 参考图 + 已编译程序文本 + 当前部件彩色渲染。→ LLM 构建器：一次生成一个新部件的参数、辅助模块、主体、接口帧和放置意图。系统解析后从 mate 框架求解装配位姿，确定性拼接到程序，并执行编译、mate 和连通性检查。→ 输出：通过检查的部件进入程序；失败则反馈错误。</li><li>循环：检查失败时，错误信息返回 LLM 重新写该部件；成功后程序增长一个部件，并重新渲染当前构建。→ 全部计划部件处理完后，输出草稿装配。</li><li>输入：草稿装配渲染 + 参考图。→ 解耦视觉批评器：先诊断出 HIGH/MED/LOW 问题，再由门控编辑每次修复一个问题；每次编辑后重新编译和检查。→ 输出：修改后的程序，直到无 HIGH 问题或预算耗尽。</li><li>输入：冻结几何程序 + 参考图。→ 材质与关节模块：提取材质库、逐部件分配、拆分颜色块、规划关节，并在 Isaac Sim 中验证。→ 输出：带 PBR 材质和可仿真关节的最终程序化装配。</li></ol>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.26238v1/pipeline-Overview-v7.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.26238v1/pipeline-Overview-v7.png" alt="Figure 3：Procedura 概述。从文本提示出发，Procedura 首先合成参考视图，然后运行三个阶段。在规划阶段，它将对象分解为命名部件的装配图，这些部件通过类型化 mate 连接。在程序化建模阶段（mate 驱动的构建），它逐部分编写 3D 程序；每个部分根据其 mate 和部分构建的渲染生成，其位置从 mate 框架求解，编译、mate 和连通性检查的验证堆栈保护每次提交。在细化阶段，解耦的视觉批评器诊断渲染模型并一次门控一个修复。同一装配图随后为资产添加每部分材质和在 Isaac Sim 中验证的关节。" loading="lazy"></a><span class="image-caption">Figure 3：Procedura 概述。从文本提示出发，Procedura 首先合成参考视图，然后运行三个阶段。在规划阶段，它将对象分解为命名部件的装配图，这些部件通过类型化 mate 连接。在程序化建模阶段（mate 驱动的构建），它逐部分编写 3D 程序；每个部分根据其 mate 和部分构建的渲染生成，其位置从 mate 框架求解，编译、mate 和连通性检查的验证堆栈保护每次提交。在细化阶段，解耦的视觉批评器诊断渲染模型并一次门控一个修复。同一装配图随后为资产添加每部分材质和在 Isaac Sim 中验证的关节。</span></span></p>
-<div class="mermaid">flowchart TD
-    A[&quot;用户文本提示&quot;] --&gt; B[&quot;文本到图像模型：合成参考视图&quot;]
-    B --&gt; C[&quot;LLM 规划器：生成装配图&quot;]
-    C --&gt; D[&quot;LLM 构建器：逐部件生成与检查&quot;]
-    D -- &quot;检查失败：反馈错误并重试&quot; --&gt; D
-    D -- &quot;全部计划部件完成&quot; --&gt; E[&quot;解耦视觉批评器：诊断 + 门控编辑&quot;]
-    E -- &quot;仍有 HIGH 问题&quot; --&gt; E
-    E -- &quot;无 HIGH 问题或预算耗尽&quot; --&gt; F[&quot;材质与关节模块：导出最终资产&quot;]
-    F --&gt; G[&quot;可编辑程序化装配 + 网格 + PBR + 关节&quot;]</div>
-<h2 id="5-核心方法-按论文-method-小节总结-约600字">5. 核心方法：按论文 Method 小节总结（约600字）</h2>
-<h3 id="3-1-procedural-assembly-representation-程序化装配表示">3.1 Procedural Assembly Representation（程序化装配表示）</h3>
-<p>这一节定义输出表示。Procedura 把对象写成程序化装配 \(A=(P,C)\)：\(P\) 是有序命名参数化 CSG 模块集合，\(C\) 是类型化 mate 集合；编译得到网格 \(M=\textsc{compile}(A)\)。该表示天然满足三个需求：CSG 的面是精确平面或圆柱面，因此边锐利；模块列表本身就是精确部件分解，不需要事后分割；每个维度都是命名参数，可直接编辑。Mate \(c=(i,j,\text{type},F_i,F_j,d,\phi)\) 连接新部件发布的框架 \(F_j\) 与已放置部件框架 \(F_i\)，类型来自九种静态特征（螺栓阵列、销孔、座面、法兰、槽舌、压配、唇企口、卡扣、键）和三种运动学特征（旋转、棱柱、球）。两个配合半部共享同一个名义尺寸 \(d\) 和带符号配合偏移 \(\phi\)，避免一侧修改后另一侧失配。图 4 展示静态 mate 库。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.26238v1/pipeline-Contracts-v1.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.26238v1/pipeline-Contracts-v1.png" alt="Figure 4：mate 库。部件可能声明的九个静态 mate 特征，每个都由构建发出的编译器宏渲染。青色是添加到新部件的凸半部分，灰色是从其配对件切出的凹半部分；两者都源自一个共享的公称尺寸和有符号配合偏移。" loading="lazy"></a><span class="image-caption">Figure 4：mate 库。部件可能声明的九个静态 mate 特征，每个都由构建发出的编译器宏渲染。青色是添加到新部件的凸半部分，灰色是从其配对件切出的凹半部分；两者都源自一个共享的公称尺寸和有符号配合偏移。</span></span></p>
-<h3 id="3-2-assembly-graph-planning-装配图规划">3.2 Assembly-Graph Planning（装配图规划）</h3>
-<p>规划阶段把文本提示和合成参考视图变成可执行的装配图。一个视觉调用将对象分解为有序部件列表；每个部件有 snake_case 模块名、细节层级（轮廓、主特征、子特征）、相对尺寸/姿态描述，以及把该部件绑定到已放置部件的 mate 声明。列表按拓扑序排列，保证每个新部件都能接到已经存在的几何上。镜像件保持为独立部件。随后进行一次“单向”计划审查：允许补充缺失部件或细化描述，但不允许合并、删除、改名或重排，并由代码强制该规则，从而保证每个部件在构建阶段仍是独立的一次生成调用。</p>
-<h3 id="3-3-mate-driven-building-mate-驱动的构建">3.3 Mate-Driven Building（Mate 驱动的构建）</h3>
-<p>这是核心构建机制。每个部件由一次 LLM 调用生成，而不是一次生成整个程序。每次调用的动态上下文包括三部分：参考图像、提示和当前部件的计划切片；完整且已编译的既有程序文本；当前构建的彩色渲染。模型输出五块内容：新参数、辅助模块、部件主体、接口框架和放置意图。系统进行确定性拼接，并求解装配位姿而非让模型猜测： \[ T_j = F_i \cdot \Delta(\phi) \cdot F_j^{-1}. \] 每个部件必须通过三道验证门：编译门、mate 门（测量贴合面积与穿透深度：\(a(c)\ge \tau_a d^2\) 且 \(\delta(c)\le \delta_{\max}(\phi)\)）、span 连通性门。失败反馈给模型重新生成；通过后部件提交并更新渲染，供下一个部件使用。图 5 展示程序随部件数增长。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.26238v1/pipeline-Build-v5.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.26238v1/pipeline-Build-v5.png" alt="Figure 5：mate 驱动的构建。顶部：对于每个计划的部件，动态上下文将三个基础来源打包成一个生成消息：(a) 装配参考，即参考图像、提示和部件的 mate，显示在其网格检查返回的判定旁边；(b) 构建历史，完整且已编译的程序；以及 (c) 3D 反馈，截至目前构建的部件颜色渲染。底部：程序每次 mate 增长一个部件，显示为突击越野车在 2、10、18、24 和 28 个部件时的五个快照。每个部件在一次 LLM 调用中生成并解析为五个块。拼接是确定性的，位置从 mate 框架求解，编译、mate 和 span 门必须全部通过才能提交部件。每次提交为下一个部件重新渲染 3D 反馈。" loading="lazy"></a><span class="image-caption">Figure 5：mate 驱动的构建。顶部：对于每个计划的部件，动态上下文将三个基础来源打包成一个生成消息：(a) 装配参考，即参考图像、提示和部件的 mate，显示在其网格检查返回的判定旁边；(b) 构建历史，完整且已编译的程序；以及 (c) 3D 反馈，截至目前构建的部件颜色渲染。底部：程序每次 mate 增长一个部件，显示为突击越野车在 2、10、18、24 和 28 个部件时的五个快照。每个部件在一次 LLM 调用中生成并解析为五个块。拼接是确定性的，位置从 mate 框架求解，编译、mate 和 span 门必须全部通过才能提交部件。每次提交为下一个部件重新渲染 3D 反馈。</span></span></p>
-<h3 id="3-4-decoupled-critic-refinement-解耦批评器的细化">3.4 Decoupled-Critic Refinement（解耦批评器的细化）</h3>
-<p>构建产出草稿后，细化循环用独立视觉批评器修复缺陷。批评器是单独的单轮视觉调用，使用同一底层模型但不是 agent 自身的推理过程。这样做的原因：模型自评会携带产生错误的相同假设；独立诊断成为持久化、可追溯的一类产物；批评器能看到历史诊断，验证之前修复是否落地。编辑是“诊断门控”的：诊断结果设置一次性锁存，编辑工具只有拿到该锁存才运行，从而保持诊断与编辑约 1:1。连通性作为硬约束：网格焊点后按共享边分连通分量，以包围盒最大边 span 衡量“可见游离件”；当存在游离件时，<code>finish(ok)</code> 被拒绝，只有 <code>give_up</code> 可终止。图 11 展示一次真实修复序列中 HIGH 问题数量逐步下降。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.26238v1/pipeline-RefineSteps-v1.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.26238v1/pipeline-RefineSteps-v1.png" alt="Figure 11：每个门控编辑改变了什么。突击越野车，从构建阶段产生的草稿细化而来。每一帧都从一台固定相机渲染，因此帧之间的差异就是几何差异；插图放大了该周期编辑所改变的最密集像素区域，模型上的轮廓标出了插图的来源位置。每个周期是一次新的诊断，随后是一次门控编辑；在每个状态下，我们打印产生该状态的工具以及批评者报告该状态的 HIGH 问题数量。计数从 24 → 3 → 2 下降；最终状态没有计数，因为周期预算在进一步诊断之前结束。周期 2 是亚毫米接触捕捉，改变了连通性，但读者看不到任何东西，该帧也说明了这一点。" loading="lazy"></a><span class="image-caption">Figure 11：每个门控编辑改变了什么。突击越野车，从构建阶段产生的草稿细化而来。每一帧都从一台固定相机渲染，因此帧之间的差异就是几何差异；插图放大了该周期编辑所改变的最密集像素区域，模型上的轮廓标出了插图的来源位置。每个周期是一次新的诊断，随后是一次门控编辑；在每个状态下，我们打印产生该状态的工具以及批评者报告该状态的 HIGH 问题数量。计数从 24 → 3 → 2 下降；最终状态没有计数，因为周期预算在进一步诊断之前结束。周期 2 是亚毫米接触捕捉，改变了连通性，但读者看不到任何东西，该帧也说明了这一点。</span></span></p>
-<h3 id="3-5-materials-材质">3.5 Materials（材质）</h3>
-<p>几何冻结后，同一程序继续携带每部件材质。该阶段由四次一次性视觉调用组成：从参考图提取紧凑 PBR 材质库（包含反照率、类别、粗糙度、金属度、磨损）；为每个命名部件分配一个库条目；独立材质批评器对照参考图修正分配；子部件颜色块拆分把过粗的单一材质拆成多个颜色块，例如一个轮子模块可拆成橡胶胎面、喷漆轮辋和铸造轮毂。每次拆分都会重新编译，并检查三角形数变化不超过固定容差，确保颜色不会改变形状。图 7 和图 13 显示结果。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.26238v1/pipeline-Materials-v1.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.26238v1/pipeline-Materials-v1.png" alt="Figure 7：来自参考的每部分 PBR 材质。Procedura 从参考中提取一个紧凑的材质库（突击越野车 25 个条目，显示 6 个），为 41 个命名部件各分配一个条目，并由一个解耦的材质批评器根据参考纠正分配。子部分过程随后将一个模块拆分为同级颜色块，其中一个材质过粗。渲染为 Blender-Cycles PBR。" loading="lazy"></a><span class="image-caption">Figure 7：来自参考的每部分 PBR 材质。Procedura 从参考中提取一个紧凑的材质库（突击越野车 25 个条目，显示 6 个），为 41 个命名部件各分配一个条目，并由一个解耦的材质批评器根据参考纠正分配。子部分过程随后将一个模块拆分为同级颜色块，其中一个材质过粗。渲染为 Blender-Cycles PBR。</span></span></p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.26238v1/pipeline-DeepPaint-v1.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.26238v1/pipeline-DeepPaint-v1.png" alt="Figure 13：整个基准测试中的纹理。36 个基准对象中的十个，几何和材质均由 Procedura 创作。每个图像都是所发布程序的 Blender-Cycles 渲染，每部分材质分配给命名模块。" loading="lazy"></a><span class="image-caption">Figure 13：整个基准测试中的纹理。36 个基准对象中的十个，几何和材质均由 Procedura 创作。每个图像都是所发布程序的 Blender-Cycles 渲染，每部分材质分配给命名模块。</span></span></p>
-<h3 id="3-6-articulation-关节">3.6 Articulation（关节）</h3>
-<p>关节没有引入新结构，因为 mate 网络本身就是运动学图。静态 mate 把部件分组为刚体连杆；运动学 mate（旋转、棱柱、球）对应关节。Procedura 先测量几何证据：用面积加权协方差计算旋转对称轴，并检测接触区域，得到轴和锚点候选。然后一个视觉调用完成关节规划：把模块分成连杆，构建父子树，设置关节轴、限位和驱动，导出 OpenUSD 和 URDF。接着在 Isaac Sim 中无头验证：动态稳定、逐关节驱动扫描、静止接触扫描、轮式移动测试和 URDF 重新导入；失败时把渲染仿真帧反馈给规划器做一次细化。图 8 和图 12 展示验证结果。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.26238v1/pipeline-Motion-v1.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.26238v1/pipeline-Motion-v1.png" alt="Figure 8：在 Isaac Sim 中验证的仿真就绪关节。从探测车的命名部件出发，Procedura 测量几何证据（旋转对称轴和接触区域），并在运动学 mate 上规划关节树（17 个连杆，16 个关节）。它导出 OpenUSD 关节和 URDF，并在 Isaac Sim 中无头验证；失败的判定会将渲染的仿真帧反馈给规划器进行一次细化。每个面板都是真实 Isaac 帧，以每连杆颜色显示：稳定静止姿态、四个逐关节驱动扫描，以及九轮驱动后的探测车。" loading="lazy"></a><span class="image-caption">Figure 8：在 Isaac Sim 中验证的仿真就绪关节。从探测车的命名部件出发，Procedura 测量几何证据（旋转对称轴和接触区域），并在运动学 mate 上规划关节树（17 个连杆，16 个关节）。它导出 OpenUSD 关节和 URDF，并在 Isaac Sim 中无头验证；失败的判定会将渲染的仿真帧反馈给规划器进行一次细化。每个面板都是真实 Isaac 帧，以每连杆颜色显示：稳定静止姿态、四个逐关节驱动扫描，以及九轮驱动后的探测车。</span></span></p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.26238v1/articulation_row.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.26238v1/articulation_row.png" alt="Figure 12：整个基准测试中的关节。六个对象，每个都已规划，导出为 OpenUSD 和 URDF，并在 Isaac Sim 中无头验证。每个面板由该对象自己的仿真剪辑合成，扫描姿态以半透明显示，最终姿态为实心，因此静止图像承载运动。前五个各保持一个受控关节遍历其范围；最后一个显示轮式底座在地平面上行驶。所有六个都通过每个动力学阶段：每个位置驱动关节遍历其命令范围的 ≥97%，没有不相邻的连杆在静止时接触，URDF 重新导入。五个还完全通过资产规则；倾转旋翼机触发了咨询性驱动增益规则，早先两个探测车计划也触发了同一规则。" loading="lazy"></a><span class="image-caption">Figure 12：整个基准测试中的关节。六个对象，每个都已规划，导出为 OpenUSD 和 URDF，并在 Isaac Sim 中无头验证。每个面板由该对象自己的仿真剪辑合成，扫描姿态以半透明显示，最终姿态为实心，因此静止图像承载运动。前五个各保持一个受控关节遍历其范围；最后一个显示轮式底座在地平面上行驶。所有六个都通过每个动力学阶段：每个位置驱动关节遍历其命令范围的 ≥97%，没有不相邻的连杆在静止时接触，URDF 重新导入。五个还完全通过资产规则；倾转旋翼机触发了咨询性驱动增益规则，早先两个探测车计划也触发了同一规则。</span></span></p>
-<h2 id="6-局限性和展望-约300字">6. 局限性和展望（约300字）</h2>
-<p>论文明确说明的限制有三点。第一，agent 只能通过渲染图像感知当前构建；被遮挡的内部和细小接触几何可能对所有相机都不可见，因此可考虑引入深度图、截面或直接网格查询。第二，CSG 精确适合机械硬表面，但有机自由曲面不如神经场表达自然。第三，mate 词表只覆盖刚体连接（三种运动学副）；如果计划阶段没有声明某个 mate，后续也无法验证它。</p>
-<p>可以谨慎推断的限制包括：整个流程需要大量 LLM 调用、渲染和仿真，单对象生成成本明显高于一次前向的原生 3D 生成；系统依赖文本到图像模型合成的参考视图，参考图若有偏差会传导到后续规划与细化；逐部件构建的串行方式也使端到端延迟较高。展望上，把渲染反馈扩展为几何感知反馈、扩展 mate 词表以覆盖更多装配类型，以及让程序化装配直接对接下游 CAD/BIM/机器人工作流，都是自然方向。总体而言，Procedura 的价值不在于取代所有 3D 生成路线，而在于证明“带验证的结构化程序”可以成为高精度、可编辑、可仿真 3D 资产的一种可行表示。</p></div></article></main>
+    <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../index.html">论文阅读首页</a> <a href="../index.html">日报目录</a> <a href="../../week/index.html">周报目录</a> <a href="../../month/index.html">月报目录</a></p>
+<h1 id="2026-08-28-论文日报">2026-08-28 · 论文日报</h1>
+<blockquote>收录 <strong>23 篇</strong>论文，重点解析 <strong>5 篇</strong>。正文按需展开，或可单独打开。</blockquote>
+<h2 id="重点解析">重点解析</h2>
+<h3 id="3d">3D</h3>
+<h4 id="agentic-game-development-as-a-verifiable-trajectory-data-engine-for-scaling-world-models">Agentic Game Development as a Verifiable Trajectory Data Engine for Scaling World Models</h4>
+<p><strong>分类：</strong> 3D；world model</p>
+<p>提出用游戏开发验证轨迹数据来扩展世界模型</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.25518v1/fig_reward_comparison.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.25518v1/fig_reward_comparison.png" alt="Agentic Game Development as a Verifiable Trajectory Data Engine for Scaling World Models 论文图" loading="lazy"></a><span class="image-caption">Agentic Game Development as a Verifiable Trajectory Data Engine for Scaling World Models 论文图</span></span></p>
+<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2608.25518v1">arXiv</a> · <a href="https://huggingface.co/papers/2608.25518">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2608.25518">AlphaXiv</a></p>
+<p><a href="../../papers/arxiv_2608.25518/index.html" data-inline-html="true">展开正文</a></p>
+<h4 id="gamewam-a-world-action-model-for-video-games">GameWAM: A World Action Model for Video Games</h4>
+<p><strong>分类：</strong> 3D / 视频；world model、video world model</p>
+<p>提出面向视频游戏的世界-动作模型GameWAM</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.26200v1/gamewam_overview.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.26200v1/gamewam_overview.png" alt="GameWAM: A World Action Model for Video Games 论文图" loading="lazy"></a><span class="image-caption">GameWAM: A World Action Model for Video Games 论文图</span></span></p>
+<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2608.26200v1">arXiv</a> · <a href="https://huggingface.co/papers/2608.26200">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2608.26200">AlphaXiv</a></p>
+<p><a href="../../papers/arxiv_2608.26200/index.html" data-inline-html="true">展开正文</a></p>
+<h4 id="luce-relightable-gaussians-for-3d-asset-generation">Luce: Relightable Gaussians for 3D Asset Generation</h4>
+<p><strong>分类：</strong> 3D；3d generation、3d texture generation</p>
+<p>提出可重光照的三维高斯表示用于单图生成3D资产</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.23943v1/figures/banner/luce_robot_snapshot_demo_seed_14_r145_cz001_bright.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.23943v1/figures/banner/luce_robot_snapshot_demo_seed_14_r145_cz001_bright.png" alt="Luce: Relightable Gaussians for 3D Asset Generation 论文图" loading="lazy"></a><span class="image-caption">Luce: Relightable Gaussians for 3D Asset Generation 论文图</span></span></p>
+<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2608.23943v1">arXiv</a> · <a href="https://huggingface.co/papers/2608.23943">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2608.23943">AlphaXiv</a></p>
+<p><a href="../../papers/arxiv_2608.23943/index.html" data-inline-html="true">展开正文</a></p>
+<h4 id="pawbench-how-far-are-we-from-probabilistically-aligned-world-modeling">PAWBench: How Far Are We from Probabilistically Aligned World Modeling?</h4>
+<p><strong>分类：</strong> 3D / 视频；world model、video world model</p>
+<p>提出PAWBench评估视频生成是否匹配物理行为分布</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.27345v2/one_plausible_future.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.27345v2/one_plausible_future.png" alt="PAWBench: How Far Are We from Probabilistically Aligned World Modeling? 论文图" loading="lazy"></a><span class="image-caption">PAWBench: How Far Are We from Probabilistically Aligned World Modeling? 论文图</span></span></p>
+<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2608.27345v2">arXiv</a> · <a href="https://huggingface.co/papers/2608.27345">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2608.27345">AlphaXiv</a></p>
+<p><a href="../../papers/arxiv_2608.27345/index.html" data-inline-html="true">展开正文</a></p>
+<h4 id="procedura-agentic-3d-modeling-with-procedural-control">Procedura: Agentic 3D Modeling with Procedural Control</h4>
+<p><strong>分类：</strong> 3D；3d generation、3d articulation</p>
+<p>Procedura用智能体将文本生成可编辑、可装配的参数化3D程序模型。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.26238v1/pipeline-Overview-v7.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.26238v1/pipeline-Overview-v7.png" alt="Procedura: Agentic 3D Modeling with Procedural Control 论文图" loading="lazy"></a><span class="image-caption">Procedura: Agentic 3D Modeling with Procedural Control 论文图</span></span></p>
+<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2608.26238v1">arXiv</a> · <a href="https://huggingface.co/papers/2608.26238">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2608.26238">AlphaXiv</a></p>
+<p><a href="../../papers/arxiv_2608.26238/index.html" data-inline-html="true">展开正文</a></p>
+<h3 id="视频">视频</h3>
+<h4 id="gamewam-a-world-action-model-for-video-games-2">GameWAM: A World Action Model for Video Games</h4>
+<p><strong>分类：</strong> 3D / 视频；world model、video world model</p>
+<p>提出面向视频游戏的世界-动作模型GameWAM</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.26200v1/gamewam_overview.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.26200v1/gamewam_overview.png" alt="GameWAM: A World Action Model for Video Games 论文图" loading="lazy"></a><span class="image-caption">GameWAM: A World Action Model for Video Games 论文图</span></span></p>
+<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2608.26200v1">arXiv</a> · <a href="https://huggingface.co/papers/2608.26200">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2608.26200">AlphaXiv</a></p>
+<p><a href="../../papers/arxiv_2608.26200/index.html" data-inline-html="true">展开正文</a></p>
+<h4 id="pawbench-how-far-are-we-from-probabilistically-aligned-world-modeling-2">PAWBench: How Far Are We from Probabilistically Aligned World Modeling?</h4>
+<p><strong>分类：</strong> 3D / 视频；world model、video world model</p>
+<p>提出PAWBench评估视频生成是否匹配物理行为分布</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.27345v2/one_plausible_future.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.27345v2/one_plausible_future.png" alt="PAWBench: How Far Are We from Probabilistically Aligned World Modeling? 论文图" loading="lazy"></a><span class="image-caption">PAWBench: How Far Are We from Probabilistically Aligned World Modeling? 论文图</span></span></p>
+<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2608.27345v2">arXiv</a> · <a href="https://huggingface.co/papers/2608.27345">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2608.27345">AlphaXiv</a></p>
+<p><a href="../../papers/arxiv_2608.27345/index.html" data-inline-html="true">展开正文</a></p>
+<h2 id="全量论文简报">全量论文简报</h2>
+<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2608.25518v1">Agentic Game Development as a Verifiable Trajectory Data Engine for Scaling World Models</a></td><td>3D</td><td>提出用游戏开发验证轨迹数据来扩展世界模型</td></tr><tr><td><a href="https://arxiv.org/abs/2608.26200v1">GameWAM</a></td><td>3D / 视频</td><td>提出面向视频游戏的世界-动作模型GameWAM</td></tr><tr><td><a href="https://arxiv.org/abs/2608.23943v1">Luce</a></td><td>3D</td><td>提出可重光照的三维高斯表示用于单图生成3D资产</td></tr><tr><td><a href="https://arxiv.org/abs/2608.27345v2">PAWBench</a></td><td>3D / 视频</td><td>提出PAWBench评估视频生成是否匹配物理行为分布</td></tr><tr><td><a href="https://arxiv.org/abs/2608.26238v1">Procedura</a></td><td>3D</td><td>Procedura用智能体将文本生成可编辑、可装配的参数化3D程序模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.26993">Aphanta</a></td><td>其他</td><td>评估图像编辑中间体对多模态推理的作用</td></tr><tr><td><a href="https://arxiv.org/abs/2608.23172">CaRGo-T</a></td><td>其他</td><td>CaRGo-T用因果图推理提升多模态幽默理解与检测效果。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.25500">CaSKG</a></td><td>其他</td><td>CaSKG通过反事实因果校准技能图，提升智能体技能检索效果。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.27455">CritICL</a></td><td>其他</td><td>CritICL利用小模型失败模式，在推理时高效提升大模型推理能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.27123v1">EditaLive! Unified Character Video Editing for Live Streaming</a></td><td>其他</td><td>EditaLive提出面向直播人物视频的实时统一编辑框架。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.27168">Magpie</a></td><td>其他</td><td>Magpie提出面向交互游戏的实时生成式世界渲染系统。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.26530">PILOT in the Loop</a></td><td>其他</td><td>PILOT实现长程智能体运行中实时纠偏与自我进化。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.26872">Self-OPD</a></td><td>其他</td><td>本文提出无教师的Self-OPD，用自探索优势监督流匹配模型对齐优化。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.25798">TacForcing</a></td><td>其他</td><td>TacForcing利用执行时触觉反馈实现接触操作流式动作生成。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.26809">Thinking on Shots</a></td><td>其他</td><td>论文提出多指令多镜头长视频编辑框架，实现一致连贯的精准编辑。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.15763">Training Agents to Evolve with Their Harness</a></td><td>其他</td><td>论文提出HAT训练方法，让小模型数字人主播适应不断变化的工具与提示配置。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.27448">TTPO</a></td><td>其他</td><td>TTPO用测试时策略优化在无标签下提升大模型数学推理。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.27351">Understanding Evolution Strategies for LLM Reasoning</a></td><td>其他</td><td>论文系统分析ES在大模型推理后训练中的机制，并证明其比GRPO具备更广的推理覆盖。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.27456">UrbanGround</a></td><td>其他</td><td>研究大模型智能体在真实城市中由感知到导航的空间行动能力</td></tr><tr><td><a href="https://arxiv.org/abs/2608.19269">What Does an Evaluation License? A Commit-Bound Census of Claim-Relative Inference in Inspect Evals</a></td><td>其他</td><td>论文审计Inspect Evals评测单元，分析其是否足以支持对应性能结论。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.27260">What Makes Good Agentic Data? An ACE Lens on Data Generation for LLM Agents</a></td><td>其他</td><td>提出ACE框架，分析LLM智能体数据生成质量</td></tr><tr><td><a href="https://arxiv.org/abs/2608.27454">WikiSkill</a></td><td>其他</td><td>WikiSkill通过持久知识库沉淀经验，持续进化并提升智能体技能。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.26103">Zero-WAM</a></td><td>其他</td><td>Zero-WAM利用人类视频上下文引导机器人零样本完成未见操作任务。</td></tr></tbody></table></div></div></article></main>
   </div>
   <script>/*!
   * PhotoSwipe 5.4.4 - https://photoswipe.com
@@ -696,6 +715,208 @@ div.pswp__img--placeholder,
       updateToc();
     }
 
+
+    (() => {
+      const cache = new Map();
+
+      async function fetchLinkedPage(url) {
+        if (!cache.has(url)) {
+          const request = fetch(url, { credentials: "same-origin" })
+            .then(async (response) => {
+              if (!response.ok) throw new Error(`HTTP ${response.status}`);
+              return { text: await response.text(), url: response.url };
+            })
+            .catch((error) => {
+              cache.delete(url);
+              throw error;
+            });
+          cache.set(url, request);
+        }
+        return cache.get(url);
+      }
+
+      function rewriteReferences(root, pageUrl) {
+        root.querySelectorAll("[src], [href]").forEach((node) => {
+          ["src", "href"].forEach((attribute) => {
+            const value = node.getAttribute(attribute);
+            if (!value || value.startsWith("#") || /^(?:data|blob|mailto|tel|javascript):/i.test(value)) return;
+            try {
+              node.setAttribute(attribute, new URL(value, pageUrl).href);
+            } catch (_) {
+              // Leave malformed references unchanged; the browser will expose the failure.
+            }
+          });
+        });
+      }
+
+      function isolateIds(root, prefix) {
+        const replacements = new Map();
+        root.querySelectorAll("[id]").forEach((node) => {
+          const original = node.id;
+          const replacement = `${prefix}-${original}`;
+          replacements.set(original, replacement);
+          node.id = replacement;
+        });
+        root.querySelectorAll('a[href^="#"]').forEach((node) => {
+          const original = decodeURIComponent(node.getAttribute("href").slice(1));
+          if (replacements.has(original)) node.setAttribute("href", `#${replacements.get(original)}`);
+        });
+      }
+
+      function prepareDynamicImages(root) {
+        root.querySelectorAll("a.pswp-image").forEach((item) => {
+          const image = item.querySelector("img");
+          if (!image) return;
+          const sync = () => {
+            item.dataset.pswpSrc = image.currentSrc || image.src;
+            if (item.dataset.referenceImage === "true" && image.naturalWidth && image.naturalHeight) {
+              item.dataset.pswpWidth = String(image.naturalWidth);
+              item.dataset.pswpHeight = String(image.naturalHeight);
+            }
+          };
+          sync();
+          image.addEventListener("load", sync, { once: true });
+        });
+      }
+
+      document.querySelectorAll('a[data-inline-html="true"]').forEach((link, index) => {
+        const summary = link.closest("p, li, blockquote, td") || link.parentElement;
+        if (!summary) return;
+        const dedicatedExpand = link.textContent.trim() === "展开正文";
+        let entry = summary.closest(".inline-html-entry");
+        if (!entry) {
+          if (summary.tagName === "LI" || summary.tagName === "TD") {
+            entry = summary;
+            entry.classList.add("inline-html-entry");
+          } else {
+            entry = document.createElement("section");
+            entry.className = "inline-html-entry";
+            summary.before(entry);
+            entry.append(summary);
+          }
+        }
+        summary.classList.add("inline-html-summary");
+        if (dedicatedExpand) link.classList.add("inline-html-source-link");
+
+        const panel = document.createElement("section");
+        panel.className = "inline-html-panel";
+        panel.id = `inline-html-panel-${index + 1}`;
+        panel.hidden = true;
+        panel.setAttribute("aria-live", "polite");
+
+        const actions = document.createElement("span");
+        actions.className = "inline-html-actions";
+        const toggle = document.createElement("button");
+        toggle.className = "inline-html-toggle";
+        toggle.type = "button";
+        toggle.textContent = "展开正文";
+        toggle.setAttribute("aria-controls", panel.id);
+        toggle.setAttribute("aria-expanded", "false");
+        const standalone = document.createElement("a");
+        standalone.className = "inline-html-standalone";
+        standalone.href = link.href;
+        standalone.textContent = "单独打开";
+        actions.append(toggle, standalone);
+        summary.append(document.createTextNode(" "), actions);
+        entry.append(panel);
+
+        let state = "idle";
+
+        function setOpen(open, returnToSummary = false) {
+          panel.hidden = !open;
+          entry.classList.toggle(
+            "is-expanded",
+            Boolean(entry.querySelector(".inline-html-panel:not([hidden])"))
+          );
+          const expanded = String(open);
+          toggle.setAttribute("aria-expanded", expanded);
+          link.setAttribute("aria-expanded", expanded);
+          toggle.textContent = open ? (state === "error" ? "重试加载" : "收起正文") : "展开正文";
+          if (!open && returnToSummary) {
+            summary.scrollIntoView({ behavior: "smooth", block: "start" });
+            toggle.focus({ preventScroll: true });
+          }
+        }
+
+        function appendCloseFooter(target) {
+          const footer = document.createElement("div");
+          footer.className = "inline-html-footer";
+          const close = document.createElement("button");
+          close.className = "inline-html-close";
+          close.type = "button";
+          close.textContent = "收起正文并返回摘要";
+          close.addEventListener("click", () => setOpen(false, true));
+          footer.append(close);
+          target.append(footer);
+        }
+
+        async function toggleInlinePage() {
+          if (state === "loaded") {
+            setOpen(panel.hidden);
+            return;
+          }
+          if (state === "loading") return;
+
+          state = "loading";
+          toggle.disabled = true;
+          panel.replaceChildren();
+          const loading = document.createElement("p");
+          loading.className = "inline-html-status";
+          loading.textContent = "正在加载完整正文…";
+          panel.append(loading);
+          setOpen(true);
+
+          try {
+            const fetched = await fetchLinkedPage(link.href);
+            const parsed = new DOMParser().parseFromString(fetched.text, "text/html");
+            const source = parsed.querySelector(".markdown-image-gallery")
+              || parsed.querySelector("main article")
+              || parsed.querySelector("article")
+              || parsed.querySelector("main");
+            if (!source) throw new Error("linked page does not contain a readable article");
+            const body = source.cloneNode(true);
+            if (body.firstElementChild && body.firstElementChild.tagName === "H1") {
+              body.firstElementChild.remove();
+            }
+            isolateIds(body, `inline-${index + 1}`);
+            rewriteReferences(body, fetched.url);
+            body.classList.add("inline-html-body");
+            panel.replaceChildren(body);
+            appendCloseFooter(panel);
+            prepareDynamicImages(body);
+            state = "loaded";
+            setOpen(true);
+            if (window.mermaid && typeof window.mermaid.run === "function") {
+              const diagrams = Array.from(body.querySelectorAll(".mermaid"));
+              if (diagrams.length) window.mermaid.run({ nodes: diagrams }).catch(() => {});
+            }
+
+            if (window.MathJax && typeof window.MathJax.typesetPromise === "function") {
+              window.MathJax.typesetPromise([body]).catch(() => {});
+            }
+
+          } catch (error) {
+            panel.replaceChildren();
+            const message = document.createElement("p");
+            message.className = "inline-html-status inline-html-error";
+            message.textContent = `正文加载失败：${error.message}`;
+            panel.append(message);
+            appendCloseFooter(panel);
+            state = "error";
+            setOpen(true);
+          } finally {
+            toggle.disabled = false;
+          }
+        }
+
+        toggle.addEventListener("click", toggleInlinePage);
+        link.addEventListener("click", (event) => {
+          if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+          event.preventDefault();
+          toggleInlinePage();
+        });
+      });
+    })();
 
 
   </script>
