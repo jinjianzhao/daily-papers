@@ -515,15 +515,11 @@ div.pswp__img--placeholder,
       .academic-main article { padding: 30px 22px 52px; border: 0; border-radius: 0; }
     }
 
+    h3 { font-size: 20px; }
+    h4 { font-size: 18px; }
 
     .inline-html-entry { margin: 18px 0; padding: 16px 18px 18px; border: 1px solid #d8e2eb; border-left: 3px solid #91abc2; border-radius: 6px; background: #fbfdff; transition: border-color .15s, background .15s; }
     .inline-html-entry.is-expanded { border-color: #b7c9d9; border-left-color: #1769aa; background: #fff; }
-    .inline-report-title { margin: 24px 0 8px; color: #1769aa; font-size: 19px; font-weight: 750; line-height: 1.42; }
-    .inline-report-meta { margin: 4px 0; color: #52606d; font-size: 13px; line-height: 1.55; }
-    .inline-report-thumbnail { margin: 10px 0 2px; }
-    .inline-report-thumbnail .embedded-image { margin: 0; }
-    .inline-report-thumbnail .embedded-image img { max-height: 220px; margin-left: 0; object-fit: contain; }
-    .inline-report-thumbnail .image-caption { max-width: 760px; text-align: left; font-size: 12px; }
     .inline-html-summary { margin-top: 0; margin-bottom: 0; }
     .inline-html-actions { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-left: 10px; vertical-align: middle; }
     .inline-html-toggle, .inline-html-standalone, .inline-html-close { display: inline-flex; min-height: 30px; align-items: center; justify-content: center; padding: 5px 10px; border: 1px solid #b9c9d8; border-radius: 6px; background: #fff; color: #37516a; font: inherit; font-size: 12px; font-weight: 700; line-height: 1.35; text-decoration: none; cursor: pointer; }
@@ -543,7 +539,13 @@ div.pswp__img--placeholder,
     }
 
 
-  </style>
+
+    /* A focused entry is emitted as title, classification, then one-line summary. */
+    .academic-main h4 + p,
+    .academic-main h4 + p + p,
+    .academic-main h5 + p,
+    .academic-main h5 + p + p { font-size: 16px; }
+</style>
 </head>
 <body>
 
@@ -810,20 +812,6 @@ div.pswp__img--placeholder,
         const summary = link.closest("p, li, blockquote, td") || link.parentElement;
         if (!summary) return;
         const dedicatedExpand = link.textContent.trim() === "展开正文";
-        if (dedicatedExpand) {
-          let candidate = summary.previousElementSibling;
-          while (candidate && !/^H[1-6]$/.test(candidate.tagName)) {
-            if (candidate.matches("p")) {
-              candidate.classList.add("inline-report-meta");
-              if (candidate.querySelector(".embedded-image")) {
-                candidate.classList.add("inline-report-thumbnail");
-              }
-            }
-            candidate = candidate.previousElementSibling;
-          }
-          if (candidate) candidate.classList.add("inline-report-title");
-        }
-
         let entry = summary.closest(".inline-html-entry");
         if (!entry) {
           if (summary.tagName === "LI" || summary.tagName === "TD") {
@@ -837,9 +825,7 @@ div.pswp__img--placeholder,
           }
         }
         summary.classList.add("inline-html-summary");
-        if (dedicatedExpand) {
-          link.classList.add("inline-html-source-link");
-        }
+        if (dedicatedExpand) link.classList.add("inline-html-source-link");
 
         const panel = document.createElement("section");
         panel.className = "inline-html-panel";

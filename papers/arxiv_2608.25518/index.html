@@ -471,7 +471,7 @@ div.pswp__img--placeholder,
 
     html { scroll-behavior: smooth; scroll-padding-top: 24px; }
     body { background: #f8fafc; }
-    .academic-shell { width: min(1440px, calc(100% - 40px)); margin: 0 auto; padding: 32px 0 80px; display: grid; grid-template-columns: 272px minmax(0, 980px); justify-content: center; gap: 32px; align-items: start; }
+    .academic-shell { width: min(1440px, calc(100% - 40px)); margin: 0 auto; padding: 32px 0 80px; display: grid; grid-template-columns: 272px minmax(0, 1120px); justify-content: center; gap: 32px; align-items: start; }
     .academic-sidebar { position: sticky; top: 24px; max-height: calc(100vh - 48px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #cbd5e1 transparent; }
     .toc-panel { border: 1px solid #e2e8f0; border-radius: 16px; background: rgba(255, 255, 255, .96); padding: 16px 12px; box-shadow: 0 8px 24px rgba(15, 23, 42, .05); }
     .toc-heading { margin: 0 8px 10px; color: #94a3b8; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
@@ -487,10 +487,10 @@ div.pswp__img--placeholder,
     .toc-level-6 { padding-left: 52px; font-size: 11px; }
     .toc-empty { margin: 8px; color: #94a3b8; font-size: 12px; }
     .toc-collapse-button { display: inline-flex; position: fixed; z-index: 70; top: 24px; left: 12px; align-items: center; gap: 7px; padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 8px; background: rgba(255, 255, 255, .96); color: #475569; font: inherit; font-size: 12px; font-weight: 700; box-shadow: 0 6px 18px rgba(15, 23, 42, .08); cursor: pointer; }
-    body.toc-collapsed .academic-shell { grid-template-columns: minmax(0, 980px); gap: 0; }
+    body.toc-collapsed .academic-shell { grid-template-columns: minmax(0, 1120px); gap: 0; }
     body.toc-collapsed .academic-sidebar { display: none; }
     .academic-main { width: 100%; min-width: 0; margin: 0; padding: 0; }
-    .academic-main article { border-color: #e2e8f0; border-radius: 18px; padding: 48px 56px 64px; box-shadow: 0 10px 32px rgba(15, 23, 42, .06); }
+    .academic-main article { border-color: #e2e8f0; border-radius: 18px; padding: 48px 44px 64px; box-shadow: 0 10px 32px rgba(15, 23, 42, .06); }
     .academic-main h1, .academic-main h2, .academic-main h3 { scroll-margin-top: 24px; }
     .academic-main h1 { font-size: 32px; }
     .academic-main h2 { margin-top: 44px; padding-bottom: 10px; border-bottom-color: #e2e8f0; font-size: 22px; }
@@ -517,6 +517,7 @@ div.pswp__img--placeholder,
 
 
 
+
   </style>
 </head>
 <body>
@@ -528,317 +529,71 @@ div.pswp__img--placeholder,
     <aside class="academic-sidebar" id="academic-sidebar" aria-label="文档目录">
       <div class="toc-panel">
         <p class="toc-heading">目录</p>
-        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#agentic-game-development-as-a-verifiable-trajectory-data-engine-for-scaling-world-models">Agentic Game Development as a Verifiable Trajectory Data Engine for Scaling World Models</a><a class="toc-link toc-level-2" href="#快速理解">快速理解</a><a class="toc-link toc-level-2" href="#中文摘要">中文摘要</a><a class="toc-link toc-level-2" href="#详细分析">详细分析</a><a class="toc-link toc-level-2" href="#1-任务输入-输出-功能和边界">1. 任务输入、输出、功能和边界</a><a class="toc-link toc-level-3" href="#任务输入">任务输入</a><a class="toc-link toc-level-3" href="#任务输出">任务输出</a><a class="toc-link toc-level-3" href="#系统功能">系统功能</a><a class="toc-link toc-level-3" href="#边界-它不声称解决什么">边界：它不声称解决什么？</a><a class="toc-link toc-level-2" href="#2-论文要解决的问题以及问题发生的具体原因">2. 论文要解决的问题以及问题发生的具体原因</a><a class="toc-link toc-level-3" href="#为什么代码智能体发展快">为什么代码智能体发展快？</a><a class="toc-link toc-level-3" href="#为什么空间生成和世界模型困难">为什么空间生成和世界模型困难？</a><a class="toc-link toc-level-2" href="#3-核心-insight-与贡献">3. 核心 insight 与贡献</a><a class="toc-link toc-level-3" href="#核心-insight">核心 insight</a><a class="toc-link toc-level-3" href="#主要贡献">主要贡献</a><a class="toc-link toc-level-2" href="#4-使用的基模-以及从输入到输出的整体流程">4. 使用的基模，以及从输入到输出的整体流程</a><a class="toc-link toc-level-3" href="#使用的基模">使用的基模</a><a class="toc-link toc-level-3" href="#从输入到输出的整体流程">从输入到输出的整体流程</a><a class="toc-link toc-level-2" href="#5-每个关键机制为什么需要-具体怎么做-得到什么">5. 每个关键机制为什么需要、具体怎么做、得到什么</a><a class="toc-link toc-level-3" href="#5-1-human-engine-verification-为什么需要">5.1 Human-Engine Verification：为什么需要？</a><a class="toc-link toc-level-3" href="#具体怎么做">具体怎么做？</a><a class="toc-link toc-level-3" href="#得到什么">得到什么？</a><a class="toc-link toc-level-3" href="#5-2-awomo-为什么需要">5.2 AWoMo：为什么需要？</a><a class="toc-link toc-level-3" href="#具体怎么做-2">具体怎么做？</a><a class="toc-link toc-level-3" href="#得到什么-2">得到什么？</a><a class="toc-link toc-level-3" href="#5-3-uwdp-为什么需要">5.3 UWDP：为什么需要？</a><a class="toc-link toc-level-3" href="#具体怎么做-3">具体怎么做？</a><a class="toc-link toc-level-3" href="#得到什么-3">得到什么？</a><a class="toc-link toc-level-3" href="#5-4-rlhev-为什么需要">5.4 RLHEV：为什么需要？</a><a class="toc-link toc-level-3" href="#具体怎么做-4">具体怎么做？</a><a class="toc-link toc-level-3" href="#得到什么-4">得到什么？</a><a class="toc-link toc-level-2" href="#6-主结果-消融结果-可视化结论及证据边界">6. 主结果、消融结果、可视化结论及证据边界</a><a class="toc-link toc-level-3" href="#6-1-unityscenebench-人类-引擎反馈的主结果">6.1 UnitySceneBench：人类—引擎反馈的主结果</a><a class="toc-link toc-level-3" href="#6-2-扩展数据量后的结果">6.2 扩展数据量后的结果</a><a class="toc-link toc-level-3" href="#6-3-消融结论">6.3 消融结论</a><a class="toc-link toc-level-3" href="#6-4-ood-泛化与跨引擎迁移">6.4 OOD 泛化与跨引擎迁移</a><a class="toc-link toc-level-3" href="#6-5-具身智能体诊断实验">6.5 具身智能体诊断实验</a><a class="toc-link toc-level-2" href="#7-局限性和最终判断">7. 局限性和最终判断</a><a class="toc-link toc-level-3" href="#局限性一-实验规模仍然偏小">局限性一：实验规模仍然偏小</a><a class="toc-link toc-level-3" href="#局限性二-跨引擎评价仍依赖-mllm-as-a-judge">局限性二：跨引擎评价仍依赖 MLLM-as-a-judge</a><a class="toc-link toc-level-3" href="#局限性三-游戏引擎验证只覆盖部分空间性质">局限性三：游戏引擎验证只覆盖部分空间性质</a><a class="toc-link toc-level-3" href="#局限性四-虚拟世界和真实世界仍有差距">局限性四：虚拟世界和真实世界仍有差距</a><a class="toc-link toc-level-3" href="#局限性五-人类反馈仍是瓶颈">局限性五：人类反馈仍是瓶颈</a><a class="toc-link toc-level-3" href="#最终判断">最终判断</a></nav>
+        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#agentic-game-development-as-a-verifiable-trajectory-data-engine-for-scaling-world-models">Agentic Game Development as a Verifiable Trajectory Data Engine for Scaling World Models</a><a class="toc-link toc-level-2" href="#快速理解">快速理解</a><a class="toc-link toc-level-2" href="#中文摘要">中文摘要</a><a class="toc-link toc-level-2" href="#详细分析">详细分析</a><a class="toc-link toc-level-2" href="#1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</a><a class="toc-link toc-level-2" href="#2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</a><a class="toc-link toc-level-2" href="#3-核心贡献-约300字">3. 核心贡献（约300字）</a><a class="toc-link toc-level-2" href="#4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</a><a class="toc-link toc-level-2" href="#5-核心方法-按论文-method-小节总结-约600字">5. 核心方法：按论文 Method 小节总结（约600字）</a><a class="toc-link toc-level-3" href="#4-1-awomo-design-awomo-设计">4.1 AWoMo design（AWoMo 设计）</a><a class="toc-link toc-level-3" href="#4-2-what-an-engine-checks-cheaply-引擎可以廉价检查什么">4.2 What an engine checks cheaply（引擎可以廉价检查什么）</a><a class="toc-link toc-level-3" href="#4-3-game-development-as-a-rewardable-mapping-游戏开发作为可奖励的映射">4.3 Game development as a rewardable mapping（游戏开发作为可奖励的映射）</a><a class="toc-link toc-level-3" href="#4-4-unified-world-development-protocol-uwdp-统一世界开发协议">4.4 Unified World-Development Protocol (UWDP)（统一世界开发协议）</a><a class="toc-link toc-level-3" href="#4-5-uwdp-collection-algorithm-uwdp-采集算法">4.5 UWDP collection algorithm（UWDP 采集算法）</a><a class="toc-link toc-level-3" href="#4-6-human-acceptance-protocol-人类验收协议">4.6 Human acceptance protocol（人类验收协议）</a><a class="toc-link toc-level-3" href="#4-7-the-analogy-to-code-与代码的类比">4.7 The analogy to code（与代码的类比）</a><a class="toc-link toc-level-3" href="#4-8-a-ladder-of-reward-奖励阶梯">4.8 A ladder of reward（奖励阶梯）</a><a class="toc-link toc-level-3" href="#4-9-the-cost-asymmetry-成本不对称性">4.9 The cost asymmetry（成本不对称性）</a><a class="toc-link toc-level-2" href="#6-局限性和展望-约300字">6. 局限性和展望（约300字）</a></nav>
       </div>
     </aside>
     <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../date/">← 返回日报目录</a></p>
 <h1 id="agentic-game-development-as-a-verifiable-trajectory-data-engine-for-scaling-world-models">Agentic Game Development as a Verifiable Trajectory Data Engine for Scaling World Models</h1>
-<p><strong>一句话主题：</strong> 利用游戏开发中的引擎与人工验证训练世界模型</p>
-<p><strong>领域标签：</strong> 世界模型 / 强化学习 / 游戏开发</p>
+<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2608.25518v1">arXiv</a> · <a href="https://huggingface.co/papers/2608.25518">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2608.25518">AlphaXiv</a></p>
+<p><strong>一句话主题：</strong> 将游戏引擎与人类反馈作为世界模型的可靠奖励信号，实现强化学习后训练</p>
+<p><strong>领域标签：</strong> 人工智能 / 世界模型 / 智能体游戏开发</p>
 <h2 id="快速理解">快速理解</h2>
-<p><strong>背景与任务：</strong> 仅靠爬取视频和模糊奖励信号难以有效扩展空间世界模型。</p>
-<p><strong>核心工作：</strong> 提出RLHEV，用引擎密集信号和人类验收反馈构建可验证的后训练数据引擎。</p>
+<p><strong>背景与任务：</strong> 现有世界模型主要依赖爬取视频和模糊代理指标，缺少支持强化学习后训练的可靠奖励信号</p>
+<p><strong>核心工作：</strong> 提出RLHEV范式，将游戏引擎的稠密验证信号与开发者的隐含接受反馈结合，用于世界模型的后训练</p>
 <h2 id="中文摘要">中文摘要</h2>
-<p>扩展世界模型的一种常见策略是使用更多爬取的视频和更多算力进行训练。我们认为，这一策略效率低下：扩展世界模型还需要一种能够提供有根据奖励信号的递归数据引擎。代码智能体的成功说明了这一点为何重要。由于代码是可执行的，编译器和运行时可以为大语言模型（LLM）的强化学习（Reinforcement Learning, RL）后训练提供高质量奖励。相比之下，空间生成仍在很大程度上依赖诸如 CLIP 分数之类的模糊代理指标。这些信号模糊且存在偏差，因而难以支持 RL 后训练。与这些相比，游戏开发为面向空间的世界模型提供了一个缺失的奖励环境。由游戏引擎编码的场景是一种可执行的世界规范：引擎可以高效检查碰撞、物理、可导航性和有界可玩性，而开发者则通过判断场景是否应被接受来提供全局验证信号。游戏开发还为 RL 后训练提供了真实世界的长时程轨迹数据。因此，我们提出了带有人类—引擎验证的强化学习（Reinforcement Learning with Human-Engine Verification, RLHEV），这是一种后训练范式，将密集的引擎信号与来自开发过程的隐式人类接受反馈相结合。</p>
+<p>扩展世界模型的一种常见策略是用更多算力在更多抓取的视频上进行训练。我们认为这一策略效率低下：扩展世界模型还需要一个能提供有依据的奖励信号的递归数据引擎。代码智能体的成功说明了这一点为何重要。由于代码是可执行的，编译器和运行时可以为大语言模型（LLM）的强化学习（RL）后训练提供高质量的奖励。相比之下，空间生成仍然主要依赖CLIP分数等模糊的代理指标。这些信号模糊且有偏，难以支撑RL后训练。与这些方法相比，游戏开发为空间世界模型提供了一个缺失的奖励环境。由游戏引擎编码的场景是一种可执行的世界规范：引擎可以有效检查碰撞、物理、可导航性和有界可玩性，而开发者通过判断场景是否应被验收来提供全局验证信号。游戏开发还为RL后训练提供了真实世界的长视野轨迹数据。因此，我们提出人工与引擎联合验证的强化学习（Reinforcement Learning with Human-Engine Verification，RLHEV），这是一种将密集引擎信号与开发过程中隐含的人工验收反馈相结合的后训练范式。</p>
 <h2 id="详细分析">详细分析</h2>
-<p>下面我按“给懂 Transformer/强化学习基础、但不熟悉游戏开发与世界模型数据引擎的低年级博士生”的方式讲这篇论文。</p>
-<hr>
-<h2 id="1-任务输入-输出-功能和边界">1. 任务输入、输出、功能和边界</h2>
-<p>这篇论文讨论的不是一个单纯的“视频生成模型”或“3D 生成模型”，而是一个更偏系统性的任务：</p>
-<blockquote>如何把游戏开发过程变成一个可验证的数据引擎，用来训练能够构建、理解、修改虚拟世界的世界模型。</blockquote>
-<p>论文提出的系统叫 <strong>AWoMo：Agentic World Model</strong>，可以理解为一个“会在游戏引擎里搭世界、查错误、修错误、并从人类开发者反馈中学习的智能体”。</p>
-<h3 id="任务输入">任务输入</h3>
-<p>输入可以包含多种信息：</p>
-<ol><li><strong>文本意图</strong>  </li></ol>
-<p>例如： “创建一个可以从入口走到宝箱房间的地下城场景。” “把这个 Unity 场景中的桥加宽，保证玩家可以通过。”</p>
-<ol><li><strong>参考图像或多模态素材</strong>  </li></ol>
-<p>比如一张场景概念图、已有资产截图、布局草图。</p>
-<ol><li><strong>已有游戏场景或资产状态</strong>  </li></ol>
-<p>例如 Unity / Unreal / Godot 中的场景文件、对象位置、碰撞体、材质、脚本、导航网格等。</p>
-<ol><li><strong>设计约束</strong>  </li></ol>
-<p>例如：</p>
-<ul><li>玩家必须能从 A 点走到 B 点；</li><li>物体不能穿模；</li><li>场景必须能加载；</li><li>物理模拟不能爆炸；</li><li>某个任务必须在有限步数内可完成。</li></ul>
-<h3 id="任务输出">任务输出</h3>
-<p>输出不是一张图片，而是更“可执行”的东西：</p>
-<ol><li><strong>场景程序或场景编辑动作</strong>  </li></ol>
-<p>例如添加物体、移动物体、修改碰撞体、调整脚本、重建导航网格。</p>
-<ol><li><strong>可在游戏引擎中运行的场景状态</strong>  </li></ol>
-<p>也就是 Unity / Unreal / Godot 可以加载、渲染、模拟和测试的世界。</p>
-<ol><li><strong>修复轨迹</strong>  </li></ol>
-<p>包括模型做了什么、引擎报了什么错、人类是否接受、模型如何修复。</p>
-<ol><li><strong>训练数据</strong>  </li></ol>
-<p>每次开发过程都会被保存成“状态—动作—检查—人类反馈—修复”的轨迹，用来继续训练下一代模型。</p>
-<h3 id="系统功能">系统功能</h3>
-<p>AWoMo 的核心功能包括：</p>
-<ul><li>根据人类意图生成或修改游戏场景；</li><li>调用游戏引擎执行检查；</li><li>根据引擎错误定位问题；</li><li>自动提出修复；</li><li>等待人类开发者最终接受或拒绝；</li><li>把整个过程转为可训练数据；</li><li>用这些数据进行后训练，尤其是强化学习式的改进。</li></ul>
-<h3 id="边界-它不声称解决什么">边界：它不声称解决什么？</h3>
-<p>这点很重要。</p>
-<p>论文没有声称游戏引擎可以自动判断所有空间质量。比如：</p>
-<ul><li>场景是否“有艺术感”；</li><li>氛围是否符合剧情；</li><li>玩家是否觉得好玩；</li><li>关卡节奏是否合理；</li><li>风格是否符合产品方向。</li></ul>
-<p>这些仍然需要人类判断。</p>
-<p>游戏引擎能可靠检查的是更结构化、更局部、更可执行的性质：</p>
-<ul><li>场景能不能加载；</li><li>脚本有没有运行错误；</li><li>物体是否发生碰撞穿插；</li><li>物理模拟是否稳定；</li><li>玩家是否能走通；</li><li>自动测试智能体是否能完成某个目标。</li></ul>
-<p>所以论文的边界是：</p>
-<blockquote>引擎提供低成本、可重复、局部且结构化的验证；人类提供最终的全局接受判断。</blockquote>
-<hr>
-<h2 id="2-论文要解决的问题以及问题发生的具体原因">2. 论文要解决的问题以及问题发生的具体原因</h2>
-<p>论文要解决的问题可以概括为：</p>
-<blockquote>当前世界模型主要靠更多视频、更多 3D 数据、更多算力来扩展，但缺少像代码领域那样便宜、可靠、可反复使用的奖励信号，因此很难进行高效的强化学习后训练。</blockquote>
-<h3 id="为什么代码智能体发展快">为什么代码智能体发展快？</h3>
-<p>论文用代码智能体作类比。</p>
-<p>代码有一个很强的性质：<strong>可执行</strong>。</p>
-<p>模型生成一段代码后，可以马上运行：</p>
-<ul><li>编译器能检查语法错误；</li><li>单元测试能检查功能；</li><li>运行时能暴露异常；</li><li>静态分析器能发现潜在问题；</li><li>开发者最终决定是否接受这个补丁。</li></ul>
-<p>也就是说，代码智能体有一个“双重验证”机制：</p>
-<ol><li><strong>机器验证</strong>：编译器、测试、运行时；</li><li><strong>人类验证</strong>：开发者判断是否真的符合需求。</li></ol>
-<p>这使得代码模型可以做强化学习后训练：模型生成候选代码，执行后得到奖励或错误，再更新模型。</p>
-<h3 id="为什么空间生成和世界模型困难">为什么空间生成和世界模型困难？</h3>
-<p>视频生成、3D 生成、世界模拟通常没有这么好的验证器。</p>
-<p>例如一个视频模型生成一个片段，我们可以问：</p>
-<ul><li>物体被遮挡后是否保持同一身份？</li><li>桌子上的杯子是否真的受重力约束？</li><li>透视是否一致？</li><li>人物走路时脚是否滑动？</li><li>门是否真的通向另一个空间？</li></ul>
-<p>这些问题很难通过一个便宜、确定的函数来判断。</p>
-<p>当前常用评价信号包括：</p>
-<ul><li>CLIP 相似度；</li><li>FVD 等分布距离；</li><li>MLLM-as-judge，多模态大模型打分；</li><li>人类偏好标注。</li></ul>
-<p>论文认为这些信号有三个具体问题。</p>
-<h4 id="原因一-奖励信号模糊">原因一：奖励信号模糊</h4>
-<p>CLIP 分数高，不代表 3D 结构正确。 一张图看起来像“房间”，不代表里面可以导航，也不代表门真的能打开。</p>
-<h4 id="原因二-奖励信号有系统偏差">原因二：奖励信号有系统偏差</h4>
-<p>如果一个代理评价器偏好某种纹理、构图或常见模式，模型会学会投机取巧。 这就是奖励黑客：模型提高代理分数，但真实质量没有提高，甚至变差。</p>
-<h4 id="原因三-只有最终输出标签-缺少过程监督">原因三：只有最终输出标签，缺少过程监督</h4>
-<p>很多空间生成任务只评价最终结果，比如“一张图好不好”“一个视频像不像”。 但模型不知道：</p>
-<ul><li>哪一步放错了；</li><li>哪个碰撞体出问题；</li><li>哪个区域不可达；</li><li>哪次修复有效；</li><li>人类为什么拒绝。</li></ul>
-<p>因此它很难像代码模型一样从局部错误中迭代改进。</p>
-<p>论文把这个问题称为一种 <strong>unverifiability tax</strong>，可以翻译成“不可验证性税”： 由于缺少便宜可靠的验证信号，空间智能只能靠更多数据、更多人工标注、更多算力来弥补，训练效率低。</p>
-<hr>
-<h2 id="3-核心-insight-与贡献">3. 核心 insight 与贡献</h2>
-<h3 id="核心-insight">核心 insight</h3>
-<p>论文的核心洞察是：</p>
-<blockquote>游戏开发天然提供了空间世界模型缺少的验证环境。 一个游戏场景不是普通图片，而是一个可执行的世界规格说明；游戏引擎可以运行它、检查它、模拟它、测试它。</blockquote>
-<p>比如 Unity 场景中包含：</p>
-<ul><li>物体位置；</li><li>网格；</li><li>材质；</li><li>碰撞体；</li><li>刚体；</li><li>脚本；</li><li>导航网格；</li><li>触发器；</li><li>摄像机；</li><li>光照；</li><li>玩家控制器。</li></ul>
-<p>这些不是静态像素，而是可以被引擎执行的结构化对象。</p>
-<p>因此游戏引擎可以像“空间领域的编译器和运行时”一样，给世界模型提供反馈：</p>
-<ul><li>加载失败：类似代码编译失败；</li><li>脚本报错：类似运行时异常；</li><li>碰撞穿插：类似违反几何约束；</li><li>导航不可达：类似测试不通过；</li><li>自动玩家无法完成目标：类似功能测试失败。</li></ul>
-<p>但游戏引擎不能替代人类。 所以论文提出 <strong>Human-Engine Verification</strong>：人类—引擎联合验证。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.25518v1/fig_verification_loop.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.25518v1/fig_verification_loop.png" alt="Figure 1：从 subjective reward proxies 到 human-engine verification loop。传统 spatial-data pipelines 将稀疏的人类或模型标注转为噪声较大的 final-output rewards。相反，game-development loop 可把 human intent 和反馈与 engine 执行、development trajectories、rendered evidence 以及 localized verifier failures 结合起来，使未来的构建者既能基于 grounded checks，也能基于 traces 而非仅 final artifacts 的 developer judgment 来改进。" loading="lazy"></a><span class="image-caption">Figure 1：从 subjective reward proxies 到 human-engine verification loop。传统 spatial-data pipelines 将稀疏的人类或模型标注转为噪声较大的 final-output rewards。相反，game-development loop 可把 human intent 和反馈与 engine 执行、development trajectories、rendered evidence 以及 localized verifier failures 结合起来，使未来的构建者既能基于 grounded checks，也能基于 traces 而非仅 final artifacts 的 developer judgment 来改进。</span></span></p>
-<h3 id="主要贡献">主要贡献</h3>
-<p>论文的贡献可以分成四类。</p>
-<h4 id="贡献一-提出-可验证性瓶颈">贡献一：提出“可验证性瓶颈”</h4>
-<p>作者认为，世界模型扩展的关键瓶颈不只是数据量和模型规模，而是反馈信号的质量。</p>
-<p>没有可靠奖励，就难以做稳定的强化学习后训练。</p>
-<h4 id="贡献二-提出-rlhev">贡献二：提出 RLHEV</h4>
-<p>RLHEV 是 <strong>Reinforcement Learning with Human-Engine Verification</strong>，即“基于人类—引擎验证的强化学习”。</p>
-<p>它结合两类奖励：</p>
-<ol><li><strong>引擎奖励</strong>：密集、便宜、可重复，检查局部结构问题；</li><li><strong>人类接受反馈</strong>：稀疏、昂贵，但代表最终任务是否合格。</li></ol>
-<h4 id="贡献三-提出-awomo">贡献三：提出 AWoMo</h4>
-<p>AWoMo 是一个 agentic world model，也就是嵌入游戏开发流程中的世界构建智能体。</p>
-<p>它不只是生成一个结果，而是参与完整循环：</p>
-<blockquote>提议编辑 → 渲染 → 引擎检查 → 修复 → 人类审核 → 存储轨迹 → 继续训练。</blockquote>
-<h4 id="贡献四-提出-uwdp-轨迹协议">贡献四：提出 UWDP 轨迹协议</h4>
-<p>UWDP 是 <strong>Unified World-Development Protocol</strong>，统一世界开发协议。</p>
-<p>它把游戏开发过程中的文本意图、场景状态、动作、引擎输出、渲染证据、人类反馈、修复关系都保存下来。</p>
-<p>重点是： 论文认为“开发轨迹”比“最终资产”更有训练价值。</p>
-<hr>
-<h2 id="4-使用的基模-以及从输入到输出的整体流程">4. 使用的基模，以及从输入到输出的整体流程</h2>
-<h3 id="使用的基模">使用的基模</h3>
-<p>论文没有把重点放在某个全新 Transformer 架构上，而是把 AWoMo 描述为一个围绕多模态世界模型构建的系统。</p>
-<p>可以把它理解成：</p>
-<ul><li>底层是一个多模态基础模型，能够处理文本、图像、场景结构、引擎日志；</li><li>外层是一个智能体框架，能够调用工具、执行动作、读取反馈；</li><li>环境是 Unity / Unreal / Godot 等游戏引擎；</li><li>训练方式包括监督微调、偏好学习、基于引擎和人类反馈的强化学习后训练。</li></ul>
-<p>它更像“代码智能体 + 游戏引擎 + 多模态世界模型”的组合。</p>
-<h3 id="从输入到输出的整体流程">从输入到输出的整体流程</h3>
-<p>整体流程如下。</p>
-<h4 id="第一步-接收设计意图">第一步：接收设计意图</h4>
-<p>输入任务 brief，例如：</p>
-<blockquote>生成一个小型迷宫，玩家从入口出发，必须能到达出口，中间不能有不可跨越障碍。</blockquote>
-<p>系统解析出：</p>
-<ul><li>关键对象：入口、出口、墙、地面、玩家；</li><li>空间关系：入口连接路径，出口可达；</li><li>约束：不能封死路径，碰撞体不能阻塞玩家；</li><li>验证目标：导航网格连通，自动测试玩家可到达出口。</li></ul>
-<h4 id="第二步-生成或编辑场景程序">第二步：生成或编辑场景程序</h4>
-<p>AWoMo 产生动作，例如：</p>
-<ul><li>添加墙体；</li><li>摆放地板；</li><li>设置碰撞体；</li><li>烘焙导航网格；</li><li>添加目标触发器；</li><li>调整物体坐标。</li></ul>
-<p>这一步输出的是游戏引擎可执行的场景，而不是一张静态图。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.25518v1/fig_scene_program.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.25518v1/fig_scene_program.png" alt="Figure 3：用于理解与生成的 shared executable scene-program representation。Game creation 将 human world understanding、design intent、constraints 和 playable experience 映射到模型的理解与生成能力中。生成将 text intent、design goals 或 task specifications 映射为 scene program；理解则反向读取同一对象。engine 通过 rendering、physics rollouts 和 temporal consistency 对其进行检查，而 humans 判断生成的世界是否保留 intent 和 workflow value。" loading="lazy"></a><span class="image-caption">Figure 3：用于理解与生成的 shared executable scene-program representation。Game creation 将 human world understanding、design intent、constraints 和 playable experience 映射到模型的理解与生成能力中。生成将 text intent、design goals 或 task specifications 映射为 scene program；理解则反向读取同一对象。engine 通过 rendering、physics rollouts 和 temporal consistency 对其进行检查，而 humans 判断生成的世界是否保留 intent 和 workflow value。</span></span></p>
-<h4 id="第三步-游戏引擎执行检查">第三步：游戏引擎执行检查</h4>
-<p>引擎运行场景并返回检查结果，例如：</p>
-<ul><li>场景能否加载；</li><li>是否有脚本错误；</li><li>是否有物体穿插；</li><li>物理模拟是否稳定；</li><li>玩家代理是否能走到目标；</li><li>是否出现软锁，即玩家被困住无法继续。</li></ul>
-<p>这些检查产生密集反馈。</p>
-<h4 id="第四步-模型根据错误修复">第四步：模型根据错误修复</h4>
-<p>如果引擎发现问题，AWoMo 根据错误日志和渲染证据提出修复动作。</p>
-<p>例如：</p>
-<ul><li>如果桥太窄导致导航失败，就加宽桥；</li><li>如果箱子挡住门，就移动箱子；</li><li>如果碰撞体过大，就缩小碰撞体；</li><li>如果脚本报错，就修复引用或参数。</li></ul>
-<h4 id="第五步-人类开发者审核">第五步：人类开发者审核</h4>
-<p>当引擎检查基本通过后，人类判断：</p>
-<ul><li>是否符合 brief；</li><li>是否可读；</li><li>是否有设计价值；</li><li>是否风格合适；</li><li>是否能进入实际开发流程。</li></ul>
-<p>人类给出接受、拒绝或修改意见。</p>
-<h4 id="第六步-保存完整轨迹并训练">第六步：保存完整轨迹并训练</h4>
-<p>系统保存每一步：</p>
-<ul><li>初始意图；</li><li>中间状态；</li><li>动作；</li><li>引擎检查；</li><li>渲染截图；</li><li>人类反馈；</li><li>修复链接；</li><li>最终结果。</li></ul>
-<p>这些数据用于训练模型。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.25518v1/protocol_trace_vs_snapshot.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.25518v1/protocol_trace_vs_snapshot.png" alt="Figure 7：protocol traces 保留了 final snapshots 中缺失的 process data。final scene 只记录 terminal state，而 trace 记录 intent、intermediate scene states、failed checks、repair edits、validation outcomes 和 engine rewards。这个 object-linked sequence 为 asset diagnosis 和 repair 提供训练目标。" loading="lazy"></a><span class="image-caption">Figure 7：protocol traces 保留了 final snapshots 中缺失的 process data。final scene 只记录 terminal state，而 trace 记录 intent、intermediate scene states、failed checks、repair edits、validation outcomes 和 engine rewards。这个 object-linked sequence 为 asset diagnosis 和 repair 提供训练目标。</span></span></p>
-<hr>
-<h2 id="5-每个关键机制为什么需要-具体怎么做-得到什么">5. 每个关键机制为什么需要、具体怎么做、得到什么</h2>
-<h3 id="5-1-human-engine-verification-为什么需要">5.1 Human-Engine Verification：为什么需要？</h3>
-<p>单独依赖人类反馈太贵。 每个碰撞错误、导航错误、脚本错误都让人类检查，成本很高。</p>
-<p>单独依赖引擎反馈又不够。 引擎能判断“能不能走通”，但不能判断“这个关卡是否有趣”“是否符合叙事”。</p>
-<p>所以论文提出人类—引擎分工：</p>
-<div class="table-wrap"><table><thead><tr><th>信号来源</th><th>擅长判断</th><th>不擅长判断</th></tr></thead><tbody><tr><td>游戏引擎</td><td>碰撞、物理、导航、脚本、加载、局部可玩性</td><td>审美、叙事、设计意图、生产价值</td></tr><tr><td>人类开发者</td><td>是否符合目标、是否值得接受、是否有设计价值</td><td>大量局部机械错误检查</td></tr></tbody></table></div>
-<h3 id="具体怎么做">具体怎么做？</h3>
-<p>论文给出一个奖励抽象：</p>
-<p>模型选择候选输出 \(y\)，目标是最大化：</p>
-<ul><li>人类接受效用；</li><li>减少引擎检查惩罚；</li><li>满足硬性引擎门槛。</li></ul>
-<p>简单解释就是：</p>
-<blockquote>最好的人类评分高； 碰撞、导航、物理等错误少； 必须通过若干硬性测试，比如能加载、能运行、目标可达。</blockquote>
-<p>其中：</p>
-<ul><li>\(U_H(x,y,h)\)：人类审核分数；</li><li>\(C_i(x,y)\)：第 \(i\) 个引擎诊断指标，比如碰撞深度；</li><li>\(\phi_i\)：把诊断指标变成惩罚；</li><li>\(G_j(x,y)\)：硬性门槛，通过为 1，不通过为 0。</li></ul>
-<h3 id="得到什么">得到什么？</h3>
-<p>这种机制带来三个好处：</p>
-<ol><li><strong>训练奖励更低噪声</strong>  </li></ol>
-<p>碰撞检查比“图像看起来是否合理”更确定。</p>
-<ol><li><strong>错误更可定位</strong>  </li></ol>
-<p>引擎能告诉你哪一类检查失败，而不是只给一个模糊低分。</p>
-<ol><li><strong>人类反馈更省</strong>  </li></ol>
-<p>人类不用逐个检查低级错误，只需要审核通过自动过滤后的候选。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.25518v1/fig_reward_comparison.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.25518v1/fig_reward_comparison.png" alt="Figure 2：unverifiable spatial generation 中的 fuzzy reward 与 game development 中的 human-engine feedback。上方 pipeline 表明，model-as-a-judge 和 human aesthetic variance 可能产生含糊的 rewards 与 performance bottleneck。下方 pipeline 将 assets 转为 executable worlds：game engine 和 internal test suites 暴露 local failures，rendered evidence 支持 review，developer 提供最终的接受信号。" loading="lazy"></a><span class="image-caption">Figure 2：unverifiable spatial generation 中的 fuzzy reward 与 game development 中的 human-engine feedback。上方 pipeline 表明，model-as-a-judge 和 human aesthetic variance 可能产生含糊的 rewards 与 performance bottleneck。下方 pipeline 将 assets 转为 executable worlds：game engine 和 internal test suites 暴露 local failures，rendered evidence 支持 review，developer 提供最终的接受信号。</span></span></p>
-<hr>
-<h3 id="5-2-awomo-为什么需要">5.2 AWoMo：为什么需要？</h3>
-<p>如果只训练一个离线生成模型，它生成失败后不会自然学到如何修复。 论文希望世界模型像代码智能体一样嵌入真实工作流：</p>
-<ul><li>会调用工具；</li><li>会观察运行结果；</li><li>会根据错误迭代；</li><li>会存储过程数据；</li><li>会用过程数据继续训练。</li></ul>
-<p>这就是 AWoMo 的作用。</p>
-<h3 id="具体怎么做-2">具体怎么做？</h3>
-<p>AWoMo 有四个接口。</p>
-<h4 id="1-意图接口">1. 意图接口</h4>
-<p>接收：</p>
-<ul><li>文本 brief；</li><li>设计约束；</li><li>参考图；</li><li>已有场景上下文。</li></ul>
-<h4 id="2-动作接口">2. 动作接口</h4>
-<p>输出：</p>
-<ul><li>场景程序；</li><li>资产编辑；</li><li>工具调用；</li><li>修复动作。</li></ul>
-<h4 id="3-验证接口">3. 验证接口</h4>
-<p>记录：</p>
-<ul><li>加载检查；</li><li>碰撞检查；</li><li>物理稳定性；</li><li>导航连通性；</li><li>脚本执行；</li><li>自动 playtest。</li></ul>
-<h4 id="4-审核接口">4. 审核接口</h4>
-<p>记录人类：</p>
-<ul><li>接受；</li><li>拒绝；</li><li>修改意见；</li><li>对最终用途的判断。</li></ul>
-<h3 id="得到什么-2">得到什么？</h3>
-<p>AWoMo 得到的不只是“最终场景”，而是高价值轨迹：</p>
-<blockquote>哪个意图导致哪个动作，哪个动作造成哪个错误，哪个修复解决了错误，人类最后是否接受。</blockquote>
-<p>这类数据适合训练：</p>
-<ul><li>下一步编辑预测；</li><li>错误诊断；</li><li>修复策略；</li><li>奖励模型；</li><li>强化学习策略。</li></ul>
-<hr>
-<h3 id="5-3-uwdp-为什么需要">5.3 UWDP：为什么需要？</h3>
-<p>普通游戏开发数据分散在很多地方：</p>
-<ul><li>场景文件；</li><li>截图；</li><li>编辑器日志；</li><li>QA 记录；</li><li>Git 提交；</li><li>人类评论；</li><li>测试报告。</li></ul>
-<p>如果不统一格式，模型很难学习开发过程。</p>
-<p>论文认为，仅有最终快照不够，因为最终场景只告诉你“最后是什么样”，不知道“为什么变成这样”。</p>
-<h3 id="具体怎么做-3">具体怎么做？</h3>
-<p>UWDP 把每一步记录成：</p>
-<p>\[ u_t = (b, o_t, s_t, a_t, g_t, v_t, h_t, \rho_t) \]</p>
-<p>解释如下：</p>
-<ul><li>\(b\)：设计意图；</li><li>\(o_t\)：对象、关系或场景区域 ID；</li><li>\(s_t\)：当前状态，包括空间、语义、物理字段；</li><li>\(a_t\)：编辑或工具动作；</li><li>\(g_t\)：引擎或测试输出；</li><li>\(v_t\)：渲染证据，比如截图或视频；</li><li>\(h_t\)：人类审核决定或评论；</li><li>\(\rho_t\)：修复关系、置信度、成本、剩余风险。</li></ul>
-<h3 id="得到什么-3">得到什么？</h3>
-<p>UWDP 让训练数据从“静态样本”变成“因果过程样本”。</p>
-<p>模型可以学到：</p>
-<ul><li>什么动作容易导致穿模；</li><li>什么修复能恢复可导航性；</li><li>哪些引擎错误通常会被人类拒绝；</li><li>什么类型的候选即使通过引擎测试也不符合人类意图。</li></ul>
-<hr>
-<h3 id="5-4-rlhev-为什么需要">5.4 RLHEV：为什么需要？</h3>
-<p>预训练让模型学会模仿已有数据，但不一定学会满足可执行约束。</p>
-<p>比如模型可以生成“看起来像桥”的结构，但：</p>
-<ul><li>玩家走不上去；</li><li>桥和地面之间有缝；</li><li>碰撞体不匹配；</li><li>导航网格断开；</li><li>物理对象掉落。</li></ul>
-<p>RLHEV 的作用是用引擎和人类反馈做后训练，让模型更偏向生成“可运行、可审核、可接受”的世界。</p>
-<h3 id="具体怎么做-4">具体怎么做？</h3>
-<p>论文实验中把奖励分为几类：</p>
-<ol><li><strong>Fuzzy proxy reward</strong>  </li></ol>
-<p>类似 CLIP 或模型打分。</p>
-<ol><li><strong>Engine reward</strong>  </li></ol>
-<p>来自 Unity 检查，例如结构有效性。</p>
-<ol><li><strong>Human reward</strong>  </li></ol>
-<p>来自人类接受/拒绝标签。</p>
-<ol><li><strong>Full RLHEV reward</strong>  </li></ol>
-<p>论文中使用： \[ 0.65 \times \text{human} + 0.35 \times \text{engine} \]</p>
-<p>也就是说，人类最终接受更重要，但引擎检查也提供稳定的局部监督。</p>
-<h3 id="得到什么-4">得到什么？</h3>
-<p>实验中 Full RLHEV 在 UnitySceneBench 上表现最好。 这支持作者的主张：人类反馈和引擎反馈结合比单独使用模糊代理或单独引擎信号更有效。</p>
-<hr>
-<h2 id="6-主结果-消融结果-可视化结论及证据边界">6. 主结果、消融结果、可视化结论及证据边界</h2>
-<p>论文实验主要围绕三个问题：</p>
-<ol><li>人类—引擎反馈是否比模糊代理更好？</li><li>这种训练是否能迁移到分布外或其他引擎？</li><li>AWoMo 生成的环境数据是否能帮助具身智能体训练？</li></ol>
-<hr>
-<h3 id="6-1-unityscenebench-人类-引擎反馈的主结果">6.1 UnitySceneBench：人类—引擎反馈的主结果</h3>
-<p>论文构建了一个 UnitySceneBench，用于 Unity 资产编辑候选的多模态理解/分类评估。</p>
-<p>输入包括：</p>
-<ul><li>文本编辑提示；</li><li>Unity 资产和上下文特征；</li><li>参考图像特征；</li><li>结构化布局信息。</li></ul>
-<p>主要指标是 Primary：</p>
-<p>\[ 0.45 \times \text{balanced accuracy}</p>
-<ul><li>0.25 \times \text{accuracy}</li><li>0.20 \times \text{F1}</li><li>0.10 \times \text{AUC}</li></ul>
-<p>\]</p>
-<p>它综合考虑类别平衡准确率、普通准确率、F1 和 AUC。</p>
-<p>论文比较的方法包括：</p>
-<ul><li>Zero-shot CLIP；</li><li>Fuzzy Proxies Baseline；</li><li>SFT Baseline；</li><li>Offline RLHF；</li><li>Engine-based RLVR；</li><li>Full RLHEV。</li></ul>
-<p>结果：</p>
-<ul><li>Full RLHEV 取得最高 best-of-eight primary score：<strong>0.681</strong>；</li><li>accuracy：<strong>0.665</strong>；</li><li>balanced accuracy：<strong>0.665</strong>；</li><li>F1：<strong>0.733</strong>；</li><li>AUC：<strong>0.690</strong>；</li><li>比最强非 Full baseline 高 <strong>+0.098 primary score</strong>；</li><li>accuracy / balanced accuracy 高 <strong>+0.120</strong>。</li></ul>
-<p>注意：这里使用了 best-of-eight 视角，也就是八个随机种子中取最佳结果。论文也另外报告了均值和方差曲线。</p>
-<h3 id="6-2-扩展数据量后的结果">6.2 扩展数据量后的结果</h3>
-<p>论文还改变训练样本数，观察不同方法随着数据增加的表现。</p>
-<p>在生成侧任务上：</p>
-<ul><li>Full RLHEV 在 640 个训练样本内达到 <strong>0.8106</strong> generation quality；</li><li>在完整 720 个训练样本下达到 <strong>0.8197</strong>；</li><li>Engine-based RLVR 为 <strong>0.7934</strong>。</li></ul>
-<p>这说明仅有引擎反馈不如人类—引擎联合反馈。</p>
-<h3 id="6-3-消融结论">6.3 消融结论</h3>
-<p>从实验设计看，核心消融是比较不同奖励来源：</p>
-<div class="table-wrap"><table><thead><tr><th>方法</th><th>使用信号</th><th>结论</th></tr></thead><tbody><tr><td>Fuzzy Proxies</td><td>模糊代理奖励</td><td>不如可验证信号稳定</td></tr><tr><td>SFT</td><td>模仿训练</td><td>能学到样本模式，但缺少反馈优化</td></tr><tr><td>Offline RLHF</td><td>人类偏好/接受反馈</td><td>有帮助，但缺少密集结构反馈</td></tr><tr><td>Engine-based RLVR</td><td>只有引擎反馈</td><td>能提升结构有效性，但不一定符合人类意图</td></tr><tr><td>Full RLHEV</td><td>人类 + 引擎</td><td>整体最好</td></tr></tbody></table></div>
-<p>消融支持论文核心主张：</p>
-<blockquote>引擎反馈负责局部结构正确，人类反馈负责最终任务合格；两者互补。</blockquote>
-<hr>
-<h3 id="6-4-ood-泛化与跨引擎迁移">6.4 OOD 泛化与跨引擎迁移</h3>
-<p>论文还测试了源域预训练是否有助于目标域适配。</p>
-<p>设置是：</p>
-<ul><li>target-only scratch：只在目标域训练；</li><li>target-adapted transfer：先在源域训练，再在目标域适配。</li></ul>
-<p>结果：</p>
-<ol><li>Unity 分布偏移：<ul><li>scratch：<strong>0.25</strong></li><li>transfer：<strong>0.75</strong></li></ul></li></ol>
-<ol><li>Unity → Unreal：<ul><li>scratch：<strong>0.25</strong></li><li>transfer：<strong>0.35</strong></li></ul></li></ol>
-<ol><li>Unity → Godot：<ul><li>scratch：<strong>0.15</strong></li><li>transfer：<strong>0.35</strong></li></ul></li></ol>
-<p>结论是：</p>
-<ul><li>同一引擎内的分布迁移提升较明显；</li><li>跨引擎迁移也有正信号，但幅度较小。</li></ul>
-<p>这里需要特别注意证据边界： 跨引擎质量没有统一的引擎原生标量，所以论文用了 rubric-based MLLM-as-a-judge 作为评估工具，并称人工复核过。也就是说，这部分评价仍然没有完全摆脱模糊评估，只是作者强调它没有作为训练奖励，而是作为审计后的评估指标。</p>
-<hr>
-<h3 id="6-5-具身智能体诊断实验">6.5 具身智能体诊断实验</h3>
-<p>论文还测试 AWoMo 生成的环境数据是否能帮助具身策略训练。</p>
-<p>基准包括：</p>
-<ul><li>R2R：视觉语言导航；</li><li>Gymnasium MuJoCo：连续控制；</li><li>D4RL Gym-MuJoCo：离线强化学习控制任务。</li></ul>
-<p>比较：</p>
-<ul><li>原始 baseline；</li><li>naive augmentation；</li><li>AWoMo-augmented training。</li></ul>
-<p>结果是 AWoMo 增强训练相对原始 baseline 有提升：</p>
-<ul><li>R2R success rate：<strong>+0.79%</strong></li><li>Gymnasium MuJoCo rollout return：<strong>+9.96%</strong></li><li>D4RL Gym-MuJoCo normalized score：<strong>+48.43%</strong></li></ul>
-<p>论文据此认为，agentic 环境生成可以作为具身策略训练的数据增强来源。</p>
-<p>但要注意：</p>
-<ul><li>R2R 的提升很小；</li><li>MuJoCo 和 D4RL 的提升更明显；</li><li>这些是 diagnostic settings，即诊断性实验，不等于大规模真实泛化已被证明。</li></ul>
-<hr>
-<h2 id="7-局限性和最终判断">7. 局限性和最终判断</h2>
-<h3 id="局限性一-实验规模仍然偏小">局限性一：实验规模仍然偏小</h3>
-<p>UnitySceneBench 的训练样本规模是数百级别，完整预算为 720 个训练实例。 这对于证明一个“可扩展数据引擎”来说还很早期。</p>
-<p>论文自己也承认结果是 pilot studies / diagnostic studies，需要更大规模验证。</p>
-<h3 id="局限性二-跨引擎评价仍依赖-mllm-as-a-judge">局限性二：跨引擎评价仍依赖 MLLM-as-a-judge</h3>
-<p>论文批评模糊代理奖励，但跨引擎实验又不得不用 MLLM-as-a-judge 作为统一评价尺度。</p>
-<p>作者的辩护是：</p>
-<ul><li>它只用于评估，不用于训练；</li><li>使用统一 rubric；</li><li>经过人工检查。</li></ul>
-<p>但这仍然意味着跨引擎结论的证据强度弱于 Unity 内部引擎检查结果。</p>
-<h3 id="局限性三-游戏引擎验证只覆盖部分空间性质">局限性三：游戏引擎验证只覆盖部分空间性质</h3>
-<p>游戏引擎能检查：</p>
-<ul><li>碰撞；</li><li>物理；</li><li>导航；</li><li>脚本；</li><li>有界 playability。</li></ul>
-<p>但它不能自动判断：</p>
-<ul><li>艺术风格；</li><li>叙事合理性；</li><li>玩家体验；</li><li>创意质量；</li><li>真实世界物理是否完全准确。</li></ul>
-<p>因此 RLHEV 不是“全自动真值机器”，而是“局部可验证 + 人类最终判断”的折中。</p>
-<h3 id="局限性四-虚拟世界和真实世界仍有差距">局限性四：虚拟世界和真实世界仍有差距</h3>
-<p>游戏引擎中的物理、材质和交互规则是人工设计的。 它们不完全等于真实世界。</p>
-<p>所以用游戏开发轨迹训练出来的世界模型，是否能稳定迁移到真实机器人、真实视频理解、真实物理预测，还需要进一步研究。</p>
-<h3 id="局限性五-人类反馈仍是瓶颈">局限性五：人类反馈仍是瓶颈</h3>
-<p>虽然引擎可以过滤大量低级错误，但最终接受仍然依赖人类。 如果要规模化，需要解决：</p>
-<ul><li>人类审核成本；</li><li>审核标准一致性；</li><li>不同开发者偏好差异；</li><li>任务 brief 的可解释性；</li><li>数据隐私和版权问题。</li></ul>
-<h3 id="最终判断">最终判断</h3>
-<p>这篇论文最有价值的地方不是某个模型结构，而是提出了一个清晰的数据与反馈范式：</p>
-<blockquote>世界模型要继续扩展，不能只靠更多爬取视频；还需要能产生可靠奖励的工作流。游戏开发可能正是这样一个工作流，因为游戏场景是可执行的，游戏引擎能提供局部验证，人类开发者能提供最终接受信号。</blockquote>
-<p>它的论证强项是：</p>
-<ul><li>类比代码智能体很自然；</li><li>明确区分了引擎验证和人类判断；</li><li>把“最终资产”转向“开发轨迹”作为训练数据；</li><li>实验初步支持 human + engine 比单独模糊代理或单独引擎反馈更好。</li></ul>
-<p>它的证据边界是：</p>
-<ul><li>规模还小；</li><li>跨引擎评价仍不够硬；</li><li>具身实验是诊断性结果；</li><li>尚未真正证明递归自我改进可以长期稳定发生。</li></ul>
-<p>总体来说，这篇论文可以看作一篇“研究议程 + 初步实证”的文章。 它提出的方向值得重视：<strong>把游戏开发过程变成世界模型的可验证轨迹数据引擎</strong>。如果后续能在更大规模、多引擎、多任务、真实人类开发流程中复现这些收益，那么它可能成为空间世界模型后训练的一条重要路线。</p></div></article></main>
+<h2 id="1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</h2>
+<p>任务输入是自然语言设计意图（brief）、参考图像、结构化布局/约束，以及开发过程中由引擎返回的检查日志和开发者返回的修改意见。输出是可执行的场景程序或资产编辑、最终被接受的虚拟世界，以及从意图到验收的完整过程轨迹。功能是让 AWoMo 在游戏开发工作流中提出、渲染、验证、修复并记录世界构建过程。边界是该方法面向游戏引擎中的结构化虚拟世界；真实世界传感器数据和非游戏开放场景不在当前任务直接处理范围内。</p>
+<h2 id="2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</h2>
+<p>当前把空间智能当作 scaling 问题：收集更多视频、使用更多算力。论文认为这不够，因为空间生成缺少可扩展的反馈通道。代码智能体之所以成功，是因为代码可执行，编译器和运行时能给出低成本、高密度的反馈，再由开发者做最终验收。空间生成却依赖 CLIP 分数、FVD、MLLM-as-judge 等模糊代理，它们有噪声、有偏、可被奖励操纵，而且对最终输出的人工偏好标签太贵、带宽太低。因此空间模型难以像代码或推理模型那样通过强化学习进行后训练。</p>
+<p>核心 insight 是：游戏开发恰好补上这个缺失的奖励环境。游戏场景是可执行的世界规范，引擎能廉价检查碰撞、物理、导航、有限可玩性；开发者判断场景是否真正合格。引擎提供密集结构信号，人类提供稀疏但权威的验收信号，二者构成 human-engine 双验证。开发过程本身记录了意图、中间状态、失败、修复、验收等轨迹，这些轨迹可以成为递归数据引擎：更好的模型提出更多候选世界，验证信号和轨迹又训练出更好的模型。因此，空间智能的瓶颈不是数据量，而是缺少可扩展、可验证的奖励信号源。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.25518v1/fig_verification_loop.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.25518v1/fig_verification_loop.png" alt="Figure 1：从主观奖励代理到人-引擎验证循环。传统的空间数据流水线将稀疏的人工或模型标注转换为有噪声的最终输出奖励。游戏开发循环则可以将人类意图和反馈与引擎执行、开发轨迹、渲染证据和局部验证器失败配对，使未来的构建者能够基于有依据的检查和开发者的判断（基于轨迹而非仅最终产物）进行改进。" loading="lazy"></a><span class="image-caption">Figure 1：从主观奖励代理到人-引擎验证循环。传统的空间数据流水线将稀疏的人工或模型标注转换为有噪声的最终输出奖励。游戏开发循环则可以将人类意图和反馈与引擎执行、开发轨迹、渲染证据和局部验证器失败配对，使未来的构建者能够基于有依据的检查和开发者的判断（基于轨迹而非仅最终产物）进行改进。</span></span></p>
+<h2 id="3-核心贡献-约300字">3. 核心贡献（约300字）</h2>
+<p>论文的主要贡献是提出一个论点和一个可验证的研究议程，并做了受控验证。</p>
+<p>第一，识别可验证性瓶颈：空间生成缺乏像编译器那样低成本、可靠的 verifier，因此基于可验证奖励的强化学习后训练难以展开；模糊代理会导致奖励偏差甚至被利用。第二，提出 RLHEV（Reinforcement Learning with Human-Engine Verification）后训练范式：引擎检查提供密集结构奖励，开发者验收提供稀疏但权威的全局奖励，两种信号统一用于模型后训练。第三，定义 AWoMo（Agentic World Model）：一个以开发者为中心的智能体世界模型，围绕世界构建组织模型、代理、引擎验证器和人类评审，并引入 UWDP（Unified World-Development Protocol）统一轨迹协议，把游戏开发中的编辑、检查、修复、验收变成可复用训练数据。第四，实验验证：在 UnitySceneBench 上 full RLHEV 优于模糊代理基线和 engine-only 基线；预训练后向分布外和跨引擎（Unreal/Godot）迁移有正收益；AWoMo 生成的环境数据能提升 R2R、MuJoCo、D4RL 等策略任务指标。</p>
+<h2 id="4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</h2>
+<p>推理时使用的基模是一个统一的 omni-modal 世界模型，也是 AWoMo 的决策核心。它接收文本、图像和结构化布局输入，输出场景程序或编辑/修复动作；游戏引擎担任可执行验证器，开发者评审担任最终验收者。</p>
+<p>实际使用时的主流程如下：</p>
+<ol><li>输入：用户的设计意图 brief、参考图、结构化布局/约束 → 基模生成初始候选 → 输出场景程序或资产编辑动作，交给游戏引擎。</li><li>游戏引擎执行该候选场景，运行加载、碰撞、物理稳定性、导航网格、脚本和有限可玩性探测 → 输出检查日志与渲染证据。</li><li>若硬性检查未通过：引擎把失败类型和位置反馈给基模 → 基模生成修复动作（如调整物体位置、碰撞体、导航网格）→ 回到步骤 2 重新验证。</li><li>若硬性检查全部通过：把候选场景、渲染证据和检查报告提交给开发者评审。</li><li>若开发者不通过：基模接收拒绝理由或修改意见 → 生成新一轮编辑 → 回到步骤 2。</li><li>若开发者接受：输出最终可执行场景/资产，同时保留从意图到验收的完整过程轨迹。</li></ol>
+<div class="mermaid">flowchart LR
+    A[用户输入&lt;br&gt;brief/参考图/约束] --&gt; B[基模&lt;br&gt;多模态世界模型]
+    B --&gt; C[场景程序/编辑动作]
+    C --&gt; D[游戏引擎执行与检查]
+    D --&gt; E{硬性检查通过?}
+    E -- 否: 失败日志 --&gt; B
+    E -- 是 --&gt; F[渲染证据与检查报告]
+    F --&gt; G[开发者评审]
+    G --&gt; H{接受?}
+    H -- 否: 修改意见 --&gt; B
+    H -- 是 --&gt; I[最终可执行场景 + 完整轨迹]</div>
+<h2 id="5-核心方法-按论文-method-小节总结-约600字">5. 核心方法：按论文 Method 小节总结（约600字）</h2>
+<p>论文的方法部分为第 4 节 <code>Game Development as Human-Engine Verification</code>。以下按该节原始标题顺序整理。</p>
+<h3 id="4-1-awomo-design-awomo-设计">4.1 AWoMo design（AWoMo 设计）</h3>
+<p>目的是把世界模型嵌入开发者工作流。围绕 omni-modal world model 定义四个接口：意图接口接收任务 brief、参考和约束；动作接口发出场景程序、资产编辑、工具调用和修复动作；验证接口记录引擎检查；评审接口记录开发者决策。执行循环为 propose → render → verify → repair → review，每次循环按统一协议存档，使构建世界的过程同时产生可用于 RLHEV 的轨迹。</p>
+<h3 id="4-2-what-an-engine-checks-cheaply-引擎可以廉价检查什么">4.2 What an engine checks cheaply（引擎可以廉价检查什么）</h3>
+<p>说明引擎验证器能覆盖的结构属性：几何/碰撞、物理与稳定性、导航网格连通性、脚本执行与软锁、在指定 agent 和种子下的有界可达性探测。这些检查廉价且比外观分数更难被欺骗。</p>
+<h3 id="4-3-game-development-as-a-rewardable-mapping-游戏开发作为可奖励的映射">4.3 Game development as a rewardable mapping（游戏开发作为可奖励的映射）</h3>
+<p>游戏开发把人类世界知识（物体如何堆叠、空间如何连通、什么可读）写入可执行数字世界；若把开发过程 instrumented，可产生难度分级的、继承设计意图的可验证空间任务。同一场景程序可同时支持生成（文本→场景程序）和理解（场景程序→文本/语义）。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.25518v1/fig_scene_program.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.25518v1/fig_scene_program.png" alt="Figure 3：用于理解与生成的共享可执行场景程序表示。游戏创作将人类世界理解、设计意图、约束和可玩体验投射到模型的理解与生成能力中。生成将文本意图、设计目标或任务规范映射到场景程序；理解则反向读取同一对象。引擎通过渲染、物理推演和时间一致性对其进行检查，而人类则判断生成的世界是否保留意图和工作流价值。" loading="lazy"></a><span class="image-caption">Figure 3：用于理解与生成的共享可执行场景程序表示。游戏创作将人类世界理解、设计意图、约束和可玩体验投射到模型的理解与生成能力中。生成将文本意图、设计目标或任务规范映射到场景程序；理解则反向读取同一对象。引擎通过渲染、物理推演和时间一致性对其进行检查，而人类则判断生成的世界是否保留意图和工作流价值。</span></span></p>
+<h3 id="4-4-unified-world-development-protocol-uwdp-统一世界开发协议">4.4 Unified World-Development Protocol (UWDP)（统一世界开发协议）</h3>
+<p>协议把开发过程存储为统一多模态轨迹：</p>
+<p>\[ u_t=(b,o_t,s_t,a_t,g_t,v_t,h_t,\rho_t) \]</p>
+<p>其中 \(b\) 是设计意图，\(o_t\) 是对象/区域标识，\(s_t\) 是空间/语义/物理状态，\(a_t\) 是编辑或修复动作，\(g_t\) 是引擎输出，\(v_t\) 是渲染证据，\(h_t\) 是评审决策，\(\rho_t\) 记录修复链、置信度与剩余风险。最终快照只说明什么成功，轨迹说明为什么成功。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.25518v1/protocol_trace_vs_snapshot.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.25518v1/protocol_trace_vs_snapshot.png" alt="Figure 7：协议轨迹（Protocol traces）保留了最终快照中缺失的过程数据。最终场景仅记录终止状态，而轨迹记录意图、中间场景状态、失败的检查、修复编辑、验证结果和引擎奖励。这种对象关联的序列为资产诊断与修复提供了训练目标。" loading="lazy"></a><span class="image-caption">Figure 7：协议轨迹（Protocol traces）保留了最终快照中缺失的过程数据。最终场景仅记录终止状态，而轨迹记录意图、中间场景状态、失败的检查、修复编辑、验证结果和引擎奖励。这种对象关联的序列为资产诊断与修复提供了训练目标。</span></span></p>
+<h3 id="4-5-uwdp-collection-algorithm-uwdp-采集算法">4.5 UWDP collection algorithm（UWDP 采集算法）</h3>
+<p>采集流程为：解析 brief 和参考为类型化对象与约束；在引擎中构建代理或资产编辑；记录引擎快照、渲染证据和 harness 检查；把失败转换为类型化修复动作；迭代到引擎测试通过且开发者返回 accept；保存完整轨迹。得到的轨迹可用于下一编辑预测、偏好建模和强化学习的 state-action-reward 更新。</p>
+<h3 id="4-6-human-acceptance-protocol-人类验收协议">4.6 Human acceptance protocol（人类验收协议）</h3>
+<p>人工评审保持最终权威。协议把可被引擎检查的字段和只能由人判断的字段（brief 一致性、视觉可读性、生产适配）分开，避免把引擎变成有偏 oracle。</p>
+<h3 id="4-7-the-analogy-to-code-与代码的类比">4.7 The analogy to code（与代码的类比）</h3>
+<p>场景程序是可执行的被检查对象；引擎相当于编译器，自动化 playtest 相当于测试套件，开发者评审相当于代码审查。仅通过测试不够，还必须满足用户意图，因此需要人类-引擎双验证。</p>
+<h3 id="4-8-a-ladder-of-reward-奖励阶梯">4.8 A ladder of reward（奖励阶梯）</h3>
+<p>从 validity（能加载、结构有效）→ physical plausibility（稳定 rollout）→ functional correctness（可导航、目标可达）→ playability（玩家/agent 能按目标行为完成），形成可逐级增加的奖励阶梯。模型变强后可不断增加有界引擎探测和人工标准，而不是固定使用 CLIP 类静态分数。</p>
+<h3 id="4-9-the-cost-asymmetry-成本不对称性">4.9 The cost asymmetry（成本不对称性）</h3>
+<p>在真实世界获取一单位可验证 3D 信号极贵；在引擎中则便宜，因为运行世界的同一套计算可以给世界打分。人工反馈仍贵，但在自动过滤后只审查候选，单位成本大幅下降。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.25518v1/fig_reward_comparison.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.25518v1/fig_reward_comparison.png" alt="Figure 2：不可验证空间生成中的模糊奖励与游戏开发中的人-引擎反馈。上方流程展示了模型即评判者（model-as-a-judge）与人类审美差异如何产生模糊奖励和性能瓶颈。下方流程将资产生成可执行世界：游戏引擎和内部测试套件暴露局部失败，渲染证据支持审查，开发者提供最终验收信号。" loading="lazy"></a><span class="image-caption">Figure 2：不可验证空间生成中的模糊奖励与游戏开发中的人-引擎反馈。上方流程展示了模型即评判者（model-as-a-judge）与人类审美差异如何产生模糊奖励和性能瓶颈。下方流程将资产生成可执行世界：游戏引擎和内部测试套件暴露局部失败，渲染证据支持审查，开发者提供最终验收信号。</span></span></p>
+<h2 id="6-局限性和展望-约300字">6. 局限性和展望（约300字）</h2>
+<p>论文明确说明，当前结果来自受控、小规模的 pilot 研究，需要更大规模实验验证泛化能力；跨引擎评估没有可直接比较的原生引擎标量，因此只能使用经人工逐项复核的 MLLM-as-judge 作为审计工具；人类评审仍然是必需环节，自动过滤只能降低其成本。可谨慎推断的限制包括：引擎检查无法覆盖意图、审美、情绪等高阶属性；UWDP 的有效性依赖游戏开发数据能够以统一格式被采集，在非游戏、开放真实世界场景中不存在直接对应的引擎验证器；人类验收自身仍可能带有主观噪声，自动化评审需要仔细校准。未来展望是论文提出的递归自改进闭环：AWoMo 构建可执行世界，游戏 agent 在其中进行 playtest 和压力测试，测试结果与人类接受/拒绝信号再进入下一轮模型更新，从而逐步减少人工介入。</p></div></article></main>
   </div>
   <script>/*!
   * PhotoSwipe 5.4.4 - https://photoswipe.com

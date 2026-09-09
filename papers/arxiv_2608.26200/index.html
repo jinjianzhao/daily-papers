@@ -471,7 +471,7 @@ div.pswp__img--placeholder,
 
     html { scroll-behavior: smooth; scroll-padding-top: 24px; }
     body { background: #f8fafc; }
-    .academic-shell { width: min(1440px, calc(100% - 40px)); margin: 0 auto; padding: 32px 0 80px; display: grid; grid-template-columns: 272px minmax(0, 980px); justify-content: center; gap: 32px; align-items: start; }
+    .academic-shell { width: min(1440px, calc(100% - 40px)); margin: 0 auto; padding: 32px 0 80px; display: grid; grid-template-columns: 272px minmax(0, 1120px); justify-content: center; gap: 32px; align-items: start; }
     .academic-sidebar { position: sticky; top: 24px; max-height: calc(100vh - 48px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #cbd5e1 transparent; }
     .toc-panel { border: 1px solid #e2e8f0; border-radius: 16px; background: rgba(255, 255, 255, .96); padding: 16px 12px; box-shadow: 0 8px 24px rgba(15, 23, 42, .05); }
     .toc-heading { margin: 0 8px 10px; color: #94a3b8; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
@@ -487,10 +487,10 @@ div.pswp__img--placeholder,
     .toc-level-6 { padding-left: 52px; font-size: 11px; }
     .toc-empty { margin: 8px; color: #94a3b8; font-size: 12px; }
     .toc-collapse-button { display: inline-flex; position: fixed; z-index: 70; top: 24px; left: 12px; align-items: center; gap: 7px; padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 8px; background: rgba(255, 255, 255, .96); color: #475569; font: inherit; font-size: 12px; font-weight: 700; box-shadow: 0 6px 18px rgba(15, 23, 42, .08); cursor: pointer; }
-    body.toc-collapsed .academic-shell { grid-template-columns: minmax(0, 980px); gap: 0; }
+    body.toc-collapsed .academic-shell { grid-template-columns: minmax(0, 1120px); gap: 0; }
     body.toc-collapsed .academic-sidebar { display: none; }
     .academic-main { width: 100%; min-width: 0; margin: 0; padding: 0; }
-    .academic-main article { border-color: #e2e8f0; border-radius: 18px; padding: 48px 56px 64px; box-shadow: 0 10px 32px rgba(15, 23, 42, .06); }
+    .academic-main article { border-color: #e2e8f0; border-radius: 18px; padding: 48px 44px 64px; box-shadow: 0 10px 32px rgba(15, 23, 42, .06); }
     .academic-main h1, .academic-main h2, .academic-main h3 { scroll-margin-top: 24px; }
     .academic-main h1 { font-size: 32px; }
     .academic-main h2 { margin-top: 44px; padding-bottom: 10px; border-bottom-color: #e2e8f0; font-size: 22px; }
@@ -517,6 +517,7 @@ div.pswp__img--placeholder,
 
 
 
+
   </style>
 </head>
 <body>
@@ -528,297 +529,76 @@ div.pswp__img--placeholder,
     <aside class="academic-sidebar" id="academic-sidebar" aria-label="文档目录">
       <div class="toc-panel">
         <p class="toc-heading">目录</p>
-        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#gamewam-a-world-action-model-for-video-games">GameWAM: A World Action Model for Video Games</a><a class="toc-link toc-level-2" href="#快速理解">快速理解</a><a class="toc-link toc-level-2" href="#中文摘要">中文摘要</a><a class="toc-link toc-level-2" href="#详细分析">详细分析</a><a class="toc-link toc-level-2" href="#1-任务输入-输出-功能和边界">1. 任务输入、输出、功能和边界</a><a class="toc-link toc-level-3" href="#任务是什么">任务是什么</a><a class="toc-link toc-level-3" href="#输入是什么">输入是什么</a><a class="toc-link toc-level-3" href="#输出是什么">输出是什么</a><a class="toc-link toc-level-3" href="#功能边界是什么">功能边界是什么</a><a class="toc-link toc-level-2" href="#2-论文要解决的问题-以及问题为什么会出现">2. 论文要解决的问题，以及问题为什么会出现</a><a class="toc-link toc-level-3" href="#论文要解决的核心问题">论文要解决的核心问题</a><a class="toc-link toc-level-3" href="#这些问题为什么在游戏里更严重">这些问题为什么在游戏里更严重</a><a class="toc-link toc-level-2" href="#3-核心-insight-与贡献">3. 核心 insight 与贡献</a><a class="toc-link toc-level-3" href="#核心-insight">核心 insight</a><a class="toc-link toc-level-3" href="#主要贡献">主要贡献</a><a class="toc-link toc-level-2" href="#4-使用的基模-以及从输入到输出的整体流程">4. 使用的基模，以及从输入到输出的整体流程</a><a class="toc-link toc-level-3" href="#基模是什么">基模是什么</a><a class="toc-link toc-level-3" href="#整体流程">整体流程</a><a class="toc-link toc-level-3" href="#训练时怎么走">训练时怎么走</a><a class="toc-link toc-level-3" href="#推理时怎么走">推理时怎么走</a><a class="toc-link toc-level-2" href="#5-每个关键机制为什么需要-怎么做-得到什么">5. 每个关键机制为什么需要、怎么做、得到什么</a><a class="toc-link toc-level-3" href="#5-1-block-causal-建模-为什么需要">5.1 Block-causal 建模：为什么需要？</a><a class="toc-link toc-level-3" href="#5-2-为什么要同时预测未来视频和动作">5.2 为什么要同时预测未来视频和动作？</a><a class="toc-link toc-level-3" href="#5-3-mode-router-为什么要区分-gameplay-和-gui">5.3 Mode router：为什么要区分 gameplay 和 GUI？</a><a class="toc-link toc-level-3" href="#5-4-block-cycle-control-为什么要-预测长-执行短">5.4 Block-cycle control：为什么要“预测长、执行短”？</a><a class="toc-link toc-level-3" href="#5-5-分层历史-为什么要-cycle-local-cache-cross-cycle-memory">5.5 分层历史：为什么要 cycle-local cache + cross-cycle memory？</a><a class="toc-link toc-level-3" href="#5-6-同步轨迹构造-为什么需要专门做数据处理">5.6 同步轨迹构造：为什么需要专门做数据处理？</a><a class="toc-link toc-level-3" href="#5-7-为什么要用-flow-matching">5.7 为什么要用 flow matching？</a><a class="toc-link toc-level-2" href="#6-主结果-消融结果-可视化结论及证据边界">6. 主结果、消融结果、可视化结论及证据边界</a><a class="toc-link toc-level-3" href="#6-1-主结果-mcu-上的表现">6.1 主结果：MCU 上的表现</a><a class="toc-link toc-level-3" href="#6-2-主结果-vizdoom-上的表现">6.2 主结果：ViZDoom 上的表现</a><a class="toc-link toc-level-3" href="#6-3-几个典型可视化结果">6.3 几个典型可视化结果</a><a class="toc-link toc-level-3" href="#6-4-消融结果说明了什么">6.4 消融结果说明了什么</a><a class="toc-link toc-level-3" href="#6-5-lasi-的可视化-实验结论">6.5 LASI 的可视化/实验结论</a><a class="toc-link toc-level-2" href="#7-局限性和最终判断">7. 局限性和最终判断</a><a class="toc-link toc-level-3" href="#局限性">局限性</a><a class="toc-link toc-level-3" href="#最终判断">最终判断</a></nav>
+        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#gamewam-a-world-action-model-for-video-games">GameWAM: A World Action Model for Video Games</a><a class="toc-link toc-level-2" href="#快速理解">快速理解</a><a class="toc-link toc-level-2" href="#中文摘要">中文摘要</a><a class="toc-link toc-level-2" href="#详细分析">详细分析</a><a class="toc-link toc-level-2" href="#1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</a><a class="toc-link toc-level-2" href="#2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</a><a class="toc-link toc-level-2" href="#3-核心贡献-约300字">3. 核心贡献（约300字）</a><a class="toc-link toc-level-2" href="#4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</a><a class="toc-link toc-level-2" href="#5-核心方法-按论文-method-小节总结-约600字">5. 核心方法：按论文 Method 小节总结（约600字）</a><a class="toc-link toc-level-3" href="#4-1-block-causal-world-action-modeling-块因果世界-动作建模">4.1 Block-Causal World-Action Modeling（块因果世界-动作建模）</a><a class="toc-link toc-level-3" href="#4-2-block-cycle-control-and-hierarchical-history-块-周期控制与分层历史">4.2 Block-Cycle Control and Hierarchical History（块-周期控制与分层历史）</a><a class="toc-link toc-level-3" href="#4-3-training-objective-训练目标">4.3 Training Objective（训练目标）</a><a class="toc-link toc-level-2" href="#6-局限性和展望-约300字">6. 局限性和展望（约300字）</a></nav>
       </div>
     </aside>
     <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../date/">← 返回日报目录</a></p>
 <h1 id="gamewam-a-world-action-model-for-video-games">GameWAM: A World Action Model for Video Games</h1>
-<p><strong>一句话主题：</strong> 视频游戏中的世界建模与动作生成</p>
-<p><strong>领域标签：</strong> 游戏智能体 / 世界动作模型 / 视觉动作生成</p>
+<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2608.26200v1">arXiv</a> · <a href="https://huggingface.co/papers/2608.26200">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2608.26200">AlphaXiv</a></p>
+<p><strong>一句话主题：</strong> 面向视频游戏的世界动作模型GameWAM，联合建模视觉预测与键鼠控制</p>
+<p><strong>领域标签：</strong> 视频游戏 / 世界动作模型 / 视觉-动作联合生成</p>
 <h2 id="快速理解">快速理解</h2>
-<p><strong>背景与任务：</strong> 视频游戏需要同时理解快速变化的画面、世界状态和多样的原生控制方式。</p>
-<p><strong>核心工作：</strong> 作者提出GameWAM，联合预测未来画面与可执行键鼠动作，并支持长时闭环游戏控制。</p>
+<p><strong>背景与任务：</strong> 现有游戏智能体缺乏显式世界动态建模，而交互式世界模型不能作为任务策略，二者未在游戏动态开放环境中统一。</p>
+<p><strong>核心工作：</strong> 作者提出GameWAM，以并行视觉与动作生成、块因果条件化和流匹配实现联合世界-动作学习，并通过块周期控制与模式预测支持异构原生控制和长时程交互。</p>
 <h2 id="中文摘要">中文摘要</h2>
-<p>现代视频游戏结合了第一人称感知、快速视觉变化、持久的世界状态以及异构的原生控制。现有游戏智能体将视觉和任务上下文直接映射为动作，但缺乏显式的世界动力学建模；而交互式游戏世界模型会根据给定动作预测视觉未来，但不能作为任务策略。世界-动作模型（World-Action Models, WAMs）统一了这些目标，但在视频游戏的动态性和开放式交互条件下仍基本未被探索。我们提出 GameWAM，据我们所知，这是首个用于原生闭环游戏玩法和 GUI 控制的 WAM。GameWAM 通过具有块因果条件（block-causal conditioning）和流匹配（flow matching）的并行视觉与动作生成过程，联合生成未来视觉观测和可执行的键盘-鼠标轨迹。为支持联合世界-动作学习，我们构建了同步的游戏玩法和 GUI 轨迹。为处理异构的原生控制，GameWAM 在每个动作步骤预测游戏玩法/GUI 模式，并使用模式特定的预测分布和连续动作归一化来生成动作。对于长时程交互，块循环控制（block-cycle control）会预测超出已提交时域的内容，仅执行一小段动作前缀，并从新的观测结果重新规划；与此同时，细粒度的循环内上下文和层次化的跨循环历史保持时间连续性。实验表明，在与对比智能体相比执行更少原生动作的情况下，GameWAM 取得了具有竞争力的任务成功率。我们进一步揭示了低频动作源印记效应（Low-Frequency Action Source Imprinting, LASI）：在固定条件下，所采样动作源的低频分量会系统性地引导生成的粗粒度相机运动，揭示了生成式控制中的一种源敏感性失效模式。项目页面见 https://yunncheng.github.io/GameWAM/。</p>
+<p>现代视频游戏结合了第一人称感知、快速视觉变化、持久世界状态和异构原生控制。现有游戏智能体直接将视觉和任务上下文映射到动作，但缺乏显式的世界动态建模；交互式游戏世界模型则从给定动作预测视觉未来，但不充当任务策略。世界-动作模型（World-Action Models, WAMs）统一了这两个目标，但在视频游戏的动态性和开放式交互背景下仍未得到充分探索。我们提出 GameWAM，据我们所知，这是首个用于原生闭环游戏玩法和 GUI 控制的 WAM。GameWAM 通过并行视觉与动作生成过程，结合块因果条件化（block-causal conditioning）和流匹配（flow matching），联合生成未来视觉观测和可执行的键盘-鼠标轨迹。为支持世界-动作联合学习，我们构建了同步的游戏玩法和 GUI 轨迹。为处理异构原生控制，GameWAM 在每个动作步预测一个 gameplay/GUI 模式，并使用模式特定的预测分布和连续动作归一化生成动作。对于长时域交互，块循环控制（block-cycle control）会预测超出已提交时域的内容，仅执行一个短动作前缀，并根据新观测重新规划；同时，细粒度的循环内上下文与分层的跨循环历史保持了时间连续性。实验表明，与对比智能体相比，GameWAM 以更少的已执行原生动作取得了有竞争力的任务成功率。我们进一步揭示了低频动作来源印记（Low-Frequency Action Source Imprinting, LASI），即在固定条件下，采样动作来源的低频分量会系统性地引导生成的粗略相机运动，揭示了生成控制中一种对来源敏感的失败模式。项目页面可在 https://yunncheng.github.io/GameWAM/ 获取。</p>
 <h2 id="详细分析">详细分析</h2>
-<p>下面按“对低年级博士生讲论文”的方式来讲 GameWAM。你已经熟悉 Transformer，所以我会重点解释：<strong>它到底在建模什么、为什么普通 agent 不够、它的关键机制如何落地、实验结论到底证明了什么</strong>。</p>
-<hr>
-<h2 id="1-任务输入-输出-功能和边界">1. 任务输入、输出、功能和边界</h2>
-<h3 id="任务是什么">任务是什么</h3>
-<p>这篇论文研究的是：<strong>在视频游戏里，让模型既会“预测未来会看到什么”，又会“直接生成可执行的键鼠动作”</strong>。 这里的“可执行”指的是原生控制，不是抽象动作标签，而是：</p>
-<ul><li>键盘按键：W/A/S/D、跳跃、攻击、快捷键等</li><li>鼠标动作：视角旋转、光标移动、点击、滚轮等</li><li>还包括不同模式下的控制语义：<strong>gameplay 模式</strong>和 <strong>GUI 模式</strong></li></ul>
-<h3 id="输入是什么">输入是什么</h3>
-<p>GameWAM 每次决策时的输入主要包括：</p>
-<ol><li><strong>当前视觉观测</strong>  </li></ol>
-<p>也就是游戏画面，通常是第一人称视角，变化快、信息密集。</p>
-<ol><li><strong>任务指令 / 文本目标</strong>  </li></ol>
-<p>例如“挖白床”“收集黑曜石”“做一个 dispenser”。</p>
-<ol><li><strong>历史状态</strong>  </li></ol>
-<p>包括最近几步执行过的画面、跨 cycle 的长期记忆。</p>
-<ol><li><strong>可选的 proprioceptive / state 信息</strong>  </li></ol>
-<p>比如游戏内部状态、位置、GUI 状态等。</p>
-<h3 id="输出是什么">输出是什么</h3>
-<p>它同时输出两类东西：</p>
-<ol><li><strong>未来视觉观测</strong></li></ol>
-<p>即接下来若干步可能看到的画面表示。</p>
-<ol><li><strong>未来 native action trajectory</strong></li></ol>
-<p>即接下来若干步要执行的键鼠动作序列。</p>
-<p>换句话说，它不是只输出“下一步动作”，而是输出一个短期计划： <strong>“未来会怎样 + 我该怎么做”</strong>。</p>
-<h3 id="功能边界是什么">功能边界是什么</h3>
-<p>它的目标边界是：</p>
-<ul><li><strong>面向闭环游戏控制</strong>：执行动作后立刻观察新画面，再重规划</li><li><strong>面向原生键鼠控制</strong>：不是高层语义动作，不是离散宏动作</li><li><strong>同时覆盖 gameplay 和 GUI</strong>：例如打怪、探索、合成、界面操作</li><li><strong>只在模拟游戏环境和 GUI 环境中验证</strong>：不是物理机器人，也不是任意真实软件自动化</li></ul>
-<p>也就是说，它解决的是<strong>“游戏里的原生闭环控制”</strong>，不是泛化到所有交互软件的通用系统。</p>
-<hr>
-<h2 id="2-论文要解决的问题-以及问题为什么会出现">2. 论文要解决的问题，以及问题为什么会出现</h2>
-<h3 id="论文要解决的核心问题">论文要解决的核心问题</h3>
-<p>作者认为，现有方法分成两类，但都不完整：</p>
-<h4 id="a-游戏-agent-vla-policy">A. 游戏 agent / VLA policy</h4>
-<p>这类模型直接从“当前画面 + 指令”映射到动作。 问题是：<strong>它会做动作，但不显式预测动作会带来什么视觉后果</strong>。</p>
-<h4 id="b-interactive-world-model">B. interactive world model</h4>
-<p>这类模型会根据动作预测未来画面。 问题是：<strong>它能想象世界怎么变，但它不是任务 policy，不会自己选动作</strong>。</p>
-<p>所以作者提出：</p>
-<blockquote>能不能做一个统一模型，既负责“想象未来”，又负责“生成动作”？</blockquote>
-<p>这就是 <strong>World–Action Model (WAM)</strong>。</p>
-<h3 id="这些问题为什么在游戏里更严重">这些问题为什么在游戏里更严重</h3>
-<p>游戏环境比很多机器人任务更难，原因很具体：</p>
-<h4 id="1-第一人称视觉变化快">1. 第一人称视觉变化快</h4>
-<p>玩家一转头，画面就完全变了；敌人、物体、GUI 状态变化都很快。</p>
-<h4 id="2-原生控制异构">2. 原生控制异构</h4>
-<p>同一套键鼠通道在不同场景语义不同：</p>
-<ul><li>在 gameplay 中，鼠标可能表示视角转动</li><li>在 GUI 中，鼠标可能表示光标移动和点击</li></ul>
-<p>如果把它们混成一个分布学，容易把统计量混乱掉。</p>
-<h4 id="3-动作需要精细时间结构">3. 动作需要精细时间结构</h4>
-<p>例如连续转视角 + 离散按键 + 鼠标点击要协同发生。 如果只做粗粒度动作抽象，可能失去节奏和幅度信息。</p>
-<h4 id="4-闭环交互要求频繁反馈">4. 闭环交互要求频繁反馈</h4>
-<p>如果一次计划太长，模型会在旧观测上“想太远”，偏离实际环境； 如果计划太短，又会缺少前瞻性。</p>
-<h4 id="5-长期记忆问题">5. 长期记忆问题</h4>
-<p>游戏里很多状态是持久的，比如：</p>
-<ul><li>位置</li><li>物品栏</li><li>血量</li><li>已经打开/关闭的 GUI</li><li>之前做过的规划</li></ul>
-<p>如果只看最近几帧，容易丢失关键上下文。</p>
-<hr>
-<h2 id="3-核心-insight-与贡献">3. 核心 insight 与贡献</h2>
-<h3 id="核心-insight">核心 insight</h3>
-<p>作者的核心想法可以概括成一句话：</p>
-<blockquote><strong>把“预测世界”和“生成动作”放在同一个闭环生成框架里，让未来视觉监督反过来约束动作生成。</strong></blockquote>
-<p>这比“只做动作”多了一个约束： 动作不能只看起来像专家动作，还要和未来观测一致。</p>
-<h3 id="主要贡献">主要贡献</h3>
-<p>可以分成四点：</p>
-<ol><li><strong>提出 GameWAM</strong><ul><li>第一个面向 native closed-loop gameplay 和 GUI control 的 WAM</li><li>统一生成未来视觉和键鼠动作</li></ul></li></ol>
-<ol><li><strong>构造同步的训练数据</strong><ul><li>把 gameplay 轨迹、事件中心轨迹、脚本 GUI 轨迹统一到同一时间线上</li></ul></li></ol>
-<ol><li><strong>提出适配游戏的控制机制</strong><ul><li>mode router 区分 gameplay / GUI</li><li>block-cycle 控制做“预测长、执行短”</li><li>分层历史保留长期上下文</li></ul></li></ol>
-<ol><li><strong>发现 LASI 现象</strong><ul><li>采样源的低频成分会稳定地影响生成出的粗粒度摄像头运动</li><li>这是一种生成控制中的 source-sensitivity 失败模式</li></ul></li></ol>
-<hr>
-<h2 id="4-使用的基模-以及从输入到输出的整体流程">4. 使用的基模，以及从输入到输出的整体流程</h2>
-<h3 id="基模是什么">基模是什么</h3>
-<p>GameWAM 的主体是两个并行的 Transformer 生成器：</p>
-<ul><li><strong>Video DiT</strong></li><li><strong>Action DiT</strong></li></ul>
-<p>它们不是普通分类器，而是用 <strong>flow matching</strong> 做生成。 你可以把它理解为：从随机噪声出发，在 Transformer 预测的“速度场”引导下，逐步变成目标视频 token / 动作 token。</p>
-<h3 id="整体流程">整体流程</h3>
-<p>先看总体架构。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.26200v1/gamewam_overview.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.26200v1/gamewam_overview.png" alt="Figure 1：GameWAM 概览。GameWAM 联合建模未来视觉观测和原生动作，用于 closed-loop gameplay 和 GUI control。" loading="lazy"></a><span class="image-caption">Figure 1：GameWAM 概览。GameWAM 联合建模未来视觉观测和原生动作，用于 closed-loop gameplay 和 GUI control。</span></span></p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.26200v1/gamewam_overall_framework.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.26200v1/gamewam_overall_framework.png" alt="Figure 2：GameWAM 的训练与推理架构。并行 Video 和 Action DiTs 联合建模未来观测和原生动作，并采用 block-causal 交互以及 gameplay/GUI 特定的动作生成。" loading="lazy"></a><span class="image-caption">Figure 2：GameWAM 的训练与推理架构。并行 Video 和 Action DiTs 联合建模未来观测和原生动作，并采用 block-causal 交互以及 gameplay/GUI 特定的动作生成。</span></span></p>
-<h3 id="训练时怎么走">训练时怎么走</h3>
-<p>训练时，模型拿到：</p>
-<ul><li>历史观测</li><li>指令</li><li>当前 block 的 clean prefix</li><li>被加噪的未来视频和动作</li></ul>
-<p>然后：</p>
-<ol><li>Video DiT 预测未来视觉的 flow</li><li>Action DiT 预测未来动作的 flow</li><li>两者共享同一个 causally available prefix</li><li>用 flow matching loss 训练</li></ol>
-<p>注意：它不是简单地做监督学习预测下一个动作，而是<strong>联合建模整段短期未来</strong>。</p>
-<h3 id="推理时怎么走">推理时怎么走</h3>
-<p>推理时：</p>
-<ol><li>从噪声初始化动作和视频变量</li><li>逐步积分 flow ODE，生成未来计划</li><li>只执行计划前面一小段动作</li><li>观察新画面</li><li>重新规划</li></ol>
-<p>这就是闭环控制。</p>
-<hr>
-<h2 id="5-每个关键机制为什么需要-怎么做-得到什么">5. 每个关键机制为什么需要、怎么做、得到什么</h2>
-<hr>
-<h3 id="5-1-block-causal-建模-为什么需要">5.1 Block-causal 建模：为什么需要？</h3>
-<h4 id="为什么需要">为什么需要</h4>
-<p>如果直接让“未来视频 token”和“未来动作 token”互相看见彼此，会有信息泄漏问题。 训练时模型可能偷看不该看的未来变量，推理时却没有这些信息。</p>
-<h4 id="怎么做">怎么做</h4>
-<p>作者定义了 block-causal visibility：</p>
-<ul><li>当前 block 可见的只有 <strong>clean causal prefix</strong></li><li>未来的噪声视频 token 和动作 token 不能跨模态互相条件化</li><li>训练时用 teacher forcing</li><li>rollout 时只保留真实执行过的部分</li></ul>
-<p>这类设计在图上更直观。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.26200v1/gamewam_mask_decoupled.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.26200v1/gamewam_mask_decoupled.png" alt="Figure 6：默认的 modality-decoupled world–action 形式下的 block-causal 可见性。训练视图（左）和 autoregressive rollout 视图（右）展示了三个重叠的计划。视觉和动作预测接收相同的干净 causal prefix，而同时被污染的未来视觉和动作 token 不用于跨模态条件。训练时已完成的 blocks 使用 teacher forcing；在 rollout 时，只有通过已提交执行到达的观测会进入干净前缀。已计划但未执行的后缀会在下一次决策前丢弃。彩色单元格表示可见条目，灰色单元格表示被 mask，绿色单元格表示保留的干净上下文，斜线单元格表示已预测但未执行的变量。" loading="lazy"></a><span class="image-caption">Figure 6：默认的 modality-decoupled world–action 形式下的 block-causal 可见性。训练视图（左）和 autoregressive rollout 视图（右）展示了三个重叠的计划。视觉和动作预测接收相同的干净 causal prefix，而同时被污染的未来视觉和动作 token 不用于跨模态条件。训练时已完成的 blocks 使用 teacher forcing；在 rollout 时，只有通过已提交执行到达的观测会进入干净前缀。已计划但未执行的后缀会在下一次决策前丢弃。彩色单元格表示可见条目，灰色单元格表示被 mask，绿色单元格表示保留的干净上下文，斜线单元格表示已预测但未执行的变量。</span></span></p>
-<h4 id="得到什么">得到什么</h4>
-<ul><li>训练和推理的因果结构一致</li><li>避免未来信息泄漏</li><li>保证动作生成是“基于真实可得上下文”的</li></ul>
-<hr>
-<h3 id="5-2-为什么要同时预测未来视频和动作">5.2 为什么要同时预测未来视频和动作？</h3>
-<h4 id="为什么需要-2">为什么需要</h4>
-<p>只学动作，模型不知道动作会带来什么后果； 只学视频，模型不会选动作。</p>
-<p>联合学习的好处是：</p>
-<ul><li>视频预测给动作提供“世界后果”监督</li><li>动作预测给视频生成提供任务相关性</li><li>两者共享上下文，彼此约束</li></ul>
-<h4 id="怎么做-2">怎么做</h4>
-<p>训练目标里有：</p>
-<ul><li>视频 flow loss</li><li>动作 flow loss</li><li>mode 分类 loss</li><li>history prediction loss</li></ul>
-<p>其中动作和视频都是通过 flow matching 学的。</p>
-<h4 id="得到什么-2">得到什么</h4>
-<p>模型不只是模仿动作模式，还能学到“某个动作序列会对应怎样的视觉演化”。</p>
-<hr>
-<h3 id="5-3-mode-router-为什么要区分-gameplay-和-gui">5.3 Mode router：为什么要区分 gameplay 和 GUI？</h3>
-<h4 id="为什么需要-3">为什么需要</h4>
-<p>gameplay 和 GUI 都用键鼠，但统计分布不同：</p>
-<ul><li>gameplay：常见的是移动、转视角、攻击、跳跃</li><li>GUI：常见的是光标移动、点击、拖拽、快捷键</li></ul>
-<p>如果混成单一分布，模型会把两种行为的控制尺度和语义混淆。</p>
-<h4 id="怎么做-3">怎么做</h4>
-<p>对每个 action step，模型先预测一个 mode：</p>
-<ul><li>0 = gameplay</li><li>1 = GUI</li></ul>
-<p>然后用对应的动作分支去生成该步动作：</p>
-<ul><li><code>U_game</code></li><li><code>U_gui</code></li></ul>
-<p>连续动作坐标还会按各自统计量做不同 normalization。</p>
-<h4 id="得到什么-3">得到什么</h4>
-<ul><li>同一物理键鼠通道能兼容两种任务</li><li>减少“GUI 光标统计”和“游戏视角统计”混淆</li><li>实验里这个设计优于统一动作分布</li></ul>
-<hr>
-<h3 id="5-4-block-cycle-control-为什么要-预测长-执行短">5.4 Block-cycle control：为什么要“预测长、执行短”？</h3>
-<h4 id="为什么需要-4">为什么需要</h4>
-<p>如果每次都把很长的动作计划一次性执行完：</p>
-<ul><li>反馈太慢</li><li>一旦中途偏离，就没法及时修正</li><li>游戏里目标和视觉状态变化很快</li></ul>
-<p>如果每次只预测很短：</p>
-<ul><li>没有前瞻性</li><li>容易陷入局部抖动</li></ul>
-<p>所以作者让模型：</p>
-<ul><li>预测长度是 <code>P</code></li><li>真正执行长度是 <code>E</code></li><li>且 <code>E &lt; P</code></li></ul>
-<p>也就是： <strong>预测更远，执行更短，再根据新观测重规划。</strong></p>
-<h4 id="怎么做-4">怎么做</h4>
-<p>每个计划块生成 <code>P</code> 步动作，但只执行前 <code>E</code> 步。 然后环境推进，得到新的观测，再用新的上下文继续规划。</p>
-<p>训练时也用同样的块结构，但通过 overlapping supervision 来学习。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.26200v1/gamewam_schedule.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.26200v1/gamewam_schedule.png" alt="Figure 3：Block–cycle 控制与分层历史。GameWAM 在只执行短前缀的同时预测超过已提交时域的内容，并结合瞬时的 cycle-local K/V cache 与持久的跨 cycle 视觉历史。" loading="lazy"></a><span class="image-caption">Figure 3：Block–cycle 控制与分层历史。GameWAM 在只执行短前缀的同时预测超过已提交时域的内容，并结合瞬时的 cycle-local K/V cache 与持久的跨 cycle 视觉历史。</span></span></p>
-<h4 id="得到什么-4">得到什么</h4>
-<ul><li>既有前瞻性，又保留频繁反馈</li><li>更适合移动目标、快速战斗、复杂 GUI 操作</li><li>这是论文里很关键的系统设计</li></ul>
-<hr>
-<h3 id="5-5-分层历史-为什么要-cycle-local-cache-cross-cycle-memory">5.5 分层历史：为什么要 cycle-local cache + cross-cycle memory？</h3>
-<h4 id="为什么需要-5">为什么需要</h4>
-<p>只靠当前 block 的 cache 会有两个问题：</p>
-<ol><li><strong>短期上下文不够</strong></li><li><strong>跨 block 的长期状态会丢失</strong></li></ol>
-<p>游戏里很多信息不能只记几帧，比如：</p>
-<ul><li>你已经走到哪</li><li>某个 GUI 已经打开</li><li>之前那个目标块在哪里</li></ul>
-<h4 id="怎么做-5">怎么做</h4>
-<p>作者把历史分成两层：</p>
-<ol><li><strong>cycle-local K/V cache</strong><ul><li>保留当前 cycle 内的细粒度上下文</li><li>到 cycle 边界会重置</li></ul></li></ol>
-<ol><li><strong>persistent cross-cycle history</strong><ul><li>最近视觉片段先经 VAE + Conv3D 压缩</li><li>用 FIFO 缓冲保留最近片段</li><li>再用 attention pooling 更新 long-term memory slots</li></ul></li></ol>
-<p>这相当于：</p>
-<ul><li>短期细节放在 cache 里</li><li>长期摘要放在 memory 里</li></ul>
-<h4 id="得到什么-5">得到什么</h4>
-<ul><li>保持细粒度控制连续性</li><li>同时保留跨 cycle 的任务上下文</li><li>对 GUI 和 combat 更有帮助</li></ul>
-<hr>
-<h3 id="5-6-同步轨迹构造-为什么需要专门做数据处理">5.6 同步轨迹构造：为什么需要专门做数据处理？</h3>
-<h4 id="为什么需要-6">为什么需要</h4>
-<p>如果只拿普通游戏录像，里面可能没有：</p>
-<ul><li>对齐的动作序列</li><li>明确的 mode 标签</li><li>适合 WAM 的同步观测-动作窗口</li></ul>
-<p>而 WAM 需要每个时间点都知道：</p>
-<ul><li>观测是什么</li><li>动作是什么</li><li>是 gameplay 还是 GUI</li><li>哪些事件段更重要</li></ul>
-<h4 id="怎么做-6">怎么做</h4>
-<p>作者构造三类数据流：</p>
-<ol><li><strong>regular VPT trajectories</strong><ul><li>宽覆盖、长上下文</li></ul></li></ol>
-<ol><li><strong>Event-Anchored VPT</strong><ul><li>围绕交互事件密集采样</li><li>强化目标相关片段</li></ul></li></ol>
-<ol><li><strong>scripted GUI trajectories</strong><ul><li>扩充界面交互数据</li></ul></li></ol>
-<p>所有数据都标准化到共同时间线。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.26200v1/data_pipeline.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.26200v1/data_pipeline.png" alt="Figure 8：构建可用于 WAM 的游戏轨迹。VPT 录制被标准化为 regular 和 Event-Anchored datasets；事件分支检测交互事件、提取锚定窗口、过滤时间上冗余的候选项，并对不同事件类型执行 max–min fair allocation。基于 MineStudio 的脚本化 GUI 轨迹扩展了界面交互覆盖范围。所有流都共享相同的原生动作空间和轨迹表示，用于联合 world–action 训练。" loading="lazy"></a><span class="image-caption">Figure 8：构建可用于 WAM 的游戏轨迹。VPT 录制被标准化为 regular 和 Event-Anchored datasets；事件分支检测交互事件、提取锚定窗口、过滤时间上冗余的候选项，并对不同事件类型执行 max–min fair allocation。基于 MineStudio 的脚本化 GUI 轨迹扩展了界面交互覆盖范围。所有流都共享相同的原生动作空间和轨迹表示，用于联合 world–action 训练。</span></span></p>
-<h4 id="得到什么-6">得到什么</h4>
-<ul><li>训练样本与闭环控制目标一致</li><li>事件附近的关键行为被更多看到</li><li>提升动作学习和视觉监督的质量</li></ul>
-<hr>
-<h3 id="5-7-为什么要用-flow-matching">5.7 为什么要用 flow matching？</h3>
-<h4 id="为什么需要-7">为什么需要</h4>
-<p>flow matching 适合连续生成问题，特别是：</p>
-<ul><li>连续 camera motion</li><li>混合连续 + 离散的 native action</li><li>长序列生成</li></ul>
-<p>相比直接分类下一个动作，它更适合生成“轨迹”而不是单点标签。</p>
-<h4 id="怎么做-7">怎么做</h4>
-<p>对视频和动作都定义噪声变量 <code>X_σ</code>，学习速度场 <code>U = ε - X_0</code>。 推理时从高斯噪声出发，积分到数据分布。</p>
-<h4 id="得到什么-7">得到什么</h4>
-<ul><li>可以统一处理动作轨迹生成</li><li>连续摄像头控制更自然</li><li>与 transformer backbone 配合良好</li></ul>
-<hr>
-<h2 id="6-主结果-消融结果-可视化结论及证据边界">6. 主结果、消融结果、可视化结论及证据边界</h2>
-<hr>
-<h3 id="6-1-主结果-mcu-上的表现">6.1 主结果：MCU 上的表现</h3>
-<p>论文在 Minecraft Universe（MCU）上评估了 800+ 任务，分三类：</p>
-<ul><li>Embodied tasks</li><li>GUI tasks</li><li>Combat tasks</li></ul>
-<p>结论是：</p>
-<ul><li><strong>GameWAM 的平均成功率最好</strong></li><li><strong>而且执行的 native actions 更少</strong></li></ul>
-<p>具体看表中结果，GameWAM 的平均指标大致是：</p>
-<ul><li><strong>Mini：50.7</strong></li><li><strong>Full：46.6</strong></li></ul>
-<p>并且在三个任务类别里，平均成功率和动作效率都较强。 尤其显著的是：它在获得成功的同时，所需步数明显更少。 例如它的步数大约是：</p>
-<ul><li>Embodied: 138</li><li>GUI: 155</li><li>Combat: 203</li></ul>
-<p>相比很多基线的 290–400+ 步，少了很多。</p>
-<p>这说明它不只是“会做”，而是<strong>更省动作地完成任务</strong>。</p>
-<hr>
-<h3 id="6-2-主结果-vizdoom-上的表现">6.2 主结果：ViZDoom 上的表现</h3>
-<p>在 ViZDoom 四张地图上，GameWAM 也表现出：</p>
-<ul><li>稳定提升</li><li>在多场景下接近或达到领先</li><li>对快速视觉变化和连续战斗有较强适应性</li></ul>
-<p>这说明它不是只在 Minecraft 这类任务上有效，也能适应更快节奏的第一人称战斗环境。</p>
-<hr>
-<h3 id="6-3-几个典型可视化结果">6.3 几个典型可视化结果</h3>
-<p>这些图主要是 qualitative evidence：它们展示“模型到底会不会闭环做事”。</p>
-<h4 id="例子-1-先探索-再找到目标">例子 1：先探索，再找到目标</h4>
-<p>在“Mine the white bed”里，目标一开始不可见，模型先探索附近，再进入结构体，获得目标视野并完成任务。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.26200v1/mine_white_bed.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.26200v1/mine_white_bed.png" alt="Figure 9：任务“Mine the white bed”的 closed-loop rollout。初始观测中看不到 white bed。GameWAM 探索附近环境，进入结构体，获得目标的视觉访问，并完成挖掘交互。该序列展示了 closed-loop 交互下的视觉引导局部探索与目标获取。" loading="lazy"></a><span class="image-caption">Figure 9：任务“Mine the white bed”的 closed-loop rollout。初始观测中看不到 white bed。GameWAM 探索附近环境，进入结构体，获得目标的视觉访问，并完成挖掘交互。该序列展示了 closed-loop 交互下的视觉引导局部探索与目标获取。</span></span></p>
-<h4 id="例子-2-gui-精确操作">例子 2：GUI 精确操作</h4>
-<p>在“craft item purple concrete powder”里，模型把材料逐步移动到 crafting grid 的对应位置，完成配方。 这说明它不只是能动鼠标，还能做结构化 GUI placement。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.26200v1/craft_purple.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.26200v1/craft_purple.png" alt="Figure 13：任务“craft item purple concrete powder”的 closed-loop rollout。GameWAM 逐步将所需材料从 inventory 移入其对应的 crafting-grid 位置，并完成目标配方。该序列展示了通过原生 GUI action 接口实现的精确光标控制和结构化多步放置。" loading="lazy"></a><span class="image-caption">Figure 13：任务“craft item purple concrete powder”的 closed-loop rollout。GameWAM 逐步将所需材料从 inventory 移入其对应的 crafting-grid 位置，并完成目标配方。该序列展示了通过原生 GUI action 接口实现的精确光标控制和结构化多步放置。</span></span></p>
-<h4 id="例子-3-错误后能修正">例子 3：错误后能修正</h4>
-<p>在“Create a dispenser in the crafting table”里，模型中间放错了一步，但后续根据新的 GUI 状态修正并完成任务。 这正是闭环控制的价值：<strong>不是一次规划到底，而是边做边修正</strong>。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.26200v1/craft_dispenser.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.26200v1/craft_dispenser.png" alt="Figure 14：任务“Create a dispenser in the crafting table”的 closed-loop rollout。GameWAM 在构建配方时出现一次中间放置错误。观察到由此产生的 GUI 状态后，后续动作调整 crafting-grid 配置并完成目标物品。该 rollout 展示了由重复的 closed-loop 观测与重规划所支持的错误恢复。" loading="lazy"></a><span class="image-caption">Figure 14：任务“Create a dispenser in the crafting table”的 closed-loop rollout。GameWAM 在构建配方时出现一次中间放置错误。观察到由此产生的 GUI 状态后，后续动作调整 crafting-grid 配置并完成目标物品。该 rollout 展示了由重复的 closed-loop 观测与重规划所支持的错误恢复。</span></span></p>
-<h4 id="例子-4-vizdoom-中的动态战斗">例子 4：ViZDoom 中的动态战斗</h4>
-<p>在 ViZDoom Battle 2 中，模型一边战斗一边找血包恢复，再继续作战。 这说明它能把“自身状态变化”也纳入闭环控制，而不是只盯着敌人。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.26200v1/vizdoom_battle2.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.26200v1/vizdoom_battle2.png" alt="Figure 16：ViZDoom Battle 2 上的 closed-loop 战斗与生命恢复，任务为“Fight off the monsters in the maze and stay alive as long as you can”。GameWAM 在迷宫中导航并战斗。受伤后，policy 接近并拾取 health pack，恢复生命，然后继续以生存为导向的战斗 rollout。该序列展示了对已实现 agent state 的适应，以及对敌人的反应式交战。" loading="lazy"></a><span class="image-caption">Figure 16：ViZDoom Battle 2 上的 closed-loop 战斗与生命恢复，任务为“Fight off the monsters in the maze and stay alive as long as you can”。GameWAM 在迷宫中导航并战斗。受伤后，policy 接近并拾取 health pack，恢复生命，然后继续以生存为导向的战斗 rollout。该序列展示了对已实现 agent state 的适应，以及对敌人的反应式交战。</span></span></p>
-<h3 id="6-4-消融结果说明了什么">6.4 消融结果说明了什么</h3>
-<p>表 2 里最重要的消融结论是：</p>
-<h4 id="1-去掉未来视频监督-掉得最多">1. 去掉未来视频监督，掉得最多</h4>
-<p>这说明：</p>
-<ul><li>只学动作不够</li><li><strong>未来视觉监督确实在帮动作学习</strong></li></ul>
-<p>这是作者最核心的实证支持。</p>
-<h4 id="2-更粗的-temporal-sampling-会明显变差">2. 更粗的 temporal sampling 会明显变差</h4>
-<p>说明：</p>
-<ul><li>游戏里很多关键变化发生得很快</li><li>采样太粗会漏掉重要转折</li></ul>
-<h4 id="3-去掉-event-anchored-sampling-会变差">3. 去掉 event-anchored sampling 会变差</h4>
-<p>说明：</p>
-<ul><li>围绕关键交互事件密集采样，确实更有效</li></ul>
-<h4 id="4-统一动作分布不如-mode-specific-分布">4. 统一动作分布不如 mode-specific 分布</h4>
-<p>说明：</p>
-<ul><li>gameplay 和 GUI 的动作统计不同</li><li>合并分布会损失表达精度</li></ul>
-<h4 id="5-p-e-变差">5. <code>P = E</code> 变差</h4>
-<p>说明：</p>
-<ul><li>只预测到刚好执行的长度不够</li><li><strong>预测比执行更长</strong>有助于规划和纠错</li></ul>
-<h4 id="6-去掉跨-cycle-history-会有一定下降">6. 去掉跨 cycle history 会有一定下降</h4>
-<p>但影响没有前几项大，而且有任务差异：</p>
-<ul><li>GUI 和 combat 更依赖它</li><li>embodied task 甚至有一点点上升</li></ul>
-<p>这说明长期历史有用，但不是所有任务都同等依赖。</p>
-<hr>
-<h3 id="6-5-lasi-的可视化-实验结论">6.5 LASI 的可视化/实验结论</h3>
-<p>作者还发现一个很重要的现象：<strong>Low-Frequency Action Source Imprinting (LASI)</strong>。</p>
-<h4 id="现象是什么">现象是什么</h4>
-<p>在固定条件下，如果重复使用同一个采样源，某些低频成分会让生成的摄像头动作出现稳定偏向，比如：</p>
-<ul><li>持续朝某个方向旋转</li><li>重复原地转圈</li></ul>
-<h4 id="证据是什么">证据是什么</h4>
-<p>作者做了三种控制实验：</p>
-<ol><li><strong>固定条件下看 source 和输出的相关性</strong><ul><li>低频部分，尤其 yaw 的 DCT0，相关很强</li></ul></li></ol>
-<ol><li><strong>替换 source 的低频部分</strong><ul><li>输出也跟着 donor 的低频特征走</li></ul></li></ol>
-<ol><li><strong>把 source 的低频部分置零</strong><ul><li>相关输出方差大幅下降</li></ul></li></ol>
-<h4 id="这说明什么">这说明什么</h4>
-<p>这不是单纯“采样有随机性”，而是：</p>
-<ul><li><strong>采样源的低频结构会系统性影响粗粒度 camera motion</strong></li></ul>
-<h4 id="证据边界">证据边界</h4>
-<p>这里要注意边界：</p>
-<ul><li>这是在<strong>固定条件</strong>下做的受控实验</li><li>说明的是 <strong>GameWAM 的生成控制里存在 source sensitivity 问题</strong></li><li>不能直接外推成“所有生成模型都会这样”</li><li>也不能说这是环境问题，而是<strong>模型生成路径对采样源敏感</strong></li></ul>
-<p>作者的实际应对是： 在闭环 rollout 里不复用同一个 source，而是每次重新采样，减少这种偏置累积。</p>
-<hr>
-<h2 id="7-局限性和最终判断">7. 局限性和最终判断</h2>
-<h3 id="局限性">局限性</h3>
-<h4 id="1-仍然是游戏-模拟环境">1. 仍然是游戏/模拟环境</h4>
-<p>它验证的是 Minecraft 和 ViZDoom，尽管很有代表性，但还不是现实世界软件或物理系统。</p>
-<h4 id="2-依赖同步轨迹和-mode-标注">2. 依赖同步轨迹和 mode 标注</h4>
-<p>这个方法很吃数据工程：</p>
-<ul><li>要对齐动作和观测</li><li>要区分 gameplay / GUI</li><li>要构造 event-anchored 样本</li></ul>
-<p>这使得迁移到别的环境时，数据准备成本不低。</p>
-<h4 id="3-系统复杂度高">3. 系统复杂度高</h4>
-<p>它不是一个简单 policy，而是把：</p>
-<ul><li>双 DiT</li><li>flow matching</li><li>mode router</li><li>block-cycle control</li><li>hierarchical history</li><li>轨迹构造</li></ul>
-<p>全部组合在一起。 这对复现和部署都增加复杂性。</p>
-<h4 id="4-lasi-显示生成控制仍有脆弱点">4. LASI 显示生成控制仍有脆弱点</h4>
-<p>即使整体性能好，生成源偏置仍可能造成闭环积累误差。 这说明“会生成动作”不等于“控制就完全稳定”。</p>
-<h3 id="最终判断">最终判断</h3>
-<p>如果只看这篇论文本身，我会把它判断为：</p>
-<ul><li><strong>问题定义清楚</strong></li><li><strong>系统设计扎实</strong></li><li><strong>实验结果支持主要主张</strong></li><li><strong>最有价值的贡献是把 WAM 真正推进到原生闭环游戏控制场景</strong></li><li><strong>LASI 这个失败模式的发现也很有研究价值</strong></li></ul>
-<p>它的核心意义不是提出一个单点 trick，而是证明：</p>
-<blockquote>在游戏这种高频、异构、强闭环环境里，<strong>把世界预测和动作生成统一起来</strong>，确实比只做 policy 更有优势。</blockquote>
-<p>如果你愿意，我下一步可以继续帮你把这篇论文整理成：</p>
-<ol><li><strong>一页纸 lecture note 版</strong>，或  </li><li><strong>按“方法—损失—训练—推理—实验”画成流程图式笔记</strong>。</li></ol></div></article></main>
+<h2 id="1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</h2>
+<p>任务输入是当前第一人称像素观测、语言指令、可选本体状态和跨周期压缩历史；输出是可执行的键盘-鼠标原生动作序列，以及用于世界动力学预测的未来视觉观测。功能边界是面向视频游戏中的闭环 gameplay 与 GUI 控制，不面向真实物理系统，也不依赖高层抽象动作。</p>
+<h2 id="2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</h2>
+<p>现有游戏智能体通常把视觉和任务上下文直接映射为动作，缺少显式的环境动力学建模；交互式游戏世界模型则能从给定动作预测视觉未来，但不能作为任务策略。世界-动作模型（WAM）试图统一二者，但已有 WAM 主要在桌面或受限室内机器人操作中研究，对快速第一人称变化、持久世界状态、异构原生控制、重复闭环交互缺乏验证。视频游戏恰好提供可扩展、可重置、可受控干预的测试环境。</p>
+<p>作者的核心观察是：游戏原生控制中，同一个键盘-鼠标物理通道既要表达 gameplay（连续相机运动加并发离散按键），又要表达 GUI（光标、点击、滚轮、快捷键），把它们当作单一动作分布会混合不兼容的统计特性。同时，为控制视频 token 成本而做的时间下采样会错过快速变化的事件，而加密集采样又会缩短固定预算下的历史窗口和未来视野。因此需要把世界建模与动作策略联合训练，并把“预测期限”与“执行期限”解耦，用显式跨周期历史在有限缓存下保持长时间连续性。这就是 GameWAM 的核心设计动机。</p>
+<h2 id="3-核心贡献-约300字">3. 核心贡献（约300字）</h2>
+<ul><li>提出 GameWAM，据作者所知，这是首个用于原生闭环 gameplay 和 GUI 控制的 WAM。它基于并行的视频与动作 DiT（Diffusion Transformer）、块因果注意力和联合流匹配（flow matching），同时生成未来视觉观测和可执行键盘-鼠标动作轨迹。</li><li>构建了同步的 WAM-ready 游戏与 GUI 轨迹：将标准化 VPT 录像、事件锚定轨迹和 MineStudio 脚本化 GUI 轨迹统一到同一原生动作空间和时间线上，支持联合世界-动作学习。</li><li>提出统一原生动作与块-周期公式：共享键盘-鼠标动作空间，逐动作步进行 gameplay/GUI 路由，模式特定归一化；预测长于执行，用块因果窗口配合近期 FIFO 与长期记忆槽，兼顾高频反馈和持久上下文。实验表明游戏任务成功率具有竞争力，且在 Minecraft 中成功 episode 的平均原生动作步数更少。</li><li>发现并命名 Low-Frequency Action Source Imprinting（LASI）：固定条件下，采样动作源的低频分量会系统性影响粗粒度相机运动；跨重规划步复用同一动作源会造成持续方向偏置。</li></ul>
+<h2 id="4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</h2>
+<p>推理时使用的基础模型是并行的 Video DiT 与 Action DiT：Video DiT 将已观测视觉上下文编码为条件表示；Action DiT 在该条件、语言指令、可选状态和压缩历史共同作用下，从随机动作源生成未来动作计划。推理不需要生成未来视频，因此只运行 Action DiT 的动作采样过程。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.26200v1/gamewam_overview.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.26200v1/gamewam_overview.png" alt="Figure 1: GameWAM 概览。GameWAM 联合建模未来视觉观测和原生动作，用于闭环游戏玩法和 GUI 控制。" loading="lazy"></a><span class="image-caption">Figure 1: GameWAM 概览。GameWAM 联合建模未来视觉观测和原生动作，用于闭环游戏玩法和 GUI 控制。</span></span></p>
+<p>推理主循环可分为以下步骤：</p>
+<ol><li>当前观测、指令、状态和历史 → Video DiT 对当前视觉上下文编码 → 输出供动作生成使用的条件表示。</li><li>条件表示与随机动作源 → Action DiT 生成 P 步原生动作计划，包含连续相机/移动、离散按键及游戏/GUI 路由结果 → 输出完整计划。</li><li>完整计划 → 路由选择游戏或 GUI 对应的动作分布，并把生成值转换为可执行键盘-鼠标指令 → 输出前 E 步执行块。</li><li>执行块 → 游戏环境执行动作并返回新观测和状态 → 输出反馈观测。</li><li>新观测 → 更新当前周期内缓存，并在跨周期边界压缩历史（近期 FIFO 加长期记忆槽） → 输出更新后的上下文。</li><li>更新后的上下文 → 丢弃未执行后缀并重新采样动作源，回到步骤 1 → 输出下一轮计划。</li></ol>
+<div class="mermaid">flowchart TD
+    A[当前观测、指令、状态、历史] --&gt; B[Video DiT 编码视觉上下文]
+    B --&gt; C[Action DiT 生成 P 步动作计划]
+    C --&gt; D[模式路由并转换为可执行键盘鼠标动作]
+    D --&gt; E[仅执行前 E 步动作块，丢弃未执行后缀]
+    E --&gt; F[环境返回新观测并更新历史]
+    F --&gt; G{继续交互？}
+    G -- 是 --&gt; A
+    G -- 否 --&gt; H[返回最终任务结果]</div>
+<h2 id="5-核心方法-按论文-method-小节总结-约600字">5. 核心方法：按论文 Method 小节总结（约600字）</h2>
+<h3 id="4-1-block-causal-world-action-modeling-块因果世界-动作建模">4.1 Block-Causal World-Action Modeling（块因果世界-动作建模）</h3>
+<p>该小节定义 GameWAM 的生成对象和条件边界。对第 \(c\) 个周期的第 \(k\) 个块，条件上下文为</p>
+<p>\[ \Gamma_{c,k}=(C_{c,k},\ell,H_c,s_{c,k}), \]</p>
+<p>其中 \(C_{c,k}\) 是当前周期内干净观测上下文，\(\ell\) 是语言指令，\(H_c\) 是跨周期视觉历史，\(s_{c,k}\) 是可选本体状态。完整干净前缀为 \(\mathcal{P}_{c,k}=H_c\cup C_{c,k}\)。世界-动作块 \(B_j=(\mathcal{V}_j,\mathcal{A}_j)\) 包含视频潜变量和原生动作向量 \(\mathcal{A}_j=[\mathcal{A}_j^{\mathrm{cont}};\mathcal{A}_j^{\mathrm{disc}}]\)。跨 \(R\) 个块的计划被建模为逐块条件概率乘积。</p>
+<p>模型使用并行 Video DiT 和 Action DiT，以联合流匹配进行生成。对模态 \(m\in\{v,a\}\)，噪声化过程为</p>
+<p>\[ X_{\sigma_m}^{m}=(1-\sigma_m)X_0^m+\sigma_m\epsilon^m,\qquad U^m=\epsilon^m-X_0^m. \]</p>
+<p>两个 DiT 分别估计视频和动作的速度场；推理时从随机噪声积分到干净数据。整体架构如图 2。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.26200v1/gamewam_overall_framework.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.26200v1/gamewam_overall_framework.png" alt="Figure 2: GameWAM 的训练与推理架构。并行的视频与动作 DiTs 联合建模未来观测和原生动作，具有块因果交互和游戏/GUI 特定的动作生成。" loading="lazy"></a><span class="image-caption">Figure 2: GameWAM 的训练与推理架构。并行的视频与动作 DiTs 联合建模未来观测和原生动作，具有块因果交互和游戏/GUI 特定的动作生成。</span></span></p>
+<p>在块因果注意力中，默认采用模态解耦可见性：动作和视频共享同一个干净因果前缀，但同一块内被噪声化的未来视频与未来动作不互相条件化：</p>
+<p>\[ \mathrm{Vis}(\mathcal{A}_j)=\mathcal{P}_{c,j}\cup\mathcal{A}_j,\qquad \mathrm{Vis}(\mathcal{V}_j)=\mathcal{P}_{c,j}\cup\mathcal{V}_j. \]</p>
+<p>这样视频与动作监督共同塑造上下文，同时在线只生成动作时无需对未观察视频去噪。默认掩码与带联合当前块耦合的替代掩码如图 6、图 7。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.26200v1/gamewam_mask_decoupled.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.26200v1/gamewam_mask_decoupled.png" alt="Figure 6: 默认模态解耦世界-动作公式的块因果可见性。训练视图（左）和自回归 rollout 视图（右）显示了三个重叠的计划。视觉和动作预测接收相同的干净因果前缀，同时被破坏的未来视觉和动作 token 不作为跨模态条件使用。训练期间，已完成块采用教师强制；在 rollout 时，只有通过已提交执行到达的观测才进入干净前缀。已计划但未执行的后缀在下一个决策之前被丢弃。彩色单元格表示可见条目，灰色单元格被掩蔽，绿色单元格表示干净保留上下文，影线单元格表示已预测但未执行的变量。" loading="lazy"></a><span class="image-caption">Figure 6: 默认模态解耦世界-动作公式的块因果可见性。训练视图（左）和自回归 rollout 视图（右）显示了三个重叠的计划。视觉和动作预测接收相同的干净因果前缀，同时被破坏的未来视觉和动作 token 不作为跨模态条件使用。训练期间，已完成块采用教师强制；在 rollout 时，只有通过已提交执行到达的观测才进入干净前缀。已计划但未执行的后缀在下一个决策之前被丢弃。彩色单元格表示可见条目，灰色单元格被掩蔽，绿色单元格表示干净保留上下文，影线单元格表示已预测但未执行的变量。</span></span></p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.26200v1/gamewam_mask_coupled.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.26200v1/gamewam_mask_coupled.png" alt="Figure 7: 具有联合当前块视频-动作耦合的块因果可见性。联合替代方案允许对齐的带噪视觉和动作变量在当前规划块内交换信息，同时保留相同的干净因果前缀并同样排除后续块。训练和 rollout 的其他方面遵循与 Fig. 6 中相同的教师强制和基于执行的上下文规则。" loading="lazy"></a><span class="image-caption">Figure 7: 具有联合当前块视频-动作耦合的块因果可见性。联合替代方案允许对齐的带噪视觉和动作变量在当前规划块内交换信息，同时保留相同的干净因果前缀并同样排除后续块。训练和 rollout 的其他方面遵循与 Fig. 6 中相同的教师强制和基于执行的上下文规则。</span></span></p>
+<p>为了处理 gameplay 与 GUI 的异构控制，GameWAM 使用逐动作步路由。路由 logit \(\rho_\tau\) 在 rollout 中选择游戏或 GUI 分支，并用对应分支的动作流预测：</p>
+<p>\[ \hat r_\tau=\mathbf{1}[\mathrm{sigmoid}(\rho_\tau)&gt;1/2],\qquad \hat U_\tau^a=(1-\hat r_\tau)\hat U_\tau^{\mathrm{game}}+\hat r_\tau\hat U_\tau^{\mathrm{gui}}. \]</p>
+<p>连续坐标按模式特定统计量归一化，离散坐标共享归一化，并用有效性掩码排除环境中不可用的控制。</p>
+<h3 id="4-2-block-cycle-control-and-hierarchical-history-块-周期控制与分层历史">4.2 Block-Cycle Control and Hierarchical History（块-周期控制与分层历史）</h3>
+<p>该小节解决长时交互中预测长度、执行反馈和历史缓存之间的矛盾。GameWAM 预测 \(P\) 步动作，但只提交前 \(E\) 步执行：</p>
+<p>\[ \widehat{\mathbf A}_{c,k}^{\mathrm{plan}}\in\mathbb{R}^{P\times d_a},\qquad E&lt;P,\qquad \widehat{\mathbf A}_{c,k}^{\mathrm{exec}}=\widehat{\mathbf A}_{c,k}^{\mathrm{plan}}[1:E]. \]</p>
+<p>执行后根据新观测重新规划，未执行后缀被丢弃。训练时在真实轨迹上每隔 \(E\) 步锚定一个重叠的 \(P\) 步计划，并采用块因果教师强制，避免为了更长预测而顺序 rollout。块-周期控制和分层历史如图 3。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.26200v1/gamewam_schedule.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.26200v1/gamewam_schedule.png" alt="Figure 3: 块-周期控制与分层历史。GameWAM 在仅执行一个短前缀的同时预测超出已提交范围，并将瞬时的周期局部 K/V 缓存与持久的跨周期视觉历史相结合。" loading="lazy"></a><span class="image-caption">Figure 3: 块-周期控制与分层历史。GameWAM 在仅执行一个短前缀的同时预测超出已提交范围，并将瞬时的周期局部 K/V 缓存与持久的跨周期视觉历史相结合。</span></span></p>
+<p>在线时，当前周期内已观测上下文被维护为瞬时的周期局部 K/V 缓存；周期结束时缓存被丢弃，持久信息通过跨周期历史保留。近期历史由视频 VAE 和 Conv3D tokenizer 压缩执行段，并放入 FIFO 缓冲区；从缓冲区逐出的段通过注意力池化和槽位门控更新长期记忆槽。最终历史 \(H_c=[M_c;R_c]\) 跨越周期边界，而瞬时段 K/V 只服务于当前周期。</p>
+<h3 id="4-3-training-objective-训练目标">4.3 Training Objective（训练目标）</h3>
+<p>训练沿用 rollout 的块因果可见性，但对已完成块使用教师强制。总目标包含四项：</p>
+<ul><li>视频流损失：</li></ul>
+<p>\[ \mathcal{L}_v=\mathbb{E}\left[w_v(\sigma_v)\|\widehat U^v-U^v\|_2^2\right]. \]</p>
+<ul><li>动作流损失：按观测到的交互模式选择分支，并分别对连续与离散坐标做归一化，防止某一类坐标主导：</li></ul>
+<p>\[ \mathcal{L}_a=\lambda_{\mathrm{cont}}\mathcal{L}_a^{\mathrm{cont}}+\lambda_{\mathrm{disc}}\mathcal{L}_a^{\mathrm{disc}}. \]</p>
+<ul><li>模式路由损失：用掩码二分类交叉熵监督每个动作步的游戏/GUI 路由。</li><li>历史保持损失：从持久历史 \(H_c\) 预测当前干净视觉特征，并用 stop-gradient 保持目标固定，使历史保留跨周期预测信息。</li></ul>
+<p>总损失为</p>
+<p>\[ \mathcal{L}=\lambda_v\mathcal{L}_v+\lambda_a\mathcal{L}_a+\lambda_m\mathcal{L}_{\mathrm{mode}}+\lambda_h\mathcal{L}_{\mathrm{hist}}. \]</p>
+<h2 id="6-局限性和展望-约300字">6. 局限性和展望（约300字）</h2>
+<p>论文明确给出的限制是：GameWAM 只在 Minecraft 和 ViZDoom 两个模拟游戏环境中验证，不涉及物理系统部署；游戏世界也不能完整复现真实具身交互的所有方面。因此，迁移到真实机器人或未经授权的通用键盘-鼠标界面时需要额外考虑安全与授权。LASI 也只是一个被缓解的问题：在线评估时通过每个重规划步重新采样动作源来避免持续偏置，但模型对动作源低频成分的敏感性本身没有被消除。</p>
+<p>可以谨慎推断的限制包括：联合视频-动作生成和跨周期历史会带来较大的视觉 token 与缓存开销，致密采样下固定资源能覆盖的真实时间窗口仍然有限；训练依赖 VPT 录像和脚本化 GUI 轨迹，迁移到其他游戏需要重新构建同步轨迹；消融显示跨周期历史对任务的作用并不完全一致，说明其通用价值仍需更大规模验证。展望方面，GameWAM 为游戏中的世界-动作联合建模提供了第一个可行范式，后续可以在更多游戏、更长周期、更细粒度原生控制以及显式处理 LASI 的方向上继续推进。</p></div></article></main>
   </div>
   <script>/*!
   * PhotoSwipe 5.4.4 - https://photoswipe.com

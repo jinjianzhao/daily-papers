@@ -471,7 +471,7 @@ div.pswp__img--placeholder,
 
     html { scroll-behavior: smooth; scroll-padding-top: 24px; }
     body { background: #f8fafc; }
-    .academic-shell { width: min(1440px, calc(100% - 40px)); margin: 0 auto; padding: 32px 0 80px; display: grid; grid-template-columns: 272px minmax(0, 980px); justify-content: center; gap: 32px; align-items: start; }
+    .academic-shell { width: min(1440px, calc(100% - 40px)); margin: 0 auto; padding: 32px 0 80px; display: grid; grid-template-columns: 272px minmax(0, 1120px); justify-content: center; gap: 32px; align-items: start; }
     .academic-sidebar { position: sticky; top: 24px; max-height: calc(100vh - 48px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #cbd5e1 transparent; }
     .toc-panel { border: 1px solid #e2e8f0; border-radius: 16px; background: rgba(255, 255, 255, .96); padding: 16px 12px; box-shadow: 0 8px 24px rgba(15, 23, 42, .05); }
     .toc-heading { margin: 0 8px 10px; color: #94a3b8; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
@@ -487,10 +487,10 @@ div.pswp__img--placeholder,
     .toc-level-6 { padding-left: 52px; font-size: 11px; }
     .toc-empty { margin: 8px; color: #94a3b8; font-size: 12px; }
     .toc-collapse-button { display: inline-flex; position: fixed; z-index: 70; top: 24px; left: 12px; align-items: center; gap: 7px; padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 8px; background: rgba(255, 255, 255, .96); color: #475569; font: inherit; font-size: 12px; font-weight: 700; box-shadow: 0 6px 18px rgba(15, 23, 42, .08); cursor: pointer; }
-    body.toc-collapsed .academic-shell { grid-template-columns: minmax(0, 980px); gap: 0; }
+    body.toc-collapsed .academic-shell { grid-template-columns: minmax(0, 1120px); gap: 0; }
     body.toc-collapsed .academic-sidebar { display: none; }
     .academic-main { width: 100%; min-width: 0; margin: 0; padding: 0; }
-    .academic-main article { border-color: #e2e8f0; border-radius: 18px; padding: 48px 56px 64px; box-shadow: 0 10px 32px rgba(15, 23, 42, .06); }
+    .academic-main article { border-color: #e2e8f0; border-radius: 18px; padding: 48px 44px 64px; box-shadow: 0 10px 32px rgba(15, 23, 42, .06); }
     .academic-main h1, .academic-main h2, .academic-main h3 { scroll-margin-top: 24px; }
     .academic-main h1 { font-size: 32px; }
     .academic-main h2 { margin-top: 44px; padding-bottom: 10px; border-bottom-color: #e2e8f0; font-size: 22px; }
@@ -517,6 +517,7 @@ div.pswp__img--placeholder,
 
 
 
+
   </style>
 </head>
 <body>
@@ -528,145 +529,94 @@ div.pswp__img--placeholder,
     <aside class="academic-sidebar" id="academic-sidebar" aria-label="文档目录">
       <div class="toc-panel">
         <p class="toc-heading">目录</p>
-        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#pawbench-how-far-are-we-from-probabilistically-aligned-world-modeling">PAWBench: How Far Are We from Probabilistically Aligned World Modeling?</a><a class="toc-link toc-level-2" href="#快速理解">快速理解</a><a class="toc-link toc-level-2" href="#中文摘要">中文摘要</a><a class="toc-link toc-level-2" href="#详细分析">详细分析</a><a class="toc-link toc-level-2" href="#1-任务输入-输出-功能和边界">1) 任务输入、输出、功能和边界</a><a class="toc-link toc-level-2" href="#2-论文要解决的问题-以及为什么会发生">2) 论文要解决的问题，以及为什么会发生</a><a class="toc-link toc-level-2" href="#3-核心-insight-与贡献">3) 核心 insight 与贡献</a><a class="toc-link toc-level-3" href="#核心-insight">核心 insight</a><a class="toc-link toc-level-3" href="#主要贡献">主要贡献</a><a class="toc-link toc-level-2" href="#4-使用的基模-以及从输入到输出的整体流程">4) 使用的基模，以及从输入到输出的整体流程</a><a class="toc-link toc-level-3" href="#基模">基模</a><a class="toc-link toc-level-3" href="#整体流程">整体流程</a><a class="toc-link toc-level-2" href="#5-每个关键机制为什么需要-怎么做-得到什么">5) 每个关键机制为什么需要、怎么做、得到什么</a><a class="toc-link toc-level-3" href="#5-1-paw-calibration-测-概率配不配">5.1 PAW-Calibration：测“概率配不配”</a><a class="toc-link toc-level-3" href="#5-2-paw-coverage-测-合法结果有没有都出现">5.2 PAW-Coverage：测“合法结果有没有都出现”</a><a class="toc-link toc-level-3" href="#5-3-paweval-把视频变成结果分布">5.3 PAWEval：把视频变成结果分布</a><a class="toc-link toc-level-3" href="#5-4-因果-非因果控制-测-该变的变不变-不该变的变不变">5.4 因果/非因果控制：测“该变的变不变、不该变的变不变”</a><a class="toc-link toc-level-3" href="#5-5-三种-改分布-接口-语言-噪声-训练">5.5 三种“改分布”接口：语言、噪声、训练</a><a class="toc-link toc-level-2" href="#6-主结果-消融结果-可视化结论及证据边界">6) 主结果、消融结果、可视化结论及证据边界</a><a class="toc-link toc-level-3" href="#6-1-主结果">6.1 主结果</a><a class="toc-link toc-level-3" href="#6-2-结果鲁棒性">6.2 结果鲁棒性</a><a class="toc-link toc-level-3" href="#6-3-视觉化结论">6.3 视觉化结论</a><a class="toc-link toc-level-3" href="#6-4-证据边界">6.4 证据边界</a><a class="toc-link toc-level-3" href="#6-5-表现和证据的关系">6.5 表现和证据的关系</a><a class="toc-link toc-level-2" href="#7-局限性和最终判断">7) 局限性和最终判断</a><a class="toc-link toc-level-3" href="#局限性">局限性</a><a class="toc-link toc-level-3" href="#最终判断">最终判断</a></nav>
+        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#pawbench-how-far-are-we-from-probabilistically-aligned-world-modeling">PAWBench: How Far Are We from Probabilistically Aligned World Modeling?</a><a class="toc-link toc-level-2" href="#快速理解">快速理解</a><a class="toc-link toc-level-2" href="#中文摘要">中文摘要</a><a class="toc-link toc-level-2" href="#详细分析">详细分析</a><a class="toc-link toc-level-2" href="#1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</a><a class="toc-link toc-level-2" href="#2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</a><a class="toc-link toc-level-2" href="#3-核心贡献-约300字">3. 核心贡献（约300字）</a><a class="toc-link toc-level-2" href="#4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</a><a class="toc-link toc-level-2" href="#5-核心方法-按论文-method-小节总结">5. 核心方法：按论文 Method 小节总结</a><a class="toc-link toc-level-3" href="#2-probabilistically-aligned-world-modeling-概率对齐世界建模">2 Probabilistically Aligned World Modeling（概率对齐世界建模）</a><a class="toc-link toc-level-3" href="#3-pawbench-pawbench-基准">3 PAWBench（PAWBench 基准）</a><a class="toc-link toc-level-3" href="#3-1-benchmark-design-基准设计">3.1 Benchmark Design（基准设计）</a><a class="toc-link toc-level-3" href="#3-2-scenario-curation-场景筛选">3.2 Scenario Curation（场景筛选）</a><a class="toc-link toc-level-3" href="#3-3-evaluating-distributions-over-possible-futures-评估可能未来的分布">3.3 Evaluating Distributions over Possible Futures（评估可能未来的分布）</a><a class="toc-link toc-level-3" href="#5-1-prompt-engineering-提示工程">5.1 Prompt Engineering（提示工程）</a><a class="toc-link toc-level-3" href="#5-2-initial-noise-sampling-初始噪声采样">5.2 Initial Noise Sampling（初始噪声采样）</a><a class="toc-link toc-level-3" href="#5-3-updating-model-parameters-更新模型参数">5.3 Updating Model Parameters（更新模型参数）</a><a class="toc-link toc-level-2" href="#6-局限性和展望-约300字">6. 局限性和展望（约300字）</a></nav>
       </div>
     </aside>
     <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../date/">← 返回日报目录</a></p>
 <h1 id="pawbench-how-far-are-we-from-probabilistically-aligned-world-modeling">PAWBench: How Far Are We from Probabilistically Aligned World Modeling?</h1>
-<p><strong>一句话主题：</strong> 评估视频生成模型的概率一致性与世界建模能力</p>
-<p><strong>领域标签：</strong> 视频生成 / 世界模型 / 概率对齐</p>
+<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2608.27345v3">arXiv</a> · <a href="https://huggingface.co/papers/2608.27345">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2608.27345">AlphaXiv</a></p>
+<p><strong>一句话主题：</strong> 评估视频生成模型作为世界模型时是否达到概率对齐，并探索通过提示、噪声和训练改善分布预测。</p>
+<p><strong>领域标签：</strong> 世界模型 / 视频生成 / 概率对齐 / 基准测试</p>
 <h2 id="快速理解">快速理解</h2>
-<p><strong>背景与任务：</strong> 现有视频生成多只评估单次结果是否合理，难以检验同一初始条件下生成分布是否符合真实物理规律。</p>
-<p><strong>核心工作：</strong> 作者提出概率对齐定义、PAWBench基准和PAWEval协议，并在50个场景和11个系统上验证当前模型仍难同时匹配行为范围与概率分布。</p>
+<p><strong>背景与任务：</strong> 视频生成模型被视为世界模型，但现有评估仅检查单个视频合理性，未检验重复生成是否覆盖真实行为分布。</p>
+<p><strong>核心工作：</strong> 作者形式化概率对齐，提出PAWBench和PAWEval，在50个场景和11个系统上评估，并测试了提示、噪声和训练对分布重塑的影响。</p>
 <h2 id="中文摘要">中文摘要</h2>
-<p>近期的视频生成模型越来越常被视为世界模型（world models）。许多物理过程可以以不止一种有效方式展开。因此，世界模型不仅应复现一个看似合理的轨迹，还应在相同初始观测和动作下复现可能行为的分布。我们将这一分布层面的要求称为概率对齐（probabilistic alignment）。然而，现有评估大多只考察单个视频的合理性，并未测试重复生成是否能够恢复正确的分布。这引出了一个核心问题：当前的视频生成器距离概率对齐的世界建模还有多远？为回答这一问题，我们将概率对齐形式化为世界模型的分布性准则，并提出 PAWBench，一个用于将视频生成器作为随机采样器来评估其世界动力学表现的基准。我们进一步提出 PAWEval，一种结果层面的协议，可将重复的视频滚动生成转换为对可能物理行为的经验分布。在 50 个场景和 11 个当前系统上，没有任何模型能够在恢复有效行为范围的同时，一致地匹配参考概率。基于这一差距，我们进一步测试语言提示、初始噪声采样或模型训练是否能够重塑模型的预测分布。我们认为，本研究可为未来朝向概率对齐的世界建模迈进提供基础。</p>
+<p>最近的视频生成模型越来越多地被构建为世界模型。许多物理过程可以以不止一种有效的方式展开。因此，一个世界模型不仅应当重现一条合理的轨迹，还应当重现相同初始观测与动作下可能行为的分布。我们将这一分布层面的要求称为概率对齐（probabilistic alignment）。然而，现有评测大多评估单条视频的合理性，并未检验重复生成是否恢复了正确的分布。这引出了一个核心问题：当前的视频生成模型距离概率对齐的世界建模还有多远？为了回答这一问题，我们将概率对齐形式化为世界模型的一种分布性准则，并引入PAWBench，一个用于评估视频生成模型作为世界动力学随机采样器的基准。我们进一步提出PAWEval，一种结果层面的协议，将重复的视频推演转换为可能的物理行为上的经验分布。在50个场景和11个现有系统中，没有任何模型在恢复有效行为范围的同时始终匹配参考概率。在确认了这一差距之后，我们测试了语言提示、初始噪声采样或模型训练是否能够重塑模型的预测分布。我们相信，我们的工作可以为未来迈向概率对齐世界建模的努力奠定基础。</p>
 <h2 id="详细分析">详细分析</h2>
-<p>下面按“这篇论文到底在做什么”来讲。</p>
-<h2 id="1-任务输入-输出-功能和边界">1) 任务输入、输出、功能和边界</h2>
-<p><strong>输入</strong>：</p>
-<ul><li>一张<strong>初始图像</strong> <code>x</code>，表示初始观测；  </li><li>一个<strong>动作提示</strong> <code>a</code>，只描述一次原子操作，比如“抛一次硬币”“把球松开”“往上抬一下手”。</li></ul>
-<p><strong>输出</strong>：</p>
-<ul><li>不是单个视频“看起来像不像”，而是<strong>同一输入下重复生成的多个视频</strong>，再把每个视频映射到一个<strong>终止结果标签</strong>，最后得到一个经验分布 <code>\hat p_M</code>。  </li><li>若该场景有可解析的参考概率 <code>q</code>，就比较 <code>\hat p_M</code> 和 <code>q</code>；若只有“有哪些合法结果”但没有可靠概率，就看是否把<strong>所有合法结果都覆盖到</strong>。</li></ul>
-<p><strong>功能</strong>：</p>
-<ul><li>把视频生成器当成“世界模型”来测：它不仅要生成一个合理未来，还要在<strong>同一初始状态和动作</strong>下，给出<strong>正确的未来分布</strong>。</li></ul>
-<p><strong>边界</strong>：</p>
-<ul><li>这不是评测视频画质、文案跟随、单次物理合理性；  </li><li>也不是测长时序复杂交互；  </li><li>它只测<strong>固定初始条件下、短程、可判终止结果的随机物理过程</strong>。</li></ul>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.27345v2/one_plausible_future.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.27345v2/one_plausible_future.png" alt="Figure 1: 一个看似合理的未来并不够。来自视频生成模型的单次 rollout 可能在物理上看似合理，但从相同初始观测和动作重复 rollout，可能会暴露出一个在概率上不对齐的世界：结果集中在未来的一个狭窄子集上，而不是匹配有效随机支持。PAWBench 评估的是这些重复未来所诱导出的分布或支持，而不是根据一个采样视频来判断模型。" loading="lazy"></a><span class="image-caption">Figure 1: 一个看似合理的未来并不够。来自视频生成模型的单次 rollout 可能在物理上看似合理，但从相同初始观测和动作重复 rollout，可能会暴露出一个在概率上不对齐的世界：结果集中在未来的一个狭窄子集上，而不是匹配有效随机支持。PAWBench 评估的是这些重复未来所诱导出的分布或支持，而不是根据一个采样视频来判断模型。</span></span></p>
-<hr>
-<h2 id="2-论文要解决的问题-以及为什么会发生">2) 论文要解决的问题，以及为什么会发生</h2>
-<p>论文要问的是：</p>
-<blockquote><strong>当前视频生成模型，离“概率上对齐的世界模型”还有多远？</strong></blockquote>
-<p>这里的关键不是“能不能生成一个合理视频”，而是：</p>
-<ul><li>同样的初始图像和动作下，现实世界可能有<strong>多个合法未来</strong>；</li><li>模型应该学到的是这些未来的<strong>分布</strong>，而不是只会吐出其中某几个；</li><li>现有评测大多只看<strong>单个视频是否合理</strong>，没检查<strong>重复生成后分布对不对</strong>。</li></ul>
-<p><strong>问题为什么会发生</strong>，论文给了三个很具体的原因：</p>
-<ol><li><strong>评测方式偏单样本</strong>：  </li></ol>
-<p>只看一个视频，很容易把“偶然生成得像”误当成“分布学对了”。</p>
-<ol><li><strong>模型可能“会一些结果，但概率配错了”</strong>：  </li></ol>
-<p>比如本应 50/50 的结果，模型可能总偏向某一边。</p>
-<ol><li><strong>模型可能“有些合法结果根本不会出”</strong>：  </li></ol>
-<p>单次视频看不出来，但重复采样后会发现支持集塌缩。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.27345v2/scenario_taxonomy.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.27345v2/scenario_taxonomy.png" alt="Figure 2: PAWBench 场景分类。PAWBench 在固定初始观测和动作下覆盖八类机制组。PAW-Calibration 包含具有解析指定参考分布的校准概率场景，而 PAW-Coverage 包含通过有效支持覆盖率评估的复杂随机交互。每个场景固定源图像和动作提示，然后根据模型重复 rollout 的终止结果进行评分。" loading="lazy"></a><span class="image-caption">Figure 2: PAWBench 场景分类。PAWBench 在固定初始观测和动作下覆盖八类机制组。PAW-Calibration 包含具有解析指定参考分布的校准概率场景，而 PAW-Coverage 包含通过有效支持覆盖率评估的复杂随机交互。每个场景固定源图像和动作提示，然后根据模型重复 rollout 的终止结果进行评分。</span></span></p>
-<hr>
-<h2 id="3-核心-insight-与贡献">3) 核心 insight 与贡献</h2>
-<h3 id="核心-insight">核心 insight</h3>
-<p><strong>把视频生成器当随机采样器看</strong>，不能只问“单次样本像不像”，而要问：</p>
-<ul><li><strong>支持集对不对</strong>：所有合法未来都能不能出现；</li><li><strong>概率质量对不对</strong>：这些合法未来出现的比例对不对。</li></ul>
-<p>论文把这叫做 <strong>probabilistic alignment</strong>。</p>
-<h3 id="主要贡献">主要贡献</h3>
-<ol><li><strong>形式化定义</strong>：把“概率上对齐的世界模型”写成分布级标准。  </li><li><strong>PAWBench</strong>：做了 50 个场景，分成：<ul><li><strong>PAW-Calibration</strong>：有参考概率；</li><li><strong>PAW-Coverage</strong>：只有合法结果集合，测覆盖。  </li></ul></li><li><strong>PAWEval</strong>：把重复 rollout 变成“结果分布”来打分。  </li><li><strong>大规模实证</strong>：11 个当前视频系统，没有一个能同时做好“概率匹配 + 覆盖完整 + 稳定通过读出”。  </li><li><strong>进一步探测可塑性</strong>：试了三种改分布的接口：<ul><li>语言提示；</li><li>初始噪声采样；</li><li>重新训练。</li></ul></li></ol>
-<hr>
-<h2 id="4-使用的基模-以及从输入到输出的整体流程">4) 使用的基模，以及从输入到输出的整体流程</h2>
-<h3 id="基模">基模</h3>
-<p>论文不是提出新生成器，而是<strong>评测现有视频生成模型</strong>。 主实验里评了 11 个系统，例如：HappyHorse、Veo3.1 Fast、Kling 3 Std.、Seedance 2、Wan2.7、Wan2.2、LTX-2.3、LTX-2.5、Cosmos 3 Super I2V、LingBot-Video-MoE、MiniMax H3。</p>
-<p>另外，PAWEval 的结果标签由 <strong>Gemini 3.5 Flash</strong> 按 rubric 做读出。</p>
-<h3 id="整体流程">整体流程</h3>
-<ol><li>固定一张<strong>源图像</strong>和一个<strong>动作提示</strong>；  </li><li>同一个 <code>(x, a)</code> 连续生成 <strong>K=50</strong> 个视频；  </li><li>用 PAWEval 把每个视频映射成终止结果标签；  </li><li>汇总成经验分布；  </li><li>在有参考分布时算 <strong>TVD</strong>；  </li><li>在没有参考分布时看<strong>合法结果覆盖率</strong>；  </li><li>另外看“因果变化”和“非因果线索变化”时，分布是否跟着该变的变、不该变的不变。</li></ol>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.27345v2/paweval_overview.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.27345v2/paweval_overview.png" alt="Figure 3: PAWEval 将重复 rollout 转化为分布检验。在这个 PAW-Calibration 示例中，基于 rubric 的判定器将每个可读、且符合 schema 的抛硬币 rollout 映射为 Head 或 Tail。汇总这些标签可得到经验结果分布，并将其与参考概率进行比较，而不是逐帧匹配生成视频。" loading="lazy"></a><span class="image-caption">Figure 3: PAWEval 将重复 rollout 转化为分布检验。在这个 PAW-Calibration 示例中，基于 rubric 的判定器将每个可读、且符合 schema 的抛硬币 rollout 映射为 Head 或 Tail。汇总这些标签可得到经验结果分布，并将其与参考概率进行比较，而不是逐帧匹配生成视频。</span></span></p>
-<hr>
-<h2 id="5-每个关键机制为什么需要-怎么做-得到什么">5) 每个关键机制为什么需要、怎么做、得到什么</h2>
-<h3 id="5-1-paw-calibration-测-概率配不配">5.1 PAW-Calibration：测“概率配不配”</h3>
-<p><strong>为什么需要</strong>： 有些场景的正确答案不是“哪个都行”，而是<strong>不同结果有不同概率</strong>，例如抛硬币、转盘、路由分叉。</p>
-<p><strong>怎么做</strong>：</p>
-<ul><li>先人为或按对称性给出参考分布 <code>q</code>；</li><li>生成 50 次；</li><li>用终止标签得到模型分布 <code>\hat p_M</code>；</li><li>用 <strong>TVD</strong> 比较二者。</li></ul>
-<p><strong>得到什么</strong>：</p>
-<ul><li>不是“有没有生成出合法结果”，而是“结果比例是否接近参考概率”。</li></ul>
-<h3 id="5-2-paw-coverage-测-合法结果有没有都出现">5.2 PAW-Coverage：测“合法结果有没有都出现”</h3>
-<p><strong>为什么需要</strong>： 有些场景虽然知道有哪些合法结果，但<strong>无法可靠写出精确概率</strong>。这时只能先看支持集是否完整。</p>
-<p><strong>怎么做</strong>：</p>
-<ul><li>列出所有合法终止结果；</li><li>重复 rollout；</li><li>看覆盖了多少合法结果。</li></ul>
-<p><strong>得到什么</strong>：</p>
-<ul><li>能发现模型是否“只会几种结果”。</li></ul>
-<h3 id="5-3-paweval-把视频变成结果分布">5.3 PAWEval：把视频变成结果分布</h3>
-<p><strong>为什么需要</strong>： 视频是长序列，逐帧对齐很难；而论文关心的是<strong>终止结果分布</strong>。</p>
-<p><strong>怎么做</strong>：</p>
-<ul><li>给每个场景写一个 rubric；</li><li>判定器只负责输出：<ul><li>某个终止标签，或</li><li>读不出来/不在 schema 里；</li></ul></li><li>只对“可读且合规”的样本算分；</li><li>读不出来的单独报，不当成额外结果。</li></ul>
-<p><strong>得到什么</strong>：</p>
-<ul><li>一个可比较的经验分布；</li><li>同时还能分开报告“场景是否可评分”。</li></ul>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.27345v2/paweval_rubric_prompt_figure.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.27345v2/paweval_rubric_prompt_figure.png" alt="Figure 10: PAWEval prompt scaffold。场景特定的结果 rubric 会分配一个终止标签或结果读出失败。单独的 trustworthiness rubric 会检查动作执行、物理过程和对象连续性，但不改变 PAWBench 分数。占位符 {evidence_summary} 和 {rubric_text} 分别由采样帧证据和场景特定 rubric 填充。" loading="lazy"></a><span class="image-caption">Figure 10: PAWEval prompt scaffold。场景特定的结果 rubric 会分配一个终止标签或结果读出失败。单独的 trustworthiness rubric 会检查动作执行、物理过程和对象连续性，但不改变 PAWBench 分数。占位符 {evidence_summary} 和 {rubric_text} 分别由采样帧证据和场景特定 rubric 填充。</span></span></p>
-<h3 id="5-4-因果-非因果控制-测-该变的变不变-不该变的变不变">5.4 因果/非因果控制：测“该变的变不变、不该变的变不变”</h3>
-<p><strong>为什么需要</strong>： 如果模型真的在学物理转移，它应该只对<strong>物理转移变了</strong>的输入改变分布；对<strong>无关线索</strong>不该敏感。</p>
-<p><strong>怎么做</strong>：</p>
-<ul><li><strong>因果干预</strong>：改动会改变物理转移；</li><li><strong>非因果干预</strong>：只改无关文字/外观，不改物理过程；</li><li>比较前后分布。</li></ul>
-<p><strong>得到什么</strong>：</p>
-<ul><li>发现模型常常：<ul><li>对物理变化反应不足；</li><li>对无关线索反应过度。</li></ul></li></ul>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.27345v2/causal_noncausal_interventions.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.27345v2/causal_noncausal_interventions.png" alt="Figure 4: 模型对物理因果干预反应不足，却对非因果线索反应过度。上方和下方条形图分别显示干预前后的结果分布；面板 (b) 和 (d) 显示配对场景。铅笔倾斜是因果性的，因为它改变了物理转移；而 Galton board 上的文字是非因果的，因为它不改变该转移。" loading="lazy"></a><span class="image-caption">Figure 4: 模型对物理因果干预反应不足，却对非因果线索反应过度。上方和下方条形图分别显示干预前后的结果分布；面板 (b) 和 (d) 显示配对场景。铅笔倾斜是因果性的，因为它改变了物理转移；而 Galton board 上的文字是非因果的，因为它不改变该转移。</span></span></p>
-<h3 id="5-5-三种-改分布-接口-语言-噪声-训练">5.5 三种“改分布”接口：语言、噪声、训练</h3>
-<p>论文想区分：</p>
-<ul><li>是<strong>控制接口</strong>在变；  </li><li>还是<strong>模型本身学到的分布</strong>真的变了。</li></ul>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.27345v2/figure/rendered/world_model_intervention_interfaces.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.27345v2/figure/rendered/world_model_intervention_interfaces.png" alt="Figure 5: 更大的 rollout 预算会提高覆盖率，但基本不改变校准。随着 rollout 预算从 K = 1 增加到 100，条件 TVD（左）和有效支持覆盖率（右）的变化。Figure 6: 用于塑造 world model 结果分布的三种接口。第 5 节研究 prompt engineering、初始噪声采样以及更新模型参数。" loading="lazy"></a><span class="image-caption">Figure 5: 更大的 rollout 预算会提高覆盖率，但基本不改变校准。随着 rollout 预算从 K = 1 增加到 100，条件 TVD（左）和有效支持覆盖率（右）的变化。Figure 6: 用于塑造 world model 结果分布的三种接口。第 5 节研究 prompt engineering、初始噪声采样以及更新模型参数。</span></span></p>
-<h4 id="a-语言提示-prompt-engineering">A. 语言提示（Prompt Engineering）</h4>
-<p><strong>为什么需要</strong>： 语言可能直接指定某个未来，比如“让硬币正面朝上”。</p>
-<p><strong>怎么做</strong>：</p>
-<ul><li>先让 VLM 预测一个可能结果；</li><li>再把结果写进视频生成 prompt；</li><li>还做了 <strong>Oracle PE</strong>：直接手工指定目标结果，并按目标分布排列。</li></ul>
-<p><strong>得到什么</strong>：</p>
-<ul><li>语言能影响单次输出；</li><li>但语言系统自己先预测的分布就不准；</li><li>即使 Oracle 指定了目标，视频模型也常<strong>没按要求生成出来</strong>。</li></ul>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.27345v2/language_prompt_figure.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.27345v2/language_prompt_figure.png" alt="Figure 17: 两个语言侧探针的 prompts。VLM scaffold 请求一个看似合理的未来，但不暴露结果标签或概率。相对地，target-conditioned I2V scaffold 会在原始场景 prompt 中加入一个终止结果。花括号字段在运行时填充。" loading="lazy"></a><span class="image-caption">Figure 17: 两个语言侧探针的 prompts。VLM scaffold 请求一个看似合理的未来，但不暴露结果标签或概率。相对地，target-conditioned I2V scaffold 会在原始场景 prompt 中加入一个终止结果。花括号字段在运行时填充。</span></span></p>
-<h4 id="b-初始噪声采样">B. 初始噪声采样</h4>
-<p><strong>为什么需要</strong>： 如果模型本来就有多个模式，换不同噪声也许能多采样到别的合法结果。</p>
-<p><strong>怎么做</strong>：</p>
-<ul><li>用 Couple to Control (C2C) 做<strong>负相关噪声</strong>；</li><li>保持每个噪声边际分布不变，只改“样本间相关性”。</li></ul>
-<p><strong>得到什么</strong>：</p>
-<ul><li>覆盖率上升一些；</li><li>说明这更像是“探索更广”，不是模型内部概率真的重学了。</li></ul>
-<h4 id="c-更新模型参数-lora-微调">C. 更新模型参数（LoRA 微调）</h4>
-<p><strong>为什么需要</strong>： 如果训练数据比例变了，模型的结果频率可能也会变。</p>
-<p><strong>怎么做</strong>：</p>
-<ul><li>对 Wan2.2 做 LoRA；</li><li>用不同比例的左倒/右倒铅笔视频训练；</li><li>看输出比例如何变化。</li></ul>
-<p><strong>得到什么</strong>：</p>
-<ul><li>训练比例确实会推动输出频率变化；</li><li>但变化是<strong>粗粒度</strong>的：改一个场景时，另一个场景也跟着变，说明它不是按“每个初始状态”精细地学分布。</li></ul>
-<hr>
-<h2 id="6-主结果-消融结果-可视化结论及证据边界">6) 主结果、消融结果、可视化结论及证据边界</h2>
-<h3 id="6-1-主结果">6.1 主结果</h3>
-<p>结论很直接：<strong>11 个系统里，没有一个同时满足三件事</strong>：</p>
-<ol><li>概率质量对；</li><li>覆盖足够广；</li><li>在多数场景上都能稳定读出。</li></ol>
-<p>几个具体例子：</p>
-<ul><li><strong>Cosmos 3 Super I2V</strong>：Calibration TVD 最低之一，但只在 80% 的 Calibration 场景通过读出门槛；</li><li><strong>LTX-2.3</strong>：Coverage 平均最好之一，但只是对“通过读出门槛”的场景算的；</li><li><strong>Seedance 2 / LingBot-Video-MoE</strong>：某些 track 上通过率高，但对应分布指标不领先。</li></ul>
-<p>也就是说： <strong>能生成合法结果 ≠ 概率分布对</strong>； <strong>覆盖多 ≠ 概率比例对</strong>。</p>
-<h3 id="6-2-结果鲁棒性">6.2 结果鲁棒性</h3>
-<ul><li><strong>更多 rollout</strong> 会提高 coverage，但 <strong>TVD 基本不变</strong>；  </li></ul>
-<p>说明“多采样”只能帮你发现更多结果，不会自动修正错分布。</p>
-<ul><li>PAWEval 和人工判断在 <strong>888 个清晰样本</strong>上，<strong>81.3%</strong> 一致；  </li></ul>
-<p>说明读出器不是主要误差来源。</p>
-<ul><li>如果把参考分布本身拿来做蒙特卡洛模拟，99% 情况下平均 TVD 都低于 <strong>9.22</strong>，而真实模型平均 TVD 约 <strong>31.2</strong>；  </li></ul>
-<p>说明差距不是“样本数不够”能解释的。</p>
-<h3 id="6-3-视觉化结论">6.3 视觉化结论</h3>
-<ul><li><strong>Fig. 4 / 13–16</strong>：模型对“物理变化”与“无关线索”的响应不一致；</li><li>一些系统会被<strong>提示文字</strong>带偏，但面对真正改变物理转移的改动却没同步变化；</li><li>这说明它们学到的不是稳定的“条件分布”。</li></ul>
-<h3 id="6-4-证据边界">6.4 证据边界</h3>
-<p>这些结果只说明：</p>
-<ul><li>在这些<strong>可控、短程、可判终止结果</strong>的场景里，当前模型还不够像概率对齐的世界模型。</li></ul>
-<p>不能直接推出：</p>
-<ul><li>所有长视频、所有交互环境、所有真实世界任务也都一样；</li><li>或者模型完全没有世界知识。  </li></ul>
-<p>论文自己也明确承认，它测的是<strong>终止结果级别</strong>，不是完整轨迹级别。</p>
-<h3 id="6-5-表现和证据的关系">6.5 表现和证据的关系</h3>
-<ul><li><strong>语言侧</strong>：能选未来，但选得不准，且视频常做不出来；</li><li><strong>噪声侧</strong>：能扩大探索，但不等于改了模型分布；</li><li><strong>训练侧</strong>：能改频率，但改得粗，而且常把别的场景一起带偏。</li></ul>
-<hr>
-<h2 id="7-局限性和最终判断">7) 局限性和最终判断</h2>
-<h3 id="局限性">局限性</h3>
-<ol><li><strong>只看终止结果</strong>，不看完整中间动力学；  </li><li><strong>只测固定、短程、可读的场景</strong>；  </li><li><strong>依赖有限 rollout</strong>，成本不低；  </li><li>参考分布只在一部分场景里可严格给出。</li></ol>
-<h3 id="最终判断">最终判断</h3>
-<p>这篇论文的结论不是“视频模型没用”，而是：</p>
-<blockquote><strong>当前视频生成模型可以给出看起来合理的单次未来，但还不能稳定地把同一初始状态下的未来概率分布学对。</strong></blockquote>
-<p>更直白地说： <strong>会生成一个像样的视频，不等于会生成对的未来分布。</strong></p>
-<p>如果你愿意，我下一步可以把这篇论文进一步压缩成一页“组会讲稿版”。</p></div></article></main>
+<h2 id="1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</h2>
+<p>任务输入是固定不变的源图像（初始观测 \(x\)）、动作提示（动作 \(a\)），以及每个场景对应的结果判定 rubric。输出是多次视频 rollout 的终端结果标签、聚合得到的条件经验分布 \(\hat p_M\)，以及校准 TVD 或覆盖支撑覆盖率等分布级评分。边界是：只考察可枚举的终端结果，不评估轨迹级动力学；结果依赖有限 rollout 预算 \(K\)。</p>
+<h2 id="2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</h2>
+<p>视频生成模型正被越来越多地当作世界模型使用。但一个真实物理过程在相同初始观测和动作下，往往可以展开为多种不同但都有效的未来。因此，仅仅生成“一个”物理上合理的视频是不够的；世界模型应该给出“未来的条件分布”，而不是随机抽取一个貌似合理的样本。</p>
+<p>现有评测主要把每个生成视频当作独立个体，评估其视觉质量、时序连贯性、文本或动作对齐程度、物理合理性。这些指标无法回答一个关键问题：如果对同一个 \((x,a)\) 重复采样，模型给出的结果分布是否与真实随机过程一致？一个模型可以每次输出都看起来合理，却把所有概率质量集中到少数几个未来上，或者虽覆盖所有有效未来但比例严重错误。这种“单样本合理但分布不对”的问题，正是现有评测的盲区。</p>
+<p>论文的核心洞察是：<strong>概率对齐（probabilistic alignment）必须作为一个独立的分布级评测维度</strong>。不能从“单条视频是否真实”推断“重复采样是否产生正确分布”。只有固定输入、重复 rollout、按终端结果聚合，才能暴露单个视频被掩盖的分布级失败。PAWBench 正是把这一洞察操作化为可计算的基准。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.27345v3/one_plausible_future.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.27345v3/one_plausible_future.png" alt="图 1：一个貌似合理的未来并不够。视频生成模型的单次 rollout 可能看起来在物理上合理，但从相同初始观测和动作出发的多次 rollout 可能揭示出一个在概率上未对齐的世界：结果集中于未来的一小部分子集，而不是匹配有效的随机支撑。PAWBench 评估的是这种在重复未来上的诱导分布或支撑，而不是通过一个采样视频来评判模型。" loading="lazy"></a><span class="image-caption">图 1：一个貌似合理的未来并不够。视频生成模型的单次 rollout 可能看起来在物理上合理，但从相同初始观测和动作出发的多次 rollout 可能揭示出一个在概率上未对齐的世界：结果集中于未来的一小部分子集，而不是匹配有效的随机支撑。PAWBench 评估的是这种在重复未来上的诱导分布或支撑，而不是通过一个采样视频来评判模型。</span></span></p>
+<h2 id="3-核心贡献-约300字">3. 核心贡献（约300字）</h2>
+<p>论文提出并验证了一套用于诊断视频生成模型是否具备概率对齐能力的基准与方法。</p>
+<p>第一，形式化定义了世界模型的概率对齐。通过终端结果集 \(\mathcal Y\) 和结果映射 \(g(\tau)\)，把模型在固定 \((x,a)\) 下的轨迹分布转化为终端结果分布 \(p_M(y\mid x,a)\)。由此区分了“支撑对齐”（valid support 是否被覆盖）和“概率质量对齐”（概率是否与参考分布一致）。</p>
+<p>第二，构建 PAWBench，包含 50 个手工筛选场景，覆盖 8 类物理机制，分为 PAW-Calibration 与 PAW-Coverage 两套互补子集。前者有解析或对称性可推导的参考分布，后者只能列举有效结果而无法可靠指定概率。</p>
+<p>第三，提出 PAWEval，一种基于 rubric 的结果级评测协议。它把重复 video rollout 映射为终端结果标签，再聚合成经验分布，避免逐帧匹配生成视频。通过 TVD 度量校准偏差，通过有效支撑覆盖率度量结果多样性。</p>
+<p>第四，对 11 个视频生成系统进行评测，发现没有一个模型能同时满足概率准确、覆盖完整、场景可靠三个要求。论文进一步从语言提示、初始噪声采样、模型参数更新三个层面干预，证明这些干预可以改变单一样本或被采样的未来集合，但无法可靠地让模型学到随物理状态变化的条件分布。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.27345v3/scenario_taxonomy.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.27345v3/scenario_taxonomy.png" alt="图 2：PAWBench 场景分类。PAWBench 在固定初始观测和动作下涵盖八个机制组。PAW-Calibration 包含具有解析指定参考分布的校准概率场景，PAW-Coverage 包含通过 valid-support coverage 评估的复杂随机交互。每个场景固定源图像和动作提示，然后根据终端结果对模型的重复 rollout 进行评分。" loading="lazy"></a><span class="image-caption">图 2：PAWBench 场景分类。PAWBench 在固定初始观测和动作下涵盖八个机制组。PAW-Calibration 包含具有解析指定参考分布的校准概率场景，PAW-Coverage 包含通过 valid-support coverage 评估的复杂随机交互。每个场景固定源图像和动作提示，然后根据终端结果对模型的重复 rollout 进行评分。</span></span></p>
+<h2 id="4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</h2>
+<p>在 PAWBench 的推理流程中，核心基模有两类：视频生成模型（例如 Wan2.2）作为随机条件采样器，负责在固定 \((x,a)\) 下生成多条未来视频；PAWEval 评判器（Gemini 3.5 Flash）作为结果读出工具，负责把生成视频映射到场景定义好的终端结果。整个流程不需要修改生成模型参数。</p>
+<p>推理步骤：</p>
+<ol><li><strong>输入 → 视频生成模型 → 输出视频集合</strong>  </li></ol>
+<p>输入固定源图像 \(x\)、动作提示 \(a\) 与 rollout 预算 \(K\)。视频生成模型以默认推理配置进行 \(K\) 次独立采样，输出 \(K\) 段候选视频 \(\tau_i\)。此步骤不改变模型权重，只依赖其内部随机性展开多种未来。</p>
+<ol><li><strong>输入视频 + rubric → PAWEval 评判器 → 输出结果标签或读出失败</strong>  </li></ol>
+<p>把 \(K\) 段视频连同场景特定结果 rubric 交给 PAWEval。它逐段判断动作是否执行、物理过程是否完成、物体身份是否连续，进而给出终端结果标签 \(y_i\in\mathcal Y\)；若视频无法读出有效结果，则标记为 outcome-readout failure。</p>
+<ol><li><strong>输入标签序列 → 聚合模块 → 输出条件经验分布</strong>  </li></ol>
+<p>聚合模块忽略读出失败样本，对可读且符合 schema 的标签统计频率，得到条件经验分布 \(\hat p_M(y)\)，同时记录失败样本数量。失败样本不计入有效结果，也不作为额外未来。</p>
+<ol><li><strong>输入经验分布 + 参考分布或有效支撑 → 评分模块 → 输出最终报告</strong>  </li></ol>
+<p>对 PAW-Calibration 场景，计算 \(\hat p_M\) 与参考分布 \(q\) 的 TVD；对 PAW-Coverage 场景，计算有效支撑覆盖率。评分模块还根据 “至少 20/50 个可读结果” 的门控判断该场景是否可评分，最后输出场景级与机制组级汇总。</p>
+<div class="mermaid">graph TD
+    A[固定源图像 x 与动作提示 a] --&gt; B[视频生成模型&lt;br&gt;固定参数随机采样]
+    B --&gt; C[K 段生成视频]
+    C --&gt; D[PAWEval 评判器&lt;br&gt;Gemini 3.5 Flash]
+    D --&gt; E[终端结果标签或读出失败]
+    E --&gt; F[聚合模块]
+    F --&gt; G[条件经验分布 p_hat_M 与失败数]
+    G --&gt; H[评分模块]
+    H --&gt; I[TVD / Coverage / Scene Pass]</div>
+<h2 id="5-核心方法-按论文-method-小节总结">5. 核心方法：按论文 Method 小节总结</h2>
+<h3 id="2-probabilistically-aligned-world-modeling-概率对齐世界建模">2 Probabilistically Aligned World Modeling（概率对齐世界建模）</h3>
+<p>该节给出概率对齐的形式化定义。设 \(x\) 为初始观测，\(a\) 为动作，视频世界模型 \(M\) 诱导轨迹分布 \(P_M(\tau\mid x,a)\)。由于同一 \((x,a)\) 可能对应多个有效未来，模型不能只输出一条轨迹。论文将轨迹映射到有限终端结果集 \(\mathcal Y\)：\(g(\tau)\in\mathcal Y\)。于是模型得到终端结果分布：</p>
+<p>\[ p_M(y\mid x,a)=\Pr_{\tau\sim P_M(\cdot\mid x,a)}[g(\tau)=y]. \]</p>
+<p>当存在参考分布 \(q\) 时，<strong>概率质量对齐</strong>要求 \(p_M(\cdot\mid x,a)=q\)；当只能确定有效结果集合时，<strong>支撑对齐</strong>要求 \(\mathrm{supp}(p_M(\cdot\mid x,a))=\mathcal Y\)。这组定义把“模型是否覆盖有效未来”和“概率是否分配正确”分为两个可独立检验的层次。</p>
+<h3 id="3-pawbench-pawbench-基准">3 PAWBench（PAWBench 基准）</h3>
+<p>PAWBench 把上述定义变成可执行的评测。所有场景都固定源图像和动作提示，并要求模型重复 rollout。基准分为 PAW-Calibration 与 PAW-Coverage，分别对应“有可靠参考概率”和“只有有效结果集合”两种场景。</p>
+<h3 id="3-1-benchmark-design-基准设计">3.1 Benchmark Design（基准设计）</h3>
+<p>PAWBench 包含 50 个手工筛选场景，覆盖 8 个机制组：抛掷、旋转、路由、抽取、碰撞、稳定性、智能体交互、材料转变。PAW-Calibration 有 25 个场景，其参考概率可解析推导或由物理对称性确定；PAW-Coverage 有 25 个场景，只能枚举有效终端结果，无法可靠指定每个结果的概率。</p>
+<p>每个基准项包含：源图像、动作提示、有限结果集 \(\mathcal Y\)、可选的参考分布 \(q\)、以及 outcome-readout 失败条件。模型在相同 \((x,a)\) 下被查询 \(K\) 次，视频被映射成结果并聚合为 \(\hat p_M\)。校准和覆盖分别报告，不合成单一分数，因为两种失败机制不同。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.27345v3/appendix_a_benchmark_statistics.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.27345v3/appendix_a_benchmark_statistics.png" alt="图 9：PAWBench 的基准统计。PAWBench 包含 50 个人工精选的场景，在 PAW-Calibration 和 PAW-Coverage 之间平均分配，涵盖八个随机机制组。每个场景固定一个源图像和动作提示，并使用紧凑的终端结果集，使重复 rollout 能够聚合为经验结果分布。" loading="lazy"></a><span class="image-caption">图 9：PAWBench 的基准统计。PAWBench 包含 50 个人工精选的场景，在 PAW-Calibration 和 PAW-Coverage 之间平均分配，涵盖八个随机机制组。每个场景固定一个源图像和动作提示，并使用紧凑的终端结果集，使重复 rollout 能够聚合为经验结果分布。</span></span></p>
+<h3 id="3-2-scenario-curation-场景筛选">3.2 Scenario Curation（场景筛选）</h3>
+<p>为了确保重复 rollout 统计有意义，每个场景必须满足三个条件：</p>
+<ul><li>随机性来自可见的物理机制，而不是动作提示歧义或隐藏初始条件；</li><li>动作提示指定一个原子化干预，其完成情况能从视频中判断；</li><li>终端结果构成有限、视觉可区分的集合，使 rollout 能稳定映射到 \(\mathcal Y\)。</li></ul>
+<p>论文使用图像生成模型生成候选源图像，再人工挑选和审查；动作提示、结果集、失败判据、参考分布都在评测任何模型之前定稿。无法满足条件的场景会被修改或丢弃。</p>
+<h3 id="3-3-evaluating-distributions-over-possible-futures-评估可能未来的分布">3.3 Evaluating Distributions over Possible Futures（评估可能未来的分布）</h3>
+<p>PAWEval 是结果级评测协议。对于每个场景，首先生成 \(K\) 个 rollout；每个场景配有 rubric，指定需要识别的终端物理结果、有效结果如何映射到 \(\mathcal Y\)、以及何时返回读出失败。Gemini 3.5 Flash 依据 rubric 对每段视频输出一个标签：\(\mathcal Y\) 中的结果，或 outcome-readout failure。随后将可读、符合 schema 的标签归一化为条件经验分布 \(\hat p_M\)。</p>
+<p>PAW-Calibration 使用总变差距离（TVD）比较 \(\hat p_M\) 与参考分布 \(q\)：</p>
+<p>\[ \mathrm{TVD}(\hat p_M,q)=\frac{1}{2}\sum_{y\in\mathcal Y}|\hat p_M(y)-q(y)|. \]</p>
+<p>PAW-Coverage 则计算有效支撑覆盖：</p>
+<p>\[ \mathrm{Coverage}=\frac{|\{y\in\mathcal Y:\hat p_M(y)&gt;0\}|}{|\mathcal Y|}. \]</p>
+<p>场景可评分门控要求至少 20/50 个 rollout 可读出结果；读出失败不进入概率归一化，也不被当作新的有效未来。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.27345v3/paweval_overview.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.27345v3/paweval_overview.png" alt="图 3：PAWEval 将重复 rollout 转化为分布检验。在该 PAW-Calibration 示例中，基于 rubric 的评判器将每个可读、符合 schema 的抛硬币 rollout 映射为正面或反面。聚合这些标签得到经验结果分布，并将其与参考概率进行比较，而不是逐帧匹配生成的视频。" loading="lazy"></a><span class="image-caption">图 3：PAWEval 将重复 rollout 转化为分布检验。在该 PAW-Calibration 示例中，基于 rubric 的评判器将每个可读、符合 schema 的抛硬币 rollout 映射为正面或反面。聚合这些标签得到经验结果分布，并将其与参考概率进行比较，而不是逐帧匹配生成的视频。</span></span></p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.27345v3/paweval_rubric_prompt_figure.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.27345v3/paweval_rubric_prompt_figure.png" alt="图 10：PAWEval 提示框架。场景特定的结果 rubric 分配一个终端标签或结果读出失败。另一个独立的可信度 rubric 检查动作执行、物理过程和物体连续性，且不改变 PAWBench 分数。占位符 {evidence_summary} 和 {rubric_text} 被填充为采样帧证据和场景特定 rubric。" loading="lazy"></a><span class="image-caption">图 10：PAWEval 提示框架。场景特定的结果 rubric 分配一个终端标签或结果读出失败。另一个独立的可信度 rubric 检查动作执行、物理过程和物体连续性，且不改变 PAWBench 分数。占位符 {evidence_summary} 和 {rubric_text} 被填充为采样帧证据和场景特定 rubric。</span></span></p>
+<h3 id="5-1-prompt-engineering-提示工程">5.1 Prompt Engineering（提示工程）</h3>
+<p>语言提示干预的目的是测试：能否用自然语言指定未来结果，从而改变模型的输出分布。论文设计了三种设置：</p>
+<ul><li><strong>直接 VLM 未来采样</strong>：反复查询 VLM，要求它只描述一个可能的未来，不暴露结果标签或概率，再把输出映射到 PAWBench 结果空间；</li><li><strong>GPT-5.5 PE</strong>：由 GPT-5.5 为每次 rollout 预测一个可能结果并编写生成提示；</li><li><strong>Oracle PE</strong>：直接把某个目标结果写入视频生成提示，并按参考分布或平衡覆盖安排目标序列。</li></ul>
+<p>这些设置把“预测结果分布”与“视频生成器是否实现目标结果”两种误差分开。VLM 采样测试前者；Oracle PE 通过给出目标结果，单独测量后者的可实现率。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.27345v3/language_prompt_figure.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.27345v3/language_prompt_figure.png" alt="图 17：两个语言侧探针的提示。VLM 提示框架要求生成一个貌似合理的未来，而不暴露结果标签或概率。目标条件化的 I2V 提示框架则在原始场景提示中额外加入一个终端结果。花括号字段在运行时填充。" loading="lazy"></a><span class="image-caption">图 17：两个语言侧探针的提示。VLM 提示框架要求生成一个貌似合理的未来，而不暴露结果标签或概率。目标条件化的 I2V 提示框架则在原始场景提示中额外加入一个终端结果。花括号字段在运行时填充。</span></span></p>
+<h3 id="5-2-initial-noise-sampling-初始噪声采样">5.2 Initial Noise Sampling（初始噪声采样）</h3>
+<p>初始噪声采样干预不改变提示或模型，而是改变 \(K\) 个 rollout 的噪声样本之间的相关性。论文采用 Couple to Control（C2C），一种排斥式高斯耦合方案：对 \(K\) 个初始噪声施加负依赖，使样本在模式间更分散，同时保持每个噪声样本边缘分布仍是标准高斯。</p>
+<p>该方法的目的是判断观测到的覆盖不足是否是有限采样探索失败。如果模型本身能生成多种结果，只是独立采样反复落在相同模式上，那么负相关的噪声耦合应该提高有限预算下的覆盖。C2C 不改变模型学到的分布，因此它只影响“从已有分布中采样”的效率。</p>
+<h3 id="5-3-updating-model-parameters-更新模型参数">5.3 Updating Model Parameters（更新模型参数）</h3>
+<p>最后一种干预是直接改变模型参数。论文在 Wan2.2 上使用 LoRA 进行参数高效微调。训练数据由不同比例的铅笔向左倒下视频组成，左倒比例从 0% 到 100% 变化；训练预算和其余配方固定。微调后的模型在竖直铅笔和左倾铅笔两种场景上，用方向中性的动作提示进行评测。</p>
+<p>该设计检验训练数据中的结果频率是否能重塑模型的条件结果分布。LoRA 允许在不修改全部参数的情况下调整生成分布，从而观察全局数据比例对具体物理状态的影响。论文结果表明，改变训练比例可以移动输出频率，但两个场景会同时同向变化，说明这种控制是粗粒度的，不能自然实现“每个场景按自身物理状态分配概率”的精确条件分布。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.27345v3/causal_noncausal_interventions.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.27345v3/causal_noncausal_interventions.png" alt="图 4：模型对物理因果干预反应不足，对非因果线索反应过度。上、下条形分别显示干预前后的结果分布；面板 (b) 和 (d) 显示配对的场景。铅笔倾斜是因果性的，因为它改变了物理转移过程；而 Galton 板上的文字是非因果性的，因为它不改变转移过程。" loading="lazy"></a><span class="image-caption">图 4：模型对物理因果干预反应不足，对非因果线索反应过度。上、下条形分别显示干预前后的结果分布；面板 (b) 和 (d) 显示配对的场景。铅笔倾斜是因果性的，因为它改变了物理转移过程；而 Galton 板上的文字是非因果性的，因为它不改变转移过程。</span></span></p>
+<h2 id="6-局限性和展望-约300字">6. 局限性和展望（约300字）</h2>
+<p>论文明确说明的限制主要有三点。第一，PAWBench 通过终端结果而不是完整轨迹来评估随机未来，这使分布比较可行，但无法捕捉轨迹级动力学、中间物理过程或连续状态变化。第二，评测依赖有限 rollout 预算；增加采样能更可靠地估计模型分布，但不能纠正模型本身的概率偏差，同时会提高评测成本。第三，场景是受控、视觉可解析的短程物理过程，不覆盖长时程、交互式或具身环境。</p>
+<p>可以谨慎推断的局限包括：PAWEval 依赖 VLM 作为自动评判器，虽然论文验证了与人类判断在清晰结果上的一致性，但复杂结果集或长视频仍可能有标签噪声；PAW-Coverage 因为缺少参考概率，只能衡量支撑是否被见过，无法判断重复采样是否按正确比例访问这些结果；C2C 和语言干预更多是推理期或采样期调整，不解决模型对状态条件概率的错误学习。</p>
+<p>未来工作可以把概率对齐从终端标签扩展到更丰富的状态轨迹，设计更高效的 rollout 估计器，把基准扩展到交互式和具身场景，并开发显式学习“随物理状态变化的条件分布”的训练目标。</p></div></article></main>
   </div>
   <script>/*!
   * PhotoSwipe 5.4.4 - https://photoswipe.com

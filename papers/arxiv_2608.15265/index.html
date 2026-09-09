@@ -1,0 +1,1026 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VibeWorlding: Can Multimodal Agents Construct 3D Open Worlds End-to-End?</title>
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <style>
+/*! PhotoSwipe main CSS by Dmytro Semenov | photoswipe.com */
+
+.pswp {
+  --pswp-bg: #000;
+  --pswp-placeholder-bg: #222;
+
+
+  --pswp-root-z-index: 100000;
+
+  --pswp-preloader-color: rgba(79, 79, 79, 0.4);
+  --pswp-preloader-color-secondary: rgba(255, 255, 255, 0.9);
+
+  /* defined via js:
+  --pswp-transition-duration: 333ms; */
+
+  --pswp-icon-color: #fff;
+  --pswp-icon-color-secondary: #4f4f4f;
+  --pswp-icon-stroke-color: #4f4f4f;
+  --pswp-icon-stroke-width: 2px;
+
+  --pswp-error-text-color: var(--pswp-icon-color);
+}
+
+
+/*
+	Styles for basic PhotoSwipe (pswp) functionality (sliding area, open/close transitions)
+*/
+
+.pswp {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: var(--pswp-root-z-index);
+	display: none;
+	touch-action: none;
+	outline: 0;
+	opacity: 0.003;
+	contain: layout style size;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* Prevents focus outline on the root element,
+  (it may be focused initially) */
+.pswp:focus {
+  outline: 0;
+}
+
+.pswp * {
+  box-sizing: border-box;
+}
+
+.pswp img {
+  max-width: none;
+}
+
+.pswp--open {
+	display: block;
+}
+
+.pswp,
+.pswp__bg {
+	transform: translateZ(0);
+	will-change: opacity;
+}
+
+.pswp__bg {
+  opacity: 0.005;
+	background: var(--pswp-bg);
+}
+
+.pswp,
+.pswp__scroll-wrap {
+	overflow: hidden;
+}
+
+.pswp__scroll-wrap,
+.pswp__bg,
+.pswp__container,
+.pswp__item,
+.pswp__content,
+.pswp__img,
+.pswp__zoom-wrap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.pswp__img,
+.pswp__zoom-wrap {
+	width: auto;
+	height: auto;
+}
+
+.pswp--click-to-zoom.pswp--zoom-allowed .pswp__img {
+	cursor: -webkit-zoom-in;
+	cursor: -moz-zoom-in;
+	cursor: zoom-in;
+}
+
+.pswp--click-to-zoom.pswp--zoomed-in .pswp__img {
+	cursor: move;
+	cursor: -webkit-grab;
+	cursor: -moz-grab;
+	cursor: grab;
+}
+
+.pswp--click-to-zoom.pswp--zoomed-in .pswp__img:active {
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+  cursor: grabbing;
+}
+
+/* :active to override grabbing cursor */
+.pswp--no-mouse-drag.pswp--zoomed-in .pswp__img,
+.pswp--no-mouse-drag.pswp--zoomed-in .pswp__img:active,
+.pswp__img {
+	cursor: -webkit-zoom-out;
+	cursor: -moz-zoom-out;
+	cursor: zoom-out;
+}
+
+
+/* Prevent selection and tap highlights */
+.pswp__container,
+.pswp__img,
+.pswp__button,
+.pswp__counter {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.pswp__item {
+	/* z-index for fade transition */
+	z-index: 1;
+	overflow: hidden;
+}
+
+.pswp__hidden {
+	display: none !important;
+}
+
+/* Allow to click through pswp__content element, but not its children */
+.pswp__content {
+  pointer-events: none;
+}
+.pswp__content > * {
+  pointer-events: auto;
+}
+
+
+/*
+
+  PhotoSwipe UI
+
+*/
+
+/*
+	Error message appears when image is not loaded
+	(JS option errorMsg controls markup)
+*/
+.pswp__error-msg-container {
+  display: grid;
+}
+.pswp__error-msg {
+	margin: auto;
+	font-size: 1em;
+	line-height: 1;
+	color: var(--pswp-error-text-color);
+}
+
+/*
+class pswp__hide-on-close is applied to elements that
+should hide (for example fade out) when PhotoSwipe is closed
+and show (for example fade in) when PhotoSwipe is opened
+ */
+.pswp .pswp__hide-on-close {
+	opacity: 0.005;
+	will-change: opacity;
+	transition: opacity var(--pswp-transition-duration) cubic-bezier(0.4, 0, 0.22, 1);
+	z-index: 10; /* always overlap slide content */
+	pointer-events: none; /* hidden elements should not be clickable */
+}
+
+/* class pswp--ui-visible is added when opening or closing transition starts */
+.pswp--ui-visible .pswp__hide-on-close {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+/* <button> styles, including css reset */
+.pswp__button {
+	position: relative;
+	display: block;
+	width: 50px;
+	height: 60px;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	cursor: pointer;
+	background: none;
+	border: 0;
+	box-shadow: none;
+	opacity: 0.85;
+	-webkit-appearance: none;
+	-webkit-touch-callout: none;
+}
+
+.pswp__button:hover,
+.pswp__button:active,
+.pswp__button:focus {
+  transition: none;
+  padding: 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  opacity: 1;
+}
+
+.pswp__button:disabled {
+  opacity: 0.3;
+  cursor: auto;
+}
+
+.pswp__icn {
+  fill: var(--pswp-icon-color);
+  color: var(--pswp-icon-color-secondary);
+}
+
+.pswp__icn {
+  position: absolute;
+  top: 14px;
+  left: 9px;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.pswp__icn-shadow {
+  stroke: var(--pswp-icon-stroke-color);
+  stroke-width: var(--pswp-icon-stroke-width);
+  fill: none;
+}
+
+.pswp__icn:focus {
+	outline: 0;
+}
+
+/*
+	div element that matches size of large image,
+	large image loads on top of it,
+	used when msrc is not provided
+*/
+div.pswp__img--placeholder,
+.pswp__img--with-bg {
+	background: var(--pswp-placeholder-bg);
+}
+
+.pswp__top-bar {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 60px;
+	display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+	z-index: 10;
+
+	/* allow events to pass through top bar itself */
+	pointer-events: none !important;
+}
+.pswp__top-bar > * {
+  pointer-events: auto;
+  /* this makes transition significantly more smooth,
+     even though inner elements are not animated */
+  will-change: opacity;
+}
+
+
+/*
+
+  Close button
+
+*/
+.pswp__button--close {
+  margin-right: 6px;
+}
+
+
+/*
+
+  Arrow buttons
+
+*/
+.pswp__button--arrow {
+  position: absolute;
+  top: 0;
+  width: 75px;
+  height: 100px;
+  top: 50%;
+  margin-top: -50px;
+}
+
+.pswp__button--arrow:disabled {
+  display: none;
+  cursor: default;
+}
+
+.pswp__button--arrow .pswp__icn {
+  top: 50%;
+  margin-top: -30px;
+  width: 60px;
+  height: 60px;
+  background: none;
+  border-radius: 0;
+}
+
+.pswp--one-slide .pswp__button--arrow {
+  display: none;
+}
+
+/* hide arrows on touch screens */
+.pswp--touch .pswp__button--arrow {
+  visibility: hidden;
+}
+
+/* show arrows only after mouse was used */
+.pswp--has_mouse .pswp__button--arrow {
+  visibility: visible;
+}
+
+.pswp__button--arrow--prev {
+  right: auto;
+  left: 0px;
+}
+
+.pswp__button--arrow--next {
+  right: 0px;
+}
+.pswp__button--arrow--next .pswp__icn {
+  left: auto;
+  right: 14px;
+  /* flip horizontally */
+  transform: scale(-1, 1);
+}
+
+/*
+
+  Zoom button
+
+*/
+.pswp__button--zoom {
+  display: none;
+}
+
+.pswp--zoom-allowed .pswp__button--zoom {
+  display: block;
+}
+
+/* "+" => "-" */
+.pswp--zoomed-in .pswp__zoom-icn-bar-v {
+  display: none;
+}
+
+
+/*
+
+  Loading indicator
+
+*/
+.pswp__preloader {
+  position: relative;
+  overflow: hidden;
+  width: 50px;
+  height: 60px;
+  margin-right: auto;
+}
+
+.pswp__preloader .pswp__icn {
+  opacity: 0;
+  transition: opacity 0.2s linear;
+  animation: pswp-clockwise 600ms linear infinite;
+}
+
+.pswp__preloader--active .pswp__icn {
+  opacity: 0.85;
+}
+
+@keyframes pswp-clockwise {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+/*
+
+  "1 of 10" counter
+
+*/
+.pswp__counter {
+  height: 30px;
+  margin-top: 15px;
+  margin-inline-start: 20px;
+  font-size: 14px;
+  line-height: 30px;
+  color: var(--pswp-icon-color);
+  text-shadow: 1px 1px 3px var(--pswp-icon-color-secondary);
+  opacity: 0.85;
+}
+
+.pswp--one-slide .pswp__counter {
+  display: none;
+}
+
+    :root { color-scheme: light; font-family: Inter, "PingFang SC", "Microsoft YaHei", sans-serif; }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: #1b1f24; background: #f5f7f8; line-height: 1.72; }
+    main { width: min(920px, calc(100% - 40px)); margin: 0 auto; padding: 52px 0 80px; }
+    article { background: #fff; border: 1px solid #dfe4e8; border-radius: 8px; padding: 42px 48px; box-shadow: 0 4px 18px rgba(25, 31, 36, .06); }
+    h1, h2, h3 { color: #111418; line-height: 1.3; letter-spacing: 0; }
+    h1, h2 { font-weight: 750; }
+    h1 { margin: 0 0 28px; font-size: 30px; }
+    h2 { margin: 38px 0 14px; padding-bottom: 8px; border-bottom: 1px solid #e5e8eb; font-size: 21px; }
+    h3 { margin: 28px 0 10px; font-size: 17px; }
+    h1 { color: #1769aa; }
+    h2 { color: #1769aa; }
+    p, li { font-size: 15px; }
+    ul, ol { padding-left: 26px; }
+    ul ul, ul ol, ol ul, ol ol { margin-top: 7px; margin-bottom: 0; }
+    li + li { margin-top: 7px; }
+    .embedded-image { display: block; margin: 20px 0; }
+    .embedded-image .pswp-image { display: block; color: inherit; text-decoration: none; }
+    .embedded-image img { display: block; width: auto; max-width: 100%; height: auto; margin: 0 auto; border: 1px solid #dfe4e8; border-radius: 6px; cursor: zoom-in; }
+    .image-caption { display: block; margin-top: 8px; color: #606870; font-size: 13px; text-align: center; }
+    code { padding: 2px 5px; border-radius: 4px; background: #eef1f3; color: #a12632; font-family: "SFMono-Regular", Consolas, monospace; font-size: .92em; }
+    pre { overflow-x: auto; padding: 18px; border: 1px solid #dfe4e8; border-radius: 6px; background: #f7f8fa; line-height: 1.55; }
+    pre code { padding: 0; background: none; color: #24292f; }
+    blockquote { margin: 20px 0; padding: 12px 18px; border-left: 4px solid #2f6f62; background: #f1f7f5; color: #34443f; }
+    .mermaid { display: flex; justify-content: center; overflow-x: auto; margin: 22px 0; padding: 22px; border: 1px solid #dfe4e8; border-radius: 6px; background: #fbfcfc; }
+    .table-wrap { overflow-x: auto; margin: 18px 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { padding: 10px 12px; border: 1px solid #dfe4e8; text-align: left; vertical-align: top; }
+    th { background: #f2f4f5; font-weight: 650; }
+    a { color: #1769aa; }
+    @media (max-width: 640px) { main { width: 100%; padding: 0; } article { border: 0; border-radius: 0; padding: 28px 22px 56px; } }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+    body { background: #f8fafc; }
+    .academic-shell { width: min(1440px, calc(100% - 40px)); margin: 0 auto; padding: 32px 0 80px; display: grid; grid-template-columns: 272px minmax(0, 1120px); justify-content: center; gap: 32px; align-items: start; }
+    .academic-sidebar { position: sticky; top: 24px; max-height: calc(100vh - 48px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #cbd5e1 transparent; }
+    .toc-panel { border: 1px solid #e2e8f0; border-radius: 16px; background: rgba(255, 255, 255, .96); padding: 16px 12px; box-shadow: 0 8px 24px rgba(15, 23, 42, .05); }
+    .toc-heading { margin: 0 8px 10px; color: #94a3b8; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .toc-nav { display: grid; gap: 2px; }
+    .toc-link { display: block; padding: 7px 10px; border-left: 2px solid transparent; border-radius: 7px; color: #64748b; font-size: 12px; line-height: 1.45; text-decoration: none; overflow-wrap: anywhere; transition: color .15s, background .15s, border-color .15s; }
+    .toc-link:hover { color: #4338ca; background: #eef2ff; }
+    .toc-link.toc-active { color: #4338ca; border-left-color: #6366f1; background: #eef2ff; font-weight: 700; }
+    .toc-level-1 { font-weight: 700; color: #334155; }
+    .toc-level-2 { padding-left: 16px; }
+    .toc-level-3 { padding-left: 28px; font-size: 11px; }
+    .toc-level-4 { padding-left: 36px; font-size: 11px; }
+    .toc-level-5 { padding-left: 44px; font-size: 11px; }
+    .toc-level-6 { padding-left: 52px; font-size: 11px; }
+    .toc-empty { margin: 8px; color: #94a3b8; font-size: 12px; }
+    .toc-collapse-button { display: inline-flex; position: fixed; z-index: 70; top: 24px; left: 12px; align-items: center; gap: 7px; padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 8px; background: rgba(255, 255, 255, .96); color: #475569; font: inherit; font-size: 12px; font-weight: 700; box-shadow: 0 6px 18px rgba(15, 23, 42, .08); cursor: pointer; }
+    body.toc-collapsed .academic-shell { grid-template-columns: minmax(0, 1120px); gap: 0; }
+    body.toc-collapsed .academic-sidebar { display: none; }
+    .academic-main { width: 100%; min-width: 0; margin: 0; padding: 0; }
+    .academic-main article { border-color: #e2e8f0; border-radius: 18px; padding: 48px 44px 64px; box-shadow: 0 10px 32px rgba(15, 23, 42, .06); }
+    .academic-main h1, .academic-main h2, .academic-main h3 { scroll-margin-top: 24px; }
+    .academic-main h1 { font-size: 32px; }
+    .academic-main h2 { margin-top: 44px; padding-bottom: 10px; border-bottom-color: #e2e8f0; font-size: 22px; }
+    .academic-main h3 { margin-top: 32px; font-size: 18px; }
+    .academic-main .embedded-image { margin: 26px 0; }
+    .academic-main .embedded-image img { border-color: #e2e8f0; border-radius: 10px; }
+    .toc-menu-button { display: none; }
+    .toc-backdrop { display: none; }
+    @media (max-width: 960px) {
+      .toc-collapse-button { display: none; }
+      .academic-shell { width: min(920px, calc(100% - 32px)); display: block; padding-top: 68px; }
+      .academic-sidebar { position: fixed; z-index: 80; top: 0; left: 0; width: min(320px, 86vw); height: 100vh; max-height: none; padding: 16px; background: #f8fafc; transform: translateX(-105%); transition: transform .2s ease; }
+      body.toc-open .academic-sidebar { transform: translateX(0); }
+      .toc-panel { min-height: calc(100vh - 32px); }
+      .toc-menu-button { display: inline-flex; position: fixed; z-index: 70; top: 16px; left: 16px; align-items: center; gap: 7px; padding: 9px 12px; border: 1px solid #cbd5e1; border-radius: 10px; background: rgba(255, 255, 255, .96); color: #475569; font: inherit; font-size: 13px; font-weight: 700; box-shadow: 0 6px 18px rgba(15, 23, 42, .1); cursor: pointer; }
+      .toc-backdrop { position: fixed; z-index: 75; inset: 0; background: rgba(15, 23, 42, .32); }
+      body.toc-open .toc-backdrop { display: block; }
+      .academic-main article { padding: 38px 36px 56px; }
+    }
+    @media (max-width: 640px) {
+      .academic-shell { width: 100%; padding: 60px 0 0; }
+      .academic-main article { padding: 30px 22px 52px; border: 0; border-radius: 0; }
+    }
+
+
+
+
+  </style>
+</head>
+<body>
+
+  <button class="toc-collapse-button" id="toc-collapse-button" type="button" aria-controls="academic-sidebar" aria-expanded="true">◀ 收起目录</button>
+  <button class="toc-menu-button" id="toc-menu-button" type="button" aria-controls="academic-sidebar" aria-expanded="false">☰ 目录</button>
+  <div class="toc-backdrop" id="toc-backdrop"></div>
+  <div class="academic-shell">
+    <aside class="academic-sidebar" id="academic-sidebar" aria-label="文档目录">
+      <div class="toc-panel">
+        <p class="toc-heading">目录</p>
+        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#vibeworlding-can-multimodal-agents-construct-3d-open-worlds-end-to-end">VibeWorlding: Can Multimodal Agents Construct 3D Open Worlds End-to-End?</a><a class="toc-link toc-level-2" href="#快速理解">快速理解</a><a class="toc-link toc-level-2" href="#中文摘要">中文摘要</a><a class="toc-link toc-level-2" href="#详细分析">详细分析</a><a class="toc-link toc-level-2" href="#1-任务输入-输出-功能和边界">1. 任务输入、输出、功能和边界</a><a class="toc-link toc-level-3" href="#1-1-任务是什么">1.1 任务是什么？</a><a class="toc-link toc-level-3" href="#1-2-输入形式">1.2 输入形式</a><a class="toc-link toc-level-3" href="#1-3-输出形式">1.3 输出形式</a><a class="toc-link toc-level-3" href="#1-4-智能体可用的工具">1.4 智能体可用的工具</a><a class="toc-link toc-level-3" href="#1-5-功能边界">1.5 功能边界</a><a class="toc-link toc-level-2" href="#2-论文要解决的问题以及问题发生的具体原因">2. 论文要解决的问题以及问题发生的具体原因</a><a class="toc-link toc-level-3" href="#2-1-问题一-现有评测太理想化-无法系统比较智能体能力">2.1 问题一：现有评测太理想化，无法系统比较智能体能力</a><a class="toc-link toc-level-3" href="#2-2-问题二-3d-环境和工具碎片化-缺少统一训练平台">2.2 问题二：3D 环境和工具碎片化，缺少统一训练平台</a><a class="toc-link toc-level-3" href="#2-3-问题三-3d-world-construction-很难验证">2.3 问题三：3D world construction 很难验证</a><a class="toc-link toc-level-2" href="#3-核心-insight-与贡献">3. 核心 insight 与贡献</a><a class="toc-link toc-level-3" href="#3-1-核心-insight">3.1 核心 insight</a><a class="toc-link toc-level-3" href="#3-2-主要贡献">3.2 主要贡献</a><a class="toc-link toc-level-2" href="#4-使用的基模-以及从输入到输出的整体流程">4. 使用的基模，以及从输入到输出的整体流程</a><a class="toc-link toc-level-3" href="#4-1-使用的基模">4.1 使用的基模</a><a class="toc-link toc-level-3" href="#4-2-从输入到输出的整体流程">4.2 从输入到输出的整体流程</a><a class="toc-link toc-level-2" href="#5-每个关键机制为什么需要-具体怎么做-得到什么">5. 每个关键机制为什么需要、具体怎么做、得到什么</a><a class="toc-link toc-level-3" href="#5-1-vwe-bench-为什么需要">5.1 VWE-Bench：为什么需要？</a><a class="toc-link toc-level-3" href="#5-2-vwe-bench-怎么构造">5.2 VWE-Bench 怎么构造？</a><a class="toc-link toc-level-3" href="#5-3-统一-3d-sandbox-为什么需要">5.3 统一 3D sandbox：为什么需要？</a><a class="toc-link toc-level-3" href="#5-4-统一-3d-sandbox-怎么做">5.4 统一 3D sandbox 怎么做？</a><a class="toc-link toc-level-3" href="#5-5-dual-constraint-verifier-为什么需要">5.5 Dual-constraint verifier：为什么需要？</a><a class="toc-link toc-level-3" href="#5-6-physical-feasibility-verification-怎么做">5.6 Physical feasibility verification 怎么做？</a><a class="toc-link toc-level-3" href="#5-7-intent-fulfillment-verification-怎么做">5.7 Intent fulfillment verification 怎么做？</a><a class="toc-link toc-level-3" href="#5-8-verifier-如何给-reward">5.8 verifier 如何给 reward？</a><a class="toc-link toc-level-3" href="#5-9-sft-cold-start-为什么需要">5.9 SFT cold-start：为什么需要？</a><a class="toc-link toc-level-3" href="#5-10-sft-cold-start-怎么做">5.10 SFT cold-start 怎么做？</a><a class="toc-link toc-level-3" href="#5-11-多模态-rl-为什么需要">5.11 多模态 RL：为什么需要？</a><a class="toc-link toc-level-3" href="#5-12-多模态-rl-怎么做">5.12 多模态 RL 怎么做？</a><a class="toc-link toc-level-2" href="#6-主结果-消融结果-可视化结论及证据边界">6. 主结果、消融结果、可视化结论及证据边界</a><a class="toc-link toc-level-3" href="#6-1-主结果-当前-frontier-mllm-远未解决任务">6.1 主结果：当前 frontier MLLM 远未解决任务</a><a class="toc-link toc-level-3" href="#6-2-rl-让开源模型大幅提升">6.2 RL 让开源模型大幅提升</a><a class="toc-link toc-level-3" href="#6-3-分任务结果-从零构造最难-复杂-refinement-也很难">6.3 分任务结果：从零构造最难，复杂 refinement 也很难</a><a class="toc-link toc-level-3" href="#6-4-能力分析-真正瓶颈是精确-3d-编辑和碰撞">6.4 能力分析：真正瓶颈是精确 3D 编辑和碰撞</a><a class="toc-link toc-level-3" href="#6-5-训练过程消融-sft-和-rl-的作用不同">6.5 训练过程消融：SFT 和 RL 的作用不同</a><a class="toc-link toc-level-3" href="#6-6-失败案例可视化-两个主要失败模式">6.6 失败案例可视化：两个主要失败模式</a><a class="toc-link toc-level-3" href="#6-7-cli-原型-说明系统可以交互使用">6.7 CLI 原型：说明系统可以交互使用</a><a class="toc-link toc-level-3" href="#6-8-证据边界">6.8 证据边界</a><a class="toc-link toc-level-2" href="#7-局限性和最终判断">7. 局限性和最终判断</a><a class="toc-link toc-level-3" href="#7-1-局限性">7.1 局限性</a><a class="toc-link toc-level-3" href="#7-2-最终判断">7.2 最终判断</a></nav>
+      </div>
+    </aside>
+    <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../date/">← 返回日报目录</a></p>
+<h1 id="vibeworlding-can-multimodal-agents-construct-3d-open-worlds-end-to-end">VibeWorlding: Can Multimodal Agents Construct 3D Open Worlds End-to-End?</h1>
+<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2608.15265v2">arXiv</a> · <a href="https://huggingface.co/papers/2608.15265">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2608.15265">AlphaXiv</a></p>
+<p><strong>一句话主题：</strong> 多模态智能体自动构建3D开放世界</p>
+<p><strong>领域标签：</strong> 多模态智能体 / 3D开放世界生成 / 强化学习后训练</p>
+<h2 id="快速理解">快速理解</h2>
+<p><strong>背景与任务：</strong> 现有3D世界构建方法多在简单理想查询上评测，难以系统分析意图理解、3D工具使用与多模态推理能力。</p>
+<p><strong>核心工作：</strong> 作者提出VibeWorlding框架，构建VWE-BENCH基准和VibeWorlding-Gym训练体系，用于评测并训练可自主规划、编辑和反思的3D世界构建智能体。</p>
+<h2 id="中文摘要">中文摘要</h2>
+<p>从用户查询中构建一个可交互的 3D 开放世界至关重要。然而，现有方法主要在理想化、简单的查询上进行评估，这使得系统性分析和比较多模态智能体如何理解用户意图、使用 3D 工具，以及如何在文本和视觉的 3D 世界信息上进行推理变得困难。为此，我们提出 VibeWorlding，一个用于基准测试和训练 vibe worlding agents 的统一框架：这是一类多模态智能体，能够在多轮智能体-环境交互过程中自主推断用户意图、规划场景布局、调用 3D 工具，并对多模态反馈进行反思。为实现这一目标，我们首先构建了 VWE-BENCH，一个包含 2,616 个高质量 3D 资产、323 个人工标注的种子 3D 世界，以及 6,828 个反向合成的多模态用户查询的基准数据集，并将其划分为具有 ground-truth 的已验证查询和带有精心设计 rubric 的未验证查询。此外，我们开发了 VibeWorlding-Gym，一个联合多模态 RL 后训练框架，它集成了：(1) 一个统一资产检索、编辑和图像渲染为 MCP tools 的沙盒环境；以及 (2) 一个基于 rubric 的验证器，结合物理可行性和意图满足性验证，既支持公平的模型评估，也支持可扩展的多模态 RL 奖励服务。我们的实验表明，当前前沿 MLLMs 远未解决 vibe worlding 智能体任务，即使是 GPT-5.5 和 Qwen3.8-Max 的成功率也低于 60%，且瓶颈可归因于精确的 3D 世界编辑。我们进一步发现，RL 训练可以缓解这一弱点，并使开源 MLLMs 甚至超越闭源前沿模型：我们的 VibeWorlder-8B 可与前沿 MLLMs 相媲美，而旗舰模型 VibeWorlder-30B-A3B 在所有评测模型中取得了最佳的整体 Pass@1。</p>
+<h2 id="详细分析">详细分析</h2>
+<p>下面按“给懂 Transformer/MLLM 基础、但不熟悉 3D world construction agent 的低年级博士生”的方式讲解这篇论文。可以先把它理解成：<strong>这篇论文不是单纯提出一个 3D 生成模型，而是提出一个用于评测和训练“会用 3D 工具搭世界的多模态智能体”的完整平台。</strong></p>
+<hr>
+<h2 id="1-任务输入-输出-功能和边界">1. 任务输入、输出、功能和边界</h2>
+<h3 id="1-1-任务是什么">1.1 任务是什么？</h3>
+<p>论文定义的任务叫 <strong>vibe worlding</strong>，可以直译为“按用户感觉/意图构造 3D 世界”。这里的“worlding”不是从零生成 mesh，而是让一个多模态智能体使用已有的 3D asset 库，通过工具调用来搭建或修改一个 3D 场景。</p>
+<p>智能体需要做到：</p>
+<ol><li>理解用户的自然语言或多模态请求；</li><li>推断用户真实意图；</li><li>规划 3D 场景布局；</li><li>检索合适的 3D asset；</li><li>调用工具添加、删除、平移、旋转物体；</li><li>查看环境返回的 3D map 和多视角渲染图；</li><li>根据反馈继续修改；</li><li>最终输出一个可交互的 3D world。</li></ol>
+<p>它更像是“3D 版的 vibe coding”：用户说“帮我做一个热闹的城市街区”或“把路中间的车删掉，再删掉两个绿色建筑”，智能体要自己操作 3D 编辑工具完成。</p>
+<hr>
+<h3 id="1-2-输入形式">1.2 输入形式</h3>
+<p>论文定义了两类输入。</p>
+<h4 id="a-从零构造-3d-世界">A. 从零构造 3D 世界</h4>
+<p>输入是纯文本，例如：</p>
+<blockquote>Build a cozy study with a bookshelf and a wooden desk.</blockquote>
+<p>智能体从空场景开始，自己决定要放哪些 asset、放在哪里、怎么旋转和缩放。</p>
+<h4 id="b-修改已有-3d-世界">B. 修改已有 3D 世界</h4>
+<p>输入是多模态的，包括：</p>
+<ol><li>当前 3D world 的文本地图 <code>W_text</code>；</li><li>当前 3D world 的多视角渲染图 <code>W_image</code>；</li><li>用户的文本编辑指令。</li></ol>
+<p>例如：</p>
+<blockquote>给定当前场景，在桌子旁边加一个书架。</blockquote>
+<p>这里智能体不仅要理解文字，还要理解已有 3D 场景状态，避免破坏不该修改的物体。</p>
+<hr>
+<h3 id="1-3-输出形式">1.3 输出形式</h3>
+<p>输出不是一张图片，而是一个真正的 3D world，包括：</p>
+<ol><li><strong>文本形式的 3D map</strong>：每个 asset 的 id、名称、位置、旋转、缩放；</li><li><strong>渲染图像</strong>：从前、后、左、右、俯视五个固定视角渲染出来的图片；</li><li>可被 sandbox 继续编辑或交互的 3D 场景。</li></ol>
+<p>论文中一个 3D world 被表示为：</p>
+<p>\[ W = \{(m, pos[x,y,z], rot[x,y,z], sca), \dots\} \]</p>
+<p>其中：</p>
+<ul><li>\(m\)：某个 3D asset；</li><li><code>pos</code>：位置；</li><li><code>rot</code>：绕 x/y/z 轴的欧拉角；</li><li><code>sca</code>：缩放比例。</li></ul>
+<hr>
+<h3 id="1-4-智能体可用的工具">1.4 智能体可用的工具</h3>
+<p>论文没有让模型直接生成 Blender 脚本，而是提供了五个原子工具：</p>
+<ol><li><code>asset_retrieve(name, top_k)</code>：根据自然语言检索 asset；</li><li><code>asset_add(id, name, pos, sca)</code>：把 asset 放入世界；</li><li><code>asset_delete(id, pos, name)</code>：删除 asset；</li><li><code>asset_translate(...)</code>：平移 asset；</li><li><code>asset_rotate(...)</code>：旋转 asset。</li></ol>
+<p>这意味着模型的动作空间是“结构化工具调用”，而不是自由文本。</p>
+<hr>
+<h3 id="1-5-功能边界">1.5 功能边界</h3>
+<p>这篇论文的任务边界很重要：</p>
+<h4 id="它做的是">它做的是：</h4>
+<ul><li>基于已有 3D asset 库搭世界；</li><li>多轮交互式编辑；</li><li>从自然语言或多模态输入到最终 3D 场景；</li><li>训练和评测会用 3D 工具的多模态智能体。</li></ul>
+<h4 id="它不主要解决">它不主要解决：</h4>
+<ul><li>从文本直接生成高质量 3D mesh；</li><li>真实物理仿真；</li><li>超大规模开放世界生成；</li><li>写实级游戏资产生产；</li><li>主观审美的完全自动化评价。</li></ul>
+<p>所以它不是 “text-to-3D mesh generation”，而是 <strong>MLLM + 3D asset library + tool-use + rendering feedback + verifier + RL</strong> 的 agentic 3D world construction 框架。</p>
+<hr>
+<h2 id="2-论文要解决的问题以及问题发生的具体原因">2. 论文要解决的问题以及问题发生的具体原因</h2>
+<p>这篇论文想解决的问题可以概括为：</p>
+<blockquote>现有多模态智能体到底能不能端到端地搭建复杂 3D 开放世界？如果不能，瓶颈在哪里？能不能通过多模态强化学习让它变好？</blockquote>
+<p>作者认为目前领域里有两个核心缺口。</p>
+<hr>
+<h3 id="2-1-问题一-现有评测太理想化-无法系统比较智能体能力">2.1 问题一：现有评测太理想化，无法系统比较智能体能力</h3>
+<p>已有 3D 场景智能体通常评测的是比较简单、理想化的请求，例如：</p>
+<ul><li>“生成一个卧室”；</li><li>“放一张桌子和一把椅子”；</li><li>“构造一个简单街道”。</li></ul>
+<p>这类任务太干净，无法检验真实用户请求里的复杂性。例如真实用户可能说：</p>
+<ul><li>“这个场景有点空，让它更热闹一些”；</li><li>“把那些树稍微整理一下”；</li><li>“我想要一个废土神殿的感觉”；</li><li>“把雕像挪到祭坛旁边，但不要挡路”。</li></ul>
+<p>这些请求存在模糊性、空间关系、审美倾向、物理可行性和工具执行精度要求。只用简单 query 评测，无法判断模型到底是：</p>
+<ul><li>不理解用户意图；</li><li>检索不到合适 asset；</li><li>不会规划布局；</li><li>坐标系搞错；</li><li>碰撞检测失败；</li><li>多轮编辑时误删东西。</li></ul>
+<p>因此，论文要构造一个更系统的 benchmark。</p>
+<hr>
+<h3 id="2-2-问题二-3d-环境和工具碎片化-缺少统一训练平台">2.2 问题二：3D 环境和工具碎片化，缺少统一训练平台</h3>
+<p>3D world construction 涉及很多环节：</p>
+<ol><li>asset 库；</li><li>asset 检索；</li><li>添加、删除、移动、旋转；</li><li>3D 场景状态维护；</li><li>Blender 渲染；</li><li>物理可行性检查；</li><li>用户意图是否满足的判断；</li><li>多轮 agent 轨迹采样；</li><li>SFT 和 RL 训练。</li></ol>
+<p>过去很多工作使用闭源工具链或各自不同的流程。这样会导致：</p>
+<ul><li>模型之间不公平，工具和 asset 库不同；</li><li>很难复现实验；</li><li>很难做强化学习，因为环境和 reward service 不统一；</li><li>很难定位错误来自模型、工具还是评价器。</li></ul>
+<p>所以作者提出了一个统一环境：<strong>VibeWorlding-Gym</strong>。</p>
+<hr>
+<h3 id="2-3-问题三-3d-world-construction-很难验证">2.3 问题三：3D world construction 很难验证</h3>
+<p>一个场景好不好，不是只看“有没有这个物体”。</p>
+<p>它至少要满足两类约束。</p>
+<h4 id="a-物理可行性">A. 物理可行性</h4>
+<p>例如：</p>
+<ul><li>物体不能互相穿模；</li><li>桌子不能浮在空中；</li><li>房子不能插进树里；</li><li>asset 高度和支撑关系要合理。</li></ul>
+<p>这些可以部分用几何规则检查。</p>
+<h4 id="b-用户意图满足">B. 用户意图满足</h4>
+<p>例如用户说“营造温馨书房”，即使没有碰撞，也可能放了一堆墓碑和路灯，物理上可行但语义上不对。</p>
+<p>这需要判断：</p>
+<ul><li>场景整体风格是否合理；</li><li>是否放了用户要求的东西；</li><li>空间关系是否正确；</li><li>检索到的 asset 是否合适；</li><li>编辑是否只改了该改的东西。</li></ul>
+<p>这些不能完全靠简单规则完成，因此论文结合了规则检查和 MLLM judge。</p>
+<hr>
+<h2 id="3-核心-insight-与贡献">3. 核心 insight 与贡献</h2>
+<h3 id="3-1-核心-insight">3.1 核心 insight</h3>
+<p>论文的核心 insight 是：</p>
+<blockquote>3D world construction agent 的难点不只是“看懂图”或“理解文字”，而是要在多轮环境交互中，把模糊用户意图转化为精确的 3D 工具操作，并且这些操作必须同时满足物理约束和语义意图。</blockquote>
+<p>更具体地说，当前 frontier MLLM 已经有一定：</p>
+<ul><li>语言理解能力；</li><li>多模态理解能力；</li><li>高层规划能力；</li><li>asset 语义匹配能力。</li></ul>
+<p>但它们仍然容易在 <strong>精确 3D 编辑</strong> 上失败，例如：</p>
+<ul><li>“向前 7 米”方向搞反；</li><li>旋转角度错误；</li><li>位置坐标不准；</li><li>新放入物体与已有物体碰撞；</li><li>为了完成一个编辑，误删其他物体。</li></ul>
+<p>所以作者认为，必须用一个能返回真实 3D 反馈、能验证结果、能支持 RL 的环境来训练这种能力。</p>
+<hr>
+<h3 id="3-2-主要贡献">3.2 主要贡献</h3>
+<p>论文贡献主要有三点。</p>
+<h4 id="贡献一-提出-vwe-bench">贡献一：提出 VWE-Bench</h4>
+<p>VWE-Bench 是一个用于评测 vibe worlding agent 的 benchmark，包括：</p>
+<ul><li>2,616 个高质量 3D assets；</li><li>323 个人工标注 seed 3D worlds；</li><li>6,828 个反向合成的多模态用户 queries；</li><li>verified 和 unverified 两类任务；</li><li>从零构造和已有场景修改两大任务。</li></ul>
+<h4 id="贡献二-提出-vibeworlding-gym">贡献二：提出 VibeWorlding-Gym</h4>
+<p>这是一个训练和评测平台，包括：</p>
+<ul><li>统一 asset 检索；</li><li>统一 3D 编辑工具；</li><li>Blender 多视角渲染；</li><li>dual-constraint verifier；</li><li>支持 SFT 和多模态 RL。</li></ul>
+<h4 id="贡献三-系统分析当前模型瓶颈-并训练出-vibeworlder">贡献三：系统分析当前模型瓶颈，并训练出 VibeWorlder</h4>
+<p>作者发现：</p>
+<ul><li>即使 GPT-5.5 和 Qwen3.8-Max 也不到 60% Pass@1；</li><li>主要瓶颈是精确、无碰撞的 3D 编辑；</li><li>RL 可以明显提升开源模型；</li><li>VibeWorlder-30B-A3B 在总体 Pass@1 上超过论文评测的闭源 frontier 模型。</li></ul>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.15265v2/Figure/vibeworlding.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.15265v2/Figure/vibeworlding.png" alt="Figure 1: VWE-Bench 和 VibeWorlding-Gym 的概览。" loading="lazy"></a><span class="image-caption">Figure 1: VWE-Bench 和 VibeWorlding-Gym 的概览。</span></span></p>
+<hr>
+<h2 id="4-使用的基模-以及从输入到输出的整体流程">4. 使用的基模，以及从输入到输出的整体流程</h2>
+<h3 id="4-1-使用的基模">4.1 使用的基模</h3>
+<p>论文实验中涉及三类模型。</p>
+<h4 id="a-frontier-mllms">A. Frontier MLLMs</h4>
+<p>作为 zero-shot agent policy 使用，包括：</p>
+<ul><li>GPT-5.5；</li><li>Gemini 3.5-flash；</li><li>Gemini 3.1-pro；</li><li>Claude-Opus-4.8；</li><li>Kimi-K3；</li><li>Qwen3.8-Max。</li></ul>
+<p>这些模型不在论文框架中训练，只使用同一套 sandbox 工具进行评测。</p>
+<h4 id="b-开源基模">B. 开源基模</h4>
+<p>论文主要从 Qwen3-VL 系列做 post-training：</p>
+<ul><li>Qwen3-VL-8B；</li><li>Qwen3-VL-30B-A3B。</li></ul>
+<p>其中 30B-A3B 很可能是 mixture-of-experts 风格的模型命名，表示总参数和激活参数规模，但论文正文没有展开结构细节。</p>
+<h4 id="c-作者训练后的模型">C. 作者训练后的模型</h4>
+<ul><li>VibeWorlder-8B-SFT；</li><li>VibeWorlder-8B；</li><li>VibeWorlder-30B-A3B-SFT；</li><li>VibeWorlder-30B-A3B。</li></ul>
+<p>其中不带 SFT 后缀的是经过 SFT cold-start 后再做 RL 的模型。</p>
+<p>此外，asset 检索器基于：</p>
+<ul><li>Qwen3-Embedding-4B；</li><li>用合成正负样本和 InfoNCE loss 训练。</li></ul>
+<hr>
+<h3 id="4-2-从输入到输出的整体流程">4.2 从输入到输出的整体流程</h3>
+<p>可以把一次任务理解为如下闭环：</p>
+<h4 id="step-1-用户给出-query">Step 1：用户给出 query</h4>
+<p>可能是：</p>
+<ul><li>纯文本：从零构造一个世界；</li><li>当前世界 + 多视角图像 + 编辑指令：修改已有世界。</li></ul>
+<h4 id="step-2-智能体生成-thought-和-action">Step 2：智能体生成 thought 和 action</h4>
+<p>在第 \(i\) 轮，模型根据：</p>
+<ul><li>用户 query；</li><li>历史 thought；</li><li>历史工具调用；</li><li>历史环境反馈；</li><li>当前 3D map；</li><li>当前多视角图像；</li></ul>
+<p>生成：</p>
+<ul><li>内部推理 <code>thought</code>；</li><li>一个或多个工具调用 <code>action</code>。</li></ul>
+<h4 id="step-3-sandbox-执行工具">Step 3：sandbox 执行工具</h4>
+<p>sandbox 会执行：</p>
+<ul><li>asset 检索；</li><li>添加；</li><li>删除；</li><li>平移；</li><li>旋转。</li></ul>
+<p>然后更新 3D world。</p>
+<h4 id="step-4-blender-渲染反馈">Step 4：Blender 渲染反馈</h4>
+<p>环境从五个固定视角渲染当前世界，返回给模型。</p>
+<h4 id="step-5-模型根据反馈继续修改">Step 5：模型根据反馈继续修改</h4>
+<p>如果模型认为还没完成，会继续调用工具。</p>
+<h4 id="step-6-模型停止工具调用-输出最终-3d-world">Step 6：模型停止工具调用，输出最终 3D world</h4>
+<p>最终得到：</p>
+<ul><li><code>W_text</code>：场景中所有 asset 的位置、旋转、缩放；</li><li><code>W_image</code>：多视角渲染图；</li><li>自然语言总结。</li></ul>
+<p>这个流程的关键是：模型不是一次性生成结果，而是 <strong>工具调用—环境反馈—再推理—再编辑</strong> 的多轮过程。</p>
+<hr>
+<h2 id="5-每个关键机制为什么需要-具体怎么做-得到什么">5. 每个关键机制为什么需要、具体怎么做、得到什么</h2>
+<hr>
+<h3 id="5-1-vwe-bench-为什么需要">5.1 VWE-Bench：为什么需要？</h3>
+<p>需要 VWE-Bench 的原因是：没有一个统一 benchmark 能同时测试真实用户式请求、3D 工具使用、多模态反馈理解、物理可行性和意图满足。</p>
+<p>如果只评测简单 prompt，比如“生成一个厨房”，模型可能靠语言常识和模板完成，但无法暴露：</p>
+<ul><li>坐标编辑错误；</li><li>多轮状态维护错误；</li><li>asset 检索错误；</li><li>碰撞问题；</li><li>模糊指令理解问题。</li></ul>
+<hr>
+<h3 id="5-2-vwe-bench-怎么构造">5.2 VWE-Bench 怎么构造？</h3>
+<p>它分三步。</p>
+<h4 id="第一步-高质量-3d-asset-合成">第一步：高质量 3D asset 合成</h4>
+<p>流程是：</p>
+<ol><li>人工艺术标注者定义 asset inventory，包括名称和类别；</li><li>用 Gemini 3.1-flash-image 生成 asset 参考图；</li><li>用 Hunyuan3D 3.1 从图像生成 3D mesh；</li><li>人工过滤不匹配或质量差的 asset；</li><li>标注真实世界尺度和 bounding box。</li></ol>
+<p>最后得到 2,616 个高质量 asset，覆盖 20 个类别。</p>
+<h4 id="第二步-seed-3d-world-人工标注">第二步：seed 3D world 人工标注</h4>
+<p>专业标注者使用这些 asset 构造 323 个 seed worlds。</p>
+<p>这些世界不是最终精修作品，而是作为合成 query 的基础场景。复杂度从 8 个 asset 到 258 个 asset 不等。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.15265v2/Figure/fig_samples.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.15265v2/Figure/fig_samples.png" alt="Figure 2: VWE-Bench 数据示例。(a) 按物理尺寸从小到大排序的 asset 示例。(b) 按复杂度从低到高排序的 seed 3D world 示例。" loading="lazy"></a><span class="image-caption">Figure 2: VWE-Bench 数据示例。(a) 按物理尺寸从小到大排序的 asset 示例。(b) 按复杂度从低到高排序的 seed 3D world 示例。</span></span></p>
+<h4 id="第三步-反向合成-query">第三步：反向合成 query</h4>
+<p>所谓“反向合成”，就是从已有 seed world 出发，生成用户可能会说的话。</p>
+<p>有两大任务：</p>
+<h5 id="a-3d-world-construction">A. 3D world construction</h5>
+<p>从 seed world 反推“用户可能怎样描述这个世界”。</p>
+<p>分为：</p>
+<ol><li>Theme only：只有主题，例如“一个阴森的废土神殿”；</li><li>Theme + elements：主题加粗略元素列表；</li><li>Full blueprint：包含比较完整的布局描述；</li><li>Distractor：包含不可行或矛盾要求，用来测试模型是否会盲目执行。</li></ol>
+<h5 id="b-3d-world-refinement">B. 3D world refinement</h5>
+<p>给定已有世界，让模型修改。</p>
+<p>包括：</p>
+<ol><li>Asset-level edit precise：精确 asset 编辑，有 ground-truth；</li><li>Asset-level edit fuzzy：模糊 asset 编辑；</li><li>Scene critique：指出当前场景缺点；</li><li>Scene guidance：给出高层方向；</li><li>Scene restatement：重述期望最终状态；</li><li>Complex description：复杂、多约束修改请求。</li></ol>
+<p>其中只有 <strong>Asset-level edit precise</strong> 是 verified query，因为它有确定 ground-truth map。其他都是 open-ended，需要 rubric judge。</p>
+<hr>
+<h3 id="5-3-统一-3d-sandbox-为什么需要">5.3 统一 3D sandbox：为什么需要？</h3>
+<p>如果每个模型用不同工具、不同渲染器、不同 asset 库，就无法公平比较。RL 训练也需要一个稳定环境，能重复执行工具并返回反馈。</p>
+<p>所以作者构建 sandbox，把所有 3D 操作统一成 MCP tools。这里可以把 MCP 理解为一种统一工具接口，模型按结构化格式调用工具，环境返回结构化结果和渲染图。</p>
+<hr>
+<h3 id="5-4-统一-3d-sandbox-怎么做">5.4 统一 3D sandbox 怎么做？</h3>
+<p>sandbox 提供：</p>
+<ol><li>统一 asset retrieval；</li><li>统一 asset add/delete/translate/rotate；</li><li>Blender 渲染服务；</li><li>每轮返回五个固定视角图像；</li><li>返回当前 3D map。</li></ol>
+<p>asset retrieval 的做法是：</p>
+<ul><li>基于 Qwen3-Embedding-4B；</li><li>构造合成正负样本；</li><li>用 InfoNCE loss 训练检索排序模型；</li><li>检索结果共享 asset 库的 type_id，保证检索到的东西可以被放进场景。</li></ul>
+<p>得到的效果是：</p>
+<ul><li>模型可以通过自然语言找 asset；</li><li>所有模型面对同一个 asset 库；</li><li>工具执行结果可验证；</li><li>可以进行多轮 RL 采样。</li></ul>
+<hr>
+<h3 id="5-5-dual-constraint-verifier-为什么需要">5.5 Dual-constraint verifier：为什么需要？</h3>
+<p>只看最终图像是否“像”是不够的。一个场景可能图像上看着还行，但内部 asset 已经穿模；也可能物理上没问题，但完全没满足用户要求。</p>
+<p>因此 verifier 分两层：</p>
+<ol><li>physical feasibility verification；</li><li>intent fulfillment verification。</li></ol>
+<hr>
+<h3 id="5-6-physical-feasibility-verification-怎么做">5.6 Physical feasibility verification 怎么做？</h3>
+<p>用 Python 几何规则检查：</p>
+<h4 id="a-collision">A. Collision</h4>
+<p>检查 asset 之间是否碰撞、穿模、互相插入。</p>
+<h4 id="b-height">B. Height</h4>
+<p>检查 asset 是否满足支撑关系，比如不能漂浮在空中。</p>
+<p>这部分是规则化的，比较可靠。</p>
+<hr>
+<h3 id="5-7-intent-fulfillment-verification-怎么做">5.7 Intent fulfillment verification 怎么做？</h3>
+<p>使用 MLLM judge，按 rubric 判断四个方面：</p>
+<h4 id="a-ecological-plausibility">A. Ecological plausibility</h4>
+<p>场景是否整体合理。例如，森林里突然放一个办公室复印机就不合理。</p>
+<h4 id="b-3d-understanding">B. 3D understanding</h4>
+<p>模型是否理解用户要求的实体、数量、布局等。</p>
+<h4 id="c-3d-reasoning">C. 3D reasoning</h4>
+<p>模型是否正确执行空间意图和工具操作。例如用户说“把石头向前移动 7 米”，模型不仅要理解，还要在正确坐标方向上移动。</p>
+<h4 id="d-retrieval-plausibility">D. Retrieval plausibility</h4>
+<p>模型是否检索了语义合适的 asset。比如用户要路灯，模型不应检索台灯或柱子。</p>
+<hr>
+<h3 id="5-8-verifier-如何给-reward">5.8 verifier 如何给 reward？</h3>
+<h4 id="对-unverified-queries">对 Unverified queries</h4>
+<p>先检查物理可行性。只有通过后，才进入 MLLM rubric judge。</p>
+<p>最终必须所有维度都通过，才算 Pass。reward 是二值：</p>
+<p>\[ r \in \{0, 1\} \]</p>
+<h4 id="对-verified-queries">对 Verified queries</h4>
+<p>因为有 ground-truth map，所以直接比较 agent 编辑后的世界与 ground-truth 的差异，分数是正确修改 asset 的比例：</p>
+<p>\[ r \in [0,1] \]</p>
+<p>这种设计让 verified 任务的 reward 更稳定，而 unverified 任务更依赖 MLLM judge 的质量。</p>
+<hr>
+<h3 id="5-9-sft-cold-start-为什么需要">5.9 SFT cold-start：为什么需要？</h3>
+<p>直接让一个开源 MLLM 做 RL，动作空间太复杂：</p>
+<ul><li>它可能不会按格式调用工具；</li><li>不知道 3D map 表示什么意思；</li><li>不知道怎么根据 render 反馈继续修改；</li><li>RL 初期几乎全失败，reward 太稀疏。</li></ul>
+<p>所以作者先做 SFT cold-start，让模型学会基本轨迹格式和工具使用。</p>
+<hr>
+<h3 id="5-10-sft-cold-start-怎么做">5.10 SFT cold-start 怎么做？</h3>
+<p>对不同 query 类型合成轨迹：</p>
+<h4 id="unverified-queries">Unverified queries</h4>
+<p>因为没有唯一答案，作者让 Gemini 3.1-pro 多次尝试构造世界，然后用 verifier 过滤出高质量结果。之后反向提示模型写出一条完整、连贯的 reasoning trajectory。</p>
+<h4 id="verified-queries">Verified queries</h4>
+<p>因为有 ground-truth map，可以直接从 ground-truth 反向合成工具调用和推理轨迹。</p>
+<p>然后对 Qwen3-VL 做全参数 SFT。</p>
+<hr>
+<h3 id="5-11-多模态-rl-为什么需要">5.11 多模态 RL：为什么需要？</h3>
+<p>SFT 让模型学会“像一个 agent 那样操作”，但不一定能真正优化最终结果。尤其是空间编辑、碰撞避免、工具执行精度，需要从环境反馈和最终 verifier reward 中学习。</p>
+<p>因此作者使用 GRPO 做 agentic RL。</p>
+<p>GRPO 可以理解为一种不显式训练 value model 的 policy optimization 方法。它对同一个 prompt 采样一组 rollouts，通过组内相对好坏来更新策略。</p>
+<hr>
+<h3 id="5-12-多模态-rl-怎么做">5.12 多模态 RL 怎么做？</h3>
+<p>训练时：</p>
+<ol><li>从 cold-start policy 开始；</li><li>每个 prompt 采样 8 条 rollout；</li><li>每条 rollout 都经过 sandbox 执行；</li><li>得到最终 3D world；</li><li>verifier 给 outcome reward；</li><li>用 GRPO 更新模型。</li></ol>
+<p>重要的是：训练同时包含两种输入：</p>
+<ul><li>纯文本 construction；</li><li>多模态 refinement。</li></ul>
+<p>所以叫 joint multimodal RL。</p>
+<p>作者没有使用复杂的中间 reward shaping，而是用最终 outcome reward，避免模型钻中间规则空子。</p>
+<hr>
+<h2 id="6-主结果-消融结果-可视化结论及证据边界">6. 主结果、消融结果、可视化结论及证据边界</h2>
+<hr>
+<h3 id="6-1-主结果-当前-frontier-mllm-远未解决任务">6.1 主结果：当前 frontier MLLM 远未解决任务</h3>
+<p>论文报告 Overall Pass@1。</p>
+<p>Pass@1 表示：模型单次 rollout 是否通过任务。对 unverified query 是通过率；对 verified query 是平均正确修改比例。</p>
+<p>主要结果：</p>
+<ul><li>GPT-5.5：57.3；</li><li>Qwen3.8-Max：56.9；</li><li>Gemini 3.1-pro：42.7；</li><li>Gemini 3.5-flash：47.4；</li><li>Kimi-K3：44.5；</li><li>Claude-Opus-4.8：24.3。</li></ul>
+<p>即使最强 closed-source frontier 模型也不到 60%。说明这个任务对当前 MLLM 仍然很难。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.15265v2/fig_main_bar.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.15265v2/fig_main_bar.png" alt="Figure 4: Verified 和 Unverified 任务上各模型在 VWE-Bench 的总体 Pass@1。" loading="lazy"></a><span class="image-caption">Figure 4: Verified 和 Unverified 任务上各模型在 VWE-Bench 的总体 Pass@1。</span></span></p>
+<hr>
+<h3 id="6-2-rl-让开源模型大幅提升">6.2 RL 让开源模型大幅提升</h3>
+<p>开源基模表现很差：</p>
+<ul><li>Qwen3-VL-8B：5.3；</li><li>Qwen3-VL-30B-A3B：13.6。</li></ul>
+<p>经过训练后：</p>
+<h4 id="8b-模型">8B 模型</h4>
+<ul><li>VibeWorlder-8B-SFT：12.0；</li><li>VibeWorlder-8B：41.4。</li></ul>
+<p>也就是说，SFT 只提供初始能力，RL 带来主要提升。</p>
+<h4 id="30b-a3b-模型">30B-A3B 模型</h4>
+<ul><li>Qwen3-VL-30B-A3B：13.6；</li><li>VibeWorlder-30B-A3B-SFT：34.5；</li><li>VibeWorlder-30B-A3B：59.3。</li></ul>
+<p>VibeWorlder-30B-A3B 达到论文中所有模型最高 Overall Pass@1，并超过 GPT-5.5 和 Qwen3.8-Max。</p>
+<p>注意这个结论的边界是：<strong>在 VWE-Bench、相同 asset 库、相同工具、相同 verifier 下成立</strong>。不能直接推出它在所有 3D 世界生成任务上全面超过 GPT-5.5。</p>
+<hr>
+<h3 id="6-3-分任务结果-从零构造最难-复杂-refinement-也很难">6.3 分任务结果：从零构造最难，复杂 refinement 也很难</h3>
+<p>论文把 query 分成十类。</p>
+<p>从结果看：</p>
+<h4 id="a-从零构造-3d-世界很难">A. 从零构造 3D 世界很难</h4>
+<p>例如 Theme-only、Theme+elements、Full blueprint 等 construction query 对所有模型都有挑战。</p>
+<p>原因是从零构造同时要求：</p>
+<ul><li>选择合适 asset；</li><li>决定数量；</li><li>规划全局布局；</li><li>处理空间关系；</li><li>避免碰撞；</li><li>保持风格一致。</li></ul>
+<p>这比“修改一个已有场景中的某个 asset”更开放。</p>
+<h4 id="b-complex-description-和-scene-restatement-很难">B. Complex Description 和 Scene Restatement 很难</h4>
+<p>这类任务的难点是用户指令长、模糊、含多个目标。模型需要把高层描述拆成具体工具调用。</p>
+<p>即使 frontier 模型在 complex description 上也多低于 50%。</p>
+<hr>
+<h3 id="6-4-能力分析-真正瓶颈是精确-3d-编辑和碰撞">6.4 能力分析：真正瓶颈是精确 3D 编辑和碰撞</h3>
+<p>作者把能力分成六个维度：</p>
+<ol><li>collision-freeness；</li><li>height plausibility；</li><li>ecological plausibility；</li><li>3D understanding；</li><li>3D reasoning；</li><li>retrieval plausibility。</li></ol>
+<p>结论是：</p>
+<ul><li>RL 明显提升 retrieval；</li><li>RL 明显提升 3D understanding；</li><li>RL 明显提升 3D reasoning；</li><li>但 collision 仍然是最弱项。</li></ul>
+<p>这说明模型很多时候已经知道用户想要什么，也能找到合适 asset，但在具体放置时坐标不准，导致碰撞或位置错误。</p>
+<p>论文里特别指出，collision 分数对所有模型都只有约 59%–68%，即便 RL 后也没有完全解决。</p>
+<hr>
+<h3 id="6-5-训练过程消融-sft-和-rl-的作用不同">6.5 训练过程消融：SFT 和 RL 的作用不同</h3>
+<p>作者对 VibeWorlder-8B 做了训练动态分析，并比较：</p>
+<ul><li>从 cold-start policy 开始 RL；</li><li>不做 cold-start，直接从 base backbone 做 RL。</li></ul>
+<p>主要发现：</p>
+<h4 id="a-sft-提供基础工具使用和物理-生态能力">A. SFT 提供基础工具使用和物理/生态能力</h4>
+<p>SFT 后，模型已经有一定：</p>
+<ul><li>工具调用格式；</li><li>多轮交互模式；</li><li>基础物理可行性；</li><li>基础生态合理性。</li></ul>
+<p>但 SFT 对精确 3D reasoning 提升有限。</p>
+<h4 id="b-rl-主要提升-3d-understanding-和-3d-reasoning">B. RL 主要提升 3D understanding 和 3D reasoning</h4>
+<p>训练过程中：</p>
+<ul><li>3D understanding 从约 0.17 提升到约 0.80；</li><li>3D reasoning 从约 0.04 提升到约 0.69。</li></ul>
+<p>说明 RL 真正让模型学会了从环境反馈和结果 reward 中修正空间操作。</p>
+<h4 id="c-verified-reward-更稳定">C. verified reward 更稳定</h4>
+<p>Verified queries 有 ground-truth，reward 更确定，因此训练曲线更平滑，泛化也更稳定。</p>
+<p>Unverified queries 依赖 MLLM judge，reward 更噪声，训练更不稳定。</p>
+<p>这给出一个重要启发：<strong>3D agentic RL 的效果很依赖 verifier 的可靠性</strong>。</p>
+<hr>
+<h3 id="6-6-失败案例可视化-两个主要失败模式">6.6 失败案例可视化：两个主要失败模式</h3>
+<p>论文手工分析了 VibeWorlder-30B-A3B 和 frontier MLLM 的失败案例，发现两个主导错误。</p>
+<h4 id="失败模式一-3d-距离编辑不精确">失败模式一：3D 距离编辑不精确</h4>
+<p>例如用户要求把 rock 18 “向前移动 7 米”。</p>
+<p>模型移动的距离大小是 7 米，但方向完全反了。也就是说，它理解了“移动 7 米”，但把场景坐标系中的 forward 方向映射错了。</p>
+<p>这不是语言理解错误，而是 <strong>坐标系和空间执行错误</strong>。</p>
+<h4 id="失败模式二-过度编辑">失败模式二：过度编辑</h4>
+<p>例如用户要求“在 chest 旁边加一棵树”。</p>
+<p>模型确实加了树，但同时删除了一棵已有树。这个错误说明模型没有很好维护“哪些 asset 不应被修改”的状态约束。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.15265v2/fig_failcase.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.15265v2/fig_failcase.png" alt="Figure 7: frontier agents 在 VWE-Bench 上的两种主要失败模式。(a) 不精确的 3D 距离编辑：查询要求将 rock 18 向前移动 7 7 m。代理实现了正确的位移幅度，却把物体朝相反方向移动，在 0.5 0.5 m 容差下造成 14 14 m 的位置误差。左、右为初始与编辑后渲染，中间为坐标可视化，突出这种方向反转。(b) 过度编辑：查询要求在 chest 旁添加一棵树。代理正确添加了新树，却悄悄删除了现有的一棵树，引入了未请求的修改，违反了编辑约束。" loading="lazy"></a><span class="image-caption">Figure 7: frontier agents 在 VWE-Bench 上的两种主要失败模式。(a) 不精确的 3D 距离编辑：查询要求将 rock 18 向前移动 7 7 m。代理实现了正确的位移幅度，却把物体朝相反方向移动，在 0.5 0.5 m 容差下造成 14 14 m 的位置误差。左、右为初始与编辑后渲染，中间为坐标可视化，突出这种方向反转。(b) 过度编辑：查询要求在 chest 旁添加一棵树。代理正确添加了新树，却悄悄删除了现有的一棵树，引入了未请求的修改，违反了编辑约束。</span></span></p>
+<hr>
+<h3 id="6-7-cli-原型-说明系统可以交互使用">6.7 CLI 原型：说明系统可以交互使用</h3>
+<p>作者还实现了一个 CLI + browser GUI 原型。</p>
+<p>用户可以在终端里输入自然语言编辑请求，右边 GUI 实时显示 3D world。智能体会：</p>
+<ol><li>解析用户请求；</li><li>查看当前 3D map；</li><li>调用工具；</li><li>重新渲染；</li><li>检查修改是否正确；</li><li>返回自然语言总结。</li></ol>
+<p>这说明 VibeWorlding-Gym 不只是离线 benchmark，也可以作为交互式 3D world editing prototype 的基础。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.15265v2/fig_cli.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.15265v2/fig_cli.png" alt="Figure 8: VibeWorlding CLI 原型在一个城市场景上的多轮 refinement 会话中运行，左侧为交互式终端，右侧为基于浏览器的 GUI 查看器。(a) 第一轮推理：当用户要求“remove the car in the middle of the road and delete the two green buildings”时，代理解析请求，并从场景的 3D map 中列举当前 3D world 状态（trees、skyscrapers、military buildings、streetlights）。(b) 工具执行与响应：代理主动调用三次 delete 工具，重新渲染多个视角下的 3D world 以验证只移除了目标 assets，并返回自然语言摘要。细化后，3D asset 数量相应从 14 下降到 11。" loading="lazy"></a><span class="image-caption">Figure 8: VibeWorlding CLI 原型在一个城市场景上的多轮 refinement 会话中运行，左侧为交互式终端，右侧为基于浏览器的 GUI 查看器。(a) 第一轮推理：当用户要求“remove the car in the middle of the road and delete the two green buildings”时，代理解析请求，并从场景的 3D map 中列举当前 3D world 状态（trees、skyscrapers、military buildings、streetlights）。(b) 工具执行与响应：代理主动调用三次 delete 工具，重新渲染多个视角下的 3D world 以验证只移除了目标 assets，并返回自然语言摘要。细化后，3D asset 数量相应从 14 下降到 11。</span></span></p>
+<hr>
+<h3 id="6-8-证据边界">6.8 证据边界</h3>
+<p>这篇论文的实验证据比较充分，但有明确边界。</p>
+<h4 id="a-benchmark-风格有限">A. benchmark 风格有限</h4>
+<p>资产库主要是卡通风格，不等于真实写实游戏资产。</p>
+<h4 id="b-世界规模有限">B. 世界规模有限</h4>
+<p>最大 seed world 只有 258 个 asset。这距离真正开放世界、城市级地图还有距离。</p>
+<h4 id="c-verifier-不是完美真值">C. verifier 不是完美真值</h4>
+<p>Unverified queries 使用 MLLM judge。作者做了人类评价一致性分析：</p>
+<ul><li>case-level holistic Pass@1 agreement 为 83.4%；</li><li>Spearman 相关为 0.88。</li></ul>
+<p>这说明 verifier 排序和人类判断较一致，但不是完美标签。</p>
+<h4 id="d-超越-frontier-的结论只在特定环境下成立">D. 超越 frontier 的结论只在特定环境下成立</h4>
+<p>VibeWorlder-30B-A3B 超过 GPT-5.5/Qwen3.8-Max 是在：</p>
+<ul><li>VWE-Bench；</li><li>相同 asset 库；</li><li>相同 sandbox；</li><li>相同 verifier；</li><li>同样工具接口；</li></ul>
+<p>这些条件下成立。不能泛化为“该模型在所有多模态任务上超过 GPT-5.5”。</p>
+<hr>
+<h2 id="7-局限性和最终判断">7. 局限性和最终判断</h2>
+<h3 id="7-1-局限性">7.1 局限性</h3>
+<h4 id="局限一-工具过于原子化">局限一：工具过于原子化</h4>
+<p>当前工具只有 retrieve/add/delete/translate/rotate。</p>
+<p>这意味着模型要用很多低级操作搭建复杂结构。真实创作中更需要高级工具，例如：</p>
+<ul><li>一键生成足球场；</li><li>沿道路放置路灯；</li><li>在区域内随机撒树；</li><li>自动对齐家具；</li><li>成组移动建筑群。</li></ul>
+<p>没有这些高阶工具，长程任务会很慢，也更容易出错。</p>
+<hr>
+<h4 id="局限二-3d-世界规模还小">局限二：3D 世界规模还小</h4>
+<p>VWE-Bench 的世界最多 258 个 asset。真正开放世界可能有成千上万个对象，甚至需要分区、层级规划、多智能体协作。</p>
+<p>所以这篇论文更像是“端到端 3D worlding 的可控实验场”，而不是完整开放世界生产系统。</p>
+<hr>
+<h4 id="局限三-渲染反馈成本高">局限三：渲染反馈成本高</h4>
+<p>每轮都要用 Blender 渲染五个视角，训练和评测都很耗时。</p>
+<p>这会限制：</p>
+<ul><li>RL rollout 数量；</li><li>benchmark 扩展规模；</li><li>真实交互响应速度。</li></ul>
+<hr>
+<h4 id="局限四-reward-仍然稀疏">局限四：reward 仍然稀疏</h4>
+<p>作者使用 outcome-based reward，即最终结果评分。这避免了中间奖励被钻空子，但也带来 credit assignment 问题。</p>
+<p>如果最终失败，模型很难知道到底是哪一步错了：</p>
+<ul><li>检索错？</li><li>添加位置错？</li><li>旋转错？</li><li>后续误删？</li><li>碰撞发生在哪一轮？</li></ul>
+<p>未来可能需要更细粒度的 step-level verifier。</p>
+<hr>
+<h4 id="局限五-开放式审美难以自动验证">局限五：开放式审美难以自动验证</h4>
+<p>“更温馨”“更热闹”“更像废土神殿”这类目标本身具有主观性。MLLM judge 可以近似评价，但无法成为严格标准。</p>
+<p>这也是所有 creative agent benchmark 的共同问题。</p>
+<hr>
+<h3 id="7-2-最终判断">7.2 最终判断</h3>
+<p>这篇论文的价值主要不在于提出了一个全新的神经网络结构，而在于建立了一个较完整的 <strong>3D agent 研究基础设施</strong>：</p>
+<ol><li>有 asset 库；</li><li>有 seed worlds；</li><li>有真实风格的用户 queries；</li><li>有统一工具接口；</li><li>有多视角渲染反馈；</li><li>有 dual-constraint verifier；</li><li>有 SFT + RL 训练流程；</li><li>有系统的能力拆解和失败分析。</li></ol>
+<p>它回答了一个很实际的问题：</p>
+<blockquote>当前 MLLM 会不会端到端搭 3D 世界？</blockquote>
+<p>答案是：<strong>会一点，但远没解决。</strong></p>
+<p>更细的判断是：</p>
+<ul><li>语言理解和高层意图理解已经相对可用；</li><li>asset 检索经过 RL 后可以做到较好；</li><li>多模态反馈确实有帮助；</li><li>但精确 3D 坐标操作、碰撞避免、保持未请求对象不变，仍然是主要短板。</li></ul>
+<p>因此，这篇论文可以看作是把“3D world construction”从 demo-driven 阶段推进到 benchmark-and-train 阶段的一步。对于后续研究，它提供了一个很清晰的方向：<strong>不要只做更会说的 3D agent，而要做更会精确操作 3D 世界、能被可靠验证和训练的 agent。</strong></p></div></article></main>
+  </div>
+  <script>/*!
+  * PhotoSwipe 5.4.4 - https://photoswipe.com
+  * (c) 2024 Dmytro Semenov
+  */
+!function(t,i){"object"==typeof exports&&"undefined"!=typeof module?module.exports=i():"function"==typeof define&&define.amd?define(i):(t="undefined"!=typeof globalThis?globalThis:t||self).PhotoSwipe=i()}(this,(function(){"use strict";function t(t,i,s){const h=document.createElement(i);return t&&(h.className=t),s&&s.appendChild(h),h}function i(t,i){return t.x=i.x,t.y=i.y,void 0!==i.id&&(t.id=i.id),t}function s(t){t.x=Math.round(t.x),t.y=Math.round(t.y)}function h(t,i){const s=Math.abs(t.x-i.x),h=Math.abs(t.y-i.y);return Math.sqrt(s*s+h*h)}function e(t,i){return t.x===i.x&&t.y===i.y}function n(t,i,s){return Math.min(Math.max(t,i),s)}function o(t,i,s){let h=`translate3d(${t}px,${i||0}px,0)`;return void 0!==s&&(h+=` scale3d(${s},${s},1)`),h}function r(t,i,s,h){t.style.transform=o(i,s,h)}function a(t,i,s,h){t.style.transition=i?`${i} ${s}ms ${h||"cubic-bezier(.4,0,.22,1)"}`:"none"}function l(t,i,s){t.style.width="number"==typeof i?`${i}px`:i,t.style.height="number"==typeof s?`${s}px`:s}const c="idle",d="loading",u="loaded",p="error";function m(){return!(!navigator.vendor||!navigator.vendor.match(/apple/i))}let v=!1;try{window.addEventListener("test",null,Object.defineProperty({},"passive",{get:()=>{v=!0}}))}catch(t){}class f{constructor(){this.t=[]}add(t,i,s,h){this.i(t,i,s,h)}remove(t,i,s,h){this.i(t,i,s,h,!0)}removeAll(){this.t.forEach((t=>{this.i(t.target,t.type,t.listener,t.passive,!0,!0)})),this.t=[]}i(t,i,s,h,e,n){if(!t)return;const o=e?"removeEventListener":"addEventListener";i.split(" ").forEach((i=>{if(i){n||(e?this.t=this.t.filter((h=>h.type!==i||h.listener!==s||h.target!==t)):this.t.push({target:t,type:i,listener:s,passive:h}));const r=!!v&&{passive:h||!1};t[o](i,s,r)}}))}}function w(t,i){if(t.getViewportSizeFn){const s=t.getViewportSizeFn(t,i);if(s)return s}return{x:document.documentElement.clientWidth,y:window.innerHeight}}function g(t,i,s,h,e){let n=0;if(i.paddingFn)n=i.paddingFn(s,h,e)[t];else if(i.padding)n=i.padding[t];else{const s="padding"+t[0].toUpperCase()+t.slice(1);i[s]&&(n=i[s])}return Number(n)||0}function y(t,i,s,h){return{x:i.x-g("left",t,i,s,h)-g("right",t,i,s,h),y:i.y-g("top",t,i,s,h)-g("bottom",t,i,s,h)}}class _{constructor(t){this.slide=t,this.currZoomLevel=1,this.center={x:0,y:0},this.max={x:0,y:0},this.min={x:0,y:0}}update(t){this.currZoomLevel=t,this.slide.width?(this.o("x"),this.o("y"),this.slide.pswp.dispatch("calcBounds",{slide:this.slide})):this.reset()}o(t){const{pswp:i}=this.slide,s=this.slide["x"===t?"width":"height"]*this.currZoomLevel,h=g("x"===t?"left":"top",i.options,i.viewportSize,this.slide.data,this.slide.index),e=this.slide.panAreaSize[t];this.center[t]=Math.round((e-s)/2)+h,this.max[t]=s>e?Math.round(e-s)+h:this.center[t],this.min[t]=s>e?h:this.center[t]}reset(){this.center.x=0,this.center.y=0,this.max.x=0,this.max.y=0,this.min.x=0,this.min.y=0}correctPan(t,i){return n(i,this.max[t],this.min[t])}}class x{constructor(t,i,s,h){this.pswp=h,this.options=t,this.itemData=i,this.index=s,this.panAreaSize=null,this.elementSize=null,this.fit=1,this.fill=1,this.vFill=1,this.initial=1,this.secondary=1,this.max=1,this.min=1}update(t,i,s){const h={x:t,y:i};this.elementSize=h,this.panAreaSize=s;const e=s.x/h.x,n=s.y/h.y;this.fit=Math.min(1,e<n?e:n),this.fill=Math.min(1,e>n?e:n),this.vFill=Math.min(1,n),this.initial=this.l(),this.secondary=this.u(),this.max=Math.max(this.initial,this.secondary,this.p()),this.min=Math.min(this.fit,this.initial,this.secondary),this.pswp&&this.pswp.dispatch("zoomLevelsUpdate",{zoomLevels:this,slideData:this.itemData})}m(t){const i=t+"ZoomLevel",s=this.options[i];if(s)return"function"==typeof s?s(this):"fill"===s?this.fill:"fit"===s?this.fit:Number(s)}u(){let t=this.m("secondary");return t||(t=Math.min(1,3*this.fit),this.elementSize&&t*this.elementSize.x>4e3&&(t=4e3/this.elementSize.x),t)}l(){return this.m("initial")||this.fit}p(){return this.m("max")||Math.max(1,4*this.fit)}}class b{constructor(i,s,h){this.data=i,this.index=s,this.pswp=h,this.isActive=s===h.currIndex,this.currentResolution=0,this.panAreaSize={x:0,y:0},this.pan={x:0,y:0},this.isFirstSlide=this.isActive&&!h.opener.isOpen,this.zoomLevels=new x(h.options,i,s,h),this.pswp.dispatch("gettingData",{slide:this,data:this.data,index:s}),this.content=this.pswp.contentLoader.getContentBySlide(this),this.container=t("pswp__zoom-wrap","div"),this.holderElement=null,this.currZoomLevel=1,this.width=this.content.width,this.height=this.content.height,this.heavyAppended=!1,this.bounds=new _(this),this.prevDisplayedWidth=-1,this.prevDisplayedHeight=-1,this.pswp.dispatch("slideInit",{slide:this})}setIsActive(t){t&&!this.isActive?this.activate():!t&&this.isActive&&this.deactivate()}append(t){this.holderElement=t,this.container.style.transformOrigin="0 0",this.data&&(this.calculateSize(),this.load(),this.updateContentSize(),this.appendHeavy(),this.holderElement.appendChild(this.container),this.zoomAndPanToInitial(),this.pswp.dispatch("firstZoomPan",{slide:this}),this.applyCurrentZoomPan(),this.pswp.dispatch("afterSetContent",{slide:this}),this.isActive&&this.activate())}load(){this.content.load(!1),this.pswp.dispatch("slideLoad",{slide:this})}appendHeavy(){const{pswp:t}=this;!this.heavyAppended&&t.opener.isOpen&&!t.mainScroll.isShifted()&&(this.isActive,1)&&(this.pswp.dispatch("appendHeavy",{slide:this}).defaultPrevented||(this.heavyAppended=!0,this.content.append(),this.pswp.dispatch("appendHeavyContent",{slide:this})))}activate(){this.isActive=!0,this.appendHeavy(),this.content.activate(),this.pswp.dispatch("slideActivate",{slide:this})}deactivate(){this.isActive=!1,this.content.deactivate(),this.currZoomLevel!==this.zoomLevels.initial&&this.calculateSize(),this.currentResolution=0,this.zoomAndPanToInitial(),this.applyCurrentZoomPan(),this.updateContentSize(),this.pswp.dispatch("slideDeactivate",{slide:this})}destroy(){this.content.hasSlide=!1,this.content.remove(),this.container.remove(),this.pswp.dispatch("slideDestroy",{slide:this})}resize(){this.currZoomLevel!==this.zoomLevels.initial&&this.isActive?(this.calculateSize(),this.bounds.update(this.currZoomLevel),this.panTo(this.pan.x,this.pan.y)):(this.calculateSize(),this.currentResolution=0,this.zoomAndPanToInitial(),this.applyCurrentZoomPan(),this.updateContentSize())}updateContentSize(t){const i=this.currentResolution||this.zoomLevels.initial;if(!i)return;const s=Math.round(this.width*i)||this.pswp.viewportSize.x,h=Math.round(this.height*i)||this.pswp.viewportSize.y;(this.sizeChanged(s,h)||t)&&this.content.setDisplayedSize(s,h)}sizeChanged(t,i){return(t!==this.prevDisplayedWidth||i!==this.prevDisplayedHeight)&&(this.prevDisplayedWidth=t,this.prevDisplayedHeight=i,!0)}getPlaceholderElement(){var t;return null===(t=this.content.placeholder)||void 0===t?void 0:t.element}zoomTo(t,i,h,e){const{pswp:o}=this;if(!this.isZoomable()||o.mainScroll.isShifted())return;o.dispatch("beforeZoomTo",{destZoomLevel:t,centerPoint:i,transitionDuration:h}),o.animations.stopAllPan();const r=this.currZoomLevel;e||(t=n(t,this.zoomLevels.min,this.zoomLevels.max)),this.setZoomLevel(t),this.pan.x=this.calculateZoomToPanOffset("x",i,r),this.pan.y=this.calculateZoomToPanOffset("y",i,r),s(this.pan);const a=()=>{this.v(t),this.applyCurrentZoomPan()};h?o.animations.startTransition({isPan:!0,name:"zoomTo",target:this.container,transform:this.getCurrentTransform(),onComplete:a,duration:h,easing:o.options.easing}):a()}toggleZoom(t){this.zoomTo(this.currZoomLevel===this.zoomLevels.initial?this.zoomLevels.secondary:this.zoomLevels.initial,t,this.pswp.options.zoomAnimationDuration)}setZoomLevel(t){this.currZoomLevel=t,this.bounds.update(this.currZoomLevel)}calculateZoomToPanOffset(t,i,s){if(0===this.bounds.max[t]-this.bounds.min[t])return this.bounds.center[t];i||(i=this.pswp.getViewportCenterPoint()),s||(s=this.zoomLevels.initial);const h=this.currZoomLevel/s;return this.bounds.correctPan(t,(this.pan[t]-i[t])*h+i[t])}panTo(t,i){this.pan.x=this.bounds.correctPan("x",t),this.pan.y=this.bounds.correctPan("y",i),this.applyCurrentZoomPan()}isPannable(){return Boolean(this.width)&&this.currZoomLevel>this.zoomLevels.fit}isZoomable(){return Boolean(this.width)&&this.content.isZoomable()}applyCurrentZoomPan(){this.g(this.pan.x,this.pan.y,this.currZoomLevel),this===this.pswp.currSlide&&this.pswp.dispatch("zoomPanUpdate",{slide:this})}zoomAndPanToInitial(){this.currZoomLevel=this.zoomLevels.initial,this.bounds.update(this.currZoomLevel),i(this.pan,this.bounds.center),this.pswp.dispatch("initialZoomPan",{slide:this})}g(t,i,s){s/=this.currentResolution||this.zoomLevels.initial,r(this.container,t,i,s)}calculateSize(){const{pswp:t}=this;i(this.panAreaSize,y(t.options,t.viewportSize,this.data,this.index)),this.zoomLevels.update(this.width,this.height,this.panAreaSize),t.dispatch("calcSlideSize",{slide:this})}getCurrentTransform(){const t=this.currZoomLevel/(this.currentResolution||this.zoomLevels.initial);return o(this.pan.x,this.pan.y,t)}v(t){t!==this.currentResolution&&(this.currentResolution=t,this.updateContentSize(),this.pswp.dispatch("resolutionChanged"))}}class S{constructor(t){this.gestures=t,this.pswp=t.pswp,this.startPan={x:0,y:0}}start(){this.pswp.currSlide&&i(this.startPan,this.pswp.currSlide.pan),this.pswp.animations.stopAll()}change(){const{p1:t,prevP1:i,dragAxis:h}=this.gestures,{currSlide:e}=this.pswp;if("y"===h&&this.pswp.options.closeOnVerticalDrag&&e&&e.currZoomLevel<=e.zoomLevels.fit&&!this.gestures.isMultitouch){const s=e.pan.y+(t.y-i.y);if(!this.pswp.dispatch("verticalDrag",{panY:s}).defaultPrevented){this._("y",s,.6);const t=1-Math.abs(this.S(e.pan.y));this.pswp.applyBgOpacity(t),e.applyCurrentZoomPan()}}else{this.M("x")||(this.M("y"),e&&(s(e.pan),e.applyCurrentZoomPan()))}}end(){const{velocity:t}=this.gestures,{mainScroll:i,currSlide:s}=this.pswp;let h=0;if(this.pswp.animations.stopAll(),i.isShifted()){const s=(i.x-i.getCurrSlideX())/this.pswp.viewportSize.x;t.x<-.5&&s<0||t.x<.1&&s<-.5?(h=1,t.x=Math.min(t.x,0)):(t.x>.5&&s>0||t.x>-.1&&s>.5)&&(h=-1,t.x=Math.max(t.x,0)),i.moveIndexBy(h,!0,t.x)}s&&s.currZoomLevel>s.zoomLevels.max||this.gestures.isMultitouch?this.gestures.zoomLevels.correctZoomPan(!0):(this.P("x"),this.P("y"))}P(t){const{velocity:i}=this.gestures,{currSlide:s}=this.pswp;if(!s)return;const{pan:h,bounds:e}=s,o=h[t],r=this.pswp.bgOpacity<1&&"y"===t,a=o+function(t,i){return t*i/(1-i)}(i[t],.995);if(r){const t=this.S(o),i=this.S(a);if(t<0&&i<-.4||t>0&&i>.4)return void this.pswp.close()}const l=e.correctPan(t,a);if(o===l)return;const c=l===a?1:.82,d=this.pswp.bgOpacity,u=l-o;this.pswp.animations.startSpring({name:"panGesture"+t,isPan:!0,start:o,end:l,velocity:i[t],dampingRatio:c,onUpdate:i=>{if(r&&this.pswp.bgOpacity<1){const t=1-(l-i)/u;this.pswp.applyBgOpacity(n(d+(1-d)*t,0,1))}h[t]=Math.floor(i),s.applyCurrentZoomPan()}})}M(t){const{p1:i,dragAxis:s,prevP1:h,isMultitouch:e}=this.gestures,{currSlide:n,mainScroll:o}=this.pswp,r=i[t]-h[t],a=o.x+r;if(!r||!n)return!1;if("x"===t&&!n.isPannable()&&!e)return o.moveTo(a,!0),!0;const{bounds:l}=n,c=n.pan[t]+r;if(this.pswp.options.allowPanToNext&&"x"===s&&"x"===t&&!e){const i=o.getCurrSlideX(),s=o.x-i,h=r>0,e=!h;if(c>l.min[t]&&h){if(l.min[t]<=this.startPan[t])return o.moveTo(a,!0),!0;this._(t,c)}else if(c<l.max[t]&&e){if(this.startPan[t]<=l.max[t])return o.moveTo(a,!0),!0;this._(t,c)}else if(0!==s){if(s>0)return o.moveTo(Math.max(a,i),!0),!0;if(s<0)return o.moveTo(Math.min(a,i),!0),!0}else this._(t,c)}else"y"===t&&(o.isShifted()||l.min.y===l.max.y)||this._(t,c);return!1}S(t){var i,s;return(t-(null!==(i=null===(s=this.pswp.currSlide)||void 0===s?void 0:s.bounds.center.y)&&void 0!==i?i:0))/(this.pswp.viewportSize.y/3)}_(t,i,s){const{currSlide:h}=this.pswp;if(!h)return;const{pan:e,bounds:n}=h;if(n.correctPan(t,i)!==i||s){const h=Math.round(i-e[t]);e[t]+=h*(s||.35)}else e[t]=i}}function z(t,i,s){return t.x=(i.x+s.x)/2,t.y=(i.y+s.y)/2,t}class M{constructor(t){this.gestures=t,this.C={x:0,y:0},this.T={x:0,y:0},this.A={x:0,y:0},this.D=!1,this.I=1}start(){const{currSlide:t}=this.gestures.pswp;t&&(this.I=t.currZoomLevel,i(this.C,t.pan)),this.gestures.pswp.animations.stopAllPan(),this.D=!1}change(){const{p1:t,startP1:i,p2:s,startP2:e,pswp:n}=this.gestures,{currSlide:o}=n;if(!o)return;const r=o.zoomLevels.min,a=o.zoomLevels.max;if(!o.isZoomable()||n.mainScroll.isShifted())return;z(this.T,i,e),z(this.A,t,s);let l=1/h(i,e)*h(t,s)*this.I;if(l>o.zoomLevels.initial+o.zoomLevels.initial/15&&(this.D=!0),l<r)if(n.options.pinchToClose&&!this.D&&this.I<=o.zoomLevels.initial){const t=1-(r-l)/(r/1.2);n.dispatch("pinchClose",{bgOpacity:t}).defaultPrevented||n.applyBgOpacity(t)}else l=r-.15*(r-l);else l>a&&(l=a+.05*(l-a));o.pan.x=this.L("x",l),o.pan.y=this.L("y",l),o.setZoomLevel(l),o.applyCurrentZoomPan()}end(){const{pswp:t}=this.gestures,{currSlide:i}=t;(!i||i.currZoomLevel<i.zoomLevels.initial)&&!this.D&&t.options.pinchToClose?t.close():this.correctZoomPan()}L(t,i){const s=i/this.I;return this.A[t]-(this.T[t]-this.C[t])*s}correctZoomPan(t){const{pswp:s}=this.gestures,{currSlide:h}=s;if(null==h||!h.isZoomable())return;0===this.A.x&&(t=!0);const o=h.currZoomLevel;let r,a=!0;o<h.zoomLevels.initial?r=h.zoomLevels.initial:o>h.zoomLevels.max?r=h.zoomLevels.max:(a=!1,r=o);const l=s.bgOpacity,c=s.bgOpacity<1,d=i({x:0,y:0},h.pan);let u=i({x:0,y:0},d);t&&(this.A.x=0,this.A.y=0,this.T.x=0,this.T.y=0,this.I=o,i(this.C,d)),a&&(u={x:this.L("x",r),y:this.L("y",r)}),h.setZoomLevel(r),u={x:h.bounds.correctPan("x",u.x),y:h.bounds.correctPan("y",u.y)},h.setZoomLevel(o);const p=!e(u,d);if(!p&&!a&&!c)return h.v(r),void h.applyCurrentZoomPan();s.animations.stopAllPan(),s.animations.startSpring({isPan:!0,start:0,end:1e3,velocity:0,dampingRatio:1,naturalFrequency:40,onUpdate:t=>{if(t/=1e3,p||a){if(p&&(h.pan.x=d.x+(u.x-d.x)*t,h.pan.y=d.y+(u.y-d.y)*t),a){const i=o+(r-o)*t;h.setZoomLevel(i)}h.applyCurrentZoomPan()}c&&s.bgOpacity<1&&s.applyBgOpacity(n(l+(1-l)*t,0,1))},onComplete:()=>{h.v(r),h.applyCurrentZoomPan()}})}}function P(t){return!!t.target.closest(".pswp__container")}class C{constructor(t){this.gestures=t}click(t,i){const s=i.target.classList,h=s.contains("pswp__img"),e=s.contains("pswp__item")||s.contains("pswp__zoom-wrap");h?this.k("imageClick",t,i):e&&this.k("bgClick",t,i)}tap(t,i){P(i)&&this.k("tap",t,i)}doubleTap(t,i){P(i)&&this.k("doubleTap",t,i)}k(t,i,s){var h;const{pswp:e}=this.gestures,{currSlide:n}=e,o=t+"Action",r=e.options[o];if(!e.dispatch(o,{point:i,originalEvent:s}).defaultPrevented)if("function"!=typeof r)switch(r){case"close":case"next":e[r]();break;case"zoom":null==n||n.toggleZoom(i);break;case"zoom-or-close":null!=n&&n.isZoomable()&&n.zoomLevels.secondary!==n.zoomLevels.initial?n.toggleZoom(i):e.options.clickToCloseNonZoomable&&e.close();break;case"toggle-controls":null===(h=this.gestures.pswp.element)||void 0===h||h.classList.toggle("pswp--ui-visible")}else r.call(e,i,s)}}class T{constructor(t){this.pswp=t,this.dragAxis=null,this.p1={x:0,y:0},this.p2={x:0,y:0},this.prevP1={x:0,y:0},this.prevP2={x:0,y:0},this.startP1={x:0,y:0},this.startP2={x:0,y:0},this.velocity={x:0,y:0},this.Z={x:0,y:0},this.B={x:0,y:0},this.F=0,this.O=[],this.R="ontouchstart"in window,this.N=!!window.PointerEvent,this.supportsTouch=this.R||this.N&&navigator.maxTouchPoints>1,this.F=0,this.U=0,this.V=!1,this.isMultitouch=!1,this.isDragging=!1,this.isZooming=!1,this.raf=null,this.G=null,this.supportsTouch||(t.options.allowPanToNext=!1),this.drag=new S(this),this.zoomLevels=new M(this),this.tapHandler=new C(this),t.on("bindEvents",(()=>{t.events.add(t.scrollWrap,"click",this.$.bind(this)),this.N?this.q("pointer","down","up","cancel"):this.R?(this.q("touch","start","end","cancel"),t.scrollWrap&&(t.scrollWrap.ontouchmove=()=>{},t.scrollWrap.ontouchend=()=>{})):this.q("mouse","down","up")}))}q(t,i,s,h){const{pswp:e}=this,{events:n}=e,o=h?t+h:"";n.add(e.scrollWrap,t+i,this.onPointerDown.bind(this)),n.add(window,t+"move",this.onPointerMove.bind(this)),n.add(window,t+s,this.onPointerUp.bind(this)),o&&n.add(e.scrollWrap,o,this.onPointerUp.bind(this))}onPointerDown(t){const s="mousedown"===t.type||"mouse"===t.pointerType;if(s&&t.button>0)return;const{pswp:h}=this;h.opener.isOpen?h.dispatch("pointerDown",{originalEvent:t}).defaultPrevented||(s&&(h.mouseDetected(),this.H(t,"down")),h.animations.stopAll(),this.K(t,"down"),1===this.F&&(this.dragAxis=null,i(this.startP1,this.p1)),this.F>1?(this.W(),this.isMultitouch=!0):this.isMultitouch=!1):t.preventDefault()}onPointerMove(t){this.H(t,"move"),this.F&&(this.K(t,"move"),this.pswp.dispatch("pointerMove",{originalEvent:t}).defaultPrevented||(1!==this.F||this.isDragging?this.F>1&&!this.isZooming&&(this.j(),this.isZooming=!0,this.X(),this.zoomLevels.start(),this.Y(),this.J()):(this.dragAxis||this.tt(),this.dragAxis&&!this.isDragging&&(this.isZooming&&(this.isZooming=!1,this.zoomLevels.end()),this.isDragging=!0,this.W(),this.X(),this.U=Date.now(),this.V=!1,i(this.B,this.p1),this.velocity.x=0,this.velocity.y=0,this.drag.start(),this.Y(),this.J()))))}j(){this.isDragging&&(this.isDragging=!1,this.V||this.it(!0),this.drag.end(),this.dragAxis=null)}onPointerUp(t){this.F&&(this.K(t,"up"),this.pswp.dispatch("pointerUp",{originalEvent:t}).defaultPrevented||(0===this.F&&(this.Y(),this.isDragging?this.j():this.isZooming||this.isMultitouch||this.st(t)),this.F<2&&this.isZooming&&(this.isZooming=!1,this.zoomLevels.end(),1===this.F&&(this.dragAxis=null,this.X()))))}J(){(this.isDragging||this.isZooming)&&(this.it(),this.isDragging?e(this.p1,this.prevP1)||this.drag.change():e(this.p1,this.prevP1)&&e(this.p2,this.prevP2)||this.zoomLevels.change(),this.ht(),this.raf=requestAnimationFrame(this.J.bind(this)))}it(t){const s=Date.now(),h=s-this.U;h<50&&!t||(this.velocity.x=this.et("x",h),this.velocity.y=this.et("y",h),this.U=s,i(this.B,this.p1),this.V=!0)}st(t){const{mainScroll:s}=this.pswp;if(s.isShifted())return void s.moveIndexBy(0,!0);if(t.type.indexOf("cancel")>0)return;if("mouseup"===t.type||"mouse"===t.pointerType)return void this.tapHandler.click(this.startP1,t);const e=this.pswp.options.doubleTapAction?300:0;this.G?(this.W(),h(this.Z,this.startP1)<25&&this.tapHandler.doubleTap(this.startP1,t)):(i(this.Z,this.startP1),this.G=setTimeout((()=>{this.tapHandler.tap(this.startP1,t),this.W()}),e))}W(){this.G&&(clearTimeout(this.G),this.G=null)}et(t,i){const s=this.p1[t]-this.B[t];return Math.abs(s)>1&&i>5?s/i:0}Y(){this.raf&&(cancelAnimationFrame(this.raf),this.raf=null)}H(t,i){this.pswp.applyFilters("preventPointerEvent",!0,t,i)&&t.preventDefault()}K(t,s){if(this.N){const h=t,e=this.O.findIndex((t=>t.id===h.pointerId));"up"===s&&e>-1?this.O.splice(e,1):"down"===s&&-1===e?this.O.push(this.nt(h,{x:0,y:0})):e>-1&&this.nt(h,this.O[e]),this.F=this.O.length,this.F>0&&i(this.p1,this.O[0]),this.F>1&&i(this.p2,this.O[1])}else{const i=t;this.F=0,i.type.indexOf("touch")>-1?i.touches&&i.touches.length>0&&(this.nt(i.touches[0],this.p1),this.F++,i.touches.length>1&&(this.nt(i.touches[1],this.p2),this.F++)):(this.nt(t,this.p1),"up"===s?this.F=0:this.F++)}}ht(){i(this.prevP1,this.p1),i(this.prevP2,this.p2)}X(){i(this.startP1,this.p1),i(this.startP2,this.p2),this.ht()}tt(){if(this.pswp.mainScroll.isShifted())this.dragAxis="x";else{const t=Math.abs(this.p1.x-this.startP1.x)-Math.abs(this.p1.y-this.startP1.y);if(0!==t){const i=t>0?"x":"y";Math.abs(this.p1[i]-this.startP1[i])>=10&&(this.dragAxis=i)}}}nt(t,i){return i.x=t.pageX-this.pswp.offset.x,i.y=t.pageY-this.pswp.offset.y,"pointerId"in t?i.id=t.pointerId:void 0!==t.identifier&&(i.id=t.identifier),i}$(t){this.pswp.mainScroll.isShifted()&&(t.preventDefault(),t.stopPropagation())}}class A{constructor(t){this.pswp=t,this.x=0,this.slideWidth=0,this.ot=0,this.rt=0,this.lt=-1,this.itemHolders=[]}resize(t){const{pswp:i}=this,s=Math.round(i.viewportSize.x+i.viewportSize.x*i.options.spacing),h=s!==this.slideWidth;h&&(this.slideWidth=s,this.moveTo(this.getCurrSlideX())),this.itemHolders.forEach(((i,s)=>{h&&r(i.el,(s+this.lt)*this.slideWidth),t&&i.slide&&i.slide.resize()}))}resetPosition(){this.ot=0,this.rt=0,this.slideWidth=0,this.lt=-1}appendHolders(){this.itemHolders=[];for(let i=0;i<3;i++){const s=t("pswp__item","div",this.pswp.container);s.setAttribute("role","group"),s.setAttribute("aria-roledescription","slide"),s.setAttribute("aria-hidden","true"),s.style.display=1===i?"block":"none",this.itemHolders.push({el:s})}}canBeSwiped(){return this.pswp.getNumItems()>1}moveIndexBy(t,i,s){const{pswp:h}=this;let e=h.potentialIndex+t;const n=h.getNumItems();if(h.canLoop()){e=h.getLoopedIndex(e);const i=(t+n)%n;t=i<=n/2?i:i-n}else e<0?e=0:e>=n&&(e=n-1),t=e-h.potentialIndex;h.potentialIndex=e,this.ot-=t,h.animations.stopMainScroll();const o=this.getCurrSlideX();if(i){h.animations.startSpring({isMainScroll:!0,start:this.x,end:o,velocity:s||0,naturalFrequency:30,dampingRatio:1,onUpdate:t=>{this.moveTo(t)},onComplete:()=>{this.updateCurrItem(),h.appendHeavy()}});let t=h.potentialIndex-h.currIndex;if(h.canLoop()){const i=(t+n)%n;t=i<=n/2?i:i-n}Math.abs(t)>1&&this.updateCurrItem()}else this.moveTo(o),this.updateCurrItem();return Boolean(t)}getCurrSlideX(){return this.slideWidth*this.ot}isShifted(){return this.x!==this.getCurrSlideX()}updateCurrItem(){var t;const{pswp:i}=this,s=this.rt-this.ot;if(!s)return;this.rt=this.ot,i.currIndex=i.potentialIndex;let h,e=Math.abs(s);e>=3&&(this.lt+=s+(s>0?-3:3),e=3,this.itemHolders.forEach((t=>{var i;null===(i=t.slide)||void 0===i||i.destroy(),t.slide=void 0})));for(let t=0;t<e;t++)s>0?(h=this.itemHolders.shift(),h&&(this.itemHolders[2]=h,this.lt++,r(h.el,(this.lt+2)*this.slideWidth),i.setContent(h,i.currIndex-e+t+2))):(h=this.itemHolders.pop(),h&&(this.itemHolders.unshift(h),this.lt--,r(h.el,this.lt*this.slideWidth),i.setContent(h,i.currIndex+e-t-2)));Math.abs(this.lt)>50&&!this.isShifted()&&(this.resetPosition(),this.resize()),i.animations.stopAllPan(),this.itemHolders.forEach(((t,i)=>{t.slide&&t.slide.setIsActive(1===i)})),i.currSlide=null===(t=this.itemHolders[1])||void 0===t?void 0:t.slide,i.contentLoader.updateLazy(s),i.currSlide&&i.currSlide.applyCurrentZoomPan(),i.dispatch("change")}moveTo(t,i){if(!this.pswp.canLoop()&&i){let i=(this.slideWidth*this.ot-t)/this.slideWidth;i+=this.pswp.currIndex;const s=Math.round(t-this.x);(i<0&&s>0||i>=this.pswp.getNumItems()-1&&s<0)&&(t=this.x+.35*s)}this.x=t,this.pswp.container&&r(this.pswp.container,t),this.pswp.dispatch("moveMainScroll",{x:t,dragging:null!=i&&i})}}const D={Escape:27,z:90,ArrowLeft:37,ArrowUp:38,ArrowRight:39,ArrowDown:40,Tab:9},I=(t,i)=>i?t:D[t];class E{constructor(t){this.pswp=t,this.ct=!1,t.on("bindEvents",(()=>{t.options.trapFocus&&(t.options.initialPointerPos||this.dt(),t.events.add(document,"focusin",this.ut.bind(this))),t.events.add(document,"keydown",this.vt.bind(this))}));const i=document.activeElement;t.on("destroy",(()=>{t.options.returnFocus&&i&&this.ct&&i.focus()}))}dt(){!this.ct&&this.pswp.element&&(this.pswp.element.focus(),this.ct=!0)}vt(t){const{pswp:i}=this;if(i.dispatch("keydown",{originalEvent:t}).defaultPrevented)return;if(function(t){return"button"in t&&1===t.button||t.ctrlKey||t.metaKey||t.altKey||t.shiftKey}(t))return;let s,h,e=!1;const n="key"in t;switch(n?t.key:t.keyCode){case I("Escape",n):i.options.escKey&&(s="close");break;case I("z",n):s="toggleZoom";break;case I("ArrowLeft",n):h="x";break;case I("ArrowUp",n):h="y";break;case I("ArrowRight",n):h="x",e=!0;break;case I("ArrowDown",n):e=!0,h="y";break;case I("Tab",n):this.dt()}if(h){t.preventDefault();const{currSlide:n}=i;i.options.arrowKeys&&"x"===h&&i.getNumItems()>1?s=e?"next":"prev":n&&n.currZoomLevel>n.zoomLevels.fit&&(n.pan[h]+=e?-80:80,n.panTo(n.pan.x,n.pan.y))}s&&(t.preventDefault(),i[s]())}ut(t){const{template:i}=this.pswp;i&&document!==t.target&&i!==t.target&&!i.contains(t.target)&&i.focus()}}const L="cubic-bezier(.4,0,.22,1)";class k{constructor(t){var i;this.props=t;const{target:s,onComplete:h,transform:e,onFinish:n=(()=>{}),duration:o=333,easing:r=L}=t;this.onFinish=n;const l=e?"transform":"opacity",c=null!==(i=t[l])&&void 0!==i?i:"";this.ft=s,this.wt=h,this.gt=!1,this.yt=this.yt.bind(this),this._t=setTimeout((()=>{a(s,l,o,r),this._t=setTimeout((()=>{s.addEventListener("transitionend",this.yt,!1),s.addEventListener("transitioncancel",this.yt,!1),this._t=setTimeout((()=>{this.xt()}),o+500),s.style[l]=c}),30)}),0)}yt(t){t.target===this.ft&&this.xt()}xt(){this.gt||(this.gt=!0,this.onFinish(),this.wt&&this.wt())}destroy(){this._t&&clearTimeout(this._t),a(this.ft),this.ft.removeEventListener("transitionend",this.yt,!1),this.ft.removeEventListener("transitioncancel",this.yt,!1),this.gt||this.xt()}}class Z{constructor(t,i,s){this.velocity=1e3*t,this.bt=i||.75,this.St=s||12,this.zt=this.St,this.bt<1&&(this.zt*=Math.sqrt(1-this.bt*this.bt))}easeFrame(t,i){let s,h=0;i/=1e3;const e=Math.E**(-this.bt*this.St*i);if(1===this.bt)s=this.velocity+this.St*t,h=(t+s*i)*e,this.velocity=h*-this.St+s*e;else if(this.bt<1){s=1/this.zt*(this.bt*this.St*t+this.velocity);const n=Math.cos(this.zt*i),o=Math.sin(this.zt*i);h=e*(t*n+s*o),this.velocity=h*-this.St*this.bt+e*(-this.zt*t*o+this.zt*s*n)}return h}}class B{constructor(t){this.props=t,this.Mt=0;const{start:i,end:s,velocity:h,onUpdate:e,onComplete:n,onFinish:o=(()=>{}),dampingRatio:r,naturalFrequency:a}=t;this.onFinish=o;const l=new Z(h,r,a);let c=Date.now(),d=i-s;const u=()=>{this.Mt&&(d=l.easeFrame(d,Date.now()-c),Math.abs(d)<1&&Math.abs(l.velocity)<50?(e(s),n&&n(),this.onFinish()):(c=Date.now(),e(d+s),this.Mt=requestAnimationFrame(u)))};this.Mt=requestAnimationFrame(u)}destroy(){this.Mt>=0&&cancelAnimationFrame(this.Mt),this.Mt=0}}class F{constructor(){this.activeAnimations=[]}startSpring(t){this.Pt(t,!0)}startTransition(t){this.Pt(t)}Pt(t,i){const s=i?new B(t):new k(t);return this.activeAnimations.push(s),s.onFinish=()=>this.stop(s),s}stop(t){t.destroy();const i=this.activeAnimations.indexOf(t);i>-1&&this.activeAnimations.splice(i,1)}stopAll(){this.activeAnimations.forEach((t=>{t.destroy()})),this.activeAnimations=[]}stopAllPan(){this.activeAnimations=this.activeAnimations.filter((t=>!t.props.isPan||(t.destroy(),!1)))}stopMainScroll(){this.activeAnimations=this.activeAnimations.filter((t=>!t.props.isMainScroll||(t.destroy(),!1)))}isPanRunning(){return this.activeAnimations.some((t=>t.props.isPan))}}class O{constructor(t){this.pswp=t,t.events.add(t.element,"wheel",this.Ct.bind(this))}Ct(t){t.preventDefault();const{currSlide:i}=this.pswp;let{deltaX:s,deltaY:h}=t;if(i&&!this.pswp.dispatch("wheel",{originalEvent:t}).defaultPrevented)if(t.ctrlKey||this.pswp.options.wheelToZoom){if(i.isZoomable()){let s=-h;1===t.deltaMode?s*=.05:s*=t.deltaMode?1:.002,s=2**s;const e=i.currZoomLevel*s;i.zoomTo(e,{x:t.clientX,y:t.clientY})}}else i.isPannable()&&(1===t.deltaMode&&(s*=18,h*=18),i.panTo(i.pan.x-s,i.pan.y-h))}}class R{constructor(i,s){var h;const e=s.name||s.className;let n=s.html;if(!1===i.options[e])return;"string"==typeof i.options[e+"SVG"]&&(n=i.options[e+"SVG"]),i.dispatch("uiElementCreate",{data:s});let o="";s.isButton?(o+="pswp__button ",o+=s.className||`pswp__button--${s.name}`):o+=s.className||`pswp__${s.name}`;let r=s.isButton?s.tagName||"button":s.tagName||"div";r=r.toLowerCase();const a=t(o,r);if(s.isButton){"button"===r&&(a.type="button");let{title:t}=s;const{ariaLabel:h}=s;"string"==typeof i.options[e+"Title"]&&(t=i.options[e+"Title"]),t&&(a.title=t);const n=h||t;n&&a.setAttribute("aria-label",n)}a.innerHTML=function(t){if("string"==typeof t)return t;if(!t||!t.isCustomSVG)return"";const i=t;let s='<svg aria-hidden="true" class="pswp__icn" viewBox="0 0 %d %d" width="%d" height="%d">';return s=s.split("%d").join(i.size||32),i.outlineID&&(s+='<use class="pswp__icn-shadow" xlink:href="#'+i.outlineID+'"/>'),s+=i.inner,s+="</svg>",s}(n),s.onInit&&s.onInit(a,i),s.onClick&&(a.onclick=t=>{"string"==typeof s.onClick?i[s.onClick]():"function"==typeof s.onClick&&s.onClick(t,a,i)});const l=s.appendTo||"bar";let c=i.element;"bar"===l?(i.topBar||(i.topBar=t("pswp__top-bar pswp__hide-on-close","div",i.scrollWrap)),c=i.topBar):(a.classList.add("pswp__hide-on-close"),"wrapper"===l&&(c=i.scrollWrap)),null===(h=c)||void 0===h||h.appendChild(i.applyFilters("uiElement",a,s))}}function N(t,i,s){t.classList.add("pswp__button--arrow"),t.setAttribute("aria-controls","pswp__items"),i.on("change",(()=>{i.options.loop||(t.disabled=s?!(i.currIndex<i.getNumItems()-1):!(i.currIndex>0))}))}const U={name:"arrowPrev",className:"pswp__button--arrow--prev",title:"Previous",order:10,isButton:!0,appendTo:"wrapper",html:{isCustomSVG:!0,size:60,inner:'<path d="M29 43l-3 3-16-16 16-16 3 3-13 13 13 13z" id="pswp__icn-arrow"/>',outlineID:"pswp__icn-arrow"},onClick:"prev",onInit:N},V={name:"arrowNext",className:"pswp__button--arrow--next",title:"Next",order:11,isButton:!0,appendTo:"wrapper",html:{isCustomSVG:!0,size:60,inner:'<use xlink:href="#pswp__icn-arrow"/>',outlineID:"pswp__icn-arrow"},onClick:"next",onInit:(t,i)=>{N(t,i,!0)}},G={name:"close",title:"Close",order:20,isButton:!0,html:{isCustomSVG:!0,inner:'<path d="M24 10l-2-2-6 6-6-6-2 2 6 6-6 6 2 2 6-6 6 6 2-2-6-6z" id="pswp__icn-close"/>',outlineID:"pswp__icn-close"},onClick:"close"},$={name:"zoom",title:"Zoom",order:10,isButton:!0,html:{isCustomSVG:!0,inner:'<path d="M17.426 19.926a6 6 0 1 1 1.5-1.5L23 22.5 21.5 24l-4.074-4.074z" id="pswp__icn-zoom"/><path fill="currentColor" class="pswp__zoom-icn-bar-h" d="M11 16v-2h6v2z"/><path fill="currentColor" class="pswp__zoom-icn-bar-v" d="M13 12h2v6h-2z"/>',outlineID:"pswp__icn-zoom"},onClick:"toggleZoom"},q={name:"preloader",appendTo:"bar",order:7,html:{isCustomSVG:!0,inner:'<path fill-rule="evenodd" clip-rule="evenodd" d="M21.2 16a5.2 5.2 0 1 1-5.2-5.2V8a8 8 0 1 0 8 8h-2.8Z" id="pswp__icn-loading"/>',outlineID:"pswp__icn-loading"},onInit:(t,i)=>{let s,h=null;const e=i=>{var h,e;s!==i&&(s=i,h="active",e=i,t.classList.toggle("pswp__preloader--"+h,e))},n=()=>{var t;if(null===(t=i.currSlide)||void 0===t||!t.content.isLoading())return e(!1),void(h&&(clearTimeout(h),h=null));h||(h=setTimeout((()=>{var t;e(Boolean(null===(t=i.currSlide)||void 0===t?void 0:t.content.isLoading())),h=null}),i.options.preloaderDelay))};i.on("change",n),i.on("loadComplete",(t=>{i.currSlide===t.slide&&n()})),i.ui&&(i.ui.updatePreloaderVisibility=n)}},H={name:"counter",order:5,onInit:(t,i)=>{i.on("change",(()=>{t.innerText=i.currIndex+1+i.options.indexIndicatorSep+i.getNumItems()}))}};function K(t,i){t.classList.toggle("pswp--zoomed-in",i)}class W{constructor(t){this.pswp=t,this.isRegistered=!1,this.uiElementsData=[],this.items=[],this.updatePreloaderVisibility=()=>{},this.Tt=void 0}init(){const{pswp:t}=this;this.isRegistered=!1,this.uiElementsData=[G,U,V,$,q,H],t.dispatch("uiRegister"),this.uiElementsData.sort(((t,i)=>(t.order||0)-(i.order||0))),this.items=[],this.isRegistered=!0,this.uiElementsData.forEach((t=>{this.registerElement(t)})),t.on("change",(()=>{var i;null===(i=t.element)||void 0===i||i.classList.toggle("pswp--one-slide",1===t.getNumItems())})),t.on("zoomPanUpdate",(()=>this.At()))}registerElement(t){this.isRegistered?this.items.push(new R(this.pswp,t)):this.uiElementsData.push(t)}At(){const{template:t,currSlide:i,options:s}=this.pswp;if(this.pswp.opener.isClosing||!t||!i)return;let{currZoomLevel:h}=i;if(this.pswp.opener.isOpen||(h=i.zoomLevels.initial),h===this.Tt)return;this.Tt=h;const e=i.zoomLevels.initial-i.zoomLevels.secondary;if(Math.abs(e)<.01||!i.isZoomable())return K(t,!1),void t.classList.remove("pswp--zoom-allowed");t.classList.add("pswp--zoom-allowed");K(t,(h===i.zoomLevels.initial?i.zoomLevels.secondary:i.zoomLevels.initial)<=h),"zoom"!==s.imageClickAction&&"zoom-or-close"!==s.imageClickAction||t.classList.add("pswp--click-to-zoom")}}class j{constructor(t,i){this.type=t,this.defaultPrevented=!1,i&&Object.assign(this,i)}preventDefault(){this.defaultPrevented=!0}}class X{constructor(i,s){if(this.element=t("pswp__img pswp__img--placeholder",i?"img":"div",s),i){const t=this.element;t.decoding="async",t.alt="",t.src=i,t.setAttribute("role","presentation")}this.element.setAttribute("aria-hidden","true")}setDisplayedSize(t,i){this.element&&("IMG"===this.element.tagName?(l(this.element,250,"auto"),this.element.style.transformOrigin="0 0",this.element.style.transform=o(0,0,t/250)):l(this.element,t,i))}destroy(){var t;null!==(t=this.element)&&void 0!==t&&t.parentNode&&this.element.remove(),this.element=null}}class Y{constructor(t,i,s){this.instance=i,this.data=t,this.index=s,this.element=void 0,this.placeholder=void 0,this.slide=void 0,this.displayedImageWidth=0,this.displayedImageHeight=0,this.width=Number(this.data.w)||Number(this.data.width)||0,this.height=Number(this.data.h)||Number(this.data.height)||0,this.isAttached=!1,this.hasSlide=!1,this.isDecoding=!1,this.state=c,this.data.type?this.type=this.data.type:this.data.src?this.type="image":this.type="html",this.instance.dispatch("contentInit",{content:this})}removePlaceholder(){this.placeholder&&!this.keepPlaceholder()&&setTimeout((()=>{this.placeholder&&(this.placeholder.destroy(),this.placeholder=void 0)}),1e3)}load(i,s){if(this.slide&&this.usePlaceholder())if(this.placeholder){const t=this.placeholder.element;t&&!t.parentElement&&this.slide.container.prepend(t)}else{const t=this.instance.applyFilters("placeholderSrc",!(!this.data.msrc||!this.slide.isFirstSlide)&&this.data.msrc,this);this.placeholder=new X(t,this.slide.container)}this.element&&!s||this.instance.dispatch("contentLoad",{content:this,isLazy:i}).defaultPrevented||(this.isImageContent()?(this.element=t("pswp__img","img"),this.displayedImageWidth&&this.loadImage(i)):(this.element=t("pswp__content","div"),this.element.innerHTML=this.data.html||""),s&&this.slide&&this.slide.updateContentSize(!0))}loadImage(t){var i,s;if(!this.isImageContent()||!this.element||this.instance.dispatch("contentLoadImage",{content:this,isLazy:t}).defaultPrevented)return;const h=this.element;this.updateSrcsetSizes(),this.data.srcset&&(h.srcset=this.data.srcset),h.src=null!==(i=this.data.src)&&void 0!==i?i:"",h.alt=null!==(s=this.data.alt)&&void 0!==s?s:"",this.state=d,h.complete?this.onLoaded():(h.onload=()=>{this.onLoaded()},h.onerror=()=>{this.onError()})}setSlide(t){this.slide=t,this.hasSlide=!0,this.instance=t.pswp}onLoaded(){this.state=u,this.slide&&this.element&&(this.instance.dispatch("loadComplete",{slide:this.slide,content:this}),this.slide.isActive&&this.slide.heavyAppended&&!this.element.parentNode&&(this.append(),this.slide.updateContentSize(!0)),this.state!==u&&this.state!==p||this.removePlaceholder())}onError(){this.state=p,this.slide&&(this.displayError(),this.instance.dispatch("loadComplete",{slide:this.slide,isError:!0,content:this}),this.instance.dispatch("loadError",{slide:this.slide,content:this}))}isLoading(){return this.instance.applyFilters("isContentLoading",this.state===d,this)}isError(){return this.state===p}isImageContent(){return"image"===this.type}setDisplayedSize(t,i){if(this.element&&(this.placeholder&&this.placeholder.setDisplayedSize(t,i),!this.instance.dispatch("contentResize",{content:this,width:t,height:i}).defaultPrevented&&(l(this.element,t,i),this.isImageContent()&&!this.isError()))){const s=!this.displayedImageWidth&&t;this.displayedImageWidth=t,this.displayedImageHeight=i,s?this.loadImage(!1):this.updateSrcsetSizes(),this.slide&&this.instance.dispatch("imageSizeChange",{slide:this.slide,width:t,height:i,content:this})}}isZoomable(){return this.instance.applyFilters("isContentZoomable",this.isImageContent()&&this.state!==p,this)}updateSrcsetSizes(){if(!this.isImageContent()||!this.element||!this.data.srcset)return;const t=this.element,i=this.instance.applyFilters("srcsetSizesWidth",this.displayedImageWidth,this);(!t.dataset.largestUsedSize||i>parseInt(t.dataset.largestUsedSize,10))&&(t.sizes=i+"px",t.dataset.largestUsedSize=String(i))}usePlaceholder(){return this.instance.applyFilters("useContentPlaceholder",this.isImageContent(),this)}lazyLoad(){this.instance.dispatch("contentLazyLoad",{content:this}).defaultPrevented||this.load(!0)}keepPlaceholder(){return this.instance.applyFilters("isKeepingPlaceholder",this.isLoading(),this)}destroy(){this.hasSlide=!1,this.slide=void 0,this.instance.dispatch("contentDestroy",{content:this}).defaultPrevented||(this.remove(),this.placeholder&&(this.placeholder.destroy(),this.placeholder=void 0),this.isImageContent()&&this.element&&(this.element.onload=null,this.element.onerror=null,this.element=void 0))}displayError(){if(this.slide){var i,s;let h=t("pswp__error-msg","div");h.innerText=null!==(i=null===(s=this.instance.options)||void 0===s?void 0:s.errorMsg)&&void 0!==i?i:"",h=this.instance.applyFilters("contentErrorElement",h,this),this.element=t("pswp__content pswp__error-msg-container","div"),this.element.appendChild(h),this.slide.container.innerText="",this.slide.container.appendChild(this.element),this.slide.updateContentSize(!0),this.removePlaceholder()}}append(){if(this.isAttached||!this.element)return;if(this.isAttached=!0,this.state===p)return void this.displayError();if(this.instance.dispatch("contentAppend",{content:this}).defaultPrevented)return;const t="decode"in this.element;this.isImageContent()?t&&this.slide&&(!this.slide.isActive||m())?(this.isDecoding=!0,this.element.decode().catch((()=>{})).finally((()=>{this.isDecoding=!1,this.appendImage()}))):this.appendImage():this.slide&&!this.element.parentNode&&this.slide.container.appendChild(this.element)}activate(){!this.instance.dispatch("contentActivate",{content:this}).defaultPrevented&&this.slide&&(this.isImageContent()&&this.isDecoding&&!m()?this.appendImage():this.isError()&&this.load(!1,!0),this.slide.holderElement&&this.slide.holderElement.setAttribute("aria-hidden","false"))}deactivate(){this.instance.dispatch("contentDeactivate",{content:this}),this.slide&&this.slide.holderElement&&this.slide.holderElement.setAttribute("aria-hidden","true")}remove(){this.isAttached=!1,this.instance.dispatch("contentRemove",{content:this}).defaultPrevented||(this.element&&this.element.parentNode&&this.element.remove(),this.placeholder&&this.placeholder.element&&this.placeholder.element.remove())}appendImage(){this.isAttached&&(this.instance.dispatch("contentAppendImage",{content:this}).defaultPrevented||(this.slide&&this.element&&!this.element.parentNode&&this.slide.container.appendChild(this.element),this.state!==u&&this.state!==p||this.removePlaceholder()))}}function J(t,i,s){const h=i.createContentFromData(t,s);let e;const{options:n}=i;if(n){let o;e=new x(n,t,-1),o=i.pswp?i.pswp.viewportSize:w(n,i);const r=y(n,o,t,s);e.update(h.width,h.height,r)}return h.lazyLoad(),e&&h.setDisplayedSize(Math.ceil(h.width*e.initial),Math.ceil(h.height*e.initial)),h}class Q{constructor(t){this.pswp=t,this.limit=Math.max(t.options.preload[0]+t.options.preload[1]+1,5),this.Dt=[]}updateLazy(t){const{pswp:i}=this;if(i.dispatch("lazyLoad").defaultPrevented)return;const{preload:s}=i.options,h=void 0===t||t>=0;let e;for(e=0;e<=s[1];e++)this.loadSlideByIndex(i.currIndex+(h?e:-e));for(e=1;e<=s[0];e++)this.loadSlideByIndex(i.currIndex+(h?-e:e))}loadSlideByIndex(t){const i=this.pswp.getLoopedIndex(t);let s=this.getContentByIndex(i);s||(s=function(t,i){const s=i.getItemData(t);if(!i.dispatch("lazyLoadSlide",{index:t,itemData:s}).defaultPrevented)return J(s,i,t)}(i,this.pswp),s&&this.addToCache(s))}getContentBySlide(t){let i=this.getContentByIndex(t.index);return i||(i=this.pswp.createContentFromData(t.data,t.index),this.addToCache(i)),i.setSlide(t),i}addToCache(t){if(this.removeByIndex(t.index),this.Dt.push(t),this.Dt.length>this.limit){const t=this.Dt.findIndex((t=>!t.isAttached&&!t.hasSlide));if(-1!==t){this.Dt.splice(t,1)[0].destroy()}}}removeByIndex(t){const i=this.Dt.findIndex((i=>i.index===t));-1!==i&&this.Dt.splice(i,1)}getContentByIndex(t){return this.Dt.find((i=>i.index===t))}destroy(){this.Dt.forEach((t=>t.destroy())),this.Dt=[]}}const tt=.003;class it{constructor(t){this.pswp=t,this.isClosed=!0,this.isOpen=!1,this.isClosing=!1,this.isOpening=!1,this.It=void 0,this.Et=!1,this.Lt=!1,this.kt=!1,this.Zt=!1,this.Bt=void 0,this.Ft=void 0,this.Ot=void 0,this.Rt=void 0,this.Nt=void 0,this.Ut=this.Ut.bind(this),t.on("firstZoomPan",this.Ut)}open(){this.Ut(),this.Pt()}close(){if(this.isClosed||this.isClosing||this.isOpening)return;const t=this.pswp.currSlide;this.isOpen=!1,this.isOpening=!1,this.isClosing=!0,this.It=this.pswp.options.hideAnimationDuration,t&&t.currZoomLevel*t.width>=this.pswp.options.maxWidthToAnimate&&(this.It=0),this.Vt(),setTimeout((()=>{this.Pt()}),this.Lt?30:0)}Ut(){if(this.pswp.off("firstZoomPan",this.Ut),!this.isOpening){const t=this.pswp.currSlide;this.isOpening=!0,this.isClosing=!1,this.It=this.pswp.options.showAnimationDuration,t&&t.zoomLevels.initial*t.width>=this.pswp.options.maxWidthToAnimate&&(this.It=0),this.Vt()}}Vt(){const{pswp:t}=this,i=this.pswp.currSlide,{options:s}=t;var h,e;("fade"===s.showHideAnimationType?(s.showHideOpacity=!0,this.Nt=void 0):"none"===s.showHideAnimationType?(s.showHideOpacity=!1,this.It=0,this.Nt=void 0):this.isOpening&&t.Gt?this.Nt=t.Gt:this.Nt=this.pswp.getThumbBounds(),this.Bt=null==i?void 0:i.getPlaceholderElement(),t.animations.stopAll(),this.Et=Boolean(this.It&&this.It>50),this.$t=Boolean(this.Nt)&&(null==i?void 0:i.content.usePlaceholder())&&(!this.isClosing||!t.mainScroll.isShifted()),this.$t)?this.kt=null!==(h=s.showHideOpacity)&&void 0!==h&&h:(this.kt=!0,this.isOpening&&i&&(i.zoomAndPanToInitial(),i.applyCurrentZoomPan()));if(this.Zt=!this.kt&&this.pswp.options.bgOpacity>tt,this.Ft=this.kt?t.element:t.bg,!this.Et)return this.It=0,this.$t=!1,this.Zt=!1,this.kt=!0,void(this.isOpening&&(t.element&&(t.element.style.opacity=String(tt)),t.applyBgOpacity(1)));this.$t&&this.Nt&&this.Nt.innerRect?(this.Lt=!0,this.Ot=this.pswp.container,this.Rt=null===(e=this.pswp.currSlide)||void 0===e?void 0:e.holderElement,t.container&&(t.container.style.overflow="hidden",t.container.style.width=t.viewportSize.x+"px")):this.Lt=!1;this.isOpening?(this.kt?(t.element&&(t.element.style.opacity=String(tt)),t.applyBgOpacity(1)):(this.Zt&&t.bg&&(t.bg.style.opacity=String(tt)),t.element&&(t.element.style.opacity="1")),this.$t&&(this.qt(),this.Bt&&(this.Bt.style.willChange="transform",this.Bt.style.opacity=String(tt)))):this.isClosing&&(t.mainScroll.itemHolders[0]&&(t.mainScroll.itemHolders[0].el.style.display="none"),t.mainScroll.itemHolders[2]&&(t.mainScroll.itemHolders[2].el.style.display="none"),this.Lt&&0!==t.mainScroll.x&&(t.mainScroll.resetPosition(),t.mainScroll.resize()))}Pt(){this.isOpening&&this.Et&&this.Bt&&"IMG"===this.Bt.tagName?new Promise((t=>{let i=!1,s=!0;var h;(h=this.Bt,"decode"in h?h.decode().catch((()=>{})):h.complete?Promise.resolve(h):new Promise(((t,i)=>{h.onload=()=>t(h),h.onerror=i}))).finally((()=>{i=!0,s||t(!0)})),setTimeout((()=>{s=!1,i&&t(!0)}),50),setTimeout(t,250)})).finally((()=>this.Ht())):this.Ht()}Ht(){var t,i;null===(t=this.pswp.element)||void 0===t||t.style.setProperty("--pswp-transition-duration",this.It+"ms"),this.pswp.dispatch(this.isOpening?"openingAnimationStart":"closingAnimationStart"),this.pswp.dispatch("initialZoom"+(this.isOpening?"In":"Out")),null===(i=this.pswp.element)||void 0===i||i.classList.toggle("pswp--ui-visible",this.isOpening),this.isOpening?(this.Bt&&(this.Bt.style.opacity="1"),this.Kt()):this.isClosing&&this.Wt(),this.Et||this.jt()}jt(){const{pswp:t}=this;if(this.isOpen=this.isOpening,this.isClosed=this.isClosing,this.isOpening=!1,this.isClosing=!1,t.dispatch(this.isOpen?"openingAnimationEnd":"closingAnimationEnd"),t.dispatch("initialZoom"+(this.isOpen?"InEnd":"OutEnd")),this.isClosed)t.destroy();else if(this.isOpen){var i;this.$t&&t.container&&(t.container.style.overflow="visible",t.container.style.width="100%"),null===(i=t.currSlide)||void 0===i||i.applyCurrentZoomPan()}}Kt(){const{pswp:t}=this;this.$t&&(this.Lt&&this.Ot&&this.Rt&&(this.Xt(this.Ot,"transform","translate3d(0,0,0)"),this.Xt(this.Rt,"transform","none")),t.currSlide&&(t.currSlide.zoomAndPanToInitial(),this.Xt(t.currSlide.container,"transform",t.currSlide.getCurrentTransform()))),this.Zt&&t.bg&&this.Xt(t.bg,"opacity",String(t.options.bgOpacity)),this.kt&&t.element&&this.Xt(t.element,"opacity","1")}Wt(){const{pswp:t}=this;this.$t&&this.qt(!0),this.Zt&&t.bgOpacity>.01&&t.bg&&this.Xt(t.bg,"opacity","0"),this.kt&&t.element&&this.Xt(t.element,"opacity","0")}qt(t){if(!this.Nt)return;const{pswp:s}=this,{innerRect:h}=this.Nt,{currSlide:e,viewportSize:n}=s;if(this.Lt&&h&&this.Ot&&this.Rt){const i=-n.x+(this.Nt.x-h.x)+h.w,s=-n.y+(this.Nt.y-h.y)+h.h,e=n.x-h.w,a=n.y-h.h;t?(this.Xt(this.Ot,"transform",o(i,s)),this.Xt(this.Rt,"transform",o(e,a))):(r(this.Ot,i,s),r(this.Rt,e,a))}e&&(i(e.pan,h||this.Nt),e.currZoomLevel=this.Nt.w/e.width,t?this.Xt(e.container,"transform",e.getCurrentTransform()):e.applyCurrentZoomPan())}Xt(t,i,s){if(!this.It)return void(t.style[i]=s);const{animations:h}=this.pswp,e={duration:this.It,easing:this.pswp.options.easing,onComplete:()=>{h.activeAnimations.length||this.jt()},target:t};e[i]=s,h.startTransition(e)}}const st={allowPanToNext:!0,spacing:.1,loop:!0,pinchToClose:!0,closeOnVerticalDrag:!0,hideAnimationDuration:333,showAnimationDuration:333,zoomAnimationDuration:333,escKey:!0,arrowKeys:!0,trapFocus:!0,returnFocus:!0,maxWidthToAnimate:4e3,clickToCloseNonZoomable:!0,imageClickAction:"zoom-or-close",bgClickAction:"close",tapAction:"toggle-controls",doubleTapAction:"zoom",indexIndicatorSep:" / ",preloaderDelay:2e3,bgOpacity:.8,index:0,errorMsg:"The image cannot be loaded",preload:[1,2],easing:"cubic-bezier(.4,0,.22,1)"};return class extends class extends class{constructor(){this.Yt={},this.Jt={},this.pswp=void 0,this.options=void 0}addFilter(t,i,s=100){var h,e,n;this.Jt[t]||(this.Jt[t]=[]),null===(h=this.Jt[t])||void 0===h||h.push({fn:i,priority:s}),null===(e=this.Jt[t])||void 0===e||e.sort(((t,i)=>t.priority-i.priority)),null===(n=this.pswp)||void 0===n||n.addFilter(t,i,s)}removeFilter(t,i){this.Jt[t]&&(this.Jt[t]=this.Jt[t].filter((t=>t.fn!==i))),this.pswp&&this.pswp.removeFilter(t,i)}applyFilters(t,...i){var s;return null===(s=this.Jt[t])||void 0===s||s.forEach((t=>{i[0]=t.fn.apply(this,i)})),i[0]}on(t,i){var s,h;this.Yt[t]||(this.Yt[t]=[]),null===(s=this.Yt[t])||void 0===s||s.push(i),null===(h=this.pswp)||void 0===h||h.on(t,i)}off(t,i){var s;this.Yt[t]&&(this.Yt[t]=this.Yt[t].filter((t=>i!==t))),null===(s=this.pswp)||void 0===s||s.off(t,i)}dispatch(t,i){var s;if(this.pswp)return this.pswp.dispatch(t,i);const h=new j(t,i);return null===(s=this.Yt[t])||void 0===s||s.forEach((t=>{t.call(this,h)})),h}}{getNumItems(){var t;let i=0;const s=null===(t=this.options)||void 0===t?void 0:t.dataSource;s&&"length"in s?i=s.length:s&&"gallery"in s&&(s.items||(s.items=this.Qt(s.gallery)),s.items&&(i=s.items.length));const h=this.dispatch("numItems",{dataSource:s,numItems:i});return this.applyFilters("numItems",h.numItems,s)}createContentFromData(t,i){return new Y(t,this,i)}getItemData(t){var i;const s=null===(i=this.options)||void 0===i?void 0:i.dataSource;let h={};Array.isArray(s)?h=s[t]:s&&"gallery"in s&&(s.items||(s.items=this.Qt(s.gallery)),h=s.items[t]);let e=h;e instanceof Element&&(e=this.ti(e));const n=this.dispatch("itemData",{itemData:e||{},index:t});return this.applyFilters("itemData",n.itemData,t)}Qt(t){var i,s;return null!==(i=this.options)&&void 0!==i&&i.children||null!==(s=this.options)&&void 0!==s&&s.childSelector?function(t,i,s=document){let h=[];if(t instanceof Element)h=[t];else if(t instanceof NodeList||Array.isArray(t))h=Array.from(t);else{const e="string"==typeof t?t:i;e&&(h=Array.from(s.querySelectorAll(e)))}return h}(this.options.children,this.options.childSelector,t)||[]:[t]}ti(t){const i={element:t},s="A"===t.tagName?t:t.querySelector("a");if(s){i.src=s.dataset.pswpSrc||s.href,s.dataset.pswpSrcset&&(i.srcset=s.dataset.pswpSrcset),i.width=s.dataset.pswpWidth?parseInt(s.dataset.pswpWidth,10):0,i.height=s.dataset.pswpHeight?parseInt(s.dataset.pswpHeight,10):0,i.w=i.width,i.h=i.height,s.dataset.pswpType&&(i.type=s.dataset.pswpType);const e=t.querySelector("img");var h;if(e)i.msrc=e.currentSrc||e.src,i.alt=null!==(h=e.getAttribute("alt"))&&void 0!==h?h:"";(s.dataset.pswpCropped||s.dataset.cropped)&&(i.thumbCropped=!0)}return this.applyFilters("domItemData",i,t,s)}lazyLoadData(t,i){return J(t,this,i)}}{constructor(t){super(),this.options=this.ii(t||{}),this.offset={x:0,y:0},this.si={x:0,y:0},this.viewportSize={x:0,y:0},this.bgOpacity=1,this.currIndex=0,this.potentialIndex=0,this.isOpen=!1,this.isDestroying=!1,this.hasMouse=!1,this.hi={},this.Gt=void 0,this.topBar=void 0,this.element=void 0,this.template=void 0,this.container=void 0,this.scrollWrap=void 0,this.currSlide=void 0,this.events=new f,this.animations=new F,this.mainScroll=new A(this),this.gestures=new T(this),this.opener=new it(this),this.keyboard=new E(this),this.contentLoader=new Q(this)}init(){if(this.isOpen||this.isDestroying)return!1;this.isOpen=!0,this.dispatch("init"),this.dispatch("beforeOpen"),this.ei();let t="pswp--open";return this.gestures.supportsTouch&&(t+=" pswp--touch"),this.options.mainClass&&(t+=" "+this.options.mainClass),this.element&&(this.element.className+=" "+t),this.currIndex=this.options.index||0,this.potentialIndex=this.currIndex,this.dispatch("firstUpdate"),this.scrollWheel=new O(this),(Number.isNaN(this.currIndex)||this.currIndex<0||this.currIndex>=this.getNumItems())&&(this.currIndex=0),this.gestures.supportsTouch||this.mouseDetected(),this.updateSize(),this.offset.y=window.pageYOffset,this.hi=this.getItemData(this.currIndex),this.dispatch("gettingData",{index:this.currIndex,data:this.hi,slide:void 0}),this.Gt=this.getThumbBounds(),this.dispatch("initialLayout"),this.on("openingAnimationEnd",(()=>{const{itemHolders:t}=this.mainScroll;t[0]&&(t[0].el.style.display="block",this.setContent(t[0],this.currIndex-1)),t[2]&&(t[2].el.style.display="block",this.setContent(t[2],this.currIndex+1)),this.appendHeavy(),this.contentLoader.updateLazy(),this.events.add(window,"resize",this.ni.bind(this)),this.events.add(window,"scroll",this.oi.bind(this)),this.dispatch("bindEvents")})),this.mainScroll.itemHolders[1]&&this.setContent(this.mainScroll.itemHolders[1],this.currIndex),this.dispatch("change"),this.opener.open(),this.dispatch("afterInit"),!0}getLoopedIndex(t){const i=this.getNumItems();return this.options.loop&&(t>i-1&&(t-=i),t<0&&(t+=i)),n(t,0,i-1)}appendHeavy(){this.mainScroll.itemHolders.forEach((t=>{var i;null===(i=t.slide)||void 0===i||i.appendHeavy()}))}goTo(t){this.mainScroll.moveIndexBy(this.getLoopedIndex(t)-this.potentialIndex)}next(){this.goTo(this.potentialIndex+1)}prev(){this.goTo(this.potentialIndex-1)}zoomTo(...t){var i;null===(i=this.currSlide)||void 0===i||i.zoomTo(...t)}toggleZoom(){var t;null===(t=this.currSlide)||void 0===t||t.toggleZoom()}close(){this.opener.isOpen&&!this.isDestroying&&(this.isDestroying=!0,this.dispatch("close"),this.events.removeAll(),this.opener.close())}destroy(){var t;if(!this.isDestroying)return this.options.showHideAnimationType="none",void this.close();this.dispatch("destroy"),this.Yt={},this.scrollWrap&&(this.scrollWrap.ontouchmove=null,this.scrollWrap.ontouchend=null),null===(t=this.element)||void 0===t||t.remove(),this.mainScroll.itemHolders.forEach((t=>{var i;null===(i=t.slide)||void 0===i||i.destroy()})),this.contentLoader.destroy(),this.events.removeAll()}refreshSlideContent(t){this.contentLoader.removeByIndex(t),this.mainScroll.itemHolders.forEach(((i,s)=>{var h,e;let n=(null!==(h=null===(e=this.currSlide)||void 0===e?void 0:e.index)&&void 0!==h?h:0)-1+s;var o;(this.canLoop()&&(n=this.getLoopedIndex(n)),n===t)&&(this.setContent(i,t,!0),1===s&&(this.currSlide=i.slide,null===(o=i.slide)||void 0===o||o.setIsActive(!0)))})),this.dispatch("change")}setContent(t,i,s){if(this.canLoop()&&(i=this.getLoopedIndex(i)),t.slide){if(t.slide.index===i&&!s)return;t.slide.destroy(),t.slide=void 0}if(!this.canLoop()&&(i<0||i>=this.getNumItems()))return;const h=this.getItemData(i);t.slide=new b(h,i,this),i===this.currIndex&&(this.currSlide=t.slide),t.slide.append(t.el)}getViewportCenterPoint(){return{x:this.viewportSize.x/2,y:this.viewportSize.y/2}}updateSize(t){if(this.isDestroying)return;const s=w(this.options,this);!t&&e(s,this.si)||(i(this.si,s),this.dispatch("beforeResize"),i(this.viewportSize,this.si),this.oi(),this.dispatch("viewportSize"),this.mainScroll.resize(this.opener.isOpen),!this.hasMouse&&window.matchMedia("(any-hover: hover)").matches&&this.mouseDetected(),this.dispatch("resize"))}applyBgOpacity(t){this.bgOpacity=Math.max(t,0),this.bg&&(this.bg.style.opacity=String(this.bgOpacity*this.options.bgOpacity))}mouseDetected(){var t;this.hasMouse||(this.hasMouse=!0,null===(t=this.element)||void 0===t||t.classList.add("pswp--has_mouse"))}ni(){this.updateSize(),/iPhone|iPad|iPod/i.test(window.navigator.userAgent)&&setTimeout((()=>{this.updateSize()}),500)}oi(){this.setScrollOffset(0,window.pageYOffset)}setScrollOffset(t,i){this.offset.x=t,this.offset.y=i,this.dispatch("updateScrollOffset")}ei(){this.element=t("pswp","div"),this.element.setAttribute("tabindex","-1"),this.element.setAttribute("role","dialog"),this.template=this.element,this.bg=t("pswp__bg","div",this.element),this.scrollWrap=t("pswp__scroll-wrap","section",this.element),this.container=t("pswp__container","div",this.scrollWrap),this.scrollWrap.setAttribute("aria-roledescription","carousel"),this.container.setAttribute("aria-live","off"),this.container.setAttribute("id","pswp__items"),this.mainScroll.appendHolders(),this.ui=new W(this),this.ui.init(),(this.options.appendToEl||document.body).appendChild(this.element)}getThumbBounds(){return function(t,i,s){const h=s.dispatch("thumbBounds",{index:t,itemData:i,instance:s});if(h.thumbBounds)return h.thumbBounds;const{element:e}=i;let n,o;if(e&&!1!==s.options.thumbSelector){const t=s.options.thumbSelector||"img";o=e.matches(t)?e:e.querySelector(t)}return o=s.applyFilters("thumbEl",o,i,t),o&&(n=i.thumbCropped?function(t,i,s){const h=t.getBoundingClientRect(),e=h.width/i,n=h.height/s,o=e>n?e:n,r=(h.width-i*o)/2,a=(h.height-s*o)/2,l={x:h.left+r,y:h.top+a,w:i*o};return l.innerRect={w:h.width,h:h.height,x:r,y:a},l}(o,i.width||i.w||0,i.height||i.h||0):function(t){const i=t.getBoundingClientRect();return{x:i.left,y:i.top,w:i.width}}(o)),s.applyFilters("thumbBounds",n,i,t)}(this.currIndex,this.currSlide?this.currSlide.data:this.hi,this)}canLoop(){return this.options.loop&&this.getNumItems()>2}ii(t){return window.matchMedia("(prefers-reduced-motion), (update: slow)").matches&&(t.showHideAnimationType="none",t.zoomAnimationDuration=0),{...st,...t}}}}));
+</script>
+  <script>/*!
+  * PhotoSwipe Lightbox 5.4.4 - https://photoswipe.com
+  * (c) 2024 Dmytro Semenov
+  */
+!function(t,i){"object"==typeof exports&&"undefined"!=typeof module?module.exports=i():"function"==typeof define&&define.amd?define(i):(t="undefined"!=typeof globalThis?globalThis:t||self).PhotoSwipeLightbox=i()}(this,(function(){"use strict";function t(t,i,s){const h=document.createElement(i);return t&&(h.className=t),s&&s.appendChild(h),h}function i(t,i,s){t.style.width="number"==typeof i?`${i}px`:i,t.style.height="number"==typeof s?`${s}px`:s}const s="idle",h="loading",e="loaded",n="error";function o(t,i,s=document){let h=[];if(t instanceof Element)h=[t];else if(t instanceof NodeList||Array.isArray(t))h=Array.from(t);else{const e="string"==typeof t?t:i;e&&(h=Array.from(s.querySelectorAll(e)))}return h}function r(){return!(!navigator.vendor||!navigator.vendor.match(/apple/i))}class l{constructor(t,i){this.type=t,this.defaultPrevented=!1,i&&Object.assign(this,i)}preventDefault(){this.defaultPrevented=!0}}class a{constructor(i,s){if(this.element=t("pswp__img pswp__img--placeholder",i?"img":"div",s),i){const t=this.element;t.decoding="async",t.alt="",t.src=i,t.setAttribute("role","presentation")}this.element.setAttribute("aria-hidden","true")}setDisplayedSize(t,s){this.element&&("IMG"===this.element.tagName?(i(this.element,250,"auto"),this.element.style.transformOrigin="0 0",this.element.style.transform=function(t,i,s){let h=`translate3d(${t}px,${i||0}px,0)`;return void 0!==s&&(h+=` scale3d(${s},${s},1)`),h}(0,0,t/250)):i(this.element,t,s))}destroy(){var t;null!==(t=this.element)&&void 0!==t&&t.parentNode&&this.element.remove(),this.element=null}}class d{constructor(t,i,h){this.instance=i,this.data=t,this.index=h,this.element=void 0,this.placeholder=void 0,this.slide=void 0,this.displayedImageWidth=0,this.displayedImageHeight=0,this.width=Number(this.data.w)||Number(this.data.width)||0,this.height=Number(this.data.h)||Number(this.data.height)||0,this.isAttached=!1,this.hasSlide=!1,this.isDecoding=!1,this.state=s,this.data.type?this.type=this.data.type:this.data.src?this.type="image":this.type="html",this.instance.dispatch("contentInit",{content:this})}removePlaceholder(){this.placeholder&&!this.keepPlaceholder()&&setTimeout((()=>{this.placeholder&&(this.placeholder.destroy(),this.placeholder=void 0)}),1e3)}load(i,s){if(this.slide&&this.usePlaceholder())if(this.placeholder){const t=this.placeholder.element;t&&!t.parentElement&&this.slide.container.prepend(t)}else{const t=this.instance.applyFilters("placeholderSrc",!(!this.data.msrc||!this.slide.isFirstSlide)&&this.data.msrc,this);this.placeholder=new a(t,this.slide.container)}this.element&&!s||this.instance.dispatch("contentLoad",{content:this,isLazy:i}).defaultPrevented||(this.isImageContent()?(this.element=t("pswp__img","img"),this.displayedImageWidth&&this.loadImage(i)):(this.element=t("pswp__content","div"),this.element.innerHTML=this.data.html||""),s&&this.slide&&this.slide.updateContentSize(!0))}loadImage(t){var i,s;if(!this.isImageContent()||!this.element||this.instance.dispatch("contentLoadImage",{content:this,isLazy:t}).defaultPrevented)return;const e=this.element;this.updateSrcsetSizes(),this.data.srcset&&(e.srcset=this.data.srcset),e.src=null!==(i=this.data.src)&&void 0!==i?i:"",e.alt=null!==(s=this.data.alt)&&void 0!==s?s:"",this.state=h,e.complete?this.onLoaded():(e.onload=()=>{this.onLoaded()},e.onerror=()=>{this.onError()})}setSlide(t){this.slide=t,this.hasSlide=!0,this.instance=t.pswp}onLoaded(){this.state=e,this.slide&&this.element&&(this.instance.dispatch("loadComplete",{slide:this.slide,content:this}),this.slide.isActive&&this.slide.heavyAppended&&!this.element.parentNode&&(this.append(),this.slide.updateContentSize(!0)),this.state!==e&&this.state!==n||this.removePlaceholder())}onError(){this.state=n,this.slide&&(this.displayError(),this.instance.dispatch("loadComplete",{slide:this.slide,isError:!0,content:this}),this.instance.dispatch("loadError",{slide:this.slide,content:this}))}isLoading(){return this.instance.applyFilters("isContentLoading",this.state===h,this)}isError(){return this.state===n}isImageContent(){return"image"===this.type}setDisplayedSize(t,s){if(this.element&&(this.placeholder&&this.placeholder.setDisplayedSize(t,s),!this.instance.dispatch("contentResize",{content:this,width:t,height:s}).defaultPrevented&&(i(this.element,t,s),this.isImageContent()&&!this.isError()))){const i=!this.displayedImageWidth&&t;this.displayedImageWidth=t,this.displayedImageHeight=s,i?this.loadImage(!1):this.updateSrcsetSizes(),this.slide&&this.instance.dispatch("imageSizeChange",{slide:this.slide,width:t,height:s,content:this})}}isZoomable(){return this.instance.applyFilters("isContentZoomable",this.isImageContent()&&this.state!==n,this)}updateSrcsetSizes(){if(!this.isImageContent()||!this.element||!this.data.srcset)return;const t=this.element,i=this.instance.applyFilters("srcsetSizesWidth",this.displayedImageWidth,this);(!t.dataset.largestUsedSize||i>parseInt(t.dataset.largestUsedSize,10))&&(t.sizes=i+"px",t.dataset.largestUsedSize=String(i))}usePlaceholder(){return this.instance.applyFilters("useContentPlaceholder",this.isImageContent(),this)}lazyLoad(){this.instance.dispatch("contentLazyLoad",{content:this}).defaultPrevented||this.load(!0)}keepPlaceholder(){return this.instance.applyFilters("isKeepingPlaceholder",this.isLoading(),this)}destroy(){this.hasSlide=!1,this.slide=void 0,this.instance.dispatch("contentDestroy",{content:this}).defaultPrevented||(this.remove(),this.placeholder&&(this.placeholder.destroy(),this.placeholder=void 0),this.isImageContent()&&this.element&&(this.element.onload=null,this.element.onerror=null,this.element=void 0))}displayError(){if(this.slide){var i,s;let h=t("pswp__error-msg","div");h.innerText=null!==(i=null===(s=this.instance.options)||void 0===s?void 0:s.errorMsg)&&void 0!==i?i:"",h=this.instance.applyFilters("contentErrorElement",h,this),this.element=t("pswp__content pswp__error-msg-container","div"),this.element.appendChild(h),this.slide.container.innerText="",this.slide.container.appendChild(this.element),this.slide.updateContentSize(!0),this.removePlaceholder()}}append(){if(this.isAttached||!this.element)return;if(this.isAttached=!0,this.state===n)return void this.displayError();if(this.instance.dispatch("contentAppend",{content:this}).defaultPrevented)return;const t="decode"in this.element;this.isImageContent()?t&&this.slide&&(!this.slide.isActive||r())?(this.isDecoding=!0,this.element.decode().catch((()=>{})).finally((()=>{this.isDecoding=!1,this.appendImage()}))):this.appendImage():this.slide&&!this.element.parentNode&&this.slide.container.appendChild(this.element)}activate(){!this.instance.dispatch("contentActivate",{content:this}).defaultPrevented&&this.slide&&(this.isImageContent()&&this.isDecoding&&!r()?this.appendImage():this.isError()&&this.load(!1,!0),this.slide.holderElement&&this.slide.holderElement.setAttribute("aria-hidden","false"))}deactivate(){this.instance.dispatch("contentDeactivate",{content:this}),this.slide&&this.slide.holderElement&&this.slide.holderElement.setAttribute("aria-hidden","true")}remove(){this.isAttached=!1,this.instance.dispatch("contentRemove",{content:this}).defaultPrevented||(this.element&&this.element.parentNode&&this.element.remove(),this.placeholder&&this.placeholder.element&&this.placeholder.element.remove())}appendImage(){this.isAttached&&(this.instance.dispatch("contentAppendImage",{content:this}).defaultPrevented||(this.slide&&this.element&&!this.element.parentNode&&this.slide.container.appendChild(this.element),this.state!==e&&this.state!==n||this.removePlaceholder()))}}function c(t,i,s,h,e){let n=0;if(i.paddingFn)n=i.paddingFn(s,h,e)[t];else if(i.padding)n=i.padding[t];else{const s="padding"+t[0].toUpperCase()+t.slice(1);i[s]&&(n=i[s])}return Number(n)||0}class u{constructor(t,i,s,h){this.pswp=h,this.options=t,this.itemData=i,this.index=s,this.panAreaSize=null,this.elementSize=null,this.fit=1,this.fill=1,this.vFill=1,this.initial=1,this.secondary=1,this.max=1,this.min=1}update(t,i,s){const h={x:t,y:i};this.elementSize=h,this.panAreaSize=s;const e=s.x/h.x,n=s.y/h.y;this.fit=Math.min(1,e<n?e:n),this.fill=Math.min(1,e>n?e:n),this.vFill=Math.min(1,n),this.initial=this.t(),this.secondary=this.i(),this.max=Math.max(this.initial,this.secondary,this.o()),this.min=Math.min(this.fit,this.initial,this.secondary),this.pswp&&this.pswp.dispatch("zoomLevelsUpdate",{zoomLevels:this,slideData:this.itemData})}l(t){const i=t+"ZoomLevel",s=this.options[i];if(s)return"function"==typeof s?s(this):"fill"===s?this.fill:"fit"===s?this.fit:Number(s)}i(){let t=this.l("secondary");return t||(t=Math.min(1,3*this.fit),this.elementSize&&t*this.elementSize.x>4e3&&(t=4e3/this.elementSize.x),t)}t(){return this.l("initial")||this.fit}o(){return this.l("max")||Math.max(1,4*this.fit)}}function p(t,i,s){const h=i.createContentFromData(t,s);let e;const{options:n}=i;if(n){let o;e=new u(n,t,-1),o=i.pswp?i.pswp.viewportSize:function(t,i){if(t.getViewportSizeFn){const s=t.getViewportSizeFn(t,i);if(s)return s}return{x:document.documentElement.clientWidth,y:window.innerHeight}}(n,i);const r=function(t,i,s,h){return{x:i.x-c("left",t,i,s,h)-c("right",t,i,s,h),y:i.y-c("top",t,i,s,h)-c("bottom",t,i,s,h)}}(n,o,t,s);e.update(h.width,h.height,r)}return h.lazyLoad(),e&&h.setDisplayedSize(Math.ceil(h.width*e.initial),Math.ceil(h.height*e.initial)),h}return class extends class extends class{constructor(){this.u={},this.p={},this.pswp=void 0,this.options=void 0}addFilter(t,i,s=100){var h,e,n;this.p[t]||(this.p[t]=[]),null===(h=this.p[t])||void 0===h||h.push({fn:i,priority:s}),null===(e=this.p[t])||void 0===e||e.sort(((t,i)=>t.priority-i.priority)),null===(n=this.pswp)||void 0===n||n.addFilter(t,i,s)}removeFilter(t,i){this.p[t]&&(this.p[t]=this.p[t].filter((t=>t.fn!==i))),this.pswp&&this.pswp.removeFilter(t,i)}applyFilters(t,...i){var s;return null===(s=this.p[t])||void 0===s||s.forEach((t=>{i[0]=t.fn.apply(this,i)})),i[0]}on(t,i){var s,h;this.u[t]||(this.u[t]=[]),null===(s=this.u[t])||void 0===s||s.push(i),null===(h=this.pswp)||void 0===h||h.on(t,i)}off(t,i){var s;this.u[t]&&(this.u[t]=this.u[t].filter((t=>i!==t))),null===(s=this.pswp)||void 0===s||s.off(t,i)}dispatch(t,i){var s;if(this.pswp)return this.pswp.dispatch(t,i);const h=new l(t,i);return null===(s=this.u[t])||void 0===s||s.forEach((t=>{t.call(this,h)})),h}}{getNumItems(){var t;let i=0;const s=null===(t=this.options)||void 0===t?void 0:t.dataSource;s&&"length"in s?i=s.length:s&&"gallery"in s&&(s.items||(s.items=this.v(s.gallery)),s.items&&(i=s.items.length));const h=this.dispatch("numItems",{dataSource:s,numItems:i});return this.applyFilters("numItems",h.numItems,s)}createContentFromData(t,i){return new d(t,this,i)}getItemData(t){var i;const s=null===(i=this.options)||void 0===i?void 0:i.dataSource;let h={};Array.isArray(s)?h=s[t]:s&&"gallery"in s&&(s.items||(s.items=this.v(s.gallery)),h=s.items[t]);let e=h;e instanceof Element&&(e=this.m(e));const n=this.dispatch("itemData",{itemData:e||{},index:t});return this.applyFilters("itemData",n.itemData,t)}v(t){var i,s;return null!==(i=this.options)&&void 0!==i&&i.children||null!==(s=this.options)&&void 0!==s&&s.childSelector?o(this.options.children,this.options.childSelector,t)||[]:[t]}m(t){const i={element:t},s="A"===t.tagName?t:t.querySelector("a");if(s){i.src=s.dataset.pswpSrc||s.href,s.dataset.pswpSrcset&&(i.srcset=s.dataset.pswpSrcset),i.width=s.dataset.pswpWidth?parseInt(s.dataset.pswpWidth,10):0,i.height=s.dataset.pswpHeight?parseInt(s.dataset.pswpHeight,10):0,i.w=i.width,i.h=i.height,s.dataset.pswpType&&(i.type=s.dataset.pswpType);const e=t.querySelector("img");var h;if(e)i.msrc=e.currentSrc||e.src,i.alt=null!==(h=e.getAttribute("alt"))&&void 0!==h?h:"";(s.dataset.pswpCropped||s.dataset.cropped)&&(i.thumbCropped=!0)}return this.applyFilters("domItemData",i,t,s)}lazyLoadData(t,i){return p(t,this,i)}}{constructor(t){super(),this.options=t||{},this.g=0,this.shouldOpen=!1,this._=void 0,this.onThumbnailsClick=this.onThumbnailsClick.bind(this)}init(){o(this.options.gallery,this.options.gallerySelector).forEach((t=>{t.addEventListener("click",this.onThumbnailsClick,!1)}))}onThumbnailsClick(t){if(function(t){return"button"in t&&1===t.button||t.ctrlKey||t.metaKey||t.altKey||t.shiftKey}(t)||window.pswp)return;let i={x:t.clientX,y:t.clientY};i.x||i.y||(i=null);let s=this.getClickedIndex(t);s=this.applyFilters("clickedIndex",s,t,this);const h={gallery:t.currentTarget};s>=0&&(t.preventDefault(),this.loadAndOpen(s,h,i))}getClickedIndex(t){if(this.options.getClickedIndexFn)return this.options.getClickedIndexFn.call(this,t);const i=t.target,s=o(this.options.children,this.options.childSelector,t.currentTarget).findIndex((t=>t===i||t.contains(i)));return-1!==s?s:this.options.children||this.options.childSelector?-1:0}loadAndOpen(t,i,s){if(window.pswp||!this.options)return!1;if(!i&&this.options.gallery&&this.options.children){const t=o(this.options.gallery);t[0]&&(i={gallery:t[0]})}return this.options.index=t,this.options.initialPointerPos=s,this.shouldOpen=!0,this.preload(t,i),!0}preload(t,i){const{options:s}=this;i&&(s.dataSource=i);const h=[],e=typeof s.pswpModule;if("function"==typeof(n=s.pswpModule)&&n.prototype&&n.prototype.goTo)h.push(Promise.resolve(s.pswpModule));else{if("string"===e)throw new Error("pswpModule as string is no longer supported");if("function"!==e)throw new Error("pswpModule is not valid");h.push(s.pswpModule())}var n;"function"==typeof s.openPromise&&h.push(s.openPromise()),!1!==s.preloadFirstSlide&&t>=0&&(this._=function(t,i){const s=i.getItemData(t);if(!i.dispatch("lazyLoadSlide",{index:t,itemData:s}).defaultPrevented)return p(s,i,t)}(t,this));const o=++this.g;Promise.all(h).then((t=>{if(this.shouldOpen){const i=t[0];this.I(i,o)}}))}I(t,i){if(i!==this.g&&this.shouldOpen)return;if(this.shouldOpen=!1,window.pswp)return;const s="object"==typeof t?new t.default(this.options):new t(this.options);this.pswp=s,window.pswp=s,Object.keys(this.u).forEach((t=>{var i;null===(i=this.u[t])||void 0===i||i.forEach((i=>{s.on(t,i)}))})),Object.keys(this.p).forEach((t=>{var i;null===(i=this.p[t])||void 0===i||i.forEach((i=>{s.addFilter(t,i.fn,i.priority)}))})),this._&&(s.contentLoader.addToCache(this._),this._=void 0),s.on("destroy",(()=>{this.pswp=void 0,delete window.pswp})),s.init()}destroy(){var t;null===(t=this.pswp)||void 0===t||t.destroy(),this.shouldOpen=!1,this.u={},o(this.options.gallery,this.options.gallerySelector).forEach((t=>{t.removeEventListener("click",this.onThumbnailsClick,!1)}))}}}));
+</script>
+  <script>
+    const imageGallery = document.querySelector(".markdown-image-gallery");
+    if (imageGallery && window.PhotoSwipe && window.PhotoSwipeLightbox) {
+      imageGallery.querySelectorAll("a.pswp-image").forEach((item) => {
+        const image = item.querySelector("img");
+        if (image) {
+          const syncImageMetadata = () => {
+            item.dataset.pswpSrc = image.currentSrc || image.src;
+            if (item.dataset.referenceImage === "true" && image.naturalWidth && image.naturalHeight) {
+              item.dataset.pswpWidth = String(image.naturalWidth);
+              item.dataset.pswpHeight = String(image.naturalHeight);
+            }
+          };
+          syncImageMetadata();
+          image.addEventListener("load", syncImageMetadata, { once: true });
+        }
+      });
+      const imageLightbox = new PhotoSwipeLightbox({
+        gallery: imageGallery,
+        children: "a.pswp-image",
+        pswpModule: PhotoSwipe,
+        wheelToZoom: true,
+        initialZoomLevel: "fit",
+        secondaryZoomLevel: "fill",
+        maxZoomLevel: "max",
+        imageClickAction: "zoom",
+        bgClickAction: "close",
+        tapAction: "toggle-controls",
+        doubleTapAction: "zoom"
+      });
+      imageLightbox.init();
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: "neutral",
+        securityLevel: "strict",
+        flowchart: { htmlLabels: true, curve: "basis" }
+      });
+    }
+  </script>
+  <script>
+
+    const tocCollapseButton = document.getElementById("toc-collapse-button");
+    const tocMenuButton = document.getElementById("toc-menu-button");
+    const tocBackdrop = document.getElementById("toc-backdrop");
+    const tocNav = document.getElementById("toc-nav");
+    const tocLinks = tocNav ? Array.from(tocNav.querySelectorAll("a.toc-link")) : [];
+    const tocHeadings = tocLinks.map((link) => document.getElementById(decodeURIComponent(link.hash.slice(1)))).filter(Boolean);
+    function setTocOpen(open) {
+      document.body.classList.toggle("toc-open", open);
+      if (tocMenuButton) tocMenuButton.setAttribute("aria-expanded", String(open));
+    }
+    function setDesktopTocCollapsed(collapsed) {
+      document.body.classList.toggle("toc-collapsed", collapsed);
+      if (tocCollapseButton) {
+        tocCollapseButton.setAttribute("aria-expanded", String(!collapsed));
+        tocCollapseButton.textContent = collapsed ? "▶ 打开目录" : "◀ 收起目录";
+      }
+    }
+    if (tocCollapseButton) tocCollapseButton.addEventListener("click", () => {
+      setDesktopTocCollapsed(!document.body.classList.contains("toc-collapsed"));
+    });
+    if (tocMenuButton) tocMenuButton.addEventListener("click", () => setTocOpen(!document.body.classList.contains("toc-open")));
+    if (tocBackdrop) tocBackdrop.addEventListener("click", () => setTocOpen(false));
+    if (tocNav) tocNav.addEventListener("click", () => setTocOpen(false));
+    if (tocHeadings.length) {
+      let ticking = false;
+      const updateToc = () => {
+        const offset = 48;
+        let current = tocHeadings[0];
+        tocHeadings.forEach((heading) => { if (heading.getBoundingClientRect().top <= offset) current = heading; });
+        tocLinks.forEach((link) => {
+          const active = decodeURIComponent(link.hash.slice(1)) === current.id;
+          link.classList.toggle("toc-active", active);
+          if (active) {
+            link.setAttribute("aria-current", "location");
+            link.scrollIntoView({ block: "nearest" });
+          } else {
+            link.removeAttribute("aria-current");
+          }
+        });
+        ticking = false;
+      };
+      window.addEventListener("scroll", () => {
+        if (!ticking) { ticking = true; window.requestAnimationFrame(updateToc); }
+      }, { passive: true });
+      updateToc();
+    }
+
+
+
+  </script>
+</body>
+</html>

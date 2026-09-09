@@ -471,7 +471,7 @@ div.pswp__img--placeholder,
 
     html { scroll-behavior: smooth; scroll-padding-top: 24px; }
     body { background: #f8fafc; }
-    .academic-shell { width: min(1440px, calc(100% - 40px)); margin: 0 auto; padding: 32px 0 80px; display: grid; grid-template-columns: 272px minmax(0, 980px); justify-content: center; gap: 32px; align-items: start; }
+    .academic-shell { width: min(1440px, calc(100% - 40px)); margin: 0 auto; padding: 32px 0 80px; display: grid; grid-template-columns: 272px minmax(0, 1120px); justify-content: center; gap: 32px; align-items: start; }
     .academic-sidebar { position: sticky; top: 24px; max-height: calc(100vh - 48px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #cbd5e1 transparent; }
     .toc-panel { border: 1px solid #e2e8f0; border-radius: 16px; background: rgba(255, 255, 255, .96); padding: 16px 12px; box-shadow: 0 8px 24px rgba(15, 23, 42, .05); }
     .toc-heading { margin: 0 8px 10px; color: #94a3b8; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
@@ -487,10 +487,10 @@ div.pswp__img--placeholder,
     .toc-level-6 { padding-left: 52px; font-size: 11px; }
     .toc-empty { margin: 8px; color: #94a3b8; font-size: 12px; }
     .toc-collapse-button { display: inline-flex; position: fixed; z-index: 70; top: 24px; left: 12px; align-items: center; gap: 7px; padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 8px; background: rgba(255, 255, 255, .96); color: #475569; font: inherit; font-size: 12px; font-weight: 700; box-shadow: 0 6px 18px rgba(15, 23, 42, .08); cursor: pointer; }
-    body.toc-collapsed .academic-shell { grid-template-columns: minmax(0, 980px); gap: 0; }
+    body.toc-collapsed .academic-shell { grid-template-columns: minmax(0, 1120px); gap: 0; }
     body.toc-collapsed .academic-sidebar { display: none; }
     .academic-main { width: 100%; min-width: 0; margin: 0; padding: 0; }
-    .academic-main article { border-color: #e2e8f0; border-radius: 18px; padding: 48px 56px 64px; box-shadow: 0 10px 32px rgba(15, 23, 42, .06); }
+    .academic-main article { border-color: #e2e8f0; border-radius: 18px; padding: 48px 44px 64px; box-shadow: 0 10px 32px rgba(15, 23, 42, .06); }
     .academic-main h1, .academic-main h2, .academic-main h3 { scroll-margin-top: 24px; }
     .academic-main h1 { font-size: 32px; }
     .academic-main h2 { margin-top: 44px; padding-bottom: 10px; border-bottom-color: #e2e8f0; font-size: 22px; }
@@ -517,6 +517,7 @@ div.pswp__img--placeholder,
 
 
 
+
   </style>
 </head>
 <body>
@@ -528,390 +529,73 @@ div.pswp__img--placeholder,
     <aside class="academic-sidebar" id="academic-sidebar" aria-label="文档目录">
       <div class="toc-panel">
         <p class="toc-heading">目录</p>
-        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#luce-relightable-gaussians-for-3d-asset-generation">Luce: Relightable Gaussians for 3D Asset Generation</a><a class="toc-link toc-level-2" href="#快速理解">快速理解</a><a class="toc-link toc-level-2" href="#中文摘要">中文摘要</a><a class="toc-link toc-level-2" href="#详细分析">详细分析</a><a class="toc-link toc-level-1" href="#0-先用一句话概括这篇论文">0. 先用一句话概括这篇论文</a><a class="toc-link toc-level-1" href="#1-任务输入-输出-功能和边界">1. 任务输入、输出、功能和边界</a><a class="toc-link toc-level-2" href="#1-1-输入是什么">1.1 输入是什么</a><a class="toc-link toc-level-2" href="#1-2-输出是什么">1.2 输出是什么</a><a class="toc-link toc-level-3" href="#输出-a-pbr-gaussian-cloud">输出 A：PBR Gaussian cloud</a><a class="toc-link toc-level-3" href="#输出-b-可选的-textured-mesh">输出 B：可选的 textured mesh</a><a class="toc-link toc-level-2" href="#1-3-功能是什么">1.3 功能是什么</a><a class="toc-link toc-level-2" href="#1-4-边界是什么">1.4 边界是什么</a><a class="toc-link toc-level-1" href="#2-论文要解决的问题-以及问题发生的具体原因">2. 论文要解决的问题，以及问题发生的具体原因</a><a class="toc-link toc-level-2" href="#2-1-表面上看-现有单图-3d-生成已经很多了-为什么还需要-luce">2.1 表面上看，现有单图 3D 生成已经很多了，为什么还需要 Luce？</a><a class="toc-link toc-level-3" href="#问题一-表示里没有显式材质分解-因此不能真正重光照">问题一：表示里没有显式材质分解，因此不能真正重光照</a><a class="toc-link toc-level-3" href="#问题二-单一表示同时承载几何和多种材质信息时-高频细节容易互相干扰">问题二：单一表示同时承载几何和多种材质信息时，高频细节容易互相干扰</a><a class="toc-link toc-level-2" href="#2-2-问题发生的具体原因-不要只说-能力不足">2.2 问题发生的具体原因，不要只说“能力不足”</a><a class="toc-link toc-level-3" href="#原因-1-传统-3dgs-的颜色表示不是材质表示">原因 1：传统 3DGS 的颜色表示不是材质表示</a><a class="toc-link toc-level-3" href="#原因-2-法线若从几何推导-会丢掉高频表面细节">原因 2：法线若从几何推导，会丢掉高频表面细节</a><a class="toc-link toc-level-3" href="#原因-3-单图条件中-深层视觉特征有语义但缺局部细节">原因 3：单图条件中，深层视觉特征有语义但缺局部细节</a><a class="toc-link toc-level-3" href="#原因-4-直接生成原始-3d-表示-维度太大-稀疏结构太难">原因 4：直接生成原始 3D 表示，维度太大、稀疏结构太难</a><a class="toc-link toc-level-1" href="#3-核心-insight-与贡献">3. 核心 insight 与贡献</a><a class="toc-link toc-level-2" href="#3-1-最核心的-insight">3.1 最核心的 insight</a><a class="toc-link toc-level-2" href="#3-2-论文的主要贡献">3.2 论文的主要贡献</a><a class="toc-link toc-level-3" href="#贡献-1-提出多模态-pbr-gaussian-表示">贡献 1：提出多模态 PBR Gaussian 表示</a><a class="toc-link toc-level-3" href="#贡献-2-学习统一-latent-联合生成几何与材质">贡献 2：学习统一 latent，联合生成几何与材质</a><a class="toc-link toc-level-3" href="#贡献-3-使用多层-dinov2-条件特征">贡献 3：使用多层 DINOv2 条件特征</a><a class="toc-link toc-level-3" href="#贡献-4-把-normal-gaussians-烘焙成-tangent-space-normal-map">贡献 4：把 normal Gaussians 烘焙成 tangent-space normal map</a><a class="toc-link toc-level-1" href="#4-使用的基模-以及从输入到输出的整体流程">4. 使用的基模，以及从输入到输出的整体流程</a><a class="toc-link toc-level-2" href="#4-1-基础模块有哪些">4.1 基础模块有哪些</a><a class="toc-link toc-level-3" href="#1-3d-gaussian-splatting">(1) 3D Gaussian Splatting</a><a class="toc-link toc-level-3" href="#2-pbr-着色模型">(2) PBR 着色模型</a><a class="toc-link toc-level-3" href="#3-结构化-latent-vae">(3) 结构化 latent VAE</a><a class="toc-link toc-level-3" href="#4-dit-风格的-rectified-flow-transformer">(4) DiT 风格的 rectified-flow Transformer</a><a class="toc-link toc-level-3" href="#5-dinov2-视觉特征">(5) DINOv2 视觉特征</a><a class="toc-link toc-level-3" href="#6-trellis-2-的-sparse-structure-stage">(6) TRELLIS 2 的 sparse structure stage</a><a class="toc-link toc-level-2" href="#4-2-训练时的数据预处理流程">4.2 训练时的数据预处理流程</a><a class="toc-link toc-level-2" href="#4-3-推理时从输入图像到输出资产的流程">4.3 推理时从输入图像到输出资产的流程</a><a class="toc-link toc-level-3" href="#阶段-a-预测稀疏体素结构">阶段 A：预测稀疏体素结构</a><a class="toc-link toc-level-3" href="#阶段-b-预测每个活跃体素的-latent">阶段 B：预测每个活跃体素的 latent</a><a class="toc-link toc-level-3" href="#阶段-c-解码">阶段 C：解码</a><a class="toc-link toc-level-3" href="#阶段-d-pbr-着色">阶段 D：PBR 着色</a><a class="toc-link toc-level-1" href="#5-每个关键机制为什么需要-具体怎么做-得到什么">5. 每个关键机制为什么需要、具体怎么做、得到什么</a><a class="toc-link toc-level-2" href="#5-1-多模态-pbr-gaussian-表示">5.1 多模态 PBR Gaussian 表示</a><a class="toc-link toc-level-2" href="#为什么需要">为什么需要</a><a class="toc-link toc-level-2" href="#怎么做">怎么做</a><a class="toc-link toc-level-2" href="#得到什么">得到什么</a><a class="toc-link toc-level-2" href="#5-2-pbr-渲染而不是直接存-view-dependent-color">5.2 PBR 渲染而不是直接存 view-dependent color</a><a class="toc-link toc-level-2" href="#为什么需要-2">为什么需要</a><a class="toc-link toc-level-2" href="#怎么做-2">怎么做</a><a class="toc-link toc-level-2" href="#得到什么-2">得到什么</a><a class="toc-link toc-level-2" href="#5-3-slatvae-把高维稀疏表示压到可生成的-latent-空间">5.3 SLatVAE：把高维稀疏表示压到可生成的 latent 空间</a><a class="toc-link toc-level-2" href="#为什么需要-3">为什么需要</a><a class="toc-link toc-level-2" href="#怎么做-3">怎么做</a><a class="toc-link toc-level-3" href="#编码器">编码器</a><a class="toc-link toc-level-3" href="#解码器">解码器</a><a class="toc-link toc-level-3" href="#训练目标">训练目标</a><a class="toc-link toc-level-2" href="#得到什么-3">得到什么</a><a class="toc-link toc-level-2" href="#5-4-两阶段生成-先结构-后-latent">5.4 两阶段生成：先结构，后 latent</a><a class="toc-link toc-level-2" href="#为什么需要-4">为什么需要</a><a class="toc-link toc-level-2" href="#怎么做-4">怎么做</a><a class="toc-link toc-level-3" href="#第一步-生成-sparse-structure">第一步：生成 sparse structure</a><a class="toc-link toc-level-3" href="#第二步-生成每个活跃-voxel-的-latent">第二步：生成每个活跃 voxel 的 latent</a><a class="toc-link toc-level-2" href="#得到什么-4">得到什么</a><a class="toc-link toc-level-2" href="#5-5-slatflow-图像条件的-rectified-flow-transformer">5.5 SLatFlow：图像条件的 rectified-flow Transformer</a><a class="toc-link toc-level-2" href="#为什么需要-5">为什么需要</a><a class="toc-link toc-level-2" href="#怎么做-5">怎么做</a><a class="toc-link toc-level-2" href="#得到什么-5">得到什么</a><a class="toc-link toc-level-2" href="#5-6-多层-dinov2-条件">5.6 多层 DINOv2 条件</a><a class="toc-link toc-level-2" href="#为什么需要-6">为什么需要</a><a class="toc-link toc-level-2" href="#怎么做-6">怎么做</a><a class="toc-link toc-level-2" href="#得到什么-6">得到什么</a><a class="toc-link toc-level-2" href="#5-7-dual-decoding-同时支持-gaussian-输出与-mesh-输出">5.7 Dual decoding：同时支持 Gaussian 输出与 mesh 输出</a><a class="toc-link toc-level-2" href="#为什么需要-7">为什么需要</a><a class="toc-link toc-level-2" href="#怎么做-7">怎么做</a><a class="toc-link toc-level-2" href="#得到什么-7">得到什么</a><a class="toc-link toc-level-2" href="#5-8-tangent-space-normal-map-transfer">5.8 Tangent-space normal map transfer</a><a class="toc-link toc-level-2" href="#为什么需要-8">为什么需要</a><a class="toc-link toc-level-2" href="#怎么做-8">怎么做</a><a class="toc-link toc-level-2" href="#得到什么-8">得到什么</a><a class="toc-link toc-level-1" href="#6-主结果-消融结果-可视化结论及证据边界">6. 主结果、消融结果、可视化结论及证据边界</a><a class="toc-link toc-level-2" href="#6-1-主结果-生成质量">6.1 主结果：生成质量</a><a class="toc-link toc-level-3" href="#主要数值">主要数值</a><a class="toc-link toc-level-2" href="#怎么理解这些结果">怎么理解这些结果</a><a class="toc-link toc-level-3" href="#fid-kid">FID/KID</a><a class="toc-link toc-level-3" href="#clip-siglip2">CLIP / SigLIP2</a><a class="toc-link toc-level-3" href="#ulip-uni3d-l">ULIP / Uni3D-L</a><a class="toc-link toc-level-2" href="#6-2-主结果-重建质量">6.2 主结果：重建质量</a><a class="toc-link toc-level-2" href="#6-3-定性结果-文字和-logo-保真">6.3 定性结果：文字和 logo 保真</a><a class="toc-link toc-level-2" href="#6-4-消融结果">6.4 消融结果</a><a class="toc-link toc-level-3" href="#消融-1-单层-vs-多层-dinov2-条件">消融 1：单层 vs 多层 DINOv2 条件</a><a class="toc-link toc-level-3" href="#消融-2-是否烘焙-tangent-space-normal-map">消融 2：是否烘焙 tangent-space normal map</a><a class="toc-link toc-level-1" href="#7-这篇论文到底新在哪里-和相关工作怎么区分">7. 这篇论文到底新在哪里，和相关工作怎么区分</a><a class="toc-link toc-level-2" href="#与普通-3dgs-生成方法的区别">与普通 3DGS 生成方法的区别</a><a class="toc-link toc-level-2" href="#与-mesh-pbr-方法的区别">与 mesh/PBR 方法的区别</a><a class="toc-link toc-level-2" href="#与-lito-的区别">与 LiTo 的区别</a><a class="toc-link toc-level-1" href="#8-局限性">8. 局限性</a><a class="toc-link toc-level-2" href="#8-1-体素分辨率仍然限制细节上限">8.1 体素分辨率仍然限制细节上限</a><a class="toc-link toc-level-2" href="#8-2-材质模型还是标准金属-粗糙度工作流">8.2 材质模型还是标准金属-粗糙度工作流</a><a class="toc-link toc-level-2" href="#8-3-结构阶段依赖外部模型">8.3 结构阶段依赖外部模型</a><a class="toc-link toc-level-2" href="#8-4-mesh-导出仍不是最强项">8.4 mesh 导出仍不是最强项</a><a class="toc-link toc-level-2" href="#8-5-主要评测仍是渲染级指标">8.5 主要评测仍是渲染级指标</a><a class="toc-link toc-level-1" href="#9-最终判断-这篇论文值不值得关注">9. 最终判断：这篇论文值不值得关注？</a><a class="toc-link toc-level-2" href="#9-1-它解决的问题是对的">9.1 它解决的问题是对的</a><a class="toc-link toc-level-2" href="#9-2-它的关键设计很有针对性">9.2 它的关键设计很有针对性</a><a class="toc-link toc-level-2" href="#9-3-实验结果支持主要主张">9.3 实验结果支持主要主张</a><a class="toc-link toc-level-2" href="#9-4-但也不要过度解读">9.4 但也不要过度解读</a><a class="toc-link toc-level-1" href="#10-如果你只记住三件事">10. 如果你只记住三件事</a><a class="toc-link toc-level-2" href="#第一件">第一件</a><a class="toc-link toc-level-2" href="#第二件">第二件</a><a class="toc-link toc-level-2" href="#第三件">第三件</a></nav>
+        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#luce-relightable-gaussians-for-3d-asset-generation">Luce: Relightable Gaussians for 3D Asset Generation</a><a class="toc-link toc-level-2" href="#快速理解">快速理解</a><a class="toc-link toc-level-2" href="#中文摘要">中文摘要</a><a class="toc-link toc-level-2" href="#详细分析">详细分析</a><a class="toc-link toc-level-2" href="#1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</a><a class="toc-link toc-level-2" href="#2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</a><a class="toc-link toc-level-2" href="#3-核心贡献-约300字">3. 核心贡献（约300字）</a><a class="toc-link toc-level-2" href="#4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</a><a class="toc-link toc-level-2" href="#5-核心方法-按论文-method-小节总结-约600字">5. 核心方法：按论文 Method 小节总结（约600字）</a><a class="toc-link toc-level-3" href="#3-1-multimodal-pbr-gaussian-representation-多模态-pbr-高斯表示">3.1 Multimodal PBR Gaussian Representation（多模态 PBR 高斯表示）</a><a class="toc-link toc-level-3" href="#3-2-variational-autoencoder-变分自编码器">3.2 Variational Autoencoder（变分自编码器）</a><a class="toc-link toc-level-3" href="#3-3-flow-based-generation-基于流的生成">3.3 Flow-Based Generation（基于流的生成）</a><a class="toc-link toc-level-3" href="#3-4-tangent-space-normal-map-transfer-切线空间法线贴图迁移">3.4 Tangent-Space Normal Map Transfer（切线空间法线贴图迁移）</a><a class="toc-link toc-level-2" href="#6-局限性和展望-约300字">6. 局限性和展望（约300字）</a></nav>
       </div>
     </aside>
     <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../date/">← 返回日报目录</a></p>
 <h1 id="luce-relightable-gaussians-for-3d-asset-generation">Luce: Relightable Gaussians for 3D Asset Generation</h1>
-<p><strong>一句话主题：</strong> 单图生成可重光照3D资产与PBR材质建模</p>
-<p><strong>领域标签：</strong> 三维生成 / 高斯表示 / 物理渲染材质</p>
+<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2608.23943v1">arXiv</a> · <a href="https://huggingface.co/papers/2608.23943">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2608.23943">AlphaXiv</a></p>
+<p><strong>一句话主题：</strong> 单图像到可重光照3D资产生成，采用统一几何与PBR材质的高斯表示</p>
+<p><strong>领域标签：</strong> 3D资产生成 / 可重光照 / 高斯表示 / 物理基础渲染 / 扩散模型</p>
 <h2 id="快速理解">快速理解</h2>
-<p><strong>背景与任务：</strong> 单图到3D生成不仅要恢复几何，还要支持真实材质与重光照。</p>
-<p><strong>核心工作：</strong> 作者提出Luce，将几何与PBR属性统一到多模态高斯云中，并从单图生成可重光照的3D资产。</p>
+<p><strong>背景与任务：</strong> 高保真图像到3D生成需要同时捕获几何与外观，并支持重光照和标准渲染管线中的PBR材质。</p>
+<p><strong>核心工作：</strong> 作者提出Luce，将几何与PBR材质统一到体素化多模态高斯云中，通过变分自编码器和整流流Transformer从单图生成该表示，在多个基准上达到最优效果。</p>
 <h2 id="中文摘要">中文摘要</h2>
-<p>高保真图像到三维生成需要一种同时捕获几何与外观的三维表示。为支持重光照（relighting）以及集成到标准渲染流程中，该表示应包含基于物理的渲染（physically based rendering, PBR）模态，例如反照率（albedo）、金属度-粗糙度（metallic-roughness）和表面法线（surface normals）。我们提出了 Luce，这是一种三维表示，在体素化的多模态高斯云中统一了几何与 PBR 材质，并为每种模态使用专门的高斯基元。一个变分自编码器将该表示压缩到统一的、具备材质感知能力的潜在空间中。一个修正流（rectified-flow）Transformer 在预训练图像编码器提取的多层特征条件下，从单张图像生成这一潜在表示，这些特征同时保留了语义上下文和精细的空间细节。随后，该潜在表示被解码为可重光照的 PBR 高斯，以及一个可选的带有切线空间法线贴图（tangent-space normal map）的纹理网格。在 Toys4K 上，Luce 实现了最先进的单图像到三维生成效果，相比最强基线将 FID 提升了 28%。我们进一步引入了一个由 AI 生成图像构成的基准，在该基准上，Luce 相比最佳基线提高了 CLIP 图像对齐分数（0.8519 对 0.8299）。Luce 生成的资产可重光照、几何准确、材质保真，并能保留文本、标志和铭文等精细细节。</p>
+<p>高保真图像到3D生成需要一种能够同时捕捉几何和外观的3D表示。为了支持重新照明并集成到标准渲染管线中，该表示应包含基于物理的渲染（PBR）模态，如反照率（albedo）、金属-粗糙度（metallic-roughness）和表面法线（surface normals）。我们提出Luce，一种3D表示，它在体素化的多模态高斯云中统一了几何和PBR材质，每种模态使用专用的高斯原语（Gaussian primitives）。一个变分自编码器（variational autoencoder）将该表示压缩到统一材质感知的潜在空间中。一个整流流变换器（rectified-flow transformer）从单张图像生成该潜在表示，条件于来自预训练图像编码器的多层特征，这些特征保留了语义上下文和精细空间细节。然后潜在表示解码为可重新照明的PBR高斯体（PBR Gaussians）以及可选的带切线空间法线贴图的纹理网格。在Toys4K上，Luce达到了最先进的单图像到3D生成性能，相较于最强基线将FID提高了28%。我们进一步引入了一个AI生成图像的基准，在该基准上，Luce相较于最佳基线将CLIP图像对齐分数提高至0.8519（对比0.8299）。Luce生成可重新照明、几何准确、材质真实的资产，并保留文字、标志和铭文等精细细节。</p>
 <h2 id="详细分析">详细分析</h2>
-<p>下面我会把这篇论文当作“给懂 Transformer、但不熟悉 3D 生成/PBR/3DGS 这个子方向的博士生讲”的方式来讲。重点不是复述，而是把它为什么这样设计、每个模块解决什么问题、证据能支持到哪里，讲清楚。</p>
-<hr>
-<h1 id="0-先用一句话概括这篇论文">0. 先用一句话概括这篇论文</h1>
-<p><strong>Luce</strong> 做的是：<strong>从单张图片生成一个可重光照的 3D 资产</strong>。 这里“可重光照”不是简单地换个视角看，而是要能像标准游戏/影视管线那样，在<strong>新光照环境</strong>下重新着色。为此，输出不能只是“带着原图光照痕迹的颜色”，而必须显式给出 <strong>PBR 材质模态</strong>，至少包括：</p>
-<ul><li><strong>albedo</strong>：物体本身颜色，不含光照</li><li><strong>metallic-roughness</strong>：金属度和粗糙度</li><li><strong>surface normals</strong>：表面朝向</li></ul>
-<p>论文的关键想法是： <strong>不用一个统一的 3D 原语同时承载所有信息，而是在每个体素里给不同材质模态分配各自独立的一组 Gaussian primitives。</strong> 然后用一个结构化 VAE 把这种表示压成 latent，再用图像条件的 rectified-flow Transformer 生成这个 latent。</p>
-<hr>
-<h1 id="1-任务输入-输出-功能和边界">1. 任务输入、输出、功能和边界</h1>
-<h2 id="1-1-输入是什么">1.1 输入是什么</h2>
-<p>输入是<strong>单张 RGB 图像</strong>，通常是一个物体的商品图、渲染图或 AI 生成图。</p>
-<p>它不是多视图，不是视频，也不是带深度/法线监督的输入。 因此这是一个<strong>单图到 3D</strong> 问题，本质上存在严重的不适定性：一张图只看到一个视角，背面、遮挡面、精细几何和真实材质都需要模型推断。</p>
-<h2 id="1-2-输出是什么">1.2 输出是什么</h2>
-<p>Luce 有两类输出：</p>
-<h3 id="输出-a-pbr-gaussian-cloud">输出 A：PBR Gaussian cloud</h3>
-<p>这是论文的<strong>主输出</strong>。 它是一个 3D Gaussian 表示，但不是传统 3DGS 那种直接存颜色或球谐系数，而是显式存三种 PBR 模态：</p>
-<ul><li>albedo Gaussians</li><li>metallic-roughness Gaussians</li><li>normal Gaussians</li></ul>
-<p>这样渲染时就可以走标准 PBR 着色，而不是把训练时环境光“烙死”在颜色里。</p>
-<h3 id="输出-b-可选的-textured-mesh">输出 B：可选的 textured mesh</h3>
-<p>为了兼容常见 3D 资产工作流，作者还可以把同一个 latent 解码成 mesh，并导出：</p>
-<ul><li>albedo 贴图</li><li>metallic 贴图</li><li>roughness 贴图</li><li>tangent-space normal map</li></ul>
-<p>这使它可以进入标准引擎/渲染器。</p>
-<h2 id="1-3-功能是什么">1.3 功能是什么</h2>
-<p>这篇论文想实现三个功能同时成立：</p>
-<ol><li><strong>几何正确</strong>：形状要像</li><li><strong>材质可分解</strong>：要能分别输出 albedo / metallic-roughness / normals</li><li><strong>可重光照</strong>：换环境贴图后，物体外观应该随光照合理变化</li></ol>
-<p>同时它还特别强调一个实际效果： <strong>保留高频细节，尤其是文字、logo、铭文。</strong></p>
-<h2 id="1-4-边界是什么">1.4 边界是什么</h2>
-<p>这篇论文<strong>不是</strong>在做：</p>
-<ul><li>场景级生成（主要是物体级资产）</li><li>复杂材质全覆盖（如次表面散射、各向异性、薄膜干涉、半透明）</li><li>任意超高细节几何恢复</li><li>真实世界复杂拍摄条件下的逆渲染</li></ul>
-<p>它聚焦的是： <strong>单图输入 → 生成物体级、标准 PBR 兼容、可重光照的 3D 资产。</strong></p>
-<hr>
-<h1 id="2-论文要解决的问题-以及问题发生的具体原因">2. 论文要解决的问题，以及问题发生的具体原因</h1>
-<h2 id="2-1-表面上看-现有单图-3d-生成已经很多了-为什么还需要-luce">2.1 表面上看，现有单图 3D 生成已经很多了，为什么还需要 Luce？</h2>
-<p>因为很多现有方法虽然能“生成一个 3D 东西”，但<strong>不能满足标准 3D 资产生产的要求</strong>。最核心的问题有两个：</p>
-<h3 id="问题一-表示里没有显式材质分解-因此不能真正重光照">问题一：表示里没有显式材质分解，因此不能真正重光照</h3>
-<p>很多 3D 生成方法输出的是：</p>
-<ul><li>隐式场</li><li>颜色高斯</li><li>带 baked appearance 的表面表示</li></ul>
-<p>这些表示往往把“颜色”和“光照效果”混在一起了。 例如金属高光、环境反射、阴影痕迹可能已经被写进颜色中。这样你换灯光时，无法用标准物理着色重新渲染，因为<strong>表示中缺少材质参数</strong>。</p>
-<h3 id="问题二-单一表示同时承载几何和多种材质信息时-高频细节容易互相干扰">问题二：单一表示同时承载几何和多种材质信息时，高频细节容易互相干扰</h3>
-<p>如果所有信息共用同一组 primitive，那么：</p>
-<ul><li>albedo 需要在文字、花纹处有高频变化</li><li>roughness 可能在同一区域很平滑</li><li>normals 可能只在压纹、雕刻处高频</li><li>geometry 关注的是表面位置和整体结构</li></ul>
-<p>这些信息的空间分布并不一致。 <strong>如果强制它们共享同一组 Gaussian 布局，就会出现“谁需要细节，谁就挤占容量”的竞争。</strong> 结果往往是高频文字/logo最容易糊掉，或法线细节被几何分辨率抹平。</p>
-<h2 id="2-2-问题发生的具体原因-不要只说-能力不足">2.2 问题发生的具体原因，不要只说“能力不足”</h2>
-<p>更具体地说，原因主要有四个。</p>
-<h3 id="原因-1-传统-3dgs-的颜色表示不是材质表示">原因 1：传统 3DGS 的颜色表示不是材质表示</h3>
-<p>原始 3D Gaussian Splatting 通常存的是颜色或球谐系数，用于新视角合成。 这类表示擅长“从已见光照条件下看起来像”，但不擅长“拆出物体本色、粗糙度、法线，再在新光照下重新算”。</p>
-<p>也就是说，它适合<strong>外观重现</strong>，不天然适合<strong>PBR 资产生成</strong>。</p>
-<h3 id="原因-2-法线若从几何推导-会丢掉高频表面细节">原因 2：法线若从几何推导，会丢掉高频表面细节</h3>
-<p>很多方法里的法线来自：</p>
-<ul><li>mesh 几何</li><li>Gaussian 形状主轴</li><li>深度图导数</li></ul>
-<p>但真实资产里很多视觉细节不是靠多边形表示的，而是靠 <strong>normal map</strong> 表现的，例如：</p>
-<ul><li>压纹</li><li>布料织纹</li><li>雕刻字</li><li>细小凹凸</li></ul>
-<p>如果法线只能从基础几何导出，那么这些高频细节很难保留。</p>
-<h3 id="原因-3-单图条件中-深层视觉特征有语义但缺局部细节">原因 3：单图条件中，深层视觉特征有语义但缺局部细节</h3>
-<p>只用 DINOv2 最后一层特征时，模型能知道“这是个杯子/玩具/瓶子”，但对下面这些精细局部未必保留得好：</p>
-<ul><li>文本笔画</li><li>logo 边缘</li><li>小图标</li><li>铭牌和贴纸</li></ul>
-<p>因为高层特征更偏语义概括，空间细节会弱一些。</p>
-<h3 id="原因-4-直接生成原始-3d-表示-维度太大-稀疏结构太难">原因 4：直接生成原始 3D 表示，维度太大、稀疏结构太难</h3>
-<p>如果直接生成“每个高分辨率体素里若干个多模态 Gaussian 参数”，代价会很高：</p>
-<ul><li>空间分辨率高</li><li>非空体素稀疏</li><li>每个体素又有很多连续参数</li><li>还要同时保证几何和材质一致</li></ul>
-<p>所以作者需要一个<strong>先压缩再生成</strong>的 latent 空间。</p>
-<hr>
-<h1 id="3-核心-insight-与贡献">3. 核心 insight 与贡献</h1>
-<h2 id="3-1-最核心的-insight">3.1 最核心的 insight</h2>
-<p>这篇论文最重要的一点，不是“用了 flow transformer”，而是：</p>
-<blockquote><strong>把一个 3D 资产表示成“体素化的、多模态的 Gaussian cloud”，并让不同材质模态拥有彼此独立的 Gaussian 集合。</strong></blockquote>
-<p>这一步解决了两个核心矛盾：</p>
-<ol><li><strong>PBR 模态必须显式存在</strong>，这样才能重光照</li><li><strong>不同模态的高频区域不同</strong>，所以不能逼它们共享一套 primitive 布局</li></ol>
-<p>这其实很像把 2D 图像里的不同通道分开处理，但这里更进一步： 不是只把数值通道分开，而是把<strong>几何承载原语本身</strong>也分开。</p>
-<h2 id="3-2-论文的主要贡献">3.2 论文的主要贡献</h2>
-<p>作者总结成四点，我把它翻译成更“问题-方案”的形式：</p>
-<h3 id="贡献-1-提出多模态-pbr-gaussian-表示">贡献 1：提出多模态 PBR Gaussian 表示</h3>
-<p>每个占据表面的 voxel 内，分别放三组 Gaussian：</p>
-<ul><li>albedo</li><li>metallic-roughness</li><li>normals</li></ul>
-<p>而且这三组 Gaussian 的几何参数彼此独立。 这使得每种模态都能把容量放在最需要的地方。</p>
-<h3 id="贡献-2-学习统一-latent-联合生成几何与材质">贡献 2：学习统一 latent，联合生成几何与材质</h3>
-<p>作者没有分别生成 shape、texture、normal，而是通过 SLatVAE 学出一个统一的结构化 latent，然后用 SLatFlow 一次性生成它。 所以输出天然是“几何 + 材质”的整体，而不是后处理拼接。</p>
-<h3 id="贡献-3-使用多层-dinov2-条件特征">贡献 3：使用多层 DINOv2 条件特征</h3>
-<p>不是只拿最后一层，而是把第 6、12、18、24 层拼起来再投影。 这样同时保留：</p>
-<ul><li>早层的局部空间细节</li><li>深层的物体语义</li></ul>
-<p>这对文字、logo 特别重要。</p>
-<h3 id="贡献-4-把-normal-gaussians-烘焙成-tangent-space-normal-map">贡献 4：把 normal Gaussians 烘焙成 tangent-space normal map</h3>
-<p>这一步非常工程上有价值。 因为 mesh 的几何分辨率有限，提不出足够细的几何凹凸。作者利用独立 normal modality 学到的高频方向信息，烘焙成标准法线贴图，几乎“零多边形成本”地恢复细节。</p>
-<hr>
-<h1 id="4-使用的基模-以及从输入到输出的整体流程">4. 使用的基模，以及从输入到输出的整体流程</h1>
-<p>先给整体图，再逐段拆。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.23943v1/paper_graph_method_mug_version.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.23943v1/paper_graph_method_mug_version.png" alt="Figure 3：Luce 概览。（上）表示与 SLatVAE。给定一个 3D PBR 资产，此处为一个 Toys4K（Stojanov et al., 2021）样本，我们渲染多视图图像，并在稀疏 voxel grid 上拟合按模态划分的 Gaussian splats（albedo、metallic-roughness、normals）。结构化潜变量 VAE（SLatVAE）将该表示编码为紧凑、可扩散的 latent，并将其解码回 PBR Gaussians。（下）生成流程。给定单张输入图像，稀疏结构 flow 首先预测稀疏 voxel 布局。以多层 DINOv2 特征为条件，SLatFlow 随后在每个激活 voxel 处生成一个 PBR Gaussian latent。该结构化 latent 被解码为可重光照的 PBR Gaussians，同时也作为 mesh decoder 的输入，生成带有 tangent-space normal maps 和完整 PBR material set 的纹理网格。" loading="lazy"></a><span class="image-caption">Figure 3：Luce 概览。（上）表示与 SLatVAE。给定一个 3D PBR 资产，此处为一个 Toys4K（Stojanov et al., 2021）样本，我们渲染多视图图像，并在稀疏 voxel grid 上拟合按模态划分的 Gaussian splats（albedo、metallic-roughness、normals）。结构化潜变量 VAE（SLatVAE）将该表示编码为紧凑、可扩散的 latent，并将其解码回 PBR Gaussians。（下）生成流程。给定单张输入图像，稀疏结构 flow 首先预测稀疏 voxel 布局。以多层 DINOv2 特征为条件，SLatFlow 随后在每个激活 voxel 处生成一个 PBR Gaussian latent。该结构化 latent 被解码为可重光照的 PBR Gaussians，同时也作为 mesh decoder 的输入，生成带有 tangent-space normal maps 和完整 PBR material set 的纹理网格。</span></span></p>
-<hr>
-<h2 id="4-1-基础模块有哪些">4.1 基础模块有哪些</h2>
-<p>Luce 主要站在几类已有技术上：</p>
-<h3 id="1-3d-gaussian-splatting">(1) 3D Gaussian Splatting</h3>
-<p>把 3D 物体表示成很多高斯椭球，渲染时投影到屏幕做 alpha compositing。 优点是显式、可微、渲染快。</p>
-<h3 id="2-pbr-着色模型">(2) PBR 着色模型</h3>
-<p>作者用标准 Cook–Torrance 微表面 BRDF + split-sum image-based lighting。 这意味着：只要有 albedo / metallic / roughness / normal，就能在任意环境贴图下重新着色。</p>
-<h3 id="3-结构化-latent-vae">(3) 结构化 latent VAE</h3>
-<p>把高维稀疏 3D 表示压缩成较小 latent，便于生成模型处理。</p>
-<h3 id="4-dit-风格的-rectified-flow-transformer">(4) DiT 风格的 rectified-flow Transformer</h3>
-<p>这里你可以把它理解成： <strong>在 latent 空间里做 flow matching / rectified flow 的生成模型</strong>，结构上类似 DiT，用 Transformer 块做去噪/流场预测。</p>
-<h3 id="5-dinov2-视觉特征">(5) DINOv2 视觉特征</h3>
-<p>作为图像条件编码器，提取多层视觉 token 特征。</p>
-<h3 id="6-trellis-2-的-sparse-structure-stage">(6) TRELLIS 2 的 sparse structure stage</h3>
-<p>他们没有自己重做“哪些 voxel 被占据”，而是直接复用了 TRELLIS 2 已训练好的稀疏结构 VAE 和 flow。</p>
-<hr>
-<h2 id="4-2-训练时的数据预处理流程">4.2 训练时的数据预处理流程</h2>
-<p>训练并不是把 mesh 直接喂进模型，而是先把每个 3D PBR 资产转成作者需要的表示。</p>
-<p>步骤是：</p>
-<ol><li>把资产归一化到统一尺度与中心</li><li>从球面上 150 个视角渲染</li><li>渲染三类 intrinsic 图像：<ul><li>albedo</li><li>metallic-roughness</li><li>normals</li></ul></li><li>对每种模态<strong>独立拟合</strong> 3D Gaussian splats</li><li>将这些 Gaussians 按稀疏 voxel grid 组织成多模态表示</li><li>再送入 SLatVAE 学 latent</li></ol>
-<p>这里一个关键细节是： <strong>normal pass 用的是应用了 authored normal map 之后的有效法线。</strong> 所以 normal Gaussians 学到的不是“粗糙 mesh 法线”，而是包含高频细节的最终表面方向。</p>
-<hr>
-<h2 id="4-3-推理时从输入图像到输出资产的流程">4.3 推理时从输入图像到输出资产的流程</h2>
-<p>给一张图时，流程分两阶段：</p>
-<h3 id="阶段-a-预测稀疏体素结构">阶段 A：预测稀疏体素结构</h3>
-<p>先决定<strong>哪些 voxel 是活跃的</strong>，即物体表面大概经过哪里。 这一步复用 TRELLIS 2 的 sparse-structure flow。</p>
-<h3 id="阶段-b-预测每个活跃体素的-latent">阶段 B：预测每个活跃体素的 latent</h3>
-<p>然后 Luce 的 SLatFlow 根据输入图像条件，给每个活跃 voxel 生成一个 latent 向量。 这个 latent 同时编码：</p>
-<ul><li>几何相关信息</li><li>albedo</li><li>metallic-roughness</li><li>normals</li></ul>
-<h3 id="阶段-c-解码">阶段 C：解码</h3>
-<p>SLatVAE decoder 将 latent 解码成：</p>
-<ul><li><strong>PBR Gaussians</strong>：直接可渲染</li><li>可选 <strong>mesh + 贴图</strong>：用于标准资产输出</li></ul>
-<h3 id="阶段-d-pbr-着色">阶段 D：PBR 着色</h3>
-<p>对 Gaussian 输出进行模态 splat，得到每个像素的：</p>
-<ul><li>albedo</li><li>metallic</li><li>roughness</li><li>normal</li><li>opacity</li></ul>
-<p>然后用标准 PBR 方程在任意环境图下渲染。</p>
-<hr>
-<h1 id="5-每个关键机制为什么需要-具体怎么做-得到什么">5. 每个关键机制为什么需要、具体怎么做、得到什么</h1>
-<hr>
-<h2 id="5-1-多模态-pbr-gaussian-表示">5.1 多模态 PBR Gaussian 表示</h2>
-<h2 id="为什么需要">为什么需要</h2>
-<p>如果你把所有信息塞进一套共享 Gaussian：</p>
-<ul><li>某个区域可能颜色变化复杂，但法线平滑</li><li>另一个区域可能颜色单一，但法线/粗糙度变化复杂</li></ul>
-<p>共享布局就会造成两类问题：</p>
-<ol><li><strong>容量分配冲突</strong>：谁更复杂谁抢 primitive</li><li><strong>模态耦合</strong>：颜色优化可能把法线该表达的效果也吸进去</li></ol>
-<p>特别是文字和 logo，往往是 albedo 高频； 而压纹、凹凸、磨损可能主要在 normals 或 roughness 高频。 所以共享原语不合适。</p>
-<h2 id="怎么做">怎么做</h2>
-<p>每个活跃 voxel 内，作者不只放一组高斯，而是放三组：</p>
-<ul><li>\( \mathbf{G}^{alb} \)</li><li>\( \mathbf{G}^{mr} \)</li><li>\( \mathbf{G}^{nor} \)</li></ul>
-<p>每组内部每个 Gaussian 都有标准 3DGS 参数：</p>
-<ul><li>位置</li><li>尺度</li><li>旋转</li><li>不透明度</li><li>模态值</li></ul>
-<p>其中模态值分别是：</p>
-<ul><li>albedo：RGB</li><li>metallic-roughness：金属度、粗糙度（外加一个占位通道）</li><li>normals：法线方向</li></ul>
-<p>而且三组高斯的<strong>几何参数是独立的</strong>。 也就是说，albedo 的 Gaussian 可以密集地分布在文字处，而 normal 的 Gaussian 可以密集分布在压纹处，彼此互不约束。</p>
-<h2 id="得到什么">得到什么</h2>
-<p>这样做的直接收益是：</p>
-<ol><li><strong>材质分解天然显式</strong></li><li><strong>不同模态可以有不同空间采样策略</strong></li><li><strong>normal 不再依赖基础几何导出</strong></li><li><strong>更适合保留细小文字、logo、雕刻等高频细节</strong></li></ol>
-<p>论文多次强调文字保真，原因就在这里。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.23943v1/figures/gen_compare/per_method/image_043/cond_image.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.23943v1/figures/gen_compare/per_method/image_043/cond_image.png" alt="Figure 2：生成的 3D 资产上的可辨识文本。将 Luce 与 LiTo（Chang et al., 2026）、TRELLIS 2（Xiang et al., 2025）和 TRELLIS（Xiang et al., 2024）在单图到 3D 生成上进行比较；每一行展示输入条件图像以及各方法生成的 3D 资产的一个渲染视图。LiTo 生成与输入视图对齐的资产，而其他方法生成规范朝向的资产。相较于会使其变形的基线方法，Luce 能保持表面文本和标记清晰可辨。" loading="lazy"></a><span class="image-caption">Figure 2：生成的 3D 资产上的可辨识文本。将 Luce 与 LiTo（Chang et al., 2026）、TRELLIS 2（Xiang et al., 2025）和 TRELLIS（Xiang et al., 2024）在单图到 3D 生成上进行比较；每一行展示输入条件图像以及各方法生成的 3D 资产的一个渲染视图。LiTo 生成与输入视图对齐的资产，而其他方法生成规范朝向的资产。相较于会使其变形的基线方法，Luce 能保持表面文本和标记清晰可辨。</span></span></p>
-<hr>
-<h2 id="5-2-pbr-渲染而不是直接存-view-dependent-color">5.2 PBR 渲染而不是直接存 view-dependent color</h2>
-<h2 id="为什么需要-2">为什么需要</h2>
-<p>如果表示里直接存“看起来像什么颜色”，那它通常依赖训练/观测时的光照。 一旦换环境贴图，就没法合理生成新的高光、反射和明暗。</p>
-<p>真正可重光照要求的是： <strong>先恢复材质与法线，再通过渲染方程算外观。</strong></p>
-<h2 id="怎么做-2">怎么做</h2>
-<p>作者对三种 Gaussian 集合分别 splat，得到每个像素的：</p>
-<ul><li>albedo \( \mathbf{a} \)</li><li>metallic \( \kappa \)</li><li>roughness \( \alpha \)</li><li>normal \( \mathbf{n} \)</li><li>opacity \( o \)</li></ul>
-<p>然后使用标准 image-based lighting 的 PBR 着色。 论文给了 split-sum 近似下的 Cook–Torrance BRDF 公式。你不必记公式，只要理解：</p>
-<ul><li>漫反射部分主要由 albedo 与环境漫反射决定</li><li>镜面部分由 metallic、roughness、normal 与视角/环境共同决定</li><li>normal 会改变反射方向与受光方式</li><li>metallic 决定高光像“金属”还是“非金属”</li><li>roughness 决定高光是锐利还是发散</li></ul>
-<h2 id="得到什么-2">得到什么</h2>
-<p>这样输出的 Gaussian 表示本质上已经是一个 PBR asset。 优点是：</p>
-<ul><li>不用先提 mesh 才能预览</li><li>不用 UV 展开就能直接重光照</li><li>与标准图形学材质语义一致</li></ul>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.23943v1/figures/banner/luce_robot_snapshot_demo_seed_14_r145_cz001_bright.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.23943v1/figures/banner/luce_robot_snapshot_demo_seed_14_r145_cz001_bright.png" alt="Figure 1：我们的方法 Luce 从单张图像生成可重光照的 3D 资产。每个资产由编码物理基础渲染（PBR）材质三种模态的 Gaussians 构成：albedo、metallic-roughness 和 surface normals。这些模态支持标准 PBR 着色，从而可在新的光照条件下渲染这些 Gaussians。从左到右，各列分别显示：输入条件图像；纵向堆叠的生成 PBR 模态——albedo（上）、metallic-roughness（中，metallic 在 Red，roughness 在 Green channel）以及 surface normals（下）；以及在三个 environment maps 下渲染的生成 3D 资产，其预览以每个渲染上方的小条带形式展示（顶行）。" loading="lazy"></a><span class="image-caption">Figure 1：我们的方法 Luce 从单张图像生成可重光照的 3D 资产。每个资产由编码物理基础渲染（PBR）材质三种模态的 Gaussians 构成：albedo、metallic-roughness 和 surface normals。这些模态支持标准 PBR 着色，从而可在新的光照条件下渲染这些 Gaussians。从左到右，各列分别显示：输入条件图像；纵向堆叠的生成 PBR 模态——albedo（上）、metallic-roughness（中，metallic 在 Red，roughness 在 Green channel）以及 surface normals（下）；以及在三个 environment maps 下渲染的生成 3D 资产，其预览以每个渲染上方的小条带形式展示（顶行）。</span></span></p>
-<p>如果你关心“这种 deferred PBR 渲染与常规 mesh 渲染是否接近”，作者也给了一个对比，说明它与 Blender EEVEE 的结果较接近。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.23943v1/figures/fig_7_relight.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.23943v1/figures/fig_7_relight.png" alt="Figure 10：PBR 着色渲染。解码得到的 PBR 模态（albedo、metallic-roughness、normals）通过标准 PBR compositing（Eq. 1），可在新的 environment maps（Poly Haven, 2026）下进行着色渲染，而无需 mesh extraction 或 UV unwrapping。我们将 GS 拟合上的延迟 PBR 渲染器与使用 Blender EEVEE（Blender Online Community, 2024）渲染的纹理网格作为参考进行比较；environment maps 列于 Appendix D。" loading="lazy"></a><span class="image-caption">Figure 10：PBR 着色渲染。解码得到的 PBR 模态（albedo、metallic-roughness、normals）通过标准 PBR compositing（Eq. 1），可在新的 environment maps（Poly Haven, 2026）下进行着色渲染，而无需 mesh extraction 或 UV unwrapping。我们将 GS 拟合上的延迟 PBR 渲染器与使用 Blender EEVEE（Blender Online Community, 2024）渲染的纹理网格作为参考进行比较；environment maps 列于 Appendix D。</span></span></p>
-<p>不过这里要注意证据边界： 这只是<strong>定性对比</strong>，不是严格物理一致性证明。</p>
-<hr>
-<h2 id="5-3-slatvae-把高维稀疏表示压到可生成的-latent-空间">5.3 SLatVAE：把高维稀疏表示压到可生成的 latent 空间</h2>
-<h2 id="为什么需要-3">为什么需要</h2>
-<p>原始表示很大。粗略看一下维度：</p>
-<ul><li>体素分辨率 128³</li><li>稀疏但仍很多活跃 voxel</li><li>每个 voxel 每个模态 8 个 Gaussians</li><li>每个 Gaussian 14 个参数</li><li>一共 3 个模态</li></ul>
-<p>直接在这个空间做 flow 生成非常贵，也难训练。</p>
-<h2 id="怎么做-3">怎么做</h2>
-<p>作者训练一个结构化 latent VAE，叫 <strong>SLatVAE</strong>。</p>
-<h3 id="编码器">编码器</h3>
-<p>输入是稀疏 voxel grid 上的多模态 Gaussian 参数。 编码器是一个<strong>稀疏 Transformer</strong>，用类似 shifted-window attention 的方式处理稀疏 3D 网格。 它把分辨率从 \(128^3\) 降到 \(64^3\)。</p>
-<h3 id="解码器">解码器</h3>
-<p>解码器在更粗的 latent 分辨率上工作，但为了弥补分辨率损失，它为每个 voxel 每个模态预测<strong>更多个 Gaussians</strong>：</p>
-<ul><li>输入表示：每模态每 voxel 8 个 Gaussian</li><li>解码表示：每模态每 voxel 32 个 Gaussian</li></ul>
-<p>这就是论文说的 <strong>“用每 voxel 的密度换空间分辨率”</strong>。</p>
-<h3 id="训练目标">训练目标</h3>
-<p>SLatVAE 不是直接回归参数误差，而是做<strong>按模态可微渲染监督</strong>：</p>
-<ul><li>albedo 渲染图对 GT albedo 图</li><li>metallic-roughness 渲染图对 GT intrinsic 图</li><li>normal 渲染图对 GT normal 图</li></ul>
-<p>损失包括：</p>
-<ul><li>L1</li><li>LPIPS</li><li>SSIM</li><li>KL</li><li>以及对 Gaussian 体积、透明度的正则</li></ul>
-<h2 id="得到什么-3">得到什么</h2>
-<p>得到一个紧凑的结构化 latent，优点是：</p>
-<ol><li><strong>可以作为生成模型目标空间</strong></li><li><strong>latent 已经包含 joint geometry + material</strong></li><li><strong>保留了渲染相关信息，而不是只保留参数近似</strong></li></ol>
-<p>这个模块的结构图在附录里更清楚：</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.23943v1/fig_vae_appendix.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.23943v1/fig_vae_appendix.png" alt="Figure 9：SLatVAE 架构。编码器将稀疏的多模态 Gaussian cloud 压缩为紧凑的 latent grid。解码器为每个 voxel、每个模态重建更稠密的一组 Gaussians，并通过按模态的可微渲染进行监督。同一个 latent 也作为 mesh decoder 的输入，用于提取纹理网格。完整超参数见 Table 3。" loading="lazy"></a><span class="image-caption">Figure 9：SLatVAE 架构。编码器将稀疏的多模态 Gaussian cloud 压缩为紧凑的 latent grid。解码器为每个 voxel、每个模态重建更稠密的一组 Gaussians，并通过按模态的可微渲染进行监督。同一个 latent 也作为 mesh decoder 的输入，用于提取纹理网格。完整超参数见 Table 3。</span></span></p>
-<hr>
-<h2 id="5-4-两阶段生成-先结构-后-latent">5.4 两阶段生成：先结构，后 latent</h2>
-<h2 id="为什么需要-4">为什么需要</h2>
-<p>单图 3D 生成既要决定：</p>
-<ul><li>物体占据哪些位置（离散稀疏结构）</li><li>每个位置的几何/材质连续参数</li></ul>
-<p>如果混在一起一次生成，会让问题太难。 特别是稀疏结构本身是强离散、强组合性的。</p>
-<h2 id="怎么做-4">怎么做</h2>
-<p>作者沿用了 TRELLIS 的思路：</p>
-<h3 id="第一步-生成-sparse-structure">第一步：生成 sparse structure</h3>
-<p>先生成一个稀疏 voxel 占据结构。 这相当于先给出“骨架/脚手架”。</p>
-<h3 id="第二步-生成每个活跃-voxel-的-latent">第二步：生成每个活跃 voxel 的 latent</h3>
-<p>再在这些活跃 voxel 上生成连续 latent 特征。</p>
-<p>这其实把任务拆成：</p>
-<ul><li><strong>where</strong>：哪里有物体</li><li><strong>what</strong>：那里是什么几何与材质</li></ul>
-<h2 id="得到什么-4">得到什么</h2>
-<p>好处是训练与采样都更稳定，且能复用已有强结构先验。 代价是：最终性能部分依赖 TRELLIS 2 的结构阶段质量。</p>
-<p>这也构成一个证据边界： <strong>Luce 的提升主要来自第二阶段 latent 与表示设计，不是从头重做整个 3D 生成链条。</strong></p>
-<hr>
-<h2 id="5-5-slatflow-图像条件的-rectified-flow-transformer">5.5 SLatFlow：图像条件的 rectified-flow Transformer</h2>
-<h2 id="为什么需要-5">为什么需要</h2>
-<p>在学得的 latent 空间中，需要一个条件生成模型，从单图生成所有活跃 voxel 的 latent。 Transformer 适合处理一组可变长度 token；这里每个活跃 voxel 可以看作一个 token。</p>
-<h2 id="怎么做-5">怎么做</h2>
-<p>SLatFlow 是一个 DiT 风格 Transformer：</p>
-<ul><li>输入 token：活跃 voxel 的 latent token 序列</li><li>位置编码：3D voxel 坐标上的 RoPE</li><li>时间条件：通过 adaptive layer norm 注入 diffusion/flow timestep</li><li>图像条件：通过 cross-attention 注入 DINOv2 特征</li></ul>
-<p>因为不同样本活跃 voxel 数量不同，所以作者用<strong>变长序列 attention</strong>，避免无谓 padding。</p>
-<h2 id="得到什么-5">得到什么</h2>
-<p>它生成的是<strong>统一 latent</strong>，因此不是分开生成：</p>
-<ul><li>先几何</li><li>再材质</li><li>再法线</li></ul>
-<p>而是一起生成。 这使几何和材质之间可以共享上下文，但又不必在 primitive 层面硬共享。</p>
-<hr>
-<h2 id="5-6-多层-dinov2-条件">5.6 多层 DINOv2 条件</h2>
-<h2 id="为什么需要-6">为什么需要</h2>
-<p>如果只用最后一层特征，虽然全局语义好，但局部纹理和文字结构可能不够精细。 而这篇论文特别想解决的恰恰是：</p>
-<ul><li>文字</li><li>logo</li><li>标识</li><li>铭文</li></ul>
-<p>这些都是<strong>局部高频空间信息</strong>。</p>
-<h2 id="怎么做-6">怎么做</h2>
-<p>从 DINOv2 的第 6、12、18、24 层取特征，拼接后线性投影，再送入 cross-attention。</p>
-<p>你可以把它理解成一种非常直接的 feature pyramid，只不过底座是 frozen ViT。</p>
-<h2 id="得到什么-6">得到什么</h2>
-<p>作者给了清楚的消融：</p>
-<ul><li>Toys4K FID：20.99 vs 25.21</li><li>AI 图像 benchmark CLIP：0.8519 vs 0.8081</li></ul>
-<p>这说明多层特征确实帮助了细节恢复和图像一致性。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.23943v1/figures/snapshot_08arql_yaw180_r160_v35/image_150_gen_luce_gs/cond_image.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.23943v1/figures/snapshot_08arql_yaw180_r160_v35/image_150_gen_luce_gs/cond_image.png" alt="Figure 4：多层 DINOv2 条件的效果。我们比较了使用多层 DINOv2 特征（第 6、12、18、24 层）训练的 Luce 与使用单层 DINOv2 特征（仅第 24 层）的 Luce。多层条件保留了来自条件图像的精细空间细节，包括生成 3D 表面上清晰可辨的文本和 logo。对于每个变体，较大的着色渲染旁边显示按模态分解的级联结果（albedo、metallic-roughness、surface normals）。" loading="lazy"></a><span class="image-caption">Figure 4：多层 DINOv2 条件的效果。我们比较了使用多层 DINOv2 特征（第 6、12、18、24 层）训练的 Luce 与使用单层 DINOv2 特征（仅第 24 层）的 Luce。多层条件保留了来自条件图像的精细空间细节，包括生成 3D 表面上清晰可辨的文本和 logo。对于每个变体，较大的着色渲染旁边显示按模态分解的级联结果（albedo、metallic-roughness、surface normals）。</span></span></p>
-<p>这里也要谨慎一点： 这个消融能说明<strong>多层条件比单层更好</strong>，但不能单独证明“文字保真全部来自多层特征”。它和多模态表示设计是共同起作用的。</p>
-<hr>
-<h2 id="5-7-dual-decoding-同时支持-gaussian-输出与-mesh-输出">5.7 Dual decoding：同时支持 Gaussian 输出与 mesh 输出</h2>
-<h2 id="为什么需要-7">为什么需要</h2>
-<p>Gaussian 输出适合：</p>
-<ul><li>快速渲染</li><li>直接 PBR 重光照</li><li>不需要 UV</li></ul>
-<p>但很多基线和实际生产管线仍以 <strong>mesh + texture</strong> 为主。 如果 Luce 只输出 Gaussian，不利于公平比较，也不利于落地。</p>
-<h2 id="怎么做-7">怎么做</h2>
-<p>作者在同一个 latent 上接两个解码头：</p>
-<ol><li>Gaussian decoder：主输出</li><li>FlexiCubes mesh decoder：可选导出 mesh</li></ol>
-<p>mesh decoder 架构沿用 TRELLIS，但在 Luce 的 latent 空间上重训。</p>
-<h2 id="得到什么-7">得到什么</h2>
-<p>这样可以在同一套生成结果上：</p>
-<ul><li>直接渲染 Gaussian</li><li>或导出 mesh 资产</li></ul>
-<p>而且 mesh 输出还能带完整 PBR 贴图。</p>
-<hr>
-<h2 id="5-8-tangent-space-normal-map-transfer">5.8 Tangent-space normal map transfer</h2>
-<h2 id="为什么需要-8">为什么需要</h2>
-<p>即使 latent 里有丰富细节，mesh 提取仍受 voxel/grid 分辨率限制。 一些细节太小，不可能变成真实几何起伏，例如：</p>
-<ul><li>浅雕刻</li><li>布纹</li><li>压印文字</li><li>细小凹痕</li></ul>
-<p>如果直接看提取出的 mesh，表面会被抹平。</p>
-<h2 id="怎么做-8">怎么做</h2>
-<p>关键是： Luce 的 normal 是独立模态，不是从 mesh 几何算出来的。 因此它可以表达比几何更高频的表面方向变化。</p>
-<p>推理时，作者做以下事情：</p>
-<ol><li>提取 mesh</li><li>做 UV 展开</li><li>将 Gaussian normal 场渲染/烘焙到 UV 空间</li><li>把 object-space normal 转成 tangent space</li><li>得到标准 tangent-space normal map</li></ol>
-<h2 id="得到什么-8">得到什么</h2>
-<p>这样在不增加多边形数的情况下，mesh 渲染时仍能恢复很多高频表面细节。 论文报告：</p>
-<ul><li>mesh normal PSNR 从 <strong>29.5 dB 提升到 33.0 dB</strong></li><li>color 也有提升</li></ul>
-<p>可视化上也能看到裸 mesh 和带切线空间法线贴图的差异。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.23943v1/figures/gen_normal_compare/image_096/cond.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.23943v1/figures/gen_normal_compare/image_096/cond.png" alt="Figure 8：Tangent-space normal map 迁移。Luce 将从解码得到的 normal Gaussians 烘焙出的 tangent-space normals 映射到提取出的 mesh 上，以零多边形数量代价恢复精细表面细节。每个绿色框都标出下方放大的区域。" loading="lazy"></a><span class="image-caption">Figure 8：Tangent-space normal map 迁移。Luce 将从解码得到的 normal Gaussians 烘焙出的 tangent-space normals 映射到提取出的 mesh 上，以零多边形数量代价恢复精细表面细节。每个绿色框都标出下方放大的区域。</span></span></p>
-<hr>
-<h1 id="6-主结果-消融结果-可视化结论及证据边界">6. 主结果、消融结果、可视化结论及证据边界</h1>
-<hr>
-<h2 id="6-1-主结果-生成质量">6.1 主结果：生成质量</h2>
-<p>作者在两个 benchmark 上评估：</p>
-<ol><li><strong>Toys4K</strong></li><li>自建的 <strong>130 张 AI 生成图像</strong> benchmark</li></ol>
-<h3 id="主要数值">主要数值</h3>
-<p>在 Toys4K 上，Luce GS 的结果：</p>
-<ul><li><strong>FID = 20.99</strong>  </li></ul>
-<p>对比最强基线 TRELLIS 2 的 29.22，提升约 28%</p>
-<p>在 AI-generated images benchmark 上：</p>
-<ul><li><strong>CLIP = 0.8519</strong></li><li>最强基线 TRELLIS GS 是 0.8299</li></ul>
-<p>作者因此主张 Luce 在：</p>
-<ul><li>图像到 3D 一致性</li><li>分布质量</li><li>细节恢复</li></ul>
-<p>上达到了当前最好结果。</p>
-<h2 id="怎么理解这些结果">怎么理解这些结果</h2>
-<h3 id="fid-kid">FID/KID</h3>
-<p>衡量生成视图分布与真实分布之间的差异。数值越低越好。 它支持“生成结果整体更像真实资产渲染”的说法。</p>
-<h3 id="clip-siglip2">CLIP / SigLIP2</h3>
-<p>衡量输入图像与生成结果渲染之间的语义相似性。越高越好。 它支持“输出更符合输入图像内容”的说法。</p>
-<h3 id="ulip-uni3d-l">ULIP / Uni3D-L</h3>
-<p>只对 mesh 路径评测，用于 3D/多模态对齐性。 Luce mesh 版本也表现不错。</p>
-<p>不过要注意： 这些指标大多是<strong>渲染后图像级</strong>指标，并不能完全证明：</p>
-<ul><li>真实几何拓扑更对</li><li>真实材质物理参数更准</li></ul>
-<p>它们更直接支持的是“渲染结果质量与图像一致性”。</p>
-<hr>
-<h2 id="6-2-主结果-重建质量">6.2 主结果：重建质量</h2>
-<p>在 Toys4K 的 PBR 子集上，作者还做了重建实验，作为表示能力的佐证。</p>
-<p>Luce GS 在以下指标最好：</p>
-<ul><li>color PSNR：36.1</li><li>normal PSNR：34.6</li></ul>
-<p>TRELLIS 2 在 albedo、metallic-roughness 上有些指标更高，但 Luce 在综合渲染与法线上更强，说明：</p>
-<ul><li>它的 deferred PBR 渲染路径有效</li><li>normal 模态表达确实强</li></ul>
-<p>可视化也支持这一点。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.23943v1/figures/vae_visuals/combined_vae_grid_3l_tv013_crops/combined_vae_grid_3l_tv013_r00_GT.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.23943v1/figures/vae_visuals/combined_vae_grid_3l_tv013_crops/combined_vae_grid_3l_tv013_r00_GT.png" alt="Figure 7：Toys4K 上的重建质量。各列为 ground truth 和不同方法；每个块展示各方法重建的模态（albedo、metallic-roughness、normals）。Luce 保留了精细细节（文本、高光、纹理）；绿色框标出下方放大的区域。" loading="lazy"></a><span class="image-caption">Figure 7：Toys4K 上的重建质量。各列为 ground truth 和不同方法；每个块展示各方法重建的模态（albedo、metallic-roughness、normals）。Luce 保留了精细细节（文本、高光、纹理）；绿色框标出下方放大的区域。</span></span></p>
-<p>但是同样要注意证据边界： 重建实验说明<strong>表示 + VAE 解码器</strong>对已有资产拟合得好，不等于生成时一定同等强。 生成和重建之间还有条件生成误差这一步。</p>
-<hr>
-<h2 id="6-3-定性结果-文字和-logo-保真">6.3 定性结果：文字和 logo 保真</h2>
-<p>论文反复强调 Luce 能保留：</p>
-<ul><li>可读文字</li><li>标记</li><li>logo</li><li>铭文</li></ul>
-<p>这在单图 3D 中确实很难，因为文字有高频、强方向性、对局部拓扑和纹理都敏感。</p>
-<p>从可视化看，Luce 相比基线的确经常更清楚。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.23943v1/figures/gen_compare/per_method/image_016/cond_image.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.23943v1/figures/gen_compare/per_method/image_016/cond_image.png" alt="Figure 5：图像到 3D 生成比较。Luce 在生成的 3D 资产上保留了清晰可辨的文本和精细表面细节。对于每种方法，较大的着色渲染旁边显示按模态分解的级联结果（albedo、metallic-roughness、surface normals），若可用。" loading="lazy"></a><span class="image-caption">Figure 5：图像到 3D 生成比较。Luce 在生成的 3D 资产上保留了清晰可辨的文本和精细表面细节。对于每种方法，较大的着色渲染旁边显示按模态分解的级联结果（albedo、metallic-roughness、surface normals），若可用。</span></span></p>
-<p>还有更多样例：</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.23943v1/figures/gen_qualitative/snapshot_demo_cond_image_image103_bright.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.23943v1/figures/gen_qualitative/snapshot_demo_cond_image_image103_bright.png" alt="Figure 6：更多生成示例。Luce 在四个多样化输入上的结果：每个单元展示输入图像、按模态划分的 PBR Gaussians（albedo、metallic-roughness、normals）以及一个着色渲染。" loading="lazy"></a><span class="image-caption">Figure 6：更多生成示例。Luce 在四个多样化输入上的结果：每个单元展示输入图像、按模态划分的 PBR Gaussians（albedo、metallic-roughness、normals）以及一个着色渲染。</span></span></p>
-<p>但这里要非常严谨地说： 这些图只能说明<strong>在展示样例中</strong>文字保真更好； 它们不能单独替代大规模 OCR 或人工可读性评测。 论文虽然通过 FID/CLIP 等指标侧面支持整体质量，但<strong>没有专门的文本可读性定量指标</strong>。</p>
-<hr>
-<h2 id="6-4-消融结果">6.4 消融结果</h2>
-<p>论文主要做了两个消融。</p>
-<h3 id="消融-1-单层-vs-多层-dinov2-条件">消融 1：单层 vs 多层 DINOv2 条件</h3>
-<p>结果明确支持多层更好：</p>
-<ul><li>Toys4K FID：25.21 → 20.99</li><li>AI benchmark CLIP：0.8081 → 0.8519</li></ul>
-<p>结论： 多层视觉特征确实更能保留局部细节，同时不损害高层语义。</p>
-<h3 id="消融-2-是否烘焙-tangent-space-normal-map">消融 2：是否烘焙 tangent-space normal map</h3>
-<p>结果：</p>
-<ul><li>mesh normal PSNR：29.5 → 33.0</li><li>color 渲染也提升</li></ul>
-<p>结论： 独立 normal modality 的信息在 mesh 导出时确实能转化成实际视觉收益。</p>
-<hr>
-<h1 id="7-这篇论文到底新在哪里-和相关工作怎么区分">7. 这篇论文到底新在哪里，和相关工作怎么区分</h1>
-<p>如果你把它和前作放在一起看，可以这样理解：</p>
-<h2 id="与普通-3dgs-生成方法的区别">与普通 3DGS 生成方法的区别</h2>
-<p>普通 3DGS 生成多半输出“可看”的 3D 外观，但不显式分解材质。 Luce 输出的是 <strong>PBR-complete</strong> 的表示。</p>
-<h2 id="与-mesh-pbr-方法的区别">与 mesh/PBR 方法的区别</h2>
-<p>像 TRELLIS 2 也做 PBR，但更偏 mesh-centric 或 voxel 属性式。 Luce 的独特点是：</p>
-<ul><li><strong>PBR 模态直接挂在 Gaussian primitive 上</strong></li><li><strong>每个模态独立一组 Gaussian</strong></li><li><strong>Gaussian 是主输出，不是附属表示</strong></li></ul>
-<h2 id="与-lito-的区别">与 LiTo 的区别</h2>
-<p>LiTo 更偏 surface light field tokenization，能表示视角相关效果，但这些效果不一定能分解回标准材质参数。 Luce 则明确追求标准 PBR 材质输出。</p>
-<hr>
-<h1 id="8-局限性">8. 局限性</h1>
-<p>论文最后写得比较诚实，这里我补成更直白的话。</p>
-<h2 id="8-1-体素分辨率仍然限制细节上限">8.1 体素分辨率仍然限制细节上限</h2>
-<p>虽然作者用“更多高斯/每 voxel 密度”补偿了分辨率下降，但本质上它还是建立在有限分辨率体素结构上。 如果物体很大而细节极小，某些局部仍可能只跨越很少几个 voxel，导致欠分辨。</p>
-<h2 id="8-2-材质模型还是标准金属-粗糙度工作流">8.2 材质模型还是标准金属-粗糙度工作流</h2>
-<p>它只显式建模：</p>
-<ul><li>albedo</li><li>metallic</li><li>roughness</li><li>normals</li></ul>
-<p>这对很多资产够用，但对以下现象不够：</p>
-<ul><li>次表面散射</li><li>各向异性</li><li>半透明</li><li>薄膜干涉</li><li>强烈视角相关 BRDF</li></ul>
-<p>也就是说，Luce 是<strong>标准 PBR 资产生成</strong>，不是“全物理材质现象生成”。</p>
-<h2 id="8-3-结构阶段依赖外部模型">8.3 结构阶段依赖外部模型</h2>
-<p>它复用了 TRELLIS 2 的 sparse structure stage。 所以 Luce 的完整效果部分依赖这一步的先验质量。 如果结构阶段错了，后面的材质生成再强也救不回来。</p>
-<h2 id="8-4-mesh-导出仍不是最强项">8.4 mesh 导出仍不是最强项</h2>
-<p>论文自己也承认 mesh export 用的是沿用的 FlexiCubes decoder。 说明他们的主要创新和最强表现是在 <strong>Gaussian/PBR 表示</strong>，mesh 不是全新设计的核心。</p>
-<h2 id="8-5-主要评测仍是渲染级指标">8.5 主要评测仍是渲染级指标</h2>
-<p>FID、CLIP、SigLIP2 等都是重要指标，但本质上评的是渲染图像分布和图文一致性。 对于“物理材质参数是否真实”“几何拓扑是否严谨”，证据并不充分。</p>
-<hr>
-<h1 id="9-最终判断-这篇论文值不值得关注">9. 最终判断：这篇论文值不值得关注？</h1>
-<p>我会给一个相当正面的评价，原因如下。</p>
-<h2 id="9-1-它解决的问题是对的">9.1 它解决的问题是对的</h2>
-<p>不是仅仅追求“生成一个好看的 3D”，而是追求<strong>可进入标准渲染管线的资产</strong>。 这比单纯新视角合成更接近生产需求。</p>
-<h2 id="9-2-它的关键设计很有针对性">9.2 它的关键设计很有针对性</h2>
-<p>“每个模态独立一组 Gaussian”不是装饰性改动，而是非常贴合问题本身：</p>
-<ul><li>高光相关信息和颜色信息空间需求不同</li><li>法线细节和几何分辨率冲突</li><li>文字/logo 依赖局部高频纹理</li></ul>
-<p>这套设计解释力很强。</p>
-<h2 id="9-3-实验结果支持主要主张">9.3 实验结果支持主要主张</h2>
-<p>论文的主张包括：</p>
-<ul><li>更好的生成质量</li><li>更好的图像一致性</li><li>更好的细节，尤其文字/logo</li><li>原生可重光照</li><li>normal baking 对 mesh 有帮助</li></ul>
-<p>这些都有相应的数值或图像证据支持。</p>
-<h2 id="9-4-但也不要过度解读">9.4 但也不要过度解读</h2>
-<p>我不会把它解读成：</p>
-<ul><li>已经完全解决单图 3D 资产生成</li><li>已经能准确恢复真实物理材质</li><li>已经适用于所有复杂材质与场景</li></ul>
-<p>更准确的判断是：</p>
-<blockquote><strong>Luce 把“单图 3D 生成”从只追求可视化外观，往“显式 PBR 资产生成”推进了一大步。它最有价值的地方，是提出了一个兼顾生成、渲染和资产导出的中间表示。</strong></blockquote>
-<hr>
-<h1 id="10-如果你只记住三件事">10. 如果你只记住三件事</h1>
-<h2 id="第一件">第一件</h2>
-<p><strong>Luce 的本质创新是表示，不是单纯换了个生成器。</strong> 它把 3D 资产表示成体素化、多模态、每模态独立 Gaussian 的 PBR cloud。</p>
-<h2 id="第二件">第二件</h2>
-<p><strong>normal 是独立模态，而不是几何导数。</strong> 这使它能表达超出基础几何分辨率的高频表面细节，并烘焙成 tangent-space normal map。</p>
-<h2 id="第三件">第三件</h2>
-<p><strong>多层 DINOv2 条件 + joint latent generation</strong> 让它在单图到 3D 时更能保住局部细节，尤其是文字和 logo。</p>
-<hr>
-<p>如果你愿意，我下一步可以继续给你做两种补充之一：</p>
-<ol><li><strong>“公式与表示细节版”</strong>：把 Eq. (1)、Eq. (2)、VAE loss、latent 维度和 token 组织方式逐项拆开讲；  </li><li><strong>“和 TRELLIS / TRELLIS 2 / LiTo 的逐点对比版”</strong>：从表示、训练目标、渲染语义、可重光照能力、工程输出格式五个维度横向比较。</li></ol></div></article></main>
+<h2 id="1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</h2>
+<p>Luce 的输入是一张物体 RGB 图像；输出是一个可重新照明的 3D 资产，包含多模态 PBR 高斯云（反照率、金属-粗糙度、表面法线），可直接在标准 PBR 渲染管线中使用，也可选择输出带切线空间法线贴图的纹理网格。功能上支持任意环境贴图下的延迟着色渲染。边界是面向单物体、物体居中的资产生成，不覆盖场景级生成，也不显式建模次表面散射、各向异性、半透明等复杂材质。</p>
+<h2 id="2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</h2>
+<p>单图像到 3D 生成的质量上限很大程度上由 3D 表示决定。隐式几何方法通常只能表示水密表面；普通 3DGS 或 NeRF 把光照烘焙进颜色，无法重新照明；以网格为中心的方法又常把几何和材质绑定，导致法线细节受网格分辨率限制。结果是文字、logo、刻印等高频表面细节容易被平滑或扭曲。</p>
+<p>Luce 的核心 insight 是：与其在几何和材质之间做取舍，不如把 PBR 材质分解直接编码成 3D 原生表示。具体地，每个占用体素内为 albedo、metallic-roughness、normals 各放一组几何独立的高斯原语。这种设计让几何和材质共享同一个稀疏体素骨架，同时每种模态可以按自身细节密度分配高斯容量，避免不同模态竞争同一组原语。更重要的是，法线作为独立模态显式存储，可以携带比网格几何更高频的表面细节，并能在导出网格时被烘焙成切线空间法线贴图。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.23943v1/figures/gen_compare/per_method/image_043/cond_image.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.23943v1/figures/gen_compare/per_method/image_043/cond_image.png" alt="Figure 2: 生成的 3D 资产上清晰可读的文字。在单图像到 3D 生成任务上，将 Luce 与 LiTo (Chang et al., 2026)、TRELLIS 2 (Xiang et al., 2025) 和 TRELLIS (Xiang et al., 2024) 进行比较；每行显示输入条件图像和每种方法生成的 3D 资产的一个渲染视图。LiTo 生成与输入视图对齐的资产，而其他方法以规范方向生成。Luce 在基线方法扭曲表面文字和标记的地方保持其清晰可读。" loading="lazy"></a><span class="image-caption">Figure 2: 生成的 3D 资产上清晰可读的文字。在单图像到 3D 生成任务上，将 Luce 与 LiTo (Chang et al., 2026)、TRELLIS 2 (Xiang et al., 2025) 和 TRELLIS (Xiang et al., 2024) 进行比较；每行显示输入条件图像和每种方法生成的 3D 资产的一个渲染视图。LiTo 生成与输入视图对齐的资产，而其他方法以规范方向生成。Luce 在基线方法扭曲表面文字和标记的地方保持其清晰可读。</span></span></p>
+<h2 id="3-核心贡献-约300字">3. 核心贡献（约300字）</h2>
+<p>Luce 的贡献主要有四点：</p>
+<ul><li><strong>多模态 PBR 高斯表示</strong>：在体素化稀疏网格上，为 albedo、metallic-roughness、normals 分别维护一套几何独立的高斯原语。该表示直接支持无网格的 PBR 延迟着色，并可被压缩到潜在空间。</li><li><strong>统一材质感知潜在空间</strong>：通过结构化潜在 VAE（SLatVAE）把多模态 PBR 高斯云压缩为紧凑潜在码；整流流 Transformer（SLatFlow）在统一潜在空间中联合生成几何和材质。同一潜在码既可解码为 PBR 高斯，也可解码为带纹理的网格。</li><li><strong>多层图像条件化</strong>：融合 DINOv2 浅层和深层特征，同时保留语义信息与高频空间细节，使生成的 3D 表面上文字、logo、刻印保持清晰。</li><li><strong>切线空间法线贴图迁移</strong>：把解码后的法线高斯烘焙到网格 UV 上，以零额外多边形代价恢复高频表面细节。</li></ul>
+<p>验证方面，Luce 在 Toys4K 上取得 FID 20.99，比最强基线 TRELLIS 2 的 29.22 提升超过 8 个点；在 AI 生成图像基准上 CLIP 对齐分数为 0.8519，优于最好基线的 0.8299。</p>
+<h2 id="4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</h2>
+<p>推理时使用的基础模型（基模）有四类：DINOv2 图像特征提取器负责把条件图像变成条件特征；来自 TRELLIS 2 的稀疏结构流负责预测体素布局；SLatFlow（整流流 Transformer）负责生成潜在码；SLatVAE 解码器负责把潜在码变成 PBR 高斯。可选路径还会用到 FlexiCubes 网格解码器。</p>
+<ol><li>输入：用户提供的单张 RGB 图像。DINOv2 提取第 6、12、18、24 层特征并投影到条件空间。输出：条件特征，交给 SLatFlow。</li><li>输入：同一张 RGB 图像。稀疏结构流预测物体占据的稀疏体素坐标。输出：活动体素序列，交给 SLatFlow。</li><li>输入：条件特征 + 活动体素序列。SLatFlow 在每个活动体素上执行整流流采样，生成统一的材质感知潜在码。输出：结构化潜在张量。</li><li>输入：结构化潜在张量。SLatVAE 解码器输出每个体素、每种模态的多组高斯参数。输出：多模态 PBR 高斯云。</li><li>输入：多模态 PBR 高斯云 + 用户选取的环境贴图。延迟 PBR 着色器对 albedo、metallic-roughness、normals 先合成，再按 Cook-Torrance BRDF 和 split-sum 环境光照着色。输出：任意环境贴图下的最终渲染图像。</li><li>可选输入：同一结构化潜在张量。FlexiCubes 网格解码器提取带 UV 的网格，并把法线高斯烘焙成切线空间法线贴图。输出：带 albedo、metallic、roughness、tangent normal 四张贴图的纹理网格。</li></ol>
+<div class="mermaid">flowchart TD
+    A[用户输入图像] --&gt; B[DINOv2 多层特征提取]
+    A --&gt; C[稀疏结构流]
+    C --&gt; D[活动体素布局]
+    B --&gt; E[SLatFlow 整流流生成]
+    D --&gt; E
+    E --&gt; F[结构化潜在张量]
+    F --&gt; G[SLatVAE 解码器]
+    G --&gt; H[多模态 PBR 高斯]
+    Env[用户选取的环境贴图] --&gt; I[延迟 PBR 着色渲染]
+    H --&gt; I
+    I --&gt; R[最终渲染图像]
+    F --&gt; J[FlexiCubes 网格解码器]
+    J --&gt; K[纹理网格 + 切线空间法线贴图]</div>
+<h2 id="5-核心方法-按论文-method-小节总结-约600字">5. 核心方法：按论文 Method 小节总结（约600字）</h2>
+<p>论文 Method 部分先定义多模态 PBR 高斯表示，再用 SLatVAE 压缩表示，接着用整流流 Transformer 生成潜在码，最后做切线空间法线贴图迁移。整体架构如图 3 所示。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.23943v1/paper_graph_method_mug_version.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.23943v1/paper_graph_method_mug_version.png" alt="Figure 3: Luce 概述。（上）表示与 SLatVAE。给定一个 3D PBR 资产（此处为 Toys4K (Stojanov et al., 2021) 样本），我们渲染多视图图像，并在稀疏体素网格上为每种模态拟合高斯溅射（反照率、金属-粗糙度、法线）。结构化潜在 VAE（SLatVAE）将此表示编码为紧凑、可扩散的潜在表示，并解码回 PBR 高斯体。（下）生成流程。给定单个输入图像，稀疏结构流首先预测稀疏体素布局。以多层 DINOv2 特征为条件，SLatFlow 在每个活动体素上生成 PBR 高斯潜在表示。结构化潜在表示解码为可重新照明的 PBR 高斯体，同时也作为网格解码器的输入，产生带有切线空间法线贴图和完整 PBR 材质集的纹理网格。" loading="lazy"></a><span class="image-caption">Figure 3: Luce 概述。（上）表示与 SLatVAE。给定一个 3D PBR 资产（此处为 Toys4K (Stojanov et al., 2021) 样本），我们渲染多视图图像，并在稀疏体素网格上为每种模态拟合高斯溅射（反照率、金属-粗糙度、法线）。结构化潜在 VAE（SLatVAE）将此表示编码为紧凑、可扩散的潜在表示，并解码回 PBR 高斯体。（下）生成流程。给定单个输入图像，稀疏结构流首先预测稀疏体素布局。以多层 DINOv2 特征为条件，SLatFlow 在每个活动体素上生成 PBR 高斯潜在表示。结构化潜在表示解码为可重新照明的 PBR 高斯体，同时也作为网格解码器的输入，产生带有切线空间法线贴图和完整 PBR 材质集的纹理网格。</span></span></p>
+<h3 id="3-1-multimodal-pbr-gaussian-representation-多模态-pbr-高斯表示">3.1 Multimodal PBR Gaussian Representation（多模态 PBR 高斯表示）</h3>
+<p>该小节定义 Luce 的 3D 表示。给定一个 \(d^3\) 稀疏体素网格，每个活动体素 \(i\) 保存三套高斯原语，对应模态集合 \(\mathcal{M}=\{\text{alb}, \text{mr}, \text{nor}\}\)。每套高斯有自己的位置偏移、各向异性尺度、旋转四元数、不透明度和模态值；三套高斯几何独立，因此不同模态可以按各自细节密度分配原语。法线模态是显式预测的，而不是从表面几何推导，因此可以编码比网格几何更高频的细节。</p>
+<p>与原始 3DGS 不同，Luce 不存球谐系数；视角相关外观由 PBR 着色分析产生。渲染时，每个模态独立执行 3DGS alpha 合成，得到逐像素 albedo、metallic、roughness、normal 和 opacity，然后使用 split-sum 图像光照与 Cook-Torrance 微表面 BRDF 着色：</p>
+<p>\[ L_o^{\mathrm{IBL}}(\boldsymbol{\omega}_o) \approx \frac{(1-\kappa)\boldsymbol{a}}{\pi}E(\boldsymbol{n}) + L_{\mathrm{pref}}(\boldsymbol{r},\alpha)[F_0A(\mu_o,\alpha)+B(\mu_o,\alpha)], \]</p>
+<p>其中 \(\boldsymbol{r}=2(\boldsymbol{n}\cdot\boldsymbol{\omega}_o)\boldsymbol{n}-\boldsymbol{\omega}_o\)，\(\mu_o=\mathrm{clamp}(\boldsymbol{n}\cdot\boldsymbol{\omega}_o,0,1)\)，\(F_0=(1-\kappa)0.04+\kappa\boldsymbol{a}\)。该过程不需要网格提取或 UV 展开。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.23943v1/figures/fig_7_relight.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.23943v1/figures/fig_7_relight.png" alt="Figure 10: PBR 着色渲染。解码后的 PBR 模态（反照率、金属-粗糙度、法线）通过标准 PBR 合成（公式 1）在新环境贴图（Poly Haven, 2026）下实现着色渲染，无需网格提取或 UV 展开。我们将基于 GS 拟合的延迟 PBR 渲染器与使用 Blender EEVEE (Blender Online Community, 2024) 渲染的纹理网格作为参考进行比较；环境贴图列于附录 D。" loading="lazy"></a><span class="image-caption">Figure 10: PBR 着色渲染。解码后的 PBR 模态（反照率、金属-粗糙度、法线）通过标准 PBR 合成（公式 1）在新环境贴图（Poly Haven, 2026）下实现着色渲染，无需网格提取或 UV 展开。我们将基于 GS 拟合的延迟 PBR 渲染器与使用 Blender EEVEE (Blender Online Community, 2024) 渲染的纹理网格作为参考进行比较；环境贴图列于附录 D。</span></span></p>
+<h3 id="3-2-variational-autoencoder-变分自编码器">3.2 Variational Autoencoder（变分自编码器）</h3>
+<p>SLatVAE 的目的是把高维稀疏多模态高斯云压缩成紧凑可扩散的潜在码。编码器使用带 shifted-window attention 的稀疏 Transformer，在输入分辨率 \(128^3\) 上处理，并在最后下采样到 \(64^3\)；解码器在 \(64^3\) 潜在分辨率上运行，但每个体素、每种模态输出更多高斯（\(K&#x27;=32\)，输入拟合时为 \(K=8\)）。关键设计是“用每体素密度换空间分辨率”：潜在空间足够小，可高效扩散；解码器又通过更密集的高斯恢复精细几何和材质细节。</p>
+<p>SLatVAE 通过可微渲染端到端训练：把解码高斯渲染成各模态 intrinsic 图像，与 ground-truth 比较 \(\ell_1\)、LPIPS、SSIM，并加入 KL 先验以及高斯体积、透明度正则项。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.23943v1/fig_vae_appendix.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.23943v1/fig_vae_appendix.png" alt="Figure 9: SLatVAE 架构。编码器将稀疏多模态高斯云压缩为紧凑的潜在网格。解码器重建每个体素每种模态更密集的高斯体集合，并通过每种模态的可微渲染进行监督。同一潜在表示还用作网格解码器的输入，用于纹理网格提取。完整超参数见表 3。" loading="lazy"></a><span class="image-caption">Figure 9: SLatVAE 架构。编码器将稀疏多模态高斯云压缩为紧凑的潜在网格。解码器重建每个体素每种模态更密集的高斯体集合，并通过每种模态的可微渲染进行监督。同一潜在表示还用作网格解码器的输入，用于纹理网格提取。完整超参数见表 3。</span></span></p>
+<h3 id="3-3-flow-based-generation-基于流的生成">3.3 Flow-Based Generation（基于流的生成）</h3>
+<p>Luce 使用整流流 Transformer 在 SLatVAE 潜在空间中生成，并采用“结构先产生成、潜在再生成”的两阶段策略。稀疏结构生成直接继承 TRELLIS 2 的稀疏结构 VAE 和稀疏结构流，不修改；它们根据条件图像输出活动体素布局。随后 SLatFlow 在每个活动体素上生成 PBR 高斯潜在码。SLatFlow 是 DiT 风格的稀疏 3D Transformer，活动体素作为变长 token 序列，时间步通过自适应层归一化注入，图像特征通过交叉注意力注入。</p>
+<p>多层图像条件化是重要设计：DINOv2 浅层特征保留文字、logo 等精细空间结构，深层特征提供语义信息。Luce 拼接第 6、12、18、24 层特征并投影到条件空间：</p>
+<p>\[ \mathbf{h}=W_{\mathrm{proj}}[f_{\ell_1}; f_{\ell_2}; \cdots; f_{\ell_L}]+b_{\mathrm{proj}}. \]</p>
+<p>多层条件化让生成器把高频细节从输入图像传播到 3D 表面。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.23943v1/figures/snapshot_08arql_yaw180_r160_v35/image_150_gen_luce_gs/cond_image.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.23943v1/figures/snapshot_08arql_yaw180_r160_v35/image_150_gen_luce_gs/cond_image.png" alt="Figure 4: 多层 DINOv2 条件化的效果。我们比较使用多层 DINOv2 特征（第 6、12、18、24 层）训练的 Luce 与使用单层 DINOv2 特征（仅第 24 层）的结果。多层条件化保留了条件图像中的精细空间细节，包括生成的 3D 表面上清晰可读的文字和徽标。对于每种变体，较大的着色渲染旁边显示按模态分解的级联（反照率、金属-粗糙度、表面法线）。" loading="lazy"></a><span class="image-caption">Figure 4: 多层 DINOv2 条件化的效果。我们比较使用多层 DINOv2 特征（第 6、12、18、24 层）训练的 Luce 与使用单层 DINOv2 特征（仅第 24 层）的结果。多层条件化保留了条件图像中的精细空间细节，包括生成的 3D 表面上清晰可读的文字和徽标。对于每种变体，较大的着色渲染旁边显示按模态分解的级联（反照率、金属-粗糙度、表面法线）。</span></span></p>
+<p>Luce 还支持双路解码：主要输出是可立即渲染的 PBR 高斯云；同一潜在码也可送入 FlexiCubes 网格解码器，输出带 UV 的纹理网格，并用烘焙的法线贴图增强高频细节。</p>
+<h3 id="3-4-tangent-space-normal-map-transfer-切线空间法线贴图迁移">3.4 Tangent-Space Normal Map Transfer（切线空间法线贴图迁移）</h3>
+<p>从体素网格提取网格时，几何频率受网格分辨率限制，次体素级特征（刻印、织物纹理、浮雕文字）无法体现在几何中。Luce 的做法是把解码后的法线高斯写成切线空间法线贴图：在 UV 参数化表面上，用网格切线帧把法线高斯表示的方向转换到切线空间。最终网格携带四张贴图：diffuse（albedo）、metallic、roughness 和 tangent-space normal，构成完整 PBR 材质集，可直接导入生产渲染器。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.23943v1/figures/gen_normal_compare/image_096/cond.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.23943v1/figures/gen_normal_compare/image_096/cond.png" alt="Figure 8: 切线空间法线贴图迁移。Luce 将解码后的法线高斯体中的切线空间法线烘焙到提取的网格上，以零多边形数代价恢复精细表面细节。每个绿色框标记下方放大的区域。" loading="lazy"></a><span class="image-caption">Figure 8: 切线空间法线贴图迁移。Luce 将解码后的法线高斯体中的切线空间法线烘焙到提取的网格上，以零多边形数代价恢复精细表面细节。每个绿色框标记下方放大的区域。</span></span></p>
+<h2 id="6-局限性和展望-约300字">6. 局限性和展望（约300字）</h2>
+<p>论文明确说明的限制包括：有限分辨率的体素化表示会丢失相对整体尺寸过小的细节，因此未来可考虑级联或自适应分辨率解码；当前材质模型只覆盖标准 PBR 属性（albedo、metallic-roughness、normals），不显式建模次表面散射、各向异性、半透明、薄膜干涉或强视角相关反射；网格导出依赖 TRELLIS 的 FlexiCubes 解码器，本身仍有改进空间；整个流程面向单物体资产，不能直接扩展到场景级生成。</p>
+<p>可以谨慎推断的限制包括：Luce 是多阶段流水线，稀疏结构预测、潜在生成、解码和烘焙各环节的误差会累积；生成质量依赖 DINOv2 条件的特征质量以及 TRELLIS 2 稀疏结构流的覆盖范围；预处理需要多视图 PBR 渲染和逐资产高斯拟合，因此对输入 PBR 数据的质量和一致性比较敏感。未来方向包括引入更多材质通道、学习视角相关残差，以及向场景级一致光照和材质生成扩展。</p></div></article></main>
   </div>
   <script>/*!
   * PhotoSwipe 5.4.4 - https://photoswipe.com
