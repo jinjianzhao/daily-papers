@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>2026-W37 · 论文周报</title>
+  <title>Learning 3D Editing without Paired Supervision via Generative Prior Distillation</title>
 
   <script>
     window.MathJax = {
@@ -515,38 +515,10 @@ div.pswp__img--placeholder,
       .academic-main article { padding: 30px 22px 52px; border: 0; border-radius: 0; }
     }
 
-    h3 { font-size: 20px; }
-    h4 { font-size: 17px; }
-    h5 { font-size: 18px; }
-
-    .inline-html-entry { margin: 18px 0; padding: 16px 18px 18px; border: 1px solid #d8e2eb; border-left: 3px solid #91abc2; border-radius: 6px; background: #fbfdff; transition: border-color .15s, background .15s; }
-    .inline-html-entry.is-expanded { border-color: #b7c9d9; border-left-color: #1769aa; background: #fff; }
-    .inline-html-summary { margin-top: 0; margin-bottom: 0; }
-    .inline-html-actions { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-left: 10px; vertical-align: middle; }
-    .inline-html-toggle, .inline-html-standalone, .inline-html-close { display: inline-flex; min-height: 30px; align-items: center; justify-content: center; padding: 5px 10px; border: 1px solid #b9c9d8; border-radius: 6px; background: #fff; color: #37516a; font: inherit; font-size: 12px; font-weight: 700; line-height: 1.35; text-decoration: none; cursor: pointer; }
-    .inline-html-source-link { display: none; }
-    .inline-html-toggle:hover, .inline-html-standalone:hover, .inline-html-close:hover { border-color: #1769aa; color: #1769aa; }
-    .inline-html-toggle:disabled { cursor: wait; opacity: .6; }
-    .inline-html-panel { margin: 18px 0 0; padding-top: 24px; border-top: 1px solid #e2e8f0; }
-    .inline-html-panel[hidden] { display: none; }
-    .inline-html-body h1:first-child { display: none; }
-    .inline-html-status { color: #64748b; font-size: 14px; }
-    .inline-html-error { color: #9f1239; }
-    .inline-html-footer { display: flex; justify-content: flex-end; margin-top: 30px; padding-top: 16px; border-top: 1px solid #e2e8f0; }
-    @media (max-width: 640px) {
-      .inline-html-entry { padding: 14px 14px 16px; }
-      .inline-html-actions { display: flex; margin: 10px 0 0; }
-      .inline-html-toggle, .inline-html-standalone, .inline-html-close { min-height: 36px; }
-    }
 
 
 
-    /* A focused entry is emitted as title, classification, then one-line summary. */
-    .academic-main h4 + p,
-    .academic-main h4 + p + p,
-    .academic-main h5 + p,
-    .academic-main h5 + p + p { font-size: 16px; }
-</style>
+  </style>
 </head>
 <body>
 
@@ -557,103 +529,82 @@ div.pswp__img--placeholder,
     <aside class="academic-sidebar" id="academic-sidebar" aria-label="文档目录">
       <div class="toc-panel">
         <p class="toc-heading">目录</p>
-        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#2026-w37-论文周报">2026-W37 · 论文周报</a><a class="toc-link toc-level-2" href="#重点解析">重点解析</a><a class="toc-link toc-level-3" href="#3d">3D</a><a class="toc-link toc-level-4" href="#2026-09-09">2026-09-09</a><a class="toc-link toc-level-5" href="#learning-3d-editing-without-paired-supervision-via-generative-prior-distillation">Learning 3D Editing without Paired Supervision via Generative Prior Distillation</a><a class="toc-link toc-level-5" href="#marigold-v2-revisiting-diffusion-transformers-for-monocular-depth-estimation">Marigold V2: Revisiting Diffusion Transformers for Monocular Depth Estimation</a><a class="toc-link toc-level-5" href="#scenemosaic-efficient-and-diverse-simulation-ready-scene-generation-via-hybrid-agentic-layout-evolution">SceneMosaic: Efficient and Diverse Simulation-Ready Scene Generation via Hybrid Agentic Layout Evolution</a><a class="toc-link toc-level-5" href="#transnormal-2-geometry-grounded-rectified-flow-with-edge-aware-decoding-for-precise-normal-estimation">TransNormal-2: Geometry-Grounded Rectified Flow with Edge-Aware Decoding for Precise Normal Estimation</a><a class="toc-link toc-level-4" href="#2026-09-07">2026-09-07</a><a class="toc-link toc-level-5" href="#motion-omni-end-to-end-joint-speech-and-full-body-motion-for-spoken-dialogue">Motion-Omni: End-to-End Joint Speech and Full-Body Motion for Spoken Dialogue</a><a class="toc-link toc-level-5" href="#to-see-a-world-in-a-living-context-unified-indoor-outdoor-urban-world-generation">To See a World in a Living Context: Unified Indoor-Outdoor Urban World Generation</a><a class="toc-link toc-level-5" href="#unimate-one-unified-model-to-animate-diverse-skeletons">UniMate: One Unified Model to Animate Diverse Skeletons</a><a class="toc-link toc-level-5" href="#worldsculpt-generating-compositional-worlds-from-grounded-videos">WorldSculpt: Generating Compositional Worlds from Grounded Videos</a><a class="toc-link toc-level-3" href="#视频">视频</a><a class="toc-link toc-level-4" href="#2026-09-09-2">2026-09-09</a><a class="toc-link toc-level-5" href="#ge-act-2-0-pretraining-and-scaling-a-world-action-model-for-robotic-manipulation">GE-Act 2.0: Pretraining and Scaling a World-Action Model for Robotic Manipulation</a><a class="toc-link toc-level-5" href="#mask-forcing-improving-autoregressive-video-diffusion-distillation-via-dual-noise-masking-rollout">Mask Forcing: Improving Autoregressive Video Diffusion Distillation via Dual-Noise Masking Rollout</a><a class="toc-link toc-level-5" href="#multi-grid-post-training-for-long-form-multi-shot-video-generation">Multi-Grid Post-Training for Long-Form Multi-Shot Video Generation</a><a class="toc-link toc-level-5" href="#openwam-an-open-modular-exploration-towards-systematic-world-action-model-pretraining">OpenWAM: An Open, Modular Exploration Towards Systematic World-Action Model Pretraining</a><a class="toc-link toc-level-4" href="#2026-09-07-2">2026-09-07</a><a class="toc-link toc-level-5" href="#one-editor-many-edits-a-unified-training-free-framework-for-diverse-video-editing">One Editor, Many Edits: A Unified Training-Free Framework for Diverse Video Editing</a><a class="toc-link toc-level-2" href="#全量论文简报">全量论文简报</a><a class="toc-link toc-level-3" href="#2026-09-09-3">2026-09-09</a><a class="toc-link toc-level-3" href="#2026-09-08">2026-09-08</a><a class="toc-link toc-level-3" href="#2026-09-07-3">2026-09-07</a></nav>
+        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#learning-3d-editing-without-paired-supervision-via-generative-prior-distillation">Learning 3D Editing without Paired Supervision via Generative Prior Distillation</a><a class="toc-link toc-level-2" href="#快速理解">快速理解</a><a class="toc-link toc-level-2" href="#中文摘要">中文摘要</a><a class="toc-link toc-level-2" href="#详细分析">详细分析</a><a class="toc-link toc-level-2" href="#1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</a><a class="toc-link toc-level-2" href="#2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</a><a class="toc-link toc-level-2" href="#3-核心贡献-约300字">3. 核心贡献（约300字）</a><a class="toc-link toc-level-2" href="#4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</a><a class="toc-link toc-level-2" href="#5-核心方法-按论文-method-小节总结-约600字">5. 核心方法：按论文 Method 小节总结（约600字）</a><a class="toc-link toc-level-3" href="#问题设定-problem-formulation">问题设定（Problem Formulation）</a><a class="toc-link toc-level-3" href="#学生与教师架构-student-and-teacher-architectures">学生与教师架构（Student and Teacher Architectures）</a><a class="toc-link toc-level-3" href="#3-1-数据集构建-dataset-construction">3.1 数据集构建（Dataset Construction）</a><a class="toc-link toc-level-3" href="#3-2-可微渲染下的2d监督-2d-supervision-via-differentiable-rendering">3.2 可微渲染下的2D监督（2D Supervision via Differentiable Rendering）</a><a class="toc-link toc-level-3" href="#3-3-3d感知分布匹配正则化-3d-aware-distribution-matching-regularization">3.3 3D感知分布匹配正则化（3D-Aware Distribution Matching Regularization）</a><a class="toc-link toc-level-2" href="#6-局限性和展望-约300字">6. 局限性和展望（约300字）</a></nav>
       </div>
     </aside>
-    <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../index.html">论文阅读首页</a> <a href="../../date/index.html">日报目录</a> <a href="../index.html">周报目录</a> <a href="../../month/index.html">月报目录</a></p>
-<h1 id="2026-w37-论文周报">2026-W37 · 论文周报</h1>
-<blockquote>收录 <strong>88 篇</strong>论文，重点解析 <strong>13 篇</strong>。正文按需展开，或可单独打开。</blockquote>
-<h2 id="重点解析">重点解析</h2>
-<h3 id="3d">3D</h3>
-<h4 id="2026-09-09">2026-09-09</h4>
-<h5 id="learning-3d-editing-without-paired-supervision-via-generative-prior-distillation">Learning 3D Editing without Paired Supervision via Generative Prior Distillation</h5>
-<p><strong>分类：</strong> 3D；3d generation</p>
-<p>提出生成先验蒸馏框架，实现无需成对3D监督的前馈式指令引导3D编辑。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.04942v1/teaser.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.04942v1/teaser.png" alt="Learning 3D Editing without Paired Supervision via Generative Prior Distillation 论文图" loading="lazy"></a><span class="image-caption">Learning 3D Editing without Paired Supervision via Generative Prior Distillation 论文图</span></span></p>
+    <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../date/">← 返回日报目录</a></p>
+<h1 id="learning-3d-editing-without-paired-supervision-via-generative-prior-distillation">Learning 3D Editing without Paired Supervision via Generative Prior Distillation</h1>
 <p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.04942">arXiv</a> · <a href="https://huggingface.co/papers/2609.04942">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.04942">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.04942/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="marigold-v2-revisiting-diffusion-transformers-for-monocular-depth-estimation">Marigold V2: Revisiting Diffusion Transformers for Monocular Depth Estimation</h5>
-<p><strong>分类：</strong> 3D；3D reconstruction</p>
-<p>提出Marigold V2，利用扩散Transformer改进单目深度估计，提升泛化和细节质量。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.08084v1/img/teaser/teaser_05.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.08084v1/img/teaser/teaser_05.png" alt="Marigold V2: Revisiting Diffusion Transformers for Monocular Depth Estimation 论文图" loading="lazy"></a><span class="image-caption">Marigold V2: Revisiting Diffusion Transformers for Monocular Depth Estimation 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.08084">arXiv</a> · <a href="https://huggingface.co/papers/2609.08084">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.08084">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.08084/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="scenemosaic-efficient-and-diverse-simulation-ready-scene-generation-via-hybrid-agentic-layout-evolution">SceneMosaic: Efficient and Diverse Simulation-Ready Scene Generation via Hybrid Agentic Layout Evolution</h5>
-<p><strong>分类：</strong> 3D；3d scene generation</p>
-<p>提出SceneMosaic框架，结合图像先验与VLM智能体进化，实现高效多样且物理有效的室内场景生成。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.05594v1/pipeline.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.05594v1/pipeline.png" alt="SceneMosaic: Efficient and Diverse Simulation-Ready Scene Generation via Hybrid Agentic Layout Evolution 论文图" loading="lazy"></a><span class="image-caption">SceneMosaic: Efficient and Diverse Simulation-Ready Scene Generation via Hybrid Agentic Layout Evolution 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.05594">arXiv</a> · <a href="https://huggingface.co/papers/2609.05594">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.05594">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.05594/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="transnormal-2-geometry-grounded-rectified-flow-with-edge-aware-decoding-for-precise-normal-estimation">TransNormal-2: Geometry-Grounded Rectified Flow with Edge-Aware Decoding for Precise Normal Estimation</h5>
-<p><strong>分类：</strong> 3D；3D reconstruction</p>
-<p>提出TransNormal-2，用几何约束和边缘解码修正提升扩散模型的法线估计精度。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.06665v1/assets/qualitative_benchmarks/tranlab_02_view_0263/input.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.06665v1/assets/qualitative_benchmarks/tranlab_02_view_0263/input.png" alt="TransNormal-2: Geometry-Grounded Rectified Flow with Edge-Aware Decoding for Precise Normal Estimation 论文图" loading="lazy"></a><span class="image-caption">TransNormal-2: Geometry-Grounded Rectified Flow with Edge-Aware Decoding for Precise Normal Estimation 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.06665">arXiv</a> · <a href="https://huggingface.co/papers/2609.06665">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.06665">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.06665/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-09-07">2026-09-07</h4>
-<h5 id="motion-omni-end-to-end-joint-speech-and-full-body-motion-for-spoken-dialogue">Motion-Omni: End-to-End Joint Speech and Full-Body Motion for Spoken Dialogue</h5>
-<p><strong>分类：</strong> 3D；3d animation generation</p>
-<p>提出Motion-Omni，实现对话中语音与全身动作的端到端联合生成。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.04250v1/MotionOmni_flat.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.04250v1/MotionOmni_flat.png" alt="Motion-Omni: End-to-End Joint Speech and Full-Body Motion for Spoken Dialogue 论文图" loading="lazy"></a><span class="image-caption">Motion-Omni: End-to-End Joint Speech and Full-Body Motion for Spoken Dialogue 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.04250">arXiv</a> · <a href="https://huggingface.co/papers/2609.04250">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.04250">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.04250/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="to-see-a-world-in-a-living-context-unified-indoor-outdoor-urban-world-generation">To See a World in a Living Context: Unified Indoor-Outdoor Urban World Generation</h5>
-<p><strong>分类：</strong> 3D；3d generation、3d scene generation</p>
-<p>提出HoloWorld框架，统一生成室内外连贯的3D城市世界。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2608.05879v2/pipeline_v4.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2608.05879v2/pipeline_v4.png" alt="To See a World in a Living Context: Unified Indoor-Outdoor Urban World Generation 论文图" loading="lazy"></a><span class="image-caption">To See a World in a Living Context: Unified Indoor-Outdoor Urban World Generation 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2608.05879">arXiv</a> · <a href="https://huggingface.co/papers/2608.05879">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2608.05879">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2608.05879/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="unimate-one-unified-model-to-animate-diverse-skeletons">UniMate: One Unified Model to Animate Diverse Skeletons</h5>
-<p><strong>分类：</strong> 3D；3d animation generation</p>
-<p>提出统一模型UniMate，基于文本和任意骨架生成动画，支持零样本跨拓扑迁移。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.05415v1/images/teaser.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.05415v1/images/teaser.png" alt="UniMate: One Unified Model to Animate Diverse Skeletons 论文图" loading="lazy"></a><span class="image-caption">UniMate: One Unified Model to Animate Diverse Skeletons 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.05415">arXiv</a> · <a href="https://huggingface.co/papers/2609.05415">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.05415">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.05415/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="worldsculpt-generating-compositional-worlds-from-grounded-videos">WorldSculpt: Generating Compositional Worlds from Grounded Videos</h5>
-<p><strong>分类：</strong> 3D；3d scene generation</p>
-<p>提出WorldSculpt，利用单物体生成先验从多视角视频组合生成含数百物体的3D场景。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.05416v1/teaser_world_sculpt.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.05416v1/teaser_world_sculpt.png" alt="WorldSculpt: Generating Compositional Worlds from Grounded Videos 论文图" loading="lazy"></a><span class="image-caption">WorldSculpt: Generating Compositional Worlds from Grounded Videos 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.05416">arXiv</a> · <a href="https://huggingface.co/papers/2609.05416">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.05416">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.05416/index.html" data-inline-html="true">展开正文</a></p>
-<h3 id="视频">视频</h3>
-<h4 id="2026-09-09-2">2026-09-09</h4>
-<h5 id="ge-act-2-0-pretraining-and-scaling-a-world-action-model-for-robotic-manipulation">GE-Act 2.0: Pretraining and Scaling a World-Action Model for Robotic Manipulation</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出从零预训练的世界动作模型GE-Act 2.0，用于机器人操作，实现跨场景零样本泛化。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.05588v1/fig_system_v04.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.05588v1/fig_system_v04.png" alt="GE-Act 2.0: Pretraining and Scaling a World-Action Model for Robotic Manipulation 论文图" loading="lazy"></a><span class="image-caption">GE-Act 2.0: Pretraining and Scaling a World-Action Model for Robotic Manipulation 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.05588">arXiv</a> · <a href="https://huggingface.co/papers/2609.05588">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.05588">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.05588/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="mask-forcing-improving-autoregressive-video-diffusion-distillation-via-dual-noise-masking-rollout">Mask Forcing: Improving Autoregressive Video Diffusion Distillation via Dual-Noise Masking Rollout</h5>
-<p><strong>分类：</strong> 视频；video diffusion model</p>
-<p>提出Mask Forcing，通过双噪声掩码滚动改善自回归视频扩散蒸馏，缓解模式坍缩，提升生成质量。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.09123v1/teaser.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.09123v1/teaser.png" alt="Mask Forcing: Improving Autoregressive Video Diffusion Distillation via Dual-Noise Masking Rollout 论文图" loading="lazy"></a><span class="image-caption">Mask Forcing: Improving Autoregressive Video Diffusion Distillation via Dual-Noise Masking Rollout 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.09123">arXiv</a> · <a href="https://huggingface.co/papers/2609.09123">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.09123">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.09123/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="multi-grid-post-training-for-long-form-multi-shot-video-generation">Multi-Grid Post-Training for Long-Form Multi-Shot Video Generation</h5>
-<p><strong>分类：</strong> 视频；video diffusion model</p>
-<p>提出多网格后训练范式，将长视频分解为空间网格块，提升多镜头生成的一致性与效率。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.06373v1/pdfs/Fig9.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.06373v1/pdfs/Fig9.png" alt="Multi-Grid Post-Training for Long-Form Multi-Shot Video Generation 论文图" loading="lazy"></a><span class="image-caption">Multi-Grid Post-Training for Long-Form Multi-Shot Video Generation 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.06373">arXiv</a> · <a href="https://huggingface.co/papers/2609.06373">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.06373">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.06373/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="openwam-an-open-modular-exploration-towards-systematic-world-action-model-pretraining">OpenWAM: An Open, Modular Exploration Towards Systematic World-Action Model Pretraining</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出OpenWAM，一个开放模块化的世界-动作模型预训练框架，通过受控实验提炼设计原则，并验证其有效性。</p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.07398">arXiv</a> · <a href="https://huggingface.co/papers/2609.07398">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.07398">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.07398/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-09-07-2">2026-09-07</h4>
-<h5 id="one-editor-many-edits-a-unified-training-free-framework-for-diverse-video-editing">One Editor, Many Edits: A Unified Training-Free Framework for Diverse Video Editing</h5>
-<p><strong>分类：</strong> 视频；video diffusion model</p>
-<p>提出EditVid，一个无需训练的统一视频编辑框架，支持指令与参考引导的多样编辑。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.04190v1/editvid_arch.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.04190v1/editvid_arch.png" alt="One Editor, Many Edits: A Unified Training-Free Framework for Diverse Video Editing 论文图" loading="lazy"></a><span class="image-caption">One Editor, Many Edits: A Unified Training-Free Framework for Diverse Video Editing 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.04190">arXiv</a> · <a href="https://huggingface.co/papers/2609.04190">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.04190">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.04190/index.html" data-inline-html="true">展开正文</a></p>
-<h2 id="全量论文简报">全量论文简报</h2>
-<h3 id="2026-09-09-3">2026-09-09</h3>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.04942">Learning 3D Editing without Paired Supervision via Generative Prior Distillation</a></td><td>3D</td><td>提出生成先验蒸馏框架，实现无需成对3D监督的前馈式指令引导3D编辑。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.08084">Marigold V2</a></td><td>3D</td><td>提出Marigold V2，利用扩散Transformer改进单目深度估计，提升泛化和细节质量。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.05594">SceneMosaic</a></td><td>3D</td><td>提出SceneMosaic框架，结合图像先验与VLM智能体进化，实现高效多样且物理有效的室内场景生成。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.06665">TransNormal-2</a></td><td>3D</td><td>提出TransNormal-2，用几何约束和边缘解码修正提升扩散模型的法线估计精度。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.05588">GE-Act 2.0</a></td><td>视频</td><td>提出从零预训练的世界动作模型GE-Act 2.0，用于机器人操作，实现跨场景零样本泛化。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.09123">Mask Forcing</a></td><td>视频</td><td>提出Mask Forcing，通过双噪声掩码滚动改善自回归视频扩散蒸馏，缓解模式坍缩，提升生成质量。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.06373">Multi-Grid Post-Training for Long-Form Multi-Shot Video Generation</a></td><td>视频</td><td>提出多网格后训练范式，将长视频分解为空间网格块，提升多镜头生成的一致性与效率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.07398">OpenWAM</a></td><td>视频</td><td>提出OpenWAM，一个开放模块化的世界-动作模型预训练框架，通过受控实验提炼设计原则，并验证其有效性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.07821">A*-Thought-V2</a></td><td>其他</td><td>提出A*-Thought-V2，通过几何动力学将思维链中偏离步骤压缩为潜在token，实现高效潜在推理。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.06758">Agentic Visual Generation</a></td><td>其他</td><td>提出视觉生成智能体分级框架，按控制器对生成过程的控制范围划分L0-L4级别。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.08936">AuK Technical Report</a></td><td>其他</td><td>提出开源基础模型AuK，统一语音生成与编辑，并发布权重与代码。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.04971">BeaconKV</a></td><td>其他</td><td>基于beacon查询引导的KV缓存压缩方法，解决大推理模型长思维链推理的内存瓶颈</td></tr><tr><td><a href="https://arxiv.org/abs/2609.06008">Cadence</a></td><td>其他</td><td>提出Cadence，用时间序列基础模型与自适应算术编码实现误差有界压缩，在电力与客流数据上优于经典方法。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.07498">CosmoH2G</a></td><td>其他</td><td>构建手到夹爪复杂空间操作数据集CosmoH2G，并提出两阶段关键帧加平移优化方法实现稳定迁移。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.06140">Counter-Swarm Doctrine</a></td><td>其他</td><td>针对代理利用共享基础设施协同入侵，提出以可修订协调片段为防御单元并设计前瞻发现与评估方案</td></tr><tr><td><a href="https://arxiv.org/abs/2609.08345">CoVeR</a></td><td>其他</td><td>提出基于空间覆盖的视觉令牌剪枝方法CoVeR，提升多视图3D推理效率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.06055">DriveZero</a></td><td>其他</td><td>提出DriveZero端到端驾驶系统，结合感知与强化学习动作模型，超越人类演示数据，实现高性能自动驾驶。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.08798">Eliciting Weak-to-Strong Generalization with On-Policy Reverse Distillation</a></td><td>其他</td><td>提出On-Policy Reverse Distillation方法，通过反向蒸馏利用弱教师引导强学生超越教师。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.07139">Encoded Early, Used Late</a></td><td>其他</td><td>Transformer对话模型在早期层已编码伙伴专长，但到中后期才因果使用，间隔超一个数量级。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.08404">Environments as Scaffold</a></td><td>其他</td><td>通过构建反馈丰富环境，改进长程任务中自进化智能体的强化学习训练。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.04280">EVOHARNESSBENCH</a></td><td>其他</td><td>提出EVOHARNESSBENCH基准，评估LLM智能体在工具、技能和智能体等执行框架演化下的表现。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.02881">Graph Machine</a></td><td>其他</td><td>提出图机器，用边做稀疏动态路由访问线性规模状态，替换四分之三层预训练，效果略优于基线。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.07670">Harnessing CLIP and DINO</a></td><td>其他</td><td>提出UCF-Net，融合CLIP和DINO，通过不确定性感知级联融合提升深度伪造图像检测的泛化能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.07816">Kalman Delta Networks</a></td><td>其他</td><td>将循环关联记忆建模为线性高斯状态空间模型，提出基于卡尔曼滤波的不确定性感知线性注意力模型KDN。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.03209">MasterControl Seventeen Every Time</a></td><td>其他</td><td>研究受治理的企业分析方法，由语言模型解释意图、确定性策略执行预批准程序，实验验证其可复现性与有效性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.07470">Measuring Language Transfer in Robot Policies</a></td><td>其他</td><td>研究机器人策略中希腊语语言迁移，提出度量陷阱与双语训练优势。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.08368">Miles v0.1</a></td><td>其他</td><td>提出Miles v0.1，一个生产级大模型后训练强化学习系统，具备高效、可靠、可扩展特点。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.06966">MOLE</a></td><td>其他</td><td>提出MOLE基准，评估AI代理内鬼威胁检测，发现当前监控器漏检率较高。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.08183">NeoHorse-1</a></td><td>其他</td><td>提出NeoHorse-1模型，通过路由机制和智能体后训练实现递归自改进闭环。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.09140">NOAH</a></td><td>其他</td><td>提出NOAH，一种时间感知多模态生成式Transformer，用于建模和预测完整患者轨迹。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.08977">Omni Interaction Agent Technical Report</a></td><td>其他</td><td>提出Gander，一个统一感知、实时交互与智能体能力的端到端全双工多模态模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.07108">Online Draft Co-Training for Speculative Decoding in Large-Scale, Long-Context RL Post-Training</a></td><td>其他</td><td>提出在线共训练草模型系统，解决CP与PP挑战，加速大规模长上下文RL后训练。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.09153">Procedural Graphs</a></td><td>其他</td><td>提出程序图结构，组织程序性知识并自演化，提升LLM智能体决策性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.07941">ReactVAU</a></td><td>其他</td><td>提出ReactVAU，一种慢-快解耦框架，用于流式视频异常理解，实现实时检测与高效推理。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.06746">Reason Through the Latent! Making Latent Visual Reasoning Necessary</a></td><td>其他</td><td>提出因果视觉循环推理，确保多模态推理依赖潜在视觉状态，而非仅隐式存在。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.29109">Recognition-Refusal Misalignment in LLMs</a></td><td>其他</td><td>研究大模型为何回答结构上不可答问题，发现是识别到拒答的路径路由失败而非缺失识别。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.07414">RelightFormer</a></td><td>其他</td><td>提出前馈生成式Transformer RelightFormer，直接进行单/多视角物体重光照，隐式处理光照条件。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.05738">RenderFormer-V2</a></td><td>其他</td><td>提出统一Transformer神经渲染模型RenderFormer-V2，支持异构场景图元并改进注意力机制。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.05324">RoboSPA</a></td><td>其他</td><td>提出RoboSPA基准，评估VLA模型在复杂空间和长时程任务中的推理能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2510.08999">SQS</a></td><td>其他</td><td>提出SQS框架，用贝叶斯变分学习统一进行深度神经网络剪枝与低比特量化压缩。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.06289">Steering Geometry</a></td><td>其他</td><td>验证大模型激活引导空间能否编码人类价值观的几何结构，构建26K基准对比多种引导方法。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.00787">StudyBench</a></td><td>其他</td><td>提出StudyBench基准，衡量自进化方法将教材转化为解题能力的效果，发现迁移不足。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.08108">SynthGait-19K</a></td><td>其他</td><td>提出物理一致的合成步态视频数据集SynthGait-19K，用于从视频估计步态参数。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.09158">TANGO</a></td><td>其他</td><td>提出全身视觉语言动作模型TANGO，用于人类形机器人在杂乱环境中的语言引导导航。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.06245">VDiff-Bench</a></td><td>其他</td><td>提出VDiff-Bench基准，评估多模态大模型在细粒度图像差异识别上的能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.06652">VidaForge</a></td><td>其他</td><td>提出开放视频预训练数据流水线基础设施VidaForge，支持数据配方研究与大规模数据集发布。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.05592">What Did I Just Say? Self-Listening for Full-Duplex Speech Models</a></td><td>其他</td><td>针对全双工语音模型的中断恢复问题，提出自听机制和AnchorSpeech数据集以提升锚定性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.05663">What LLM Trading Agents Actually Do in Production</a></td><td>其他</td><td>基于六个月生产级LLM交易代理记录，揭示操作层主导行为、波动盲区与无方向性优势。</td></tr></tbody></table></div>
-<h3 id="2026-09-08">2026-09-08</h3>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.03003">Causal Foundation Models</a></td><td>其他</td><td>本文介绍因果基础模型，一种通过预训练和上下文学习在新数据集上估计因果量的方法。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.01281">EmbodiedSkills</a></td><td>其他</td><td>提出一种统一框架，通过技能执行提案机制编排、训练和部署视觉-语言-动作智能体，提升长程任务闭环执行能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.03756">ENEAS</a></td><td>其他</td><td>提出ENEAS统一文本提示分割方法，实现实例跟踪与语义发现，解决幻觉、碎片化与误分类问题。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.03241">FlowBalance</a></td><td>其他</td><td>提出基于验证器校准自导引的轨迹平衡方法，提升推理模型自我改进性能与稳定性。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.25936">One Symptom, Three Levers</a></td><td>其他</td><td>综述同策略自蒸馏中的崩溃现象，提出信号位置、教师信息、动态变化三个调控杠杆。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.04382">Privacy Failure in Split-LLM Training, The Returned Gradient Nullifies the Decoys</a></td><td>其他</td><td>研究分割式大模型训练中返回梯度导致的隐私泄露，证明诱饵机制失效并提出防御。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.04482">Safety for Whom? Boundary-Aware Self-Distillation for Controlled LLM Safety Refusal</a></td><td>其他</td><td>提出边界感知自蒸馏方法，控制大语言模型安全拒绝的窄边界，平衡安全与可用性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.05533">SimpleMemVLA</a></td><td>其他</td><td>提出SimpleMemVLA，无需专用记忆模块，通过原生视频输入提升长程操控性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.03005">Unifying Conformal Language Tasks with In-Context Ensembles</a></td><td>其他</td><td>提出Conformal Relevance框架，用上下文集成生成评分函数，在保证覆盖的同时提升简洁性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.04010">Unlocking Lossless Speedups in LLMs via Discrete Diffusion</a></td><td>其他</td><td>提出扩散增强LLM（Uno），用离散扩散并行生成多个token，实现无损加速且无需草稿模型</td></tr><tr><td><a href="https://arxiv.org/abs/2609.02998">Verify Before You Distill</a></td><td>其他</td><td>提出提示级教师门控的在线蒸馏方法TGOPD，验证可靠性后再决定是否采用密集监督，提升性能并减少算力浪费。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.03254">What Else Needs Fixing? Exploring Cost-Effective Test-Time Compute for Revision Propagation in Artifacts Generated Through Conversation</a></td><td>其他</td><td>研究对话式生成制品的修订传播，构建基准并探索低成本的测试时计算方法来提升效果。</td></tr></tbody></table></div>
-<h3 id="2026-09-07-3">2026-09-07</h3>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.04250">Motion-Omni</a></td><td>3D</td><td>提出Motion-Omni，实现对话中语音与全身动作的端到端联合生成。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.05879">To See a World in a Living Context</a></td><td>3D</td><td>提出HoloWorld框架，统一生成室内外连贯的3D城市世界。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.05415">UniMate</a></td><td>3D</td><td>提出统一模型UniMate，基于文本和任意骨架生成动画，支持零样本跨拓扑迁移。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.05416">WorldSculpt</a></td><td>3D</td><td>提出WorldSculpt，利用单物体生成先验从多视角视频组合生成含数百物体的3D场景。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.04190">One Editor, Many Edits</a></td><td>视频</td><td>提出EditVid，一个无需训练的统一视频编辑框架，支持指令与参考引导的多样编辑。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.04611">$\tau^\tau$-Bench</a></td><td>其他</td><td>提出τ^τ-Bench基准，测试AI系统在真实客户条件下构建客服智能体的能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.04369">AdaptVPR</a></td><td>其他</td><td>提出AdaptVPR，通过生成同地难正样本增强视觉位置识别的鲁棒性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.05258">Ask Before You Optimize</a></td><td>其他</td><td>提出OR-Clarify基准和InterOPT框架，解决优化建模前需澄清不完整问题描述的任务。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.04753">Beneath the Surface of Chains-of-Thought</a></td><td>其他</td><td>探究大语言模型推理链中不同推理操作在隐藏表示中的几何结构，证明其与文本操作对应。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.02750">Bilevel Coordinated Reflection</a></td><td>其他</td><td>将多智能体LLM协调建模为双层博弈，提出环境接地反射记忆上升算法并证明收敛。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.05275">Don&#x27;t Drop Dropout</a></td><td>其他</td><td>研究发现层 dropout 可提升 LLM 训练效率，节省 FLOPs 并加速推理，确立最佳实践。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.00365">Dr. Claw</a></td><td>其他</td><td>提出Dr. Claw工作区，封装编码代理为可控可审计的人机协同研究流程，提升研究完整性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.00581">Enoki</a></td><td>其他</td><td>提出Enoki框架，基于开放信息抽取实现多层级幻觉检测，兼顾声明验证与跨度定位。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.00444">Group Adaptive Clipping Policy Optimization</a></td><td>其他</td><td>针对组相对策略优化中固定裁剪的局限，提出自适应裁剪方法，提升数学与代码任务性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.04444">HarvestBench</a></td><td>其他</td><td>提出HarvestBench基准，通过付费绕行动物衡量LLM智能体避免伤害的意愿。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.04304">Iris</a></td><td>其他</td><td>提出训练搜索智能体Iris-mini和Iris-pro的新流程，经SFT-RL交替优化及上下文管理，在多个基准上达到最强开源结果。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.04720">Knowing What Not to Answer</a></td><td>其他</td><td>提出KoNA基准，评估并微调视觉语言模型的选择性非依从能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.04523">MaxKernel</a></td><td>其他</td><td>提出MaxKernel多智能体系统，面向TPU自动生成高性能自定义内核。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.24263">Real-World Knowledge-Guided Change Data Synthesis for Remote Sensing</a></td><td>其他</td><td>提出知识引导的遥感变化数据合成框架KnowChange，利用视觉语言模型提升合成数据多样性与迁移性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.04714">Refuse without Refusal</a></td><td>其他</td><td>分析安全微调响应中的拒绝语句与理由，提出仅用理由训练以减少语言模型误拒。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.05295">RISE</a></td><td>其他</td><td>提出RISE方法，通过自外推策略蒸馏将RLVR信号转化为密集标记级监督，实现递归提升。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.02780">ShallowStream</a></td><td>其他</td><td>提出ShallowStream框架，用浅层索引与深层回答加速流式视频理解，显著降低延迟。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.03231">The 2026 PNPL Competition</a></td><td>其他</td><td>本文介绍2026 PNPL竞赛，聚焦LibriBrain100上的词分类与跨被试泛化任务。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.03586">The Attention Triangle in Audio-Video Models</a></td><td>其他</td><td>研究音频-视频扩散模型中注意力三角导致的语义泄漏，并提出诊断与干预方法以改进跨模态对齐。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.04242">Training-Free Speech-Centric Omni Understanding with Frozen VLMs</a></td><td>其他</td><td>提出训练免TFO框架，冻结VLM经Whisper转录路由实现语音中心全模态理解。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.03729">Unfold The World</a></td><td>其他</td><td>提出因子化强化学习框架FactoSR，分解4D属性以增强VLM的空间推理能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.04061">When Models Edit Too Much</a></td><td>其他</td><td>研究大模型修复代码时的过度编辑问题，提出评测框架并发现强化学习可提升编辑保真度。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.04490">When Quantization Breaks Memory</a></td><td>其他</td><td>提出循环状态写回机制，揭示低精度量化导致循环网络记忆失效，并设计无重训补偿方法。</td></tr></tbody></table></div></div></article></main>
+<p><strong>一句话主题：</strong> 基于生成先验蒸馏的无监督三维编辑方法</p>
+<p><strong>领域标签：</strong> 三维编辑 / 生成先验蒸馏 / 指令引导</p>
+<h2 id="快速理解">快速理解</h2>
+<p><strong>背景与任务：</strong> 指令引导的3D编辑受限于高质量配对训练数据稀缺，现有方法存在结构漂移和几何伪影。</p>
+<p><strong>核心工作：</strong> 作者提出通过蒸馏2D视觉先验和语义先验并引入3D感知分布匹配约束，训练无需配对监督的3D编辑模型。</p>
+<h2 id="中文摘要">中文摘要</h2>
+<p>指令引导的3D编辑（Instruction-guided 3D editing）对交互式内容创作至关重要，但它面临一个显著的瓶颈：高质量配对训练数据的严重匮乏。现有方法试图通过依赖耗时的测试时优化（test-time optimization）或在复杂流程构建的伪配对数据上进行训练来规避这一问题，但这些方法往往会引入结构漂移和几何伪影。在本文中，我们提出了一种新框架，通过生成先验蒸馏（Generative Prior Distillation）在无需配对3D监督的情况下学习前馈式3D编辑（feed-forward 3D editing）。我们的核心思想并非依赖真实3D配对数据，而是将来自强大基础模型的视觉、语义和几何知识直接蒸馏到3D编辑模型中。具体而言，通过可微渲染流程，我们使用两种互补信号监督3D表示：来自图像编辑模型在主编辑视角上的2D视觉先验，以及来自视觉-语言模型（Vision-Language Model）在新视角上的语义先验，以确保严格遵循指令并保持源身份。关键的是，为解决2D投影监督固有的几何崩塌和多视角不一致问题，我们引入了3D感知分布匹配（3D-aware Distribution Matching）正则化。该正则化项作为几何先验，在3D潜在空间中发挥作用，约束编辑输出保持在由预训练的图像到3D教师模型所定义的逼真3D资产流形内。大量实验表明，我们的方法在指令保真度和跨视角一致性方面均取得了更优表现，显著超越了现有最先进基线。我们的项目地址为：https://github.com/thiamine128/PriorEdit3D。</p>
+<h2 id="详细分析">详细分析</h2>
+<h2 id="1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</h2>
+<p>任务输入是一个已有3D资产（如Objaverse、ABO或GSO中的单个物体）和一条自然语言编辑指令；输出是编辑后的新3D资产。功能覆盖局部增删改、颜色/纹理替换、局部形状修改，以及全局姿态、比例和风格变化。边界是面向单物体资产，不做场景级编辑；对精细文字、密集小物体以及大幅拓扑变化支持有限。</p>
+<h2 id="2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</h2>
+<p>3D编辑的难点在于：模型不仅要按照指令修改外观或几何，还必须保持源资产的结构合理性、跨视角一致性和身份一致性。最直接的训练方式是用大量“源3D-目标3D”配对数据训练前馈网络，但高质量3D配对数据极其稀缺。早期方法用测试时优化绕过配对数据，例如Instruct-NeRF2NeRF、Vox-E通过Score Distillation Sampling逐场景优化，速度慢，且容易出现多视角不一致、过饱和和几何崩溃。后续方法通过复杂流水线构造伪配对数据训练前馈编辑器，但伪配对本身会有结构漂移、几何伪影，编辑类型也受限于构造流程。</p>
+<p>核心洞察是：不构造显式3D配对，而是把多个基础模型当作“教师”，用生成先验替代数据配对。具体来说，2D图像编辑模型提供主编辑视角的视觉先验，视觉语言模型（VLM）在未见视角提供语义先验，预训练3D生成模型提供几何先验。论文把这三类先验蒸馏到一个前馈3D编辑网络中，从而同时获得快速前馈推理、无需测试时优化、无需人工掩码、无需配对3D数据等优点。这个思路把“数据从哪里来”的问题转化为“先验从哪里来”，是解决3D编辑数据稀缺的关键。</p>
+<h2 id="3-核心贡献-约300字">3. 核心贡献（约300字）</h2>
+<p>论文提出PriorEdit3D，一个无需成对3D监督的前馈3D编辑框架。主要贡献有三点。</p>
+<p>第一，首次在原生3D潜空间实现无需配对数据、无需反转优化、无需掩码的3D编辑。在此之前，基于优化的方法不需要配对数据但很慢；基于2D提升的方法容易产生跨视角不一致；监督式原生3D方法又依赖复杂的伪配对数据。PriorEdit3D利用生成先验蒸馏绕开了这些限制。</p>
+<p>第二，引入3D感知的分布匹配蒸馏（DMD）正则化。该机制用冻结的预训练3D生成模型作为几何先验，在3D潜空间约束编辑结果落在真实3D资产流形上，缓解仅用2D投影监督带来的几何塌缩和多视角不一致。</p>
+<p>第三，构建了大规模2D编辑数据集和评测协议。论文用Objaverse渲染、生成指令、2D模型编辑，并经过多级质量过滤，得到约7.3万条高质量编辑实例。定量和定性实验显示，该方法在指令遵循、身份保持、跨视角质量和编辑速度上均优于现有SOTA方法。下图给出本文与多种现有方法在典型编辑任务上的对比。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.04942v1/main.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.04942v1/main.png" alt="图4. 我们的方法与SOTA方法的定性比较，包括EditP23 (Bar-On et al., 2025)、Instant3DiT (Barda et al., 2025)、3DEditFormer (Xia et al., 2026)、VoxHammer (Li et al., 2026)和Nano3D (Ye et al., 2026)。" loading="lazy"></a><span class="image-caption">图4. 我们的方法与SOTA方法的定性比较，包括EditP23 (Bar-On et al., 2025)、Instant3DiT (Barda et al., 2025)、3DEditFormer (Xia et al., 2026)、VoxHammer (Li et al., 2026)和Nano3D (Ye et al., 2026)。</span></span></p>
+<h2 id="4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</h2>
+<p>推理时使用的基础模型及其角色如下：UniLat3D负责3D资产的潜空间编码与解码；前馈3D编辑网络负责从源潜变量和条件图像生成编辑后的潜变量；2D图像编辑模型负责把“源视图+用户指令”转换成条件图像。VLM不参与实际推理。</p>
+<p>下图是该系统的编辑结果概览。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.04942v1/teaser.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.04942v1/teaser.png" alt="图1. 我们的方法通过从基础模型中蒸馏生成先验，在没有成对3D监督的情况下学习前馈3D编辑，实现具有跨视图一致性的高保真指令引导编辑。" loading="lazy"></a><span class="image-caption">图1. 我们的方法通过从基础模型中蒸馏生成先验，在没有成对3D监督的情况下学习前馈3D编辑，实现具有跨视图一致性的高保真指令引导编辑。</span></span></p>
+<p>一次推理请求的流程如下：</p>
+<ol><li><strong>输入</strong>：源3D资产和固定前视相机位姿。<strong>模块</strong>：三维渲染器渲染源资产的前视RGB图。<strong>输出</strong>：源视图图像，交给下一步。</li><li><strong>输入</strong>：源视图图像和用户编辑指令。<strong>模块</strong>：2D图像编辑模型按指令对源视图进行编辑。<strong>输出</strong>：编辑参考图，交给第4步作为条件。</li><li><strong>输入</strong>：源3D资产。<strong>模块</strong>：UniLat3D编码器将资产映射为源3D潜变量。<strong>输出</strong>：源潜变量，交给下一步。</li><li><strong>输入</strong>：源潜变量和编辑参考图。<strong>模块</strong>：前馈3D编辑网络以参考图为条件，在潜空间经过多次逆向扩散迭代生成编辑后潜变量。<strong>输出</strong>：编辑后潜变量，交给下一步。</li><li><strong>输入</strong>：编辑后潜变量。<strong>模块</strong>：UniLat3D解码器将潜变量解码为可渲染的3D表示。<strong>输出</strong>：最终编辑后的3D资产。</li></ol>
+<div class="mermaid">flowchart LR
+    A[源3D资产] --&gt; R[三维渲染器]
+    U[用户编辑指令] --&gt; E2[2D图像编辑模型]
+    R --&gt;|源视图图像| E2
+    A --&gt; Enc[UniLat3D编码器]
+    Enc --&gt; XS[源3D潜变量]
+    E2 --&gt; C[编辑参考图]
+    XS --&gt; G[前馈3D编辑网络]
+    C --&gt; G
+    G --&gt; X0[编辑后3D潜变量]
+    X0 --&gt; Dec[UniLat3D解码器]
+    Dec --&gt; OUT[编辑后3D资产]</div>
+<h2 id="5-核心方法-按论文-method-小节总结-约600字">5. 核心方法：按论文 Method 小节总结（约600字）</h2>
+<h3 id="问题设定-problem-formulation">问题设定（Problem Formulation）</h3>
+<p>设源3D资产为 \(\mathcal{A}_{\text{src}}\)，其UniLat3D潜变量为 \(x_{\text{src}}\)。在固定前视相机 \(\pi_0\) 下，渲染源视图 \(I_{\text{src}}^{\pi_0}=\mathcal{R}(\mathcal{A}_{\text{src}},\pi_0)\)。2D图像编辑模型输入 \(I_{\text{src}}^{\pi_0}\) 和指令 \(d\)，输出目标视图 \(I_{\text{tgt}}^{\pi_0}\)，该图像作为编辑条件 \(\mathbf{c}\)。目标是学习前馈编辑器 \(G_\theta\)，使得 \(\hat{x}^0=G_\theta(x_{\text{src}},\mathbf{c})\)。训练时没有真值目标3D潜变量，只能通过可微渲染把2D损失反传到3D表示上。</p>
+<h3 id="学生与教师架构-student-and-teacher-architectures">学生与教师架构（Student and Teacher Architectures）</h3>
+<p>学生编辑器以UniLat3D为初始化。对噪声化时间步 \(t\)，把待去噪的3D token序列 \(x^t\) 与干净的源token序列 \(x_{\text{src}}\) 按token维拼接：\(\tilde{x}^t=\mathrm{Concat}_{\mathrm{token}}(x^t, x_{\text{src}})\)。其中 \(x^t\) 被逐步去噪，\(x_{\text{src}}\) 作为固定上下文。学生网络预测流匹配速度场 \(v_\theta(\tilde{x}^t,t,\mathbf{c})\)。DMD教师 \(G_{\mathrm{real}}\) 是冻结的UniLat3D，只以条件 \(\mathbf{c}\) 为输入，不接受源token分支，用于刻画真实3D数据流形。图3给出整体训练框架。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.04942v1/framework.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.04942v1/framework.png" alt="图3. PriorEdit3D的训练框架。给定源3D潜变量和指令条件下的编辑图像，编辑器预测编辑后的UniLat3D潜变量，并通过像素级2D监督、基于VLM的语义/视图反馈以及基于DMD的3D先验正则化进行渲染和优化。" loading="lazy"></a><span class="image-caption">图3. PriorEdit3D的训练框架。给定源3D潜变量和指令条件下的编辑图像，编辑器预测编辑后的UniLat3D潜变量，并通过像素级2D监督、基于VLM的语义/视图反馈以及基于DMD的3D先验正则化进行渲染和优化。</span></span></p>
+<h3 id="3-1-数据集构建-dataset-construction">3.1 数据集构建（Dataset Construction）</h3>
+<p>论文没有直接构造3D配对数据，而是先构造“源视图+指令+2D编辑结果”三元组。使用73,451个Objaverse物体渲染前视图像，用Gemini3-Flash生成编辑指令，再用Qwen-Image-Edit执行编辑。之后用Qwen3-VL作为多模态裁判，过滤指令未执行、背景损坏、主体被裁剪或语义不合理的样本；同时丢弃SSIM大于0.995的“无效编辑”。最终得到73,121个编辑实例和150,482个标注操作。操作分为局部编辑（加物体、删物体、替换、形状/风格修改、颜色修改）和全局编辑（姿态/风格/形状变化、纹理变化）。该数据集的目的是提供2D监督信号，而非3D真值。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.04942v1/dataset_pipeline.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.04942v1/dataset_pipeline.png" alt="图2. 自动化数据集流水线。将Objaverse对象渲染，通过Gemini3-Flash指令和Qwen-Image-Edit进行编辑，并使用Qwen3-VL 32B和SSIM进行过滤。" loading="lazy"></a><span class="image-caption">图2. 自动化数据集流水线。将Objaverse对象渲染，通过Gemini3-Flash指令和Qwen-Image-Edit进行编辑，并使用Qwen3-VL 32B和SSIM进行过滤。</span></span></p>
+<h3 id="3-2-可微渲染下的2d监督-2d-supervision-via-differentiable-rendering">3.2 可微渲染下的2D监督（2D Supervision via Differentiable Rendering）</h3>
+<p>模型没有真值目标3D潜变量，因此把编辑后的潜变量 \(\hat{x}^0\) 用冻结的可微3D高斯渲染器 \(\mathcal{R}\) 渲染成图像，再把2D损失反传给编辑器。为了生成 \(\hat{x}^0\)，编辑器执行一条由速度场参数化的短反向轨迹：从噪声潜变量出发，用一阶欧拉逐步更新；前序步骤停止梯度，只在最后一步反传，以控制显存和计算开销。</p>
+<h4 id="像素级编辑损失-pixel-level-edit-loss">像素级编辑损失（Pixel-level Edit Loss）</h4>
+<p>在编辑视角 \(\pi_0\) 上，用2D编辑图像 \(I_{\text{tgt}}^{\pi_0}\) 提供密集监督。损失包含三项：前景掩码内的L1重建损失、前景外透明度正则化（抑制漂浮伪影）、以及LPIPS感知损失。公式为：</p>
+<p>\[ \mathcal{L}_{\text{pixel}}= \|M^{\pi_0}\odot(I_{\text{pred}}^{\pi_0}-I_{\text{tgt}}^{\pi_0})\|_1 +\lambda_{\text{fg}}\|(1-M^{\pi_0})\odot O_{\text{pred}}^{\pi_0}\|_1 +\lambda_{\text{lpips}}\,\mathrm{LPIPS}(I_{\text{pred}}^{\pi_0},I_{\text{tgt}}^{\pi_0}). \]</p>
+<p>训练时可使用前景掩码提升稳定性，但推理时不需要掩码。</p>
+<h4 id="基于vlm的语义反馈-vlm-based-semantic-feedback">基于VLM的语义反馈（VLM-based Semantic Feedback）</h4>
+<p>仅监督主视角会让未见视角缺乏约束。论文用冻结的VLM作为语义裁判，在侧视图 \(\pi_1\) 上询问“是否遵循指令”（Instruction Following），在后视图 \(\pi_2\) 上询问“是否保持身份”（Identity Preservation）。VLM输出“Yes/No”对应的logit，经sigmoid转为概率后最小化负对数似然：</p>
+<p>\[ \mathcal{L}_{\text{vlm}}=\sum_{task\in\{\text{IF},\text{IP}\}}-\log\sigma(o_{task}^{\text{Yes}}-o_{task}^{\text{No}}). \]</p>
+<p>VLM本身不更新，梯度经过渲染图像和VLM图像编码器传回3D编辑器。这样可以在非编辑视角约束语义一致性和身份保持。</p>
+<h3 id="3-3-3d感知分布匹配正则化-3d-aware-distribution-matching-regularization">3.3 3D感知分布匹配正则化（3D-Aware Distribution Matching Regularization）</h3>
+<p>仅用2D监督可能导致几何漂移和跨视角不一致。论文引入分布匹配蒸馏（DMD），使用冻结的UniLat3D教师 \(G_{\text{real}}\) 作为3D几何先验。训练时先做身份热身：条件设为源视图图像 \(I_{\text{src}}^{\pi_0}\)，要求编辑器输出恒等映射 \(G_\theta(x_{\text{src}},I_{\text{src}}^{\pi_0})=x_{\text{src}}\)。</p>
+<p>正式地，对编辑结果 \(\hat{x}^0\) 加噪得到 \(\hat{x}^t=(1-t)\hat{x}^0+t\epsilon\)。冻结教师给出真实速度 \(v_{\text{real}}(\hat{x}^t,t,\mathbf{c})\)，一个在线更新的“假模型” \(F_\phi\) 估计学生分布自身的速度 \(v_{\text{fake}}\)。二者之差对应学生分布与教师分布之间的KL散度梯度：</p>
+<p>\[ \nabla_\theta D_{\mathrm{KL}}= \mathbb{E}_{\epsilon,t}\left[ -\big(v_{\text{real}}(\hat{x}^t,t,\mathbf{c})-v_{\text{fake}}(\hat{x}^t,t,\mathbf{c})\big) \cdot \frac{\partial \hat{x}^0}{\partial \theta} \right]. \]</p>
+<p>假模型用标准流匹配回归损失在在线采样的学生输出上更新：</p>
+<p>\[ \mathcal{L}_{\text{fake}}= \mathbb{E}_{\hat{x}^0,\epsilon,t} \left\|F_\phi(\hat{x}^t,t,\mathbf{c})-(\epsilon-\hat{x}^0)\right\|_2^2. \]</p>
+<p>总损失为：</p>
+<p>\[ \mathcal{L}=\mathcal{L}_{\text{pixel}}+\lambda_{\text{vlm}}\mathcal{L}_{\text{vlm}}+\lambda_{\text{DMD}}\mathcal{L}_{\text{DMD}}. \]</p>
+<p>训练时交替更新编辑器 \(G_\theta\) 和假模型 \(F_\phi\)。DMD的作用是把编辑结果拉向真实3D资产流形，同时避免学生分布过度收缩导致模式塌缩。</p>
+<h2 id="6-局限性和展望-约300字">6. 局限性和展望（约300字）</h2>
+<p>论文明确说明的限制包括：对精细文本、密集小物体或高频细节的编辑不佳；全局一致性优先可能牺牲细节，未编辑区域仍可能出现轻微纹理或几何漂移；2D编辑器自身的错误会传播到最终3D模型中；受UniLat3D潜在表示和可微渲染限制，大幅姿态变化或拓扑变化困难，且不适用于不可微的3D表示。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.04942v1/failure_cases.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.04942v1/failure_cases.png" alt="图10. 代表性失败案例。" loading="lazy"></a><span class="image-caption">图10. 代表性失败案例。</span></span></p>
+<p>可以谨慎推断的限制是：系统质量依赖2D编辑模型、VLM评判器和指令生成器的能力；训练/评测数据来自Objaverse和自动生成指令，分布偏向常见物体和常见编辑操作；多物体场景、真实扫描场景或多轮迭代编辑的效果可能不如单物体生成场景稳定。</p>
+<p>展望方面，未来可以使用更强3D生成基座以支持拓扑变化；引入显式几何约束或文本渲染模块来改善精细编辑；将框架扩展到场景级编辑和多轮交互式编辑；也可以减少对特定2D编辑模型的依赖，让3D先验在编辑中承担更强的几何约束作用。</p></div></article></main>
   </div>
   <script>/*!
   * PhotoSwipe 5.4.4 - https://photoswipe.com
@@ -767,208 +718,6 @@ div.pswp__img--placeholder,
       updateToc();
     }
 
-
-    (() => {
-      const cache = new Map();
-
-      async function fetchLinkedPage(url) {
-        if (!cache.has(url)) {
-          const request = fetch(url, { credentials: "same-origin" })
-            .then(async (response) => {
-              if (!response.ok) throw new Error(`HTTP ${response.status}`);
-              return { text: await response.text(), url: response.url };
-            })
-            .catch((error) => {
-              cache.delete(url);
-              throw error;
-            });
-          cache.set(url, request);
-        }
-        return cache.get(url);
-      }
-
-      function rewriteReferences(root, pageUrl) {
-        root.querySelectorAll("[src], [href]").forEach((node) => {
-          ["src", "href"].forEach((attribute) => {
-            const value = node.getAttribute(attribute);
-            if (!value || value.startsWith("#") || /^(?:data|blob|mailto|tel|javascript):/i.test(value)) return;
-            try {
-              node.setAttribute(attribute, new URL(value, pageUrl).href);
-            } catch (_) {
-              // Leave malformed references unchanged; the browser will expose the failure.
-            }
-          });
-        });
-      }
-
-      function isolateIds(root, prefix) {
-        const replacements = new Map();
-        root.querySelectorAll("[id]").forEach((node) => {
-          const original = node.id;
-          const replacement = `${prefix}-${original}`;
-          replacements.set(original, replacement);
-          node.id = replacement;
-        });
-        root.querySelectorAll('a[href^="#"]').forEach((node) => {
-          const original = decodeURIComponent(node.getAttribute("href").slice(1));
-          if (replacements.has(original)) node.setAttribute("href", `#${replacements.get(original)}`);
-        });
-      }
-
-      function prepareDynamicImages(root) {
-        root.querySelectorAll("a.pswp-image").forEach((item) => {
-          const image = item.querySelector("img");
-          if (!image) return;
-          const sync = () => {
-            item.dataset.pswpSrc = image.currentSrc || image.src;
-            if (item.dataset.referenceImage === "true" && image.naturalWidth && image.naturalHeight) {
-              item.dataset.pswpWidth = String(image.naturalWidth);
-              item.dataset.pswpHeight = String(image.naturalHeight);
-            }
-          };
-          sync();
-          image.addEventListener("load", sync, { once: true });
-        });
-      }
-
-      document.querySelectorAll('a[data-inline-html="true"]').forEach((link, index) => {
-        const summary = link.closest("p, li, blockquote, td") || link.parentElement;
-        if (!summary) return;
-        const dedicatedExpand = link.textContent.trim() === "展开正文";
-        let entry = summary.closest(".inline-html-entry");
-        if (!entry) {
-          if (summary.tagName === "LI" || summary.tagName === "TD") {
-            entry = summary;
-            entry.classList.add("inline-html-entry");
-          } else {
-            entry = document.createElement("section");
-            entry.className = "inline-html-entry";
-            summary.before(entry);
-            entry.append(summary);
-          }
-        }
-        summary.classList.add("inline-html-summary");
-        if (dedicatedExpand) link.classList.add("inline-html-source-link");
-
-        const panel = document.createElement("section");
-        panel.className = "inline-html-panel";
-        panel.id = `inline-html-panel-${index + 1}`;
-        panel.hidden = true;
-        panel.setAttribute("aria-live", "polite");
-
-        const actions = document.createElement("span");
-        actions.className = "inline-html-actions";
-        const toggle = document.createElement("button");
-        toggle.className = "inline-html-toggle";
-        toggle.type = "button";
-        toggle.textContent = "展开正文";
-        toggle.setAttribute("aria-controls", panel.id);
-        toggle.setAttribute("aria-expanded", "false");
-        const standalone = document.createElement("a");
-        standalone.className = "inline-html-standalone";
-        standalone.href = link.href;
-        standalone.textContent = "单独打开";
-        actions.append(toggle, standalone);
-        summary.append(document.createTextNode(" "), actions);
-        entry.append(panel);
-
-        let state = "idle";
-
-        function setOpen(open, returnToSummary = false) {
-          panel.hidden = !open;
-          entry.classList.toggle(
-            "is-expanded",
-            Boolean(entry.querySelector(".inline-html-panel:not([hidden])"))
-          );
-          const expanded = String(open);
-          toggle.setAttribute("aria-expanded", expanded);
-          link.setAttribute("aria-expanded", expanded);
-          toggle.textContent = open ? (state === "error" ? "重试加载" : "收起正文") : "展开正文";
-          if (!open && returnToSummary) {
-            summary.scrollIntoView({ behavior: "smooth", block: "start" });
-            toggle.focus({ preventScroll: true });
-          }
-        }
-
-        function appendCloseFooter(target) {
-          const footer = document.createElement("div");
-          footer.className = "inline-html-footer";
-          const close = document.createElement("button");
-          close.className = "inline-html-close";
-          close.type = "button";
-          close.textContent = "收起正文并返回摘要";
-          close.addEventListener("click", () => setOpen(false, true));
-          footer.append(close);
-          target.append(footer);
-        }
-
-        async function toggleInlinePage() {
-          if (state === "loaded") {
-            setOpen(panel.hidden);
-            return;
-          }
-          if (state === "loading") return;
-
-          state = "loading";
-          toggle.disabled = true;
-          panel.replaceChildren();
-          const loading = document.createElement("p");
-          loading.className = "inline-html-status";
-          loading.textContent = "正在加载完整正文…";
-          panel.append(loading);
-          setOpen(true);
-
-          try {
-            const fetched = await fetchLinkedPage(link.href);
-            const parsed = new DOMParser().parseFromString(fetched.text, "text/html");
-            const source = parsed.querySelector(".markdown-image-gallery")
-              || parsed.querySelector("main article")
-              || parsed.querySelector("article")
-              || parsed.querySelector("main");
-            if (!source) throw new Error("linked page does not contain a readable article");
-            const body = source.cloneNode(true);
-            if (body.firstElementChild && body.firstElementChild.tagName === "H1") {
-              body.firstElementChild.remove();
-            }
-            isolateIds(body, `inline-${index + 1}`);
-            rewriteReferences(body, fetched.url);
-            body.classList.add("inline-html-body");
-            panel.replaceChildren(body);
-            appendCloseFooter(panel);
-            prepareDynamicImages(body);
-            state = "loaded";
-            setOpen(true);
-            if (window.mermaid && typeof window.mermaid.run === "function") {
-              const diagrams = Array.from(body.querySelectorAll(".mermaid"));
-              if (diagrams.length) window.mermaid.run({ nodes: diagrams }).catch(() => {});
-            }
-
-            if (window.MathJax && typeof window.MathJax.typesetPromise === "function") {
-              window.MathJax.typesetPromise([body]).catch(() => {});
-            }
-
-          } catch (error) {
-            panel.replaceChildren();
-            const message = document.createElement("p");
-            message.className = "inline-html-status inline-html-error";
-            message.textContent = `正文加载失败：${error.message}`;
-            panel.append(message);
-            appendCloseFooter(panel);
-            state = "error";
-            setOpen(true);
-          } finally {
-            toggle.disabled = false;
-          }
-        }
-
-        toggle.addEventListener("click", toggleInlinePage);
-        link.addEventListener("click", (event) => {
-          if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-          event.preventDefault();
-          toggleInlinePage();
-        });
-      });
-    })();
 
 
   </script>
