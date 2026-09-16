@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>2026-W38 · 论文周报</title>
+  <title>PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models</title>
 
   <script>
     window.MathJax = {
@@ -515,38 +515,10 @@ div.pswp__img--placeholder,
       .academic-main article { padding: 30px 22px 52px; border: 0; border-radius: 0; }
     }
 
-    h3 { font-size: 20px; }
-    h4 { font-size: 17px; }
-    h5 { font-size: 18px; }
-
-    .inline-html-entry { margin: 18px 0; padding: 16px 18px 18px; border: 1px solid #d8e2eb; border-left: 3px solid #91abc2; border-radius: 6px; background: #fbfdff; transition: border-color .15s, background .15s; }
-    .inline-html-entry.is-expanded { border-color: #b7c9d9; border-left-color: #1769aa; background: #fff; }
-    .inline-html-summary { margin-top: 0; margin-bottom: 0; }
-    .inline-html-actions { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-left: 10px; vertical-align: middle; }
-    .inline-html-toggle, .inline-html-standalone, .inline-html-close { display: inline-flex; min-height: 30px; align-items: center; justify-content: center; padding: 5px 10px; border: 1px solid #b9c9d8; border-radius: 6px; background: #fff; color: #37516a; font: inherit; font-size: 12px; font-weight: 700; line-height: 1.35; text-decoration: none; cursor: pointer; }
-    .inline-html-source-link { display: none; }
-    .inline-html-toggle:hover, .inline-html-standalone:hover, .inline-html-close:hover { border-color: #1769aa; color: #1769aa; }
-    .inline-html-toggle:disabled { cursor: wait; opacity: .6; }
-    .inline-html-panel { margin: 18px 0 0; padding-top: 24px; border-top: 1px solid #e2e8f0; }
-    .inline-html-panel[hidden] { display: none; }
-    .inline-html-body h1:first-child { display: none; }
-    .inline-html-status { color: #64748b; font-size: 14px; }
-    .inline-html-error { color: #9f1239; }
-    .inline-html-footer { display: flex; justify-content: flex-end; margin-top: 30px; padding-top: 16px; border-top: 1px solid #e2e8f0; }
-    @media (max-width: 640px) {
-      .inline-html-entry { padding: 14px 14px 16px; }
-      .inline-html-actions { display: flex; margin: 10px 0 0; }
-      .inline-html-toggle, .inline-html-standalone, .inline-html-close { min-height: 36px; }
-    }
 
 
 
-    /* A focused entry is emitted as title, classification, then one-line summary. */
-    .academic-main h4 + p,
-    .academic-main h4 + p + p,
-    .academic-main h5 + p,
-    .academic-main h5 + p + p { font-size: 16px; }
-</style>
+  </style>
 </head>
 <body>
 
@@ -557,78 +529,79 @@ div.pswp__img--placeholder,
     <aside class="academic-sidebar" id="academic-sidebar" aria-label="文档目录">
       <div class="toc-panel">
         <p class="toc-heading">目录</p>
-        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#2026-w38-论文周报">2026-W38 · 论文周报</a><a class="toc-link toc-level-2" href="#重点解析">重点解析</a><a class="toc-link toc-level-3" href="#3d">3D</a><a class="toc-link toc-level-4" href="#2026-09-15">2026-09-15</a><a class="toc-link toc-level-5" href="#bvb-benchmarking-agentic-video-understanding-via-programmatic-reconstruction-in-blender">BVB: Benchmarking Agentic Video Understanding via Programmatic Reconstruction in Blender</a><a class="toc-link toc-level-5" href="#kaininja-extending-native-3d-generators-to-the-part-level">KaiNinja: Extending Native 3D Generators to the Part Level</a><a class="toc-link toc-level-4" href="#2026-09-14">2026-09-14</a><a class="toc-link toc-level-5" href="#remomask-2-latent-retrieval-augmented-masked-motion-generation">ReMoMask-2: Latent Retrieval-Augmented Masked Motion Generation</a><a class="toc-link toc-level-5" href="#snap3d-physically-grounded-3d-parts-for-assembly-from-a-single-image">SNAP3D: Physically Grounded 3D Parts for Assembly from a Single Image</a><a class="toc-link toc-level-3" href="#视频">视频</a><a class="toc-link toc-level-4" href="#2026-09-15-2">2026-09-15</a><a class="toc-link toc-level-5" href="#alayavista-streaming-world-modeling-from-panoramic-states-to-perspective-video">AlayaVista: Streaming World Modeling from Panoramic States to Perspective Video</a><a class="toc-link toc-level-5" href="#lynnreal-omni-native-multi-modal-video-generation-for-agentic-visual-workflows">LynnReal-Omni: Native multi-modal Video Generation for Agentic Visual Workflows</a><a class="toc-link toc-level-5" href="#physbrain-1-5-from-vision-language-models-to-physical-foundation-models">PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models</a><a class="toc-link toc-level-4" href="#2026-09-14-2">2026-09-14</a><a class="toc-link toc-level-5" href="#actionsplice-in-flight-action-editing-for-interactive-world-models">ActionSplice: In-Flight Action Editing for Interactive World Models</a><a class="toc-link toc-level-5" href="#pelican-sim-1-0-a-general-world-model-simulator-for-embodied-intelligence">Pelican-Sim 1.0: A General World Model Simulator for Embodied Intelligence</a><a class="toc-link toc-level-2" href="#全量论文简报">全量论文简报</a><a class="toc-link toc-level-3" href="#2026-09-15-3">2026-09-15</a><a class="toc-link toc-level-3" href="#2026-09-14-3">2026-09-14</a></nav>
+        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#physbrain-1-5-from-vision-language-models-to-physical-foundation-models">PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models</a><a class="toc-link toc-level-2" href="#快速理解">快速理解</a><a class="toc-link toc-level-2" href="#中文摘要">中文摘要</a><a class="toc-link toc-level-2" href="#详细分析">详细分析</a><a class="toc-link toc-level-2" href="#1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</a><a class="toc-link toc-level-2" href="#2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</a><a class="toc-link toc-level-2" href="#3-核心贡献-约300字">3. 核心贡献（约300字）</a><a class="toc-link toc-level-2" href="#4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</a><a class="toc-link toc-level-2" href="#5-核心方法-按论文-method-小节总结-约600字">5. 核心方法：按论文 Method 小节总结（约600字）</a><a class="toc-link toc-level-3" href="#2-1-overview-概述">2.1 Overview（概述）</a><a class="toc-link toc-level-3" href="#2-2-embodied-understanding-as-physical-perception-具身理解作为物理感知">2.2 Embodied Understanding as Physical Perception（具身理解作为物理感知）</a><a class="toc-link toc-level-3" href="#2-3-embodied-action-generation-具身动作生成">2.3 Embodied Action Generation（具身动作生成）</a><a class="toc-link toc-level-3" href="#2-4-visual-foundation-generation-视觉基础生成">2.4 Visual-Foundation Generation（视觉基础生成）</a><a class="toc-link toc-level-3" href="#2-5-unified-vocabulary-and-training-objective-统一词汇表与训练目标">2.5 Unified Vocabulary and Training Objective（统一词汇表与训练目标）</a><a class="toc-link toc-level-2" href="#6-局限性和展望-约300字">6. 局限性和展望（约300字）</a></nav>
       </div>
     </aside>
-    <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../index.html">论文阅读首页</a> <a href="../../date/index.html">日报目录</a> <a href="../index.html">周报目录</a> <a href="../../month/index.html">月报目录</a></p>
-<h1 id="2026-w38-论文周报">2026-W38 · 论文周报</h1>
-<blockquote>收录 <strong>59 篇</strong>论文，重点解析 <strong>9 篇</strong>。正文按需展开，或可单独打开。</blockquote>
-<h2 id="重点解析">重点解析</h2>
-<h3 id="3d">3D</h3>
-<h4 id="2026-09-15">2026-09-15</h4>
-<h5 id="bvb-benchmarking-agentic-video-understanding-via-programmatic-reconstruction-in-blender">BVB: Benchmarking Agentic Video Understanding via Programmatic Reconstruction in Blender</h5>
-<p><strong>分类：</strong> 3D；3D reconstruction</p>
-<p>提出BVB基准，用Blender程序化重建真实视频来评测智能体视频理解能力。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.15478v1/teaser_frontier_combined.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.15478v1/teaser_frontier_combined.png" alt="BVB: Benchmarking Agentic Video Understanding via Programmatic Reconstruction in Blender 论文图" loading="lazy"></a><span class="image-caption">BVB: Benchmarking Agentic Video Understanding via Programmatic Reconstruction in Blender 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.15478">arXiv</a> · <a href="https://huggingface.co/papers/2609.15478">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.15478">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.15478/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="kaininja-extending-native-3d-generators-to-the-part-level">KaiNinja: Extending Native 3D Generators to the Part Level</h5>
-<p><strong>分类：</strong> 3D；3d generation</p>
-<p>提出基于双体积表征的KaiNinja，将原生3D生成器扩展至部件级，无需分割网络并提升生成质量。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.15659v2/figures/teaser.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.15659v2/figures/teaser.png" alt="KaiNinja: Extending Native 3D Generators to the Part Level 论文图" loading="lazy"></a><span class="image-caption">KaiNinja: Extending Native 3D Generators to the Part Level 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.15659">arXiv</a> · <a href="https://huggingface.co/papers/2609.15659">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.15659">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.15659/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-09-14">2026-09-14</h4>
-<h5 id="remomask-2-latent-retrieval-augmented-masked-motion-generation">ReMoMask-2: Latent Retrieval-Augmented Masked Motion Generation</h5>
-<p><strong>分类：</strong> 3D；3d animation generation</p>
-<p>提出ReMoMask-2，在潜在空间检索增强文本生成动作，性能最优</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.08365v1/framework.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.08365v1/framework.png" alt="ReMoMask-2: Latent Retrieval-Augmented Masked Motion Generation 论文图" loading="lazy"></a><span class="image-caption">ReMoMask-2: Latent Retrieval-Augmented Masked Motion Generation 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.08365v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.08365">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.08365">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.08365/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="snap3d-physically-grounded-3d-parts-for-assembly-from-a-single-image">SNAP3D: Physically Grounded 3D Parts for Assembly from a Single Image</h5>
-<p><strong>分类：</strong> 3D；3d generation</p>
-<p>提出物理引导框架SNAP3D，从单图生成部件级3D模型，确保几何与装配稳定性。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.13146v1/pipeline.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.13146v1/pipeline.png" alt="SNAP3D: Physically Grounded 3D Parts for Assembly from a Single Image 论文图" loading="lazy"></a><span class="image-caption">SNAP3D: Physically Grounded 3D Parts for Assembly from a Single Image 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.13146v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.13146">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.13146">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.13146/index.html" data-inline-html="true">展开正文</a></p>
-<h3 id="视频">视频</h3>
-<h4 id="2026-09-15-2">2026-09-15</h4>
-<h5 id="alayavista-streaming-world-modeling-from-panoramic-states-to-perspective-video">AlayaVista: Streaming World Modeling from Panoramic States to Perspective Video</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出AlayaVista，将全景状态与视角视频解码分离的流式视频世界模型，并构建MUGEN数据集。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.14462v1/method_pipeline.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.14462v1/method_pipeline.png" alt="AlayaVista: Streaming World Modeling from Panoramic States to Perspective Video 论文图" loading="lazy"></a><span class="image-caption">AlayaVista: Streaming World Modeling from Panoramic States to Perspective Video 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.14462">arXiv</a> · <a href="https://huggingface.co/papers/2609.14462">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.14462">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.14462/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="lynnreal-omni-native-multi-modal-video-generation-for-agentic-visual-workflows">LynnReal-Omni: Native multi-modal Video Generation for Agentic Visual Workflows</h5>
-<p><strong>分类：</strong> 视频；video diffusion model</p>
-<p>提出LynnReal-Omni，一个统一可控的多模态视频生成框架，支持智能体视觉工作流。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.15863v1/agent_workflows_1.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.15863v1/agent_workflows_1.png" alt="LynnReal-Omni: Native multi-modal Video Generation for Agentic Visual Workflows 论文图" loading="lazy"></a><span class="image-caption">LynnReal-Omni: Native multi-modal Video Generation for Agentic Visual Workflows 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.15863">arXiv</a> · <a href="https://huggingface.co/papers/2609.15863">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.15863">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.15863/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="physbrain-1-5-from-vision-language-models-to-physical-foundation-models">PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出统一物理基础模型PhysBrain 1.5，从视觉语言模型扩展至物理环境理解、动作生成与状态预测。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.14973v1/leaderboard.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.14973v1/leaderboard.png" alt="PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models 论文图" loading="lazy"></a><span class="image-caption">PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models 论文图</span></span></p>
+    <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../date/">← 返回日报目录</a></p>
+<h1 id="physbrain-1-5-from-vision-language-models-to-physical-foundation-models">PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models</h1>
 <p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.14973">arXiv</a> · <a href="https://huggingface.co/papers/2609.14973">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.14973">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.14973/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-09-14-2">2026-09-14</h4>
-<h5 id="actionsplice-in-flight-action-editing-for-interactive-world-models">ActionSplice: In-Flight Action Editing for Interactive World Models</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出ActionSplice框架，通过反事实状态传输实现交互式世界模型的飞行中动作编辑。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.08230v1/main.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.08230v1/main.png" alt="ActionSplice: In-Flight Action Editing for Interactive World Models 论文图" loading="lazy"></a><span class="image-caption">ActionSplice: In-Flight Action Editing for Interactive World Models 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.08230v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.08230">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.08230">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.08230/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="pelican-sim-1-0-a-general-world-model-simulator-for-embodied-intelligence">Pelican-Sim 1.0: A General World Model Simulator for Embodied Intelligence</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出Pelican-Sim 1.0，一种面向具身智能的通用世界模型模拟器，从视觉和动作预测未来观测。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.12036v1/teaser.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.12036v1/teaser.png" alt="Pelican-Sim 1.0: A General World Model Simulator for Embodied Intelligence 论文图" loading="lazy"></a><span class="image-caption">Pelican-Sim 1.0: A General World Model Simulator for Embodied Intelligence 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.12036v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.12036">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.12036">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.12036/index.html" data-inline-html="true">展开正文</a></p>
-<h2 id="全量论文简报">全量论文简报</h2>
-<h3 id="2026-09-15-3">2026-09-15</h3>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.15478">BVB</a></td><td>3D</td><td>提出BVB基准，用Blender程序化重建真实视频来评测智能体视频理解能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15659">KaiNinja</a></td><td>3D</td><td>提出基于双体积表征的KaiNinja，将原生3D生成器扩展至部件级，无需分割网络并提升生成质量。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.14462">AlayaVista</a></td><td>视频</td><td>提出AlayaVista，将全景状态与视角视频解码分离的流式视频世界模型，并构建MUGEN数据集。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15863">LynnReal-Omni</a></td><td>视频</td><td>提出LynnReal-Omni，一个统一可控的多模态视频生成框架，支持智能体视觉工作流。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.14973">PhysBrain 1.5</a></td><td>视频</td><td>提出统一物理基础模型PhysBrain 1.5，从视觉语言模型扩展至物理环境理解、动作生成与状态预测。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.12541">Agent as Policy for Robotic Manipulation</a></td><td>其他</td><td>提出Agent as Policy方法，使通用智能体直接驱动机器人完成多种操作任务。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15818">Atria Dawn</a></td><td>其他</td><td>提出Atria Dawn Preview智能体语言模型，通过可验证经验管线提升科研工程生产力，实现人机协作新范式。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13318">Attention-DP3</a></td><td>其他</td><td>提出空间物体感知的3D扩散策略Attention-DP3，通过注意力注入物体几何线索以提升杂乱场景操纵性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13498">Building a Production Greek-English Speech Recognizer</a></td><td>其他</td><td>构建生产级希腊语-英语双语语音识别系统Sophea，报告数据管线和集成方法等工程实践。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15973">Discovery Foundation Models</a></td><td>其他</td><td>提出发现基础模型（DFMs），实现开放式发现智能，并给出Zetema框架与GALILEO系统。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.14858">Dream-RSI</a></td><td>其他</td><td>提出Dream-RSI，用历史发现树构建重放模拟器，以低成本离线反馈改进探索策略，实现递归自我改进。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13053">Dynin-Robotics</a></td><td>其他</td><td>提出统一扩散视觉-语言-动作模型Dynin-Robotics，共享轨迹建模实现目标预测与动作生成。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.14302">E2A-Bench</a></td><td>其他</td><td>提出E2A-Bench基准，评估金融图表推理中证据到行动的全链路可靠性，揭示单一幻觉分数的不足。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15078">Enabling Creative Exploration for Vibe Design Agents</a></td><td>其他</td><td>面向Vibe设计代理，提出结构化设计规范作为中间决策，实现界面创意探索与生成解耦。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13058">Expert-Space Exploration in MoE Reinforcement Learning</a></td><td>其他</td><td>提出专家空间探索方法ESRL，通过扰动路由提升MoE强化学习的性能与多样性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13285">Grouped Value Attention</a></td><td>其他</td><td>提出Grouped Value Attention，压缩KV缓存并通过线性映射重建键，保持近似GQA精度。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15134">HazardAuditor</a></td><td>其他</td><td>提出HazardAuditor执行级安全框架和GuardPO优化，提升计算机使用代理的安全准确性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15504">How Lossless Is Lossless Speculative Decoding? The Role of Numerical Precision in Orthrus</a></td><td>其他</td><td>本文检验Orthrus推测解码在不同数值精度下的无损性，发现FP32才完全等价。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.01430">Learning Sparse Decision Trees via Transformer Variational Auto-Encoders</a></td><td>其他</td><td>提出基于Transformer变分自编码器的TREVIS方法，在连续潜在空间学习稀疏决策树，兼顾性能与稀疏性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13443">Learning to Solve Hard Problems in RL for LLMs by Never Giving Up</a></td><td>其他</td><td>提出NGU自适应采样方法，解决RL训练LLM中难题提升小的问题</td></tr><tr><td><a href="https://arxiv.org/abs/2609.14708">Lightning Weave</a></td><td>其他</td><td>提出闪电编织后训练框架，通过能力组合蒸馏，将独立模型的准确性与效率优势集成到单一推理模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13287">LLaDA-UI</a></td><td>其他</td><td>提出基于块状扩散的16.7B多模态GUI智能体LLaDA-UI，验证并行解码优势并超越对比模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.12419">MInTRL</a></td><td>其他</td><td>提出最小干预强化学习（MInTRL）：在策略采样中稀疏局部修正，提升数学与代码任务RL性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15635">ModaLens</a></td><td>其他</td><td>提出ModaLens图像交换审计方法，测量放射学报告可用性对医学视觉语言模型图像敏感性的影响。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15051">Not All Prompts Are Equal</a></td><td>其他</td><td>本文提出探索引导的提示脚手架框架，动态调整训练提示分布以提升多模态强化后训练效果。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15128">Omni-Streaming Thinking</a></td><td>其他</td><td>提出OST方法，用结构化证据验证解决流式全模态中的过早跨模态承诺问题。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15029">Pick Your Poison</a></td><td>其他</td><td>提出SAILS方法，通过学习选择中毒样本集，显著提升LLM后门攻击成功率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13463">Root-Cause Attribution Is a Search Problem</a></td><td>其他</td><td>提出持续搜索框架，通过迭代提示提升长周期AI代理故障根因归因准确率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15364">RSIAgent</a></td><td>其他</td><td>提出训练免费的多智能体框架RSIAgent，通过自主记忆构建实现新环境中的递归自我改进。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13948">Thought without systematicity? Evaluating reasoning models on rule induction tasks</a></td><td>其他</td><td>评估推理模型在规则归纳任务上是否具备系统性的能力，发现模型常在同构任务上表现不一致。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.11638">Vidu S2</a></td><td>其他</td><td>提出Vidu S2，包含实时交互数字人模型和实时视频编辑模型，并探索实时空间视频生成。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15309">When Agents Slow Down</a></td><td>其他</td><td>研究LLM代理测试时策略，提出Elo-per-token分析方法，揭示缩放规律并定义拐点。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13356">ZGCM-1</a></td><td>其他</td><td>提出全开源7B基础模型ZGCM-1，通过内部思考与外部工具结合，高效提升数学推理与智能体搜索。</td></tr></tbody></table></div>
-<h3 id="2026-09-14-3">2026-09-14</h3>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.08365v1">ReMoMask-2</a></td><td>3D</td><td>提出ReMoMask-2，在潜在空间检索增强文本生成动作，性能最优</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13146v1">SNAP3D</a></td><td>3D</td><td>提出物理引导框架SNAP3D，从单图生成部件级3D模型，确保几何与装配稳定性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.08230v1">ActionSplice</a></td><td>视频</td><td>提出ActionSplice框架，通过反事实状态传输实现交互式世界模型的飞行中动作编辑。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.12036v1">Pelican-Sim 1.0</a></td><td>视频</td><td>提出Pelican-Sim 1.0，一种面向具身智能的通用世界模型模拟器，从视觉和动作预测未来观测。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.07154">Ambient @ EgoLongQA 2026</a></td><td>其他</td><td>通过蒸馏工具智能体感知模块，将十米长视频问答能力压缩至2B模型并夺冠。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.07099">Ambient @ EgoProactive 2026</a></td><td>其他</td><td>提出可视化监督与单令牌分类方法，提升可穿戴设备主动干预时机预测的F1分数。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.11115">Benchmark Radar</a></td><td>其他</td><td>构建AI基准测试活数据库与搜索引擎，支持发现、检索和分数比较。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.05824">Beyond Top-$k$ Skill Retrieval</a></td><td>其他</td><td>提出多样性感知的技能路由框架DSR，用行列式点过程平衡相关性与非冗余性，提升LLM代理技能选择效果。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.12641">Breaking the Vision-Action Shortcut</a></td><td>其他</td><td>提出潜在接口训练，消除视觉-动作捷径，提升机器人基础模型的泛化能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.03502">Building and Evaluating Fixed-Voice Thai TTS from Synthetic Speech</a></td><td>其他</td><td>利用大模型合成语音训练紧凑型固定音色泰语TTS，实现设备端合成。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.11682">COBRA-Skills</a></td><td>其他</td><td>提出COBRA-Skills框架，用上下文赌博机引导技能优化，降低开销并提升智能体性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.12101">Competence-Gated Pooling of Language Models and Priors for Event Forecasting</a></td><td>其他</td><td>提出能力门控机制，根据边际价值选择性融合语言模型与外部预测，提升事件预测精度。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.06107">DataFlex-RL</a></td><td>其他</td><td>构建RLVR数据策略评估平台，发现统一采样优于复杂选择与加权策略。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.12078">Feature Recovery for Object Understanding After Irreversible Fire Damage</a></td><td>其他</td><td>提出火灾后物体理解基准TRACE与特征恢复模块FRM，提升退化物体检测与原始属性恢复。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.08418">Feyospace-v1</a></td><td>其他</td><td>提出数据为中心的框架，训练开源网络智能体，三个检查点在CyberGym上平均提升23.76%。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.03595">How Far Can Synthetic Data Take Thai OCR?</a></td><td>其他</td><td>探究合成数据到真实泰文的OCR迁移因素，构建纯合成训练的Wayu-Paxa-OCR-Zero模型</td></tr><tr><td><a href="https://arxiv.org/abs/2609.06251">MobileVLA-R1 2.0</a></td><td>其他</td><td>提出MobileVLA-R1 2.0，用强化学习增强推理与行动，提升移动机器人指令执行能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.11977">Occamy-1.0</a></td><td>其他</td><td>提出一种高效协同工作智能体，采用分阶段后训练，在性能与成本间达到帕累托前沿。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.05820">Online Learning with LLM Experts from Limited Feedback</a></td><td>其他</td><td>研究在线路由提示词给LLM专家，在有限反馈下最小化遗憾，提出两种算法。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.30597">PLC-DPO</a></td><td>其他</td><td>针对偏好优化中噪声与模糊标签，提出基于后验标签修正的PLC-DPO方法，提升对齐鲁棒性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.10895">ReactHuman</a></td><td>其他</td><td>提出ReactHuman基准，测试多模态大模型在具身模拟中面对突发物理危险的反应决策能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13141">SAS</a></td><td>其他</td><td>提出简单注意力稀疏化SAS，通过端到端优化上下文排序改进Transformer推理效率</td></tr><tr><td><a href="https://arxiv.org/abs/2609.12945">StepAudio 3 Gen Technical Report</a></td><td>其他</td><td>提出StepAudio 3 Gen统一音频生成模型，基于离散自回归和RVQ token，支持多种音频生成任务。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.10824">Studying Without a Syllabus</a></td><td>其他</td><td>研究任务无关的环境预处理，让智能体在无任务信息时预习环境并构建可复用资源，提升下游任务效率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.10728">Towards a Deterministic Math Solver for Clinical Language Models</a></td><td>其他</td><td>提出程序求解接口：让临床语言模型生成Python代码，由确定性执行器计算，避免直接算术错误。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.10297">TRACE</a></td><td>其他</td><td>提出轨迹鲁棒准入与证据排序框架，剪枝视觉token提升GUI智能体效率</td></tr></tbody></table></div></div></article></main>
+<p><strong>一句话主题：</strong> 构建统一物理基础模型，实现环境理解、动作生成和未来状态预测。</p>
+<p><strong>领域标签：</strong> 物理基础模型 / 视觉语言模型 / 具身智能</p>
+<h2 id="快速理解">快速理解</h2>
+<p><strong>背景与任务：</strong> 物理环境中的智能体需要形成观察、交互与环境变化的闭环能力，现有模型往往将理解、动作生成和状态预测割裂。</p>
+<p><strong>核心工作：</strong> 作者提出PhysBrain 1.5，用统一自回归框架融合语言、视觉和动作，利用人类视频预训练和多源数据微调，显著提升具身理解性能。</p>
+<h2 id="中文摘要">中文摘要</h2>
+<p>我们提出PhysBrain 1.5，一个用于理解物理环境、生成动作和预测未来状态的统一模型。受观察、交互和环境变化这一物理循环的启发，我们将这些能力整合到一个共同的学习框架中。从一个通用的视觉-语言模型出发，我们将语言响应、末端执行器运动和稠密视觉目标编码为离散序列，并通过自回归下一词元预测联合优化它们。预训练完全从人类交互视频中获取具身监督，利用以任务为中心的片段将语义和空间上下文与恢复的运动及后续观察配对。随后，我们通过在人类演示、机器人轨迹和模拟经验的混合数据上进行监督微调来适配模型。在28个具身理解基准上，我们的8B模型取得了72.5的平均分，创下了新的开源最优水平，并与GPT-6-Astra和Gemini 3.6 Flash等领先专有模型表现相当。它在14个基准上取得了最佳开源结果，同时保留了通用多模态能力。除了这些理解评估之外，定性示例还展示了模型通过空间对齐的RGB、深度和机器人掩码输出来生成末端执行器轨迹和预测未来场景的能力。</p>
+<h2 id="详细分析">详细分析</h2>
+<h2 id="1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</h2>
+<p>PhysBrain 1.5 的输入包括当前 RGB 图像/视频帧、任务指令、任务输出格式，以及可选的前一段动作块、本体标识和动作频率。输出既可以是自然语言答案、空间坐标/点/航点，也可以是 16 步末端执行器轨迹，或未来同一时刻的 RGB 图像、深度图和机器人掩码。其功能是在一个模型内统一具身理解、动作生成与未来状态预测。当前边界是：动作生成以离线轨迹续写为主，未来状态预测为 128×128 分辨率和短时域，不包含灵巧手控制和完整闭环策略库。</p>
+<h2 id="2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</h2>
+<p>物理智能要求智能体不断与环境互动：先感知场景，再理解空间关系和任务目标，做出行动，最后观察环境变化并更新判断。现有视觉-语言模型、视觉-语言-动作模型和世界模型分别擅长其中一个环节，但接口与表示互不通用，难以形成统一的物理基础模型。论文要解决的核心问题是：语言、轨迹、稠密视觉这三类输出形式差异极大，且数据来自人、机器人和仿真，动作坐标系、频率和语义各不相同，如何在一个共享框架中联合学习。</p>
+<p>核心 insight 在于“统一序列生成”：把自然语言答案、末端执行器运动、未来视觉状态都离散化为 token，在同一个自回归 next-token prediction 目标下训练。不同任务只通过任务格式、模态分隔符和 loss mask 区分输出目标，因此底层参数可以由三类监督共同更新。理解任务为动作和状态预测提供场景语义与空间证据，动作和状态预测为理解注入物理交互先验，二者互补。另一个关键想法是，人类交互视频天然带有“观察—行动—环境改变”的完整过程，因此可以从中构造预训练监督，再通过机器人和仿真数据做具身适配。</p>
+<h2 id="3-核心贡献-约300字">3. 核心贡献（约300字）</h2>
+<p>论文的贡献主要体现在四方面。第一，提出 PhysBrain 1.5，一个统一的自回归物理基础模型。它将语言词表扩展为“语言-动作-视觉”统一词表，三类输出共享主干、token embedding 和输出头，在同一个掩码自回归目标下联合学习。第二，在设计上引入 ActionPiece 作为动作离散化接口，用共享 VQ-VAE 对 RGB、深度和机器人掩码做离散化，并通过空间位置交错的序列化方式生成未来状态，不增加独立任务头。第三，构建两阶段数据方案：物理感知预训练完全从约 3 万小时人类交互视频构造理解、动作和未来状态监督；具身 SFT 混合人类示教、真实机器人和仿真数据，同时保留通用语言/视觉指令数据。第四，实验验证：在 28 个具身理解基准上平均分达 72.5，为开源模型第一，其中 14 个基准最佳，整体逼近 GPT-6-Astra 和 Gemini 3.6 Flash；通用多模态能力基本保持；定性实验展示了动作轨迹生成和未来视觉预测。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.14973v1/leaderboard.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.14973v1/leaderboard.png" alt="图1：在本报告具身基准套件上取得领先的整体性能。PhysBrain 1.5 以8B参数获得72.5的整体得分，在所有开源模型中排名第一，性能与领先的专有系统相当。" loading="lazy"></a><span class="image-caption">图1：在本报告具身基准套件上取得领先的整体性能。PhysBrain 1.5 以8B参数获得72.5的整体得分，在所有开源模型中排名第一，性能与领先的专有系统相当。</span></span></p>
+<h2 id="4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</h2>
+<p>部署时，基础模型是 PhysBrain 1.5：它既接受多模态上下文，也负责生成离散 token 序列。ActionPiece 解码器和 VQ-VAE 解码器作为配套工具，分别把动作 token 和视觉 token 还原成轨迹与图像。</p>
+<ol><li>输入组装：接收当前 RGB 图像或视频帧、任务指令、任务格式，以及可选的动作历史、本体标识和动作频率。模型将其编码为条件上下文，进入生成阶段。</li><li>输出选择与生成：模型根据任务格式决定生成语言/空间 token、动作 token 还是视觉 token，并逐个预测，得到原始 token 序列。</li><li>动作输出：若 token 属于动作，将动作 token 序列交给 ActionPiece 解码器，得到 16 步末端执行器轨迹（位置、旋转、夹爪开合），交给执行器或用户。</li><li>未来状态输出：若 token 属于视觉，将视觉 token 按空间位置解交错为 RGB、深度、掩码三个 code 网格，再交给 VQ-VAE 解码器，得到 128×128 的未来 RGB 图像、深度图和机器人掩码。</li><li>理解输出：若 token 属于语言/空间，直接解码为自然语言答案、点坐标或航点序列，输出给用户或上层规划器。</li><li>闭环反馈（可选）：执行器执行轨迹，或用户参考预测调整；环境产生新观测，新观测和原指令作为下一次输入回到模型，形成“观察—行动—状态变化”循环。</li></ol>
+<div class="mermaid">flowchart TD
+    A[用户输入：图像/视频、指令、任务格式、可选动作历史/本体/频率] --&gt; B[PhysBrain 1.5 自回归模型&lt;br&gt;编码并生成离散token]
+    B --&gt; C{任务格式}
+    C --&gt;|理解| D[语言/空间token]
+    D --&gt; D1[自然语言答案、坐标、航点]
+    C --&gt;|动作| E[动作token]
+    E --&gt; F[ActionPiece 解码器]
+    F --&gt; G[16步末端执行器轨迹]
+    C --&gt;|未来状态| H[视觉token]
+    H --&gt; I[解交错 + VQ-VAE 解码器]
+    I --&gt; J[未来RGB/深度图/机器人掩码]
+    G --&gt; K[执行器执行或用户使用]
+    J --&gt; K
+    D1 --&gt; K
+    K --&gt;|新观测反馈| A</div>
+<h2 id="5-核心方法-按论文-method-小节总结-约600字">5. 核心方法：按论文 Method 小节总结（约600字）</h2>
+<p>Method 章节从 2.1 到 2.5 描述了如何把三类任务统一成离散序列生成。</p>
+<h3 id="2-1-overview-概述">2.1 Overview（概述）</h3>
+<p>该节建立统一学习框架。PhysBrain 1.5 从 Qwen3-VL-Instruct 8B 初始化，将原始语言词表扩展为：</p>
+<p>\[ \mathcal{V}=\mathcal{V}_{\mathrm{lang}}\cup\mathcal{V}_{\mathrm{act}}\cup\mathcal{V}_{\mathrm{vis}}. \]</p>
+<p>语言、动作、视觉 token 共享同一个 embedding 表和输出头。对任意输入 \(x\) 和目标序列 \(y\)，优化带掩码的自回归目标：</p>
+<p>\[ \mathcal{L}_{\mathrm{AR}}=-\sum_i m_i\log p_\theta(y_i\mid x,y_{&lt;i}), \]</p>
+<p>其中 \(m_i\) 只对当前任务需要监督的目标 token 置 1。任务格式、模态分隔符与 loss mask 共同决定模型输出语言、动作还是视觉状态。这个设计让三类监督更新同一组参数。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.14973v1/model.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.14973v1/model.png" alt="图2：PhysBrain 1.5 模型架构。基于预训练的视觉-语言模型，PhysBrain 1.5 在统一的语言-动作-视觉词表上，通过共享主干、token嵌入和输出头联合学习具身理解、动作生成和视觉状态预测。具身理解涵盖基础视觉-空间感知、空间与多视角理解、具身认知与推理、空间指向与可供性理解，以及视觉轨迹推理。动作token由ActionPiece解码为末端执行器轨迹，可选的动作历史提供运动上下文；视觉token由Vision解码器解码为未来RGB图像、深度图和机器人掩码。三个任务族在共享的自回归训练目标下提供互补监督。" loading="lazy"></a><span class="image-caption">图2：PhysBrain 1.5 模型架构。基于预训练的视觉-语言模型，PhysBrain 1.5 在统一的语言-动作-视觉词表上，通过共享主干、token嵌入和输出头联合学习具身理解、动作生成和视觉状态预测。具身理解涵盖基础视觉-空间感知、空间与多视角理解、具身认知与推理、空间指向与可供性理解，以及视觉轨迹推理。动作token由ActionPiece解码为末端执行器轨迹，可选的动作历史提供运动上下文；视觉token由Vision解码器解码为未来RGB图像、深度图和机器人掩码。三个任务族在共享的自回归训练目标下提供互补监督。</span></span></p>
+<h3 id="2-2-embodied-understanding-as-physical-perception-具身理解作为物理感知">2.2 Embodied Understanding as Physical Perception（具身理解作为物理感知）</h3>
+<p>该小节的关键是：不增加独立感知头，而是保留基础 VLM 的图像/视频理解接口，通过具身监督增强物理感知。具身理解覆盖基础视觉-空间感知、空间与多视角理解、具身推理与规划、指向与可供性、视觉轨迹推理等；输出可以是自然语言，也可以是结构化空间目标。这样，理解任务为动作和未来状态生成提供场景级证据，动作与状态监督又反过来增强理解的物理常识。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.14973v1/evaluation-cases.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.14973v1/evaluation-cases.png" alt="图3：PhysBrain 1.5 具身理解的定性示例。代表性案例展示了视觉-空间感知、3D与多视角理解、具身推理与规划、空间定位与可供性，以及视觉痕迹与轨迹推理。响应包括语言答案、空间坐标和航点序列，预测点和轨迹叠加在对应观测上。" loading="lazy"></a><span class="image-caption">图3：PhysBrain 1.5 具身理解的定性示例。代表性案例展示了视觉-空间感知、3D与多视角理解、具身推理与规划、空间定位与可供性，以及视觉痕迹与轨迹推理。响应包括语言答案、空间坐标和航点序列，预测点和轨迹叠加在对应观测上。</span></span></p>
+<h3 id="2-3-embodied-action-generation-具身动作生成">2.3 Embodied Action Generation（具身动作生成）</h3>
+<p>动作生成以手腕末端执行器为对象，忽略手指。论文用 Human-as-Humanoid 从人类视频恢复手腕轨迹，并转换成与机器人动作相同的 10 维表示。每个样本预测未来 \(H=16\) 步，目标定义为：</p>
+<p>\[ a_{t,k}=[p_{t+k}-p_t,\rho_6(R_t^\top R_{t+k}),g_{t+k}]\in\mathbb{R}^{10}, \]</p>
+<p>其中前三维是相对平移，中间六维是相对旋转的连续 6D 表示，最后一维是夹爪开合。物理单位统一，平移做语料级归一化，但保留各数据源原生坐标轴。ActionPiece 是一个在轨迹段上训练的离散编码器，词表大小为 512，每个 16 步手腕轨迹被编码为 32 个动作 token，左右手共享同一词表。为了避免全局坐标系标定误差，模型把前一个 16 步动作块与当前观测一起作为局部运动上下文，把动作预测建模为条件轨迹续写：</p>
+<p>\[ p_\theta(z^+\mid I,u,e,f,z^-). \]</p>
+<p>这样，模型可以从动作历史中隐式识别当前数据源的运动方向、尺度和节奏。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.14973v1/2D_Action_Show.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.14973v1/2D_Action_Show.png" alt="图4：在留出片段上动作轨迹预测的图像平面可视化。预测由后训练模型生成。给定任务指令、当前图像和前一动作块，PhysBrain 1.5 为所请求的单侧或双侧手腕预测接下来16个动作步骤。预测和真实末端执行器位置被投影到图像平面并叠加在当前观测上：实线表示真实轨迹，虚线表示预测。每个示例下方显示对应任务指令。所有示例均取自训练中未见的测试片段。这些可视化比较预测轨迹与真实轨迹，而非报告已执行的机器人 rollout。" loading="lazy"></a><span class="image-caption">图4：在留出片段上动作轨迹预测的图像平面可视化。预测由后训练模型生成。给定任务指令、当前图像和前一动作块，PhysBrain 1.5 为所请求的单侧或双侧手腕预测接下来16个动作步骤。预测和真实末端执行器位置被投影到图像平面并叠加在当前观测上：实线表示真实轨迹，虚线表示预测。每个示例下方显示对应任务指令。所有示例均取自训练中未见的测试片段。这些可视化比较预测轨迹与真实轨迹，而非报告已执行的机器人 rollout。</span></span></p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.14973v1/3D_Action_Show.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.14973v1/3D_Action_Show.png" alt="图5：ID与OOD测试场景中动作轨迹预测的三维可视化。预测由后训练模型生成。每个示例显示当前观测和任务指令，以及左右手腕的真实（蓝色）与预测（橙色）轨迹。黑色菱形标记轨迹起点，坐标轴以厘米为单位。x、y、z轴遵循每个示例原始机器人动作数据的坐标约定；不同数据源的坐标系未对齐。顶行展示分布内（ID）示例，底行展示来自RoboDojo的分布外（OOD）示例，RoboDojo被排除在模型训练语料之外。这些示例对训练分布内外的预测轨迹与真实轨迹进行定性比较。" loading="lazy"></a><span class="image-caption">图5：ID与OOD测试场景中动作轨迹预测的三维可视化。预测由后训练模型生成。每个示例显示当前观测和任务指令，以及左右手腕的真实（蓝色）与预测（橙色）轨迹。黑色菱形标记轨迹起点，坐标轴以厘米为单位。x、y、z轴遵循每个示例原始机器人动作数据的坐标约定；不同数据源的坐标系未对齐。顶行展示分布内（ID）示例，底行展示来自RoboDojo的分布外（OOD）示例，RoboDojo被排除在模型训练语料之外。这些示例对训练分布内外的预测轨迹与真实轨迹进行定性比较。</span></span></p>
+<h3 id="2-4-visual-foundation-generation-视觉基础生成">2.4 Visual-Foundation Generation（视觉基础生成）</h3>
+<p>未来物理状态被定义为同一时刻、同一图像坐标系下的 RGB 图像、深度图和机器人掩码：</p>
+<p>\[ S_{t+\Delta}=(X_{t+\Delta}^{\mathrm{rgb}},X_{t+\Delta}^{\mathrm{depth}},X_{t+\Delta}^{\mathrm{mask}}). \]</p>
+<p>三个模态共享一个 VQ-VAE 向量量化自编码器，在 128×128 分辨率下各自被离散成 16×16 个 code，码本大小为 16384。深度图和掩码归一化到 \([-1,1]\)。序列化时按空间位置交错 RGB、深度、掩码：</p>
+<p>\[ y^{\mathrm{vis}}=[b_{\mathrm{start}},q_1^{\mathrm{rgb}},q_1^{\mathrm{depth}},q_1^{\mathrm{mask}},\ldots,q_N^{\mathrm{rgb}},q_N^{\mathrm{depth}},q_N^{\mathrm{mask}},b_{\mathrm{end}}], \]</p>
+<p>共 770 个 token。这种空间交错方式让自回归生成时相邻 token 对应同一空间位置的不同模态，从而提供局部跨模态上下文。推理时再把三个 16×16 网格分开，用冻结的 VQ decoder 重建三张 128×128 输出；VLM 训练中不引入独立预测头或像素重构损失。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.14973v1/visual_prediction.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.14973v1/visual_prediction.png" alt="图6：不同机器人本体上未来视觉预测的定性结果。每一行展示当前RGB观测以及预测的未来RGB图像、深度图和机器人掩码。所示示例使用1秒预测时域。模型在预测与任务一致的变化时，保持主要场景布局和物体身份。三种模态的预测在空间上连贯，共同捕捉未来外观、工作区几何和机器人占用。" loading="lazy"></a><span class="image-caption">图6：不同机器人本体上未来视觉预测的定性结果。每一行展示当前RGB观测以及预测的未来RGB图像、深度图和机器人掩码。所示示例使用1秒预测时域。模型在预测与任务一致的变化时，保持主要场景布局和物体身份。三种模态的预测在空间上连贯，共同捕捉未来外观、工作区几何和机器人占用。</span></span></p>
+<h3 id="2-5-unified-vocabulary-and-training-objective-统一词汇表与训练目标">2.5 Unified Vocabulary and Training Objective（统一词汇表与训练目标）</h3>
+<p>该节把三类目标统一到同一个自回归训练目标下。任务格式指定模型要输出哪种类型，loss mask 选择当前样本中需要监督的目标 token。三种监督互补：具身理解提供语义和空间关系；动作生成提供末端执行器运动目标；未来状态生成提供下一时刻场景状态。论文强调，联合训练不只是共享生成接口，而是让同一套物理表征同时从“任务描述”和“直接运动/状态目标”中学习。该目标同时用于物理感知预训练和具身 SFT，使模型在共享参数上持续获得互补监督。</p>
+<h2 id="6-局限性和展望-约300字">6. 局限性和展望（约300字）</h2>
+<p>论文明确说明的限制主要有三点：一是动作生成只在离线轨迹预测层面展示，没有在真实机器人上闭环执行或报告完整任务成功率；二是未来视觉预测只有定性结果，没有量化评估；三是模型为 8B，虽然开源领先，但整体平均分仍略低于最强的闭源模型。分布外动作示例仍有可见位置偏差，说明泛化能力有限。</p>
+<p>可以谨慎推断的限制包括：预训练数据中的深度、分割、人体姿态等大多来自自动标注模型，标签噪声会进入物理常识；不同数据源保留各自坐标系、仅靠动作历史做隐式识别，在动作模式完全陌生的本体上可能失效；未来状态统一使用 128×128 分辨率和约 1 秒时域，难以表达精细物体变形或高频运动；离散化表示可能在动作控制精度上造成损失。</p>
+<p>展望方面，论文表示会继续扩展数据规模、模态覆盖和交互经验。据此可以合理期待真实机器人闭环评估、更高分辨率与更长时域的未来状态预测、灵巧手级动作表示，以及把未来状态预测用于规划器或模型预测控制。这些是论文现有结果的合理延伸，而非论文已经完成的承诺。</p></div></article></main>
   </div>
   <script>/*!
   * PhotoSwipe 5.4.4 - https://photoswipe.com
@@ -778,208 +751,6 @@ div.pswp__img--placeholder,
       updateToc();
     }
 
-
-    (() => {
-      const cache = new Map();
-
-      async function fetchLinkedPage(url) {
-        if (!cache.has(url)) {
-          const request = fetch(url, { credentials: "same-origin" })
-            .then(async (response) => {
-              if (!response.ok) throw new Error(`HTTP ${response.status}`);
-              return { text: await response.text(), url: response.url };
-            })
-            .catch((error) => {
-              cache.delete(url);
-              throw error;
-            });
-          cache.set(url, request);
-        }
-        return cache.get(url);
-      }
-
-      function rewriteReferences(root, pageUrl) {
-        root.querySelectorAll("[src], [href]").forEach((node) => {
-          ["src", "href"].forEach((attribute) => {
-            const value = node.getAttribute(attribute);
-            if (!value || value.startsWith("#") || /^(?:data|blob|mailto|tel|javascript):/i.test(value)) return;
-            try {
-              node.setAttribute(attribute, new URL(value, pageUrl).href);
-            } catch (_) {
-              // Leave malformed references unchanged; the browser will expose the failure.
-            }
-          });
-        });
-      }
-
-      function isolateIds(root, prefix) {
-        const replacements = new Map();
-        root.querySelectorAll("[id]").forEach((node) => {
-          const original = node.id;
-          const replacement = `${prefix}-${original}`;
-          replacements.set(original, replacement);
-          node.id = replacement;
-        });
-        root.querySelectorAll('a[href^="#"]').forEach((node) => {
-          const original = decodeURIComponent(node.getAttribute("href").slice(1));
-          if (replacements.has(original)) node.setAttribute("href", `#${replacements.get(original)}`);
-        });
-      }
-
-      function prepareDynamicImages(root) {
-        root.querySelectorAll("a.pswp-image").forEach((item) => {
-          const image = item.querySelector("img");
-          if (!image) return;
-          const sync = () => {
-            item.dataset.pswpSrc = image.currentSrc || image.src;
-            if (item.dataset.referenceImage === "true" && image.naturalWidth && image.naturalHeight) {
-              item.dataset.pswpWidth = String(image.naturalWidth);
-              item.dataset.pswpHeight = String(image.naturalHeight);
-            }
-          };
-          sync();
-          image.addEventListener("load", sync, { once: true });
-        });
-      }
-
-      document.querySelectorAll('a[data-inline-html="true"]').forEach((link, index) => {
-        const summary = link.closest("p, li, blockquote, td") || link.parentElement;
-        if (!summary) return;
-        const dedicatedExpand = link.textContent.trim() === "展开正文";
-        let entry = summary.closest(".inline-html-entry");
-        if (!entry) {
-          if (summary.tagName === "LI" || summary.tagName === "TD") {
-            entry = summary;
-            entry.classList.add("inline-html-entry");
-          } else {
-            entry = document.createElement("section");
-            entry.className = "inline-html-entry";
-            summary.before(entry);
-            entry.append(summary);
-          }
-        }
-        summary.classList.add("inline-html-summary");
-        if (dedicatedExpand) link.classList.add("inline-html-source-link");
-
-        const panel = document.createElement("section");
-        panel.className = "inline-html-panel";
-        panel.id = `inline-html-panel-${index + 1}`;
-        panel.hidden = true;
-        panel.setAttribute("aria-live", "polite");
-
-        const actions = document.createElement("span");
-        actions.className = "inline-html-actions";
-        const toggle = document.createElement("button");
-        toggle.className = "inline-html-toggle";
-        toggle.type = "button";
-        toggle.textContent = "展开正文";
-        toggle.setAttribute("aria-controls", panel.id);
-        toggle.setAttribute("aria-expanded", "false");
-        const standalone = document.createElement("a");
-        standalone.className = "inline-html-standalone";
-        standalone.href = link.href;
-        standalone.textContent = "单独打开";
-        actions.append(toggle, standalone);
-        summary.append(document.createTextNode(" "), actions);
-        entry.append(panel);
-
-        let state = "idle";
-
-        function setOpen(open, returnToSummary = false) {
-          panel.hidden = !open;
-          entry.classList.toggle(
-            "is-expanded",
-            Boolean(entry.querySelector(".inline-html-panel:not([hidden])"))
-          );
-          const expanded = String(open);
-          toggle.setAttribute("aria-expanded", expanded);
-          link.setAttribute("aria-expanded", expanded);
-          toggle.textContent = open ? (state === "error" ? "重试加载" : "收起正文") : "展开正文";
-          if (!open && returnToSummary) {
-            summary.scrollIntoView({ behavior: "smooth", block: "start" });
-            toggle.focus({ preventScroll: true });
-          }
-        }
-
-        function appendCloseFooter(target) {
-          const footer = document.createElement("div");
-          footer.className = "inline-html-footer";
-          const close = document.createElement("button");
-          close.className = "inline-html-close";
-          close.type = "button";
-          close.textContent = "收起正文并返回摘要";
-          close.addEventListener("click", () => setOpen(false, true));
-          footer.append(close);
-          target.append(footer);
-        }
-
-        async function toggleInlinePage() {
-          if (state === "loaded") {
-            setOpen(panel.hidden);
-            return;
-          }
-          if (state === "loading") return;
-
-          state = "loading";
-          toggle.disabled = true;
-          panel.replaceChildren();
-          const loading = document.createElement("p");
-          loading.className = "inline-html-status";
-          loading.textContent = "正在加载完整正文…";
-          panel.append(loading);
-          setOpen(true);
-
-          try {
-            const fetched = await fetchLinkedPage(link.href);
-            const parsed = new DOMParser().parseFromString(fetched.text, "text/html");
-            const source = parsed.querySelector(".markdown-image-gallery")
-              || parsed.querySelector("main article")
-              || parsed.querySelector("article")
-              || parsed.querySelector("main");
-            if (!source) throw new Error("linked page does not contain a readable article");
-            const body = source.cloneNode(true);
-            if (body.firstElementChild && body.firstElementChild.tagName === "H1") {
-              body.firstElementChild.remove();
-            }
-            isolateIds(body, `inline-${index + 1}`);
-            rewriteReferences(body, fetched.url);
-            body.classList.add("inline-html-body");
-            panel.replaceChildren(body);
-            appendCloseFooter(panel);
-            prepareDynamicImages(body);
-            state = "loaded";
-            setOpen(true);
-            if (window.mermaid && typeof window.mermaid.run === "function") {
-              const diagrams = Array.from(body.querySelectorAll(".mermaid"));
-              if (diagrams.length) window.mermaid.run({ nodes: diagrams }).catch(() => {});
-            }
-
-            if (window.MathJax && typeof window.MathJax.typesetPromise === "function") {
-              window.MathJax.typesetPromise([body]).catch(() => {});
-            }
-
-          } catch (error) {
-            panel.replaceChildren();
-            const message = document.createElement("p");
-            message.className = "inline-html-status inline-html-error";
-            message.textContent = `正文加载失败：${error.message}`;
-            panel.append(message);
-            appendCloseFooter(panel);
-            state = "error";
-            setOpen(true);
-          } finally {
-            toggle.disabled = false;
-          }
-        }
-
-        toggle.addEventListener("click", toggleInlinePage);
-        link.addEventListener("click", (event) => {
-          if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-          event.preventDefault();
-          toggleInlinePage();
-        });
-      });
-    })();
 
 
   </script>
