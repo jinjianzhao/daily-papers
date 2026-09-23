@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>2026-W39 · 论文周报</title>
+  <title>DeformSmith: Physics Harness-Guided Hierarchical Generation of Deformable Assets for Robot Manipulation</title>
 
   <script>
     window.MathJax = {
@@ -515,38 +515,10 @@ div.pswp__img--placeholder,
       .academic-main article { padding: 30px 22px 52px; border: 0; border-radius: 0; }
     }
 
-    h3 { font-size: 20px; }
-    h4 { font-size: 17px; }
-    h5 { font-size: 18px; }
-
-    .inline-html-entry { margin: 18px 0; padding: 16px 18px 18px; border: 1px solid #d8e2eb; border-left: 3px solid #91abc2; border-radius: 6px; background: #fbfdff; transition: border-color .15s, background .15s; }
-    .inline-html-entry.is-expanded { border-color: #b7c9d9; border-left-color: #1769aa; background: #fff; }
-    .inline-html-summary { margin-top: 0; margin-bottom: 0; }
-    .inline-html-actions { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-left: 10px; vertical-align: middle; }
-    .inline-html-toggle, .inline-html-standalone, .inline-html-close { display: inline-flex; min-height: 30px; align-items: center; justify-content: center; padding: 5px 10px; border: 1px solid #b9c9d8; border-radius: 6px; background: #fff; color: #37516a; font: inherit; font-size: 12px; font-weight: 700; line-height: 1.35; text-decoration: none; cursor: pointer; }
-    .inline-html-source-link { display: none; }
-    .inline-html-toggle:hover, .inline-html-standalone:hover, .inline-html-close:hover { border-color: #1769aa; color: #1769aa; }
-    .inline-html-toggle:disabled { cursor: wait; opacity: .6; }
-    .inline-html-panel { margin: 18px 0 0; padding-top: 24px; border-top: 1px solid #e2e8f0; }
-    .inline-html-panel[hidden] { display: none; }
-    .inline-html-body h1:first-child { display: none; }
-    .inline-html-status { color: #64748b; font-size: 14px; }
-    .inline-html-error { color: #9f1239; }
-    .inline-html-footer { display: flex; justify-content: flex-end; margin-top: 30px; padding-top: 16px; border-top: 1px solid #e2e8f0; }
-    @media (max-width: 640px) {
-      .inline-html-entry { padding: 14px 14px 16px; }
-      .inline-html-actions { display: flex; margin: 10px 0 0; }
-      .inline-html-toggle, .inline-html-standalone, .inline-html-close { min-height: 36px; }
-    }
 
 
 
-    /* A focused entry is emitted as title, classification, then one-line summary. */
-    .academic-main h4 + p,
-    .academic-main h4 + p + p,
-    .academic-main h5 + p,
-    .academic-main h5 + p + p { font-size: 16px; }
-</style>
+  </style>
 </head>
 <body>
 
@@ -557,65 +529,78 @@ div.pswp__img--placeholder,
     <aside class="academic-sidebar" id="academic-sidebar" aria-label="文档目录">
       <div class="toc-panel">
         <p class="toc-heading">目录</p>
-        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#2026-w39-论文周报">2026-W39 · 论文周报</a><a class="toc-link toc-level-2" href="#重点解析">重点解析</a><a class="toc-link toc-level-3" href="#3d">3D</a><a class="toc-link toc-level-4" href="#2026-09-22">2026-09-22</a><a class="toc-link toc-level-5" href="#mira-scene-pixel-aligned-layouts-for-generative-3d-scene-reconstruction">Mira-Scene: Pixel-Aligned Layouts for Generative 3D Scene Reconstruction</a><a class="toc-link toc-level-5" href="#ultratex-unleashing-2k-multi-view-diffusion-for-3d-texturing">UltraTex: Unleashing 2K Multi-View Diffusion for 3D Texturing</a><a class="toc-link toc-level-4" href="#2026-09-21">2026-09-21</a><a class="toc-link toc-level-5" href="#cadworld-computer-use-benchmark-for-long-horizon-computer-aided-design">CADWorld: Computer-Use Benchmark for Long-Horizon Computer-Aided Design</a><a class="toc-link toc-level-5" href="#deformsmith-physics-harness-guided-hierarchical-generation-of-deformable-assets-for-robot-manipulation">DeformSmith: Physics Harness-Guided Hierarchical Generation of Deformable Assets for Robot Manipulation</a><a class="toc-link toc-level-3" href="#视频">视频</a><a class="toc-link toc-level-4" href="#2026-09-22-2">2026-09-22</a><a class="toc-link toc-level-5" href="#streaming-video-editing-with-easy-adaptation">Streaming Video Editing with Easy Adaptation</a><a class="toc-link toc-level-5" href="#why-do-video-diffusion-models-violate-physics-unveiling-the-flaws-in-attention-mechanisms">Why Do Video Diffusion Models Violate Physics? Unveiling the Flaws in Attention Mechanisms</a><a class="toc-link toc-level-5" href="#worldcrafter-consistent-video-world-model-with-implicit-3d-aware-memory">WorldCrafter: Consistent Video World Model with Implicit 3D-aware Memory</a><a class="toc-link toc-level-2" href="#全量论文简报">全量论文简报</a><a class="toc-link toc-level-3" href="#2026-09-22-3">2026-09-22</a><a class="toc-link toc-level-3" href="#2026-09-21-2">2026-09-21</a></nav>
+        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#deformsmith-physics-harness-guided-hierarchical-generation-of-deformable-assets-for-robot-manipulation">DeformSmith: Physics Harness-Guided Hierarchical Generation of Deformable Assets for Robot Manipulation</a><a class="toc-link toc-level-2" href="#快速理解">快速理解</a><a class="toc-link toc-level-2" href="#中文摘要">中文摘要</a><a class="toc-link toc-level-2" href="#详细分析">详细分析</a><a class="toc-link toc-level-2" href="#1-任务输入-输出-功能和边界">1. 任务输入、输出、功能和边界</a><a class="toc-link toc-level-2" href="#2-研究动机-要解决的问题与核心-insight">2. 研究动机：要解决的问题与核心 insight</a><a class="toc-link toc-level-2" href="#3-核心贡献">3. 核心贡献</a><a class="toc-link toc-level-2" href="#4-推理阶段整体流程与基模">4. 推理阶段整体流程与基模</a><a class="toc-link toc-level-2" href="#5-核心方法-按论文-method-小节总结">5. 核心方法：按论文 Method 小节总结</a><a class="toc-link toc-level-3" href="#iii-a-hierarchical-asset-generation-分层资产生成">III-A Hierarchical Asset Generation（分层资产生成）</a><a class="toc-link toc-level-3" href="#iii-b-robot-interaction-and-evidence-generation-机器人交互与证据生成">III-B Robot Interaction and Evidence Generation（机器人交互与证据生成）</a><a class="toc-link toc-level-3" href="#iii-c-shared-physics-grounded-harness-共享物理接地控制框架">III-C Shared Physics-Grounded Harness（共享物理接地控制框架）</a><a class="toc-link toc-level-2" href="#6-局限性和展望">6. 局限性和展望</a></nav>
       </div>
     </aside>
-    <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../index.html">论文阅读首页</a> <a href="../../date/index.html">日报目录</a> <a href="../index.html">周报目录</a> <a href="../../month/index.html">月报目录</a></p>
-<h1 id="2026-w39-论文周报">2026-W39 · 论文周报</h1>
-<blockquote>收录 <strong>64 篇</strong>论文，重点解析 <strong>7 篇</strong>。正文按需展开，或可单独打开。</blockquote>
-<h2 id="重点解析">重点解析</h2>
-<h3 id="3d">3D</h3>
-<h4 id="2026-09-22">2026-09-22</h4>
-<h5 id="mira-scene-pixel-aligned-layouts-for-generative-3d-scene-reconstruction">Mira-Scene: Pixel-Aligned Layouts for Generative 3D Scene Reconstruction</h5>
-<p><strong>分类：</strong> 3D；3D reconstruction</p>
-<p>提出Mira-Scene，用像素对齐的规范化坐标图实现单图像3D场景重建，提升布局精度。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.23796v2/teaser.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.23796v2/teaser.png" alt="Mira-Scene: Pixel-Aligned Layouts for Generative 3D Scene Reconstruction 论文图" loading="lazy"></a><span class="image-caption">Mira-Scene: Pixel-Aligned Layouts for Generative 3D Scene Reconstruction 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.23796v2">arXiv</a> · <a href="https://huggingface.co/papers/2609.23796">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.23796">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.23796/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="ultratex-unleashing-2k-multi-view-diffusion-for-3d-texturing">UltraTex: Unleashing 2K Multi-View Diffusion for 3D Texturing</h5>
-<p><strong>分类：</strong> 3D；3d texture generation</p>
-<p>提出UltraTex，通过高效多视图扩散实现2K分辨率3D纹理生成。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.23169v1/pipeline.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.23169v1/pipeline.png" alt="UltraTex: Unleashing 2K Multi-View Diffusion for 3D Texturing 论文图" loading="lazy"></a><span class="image-caption">UltraTex: Unleashing 2K Multi-View Diffusion for 3D Texturing 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.23169">arXiv</a> · <a href="https://huggingface.co/papers/2609.23169">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.23169">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.23169/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-09-21">2026-09-21</h4>
-<h5 id="cadworld-computer-use-benchmark-for-long-horizon-computer-aided-design">CADWorld: Computer-Use Benchmark for Long-Horizon Computer-Aided Design</h5>
-<p><strong>分类：</strong> 3D；3d generation</p>
-<p>提出CADWorld基准，评估GUI代理在FreeCAD长时机械设计任务中的能力。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.16251v2/overview.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.16251v2/overview.png" alt="CADWorld: Computer-Use Benchmark for Long-Horizon Computer-Aided Design 论文图" loading="lazy"></a><span class="image-caption">CADWorld: Computer-Use Benchmark for Long-Horizon Computer-Aided Design 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.16251v2">arXiv</a> · <a href="https://huggingface.co/papers/2609.16251">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.16251">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.16251/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="deformsmith-physics-harness-guided-hierarchical-generation-of-deformable-assets-for-robot-manipulation">DeformSmith: Physics Harness-Guided Hierarchical Generation of Deformable Assets for Robot Manipulation</h5>
-<p><strong>分类：</strong> 3D；3d generation</p>
-<p>提出DeformSmith，从文本或单图分层生成机器人操作所需可变形资产，以物理引导和交互反馈优化。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.18620v2/figures/deformsmith_pipeline.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.18620v2/figures/deformsmith_pipeline.png" alt="DeformSmith: Physics Harness-Guided Hierarchical Generation of Deformable Assets for Robot Manipulation 论文图" loading="lazy"></a><span class="image-caption">DeformSmith: Physics Harness-Guided Hierarchical Generation of Deformable Assets for Robot Manipulation 论文图</span></span></p>
+    <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../date/">← 返回日报目录</a></p>
+<h1 id="deformsmith-physics-harness-guided-hierarchical-generation-of-deformable-assets-for-robot-manipulation">DeformSmith: Physics Harness-Guided Hierarchical Generation of Deformable Assets for Robot Manipulation</h1>
 <p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.18620">arXiv</a> · <a href="https://huggingface.co/papers/2609.18620">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.18620">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.18620/index.html" data-inline-html="true">展开正文</a></p>
-<h3 id="视频">视频</h3>
-<h4 id="2026-09-22-2">2026-09-22</h4>
-<h5 id="streaming-video-editing-with-easy-adaptation">Streaming Video Editing with Easy Adaptation</h5>
-<p><strong>分类：</strong> 视频；video diffusion model</p>
-<p>提出SVEET框架，仅训练预训练双向视频扩散模型即可实现高质量流式视频编辑，并达到实时性能。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.24788v1/teaser_new.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.24788v1/teaser_new.png" alt="Streaming Video Editing with Easy Adaptation 论文图" loading="lazy"></a><span class="image-caption">Streaming Video Editing with Easy Adaptation 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.24788">arXiv</a> · <a href="https://huggingface.co/papers/2609.24788">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.24788">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.24788/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="why-do-video-diffusion-models-violate-physics-unveiling-the-flaws-in-attention-mechanisms">Why Do Video Diffusion Models Violate Physics? Unveiling the Flaws in Attention Mechanisms</h5>
-<p><strong>分类：</strong> 视频；video diffusion model</p>
-<p>研究视频扩散模型违反物理规律的原因，揭示注意力机制缺陷并提出改进方法。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.23658v1/basketball_seed26.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.23658v1/basketball_seed26.png" alt="Why Do Video Diffusion Models Violate Physics? Unveiling the Flaws in Attention Mechanisms 论文图" loading="lazy"></a><span class="image-caption">Why Do Video Diffusion Models Violate Physics? Unveiling the Flaws in Attention Mechanisms 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.23658v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.23658">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.23658">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.23658/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="worldcrafter-consistent-video-world-model-with-implicit-3d-aware-memory">WorldCrafter: Consistent Video World Model with Implicit 3D-aware Memory</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出WorldCrafter视频世界模型，用隐式3D感知记忆实现长时程多视角一致的场景探索。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.24984v1/pipeline.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.24984v1/pipeline.png" alt="WorldCrafter: Consistent Video World Model with Implicit 3D-aware Memory 论文图" loading="lazy"></a><span class="image-caption">WorldCrafter: Consistent Video World Model with Implicit 3D-aware Memory 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.24984v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.24984">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.24984">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.24984/index.html" data-inline-html="true">展开正文</a></p>
-<h2 id="全量论文简报">全量论文简报</h2>
-<h3 id="2026-09-22-3">2026-09-22</h3>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.23796v2">Mira-Scene</a></td><td>3D</td><td>提出Mira-Scene，用像素对齐的规范化坐标图实现单图像3D场景重建，提升布局精度。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.23169">UltraTex</a></td><td>3D</td><td>提出UltraTex，通过高效多视图扩散实现2K分辨率3D纹理生成。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24788">Streaming Video Editing with Easy Adaptation</a></td><td>视频</td><td>提出SVEET框架，仅训练预训练双向视频扩散模型即可实现高质量流式视频编辑，并达到实时性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.23658v1">Why Do Video Diffusion Models Violate Physics? Unveiling the Flaws in Attention Mechanisms</a></td><td>视频</td><td>研究视频扩散模型违反物理规律的原因，揭示注意力机制缺陷并提出改进方法。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24984v1">WorldCrafter</a></td><td>视频</td><td>提出WorldCrafter视频世界模型，用隐式3D感知记忆实现长时程多视角一致的场景探索。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24432">1% of Tokens Can Be Enough</a></td><td>其他</td><td>提出信息效率比改进稀疏在线策略蒸馏的token选择，极小预算下达到或超过完整监督。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.21996">A Lie Detector Test for Language Models</a></td><td>其他</td><td>提出PIR方法，从模型内部状态识别其隐藏的知识，区分不愿回答与无法回答。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.23989">ACLArena</a></td><td>其他</td><td>提出ACLArena框架，研究多阶段后训练中智能体持续学习，并提出结合回放与LoRA路由的新配方。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24118">CARE</a></td><td>其他</td><td>提出CARE框架，利用执行失败经验生成纠正数据，提升VLA策略机器人操作的恢复能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24797">Complex KDA</a></td><td>其他</td><td>提出Complex KDA，增强线性RNN表达能力，实现二维旋转与状态跟踪。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22255">Deep Persona</a></td><td>其他</td><td>提出基于心理学分层架构的角色扮演智能体构建与无参考评估框架，提升对话自然度。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24220">Document Retrieval-Aware Chunking (D-RAC)</a></td><td>其他</td><td>提出文档检索感知分块框架D-RAC，通过PDF规范化与多模态Markdown转换实现企业文档的高效低耗分块。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24115">EDGEGEN</a></td><td>其他</td><td>提出EdgeGen框架，自动生成基于数据库的边界用例，提升工具调用智能体性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25001">GameHorizon Suite</a></td><td>其他</td><td>提出GameHorizon套件，含自动化标注、跨21游戏数据集及离线在线评测，评估多模态游戏AI。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.23863">Grounded Action Model</a></td><td>其他</td><td>提出基于3D接地的Grounded Action Model机器人操作基础模型，以物体中心表示预测动作，提升泛化性能</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24974">Harness-Zero</a></td><td>其他</td><td>提出Harness-Zero，通过agent-as-harness将优化harness的行为蒸馏到模型权重，部署时无需专用harness。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.10706">HuRo</a></td><td>其他</td><td>提出HuRo流水线，将人类视频机器人化并构建大规模数据集，用于预训练VLA策略，提升真实操作任务成功率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.23986">Jev-Mem</a></td><td>其他</td><td>提出System-One控制的智能体记忆架构，提升效率并降低延迟。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22220">Measuring the Checker</a></td><td>其他</td><td>提出变异分析作为GPU内核基准测试预言机的充分性度量，自动注入故障并评估测试协议。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.23088">OmniEdu</a></td><td>其他</td><td>提出OmniEdu教育基础模型，通过能力均衡的指令微调，提升K-12解题、课程理解和教学辅导性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.23377">One to More, More to One</a></td><td>其他</td><td>面向仓库级软件工程任务，提出类别感知专家训练与策略整合框架，提升多类别问题解决率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24983">onPanda</a></td><td>其他</td><td>提出onPanda工具，通过token级纠错高效标注LLM与智能体的on-policy对齐数据。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20758">Prediction-Powered Smoothing and Validation for Disaggregated AI Evaluation</a></td><td>其他</td><td>提出预测驱动的平滑与验证方法，用于AI系统分域评估的估计和选择。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13814">Realtime-Venus</a></td><td>其他</td><td>提出Realtime-Venus全双工交互系统，集成连续感知与异步委托</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24972">RRSI</a></td><td>其他</td><td>提出正则化递归自改进方法RRSI，约束智能体外挂演进，提升分布外泛化并降低计算成本。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13231">ShieldVLA</a></td><td>其他</td><td>提出ShieldVLA，基于HJ可达性约束视觉-语言-动作模型的安全微调，降低安全代价并提升成功率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.06052">SkillSpec</a></td><td>其他</td><td>提出SkillSpec框架，用意图掩码规格推理验证智能体技能正确性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20869">TAPe+ML</a></td><td>其他</td><td>提出TAPe+ML v3，基于结构化表示TAPe的紧凑多任务视觉系统，实现检测、分割与分类。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15991">The Functionalizer</a></td><td>其他</td><td>提出无损预分词框架，将大小写、变音和重复等词形变体分解为可逆操作码/操作数，压缩词表并改善建模。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24682">Think Like a World Model, Act Like a VLA</a></td><td>其他</td><td>将世界模型内部特征蒸馏到VLA策略中，提升机器人操作鲁棒性且零额外推理开销。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22870">Towards Full Pipeline FP8 Reinforcement Learning for LLMs</a></td><td>其他</td><td>提出Calibrated Clipping方法，解决FP8强化学习训练中的熵增与不稳定问题。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22966">Transferring the Intelligence of VLMs to Robotic Control</a></td><td>其他</td><td>提出RoboDawn接口，让视觉语言模型通过离散指令零样本控制机器人，无需任务训练。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24997">VideoGen-Agent</a></td><td>其他</td><td>提出视频生成智能体VideoGen-Agent，用多任务强化学习协调外部工具提升视频生成质量。</td></tr></tbody></table></div>
-<h3 id="2026-09-21-2">2026-09-21</h3>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.16251v2">CADWorld</a></td><td>3D</td><td>提出CADWorld基准，评估GUI代理在FreeCAD长时机械设计任务中的能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.18620">DeformSmith</a></td><td>3D</td><td>提出DeformSmith，从文本或单图分层生成机器人操作所需可变形资产，以物理引导和交互反馈优化。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22076">APort Vault</a></td><td>其他</td><td>提出APort Vault基准，评估AI代理支付授权与开放代理护照机制。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20886">BI-Agent and BI-Bench</a></td><td>其他</td><td>提出端到端商业智能基准BI-Bench和工具增强智能体BI-Agent，提升LLM在商业智能任务中的准确率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.21619">Calibrating Teacher--Student Discrepancy for On-Policy Distillation</a></td><td>其他</td><td>提出Cal-OPD方法，校准教师自身偏差以提升在线蒸馏效果</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22068">CodeMidas</a></td><td>其他</td><td>提出CodeMidas，从源码自动构建编码智能体RL环境，提升多基准编程性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22086">Designer-RSI</a></td><td>其他</td><td>提出Designer-RSI框架，通过外部程序记忆从用户流量中进化设计流程，提升代理图形设计成功率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15779">EvoOntology</a></td><td>其他</td><td>提出自进化本体层EvoOntology，弥合数据代理与异构数据间的鸿沟。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.18766">FRAUDSkill</a></td><td>其他</td><td>提出FRAUDSkill，通过冻结权重优化外部技能实现结构化音频反欺诈检测。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.21788">From Pretraining to Proficiency</a></td><td>其他</td><td>提出PARTS框架，用真实世界子任务强化学习微调机器人长时程操作策略，提升成功率并减少人工干预。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19315">GAVEL</a></td><td>其他</td><td>提出GAVEL框架，基于图世界模型验证与修复LLM长时程任务规划，显著提升BEHAVIOR-1K成功率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.21094">Geometry of Values</a></td><td>其他</td><td>构建跨语言道德困境数据集，用任务向量正交化实现价值观偏好对齐。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.21749">GraphSkillEvo</a></td><td>其他</td><td>提出图结构技能表示与进化优化框架GraphSkillEvo，提升大模型智能体任务表现。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22039">Gricea</a></td><td>其他</td><td>提出开放科学平台Gricea，支持会话式AI研究的构建、复现与扩展。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.05571">Grounded Skill Synthesis from Code at Scale for Agentic Intelligence</a></td><td>其他</td><td>提出Code2Skill，从代码库自动合成可验证的智能体技能，构建百万级技能库并提升下游任务性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.21346">IntBMoE</a></td><td>其他</td><td>提出IntBMoE块级条件MoE，解耦参与、执行和物化，实现全参与且高效。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20669">Learning Foresight without Explicit Trajectories for 3D Diffusion Policies</a></td><td>其他</td><td>提出Movement Trend Guidance，为3D扩散策略提供交互趋势潜变量，提升操作成功率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22083">MintAct</a></td><td>其他</td><td>提出统一视觉智能体MintAct，在移动、桌面和网页环境中实现UI理解、多步导航及视觉工具使用，达到最先进性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.09206">MLLMs Hallucinate when Information Distribution Drifts in Synergy Heads</a></td><td>其他</td><td>提出HEAL方法，通过头部信息解缠与校准减少多模态大语言模型幻觉。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15126">MoME</a></td><td>其他</td><td>提出MoME机制，用混合记忆槽实现上下文感知的稀疏查找，提升语言模型效率与语义区分。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22069">OmniVBench</a></td><td>其他</td><td>提出OmniVBench基准和Omni-R2V数据集，用于评估和训练通用参考视频生成模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.21465">OmniVChat</a></td><td>其他</td><td>提出原生音视频对话任务，构建合成数据引擎与基准，并用强化学习训练提升模型性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20816">Paint-Anything</a></td><td>其他</td><td>提出基于十六进制颜色提示的统一图像生成与编辑方法，实现任意颜色控制。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22000">RecreationWorld</a></td><td>其他</td><td>介绍RecreationWorld，一个用于混合计算机使用代理的可扩展可验证环境框架。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20633">Refinement Is Inherently Editable</a></td><td>其他</td><td>提出基于生成精炼网络的无训练提示引导图像编辑框架，用比特路由与稳定机制实现高质量编辑。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.21038">Retention-Constrained Post-Training Quantization of Cellpose-SAM for Stem Cell Microscopy</a></td><td>其他</td><td>研究Cellpose-SAM在干细胞显微图像上的保留约束后训练量化，验证混合W4/W8方案高效且无灾难性失败。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19169">SiliconBench</a></td><td>其他</td><td>提出SiliconBench，从速度、内存和保真度三方面评测苹果统一内存桌面上的LLM服务引擎。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.12623">SteerDuplex</a></td><td>其他</td><td>提出SteerDuplex全双工语音对话模型及SteerBench基准，提升语音可控性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.18748">TeleAntiFraud 2.0</a></td><td>其他</td><td>提出TeleAntiFraud 2.0音频基准，用于在近域混淆条件下评估电信诈骗检测模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19122">Training-Adaptive Convolutional Sparse Coding via Information Bottleneck for Robust Visual Representation</a></td><td>其他</td><td>提出训练自适应卷积稀疏编码框架，通过信息瓶颈平衡压缩与保留，提升鲁棒视觉表示。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20942">When AI Reviews Train AI Reviewers</a></td><td>其他</td><td>研究AI评审递归训练中科学判断崩溃现象，并提出TrustReviewer干预方法。</td></tr></tbody></table></div></div></article></main>
+<p><strong>一句话主题：</strong> 面向机器人操作的可变形资产生成，用物理引导分层构建和交互反馈闭环优化。</p>
+<p><strong>领域标签：</strong> 机器人操作 / 可变形资产生成 / 物理引导优化</p>
+<h2 id="快速理解">快速理解</h2>
+<p><strong>背景与任务：</strong> 机器人操作可变形资产的生成需联合确定几何、外观和物理属性，而文本/图像难以提供形变与接触响应证据。</p>
+<p><strong>核心工作：</strong> 提出DeformSmith，用分层智能体构建和共享物理引导，从文本或单图逐步生成、测试、优化资产，并通过机器人交互反馈闭环提升视觉质量与物理可信度。</p>
+<h2 id="中文摘要">中文摘要</h2>
+<p>为机器人操作创建可变形资产需要同时指定其几何、外观和物理属性。这对于可变形物体尤其具有挑战性，因为文本和图像提供的关于其如何变形及响应接触的证据有限，而这些响应直接影响其是否适合交互。因此，自动化生成需要解决耦合的物理需求，并利用交互证据来指导构建与细化。我们提出了DeformSmith，一个能够从文本或单张图像自动生成可交互、物理可信的可变形资产的框架。通过分层智能体构建和共享的物理基础测试平台，它逐步构建、测试和细化几何、物理模型、材料行为以及机器人交互，直到生成的资产可用于仿真和操作。机器人交互通过操作反馈和可重放的交互数据使生成过程形成闭环。结果表明，DeformSmith生成的资产在视觉质量和物理合理性上优于最先进的基线方法（包括PhysGen3D、PhysGM和PhysX-Omni），同时支持为可变形物体的机器人操作合成数据。项目页面：https://can-lee.github.io/deformsmith-web/</p>
+<h2 id="详细分析">详细分析</h2>
+<h2 id="1-任务输入-输出-功能和边界">1. 任务输入、输出、功能和边界</h2>
+<p>DeformSmith 的输入是一段自然语言文本或单张物体图像，输出是一个可交互、物理可信的可变形资产。该资产包含基于粒子的物理表示、Gaussian 外观、物理配置（质量、体积、材质参数、接触条件）、验证记录和可重放的机器人交互数据。其功能是为机器人操作仿真提供可直接抓取、搬运、释放的可变形物体。边界是：只处理体积型可变形固体，不处理流体和颗粒材料；材质假设为均匀各向同性弹性体；物理参数和接触模型是近似估计。</p>
+<h2 id="2-研究动机-要解决的问题与核心-insight">2. 研究动机：要解决的问题与核心 insight</h2>
+<p>在机器人操作中，可变形资产的价值不仅取决于它“看起来像什么”，还取决于它被抓取、搬运、释放时“如何变形”。文本和单张图像只能提供几何与语义信息，几乎不能提供材料刚度、阻尼、摩擦等决定接触响应的物理信息。更困难的是，几何、质量、材质和接触条件彼此耦合：修改材料可能改变物体在重力下的下沉量，修改接触条件可能改变抓取稳定性，因此不能把这些因素拆开独立猜测。</p>
+<p>现有方法主要分为两类：基于视频或交互观察的方法能估计物理参数，但需要事先看到物体真实运动；基于单图或文本的方法虽然能生成可交互表示，但缺少反馈校验，无法判断推断出的材料在接触后是否正确。论文的核心 insight 是：输入中缺失的物理信息不应当一次性猜完，而应通过“先搭几何和物理底盘，再用仿真探针筛选材质，最后用机器人操作验证”的闭环逐步补全。用仿真产生的接触、变形和稳定性证据来指导生成，而不是只依赖视觉相似性，才能得到真正可用于机器人操作的可变形资产。图 3 直观展示了这一点：仅靠单图重建的资产在跌落仿真后可能摊平、碎裂或结构散开，而 DeformSmith 在相同交互测试中能保持更完整的外观和结构。</p>
+<p>![图3：可变形资产生成与跌落仿真的定性比较。展示了四个案例（海龟、鲸鱼、海豹和橄榄球），每对图像描绘初始空中状态和后续跌落仿真快照。与PhysGen3D [5]、PhysGM [16]和PhysX-Omni [3]相比，DeformSmith能更一致地保持可识别外观和连贯的物体结构。](https://arxiv.org/html/2609.18620v2/figures/fig_quali_comparison.jpg)</p>
+<h2 id="3-核心贡献">3. 核心贡献</h2>
+<p>论文提出、构建并验证了以下三方面贡献：</p>
+<ol><li><strong>DeformSmith 框架</strong>：一个全自动的分层智能体生成框架，能把文本或单张图像转化为可供机器人操作的可交互可变形资产。它将构建过程拆成四层：L0 几何重建、L1 物理模型建立、L2 材质配置、L3 机器人操作验证，逐层构建并检查。</li></ol>
+<ol><li><strong>共享物理接地控制框架（physics-grounded harness）</strong>：把 LLM 智能体与仿真评估连接起来，用仿真证据指导每一步的接受或修订。该框架通过“契约”定义每层允许的动作、必须通过的硬性条件、可编辑字段和修订预算，从而在多次修订中保持物理一致性。</li></ol>
+<ol><li><strong>机器人操作进入生成回路</strong>：将抓取-搬运-释放的机器人操作作为最终验证和反馈来源，既用于进一步修正资产，又产生可重放的交互数据。实验表明，DeformSmith 在物理真实性、视觉质量和语义一致性上优于 PhysGen3D、PhysGM、PhysX-Omni；消融实验验证了分层结构、共享控制框架和操作反馈各自的作用。</li></ol>
+<h2 id="4-推理阶段整体流程与基模">4. 推理阶段整体流程与基模</h2>
+<p>实际使用时，DeformSmith 按固定流程执行“生成—评估—修订”循环。推理时承担决策的基模是 GPT-5.6 Sol：它在控制框架中分别扮演 Planner（选择动作或修订路线）、Designer（提出结构化候选）和 Critic（解读仿真证据并给出接受/修订建议）。此外，图像生成与几何重建模型 Qwen-Image、SAM 3、SAM 3D、MoGe-2、CoACD 负责把输入变成可仿真的几何；Warp MPM 后端负责可变形物理仿真；SAPIEN 和 GraspNet 负责机器人交互规划。图 2 给出了整体流程。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.18620v2/figures/deformsmith_pipeline.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.18620v2/figures/deformsmith_pipeline.png" alt="图2：DeformSmith概览。DeformSmith从文本或单张图像逐步构建可变形资产，每一层都建立在前一层输出的基础之上。该框架重建3D几何、建立物理模型、配置材质属性，并通过仿真探针评估变形与稳定性。随后，机器人抓取-放置测试抓取、搬运和释放，提供交互反馈以进一步细化。一个基于物理的共享控制框架贯穿生成、评估和修订全过程，产出带有验证证据和模拟交互数据的资产。" loading="lazy"></a><span class="image-caption">图2：DeformSmith概览。DeformSmith从文本或单张图像逐步构建可变形资产，每一层都建立在前一层输出的基础之上。该框架重建3D几何、建立物理模型、配置材质属性，并通过仿真探针评估变形与稳定性。随后，机器人抓取-放置测试抓取、搬运和释放，提供交互反馈以进一步细化。一个基于物理的共享控制框架贯穿生成、评估和修订全过程，产出带有验证证据和模拟交互数据的资产。</span></span></p>
+<p>推理步骤如下：</p>
+<ol><li><strong>输入：文本或单张图像。</strong> 若输入为文本，先生成参考图像；分割与重建模块输出物体网格、Gaussian 外观、相机位姿、凸碰撞代理和采样粒子，并将这些几何量对齐到同一坐标系。输出交给 L1 物理建模。</li><li><strong>输入：对齐后的几何和碰撞代理。</strong> 物理建模模块在公制单位下初始化粒子体积和质量，设定重力、地面接触和初始速度，并用刚体代理做放置、跌落、滑动检查。输出共享物理模型，供后续材质和操作使用。</li><li><strong>输入：共享物理模型。</strong> 材质配置模块提出材料候选（杨氏模量、泊松比、阻尼），用 MPM 仿真执行跌落、压缩/提升和稳定性探针；Critic 根据仿真证据决定接受或修订。输出通过验证的材质参数和物理模型。</li><li><strong>输入：带材质的资产。</strong> 机器人交互模块生成抓取位姿，在 SAPIEN 中执行接近、闭合、抬升、搬运、释放，并记录粒子轨迹、接触观测和任务结果。若反馈显示动作问题，则调整动作重试；若显示材质问题，则返回第 3 步重新验证。</li><li><strong>输入：通过任务与验证的资产。</strong> 输出最终资产，包括粒子物理表示、Gaussian 外观、物理配置、验证证据和可重放的交互数据。</li></ol>
+<div class="mermaid">flowchart TD
+    A[输入：文本或单张图像] --&gt; B[L0 几何重建与对齐&lt;br&gt;网格/Gaussian外观/碰撞代理]
+    B --&gt; C[L1 物理建模与初始化&lt;br&gt;粒子质量/体积/重力/接触]
+    C --&gt; D[L2 材质配置与物理探针&lt;br&gt;候选材料 + MPM仿真]
+    D --&gt; E{物理与目标行为通过?}
+    E -- 否，修订候选 --&gt; D
+    E -- 是 --&gt; F[L3 机器人抓取-放置&lt;br&gt;接近/闭合/抬升/搬运/释放]
+    F --&gt; G[操作反馈与交互数据]
+    G --&gt; H{操作评估}
+    H -- 动作修订 --&gt; F
+    H -- 材质修订，需重新验证 --&gt; D
+    H -- 通过 --&gt; I[输出：可交互资产&lt;br&gt;验证证据+交互数据]</div>
+<h2 id="5-核心方法-按论文-method-小节总结">5. 核心方法：按论文 Method 小节总结</h2>
+<p>Method 首先明确目标：从文本或单张图像构建可供仿真机器人操作的体积可变形固体资产。资产包含粒子物理表示、Gaussian 外观和物理配置；粒子质量、静止体积、材质参数和接触条件共同决定资产的动态响应。Method 的总体思路是先固定几何和物理模型，再通过仿真探针选择材质，最后用机器人操作验证。</p>
+<h3 id="iii-a-hierarchical-asset-generation-分层资产生成">III-A Hierarchical Asset Generation（分层资产生成）</h3>
+<p>该小节将资产构建拆成 L0–L3 四层，每一层都建立在前一层输出之上。</p>
+<p><strong>L0：3D 几何重建与对齐。</strong> 文本先被转换成参考图像；图像则直接进入重建。该层重建分割物体的网格和 Gaussian 外观，估计相机与物体几何，并构造凸分解碰撞代理。网格、碰撞代理、采样粒子和 Gaussian 被对齐到同一规范坐标系；每个 Gaussian 与静止构型中的邻近粒子绑定，粒子运动时更新 Gaussian 的位置和方向，从而让物理变形驱动外观变化。</p>
+<p><strong>L1：物理建模与初始化。</strong> 该层把几何变成物理对象：初始化粒子位置和体积 \(V_i\)（公制单位），并用均匀密度先验 \(\rho\) 赋予质量 \(m_i=\rho V_i\)。 \(\rho\) 由 L1 Designer 根据输入建议。同时设定重力、地面接触参数和零初始速度。在启用可变形仿真前，该层先用刚体碰撞代理执行放置、跌落、滑动测试，验证物理模型的合理性。L1 得到的物理模型被 L2 和 L3 共享，且后续不允许通过改变材质来补偿质量、尺度或支撑条件的变化。</p>
+<p><strong>L2：可变形材质配置。</strong> 该层假设物体是均匀、各向同性的 neo-Hookean 材料，提出杨氏模量、泊松比和阻尼候选，并用物质点法（Material Point Method, MPM）仿真其响应。MPM 在粒子上跟踪材料状态，通过与背景网格的相互传递更新运动。仿真探针包括：可变形跌落测试（评估冲击变形、回弹和能量耗散）、压缩或抬升测试（评估受控载荷下的变形和释放后恢复），以及较长时域内的稳定性检查。通过数值和物理有效性检查的候选会根据与目标行为的匹配程度排序，最终被接受的材质与 L1 物理模型一起交给 L3。</p>
+<p><strong>L3：机器人操作。</strong> 该层继承 L1 物理模型和 L2 材质，规划一次抓取-放置操作，考察抓取、搬运和释放。机器人交互反馈用于指导动作和材质修订：动作修订直接在 L3 内重新评估；材质修订则必须先返回 L2 重新验证。该层同时产生模拟交互数据。</p>
+<h3 id="iii-b-robot-interaction-and-evidence-generation-机器人交互与证据生成">III-B Robot Interaction and Evidence Generation（机器人交互与证据生成）</h3>
+<p>该小节给出机器人交互的接触建模、力估计和交互数据记录方式。</p>
+<p>抓取和搬运要求手指能建立接触、通过摩擦支撑变形的物体，并在目的地释放。机器人阶段依次执行接近、闭合、抬升、搬运、释放和退回。夹爪被建模为运动学网格边界。在 MPM 网格节点上，设 \(u_n\) 和 \(\mathbf{u}_t\) 分别为网格速度相对夹爪表面的法向和切向分量。当法向相对速度指向夹爪内部（\(u_n&lt;0\)）时，修正网格速度以阻止穿透：</p>
+<p>\[ \mathbf{v}_g^+ = \mathbf{v}_b + \alpha \mathbf{u}_t, \]</p>
+<p>其中 \(\mathbf{v}_g^+\) 是修正后网格速度，\(\mathbf{v}_b\) 是夹爪表面速度，\(\alpha\) 是摩擦保留比例：</p>
+<p>\[ \alpha = \max\left(0,\ 1-\frac{\mu(-u_n)}{\max(\|\mathbf{u}_t\|,\varepsilon_v)}\right). \]</p>
+<p>这里 \(\mu\) 是夹爪与物体间的摩擦系数，\(\varepsilon_v&gt;0\) 避免除零。该更新阻止物体穿入夹爪、施加摩擦，同时允许物体分离。网格到粒子传递后还会修正残余穿透和向内的相对速度。</p>
+<p>为了支持力预算，论文估计每个手指上的平均反作用力：在报告区间 \(\Delta t_k\) 内，将该手指接触更新产生的冲量求和并除以区间时长：</p>
+<p>\[ \overline{\mathbf{f}}_i^{(k)}=-\frac{1}{\Delta t_k}\sum_{c\in C_i^{(k)}}\mathbf{J}_c, \]</p>
+<p>其中 \(C_i^{(k)}\) 是该区间内手指 \(i\) 的接触更新集合，\(\mathbf{J}_c\) 是单个接触更新传递给物体的冲量，负号表示夹爪受到的相反作用力。</p>
+<p>交互数据方面，系统记录机器人指令、粒子状态、接触观测和任务结果。记录的粒子轨迹可直接驱动 Gaussian 渲染，无需重跑仿真；录制与重放的有效性被独立验证，失败尝试也会作为带标签的诊断证据保留。图 4 展示了一个生成资产在模拟机器人操作中的表现。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.18620v2/figures/fig_quali_results.jpg" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.18620v2/figures/fig_quali_results.jpg" alt="图4：使用DeformSmith生成资产的模拟机器人操作。从左到右，一个毛绒物体经历接近、抓取、提升和释放。场景视图（上）与特写视图（下）配对，突出显示夹爪接触下的物体变形；蓝色线框表示夹爪碰撞几何体。动态高斯泼溅在整个模拟交互过程中渲染机器人场景和可变形物体，从而能够生成可变形物体的操作数据。" loading="lazy"></a><span class="image-caption">图4：使用DeformSmith生成资产的模拟机器人操作。从左到右，一个毛绒物体经历接近、抓取、提升和释放。场景视图（上）与特写视图（下）配对，突出显示夹爪接触下的物体变形；蓝色线框表示夹爪碰撞几何体。动态高斯泼溅在整个模拟交互过程中渲染机器人场景和可变形物体，从而能够生成可变形物体的操作数据。</span></span></p>
+<h3 id="iii-c-shared-physics-grounded-harness-共享物理接地控制框架">III-C Shared Physics-Grounded Harness（共享物理接地控制框架）</h3>
+<p>该小节说明各层如何被统一协调，以及机器人反馈如何进一步引导修订。</p>
+<p><strong>从提案到证据。</strong> Planner 选择当前允许的动作或修订路线，Designer 提出结构化候选，Prober 执行几何检查或仿真并返回证据，Critic 解释证据并建议接受或修订。其中 Planner、Designer、Critic 是 LLM 智能体，Prober 执行仿真和检查，Orchestrator 按 harness 契约做规则检查。Orchestrator 接受候选，或在修订预算内把反馈返回给 Planner 继续迭代。Prober 从仿真 rollout 中收集状态、接触和变形观测；几何评估使用对齐视图和几何检查。每条证据都记录对应的提案来源和修订历史。</p>
+<p><strong>Harness 契约。</strong> 契约定义每一层允许的动作、必须提供的观测、硬性门禁（hard gates）、可编辑字段和修订预算。每次修订必须保持在允许字段和参数范围内，并且必须通过所有硬性门禁，之后才按照与目标行为的一致性在固定测试条件下排序。每次尝试都记录观测、提案来源和修订历史；只有被接受的候选才会替换当前版本，当修订预算耗尽时搜索结束。</p>
+<p><strong>操作引导的细化。</strong> 基本物理探针不能完全捕捉抓取、搬运和释放中的行为，因此机器人交互提供了任务层面的反馈。harness 根据反馈诊断动作问题、材质问题和数值问题：动作修订调整抓取选择、闭合和运动时序；数值修订在保持动作时长不变的前提下调整仿真超参数；材质修订用于解决动作诊断后仍出现的不期望变形，且必须返回 L2 重新验证，再在相同指令、相同物理模型和相同力预算下由机器人确认。整个机器人交互过程还强制每根手指的力预算。</p>
+<h2 id="6-局限性和展望">6. 局限性和展望</h2>
+<p><strong>论文明确说明的限制：</strong> 当前方法假设物体是均匀、各向同性的体积弹性材料，机器人接触模型也是近似的，因此难以覆盖绳子、布料、流体、颗粒、多层或各向异性等复杂可变形物体。从文本或单图推断出的物理参数只是初始估计，还没有在真实物体上做实物验证。实验评估主要依赖 GPT 和人的主观物理合理性评分，并没有直接建立材质参数精度。论文将未来工作指向结合视频中的 3D 点轨迹进行真实材质参数识别，以及扩展更广泛的材质和接触模型。</p>
+<p><strong>可以谨慎推断的限制：</strong> 分层流程一旦通过 L0/L1，几何和物理模型就作为后续决策的固定基础；对于中空、多部件、可断裂或塑性变形明显的物体，这种“先固定底盘再改材质”的方式可能不够灵活。机器人操作验证在 SAPIEN 仿真中完成，从仿真到真实机器人之间还需要实物校准。此外，使用 LLM 作为 Critic 虽然能解释仿真证据，但评估标准会受模型先验影响，不一定完全等价于真实物理测量。</p>
+<p>图 5 展示了论文提出的一个潜在应用方向：将 DeformSmith 生成的几何和物理参数作为初始估计，再用真实机器人操作中的 RGB-D 视频点轨迹来进一步估计材质参数。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.18620v2/figures/real_application.jpg" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.18620v2/figures/real_application.jpg" alt="图5：DeformSmith在真实世界材质参数估计中的潜在应用。DeformSmith生成的几何和物理参数可作为后续材质参数估计的初始估计。真实机器人操作（左）提供RGB-D视频，从中提取3D点轨迹（右），为细化这一初始估计提供观测数据。" loading="lazy"></a><span class="image-caption">图5：DeformSmith在真实世界材质参数估计中的潜在应用。DeformSmith生成的几何和物理参数可作为后续材质参数估计的初始估计。真实机器人操作（左）提供RGB-D视频，从中提取3D点轨迹（右），为细化这一初始估计提供观测数据。</span></span></p></div></article></main>
   </div>
   <script>/*!
   * PhotoSwipe 5.4.4 - https://photoswipe.com
@@ -765,208 +750,6 @@ div.pswp__img--placeholder,
       updateToc();
     }
 
-
-    (() => {
-      const cache = new Map();
-
-      async function fetchLinkedPage(url) {
-        if (!cache.has(url)) {
-          const request = fetch(url, { credentials: "same-origin" })
-            .then(async (response) => {
-              if (!response.ok) throw new Error(`HTTP ${response.status}`);
-              return { text: await response.text(), url: response.url };
-            })
-            .catch((error) => {
-              cache.delete(url);
-              throw error;
-            });
-          cache.set(url, request);
-        }
-        return cache.get(url);
-      }
-
-      function rewriteReferences(root, pageUrl) {
-        root.querySelectorAll("[src], [href]").forEach((node) => {
-          ["src", "href"].forEach((attribute) => {
-            const value = node.getAttribute(attribute);
-            if (!value || value.startsWith("#") || /^(?:data|blob|mailto|tel|javascript):/i.test(value)) return;
-            try {
-              node.setAttribute(attribute, new URL(value, pageUrl).href);
-            } catch (_) {
-              // Leave malformed references unchanged; the browser will expose the failure.
-            }
-          });
-        });
-      }
-
-      function isolateIds(root, prefix) {
-        const replacements = new Map();
-        root.querySelectorAll("[id]").forEach((node) => {
-          const original = node.id;
-          const replacement = `${prefix}-${original}`;
-          replacements.set(original, replacement);
-          node.id = replacement;
-        });
-        root.querySelectorAll('a[href^="#"]').forEach((node) => {
-          const original = decodeURIComponent(node.getAttribute("href").slice(1));
-          if (replacements.has(original)) node.setAttribute("href", `#${replacements.get(original)}`);
-        });
-      }
-
-      function prepareDynamicImages(root) {
-        root.querySelectorAll("a.pswp-image").forEach((item) => {
-          const image = item.querySelector("img");
-          if (!image) return;
-          const sync = () => {
-            item.dataset.pswpSrc = image.currentSrc || image.src;
-            if (item.dataset.referenceImage === "true" && image.naturalWidth && image.naturalHeight) {
-              item.dataset.pswpWidth = String(image.naturalWidth);
-              item.dataset.pswpHeight = String(image.naturalHeight);
-            }
-          };
-          sync();
-          image.addEventListener("load", sync, { once: true });
-        });
-      }
-
-      document.querySelectorAll('a[data-inline-html="true"]').forEach((link, index) => {
-        const summary = link.closest("p, li, blockquote, td") || link.parentElement;
-        if (!summary) return;
-        const dedicatedExpand = link.textContent.trim() === "展开正文";
-        let entry = summary.closest(".inline-html-entry");
-        if (!entry) {
-          if (summary.tagName === "LI" || summary.tagName === "TD") {
-            entry = summary;
-            entry.classList.add("inline-html-entry");
-          } else {
-            entry = document.createElement("section");
-            entry.className = "inline-html-entry";
-            summary.before(entry);
-            entry.append(summary);
-          }
-        }
-        summary.classList.add("inline-html-summary");
-        if (dedicatedExpand) link.classList.add("inline-html-source-link");
-
-        const panel = document.createElement("section");
-        panel.className = "inline-html-panel";
-        panel.id = `inline-html-panel-${index + 1}`;
-        panel.hidden = true;
-        panel.setAttribute("aria-live", "polite");
-
-        const actions = document.createElement("span");
-        actions.className = "inline-html-actions";
-        const toggle = document.createElement("button");
-        toggle.className = "inline-html-toggle";
-        toggle.type = "button";
-        toggle.textContent = "展开正文";
-        toggle.setAttribute("aria-controls", panel.id);
-        toggle.setAttribute("aria-expanded", "false");
-        const standalone = document.createElement("a");
-        standalone.className = "inline-html-standalone";
-        standalone.href = link.href;
-        standalone.textContent = "单独打开";
-        actions.append(toggle, standalone);
-        summary.append(document.createTextNode(" "), actions);
-        entry.append(panel);
-
-        let state = "idle";
-
-        function setOpen(open, returnToSummary = false) {
-          panel.hidden = !open;
-          entry.classList.toggle(
-            "is-expanded",
-            Boolean(entry.querySelector(".inline-html-panel:not([hidden])"))
-          );
-          const expanded = String(open);
-          toggle.setAttribute("aria-expanded", expanded);
-          link.setAttribute("aria-expanded", expanded);
-          toggle.textContent = open ? (state === "error" ? "重试加载" : "收起正文") : "展开正文";
-          if (!open && returnToSummary) {
-            summary.scrollIntoView({ behavior: "smooth", block: "start" });
-            toggle.focus({ preventScroll: true });
-          }
-        }
-
-        function appendCloseFooter(target) {
-          const footer = document.createElement("div");
-          footer.className = "inline-html-footer";
-          const close = document.createElement("button");
-          close.className = "inline-html-close";
-          close.type = "button";
-          close.textContent = "收起正文并返回摘要";
-          close.addEventListener("click", () => setOpen(false, true));
-          footer.append(close);
-          target.append(footer);
-        }
-
-        async function toggleInlinePage() {
-          if (state === "loaded") {
-            setOpen(panel.hidden);
-            return;
-          }
-          if (state === "loading") return;
-
-          state = "loading";
-          toggle.disabled = true;
-          panel.replaceChildren();
-          const loading = document.createElement("p");
-          loading.className = "inline-html-status";
-          loading.textContent = "正在加载完整正文…";
-          panel.append(loading);
-          setOpen(true);
-
-          try {
-            const fetched = await fetchLinkedPage(link.href);
-            const parsed = new DOMParser().parseFromString(fetched.text, "text/html");
-            const source = parsed.querySelector(".markdown-image-gallery")
-              || parsed.querySelector("main article")
-              || parsed.querySelector("article")
-              || parsed.querySelector("main");
-            if (!source) throw new Error("linked page does not contain a readable article");
-            const body = source.cloneNode(true);
-            if (body.firstElementChild && body.firstElementChild.tagName === "H1") {
-              body.firstElementChild.remove();
-            }
-            isolateIds(body, `inline-${index + 1}`);
-            rewriteReferences(body, fetched.url);
-            body.classList.add("inline-html-body");
-            panel.replaceChildren(body);
-            appendCloseFooter(panel);
-            prepareDynamicImages(body);
-            state = "loaded";
-            setOpen(true);
-            if (window.mermaid && typeof window.mermaid.run === "function") {
-              const diagrams = Array.from(body.querySelectorAll(".mermaid"));
-              if (diagrams.length) window.mermaid.run({ nodes: diagrams }).catch(() => {});
-            }
-
-            if (window.MathJax && typeof window.MathJax.typesetPromise === "function") {
-              window.MathJax.typesetPromise([body]).catch(() => {});
-            }
-
-          } catch (error) {
-            panel.replaceChildren();
-            const message = document.createElement("p");
-            message.className = "inline-html-status inline-html-error";
-            message.textContent = `正文加载失败：${error.message}`;
-            panel.append(message);
-            appendCloseFooter(panel);
-            state = "error";
-            setOpen(true);
-          } finally {
-            toggle.disabled = false;
-          }
-        }
-
-        toggle.addEventListener("click", toggleInlinePage);
-        link.addEventListener("click", (event) => {
-          if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-          event.preventDefault();
-          toggleInlinePage();
-        });
-      });
-    })();
 
 
   </script>

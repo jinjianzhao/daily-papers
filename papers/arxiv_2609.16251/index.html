@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>2026-W39 · 论文周报</title>
+  <title>CADWorld: Computer-Use Benchmark for Long-Horizon Computer-Aided Design</title>
 
   <script>
     window.MathJax = {
@@ -515,38 +515,10 @@ div.pswp__img--placeholder,
       .academic-main article { padding: 30px 22px 52px; border: 0; border-radius: 0; }
     }
 
-    h3 { font-size: 20px; }
-    h4 { font-size: 17px; }
-    h5 { font-size: 18px; }
-
-    .inline-html-entry { margin: 18px 0; padding: 16px 18px 18px; border: 1px solid #d8e2eb; border-left: 3px solid #91abc2; border-radius: 6px; background: #fbfdff; transition: border-color .15s, background .15s; }
-    .inline-html-entry.is-expanded { border-color: #b7c9d9; border-left-color: #1769aa; background: #fff; }
-    .inline-html-summary { margin-top: 0; margin-bottom: 0; }
-    .inline-html-actions { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-left: 10px; vertical-align: middle; }
-    .inline-html-toggle, .inline-html-standalone, .inline-html-close { display: inline-flex; min-height: 30px; align-items: center; justify-content: center; padding: 5px 10px; border: 1px solid #b9c9d8; border-radius: 6px; background: #fff; color: #37516a; font: inherit; font-size: 12px; font-weight: 700; line-height: 1.35; text-decoration: none; cursor: pointer; }
-    .inline-html-source-link { display: none; }
-    .inline-html-toggle:hover, .inline-html-standalone:hover, .inline-html-close:hover { border-color: #1769aa; color: #1769aa; }
-    .inline-html-toggle:disabled { cursor: wait; opacity: .6; }
-    .inline-html-panel { margin: 18px 0 0; padding-top: 24px; border-top: 1px solid #e2e8f0; }
-    .inline-html-panel[hidden] { display: none; }
-    .inline-html-body h1:first-child { display: none; }
-    .inline-html-status { color: #64748b; font-size: 14px; }
-    .inline-html-error { color: #9f1239; }
-    .inline-html-footer { display: flex; justify-content: flex-end; margin-top: 30px; padding-top: 16px; border-top: 1px solid #e2e8f0; }
-    @media (max-width: 640px) {
-      .inline-html-entry { padding: 14px 14px 16px; }
-      .inline-html-actions { display: flex; margin: 10px 0 0; }
-      .inline-html-toggle, .inline-html-standalone, .inline-html-close { min-height: 36px; }
-    }
 
 
 
-    /* A focused entry is emitted as title, classification, then one-line summary. */
-    .academic-main h4 + p,
-    .academic-main h4 + p + p,
-    .academic-main h5 + p,
-    .academic-main h5 + p + p { font-size: 16px; }
-</style>
+  </style>
 </head>
 <body>
 
@@ -557,65 +529,64 @@ div.pswp__img--placeholder,
     <aside class="academic-sidebar" id="academic-sidebar" aria-label="文档目录">
       <div class="toc-panel">
         <p class="toc-heading">目录</p>
-        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#2026-w39-论文周报">2026-W39 · 论文周报</a><a class="toc-link toc-level-2" href="#重点解析">重点解析</a><a class="toc-link toc-level-3" href="#3d">3D</a><a class="toc-link toc-level-4" href="#2026-09-22">2026-09-22</a><a class="toc-link toc-level-5" href="#mira-scene-pixel-aligned-layouts-for-generative-3d-scene-reconstruction">Mira-Scene: Pixel-Aligned Layouts for Generative 3D Scene Reconstruction</a><a class="toc-link toc-level-5" href="#ultratex-unleashing-2k-multi-view-diffusion-for-3d-texturing">UltraTex: Unleashing 2K Multi-View Diffusion for 3D Texturing</a><a class="toc-link toc-level-4" href="#2026-09-21">2026-09-21</a><a class="toc-link toc-level-5" href="#cadworld-computer-use-benchmark-for-long-horizon-computer-aided-design">CADWorld: Computer-Use Benchmark for Long-Horizon Computer-Aided Design</a><a class="toc-link toc-level-5" href="#deformsmith-physics-harness-guided-hierarchical-generation-of-deformable-assets-for-robot-manipulation">DeformSmith: Physics Harness-Guided Hierarchical Generation of Deformable Assets for Robot Manipulation</a><a class="toc-link toc-level-3" href="#视频">视频</a><a class="toc-link toc-level-4" href="#2026-09-22-2">2026-09-22</a><a class="toc-link toc-level-5" href="#streaming-video-editing-with-easy-adaptation">Streaming Video Editing with Easy Adaptation</a><a class="toc-link toc-level-5" href="#why-do-video-diffusion-models-violate-physics-unveiling-the-flaws-in-attention-mechanisms">Why Do Video Diffusion Models Violate Physics? Unveiling the Flaws in Attention Mechanisms</a><a class="toc-link toc-level-5" href="#worldcrafter-consistent-video-world-model-with-implicit-3d-aware-memory">WorldCrafter: Consistent Video World Model with Implicit 3D-aware Memory</a><a class="toc-link toc-level-2" href="#全量论文简报">全量论文简报</a><a class="toc-link toc-level-3" href="#2026-09-22-3">2026-09-22</a><a class="toc-link toc-level-3" href="#2026-09-21-2">2026-09-21</a></nav>
+        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#cadworld-computer-use-benchmark-for-long-horizon-computer-aided-design">CADWorld: Computer-Use Benchmark for Long-Horizon Computer-Aided Design</a><a class="toc-link toc-level-2" href="#快速理解">快速理解</a><a class="toc-link toc-level-2" href="#中文摘要">中文摘要</a><a class="toc-link toc-level-2" href="#详细分析">详细分析</a><a class="toc-link toc-level-2" href="#1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</a><a class="toc-link toc-level-2" href="#2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</a><a class="toc-link toc-level-2" href="#3-核心贡献-约300字">3. 核心贡献（约300字）</a><a class="toc-link toc-level-2" href="#4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</a><a class="toc-link toc-level-2" href="#5-核心方法-按论文-method-小节总结-约600字">5. 核心方法：按论文 Method 小节总结（约600字）</a><a class="toc-link toc-level-3" href="#3-1-task-taxonomy-任务分类">3.1 Task Taxonomy（任务分类）</a><a class="toc-link toc-level-3" href="#3-2-task-package-and-benchmark-workflow-任务包与四阶段工作流">3.2 Task Package and Benchmark Workflow（任务包与四阶段工作流）</a><a class="toc-link toc-level-3" href="#3-3-observation-and-action-space-观测与动作空间">3.3 Observation and Action Space（观测与动作空间）</a><a class="toc-link toc-level-3" href="#3-4-artifact-grounded-evaluation-工件锚定的评估">3.4 Artifact-Grounded Evaluation（工件锚定的评估）</a><a class="toc-link toc-level-3" href="#3-5-metrics-and-failure-diagnosis-指标与失败诊断">3.5 Metrics and Failure Diagnosis（指标与失败诊断）</a><a class="toc-link toc-level-2" href="#6-局限性和展望-约300字">6. 局限性和展望（约300字）</a></nav>
       </div>
     </aside>
-    <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../index.html">论文阅读首页</a> <a href="../../date/index.html">日报目录</a> <a href="../index.html">周报目录</a> <a href="../../month/index.html">月报目录</a></p>
-<h1 id="2026-w39-论文周报">2026-W39 · 论文周报</h1>
-<blockquote>收录 <strong>64 篇</strong>论文，重点解析 <strong>7 篇</strong>。正文按需展开，或可单独打开。</blockquote>
-<h2 id="重点解析">重点解析</h2>
-<h3 id="3d">3D</h3>
-<h4 id="2026-09-22">2026-09-22</h4>
-<h5 id="mira-scene-pixel-aligned-layouts-for-generative-3d-scene-reconstruction">Mira-Scene: Pixel-Aligned Layouts for Generative 3D Scene Reconstruction</h5>
-<p><strong>分类：</strong> 3D；3D reconstruction</p>
-<p>提出Mira-Scene，用像素对齐的规范化坐标图实现单图像3D场景重建，提升布局精度。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.23796v2/teaser.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.23796v2/teaser.png" alt="Mira-Scene: Pixel-Aligned Layouts for Generative 3D Scene Reconstruction 论文图" loading="lazy"></a><span class="image-caption">Mira-Scene: Pixel-Aligned Layouts for Generative 3D Scene Reconstruction 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.23796v2">arXiv</a> · <a href="https://huggingface.co/papers/2609.23796">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.23796">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.23796/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="ultratex-unleashing-2k-multi-view-diffusion-for-3d-texturing">UltraTex: Unleashing 2K Multi-View Diffusion for 3D Texturing</h5>
-<p><strong>分类：</strong> 3D；3d texture generation</p>
-<p>提出UltraTex，通过高效多视图扩散实现2K分辨率3D纹理生成。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.23169v1/pipeline.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.23169v1/pipeline.png" alt="UltraTex: Unleashing 2K Multi-View Diffusion for 3D Texturing 论文图" loading="lazy"></a><span class="image-caption">UltraTex: Unleashing 2K Multi-View Diffusion for 3D Texturing 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.23169">arXiv</a> · <a href="https://huggingface.co/papers/2609.23169">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.23169">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.23169/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-09-21">2026-09-21</h4>
-<h5 id="cadworld-computer-use-benchmark-for-long-horizon-computer-aided-design">CADWorld: Computer-Use Benchmark for Long-Horizon Computer-Aided Design</h5>
-<p><strong>分类：</strong> 3D；3d generation</p>
-<p>提出CADWorld基准，评估GUI代理在FreeCAD长时机械设计任务中的能力。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.16251v2/overview.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.16251v2/overview.png" alt="CADWorld: Computer-Use Benchmark for Long-Horizon Computer-Aided Design 论文图" loading="lazy"></a><span class="image-caption">CADWorld: Computer-Use Benchmark for Long-Horizon Computer-Aided Design 论文图</span></span></p>
+    <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../date/">← 返回日报目录</a></p>
+<h1 id="cadworld-computer-use-benchmark-for-long-horizon-computer-aided-design">CADWorld: Computer-Use Benchmark for Long-Horizon Computer-Aided Design</h1>
 <p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.16251v2">arXiv</a> · <a href="https://huggingface.co/papers/2609.16251">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.16251">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.16251/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="deformsmith-physics-harness-guided-hierarchical-generation-of-deformable-assets-for-robot-manipulation">DeformSmith: Physics Harness-Guided Hierarchical Generation of Deformable Assets for Robot Manipulation</h5>
-<p><strong>分类：</strong> 3D；3d generation</p>
-<p>提出DeformSmith，从文本或单图分层生成机器人操作所需可变形资产，以物理引导和交互反馈优化。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.18620v2/figures/deformsmith_pipeline.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.18620v2/figures/deformsmith_pipeline.png" alt="DeformSmith: Physics Harness-Guided Hierarchical Generation of Deformable Assets for Robot Manipulation 论文图" loading="lazy"></a><span class="image-caption">DeformSmith: Physics Harness-Guided Hierarchical Generation of Deformable Assets for Robot Manipulation 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.18620">arXiv</a> · <a href="https://huggingface.co/papers/2609.18620">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.18620">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.18620/index.html" data-inline-html="true">展开正文</a></p>
-<h3 id="视频">视频</h3>
-<h4 id="2026-09-22-2">2026-09-22</h4>
-<h5 id="streaming-video-editing-with-easy-adaptation">Streaming Video Editing with Easy Adaptation</h5>
-<p><strong>分类：</strong> 视频；video diffusion model</p>
-<p>提出SVEET框架，仅训练预训练双向视频扩散模型即可实现高质量流式视频编辑，并达到实时性能。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.24788v1/teaser_new.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.24788v1/teaser_new.png" alt="Streaming Video Editing with Easy Adaptation 论文图" loading="lazy"></a><span class="image-caption">Streaming Video Editing with Easy Adaptation 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.24788">arXiv</a> · <a href="https://huggingface.co/papers/2609.24788">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.24788">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.24788/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="why-do-video-diffusion-models-violate-physics-unveiling-the-flaws-in-attention-mechanisms">Why Do Video Diffusion Models Violate Physics? Unveiling the Flaws in Attention Mechanisms</h5>
-<p><strong>分类：</strong> 视频；video diffusion model</p>
-<p>研究视频扩散模型违反物理规律的原因，揭示注意力机制缺陷并提出改进方法。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.23658v1/basketball_seed26.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.23658v1/basketball_seed26.png" alt="Why Do Video Diffusion Models Violate Physics? Unveiling the Flaws in Attention Mechanisms 论文图" loading="lazy"></a><span class="image-caption">Why Do Video Diffusion Models Violate Physics? Unveiling the Flaws in Attention Mechanisms 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.23658v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.23658">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.23658">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.23658/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="worldcrafter-consistent-video-world-model-with-implicit-3d-aware-memory">WorldCrafter: Consistent Video World Model with Implicit 3D-aware Memory</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出WorldCrafter视频世界模型，用隐式3D感知记忆实现长时程多视角一致的场景探索。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.24984v1/pipeline.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.24984v1/pipeline.png" alt="WorldCrafter: Consistent Video World Model with Implicit 3D-aware Memory 论文图" loading="lazy"></a><span class="image-caption">WorldCrafter: Consistent Video World Model with Implicit 3D-aware Memory 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.24984v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.24984">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.24984">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.24984/index.html" data-inline-html="true">展开正文</a></p>
-<h2 id="全量论文简报">全量论文简报</h2>
-<h3 id="2026-09-22-3">2026-09-22</h3>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.23796v2">Mira-Scene</a></td><td>3D</td><td>提出Mira-Scene，用像素对齐的规范化坐标图实现单图像3D场景重建，提升布局精度。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.23169">UltraTex</a></td><td>3D</td><td>提出UltraTex，通过高效多视图扩散实现2K分辨率3D纹理生成。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24788">Streaming Video Editing with Easy Adaptation</a></td><td>视频</td><td>提出SVEET框架，仅训练预训练双向视频扩散模型即可实现高质量流式视频编辑，并达到实时性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.23658v1">Why Do Video Diffusion Models Violate Physics? Unveiling the Flaws in Attention Mechanisms</a></td><td>视频</td><td>研究视频扩散模型违反物理规律的原因，揭示注意力机制缺陷并提出改进方法。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24984v1">WorldCrafter</a></td><td>视频</td><td>提出WorldCrafter视频世界模型，用隐式3D感知记忆实现长时程多视角一致的场景探索。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24432">1% of Tokens Can Be Enough</a></td><td>其他</td><td>提出信息效率比改进稀疏在线策略蒸馏的token选择，极小预算下达到或超过完整监督。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.21996">A Lie Detector Test for Language Models</a></td><td>其他</td><td>提出PIR方法，从模型内部状态识别其隐藏的知识，区分不愿回答与无法回答。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.23989">ACLArena</a></td><td>其他</td><td>提出ACLArena框架，研究多阶段后训练中智能体持续学习，并提出结合回放与LoRA路由的新配方。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24118">CARE</a></td><td>其他</td><td>提出CARE框架，利用执行失败经验生成纠正数据，提升VLA策略机器人操作的恢复能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24797">Complex KDA</a></td><td>其他</td><td>提出Complex KDA，增强线性RNN表达能力，实现二维旋转与状态跟踪。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22255">Deep Persona</a></td><td>其他</td><td>提出基于心理学分层架构的角色扮演智能体构建与无参考评估框架，提升对话自然度。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24220">Document Retrieval-Aware Chunking (D-RAC)</a></td><td>其他</td><td>提出文档检索感知分块框架D-RAC，通过PDF规范化与多模态Markdown转换实现企业文档的高效低耗分块。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24115">EDGEGEN</a></td><td>其他</td><td>提出EdgeGen框架，自动生成基于数据库的边界用例，提升工具调用智能体性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25001">GameHorizon Suite</a></td><td>其他</td><td>提出GameHorizon套件，含自动化标注、跨21游戏数据集及离线在线评测，评估多模态游戏AI。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.23863">Grounded Action Model</a></td><td>其他</td><td>提出基于3D接地的Grounded Action Model机器人操作基础模型，以物体中心表示预测动作，提升泛化性能</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24974">Harness-Zero</a></td><td>其他</td><td>提出Harness-Zero，通过agent-as-harness将优化harness的行为蒸馏到模型权重，部署时无需专用harness。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.10706">HuRo</a></td><td>其他</td><td>提出HuRo流水线，将人类视频机器人化并构建大规模数据集，用于预训练VLA策略，提升真实操作任务成功率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.23986">Jev-Mem</a></td><td>其他</td><td>提出System-One控制的智能体记忆架构，提升效率并降低延迟。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22220">Measuring the Checker</a></td><td>其他</td><td>提出变异分析作为GPU内核基准测试预言机的充分性度量，自动注入故障并评估测试协议。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.23088">OmniEdu</a></td><td>其他</td><td>提出OmniEdu教育基础模型，通过能力均衡的指令微调，提升K-12解题、课程理解和教学辅导性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.23377">One to More, More to One</a></td><td>其他</td><td>面向仓库级软件工程任务，提出类别感知专家训练与策略整合框架，提升多类别问题解决率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24983">onPanda</a></td><td>其他</td><td>提出onPanda工具，通过token级纠错高效标注LLM与智能体的on-policy对齐数据。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20758">Prediction-Powered Smoothing and Validation for Disaggregated AI Evaluation</a></td><td>其他</td><td>提出预测驱动的平滑与验证方法，用于AI系统分域评估的估计和选择。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13814">Realtime-Venus</a></td><td>其他</td><td>提出Realtime-Venus全双工交互系统，集成连续感知与异步委托</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24972">RRSI</a></td><td>其他</td><td>提出正则化递归自改进方法RRSI，约束智能体外挂演进，提升分布外泛化并降低计算成本。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13231">ShieldVLA</a></td><td>其他</td><td>提出ShieldVLA，基于HJ可达性约束视觉-语言-动作模型的安全微调，降低安全代价并提升成功率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.06052">SkillSpec</a></td><td>其他</td><td>提出SkillSpec框架，用意图掩码规格推理验证智能体技能正确性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20869">TAPe+ML</a></td><td>其他</td><td>提出TAPe+ML v3，基于结构化表示TAPe的紧凑多任务视觉系统，实现检测、分割与分类。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15991">The Functionalizer</a></td><td>其他</td><td>提出无损预分词框架，将大小写、变音和重复等词形变体分解为可逆操作码/操作数，压缩词表并改善建模。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24682">Think Like a World Model, Act Like a VLA</a></td><td>其他</td><td>将世界模型内部特征蒸馏到VLA策略中，提升机器人操作鲁棒性且零额外推理开销。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22870">Towards Full Pipeline FP8 Reinforcement Learning for LLMs</a></td><td>其他</td><td>提出Calibrated Clipping方法，解决FP8强化学习训练中的熵增与不稳定问题。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22966">Transferring the Intelligence of VLMs to Robotic Control</a></td><td>其他</td><td>提出RoboDawn接口，让视觉语言模型通过离散指令零样本控制机器人，无需任务训练。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24997">VideoGen-Agent</a></td><td>其他</td><td>提出视频生成智能体VideoGen-Agent，用多任务强化学习协调外部工具提升视频生成质量。</td></tr></tbody></table></div>
-<h3 id="2026-09-21-2">2026-09-21</h3>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.16251v2">CADWorld</a></td><td>3D</td><td>提出CADWorld基准，评估GUI代理在FreeCAD长时机械设计任务中的能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.18620">DeformSmith</a></td><td>3D</td><td>提出DeformSmith，从文本或单图分层生成机器人操作所需可变形资产，以物理引导和交互反馈优化。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22076">APort Vault</a></td><td>其他</td><td>提出APort Vault基准，评估AI代理支付授权与开放代理护照机制。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20886">BI-Agent and BI-Bench</a></td><td>其他</td><td>提出端到端商业智能基准BI-Bench和工具增强智能体BI-Agent，提升LLM在商业智能任务中的准确率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.21619">Calibrating Teacher--Student Discrepancy for On-Policy Distillation</a></td><td>其他</td><td>提出Cal-OPD方法，校准教师自身偏差以提升在线蒸馏效果</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22068">CodeMidas</a></td><td>其他</td><td>提出CodeMidas，从源码自动构建编码智能体RL环境，提升多基准编程性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22086">Designer-RSI</a></td><td>其他</td><td>提出Designer-RSI框架，通过外部程序记忆从用户流量中进化设计流程，提升代理图形设计成功率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15779">EvoOntology</a></td><td>其他</td><td>提出自进化本体层EvoOntology，弥合数据代理与异构数据间的鸿沟。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.18766">FRAUDSkill</a></td><td>其他</td><td>提出FRAUDSkill，通过冻结权重优化外部技能实现结构化音频反欺诈检测。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.21788">From Pretraining to Proficiency</a></td><td>其他</td><td>提出PARTS框架，用真实世界子任务强化学习微调机器人长时程操作策略，提升成功率并减少人工干预。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19315">GAVEL</a></td><td>其他</td><td>提出GAVEL框架，基于图世界模型验证与修复LLM长时程任务规划，显著提升BEHAVIOR-1K成功率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.21094">Geometry of Values</a></td><td>其他</td><td>构建跨语言道德困境数据集，用任务向量正交化实现价值观偏好对齐。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.21749">GraphSkillEvo</a></td><td>其他</td><td>提出图结构技能表示与进化优化框架GraphSkillEvo，提升大模型智能体任务表现。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22039">Gricea</a></td><td>其他</td><td>提出开放科学平台Gricea，支持会话式AI研究的构建、复现与扩展。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.05571">Grounded Skill Synthesis from Code at Scale for Agentic Intelligence</a></td><td>其他</td><td>提出Code2Skill，从代码库自动合成可验证的智能体技能，构建百万级技能库并提升下游任务性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.21346">IntBMoE</a></td><td>其他</td><td>提出IntBMoE块级条件MoE，解耦参与、执行和物化，实现全参与且高效。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20669">Learning Foresight without Explicit Trajectories for 3D Diffusion Policies</a></td><td>其他</td><td>提出Movement Trend Guidance，为3D扩散策略提供交互趋势潜变量，提升操作成功率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22083">MintAct</a></td><td>其他</td><td>提出统一视觉智能体MintAct，在移动、桌面和网页环境中实现UI理解、多步导航及视觉工具使用，达到最先进性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.09206">MLLMs Hallucinate when Information Distribution Drifts in Synergy Heads</a></td><td>其他</td><td>提出HEAL方法，通过头部信息解缠与校准减少多模态大语言模型幻觉。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15126">MoME</a></td><td>其他</td><td>提出MoME机制，用混合记忆槽实现上下文感知的稀疏查找，提升语言模型效率与语义区分。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22069">OmniVBench</a></td><td>其他</td><td>提出OmniVBench基准和Omni-R2V数据集，用于评估和训练通用参考视频生成模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.21465">OmniVChat</a></td><td>其他</td><td>提出原生音视频对话任务，构建合成数据引擎与基准，并用强化学习训练提升模型性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20816">Paint-Anything</a></td><td>其他</td><td>提出基于十六进制颜色提示的统一图像生成与编辑方法，实现任意颜色控制。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22000">RecreationWorld</a></td><td>其他</td><td>介绍RecreationWorld，一个用于混合计算机使用代理的可扩展可验证环境框架。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20633">Refinement Is Inherently Editable</a></td><td>其他</td><td>提出基于生成精炼网络的无训练提示引导图像编辑框架，用比特路由与稳定机制实现高质量编辑。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.21038">Retention-Constrained Post-Training Quantization of Cellpose-SAM for Stem Cell Microscopy</a></td><td>其他</td><td>研究Cellpose-SAM在干细胞显微图像上的保留约束后训练量化，验证混合W4/W8方案高效且无灾难性失败。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19169">SiliconBench</a></td><td>其他</td><td>提出SiliconBench，从速度、内存和保真度三方面评测苹果统一内存桌面上的LLM服务引擎。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.12623">SteerDuplex</a></td><td>其他</td><td>提出SteerDuplex全双工语音对话模型及SteerBench基准，提升语音可控性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.18748">TeleAntiFraud 2.0</a></td><td>其他</td><td>提出TeleAntiFraud 2.0音频基准，用于在近域混淆条件下评估电信诈骗检测模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19122">Training-Adaptive Convolutional Sparse Coding via Information Bottleneck for Robust Visual Representation</a></td><td>其他</td><td>提出训练自适应卷积稀疏编码框架，通过信息瓶颈平衡压缩与保留，提升鲁棒视觉表示。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20942">When AI Reviews Train AI Reviewers</a></td><td>其他</td><td>研究AI评审递归训练中科学判断崩溃现象，并提出TrustReviewer干预方法。</td></tr></tbody></table></div></div></article></main>
+<p><strong>一句话主题：</strong> 面向计算机辅助设计的GUI代理长时程操作基准测试</p>
+<p><strong>领域标签：</strong> 人工智能 / 计算机使用代理 / 机械CAD基准</p>
+<h2 id="快速理解">快速理解</h2>
+<p><strong>背景与任务：</strong> 现有计算机使用基准缺乏对专业工程工作流及持久化结构产物的评估。</p>
+<p><strong>核心工作：</strong> 作者构建了含200个FreeCAD任务的CADWorld基准，并评测发现最强代理成功率远低于专家。</p>
+<h2 id="中文摘要">中文摘要</h2>
+<p>计算机使用智能体越来越多地在逼真的桌面环境中进行评估，但现有基准对专业工程工作流的覆盖有限，而这些工作流的输出是持久、结构化的工件。机械计算机辅助设计（CAD）是一个尤其严苛的场景：智能体必须在长交互周期内操作几何和约束，同时生成尺寸、构造结构和下游工程状态均保持有效的原生项目。我们引入了 <strong>CADWorld</strong>，一个面向 FreeCAD 中长时程计算机使用的基准。CADWorld 包含 200 个任务，涵盖 11 类机械 CAD 工作流，包括草图绘制、零件建模、装配、CAM、FEM、测量、网格处理和技术图纸。智能体通过截图和 GUI 操作进行交互，而成功与否由对保存的 FreeCAD 工件及辅助输出执行的任务特定可执行检查决定，这些检查涵盖几何属性、参数化结构、约束、制造状态和仿真结果。在完整基准上对七个当前智能体的评估中，最强智能体的成功率为 17.5%，而专家参照通过率为 87.0%。我们发现，较弱的智能体往往在生成有效工件之前就失败，而较强的智能体则越来越多地在结构、几何和构建过程要求上失败。因此，CADWorld 揭示了通用 GUI 能力与可靠执行持久、可验证的工程工作流之间的差距。项目可访问 https://cad-world.github.io。</p>
+<h2 id="详细分析">详细分析</h2>
+<h2 id="1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</h2>
+<p>CADWorld 是一个面向 FreeCAD 的计算机使用基准。任务输入包括自然语言指令、初始应用程序状态（可选前置 <code>.FCStd</code> 文件）、参考图像或网格等资产，以及最大交互步数。智能体通过桌面截图观察状态，输出鼠标、键盘、热键等受限 GUI 动作；最终输出是保存的原生 FreeCAD 工件及辅助文件。评估函数对工件执行任务特定检查并返回 0/1；执行中禁止直接脚本和文件系统访问，默认上限为 100 步。</p>
+<h2 id="2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</h2>
+<p>通用计算机使用基准大多在网页或传统桌面环境中测试点击与输入，但机械 CAD 几乎没有被深入覆盖。CAD 给智能体叠加了四类难度：从二维视图恢复三维几何意图；精确到实体、约束、参数的选择与输入；长达数十到数百步的状态依赖操作；以及必须生成可检查、可编辑且工程语义正确的持久工件。作者特别指出，CAD 的 GUI 不是可更换的脚本前端，而是工程状态的主要表达方式：特征树、约束标注、选中高亮、视图同步等都承载着操作的含义。程序化 CAD 生成虽然能在显式符号规范下工作，却跳过了“从工作区识别状态—决定如何修改—验证后果”这一核心交互环节。因此论文提出用真实 GUI 操作和工件级验证来测试计算机使用智能体。</p>
+<p>核心 insight 来自实验结果：最强智能体成功率为 17.5%，专家参考为 87.0%；较弱模型在产出有效工件前就失败，较强模型则更多在文档结构、几何、构建过程等方面失败。这说明通用 GUI 操作能力与可靠执行持久工程流程之间存在可测的差距，并且随着能力提升，失败点会向后移动。</p>
+<h2 id="3-核心贡献-约300字">3. 核心贡献（约300字）</h2>
+<p>论文的主要贡献可以归纳为三点。第一，将交互式机械 CAD 形式化为计算机使用问题：智能体必须操作面向用户的环境（FreeCAD），并在交互结束后留下持久、可编辑、可测量、可验证的原生工件，而不是生成代码、文本或仅看渲染相似性。第二，构建 CADWorld 基准：包含 200 个任务、11 类工作流、183 个知识点，覆盖草图、零件建模、装配、CAM、FEM、外观、点云、宏、测量、网格和技术制图；任务由人工作者编写，提供指令、前置状态、参考资产和任务特定评估器。第三，设计了工件锚定的可执行评估器与逐项诊断，并评估了 7 个当前计算机使用智能体；结果显示最强模型只有 17.5% 成功率，而专家参考为 87.0%，在 CAM、FEM 和 TechDraw 上所有模型均为 0%，验证了该基准能暴露出不同于通用桌面任务的失败模式。</p>
+<h2 id="4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</h2>
+<p>部署后的 CADWorld 系统在推理时以多模态大语言模型（实验中包括 GPT-5.4、Opus4.8、Kimi K2.6、Qwen3.6 等，以及 OpenCUA、Holo 3.1 等 computer-use 模型）作为视觉-动作决策基模。基模不直接访问 CAD 内部对象；它只接收截图和文本/图像上下文，输出可执行的 GUI 命令。FreeCAD 虚拟机作为被操作的工具环境，runner 负责动作执行、观测采集和终止判断。</p>
+<p>图6给出了完整流程中任务初始化、闭环执行和宿主端评估的位置。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.16251v2/overview.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.16251v2/overview.png" alt="图6：详细的 CADWorld 基准工作流。任务从结构化包初始化，智能体通过截图观察和可执行 UI 动作操作 FreeCAD，保存的 CAD 工件由主机端检查评估，而不是仅凭文本答案或最终截图评估。" loading="lazy"></a><span class="image-caption">图6：详细的 CADWorld 基准工作流。任务从结构化包初始化，智能体通过截图观察和可执行 UI 动作操作 FreeCAD，保存的 CAD 工件由主机端检查评估，而不是仅凭文本答案或最终截图评估。</span></span></p>
+<p>推理时主数据流按以下步骤循环：</p>
+<ol><li><strong>输入</strong>：任务指令、参考图像、最近 10 轮轨迹摘要和当前桌面截图。基模多模态大语言模型将当前截图与指令中的工程目标关联，决定下一步动作；输出可以是单个或有序动作（如 <code>click</code>、<code>write</code>、<code>hotkey</code>、<code>dragTo</code>），也可以是控制 token（<code>WAIT</code>、<code>DONE</code>、<code>FAIL</code>）。该输出交给动作适配器。</li><li><strong>输入</strong>：模型原始输出。适配器把输出解析并映射到平台允许的 pyautogui 原语序列，过滤掉 FreeCAD 脚本、文件读写和不在白名单中的命令；保留 Shift+右键拖拽等有序按下-移动-松开语义。清洗后的动作在虚拟机内执行。</li><li><strong>输入</strong>：执行动作后的 FreeCAD 界面。Runner 等待短暂延迟、截取新截图，并把截图、动作和日志追加到轨迹。若模型未终止且未达到 100 步，新截图与最近轨迹摘要一起作为下一轮观测返回给基模，形成闭环。</li><li><strong>输入</strong>：<code>DONE</code>/<code>FAIL</code> 或达到步数上限。Runner 从虚拟机提取保存的 <code>.FCStd</code> 文件和辅助输出（如 FEM 的 CSV、网格文件）。退出状态也会被记录。</li><li><strong>输入</strong>：提取的工件与辅助文件。任务特定评估器运行全部必需检查，输出二进制成功/失败以及逐检查诊断。该结果可回溯到动作轨迹和截图。</li></ol>
+<p>整个推理闭环如下所示：</p>
+<div class="mermaid">flowchart LR
+    A[用户指令/参考资产] --&gt; B[多模态LLM基模&lt;br&gt;输入截图与轨迹历史]
+    B --&gt; C[结构化动作/控制token]
+    C --&gt; D[适配器+动作安全器&lt;br&gt;→ pyautogui 原语]
+    D --&gt; E[FreeCAD GUI 执行]
+    E --&gt; F[截图/轨迹记录]
+    F --&gt;|未终止| B
+    F --&gt;|DONE/FAIL/超步| G[提取 .FCStd 与辅助输出]
+    G --&gt; H[任务特定可执行评估器]
+    H --&gt; I[0/1 结果+逐项诊断]</div>
+<h2 id="5-核心方法-按论文-method-小节总结-约600字">5. 核心方法：按论文 Method 小节总结（约600字）</h2>
+<p>论文没有独立的 “Method” 章节标题；方法主体是第 3 节 “CADWorld Benchmark Design”。正文中该节未显示显式子节编号，下面按原文顺序整理为 3.1–3.5，并保留英文主题词。</p>
+<h3 id="3-1-task-taxonomy-任务分类">3.1 Task Taxonomy（任务分类）</h3>
+<p>目的：定义 CADWorld 覆盖的机械 CAD 知识范围。基准包含 200 个任务、11 类工作流、183 个知识点；每个任务可对应多个知识点，因此任务大小和分布由概念覆盖决定。前 190 个任务构成常规概念覆盖集，另加 10 个更短更简单的任务以区分低性能模型。指令长度中位数为 63 词、最长 178 词。任务来源包括 FreeCAD 工作台能力、教程和文档、常见机械设计流程，以及构造中发现的覆盖缺口；标注和验证约耗时 3 个月、1300 人时。图1给出一条代表性长工作流。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.16251v2/x1.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.16251v2/x1.png" alt="图1：一个具有代表性的长视界 FreeCAD 工作流，从项目创建和基础特征定义开始，经过约束草图、拉伸、阵列，直至最终验证。" loading="lazy"></a><span class="image-caption">图1：一个具有代表性的长视界 FreeCAD 工作流，从项目创建和基础特征定义开始，经过约束草图、拉伸、阵列，直至最终验证。</span></span></p>
+<h3 id="3-2-task-package-and-benchmark-workflow-任务包与四阶段工作流">3.2 Task Package and Benchmark Workflow（任务包与四阶段工作流）</h3>
+<p>目的：把每个任务变成可复现的包。任务形式为 \(x_i=(\iota_i,p_i,u_i,e_i,H_i)\)，分别对应自然语言指令、可选前置 CAD 文件、可选上传资产、任务特定评估器、最大交互视界。执行分四个阶段：打包任务；重置 FreeCAD 环境并载入前置状态；以截图为观测、以可执行 UI 动作循环运行；在宿主侧对保存工件运行评估。Runner 记录初始截图、逐帧截图、JSONL 轨迹、屏幕录像、运行日志和生成文件，用于追溯结论。图2展示任务包的组成。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.16251v2/x2.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.16251v2/x2.png" alt="图2：每个任务将指令、设置配置、参考资产、CAD 领域元数据和一个评估器打包在一起。" loading="lazy"></a><span class="image-caption">图2：每个任务将指令、设置配置、参考资产、CAD 领域元数据和一个评估器打包在一起。</span></span></p>
+<h3 id="3-3-observation-and-action-space-观测与动作空间">3.3 Observation and Action Space（观测与动作空间）</h3>
+<p>目的：规定智能体与 CAD 环境的接口，使其接近人类使用但可复现。观测以截图为主，附带任务指令、参考图像以及最近轨迹历史；前置文件由 runner 上传，模型只能通过 GUI 看到其效果。动作空间是白名单化的 pyautogui 命令，包括 <code>moveTo</code>、<code>click</code>、<code>rightClick</code>、<code>dragTo</code>、<code>scroll</code>、<code>press</code>、<code>write</code>、<code>hotkey</code>、<code>keyDown</code>、<code>mouseDown</code> 等，以及 <code>WAIT</code>、<code>DONE</code>、<code>FAIL</code> 控制 token。模型输出分为两类：原生 CUA 模型走提供方的 computer-control 接口；截图条件多模态 LLM 则解析文本响应。CADWorld 会清洗模型输出，禁止直接 FreeCAD 脚本和文件系统访问。特别地，状态化输入组合（如 Shift+右键拖拽旋转三维视图）被保留为有序按下-移动-松开序列。</p>
+<h3 id="3-4-artifact-grounded-evaluation-工件锚定的评估">3.4 Artifact-Grounded Evaluation（工件锚定的评估）</h3>
+<p>目的：在持久工件上判定任务是否正确，而不是看最终截图或文本答案。各工作流的检查方式不同：草图任务解析 <code>.FCStd</code> 中的实体、约束、尺寸、面积/周长/质心；零件、外观、宏、测量、网格、点云、TechDraw 任务检查模型元数据、对象类型、属性、包围盒、体积、面积等；装配检查 joint 对象（如 Grounded、Slider）；CAM 比较毛坯与目标的材料去除、刀路数据、过切/欠切比；FEM 要求分析对象、材料、边界条件、网格、求解器和导出 CSV 数值。每项任务只有在全部必需检查通过时才成功，不提供部分分数；诊断文件仍保留连续误差、IoU、质心距离和逐规则报告。图3展示了一个视觉相似但工程不正确的典型案例。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.16251v2/x3.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.16251v2/x3.png" alt="图3：一个具有代表性的 CADWorld 任务，包含人类和模型的输出。尽管模型结果在视觉上与三棱柱相似，但它们不符合原生结构、几何或构建过程要求。因此，CADWorld 评估保存的工程工件，而不仅仅是视觉相似性；附录表12提供了跨工作流类别的更多示例。" loading="lazy"></a><span class="image-caption">图3：一个具有代表性的 CADWorld 任务，包含人类和模型的输出。尽管模型结果在视觉上与三棱柱相似，但它们不符合原生结构、几何或构建过程要求。因此，CADWorld 评估保存的工程工件，而不仅仅是视觉相似性；附录表12提供了跨工作流类别的更多示例。</span></span></p>
+<h3 id="3-5-metrics-and-failure-diagnosis-指标与失败诊断">3.5 Metrics and Failure Diagnosis（指标与失败诊断）</h3>
+<p>目的：在二元成功之外提供可解释的性能视图。能力指标按整体、工作流类别和单任务层级报告；效率指标记录交互步数、墙钟时间、token 消耗，并区分是否计入思考 token；失败诊断把每个不成功回合归入 11 种确定性失败原因，如无输出、错误文档结构、几何不符合、构建过程错误等，并结合终止状态和轨迹获得。整个评估不依赖 LLM 裁判或人工检查，因此同一评估器可用于在线评测和回溯评测。</p>
+<h2 id="6-局限性和展望-约300字">6. 局限性和展望（约300字）</h2>
+<p>论文明确说明的限制有四点。第一，基准任务必须提供显式目标和必要资产，因此不能覆盖真实需求中的开放设计、需求澄清、不完整源设计搜索和设计权衡。第二，被评估模型在原生接口、上下文长度、访问策略、服务基础设施和延迟上不一致，效率指标要结合附录部署细节解释。第三，人类行是单个专家参考轨迹，不是受控人类研究，不能代表总体人类表现。第四，当前只支持 FreeCAD；商业 CAD 在几何内核、界面约定、约束求解器、云集成和下游制造流程上不同，工具选择是一种权衡而非普遍结论。</p>
+<p>在此基础上可以谨慎推断：从实验中的 CAM、FEM、TechDraw 全部为 0% 的结果看，当前模型对界面状态更不透明的专业流程缺乏可靠知识；论文也承认训练语料不可观测，因此不能说这是唯一的因果解释。图4总结了成功率与失败原因分布，能直观显示“失败随模型能力提升而移向下游”的现象。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.16251v2/model_performance_heatmap.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.16251v2/model_performance_heatmap.png" alt="图4：蓝色单元格表示成功率，红色单元格表示失败原因率；颜色越深表示百分比越大，精确值标注在每个单元格中。工作流分组遵循表2中的概念分类。" loading="lazy"></a><span class="image-caption">图4：蓝色单元格表示成功率，红色单元格表示失败原因率；颜色越深表示百分比越大，精确值标注在每个单元格中。工作流分组遵循表2中的概念分类。</span></span></p>
+<p>未来可以沿多 CAD 后端扩展、更开放任务设计、可编辑性深层检查，以及跨阶段工程交接验证等方向继续推进。</p></div></article></main>
   </div>
   <script>/*!
   * PhotoSwipe 5.4.4 - https://photoswipe.com
@@ -765,208 +736,6 @@ div.pswp__img--placeholder,
       updateToc();
     }
 
-
-    (() => {
-      const cache = new Map();
-
-      async function fetchLinkedPage(url) {
-        if (!cache.has(url)) {
-          const request = fetch(url, { credentials: "same-origin" })
-            .then(async (response) => {
-              if (!response.ok) throw new Error(`HTTP ${response.status}`);
-              return { text: await response.text(), url: response.url };
-            })
-            .catch((error) => {
-              cache.delete(url);
-              throw error;
-            });
-          cache.set(url, request);
-        }
-        return cache.get(url);
-      }
-
-      function rewriteReferences(root, pageUrl) {
-        root.querySelectorAll("[src], [href]").forEach((node) => {
-          ["src", "href"].forEach((attribute) => {
-            const value = node.getAttribute(attribute);
-            if (!value || value.startsWith("#") || /^(?:data|blob|mailto|tel|javascript):/i.test(value)) return;
-            try {
-              node.setAttribute(attribute, new URL(value, pageUrl).href);
-            } catch (_) {
-              // Leave malformed references unchanged; the browser will expose the failure.
-            }
-          });
-        });
-      }
-
-      function isolateIds(root, prefix) {
-        const replacements = new Map();
-        root.querySelectorAll("[id]").forEach((node) => {
-          const original = node.id;
-          const replacement = `${prefix}-${original}`;
-          replacements.set(original, replacement);
-          node.id = replacement;
-        });
-        root.querySelectorAll('a[href^="#"]').forEach((node) => {
-          const original = decodeURIComponent(node.getAttribute("href").slice(1));
-          if (replacements.has(original)) node.setAttribute("href", `#${replacements.get(original)}`);
-        });
-      }
-
-      function prepareDynamicImages(root) {
-        root.querySelectorAll("a.pswp-image").forEach((item) => {
-          const image = item.querySelector("img");
-          if (!image) return;
-          const sync = () => {
-            item.dataset.pswpSrc = image.currentSrc || image.src;
-            if (item.dataset.referenceImage === "true" && image.naturalWidth && image.naturalHeight) {
-              item.dataset.pswpWidth = String(image.naturalWidth);
-              item.dataset.pswpHeight = String(image.naturalHeight);
-            }
-          };
-          sync();
-          image.addEventListener("load", sync, { once: true });
-        });
-      }
-
-      document.querySelectorAll('a[data-inline-html="true"]').forEach((link, index) => {
-        const summary = link.closest("p, li, blockquote, td") || link.parentElement;
-        if (!summary) return;
-        const dedicatedExpand = link.textContent.trim() === "展开正文";
-        let entry = summary.closest(".inline-html-entry");
-        if (!entry) {
-          if (summary.tagName === "LI" || summary.tagName === "TD") {
-            entry = summary;
-            entry.classList.add("inline-html-entry");
-          } else {
-            entry = document.createElement("section");
-            entry.className = "inline-html-entry";
-            summary.before(entry);
-            entry.append(summary);
-          }
-        }
-        summary.classList.add("inline-html-summary");
-        if (dedicatedExpand) link.classList.add("inline-html-source-link");
-
-        const panel = document.createElement("section");
-        panel.className = "inline-html-panel";
-        panel.id = `inline-html-panel-${index + 1}`;
-        panel.hidden = true;
-        panel.setAttribute("aria-live", "polite");
-
-        const actions = document.createElement("span");
-        actions.className = "inline-html-actions";
-        const toggle = document.createElement("button");
-        toggle.className = "inline-html-toggle";
-        toggle.type = "button";
-        toggle.textContent = "展开正文";
-        toggle.setAttribute("aria-controls", panel.id);
-        toggle.setAttribute("aria-expanded", "false");
-        const standalone = document.createElement("a");
-        standalone.className = "inline-html-standalone";
-        standalone.href = link.href;
-        standalone.textContent = "单独打开";
-        actions.append(toggle, standalone);
-        summary.append(document.createTextNode(" "), actions);
-        entry.append(panel);
-
-        let state = "idle";
-
-        function setOpen(open, returnToSummary = false) {
-          panel.hidden = !open;
-          entry.classList.toggle(
-            "is-expanded",
-            Boolean(entry.querySelector(".inline-html-panel:not([hidden])"))
-          );
-          const expanded = String(open);
-          toggle.setAttribute("aria-expanded", expanded);
-          link.setAttribute("aria-expanded", expanded);
-          toggle.textContent = open ? (state === "error" ? "重试加载" : "收起正文") : "展开正文";
-          if (!open && returnToSummary) {
-            summary.scrollIntoView({ behavior: "smooth", block: "start" });
-            toggle.focus({ preventScroll: true });
-          }
-        }
-
-        function appendCloseFooter(target) {
-          const footer = document.createElement("div");
-          footer.className = "inline-html-footer";
-          const close = document.createElement("button");
-          close.className = "inline-html-close";
-          close.type = "button";
-          close.textContent = "收起正文并返回摘要";
-          close.addEventListener("click", () => setOpen(false, true));
-          footer.append(close);
-          target.append(footer);
-        }
-
-        async function toggleInlinePage() {
-          if (state === "loaded") {
-            setOpen(panel.hidden);
-            return;
-          }
-          if (state === "loading") return;
-
-          state = "loading";
-          toggle.disabled = true;
-          panel.replaceChildren();
-          const loading = document.createElement("p");
-          loading.className = "inline-html-status";
-          loading.textContent = "正在加载完整正文…";
-          panel.append(loading);
-          setOpen(true);
-
-          try {
-            const fetched = await fetchLinkedPage(link.href);
-            const parsed = new DOMParser().parseFromString(fetched.text, "text/html");
-            const source = parsed.querySelector(".markdown-image-gallery")
-              || parsed.querySelector("main article")
-              || parsed.querySelector("article")
-              || parsed.querySelector("main");
-            if (!source) throw new Error("linked page does not contain a readable article");
-            const body = source.cloneNode(true);
-            if (body.firstElementChild && body.firstElementChild.tagName === "H1") {
-              body.firstElementChild.remove();
-            }
-            isolateIds(body, `inline-${index + 1}`);
-            rewriteReferences(body, fetched.url);
-            body.classList.add("inline-html-body");
-            panel.replaceChildren(body);
-            appendCloseFooter(panel);
-            prepareDynamicImages(body);
-            state = "loaded";
-            setOpen(true);
-            if (window.mermaid && typeof window.mermaid.run === "function") {
-              const diagrams = Array.from(body.querySelectorAll(".mermaid"));
-              if (diagrams.length) window.mermaid.run({ nodes: diagrams }).catch(() => {});
-            }
-
-            if (window.MathJax && typeof window.MathJax.typesetPromise === "function") {
-              window.MathJax.typesetPromise([body]).catch(() => {});
-            }
-
-          } catch (error) {
-            panel.replaceChildren();
-            const message = document.createElement("p");
-            message.className = "inline-html-status inline-html-error";
-            message.textContent = `正文加载失败：${error.message}`;
-            panel.append(message);
-            appendCloseFooter(panel);
-            state = "error";
-            setOpen(true);
-          } finally {
-            toggle.disabled = false;
-          }
-        }
-
-        toggle.addEventListener("click", toggleInlinePage);
-        link.addEventListener("click", (event) => {
-          if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-          event.preventDefault();
-          toggleInlinePage();
-        });
-      });
-    })();
 
 
   </script>
