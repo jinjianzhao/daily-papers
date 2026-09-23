@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>2026-W38 · 论文周报</title>
+  <title>FAMOS: Feed-Forward 3D Articulation Modeling from Sparse Observations</title>
 
   <script>
     window.MathJax = {
@@ -515,38 +515,10 @@ div.pswp__img--placeholder,
       .academic-main article { padding: 30px 22px 52px; border: 0; border-radius: 0; }
     }
 
-    h3 { font-size: 20px; }
-    h4 { font-size: 17px; }
-    h5 { font-size: 18px; }
-
-    .inline-html-entry { margin: 18px 0; padding: 16px 18px 18px; border: 1px solid #d8e2eb; border-left: 3px solid #91abc2; border-radius: 6px; background: #fbfdff; transition: border-color .15s, background .15s; }
-    .inline-html-entry.is-expanded { border-color: #b7c9d9; border-left-color: #1769aa; background: #fff; }
-    .inline-html-summary { margin-top: 0; margin-bottom: 0; }
-    .inline-html-actions { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-left: 10px; vertical-align: middle; }
-    .inline-html-toggle, .inline-html-standalone, .inline-html-close { display: inline-flex; min-height: 30px; align-items: center; justify-content: center; padding: 5px 10px; border: 1px solid #b9c9d8; border-radius: 6px; background: #fff; color: #37516a; font: inherit; font-size: 12px; font-weight: 700; line-height: 1.35; text-decoration: none; cursor: pointer; }
-    .inline-html-source-link { display: none; }
-    .inline-html-toggle:hover, .inline-html-standalone:hover, .inline-html-close:hover { border-color: #1769aa; color: #1769aa; }
-    .inline-html-toggle:disabled { cursor: wait; opacity: .6; }
-    .inline-html-panel { margin: 18px 0 0; padding-top: 24px; border-top: 1px solid #e2e8f0; }
-    .inline-html-panel[hidden] { display: none; }
-    .inline-html-body h1:first-child { display: none; }
-    .inline-html-status { color: #64748b; font-size: 14px; }
-    .inline-html-error { color: #9f1239; }
-    .inline-html-footer { display: flex; justify-content: flex-end; margin-top: 30px; padding-top: 16px; border-top: 1px solid #e2e8f0; }
-    @media (max-width: 640px) {
-      .inline-html-entry { padding: 14px 14px 16px; }
-      .inline-html-actions { display: flex; margin: 10px 0 0; }
-      .inline-html-toggle, .inline-html-standalone, .inline-html-close { min-height: 36px; }
-    }
 
 
 
-    /* A focused entry is emitted as title, classification, then one-line summary. */
-    .academic-main h4 + p,
-    .academic-main h4 + p + p,
-    .academic-main h5 + p,
-    .academic-main h5 + p + p { font-size: 16px; }
-</style>
+  </style>
 </head>
 <body>
 
@@ -557,131 +529,63 @@ div.pswp__img--placeholder,
     <aside class="academic-sidebar" id="academic-sidebar" aria-label="文档目录">
       <div class="toc-panel">
         <p class="toc-heading">目录</p>
-        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#2026-w38-论文周报">2026-W38 · 论文周报</a><a class="toc-link toc-level-2" href="#重点解析">重点解析</a><a class="toc-link toc-level-3" href="#3d">3D</a><a class="toc-link toc-level-4" href="#2026-09-18">2026-09-18</a><a class="toc-link toc-level-5" href="#famos-feed-forward-3d-articulation-modeling-from-sparse-observations">FAMOS: Feed-Forward 3D Articulation Modeling from Sparse Observations</a><a class="toc-link toc-level-4" href="#2026-09-17">2026-09-17</a><a class="toc-link toc-level-5" href="#eventegohands-event-based-egocentric-3d-hand-mesh-reconstruction-with-real-dataset">EventEgoHands++: Event-based Egocentric 3D Hand Mesh Reconstruction with Real Dataset</a><a class="toc-link toc-level-4" href="#2026-09-15">2026-09-15</a><a class="toc-link toc-level-5" href="#bvb-benchmarking-agentic-video-understanding-via-programmatic-reconstruction-in-blender">BVB: Benchmarking Agentic Video Understanding via Programmatic Reconstruction in Blender</a><a class="toc-link toc-level-5" href="#kaininja-extending-native-3d-generators-to-the-part-level">KaiNinja: Extending Native 3D Generators to the Part Level</a><a class="toc-link toc-level-4" href="#2026-09-14">2026-09-14</a><a class="toc-link toc-level-5" href="#remomask-2-latent-retrieval-augmented-masked-motion-generation">ReMoMask-2: Latent Retrieval-Augmented Masked Motion Generation</a><a class="toc-link toc-level-5" href="#snap3d-physically-grounded-3d-parts-for-assembly-from-a-single-image">SNAP3D: Physically Grounded 3D Parts for Assembly from a Single Image</a><a class="toc-link toc-level-3" href="#视频">视频</a><a class="toc-link toc-level-4" href="#2026-09-18-2">2026-09-18</a><a class="toc-link toc-level-5" href="#jepa-anything-learning-predictive-models-across-different-worlds">JEPA-Anything: Learning Predictive Models across Different Worlds</a><a class="toc-link toc-level-5" href="#video-deltanet-a-video-native-hybrid-attention-for-livestream-video-generation">Video DeltaNet: A Video-Native Hybrid Attention for Livestream Video Generation</a><a class="toc-link toc-level-4" href="#2026-09-17-2">2026-09-17</a><a class="toc-link toc-level-5" href="#zing-0-5-toward-playable-worlds-with-real-time-joint-action-and-text-control">Zing-0.5: Toward Playable Worlds with Real-Time Joint Action and Text Control</a><a class="toc-link toc-level-4" href="#2026-09-16">2026-09-16</a><a class="toc-link toc-level-5" href="#modality-autoregressive-world-action-models">Modality-Autoregressive World-Action Models</a><a class="toc-link toc-level-5" href="#physstream-streaming-physics-grounded-video-generation-with-structured-scene-memory-and-fine-grained-motion-control">PhysStream: Streaming Physics-Grounded Video Generation with Structured Scene Memory and Fine-Grained Motion Control</a><a class="toc-link toc-level-4" href="#2026-09-15-2">2026-09-15</a><a class="toc-link toc-level-5" href="#alayavista-streaming-world-modeling-from-panoramic-states-to-perspective-video">AlayaVista: Streaming World Modeling from Panoramic States to Perspective Video</a><a class="toc-link toc-level-5" href="#lynnreal-omni-native-multi-modal-video-generation-for-agentic-visual-workflows">LynnReal-Omni: Native multi-modal Video Generation for Agentic Visual Workflows</a><a class="toc-link toc-level-5" href="#physbrain-1-5-from-vision-language-models-to-physical-foundation-models">PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models</a><a class="toc-link toc-level-4" href="#2026-09-14-2">2026-09-14</a><a class="toc-link toc-level-5" href="#actionsplice-in-flight-action-editing-for-interactive-world-models">ActionSplice: In-Flight Action Editing for Interactive World Models</a><a class="toc-link toc-level-5" href="#pelican-sim-1-0-a-general-world-model-simulator-for-embodied-intelligence">Pelican-Sim 1.0: A General World Model Simulator for Embodied Intelligence</a><a class="toc-link toc-level-2" href="#全量论文简报">全量论文简报</a><a class="toc-link toc-level-3" href="#2026-09-18-3">2026-09-18</a><a class="toc-link toc-level-3" href="#2026-09-17-3">2026-09-17</a><a class="toc-link toc-level-3" href="#2026-09-16-2">2026-09-16</a><a class="toc-link toc-level-3" href="#2026-09-15-3">2026-09-15</a><a class="toc-link toc-level-3" href="#2026-09-14-3">2026-09-14</a></nav>
+        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#famos-feed-forward-3d-articulation-modeling-from-sparse-observations">FAMOS: Feed-Forward 3D Articulation Modeling from Sparse Observations</a><a class="toc-link toc-level-2" href="#快速理解">快速理解</a><a class="toc-link toc-level-2" href="#中文摘要">中文摘要</a><a class="toc-link toc-level-2" href="#详细分析">详细分析</a><a class="toc-link toc-level-2" href="#1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</a><a class="toc-link toc-level-2" href="#2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</a><a class="toc-link toc-level-2" href="#3-核心贡献-约300字">3. 核心贡献（约300字）</a><a class="toc-link toc-level-2" href="#4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</a><a class="toc-link toc-level-2" href="#5-核心方法-按论文-method-小节总结-约600字">5. 核心方法：按论文 Method 小节总结（约600字）</a><a class="toc-link toc-level-3" href="#3-1-problem-formulation-问题建模">3.1 Problem Formulation（问题建模）</a><a class="toc-link toc-level-3" href="#3-2-multi-state-articulation-transformer-多状态关节-transformer">3.2 Multi-State Articulation Transformer（多状态关节 Transformer）</a><a class="toc-link toc-level-3" href="#3-3-observed-articulation-span-观测关节范围">3.3 Observed Articulation Span（观测关节范围）</a><a class="toc-link toc-level-3" href="#3-4-training-objective-训练目标">3.4 Training Objective（训练目标）</a><a class="toc-link toc-level-3" href="#3-5-procedural-training-data-generation-程序化训练数据生成">3.5 Procedural Training Data Generation（程序化训练数据生成）</a><a class="toc-link toc-level-2" href="#6-局限性和展望-约300字">6. 局限性和展望（约300字）</a></nav>
       </div>
     </aside>
-    <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../index.html">论文阅读首页</a> <a href="../../date/index.html">日报目录</a> <a href="../index.html">周报目录</a> <a href="../../month/index.html">月报目录</a></p>
-<h1 id="2026-w38-论文周报">2026-W38 · 论文周报</h1>
-<blockquote>收录 <strong>131 篇</strong>论文，重点解析 <strong>16 篇</strong>。正文按需展开，或可单独打开。</blockquote>
-<h2 id="重点解析">重点解析</h2>
-<h3 id="3d">3D</h3>
-<h4 id="2026-09-18">2026-09-18</h4>
-<h5 id="famos-feed-forward-3d-articulation-modeling-from-sparse-observations">FAMOS: Feed-Forward 3D Articulation Modeling from Sparse Observations</h5>
-<p><strong>分类：</strong> 3D；3d articulation</p>
-<p>提出FAMOS，从稀疏多视角点云前馈建模可动部件分割与关节参数。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.20817v1/method.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.20817v1/method.png" alt="FAMOS: Feed-Forward 3D Articulation Modeling from Sparse Observations 论文图" loading="lazy"></a><span class="image-caption">FAMOS: Feed-Forward 3D Articulation Modeling from Sparse Observations 论文图</span></span></p>
+    <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../date/">← 返回日报目录</a></p>
+<h1 id="famos-feed-forward-3d-articulation-modeling-from-sparse-observations">FAMOS: Feed-Forward 3D Articulation Modeling from Sparse Observations</h1>
 <p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.20817">arXiv</a> · <a href="https://huggingface.co/papers/2609.20817">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.20817">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.20817/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-09-17">2026-09-17</h4>
-<h5 id="eventegohands-event-based-egocentric-3d-hand-mesh-reconstruction-with-real-dataset">EventEgoHands++: Event-based Egocentric 3D Hand Mesh Reconstruction with Real Dataset</h5>
-<p><strong>分类：</strong> 3D；3D reconstruction</p>
-<p>提出事件相机下的第一人称三维手部网格重建方法，并构建大规模真实数据集。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.17189v1/model.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.17189v1/model.png" alt="EventEgoHands++: Event-based Egocentric 3D Hand Mesh Reconstruction with Real Dataset 论文图" loading="lazy"></a><span class="image-caption">EventEgoHands++: Event-based Egocentric 3D Hand Mesh Reconstruction with Real Dataset 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.17189">arXiv</a> · <a href="https://huggingface.co/papers/2609.17189">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.17189">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.17189/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-09-15">2026-09-15</h4>
-<h5 id="bvb-benchmarking-agentic-video-understanding-via-programmatic-reconstruction-in-blender">BVB: Benchmarking Agentic Video Understanding via Programmatic Reconstruction in Blender</h5>
-<p><strong>分类：</strong> 3D；3D reconstruction</p>
-<p>提出BVB基准，用Blender程序化重建真实视频来评测智能体视频理解能力。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.15478v1/teaser_frontier_combined.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.15478v1/teaser_frontier_combined.png" alt="BVB: Benchmarking Agentic Video Understanding via Programmatic Reconstruction in Blender 论文图" loading="lazy"></a><span class="image-caption">BVB: Benchmarking Agentic Video Understanding via Programmatic Reconstruction in Blender 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.15478">arXiv</a> · <a href="https://huggingface.co/papers/2609.15478">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.15478">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.15478/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="kaininja-extending-native-3d-generators-to-the-part-level">KaiNinja: Extending Native 3D Generators to the Part Level</h5>
-<p><strong>分类：</strong> 3D；3d generation</p>
-<p>提出基于双体积表征的KaiNinja，将原生3D生成器扩展至部件级，无需分割网络并提升生成质量。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.15659v2/figures/teaser.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.15659v2/figures/teaser.png" alt="KaiNinja: Extending Native 3D Generators to the Part Level 论文图" loading="lazy"></a><span class="image-caption">KaiNinja: Extending Native 3D Generators to the Part Level 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.15659">arXiv</a> · <a href="https://huggingface.co/papers/2609.15659">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.15659">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.15659/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-09-14">2026-09-14</h4>
-<h5 id="remomask-2-latent-retrieval-augmented-masked-motion-generation">ReMoMask-2: Latent Retrieval-Augmented Masked Motion Generation</h5>
-<p><strong>分类：</strong> 3D；3d animation generation</p>
-<p>提出ReMoMask-2，在潜在空间检索增强文本生成动作，性能最优</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.08365v1/framework.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.08365v1/framework.png" alt="ReMoMask-2: Latent Retrieval-Augmented Masked Motion Generation 论文图" loading="lazy"></a><span class="image-caption">ReMoMask-2: Latent Retrieval-Augmented Masked Motion Generation 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.08365v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.08365">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.08365">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.08365/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="snap3d-physically-grounded-3d-parts-for-assembly-from-a-single-image">SNAP3D: Physically Grounded 3D Parts for Assembly from a Single Image</h5>
-<p><strong>分类：</strong> 3D；3d generation</p>
-<p>提出物理引导框架SNAP3D，从单图生成部件级3D模型，确保几何与装配稳定性。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.13146v1/pipeline.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.13146v1/pipeline.png" alt="SNAP3D: Physically Grounded 3D Parts for Assembly from a Single Image 论文图" loading="lazy"></a><span class="image-caption">SNAP3D: Physically Grounded 3D Parts for Assembly from a Single Image 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.13146v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.13146">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.13146">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.13146/index.html" data-inline-html="true">展开正文</a></p>
-<h3 id="视频">视频</h3>
-<h4 id="2026-09-18-2">2026-09-18</h4>
-<h5 id="jepa-anything-learning-predictive-models-across-different-worlds">JEPA-Anything: Learning Predictive Models across Different Worlds</h5>
-<p><strong>分类：</strong> 视频；JEPA</p>
-<p>提出跨域统一预测框架JEPA-Anything，在七个领域验证其有效性与科学发现能力。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.20800v1/figures/JEPA-Anything-final.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.20800v1/figures/JEPA-Anything-final.png" alt="JEPA-Anything: Learning Predictive Models across Different Worlds 论文图" loading="lazy"></a><span class="image-caption">JEPA-Anything: Learning Predictive Models across Different Worlds 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.20800">arXiv</a> · <a href="https://huggingface.co/papers/2609.20800">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.20800">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.20800/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="video-deltanet-a-video-native-hybrid-attention-for-livestream-video-generation">Video DeltaNet: A Video-Native Hybrid Attention for Livestream Video Generation</h5>
-<p><strong>分类：</strong> 视频；video diffusion model</p>
-<p>提出视频原生混合注意力Video DeltaNet，加速直播视频生成扩散模型。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.20744v1/figure3.svg" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.20744v1/figure3.svg" alt="Video DeltaNet: A Video-Native Hybrid Attention for Livestream Video Generation 论文图" loading="lazy"></a><span class="image-caption">Video DeltaNet: A Video-Native Hybrid Attention for Livestream Video Generation 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.20744">arXiv</a> · <a href="https://huggingface.co/papers/2609.20744">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.20744">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.20744/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-09-17-2">2026-09-17</h4>
-<h5 id="zing-0-5-toward-playable-worlds-with-real-time-joint-action-and-text-control">Zing-0.5: Toward Playable Worlds with Real-Time Joint Action and Text Control</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出5B自回归世界模型Zing-0.5，支持实时键盘与文本联合控制生成世界，实现可游玩交互。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.17909v1/joint_control_demo.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.17909v1/joint_control_demo.png" alt="Zing-0.5: Toward Playable Worlds with Real-Time Joint Action and Text Control 论文图" loading="lazy"></a><span class="image-caption">Zing-0.5: Toward Playable Worlds with Real-Time Joint Action and Text Control 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.17909">arXiv</a> · <a href="https://huggingface.co/papers/2609.17909">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.17909">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.17909/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-09-16">2026-09-16</h4>
-<h5 id="modality-autoregressive-world-action-models">Modality-Autoregressive World-Action Models</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出首个自回归去噪多种未来模态的世界动作模型ModAR，提升动作预测性能。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.17524v1/arch.svg" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.17524v1/arch.svg" alt="Modality-Autoregressive World-Action Models 论文图" loading="lazy"></a><span class="image-caption">Modality-Autoregressive World-Action Models 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.17524">arXiv</a> · <a href="https://huggingface.co/papers/2609.17524">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.17524">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.17524/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="physstream-streaming-physics-grounded-video-generation-with-structured-scene-memory-and-fine-grained-motion-control">PhysStream: Streaming Physics-Grounded Video Generation with Structured Scene Memory and Fine-Grained Motion Control</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出PhysStream，基于结构化场景记忆与稀疏速度信号的可交互物理视频生成模型。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.17521v1/teaser.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.17521v1/teaser.png" alt="PhysStream: Streaming Physics-Grounded Video Generation with Structured Scene Memory and Fine-Grained Motion Control 论文图" loading="lazy"></a><span class="image-caption">PhysStream: Streaming Physics-Grounded Video Generation with Structured Scene Memory and Fine-Grained Motion Control 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.17521v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.17521">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.17521">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.17521/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-09-15-2">2026-09-15</h4>
-<h5 id="alayavista-streaming-world-modeling-from-panoramic-states-to-perspective-video">AlayaVista: Streaming World Modeling from Panoramic States to Perspective Video</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出AlayaVista，将全景状态与视角视频解码分离的流式视频世界模型，并构建MUGEN数据集。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.14462v1/method_pipeline.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.14462v1/method_pipeline.png" alt="AlayaVista: Streaming World Modeling from Panoramic States to Perspective Video 论文图" loading="lazy"></a><span class="image-caption">AlayaVista: Streaming World Modeling from Panoramic States to Perspective Video 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.14462">arXiv</a> · <a href="https://huggingface.co/papers/2609.14462">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.14462">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.14462/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="lynnreal-omni-native-multi-modal-video-generation-for-agentic-visual-workflows">LynnReal-Omni: Native multi-modal Video Generation for Agentic Visual Workflows</h5>
-<p><strong>分类：</strong> 视频；video diffusion model</p>
-<p>提出LynnReal-Omni，一个统一可控的多模态视频生成框架，支持智能体视觉工作流。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.15863v1/agent_workflows_1.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.15863v1/agent_workflows_1.png" alt="LynnReal-Omni: Native multi-modal Video Generation for Agentic Visual Workflows 论文图" loading="lazy"></a><span class="image-caption">LynnReal-Omni: Native multi-modal Video Generation for Agentic Visual Workflows 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.15863">arXiv</a> · <a href="https://huggingface.co/papers/2609.15863">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.15863">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.15863/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="physbrain-1-5-from-vision-language-models-to-physical-foundation-models">PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出统一物理基础模型PhysBrain 1.5，从视觉语言模型扩展至物理环境理解、动作生成与状态预测。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.14973v1/leaderboard.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.14973v1/leaderboard.png" alt="PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models 论文图" loading="lazy"></a><span class="image-caption">PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.14973">arXiv</a> · <a href="https://huggingface.co/papers/2609.14973">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.14973">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.14973/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-09-14-2">2026-09-14</h4>
-<h5 id="actionsplice-in-flight-action-editing-for-interactive-world-models">ActionSplice: In-Flight Action Editing for Interactive World Models</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出ActionSplice框架，通过反事实状态传输实现交互式世界模型的飞行中动作编辑。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.08230v1/main.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.08230v1/main.png" alt="ActionSplice: In-Flight Action Editing for Interactive World Models 论文图" loading="lazy"></a><span class="image-caption">ActionSplice: In-Flight Action Editing for Interactive World Models 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.08230v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.08230">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.08230">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.08230/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="pelican-sim-1-0-a-general-world-model-simulator-for-embodied-intelligence">Pelican-Sim 1.0: A General World Model Simulator for Embodied Intelligence</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出Pelican-Sim 1.0，一种面向具身智能的通用世界模型模拟器，从视觉和动作预测未来观测。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.12036v1/teaser.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.12036v1/teaser.png" alt="Pelican-Sim 1.0: A General World Model Simulator for Embodied Intelligence 论文图" loading="lazy"></a><span class="image-caption">Pelican-Sim 1.0: A General World Model Simulator for Embodied Intelligence 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.12036v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.12036">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.12036">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.12036/index.html" data-inline-html="true">展开正文</a></p>
-<h2 id="全量论文简报">全量论文简报</h2>
-<h3 id="2026-09-18-3">2026-09-18</h3>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.20817">FAMOS</a></td><td>3D</td><td>提出FAMOS，从稀疏多视角点云前馈建模可动部件分割与关节参数。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20800">JEPA-Anything</a></td><td>视频</td><td>提出跨域统一预测框架JEPA-Anything，在七个领域验证其有效性与科学发现能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20744">Video DeltaNet</a></td><td>视频</td><td>提出视频原生混合注意力Video DeltaNet，加速直播视频生成扩散模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20804">An Empirical Study of Harness Design for Coding Agents</a></td><td>其他</td><td>通过固定执行循环、变化组件，对编码智能体框架的规划、动作空间和上下文管理进行模块化实证研究。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.18323">Can MiniMax-H3 Reason About the Physical World? An Evaluation of Omni-Modal Generative Model</a></td><td>其他</td><td>评估多模态生成模型MiniMax-H3在物理世界推理上的表现，提出四维评测框架。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19969">DeepSeek-V4.1-Flash</a></td><td>其他</td><td>提出DeepSeek-V4.1-Flash多模态MoE模型，通过CED架构和KV缓存压缩技术大幅降低部署成本。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20715">Don&#x27;t Mask the Environment</a></td><td>其他</td><td>提出ActObs方法，对轨迹中的观测token联合监督，提升强化学习探索性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.18605">PACT</a></td><td>其他</td><td>提出PACT基准，测试企业AI助手在压力下遵守规则的能力，发现多数模型违规率显著上升。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.17653">Reflect, Revise, Reuse</a></td><td>其他</td><td>提出免训练框架EvoSkill-GUI，通过反思-修正-复用循环让GUI智能体动态演进技能库。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19745">Region-Level Policy Optimization for Fine-grained MLLM Perception</a></td><td>其他</td><td>提出Vision-RL2，用区域级强化学习优化MLLM细粒度感知，减少视觉令牌。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20784">RetireOPD</a></td><td>其他</td><td>提出RetireOPD，通过自适应退休的在线策略蒸馏提升智能体强化学习性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.16900">RiskChainBench</a></td><td>其他</td><td>提出RiskChainBench基准，评估混淆平台消息恢复与证据导向的网页调查，双阶段组合测试模型能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19499">Sample Count Is Not Enough</a></td><td>其他</td><td>研究大模型测试时缩放中候选生成策略对能耗和性能的影响，强调候选数N不足。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19656">Self-Evolving Search Index</a></td><td>其他</td><td>提出SELF-INDEX框架，使检索索引无需人工干预即可自我进化，提升检索性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20519">SoL-Pi</a></td><td>其他</td><td>提出SoL-Pi机制，递归扩展自动研究循环，在同等性能下降低编码代理的token用量和API成本。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.05661">Srijika</a></td><td>其他</td><td>提出Srijika系统，复用OpenType布局为九种印度天城文等文字重绘字体并生成可安装字体。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.12397">UFO</a></td><td>其他</td><td>提出UFO框架，用原子化评估链实现多模态图像生成的全条件对齐评估。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19879">V\={a}kQA</a></td><td>其他</td><td>构建泰卢固语口语事实问答基准VākQA并评估模型，发现翻译丢失文化、语音混淆等问题。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19554">VABench</a></td><td>其他</td><td>提出VA-Bench，评估多模态大模型基于视觉演示、主动感知和度量控制完成具身空间任务闭环的能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.17496">Verifiable Social Reasoning for LLM Assistants</a></td><td>其他</td><td>提出多智能体模拟框架Fuse，用于可验证地评估LLM助手在用户咨询中的社会推理能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20423">WeVisDoc</a></td><td>其他</td><td>提出WeVisDoc数据驱动框架，通过覆盖扩展与残差诊断提升文档解析鲁棒性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20612">What Does Privileged Information Add to On-Policy Self-Distillation?</a></td><td>其他</td><td>研究在线策略自蒸馏中特权参考信息的作用，构建数学基准并发现其增益有限。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20511">When EOS Tokens Disagree</a></td><td>其他</td><td>研究在线策略蒸馏中终止符不匹配导致生成长度膨胀，提出共享语义终止动作缓解。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19671">When2Think</a></td><td>其他</td><td>提出When2Think框架，按难度动态控制推理长度，提升混合推理模型的效率与准确性。</td></tr></tbody></table></div>
-<h3 id="2026-09-17-3">2026-09-17</h3>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.17189">EventEgoHands++</a></td><td>3D</td><td>提出事件相机下的第一人称三维手部网格重建方法，并构建大规模真实数据集。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.17909">Zing-0.5</a></td><td>视频</td><td>提出5B自回归世界模型Zing-0.5，支持实时键盘与文本联合控制生成世界，实现可游玩交互。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19144">A Zeroth-Order Paradigm for LLM Preference Alignment</a></td><td>其他</td><td>提出基于比较反馈的零阶偏好优化方法ComPO，用于大模型偏好对齐，缓解似然位移。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.18487">ActionPiece</a></td><td>其他</td><td>提出ActionPiece，通过物理关系一致性改进动作分词，提升自回归VLA模型表现。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.18094">Agora</a></td><td>其他</td><td>提出一种以Git中追加式有向无环图作为共享记忆的多智能体自动研究方法，并在权重迁移实验中验证其效果。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15524">Assessing nnU-Net Generalization across Brain Tumor Populations in BraTS-GoAT 2026</a></td><td>其他</td><td>评估nnU-Net在脑肿瘤分割跨人群泛化性能，发现体积与连通性影响失败案例。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.18779">CERA-MoA</a></td><td>其他</td><td>提出CERA-MoA迭代强化学习框架，协同进化路由机制与持续学习智能体，提升混合智能体性能与效率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.17708">Confidence Comes from Experience</a></td><td>其他</td><td>提出基于模型自身历史经验估计置信度的新方法XConf，无需逻辑访问或权重更新，且成本低。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.17632">EvolveTrade</a></td><td>其他</td><td>提出EvolveTrade，让LLM交易代理通过经验驱动自我演化策略提示，提升交易表现。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.17652">Fathom</a></td><td>其他</td><td>提出Fathom，按查询自适应读取键通道位数，加速卸载KV缓存上的稀疏解码。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.17172">Fingers as Legs</a></td><td>其他</td><td>本文用强化学习让拟人手掌以手指作腿，实现无额外机构的移动与操作。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.14306">Flattening Every Memory Peak in Long-Context Mixture-of-Experts Training</a></td><td>其他</td><td>提出四种方法同时压平长上下文混合专家训练的四种显存峰值，支持百万级上下文训练。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.18011">Gaze as Evidence for Common Grounding</a></td><td>其他</td><td>本研究跨语料分析MapTask和MUNDEX，考察注视行为是否提供共同基础证据。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15938">HypoEvolve</a></td><td>其他</td><td>提出HypoEvolve，用遗传算法协调多智能体LLM协作发现科学假设，在药物重定位评测中优于六种基线。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19138">In-Context Robot Learning with VLM Agents</a></td><td>其他</td><td>提出GPT-Policy框架，利用视觉语言模型实现机器人情境学习与动作执行。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.17488">LimiX-2</a></td><td>其他</td><td>提出LimiX-2模型，采用上下文机制网络，实现通用结构化数据智能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19143">PANORAMA</a></td><td>其他</td><td>提出全景定位描述任务和PANORAMA模型，通过掩码提议选择实现短语级像素定位。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.18805">ProgramDistill</a></td><td>其他</td><td>提出ProgramDistill基准，从完整交互式Web应用自动挖掘可验证行为，构建SWE任务评估编码智能体。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.18708">Rethinking Critic Learning in PPO</a></td><td>其他</td><td>揭示PPO批评者训练中的价值扁平化问题，提出稀疏监督方法SP3O缓解并提升策略。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19134">ScienceIDE</a></td><td>其他</td><td>提出ScienceIDE，把科学代码库变为智能体可学习环境，并训练PhAI-IDE系列模型验证效果。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.14320">SpectralShift</a></td><td>其他</td><td>基于谱重参数化提出SpectralShift，扩展Gated DeltaNet上下文窗口，提升长程建模能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.18063">The Other Half of the Memory Wall</a></td><td>其他</td><td>提出Edge0，通过预路由预测从SSD流式加载MoE专家，在24GB显存上以20tok/s服务35B模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15810">VC-Attention</a></td><td>其他</td><td>提出低比特注意力加速框架，结合值平滑与Softmax转换，提升视频生成效率。</td></tr></tbody></table></div>
-<h3 id="2026-09-16-2">2026-09-16</h3>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.17524">Modality-Autoregressive World-Action Models</a></td><td>视频</td><td>提出首个自回归去噪多种未来模态的世界动作模型ModAR，提升动作预测性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.17521v1">PhysStream</a></td><td>视频</td><td>提出PhysStream，基于结构化场景记忆与稀疏速度信号的可交互物理视频生成模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.16679">AI for Games in the Foundation Model Era</a></td><td>其他</td><td>综述基础模型时代AI在游戏全生命周期中的六种角色及其迁移挑战。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.14803">Another Blueprint In The Wall</a></td><td>其他</td><td>研究六种前沿模型在不同受众框架下生成架构的趋同现象，提出“认知越狱”概念。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.06986">Continual Learning Mechanisms Compose for Long-Horizon Memorization</a></td><td>其他</td><td>针对语言模型长期记忆任务，提出组合持续学习机制以缓解灾难性遗忘并大幅提升保留率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.14011">Convergent Emergence of In-Context Learning Across Modalities</a></td><td>其他</td><td>研究上下文学习跨模态的收敛涌现，构建统一框架验证六种模态中的ICL能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.16204">Decoy Direction Optimization</a></td><td>其他</td><td>提出解耦方向优化（DDO），一种无需微调的后处理防御方法，对抗LLM消融攻击。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15975">Disentangling Representation Evolution in Transformers through Directional Decomposition</a></td><td>其他</td><td>本文通过方向分解研究Transformer表示演化，揭示并行分量及其对编辑鲁棒性、压缩诊断和训练干预的作用。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13680">Drift-Constrained Optimization</a></td><td>其他</td><td>提出漂移约束优化框架，将微调视为方向选择问题，仅改变更新方向即可提升指令模型性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.17320">Emergence World</a></td><td>其他</td><td>研建持续运行多智能体环境，对抗压力测试长期自主系统。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.16591">FLAT</a></td><td>其他</td><td>提出FLAT框架，将图文统一为1D灵活长度令牌，联合优化表征学习与生成，实现检索和生成。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13406">Generalized Agent Iteration</a></td><td>其他</td><td>提出广义智能体迭代框架，统一刻画迭代策略改进与递归自我改进，并给出形式化坐标。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15195">HarnessVLN</a></td><td>其他</td><td>提出训练免费框架HarnessVLN，统一指令跟随与目标导航任务。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.16816">ImpossibleRubrics</a></td><td>其他</td><td>提出ImpossibleRubrics基准，用不可完成任务压力测试生成式评分标准，发现其易被对抗性答案利用。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15972">Mind2Dialogue</a></td><td>其他</td><td>提出Mind2Dialogue框架，通过模拟用户心理状态训练具备人类意识的大语言模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.14857">ModularRSI</a></td><td>其他</td><td>提出模块化可泛化的递归自我改进框架ModularRSI，通过对比聚合和模块分解提升跨任务性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.16057">OmniHarness</a></td><td>其他</td><td>提出OmniHarness框架，通过符号策略学习实现泛化视觉生成，解决现有方法泛化性差等问题。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.16372">Register Tokens for Bounded-State Reasoning in Diffusion Language Models</a></td><td>其他</td><td>提出寄存器令牌作为固定大小状态，使掩码扩散语言模型在清除上下文后继续推理，提升数学和代码生成性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.12552">RelateAnything</a></td><td>其他</td><td>提出实时开放词汇关系预测模型RelateAnything，支持任意区域来源与推理时自定义谓词表。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.17523">ScienceBuddy</a></td><td>其他</td><td>提出交互式科学智能体ScienceBuddy，通过递归自改进持续优化科研支持。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.16034">StepAudio 3 Music Technical Report</a></td><td>其他</td><td>本文提出StepAudio 3 Music，一个支持显式音乐规划和开放域文本控制的长篇幅音乐生成模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.14005">StepAudio 3 Realtime Technical Report</a></td><td>其他</td><td>提出StepAudio 3 Realtime音频语言模型，通过Think-While-Speaking实现实时语音对话与深度推理并行。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.11873">The Last AI Built by Humans</a></td><td>其他</td><td>提出递归自我改进概念及路线图，并用Headroom-Closed指数揭示现有LLM问题，探讨实现真正RSI的挑战。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15982">The Router Within</a></td><td>其他</td><td>提出Gavel，从冻结LLM内部状态读出技能路由信号，仅训练两个线性映射。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13770">Training Specialist Models without Reasoning Trajectories for Domain Expert Distillation</a></td><td>其他</td><td>研究无推理轨迹时专家模型精调如何隐式决定下游学生模型的 specialization 与 generalization 权衡。</td></tr></tbody></table></div>
-<h3 id="2026-09-15-3">2026-09-15</h3>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.15478">BVB</a></td><td>3D</td><td>提出BVB基准，用Blender程序化重建真实视频来评测智能体视频理解能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15659">KaiNinja</a></td><td>3D</td><td>提出基于双体积表征的KaiNinja，将原生3D生成器扩展至部件级，无需分割网络并提升生成质量。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.14462">AlayaVista</a></td><td>视频</td><td>提出AlayaVista，将全景状态与视角视频解码分离的流式视频世界模型，并构建MUGEN数据集。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15863">LynnReal-Omni</a></td><td>视频</td><td>提出LynnReal-Omni，一个统一可控的多模态视频生成框架，支持智能体视觉工作流。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.14973">PhysBrain 1.5</a></td><td>视频</td><td>提出统一物理基础模型PhysBrain 1.5，从视觉语言模型扩展至物理环境理解、动作生成与状态预测。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.12541">Agent as Policy for Robotic Manipulation</a></td><td>其他</td><td>提出Agent as Policy方法，使通用智能体直接驱动机器人完成多种操作任务。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15818">Atria Dawn</a></td><td>其他</td><td>提出Atria Dawn Preview智能体语言模型，通过可验证经验管线提升科研工程生产力，实现人机协作新范式。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13318">Attention-DP3</a></td><td>其他</td><td>提出空间物体感知的3D扩散策略Attention-DP3，通过注意力注入物体几何线索以提升杂乱场景操纵性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13498">Building a Production Greek-English Speech Recognizer</a></td><td>其他</td><td>构建生产级希腊语-英语双语语音识别系统Sophea，报告数据管线和集成方法等工程实践。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15973">Discovery Foundation Models</a></td><td>其他</td><td>提出发现基础模型（DFMs），实现开放式发现智能，并给出Zetema框架与GALILEO系统。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.14858">Dream-RSI</a></td><td>其他</td><td>提出Dream-RSI，用历史发现树构建重放模拟器，以低成本离线反馈改进探索策略，实现递归自我改进。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13053">Dynin-Robotics</a></td><td>其他</td><td>提出统一扩散视觉-语言-动作模型Dynin-Robotics，共享轨迹建模实现目标预测与动作生成。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.14302">E2A-Bench</a></td><td>其他</td><td>提出E2A-Bench基准，评估金融图表推理中证据到行动的全链路可靠性，揭示单一幻觉分数的不足。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15078">Enabling Creative Exploration for Vibe Design Agents</a></td><td>其他</td><td>面向Vibe设计代理，提出结构化设计规范作为中间决策，实现界面创意探索与生成解耦。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13058">Expert-Space Exploration in MoE Reinforcement Learning</a></td><td>其他</td><td>提出专家空间探索方法ESRL，通过扰动路由提升MoE强化学习的性能与多样性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13285">Grouped Value Attention</a></td><td>其他</td><td>提出Grouped Value Attention，压缩KV缓存并通过线性映射重建键，保持近似GQA精度。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15134">HazardAuditor</a></td><td>其他</td><td>提出HazardAuditor执行级安全框架和GuardPO优化，提升计算机使用代理的安全准确性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15504">How Lossless Is Lossless Speculative Decoding? The Role of Numerical Precision in Orthrus</a></td><td>其他</td><td>本文检验Orthrus推测解码在不同数值精度下的无损性，发现FP32才完全等价。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.01430">Learning Sparse Decision Trees via Transformer Variational Auto-Encoders</a></td><td>其他</td><td>提出基于Transformer变分自编码器的TREVIS方法，在连续潜在空间学习稀疏决策树，兼顾性能与稀疏性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13443">Learning to Solve Hard Problems in RL for LLMs by Never Giving Up</a></td><td>其他</td><td>提出NGU自适应采样方法，解决RL训练LLM中难题提升小的问题</td></tr><tr><td><a href="https://arxiv.org/abs/2609.14708">Lightning Weave</a></td><td>其他</td><td>提出闪电编织后训练框架，通过能力组合蒸馏，将独立模型的准确性与效率优势集成到单一推理模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13287">LLaDA-UI</a></td><td>其他</td><td>提出基于块状扩散的16.7B多模态GUI智能体LLaDA-UI，验证并行解码优势并超越对比模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.12419">MInTRL</a></td><td>其他</td><td>提出最小干预强化学习（MInTRL）：在策略采样中稀疏局部修正，提升数学与代码任务RL性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15635">ModaLens</a></td><td>其他</td><td>提出ModaLens图像交换审计方法，测量放射学报告可用性对医学视觉语言模型图像敏感性的影响。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15051">Not All Prompts Are Equal</a></td><td>其他</td><td>本文提出探索引导的提示脚手架框架，动态调整训练提示分布以提升多模态强化后训练效果。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15128">Omni-Streaming Thinking</a></td><td>其他</td><td>提出OST方法，用结构化证据验证解决流式全模态中的过早跨模态承诺问题。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15029">Pick Your Poison</a></td><td>其他</td><td>提出SAILS方法，通过学习选择中毒样本集，显著提升LLM后门攻击成功率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13463">Root-Cause Attribution Is a Search Problem</a></td><td>其他</td><td>提出持续搜索框架，通过迭代提示提升长周期AI代理故障根因归因准确率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15364">RSIAgent</a></td><td>其他</td><td>提出训练免费的多智能体框架RSIAgent，通过自主记忆构建实现新环境中的递归自我改进。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13948">Thought without systematicity? Evaluating reasoning models on rule induction tasks</a></td><td>其他</td><td>评估推理模型在规则归纳任务上是否具备系统性的能力，发现模型常在同构任务上表现不一致。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.11638">Vidu S2</a></td><td>其他</td><td>提出Vidu S2，包含实时交互数字人模型和实时视频编辑模型，并探索实时空间视频生成。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15309">When Agents Slow Down</a></td><td>其他</td><td>研究LLM代理测试时策略，提出Elo-per-token分析方法，揭示缩放规律并定义拐点。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13356">ZGCM-1</a></td><td>其他</td><td>提出全开源7B基础模型ZGCM-1，通过内部思考与外部工具结合，高效提升数学推理与智能体搜索。</td></tr></tbody></table></div>
-<h3 id="2026-09-14-3">2026-09-14</h3>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.08365v1">ReMoMask-2</a></td><td>3D</td><td>提出ReMoMask-2，在潜在空间检索增强文本生成动作，性能最优</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13146v1">SNAP3D</a></td><td>3D</td><td>提出物理引导框架SNAP3D，从单图生成部件级3D模型，确保几何与装配稳定性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.08230v1">ActionSplice</a></td><td>视频</td><td>提出ActionSplice框架，通过反事实状态传输实现交互式世界模型的飞行中动作编辑。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.12036v1">Pelican-Sim 1.0</a></td><td>视频</td><td>提出Pelican-Sim 1.0，一种面向具身智能的通用世界模型模拟器，从视觉和动作预测未来观测。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.07154">Ambient @ EgoLongQA 2026</a></td><td>其他</td><td>通过蒸馏工具智能体感知模块，将十米长视频问答能力压缩至2B模型并夺冠。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.07099">Ambient @ EgoProactive 2026</a></td><td>其他</td><td>提出可视化监督与单令牌分类方法，提升可穿戴设备主动干预时机预测的F1分数。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.11115">Benchmark Radar</a></td><td>其他</td><td>构建AI基准测试活数据库与搜索引擎，支持发现、检索和分数比较。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.05824">Beyond Top-$k$ Skill Retrieval</a></td><td>其他</td><td>提出多样性感知的技能路由框架DSR，用行列式点过程平衡相关性与非冗余性，提升LLM代理技能选择效果。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.12641">Breaking the Vision-Action Shortcut</a></td><td>其他</td><td>提出潜在接口训练，消除视觉-动作捷径，提升机器人基础模型的泛化能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.03502">Building and Evaluating Fixed-Voice Thai TTS from Synthetic Speech</a></td><td>其他</td><td>利用大模型合成语音训练紧凑型固定音色泰语TTS，实现设备端合成。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.11682">COBRA-Skills</a></td><td>其他</td><td>提出COBRA-Skills框架，用上下文赌博机引导技能优化，降低开销并提升智能体性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.12101">Competence-Gated Pooling of Language Models and Priors for Event Forecasting</a></td><td>其他</td><td>提出能力门控机制，根据边际价值选择性融合语言模型与外部预测，提升事件预测精度。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.06107">DataFlex-RL</a></td><td>其他</td><td>构建RLVR数据策略评估平台，发现统一采样优于复杂选择与加权策略。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.12078">Feature Recovery for Object Understanding After Irreversible Fire Damage</a></td><td>其他</td><td>提出火灾后物体理解基准TRACE与特征恢复模块FRM，提升退化物体检测与原始属性恢复。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.08418">Feyospace-v1</a></td><td>其他</td><td>提出数据为中心的框架，训练开源网络智能体，三个检查点在CyberGym上平均提升23.76%。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.03595">How Far Can Synthetic Data Take Thai OCR?</a></td><td>其他</td><td>探究合成数据到真实泰文的OCR迁移因素，构建纯合成训练的Wayu-Paxa-OCR-Zero模型</td></tr><tr><td><a href="https://arxiv.org/abs/2609.06251">MobileVLA-R1 2.0</a></td><td>其他</td><td>提出MobileVLA-R1 2.0，用强化学习增强推理与行动，提升移动机器人指令执行能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.11977">Occamy-1.0</a></td><td>其他</td><td>提出一种高效协同工作智能体，采用分阶段后训练，在性能与成本间达到帕累托前沿。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.05820">Online Learning with LLM Experts from Limited Feedback</a></td><td>其他</td><td>研究在线路由提示词给LLM专家，在有限反馈下最小化遗憾，提出两种算法。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.30597">PLC-DPO</a></td><td>其他</td><td>针对偏好优化中噪声与模糊标签，提出基于后验标签修正的PLC-DPO方法，提升对齐鲁棒性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.10895">ReactHuman</a></td><td>其他</td><td>提出ReactHuman基准，测试多模态大模型在具身模拟中面对突发物理危险的反应决策能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13141">SAS</a></td><td>其他</td><td>提出简单注意力稀疏化SAS，通过端到端优化上下文排序改进Transformer推理效率</td></tr><tr><td><a href="https://arxiv.org/abs/2609.12945">StepAudio 3 Gen Technical Report</a></td><td>其他</td><td>提出StepAudio 3 Gen统一音频生成模型，基于离散自回归和RVQ token，支持多种音频生成任务。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.10824">Studying Without a Syllabus</a></td><td>其他</td><td>研究任务无关的环境预处理，让智能体在无任务信息时预习环境并构建可复用资源，提升下游任务效率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.10728">Towards a Deterministic Math Solver for Clinical Language Models</a></td><td>其他</td><td>提出程序求解接口：让临床语言模型生成Python代码，由确定性执行器计算，避免直接算术错误。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.10297">TRACE</a></td><td>其他</td><td>提出轨迹鲁棒准入与证据排序框架，剪枝视觉token提升GUI智能体效率</td></tr></tbody></table></div></div></article></main>
+<p><strong>一句话主题：</strong> 从稀疏观测中前馈建模3D可动物体的关节结构和运动</p>
+<p><strong>领域标签：</strong> 三维重建 / 可动部件建模 / 关节估计</p>
+<h2 id="快速理解">快速理解</h2>
+<p><strong>背景与任务：</strong> 从稀疏单目视图建模可动物体困难，现有前馈方法依赖单视角和类别先验。</p>
+<p><strong>核心工作：</strong> 提出FAMOS，用多状态变换器融合观测线索，并设计观测运动跨度损失与程序化数据生成器。</p>
+<h2 id="中文摘要">中文摘要</h2>
+<p>从稀疏的单目视图建模铰接物体具有挑战性，因为每次观测仅揭示部分几何和运动证据。大多数前馈方法从单次观测推断铰接结构，因此严重依赖学习到的类别级形状先验。我们提出FAMOS，一种前馈模型，从稀疏、无序的部分点云集合预测可移动部件分割和关节参数。我们的模型联合推理多个观测，并自然支持可变数量的输入，包括单视图。为了跨观测聚合铰接线索，我们引入了一种多状态铰接Transformer，交替进行状态间和全局注意力。我们进一步提出了一种观测铰接跨度目标，用于监督每个部件在输入观测中表现出的运动范围，鼓励模型充分利用整个观测集合。为了克服现有数据集规模和多样性的局限，我们引入了一个程序化数据生成器，在训练期间合成自标注资产。在PartNet-Mobility、ACD和ArtiCraft-10K上的实验表明，相较于前馈和基于优化的基线，我们的方法均有一致改进。项目页面：https://kevinqu7.github.io/famos</p>
+<h2 id="详细分析">详细分析</h2>
+<h2 id="1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</h2>
+<p>FAMOS 的输入是一个稀疏、无序的部分点云集合 \(\mathcal{X}=\{\mathbf{X}_s\}_{s=1}^S\)，其中每个 \(\mathbf{X}_s\) 是物体在某一关节状态和视角下的部分观测；\(S\) 可变，可以为 1。输出包括：可动部件数量 \(P\)、跨状态一致的逐点部件分割，以及每个部件的关节类型（静态/旋转/平移）和关节参数（旋转轴/原点或平移方向）。功能边界是仅处理刚体、1-DoF 的旋转或平移关节，并要求所有点云在同一共享坐标系下。</p>
+<h2 id="2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</h2>
+<p>从稀疏单目观测建模可动关节物体非常困难，因为每次观测只暴露部分几何和部分运动证据。现有前馈方法大多从单个观测直接推理关节参数，因此本质上依赖类别级别的形状先验：模型没有见过物体运动，只能从“长得像什么”来猜测“怎么动”。这导致它们对未见过的几何形状和部分点云泛化能力差。另一类优化方法或视频方法需要稠密多视角、时序连续、已知部件数等较强假设，不适合随意采集的稀疏输入。</p>
+<p>核心 insight 是：即使观测是稀疏、无序且部分重叠的，只要集合中包含物体在不同关节状态下的观测，就存在可被利用的运动证据。与其依赖形状先验，不如让模型联合推理多个观测，直接从观测到的状态变化中提取关节信息。因此 FAMOS 设计为可处理变长无序观测的联合前馈模型。为了真正迫使模型使用整个观测集合，还引入“观测关节范围”作为辅助监督：预测该目标需要将同一部件在每个状态中定位并比较其相对位形，从而避免网络只依赖单个观测的捷径。</p>
+<h2 id="3-核心贡献-约300字">3. 核心贡献（约300字）</h2>
+<ul><li>提出 FAMOS，一种从稀疏无序部分点云集合中联合推理可动部件分割和关节参数的前馈方法。模型支持任意数量的输入观测，包括单视图，并且不依赖已知部件数。</li><li>提出 Multi-state Articulation Transformer，采用“逐状态自注意力”和“全局注意力”交替的结构。点令牌可以在不同观测之间直接交互，从而建立跨状态对应关系并聚合关节线索；部件查询则从所有观测中收集证据。</li><li>提出观测关节范围（observed articulation span）目标。它定义为输入观测中某部件关节值的变化范围，无法从单个观测推断，也不能通过首尾差分近似，从而有效鼓励模型利用全部观测状态。</li><li>提出程序化数据生成器，基于几何基元在线合成带完整标注的可动关节资产，缓解现有数据集规模小、多样性不足的问题。</li><li>在 PartNet-Mobility、ACD 和 ArtiCraft-10K 上，FAMOS 一致优于优化方法和前馈基线；相比最强前馈基线，分割和运动估计 F1 最高相对提升分别为 64.5% 和 75.7%，推理速度比优化方法快约三个数量级，并能在真实世界随意拍摄的图像上泛化。</li></ul>
+<h2 id="4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</h2>
+<p>推理时使用的基础模型角色如下：VGGT-Ω 从 RGB 图像恢复共享坐标系下的部分点云；SAM2 在真实图像中分割物体掩码；PartField 作为固定权重的点特征编码器，为每个点提供部件感知特征。若输入已经是准备好的部分点云，则可跳过图像提升步骤。</p>
+<p>有序推理步骤：</p>
+<ol><li>输入 → 用户提供 \(S\) 张稀疏 RGB 图像；若输入已是点云则直接进入下一步。SAM2 与 VGGT-Ω 完成物体掩码分割、单视图 3D 提升和坐标系对齐 → 输出共享坐标系下的 \(S\) 个部分点云。</li><li>输入 → 上一步得到的部分点云。PartField 提取逐点特征，并与位置、法线的正弦几何编码拼接后经线性投影 → 输出逐点令牌 \(\mathbf{Z}\)。</li><li>输入 → 逐点令牌和 \(K\) 个部件查询。Multi-state Articulation Transformer 交替执行逐状态自注意力与全局注意力，让点令牌在状态内聚合几何上下文，并在状态间直接交换信息 → 输出精化后的点令牌与部件查询。</li><li>输入 → 精化后的点令牌与部件查询。分割头对每个点与每个查询打分，将每个点分配给一个查询对应的部件 → 输出逐点部件标签、部件数量，以及跨状态一致的部件分割（同一查询在所有状态下对应同一物理部件）。</li><li>输入 → 精化后的部件查询。关节头对每个查询预测关节类型，并回归旋转轴/原点或平移方向 → 输出每个可动部件的关节参数。</li><li>输出融合 → 将分割与关节参数合并 → 最终输出“可动部件分割 + 关节参数”的可交互物体模型。</li></ol>
+<div class="mermaid">flowchart TD
+    A[用户输入：稀疏 RGB 图像或部分点云] --&gt; B[SAM2 + VGGT-Ω：物体掩码、单视图 3D 提升、共享坐标系]
+    B --&gt; C[PartField + 几何编码：生成逐点令牌]
+    C --&gt; D[Multi-state Articulation Transformer：逐状态自注意力 + 全局注意力]
+    D --&gt; E[分割头：逐点部件标签与跨状态一致的部件查询]
+    D --&gt; F[关节头：关节类型、旋转轴/原点或平移方向]
+    E --&gt; G[最终输出：可动部件分割]
+    F --&gt; G[最终输出：关节参数]</div>
+<h2 id="5-核心方法-按论文-method-小节总结-约600字">5. 核心方法：按论文 Method 小节总结（约600字）</h2>
+<h3 id="3-1-problem-formulation-问题建模">3.1 Problem Formulation（问题建模）</h3>
+<p>FAMOS 将输入定义为 \(S\) 个部分点云组成的无序集合 \(\mathcal{X}=\{\mathbf{X}_s\}_{s=1}^S\)，每个 \(\mathbf{X}_s=\{\mathbf{x}_{s,i}\}_{i=1}^N\subset\mathbb{R}^3\)。模型不需要预先知道部件数量，也允许 \(S=1\)。期望输出的第一部分是部件数量 \(P\)，其中包含静态基座和 \(P-1\) 个可动部件；第二部分是跨状态一致的分割矩阵 \(\mathbf{M}\in\{1,\dots,P\}^{S\times N}\)；第三部分是每个部件的关节参数。旋转关节用单位轴 \(\mathbf{a}\) 和轴上一点 \(\mathbf{o}\) 参数化，平移关节用单位方向 \(\mathbf{d}\) 参数化。该形式明确限定了模型处理 1-DoF 旋转/平移关节。</p>
+<h3 id="3-2-multi-state-articulation-transformer-多状态关节-transformer">3.2 Multi-State Articulation Transformer（多状态关节 Transformer）</h3>
+<p>![图2：框架概览。我们考虑一组稀疏观测，从不同视角和不同关节状态捕捉同一物体。首先，每个视图被提升到3D，得到部分点云，这些点云通过冻结的PartField [36]和几何嵌入进行编码和令牌化。点令牌和一组固定的可学习部件查询通过Multi-state Articulation Transformer，其层在逐状态注意力和全局注意力之间交替。每个查询头解码关节参数，每个点头预测可移动部件分割。](https://arxiv.org/html/2609.20817v1/method.png)</p>
+<p>模型采用查询式 Transformer。每个观测的点云先由冻结的 PartField 编码，得到部件感知特征 \(\mathbf{f}_{s,i}\)；再与坐标和法线的正弦几何编码拼接，经线性投影得到点令牌 \(\mathbf{z}_{s,i}\)。点令牌不加入观测序号或状态嵌入，以强制模型不依赖状态索引，从而支持变长输入。</p>
+<p>Transformer 共 \(L\) 层，交替两种注意力：<strong>逐状态注意力</strong>对每个观测内的点令牌做自注意力，同时让 \(K\) 个部件查询之间自注意力，协调各自代表的部件；<strong>全局注意力</strong>将所有点令牌和查询拼接成一个序列统一处理。这样查询可以直接从所有观测中收集证据，点令牌也能跨观测直接交互，建立部分重叠点云之间的对应关系。这种设计比通过查询作为唯一信息瓶颈的架构更有利于多状态关节推理。</p>
+<p>输出头中，分割头计算每个点-查询对得分，经 softmax 将点分配给查询；部件数量 \(P\) 从被分配点的查询数读出。由于同一查询跨所有状态分割同一个物理部件，分割天然具有跨状态一致性。关节头分别预测关节类型、旋转关节的 Plücker 坐标 \(\hat{\boldsymbol{\ell}}_k=(\hat{\mathbf{a}}_k,\hat{\mathbf{m}}_k)\) 或平移关节方向 \(\hat{\mathbf{d}}_k\)。</p>
+<h3 id="3-3-observed-articulation-span-观测关节范围">3.3 Observed Articulation Span（观测关节范围）</h3>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.20817v1/span.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.20817v1/span.png" alt="图3：观测关节范围。目标定义为输入观测所覆盖的关节值范围，鼓励模型跨多个状态聚合关节线索。" loading="lazy"></a><span class="image-caption">图3：观测关节范围。目标定义为输入观测所覆盖的关节值范围，鼓励模型跨多个状态聚合关节线索。</span></span></p>
+<p>仅监督轴、原点、类型等不随状态变化的属性时，模型存在捷径：只依赖单个观测即可最小化损失，从而忽略其余观测。为迫使模型聚合多状态信息，论文定义观测关节范围：</p>
+<p>\[ \Delta_p = \max_{s\in\mathcal{V}_p}\theta_{s,p} - \min_{s\in\mathcal{V}_p}\theta_{s,p}, \]</p>
+<p>其中 \(\theta_{s,p}\) 是部件 \(p\) 在观测 \(s\) 中的真实关节值，\(\mathcal{V}_p\) 是能看到该部件的观测集合。该目标只对至少在两个观测中可见的部件定义。它依赖具体输入集合，无法从单个观测推断，也不会因为观测无序而退化；同时它是关节值之差，与规范静止状态的选择无关。预测该范围要求模型在每个状态中定位同一部件并推断其相对位形，从而鼓励模型利用完整观测集合。</p>
+<h3 id="3-4-training-objective-训练目标">3.4 Training Objective（训练目标）</h3>
+<p>模型预测与真实部件通过匈牙利算法匹配。由于查询没有固定身份，需要求一个单射分配 \(\hat{\pi}\)，使所有观测上的分割对数似然最大：</p>
+<p>\[ \hat{\pi} = \arg\max_{\pi}\sum_{s=1}^{S}\sum_{i=1}^{N} \log\operatorname{softmax}\big(\mathbf{c}_{s,i}\big)_{\pi(\mathbf{Y}_{s,i})}. \]</p>
+<p>分配在所有观测上联合计算，因此同一真实部件在所有状态下匹配到同一查询。未匹配的查询不参与损失。总损失为分割交叉熵、关节类型交叉熵、旋转关节 Plücker 坐标的 \(\ell_1\) 损失、平移方向的 \(\ell_1\) 损失，以及观测关节范围的 \(\ell_1\) 损失之和，如论文式 (3) 所示。</p>
+<h3 id="3-5-procedural-training-data-generation-程序化训练数据生成">3.5 Procedural Training Data Generation（程序化训练数据生成）</h3>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.20817v1/procedural.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.20817v1/procedural.png" alt="图4：程序化数据集。多个物体类别的程序化生成资产示例，可移动部件以彩色高亮显示已知的真实标注。" loading="lazy"></a><span class="image-caption">图4：程序化数据集。多个物体类别的程序化生成资产示例，可移动部件以彩色高亮显示已知的真实标注。</span></span></p>
+<p>现有标注资产规模有限，论文提出参数化程序化生成器。它用六种解析基元（盒子、圆柱、空心圆柱、半环、球体、带孔面板）组装成 15 种物体类别（如铰链柜、抽屉柜、门、桌子、盒子、笔记本电脑、烤箱、洗衣机、风扇等），每种物体有多个结构变体。每个实例的尺寸、部件数量和关节位置随机化，生成 1 到 8 个可动部件。由于部件和关节都是解析放置的，真实分割和关节参数在构造时已知。训练时，内存中的工厂使用确定性种子在线生成新资产，形成几乎无限且不重复的训练数据流。</p>
+<h2 id="6-局限性和展望-约300字">6. 局限性和展望（约300字）</h2>
+<p>论文在补充材料中明确说明了失败模式：一是与训练分布差异很大的未见物体类别；二是包含许多相对整体物体较小、难以分割的可动部件的物体；三是严重噪声或损坏的 3D 重建。这些情况会导致分割遗漏或关节估计失败。</p>
+<p>![图F.1：失败案例。顶部：与训练分布差异很大的未见物体类别。中部：包含许多相对于整体物体较小的可移动部件的物体。底部：严重噪声或损坏的3D重建。底部RGB图像取自[4]。](https://arxiv.org/html/2609.20817v1/failure_cases.png)</p>
+<p>可以谨慎推断的进一步限制包括：模型只覆盖 1-DoF 旋转和平移关节，无法处理万向节、球关节或多自由度复合运动；推理要求所有部分点云处于同一共享坐标系，因此依赖 VGGT-Ω 等外部重建模型的坐标系质量；观测关节范围监督只对至少在两个观测中可见的部件有效，单观测部件仍主要依赖形状先验；尽管模型支持多于训练时最大状态数的输入，但极端稀疏、严重遮挡或重建误差较大的场景仍会退化。未来方向可以是将方法扩展到多自由度关节、结合时序信息、引入更丰富的真实数据，以及让模型显式输出关节限位和交互语义。</p></div></article></main>
   </div>
   <script>/*!
   * PhotoSwipe 5.4.4 - https://photoswipe.com
@@ -831,208 +735,6 @@ div.pswp__img--placeholder,
       updateToc();
     }
 
-
-    (() => {
-      const cache = new Map();
-
-      async function fetchLinkedPage(url) {
-        if (!cache.has(url)) {
-          const request = fetch(url, { credentials: "same-origin" })
-            .then(async (response) => {
-              if (!response.ok) throw new Error(`HTTP ${response.status}`);
-              return { text: await response.text(), url: response.url };
-            })
-            .catch((error) => {
-              cache.delete(url);
-              throw error;
-            });
-          cache.set(url, request);
-        }
-        return cache.get(url);
-      }
-
-      function rewriteReferences(root, pageUrl) {
-        root.querySelectorAll("[src], [href]").forEach((node) => {
-          ["src", "href"].forEach((attribute) => {
-            const value = node.getAttribute(attribute);
-            if (!value || value.startsWith("#") || /^(?:data|blob|mailto|tel|javascript):/i.test(value)) return;
-            try {
-              node.setAttribute(attribute, new URL(value, pageUrl).href);
-            } catch (_) {
-              // Leave malformed references unchanged; the browser will expose the failure.
-            }
-          });
-        });
-      }
-
-      function isolateIds(root, prefix) {
-        const replacements = new Map();
-        root.querySelectorAll("[id]").forEach((node) => {
-          const original = node.id;
-          const replacement = `${prefix}-${original}`;
-          replacements.set(original, replacement);
-          node.id = replacement;
-        });
-        root.querySelectorAll('a[href^="#"]').forEach((node) => {
-          const original = decodeURIComponent(node.getAttribute("href").slice(1));
-          if (replacements.has(original)) node.setAttribute("href", `#${replacements.get(original)}`);
-        });
-      }
-
-      function prepareDynamicImages(root) {
-        root.querySelectorAll("a.pswp-image").forEach((item) => {
-          const image = item.querySelector("img");
-          if (!image) return;
-          const sync = () => {
-            item.dataset.pswpSrc = image.currentSrc || image.src;
-            if (item.dataset.referenceImage === "true" && image.naturalWidth && image.naturalHeight) {
-              item.dataset.pswpWidth = String(image.naturalWidth);
-              item.dataset.pswpHeight = String(image.naturalHeight);
-            }
-          };
-          sync();
-          image.addEventListener("load", sync, { once: true });
-        });
-      }
-
-      document.querySelectorAll('a[data-inline-html="true"]').forEach((link, index) => {
-        const summary = link.closest("p, li, blockquote, td") || link.parentElement;
-        if (!summary) return;
-        const dedicatedExpand = link.textContent.trim() === "展开正文";
-        let entry = summary.closest(".inline-html-entry");
-        if (!entry) {
-          if (summary.tagName === "LI" || summary.tagName === "TD") {
-            entry = summary;
-            entry.classList.add("inline-html-entry");
-          } else {
-            entry = document.createElement("section");
-            entry.className = "inline-html-entry";
-            summary.before(entry);
-            entry.append(summary);
-          }
-        }
-        summary.classList.add("inline-html-summary");
-        if (dedicatedExpand) link.classList.add("inline-html-source-link");
-
-        const panel = document.createElement("section");
-        panel.className = "inline-html-panel";
-        panel.id = `inline-html-panel-${index + 1}`;
-        panel.hidden = true;
-        panel.setAttribute("aria-live", "polite");
-
-        const actions = document.createElement("span");
-        actions.className = "inline-html-actions";
-        const toggle = document.createElement("button");
-        toggle.className = "inline-html-toggle";
-        toggle.type = "button";
-        toggle.textContent = "展开正文";
-        toggle.setAttribute("aria-controls", panel.id);
-        toggle.setAttribute("aria-expanded", "false");
-        const standalone = document.createElement("a");
-        standalone.className = "inline-html-standalone";
-        standalone.href = link.href;
-        standalone.textContent = "单独打开";
-        actions.append(toggle, standalone);
-        summary.append(document.createTextNode(" "), actions);
-        entry.append(panel);
-
-        let state = "idle";
-
-        function setOpen(open, returnToSummary = false) {
-          panel.hidden = !open;
-          entry.classList.toggle(
-            "is-expanded",
-            Boolean(entry.querySelector(".inline-html-panel:not([hidden])"))
-          );
-          const expanded = String(open);
-          toggle.setAttribute("aria-expanded", expanded);
-          link.setAttribute("aria-expanded", expanded);
-          toggle.textContent = open ? (state === "error" ? "重试加载" : "收起正文") : "展开正文";
-          if (!open && returnToSummary) {
-            summary.scrollIntoView({ behavior: "smooth", block: "start" });
-            toggle.focus({ preventScroll: true });
-          }
-        }
-
-        function appendCloseFooter(target) {
-          const footer = document.createElement("div");
-          footer.className = "inline-html-footer";
-          const close = document.createElement("button");
-          close.className = "inline-html-close";
-          close.type = "button";
-          close.textContent = "收起正文并返回摘要";
-          close.addEventListener("click", () => setOpen(false, true));
-          footer.append(close);
-          target.append(footer);
-        }
-
-        async function toggleInlinePage() {
-          if (state === "loaded") {
-            setOpen(panel.hidden);
-            return;
-          }
-          if (state === "loading") return;
-
-          state = "loading";
-          toggle.disabled = true;
-          panel.replaceChildren();
-          const loading = document.createElement("p");
-          loading.className = "inline-html-status";
-          loading.textContent = "正在加载完整正文…";
-          panel.append(loading);
-          setOpen(true);
-
-          try {
-            const fetched = await fetchLinkedPage(link.href);
-            const parsed = new DOMParser().parseFromString(fetched.text, "text/html");
-            const source = parsed.querySelector(".markdown-image-gallery")
-              || parsed.querySelector("main article")
-              || parsed.querySelector("article")
-              || parsed.querySelector("main");
-            if (!source) throw new Error("linked page does not contain a readable article");
-            const body = source.cloneNode(true);
-            if (body.firstElementChild && body.firstElementChild.tagName === "H1") {
-              body.firstElementChild.remove();
-            }
-            isolateIds(body, `inline-${index + 1}`);
-            rewriteReferences(body, fetched.url);
-            body.classList.add("inline-html-body");
-            panel.replaceChildren(body);
-            appendCloseFooter(panel);
-            prepareDynamicImages(body);
-            state = "loaded";
-            setOpen(true);
-            if (window.mermaid && typeof window.mermaid.run === "function") {
-              const diagrams = Array.from(body.querySelectorAll(".mermaid"));
-              if (diagrams.length) window.mermaid.run({ nodes: diagrams }).catch(() => {});
-            }
-
-            if (window.MathJax && typeof window.MathJax.typesetPromise === "function") {
-              window.MathJax.typesetPromise([body]).catch(() => {});
-            }
-
-          } catch (error) {
-            panel.replaceChildren();
-            const message = document.createElement("p");
-            message.className = "inline-html-status inline-html-error";
-            message.textContent = `正文加载失败：${error.message}`;
-            panel.append(message);
-            appendCloseFooter(panel);
-            state = "error";
-            setOpen(true);
-          } finally {
-            toggle.disabled = false;
-          }
-        }
-
-        toggle.addEventListener("click", toggleInlinePage);
-        link.addEventListener("click", (event) => {
-          if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-          event.preventDefault();
-          toggleInlinePage();
-        });
-      });
-    })();
 
 
   </script>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>2026-W38 · 论文周报</title>
+  <title>BibTeX 与 DBLP 查询结果</title>
 
   <script>
     window.MathJax = {
@@ -21,16 +21,16 @@
 .pswp {
   --pswp-bg: #000;
   --pswp-placeholder-bg: #222;
-
+  
 
   --pswp-root-z-index: 100000;
-
+  
   --pswp-preloader-color: rgba(79, 79, 79, 0.4);
   --pswp-preloader-color-secondary: rgba(255, 255, 255, 0.9);
-
+  
   /* defined via js:
   --pswp-transition-duration: 333ms; */
-
+  
   --pswp-icon-color: #fff;
   --pswp-icon-color-secondary: #4f4f4f;
   --pswp-icon-stroke-color: #4f4f4f;
@@ -514,38 +514,24 @@ div.pswp__img--placeholder,
       .academic-shell { width: 100%; padding: 60px 0 0; }
       .academic-main article { padding: 30px 22px 52px; border: 0; border-radius: 0; }
     }
+        
 
-    h3 { font-size: 20px; }
-    h4 { font-size: 17px; }
-    h5 { font-size: 18px; }
 
-    .inline-html-entry { margin: 18px 0; padding: 16px 18px 18px; border: 1px solid #d8e2eb; border-left: 3px solid #91abc2; border-radius: 6px; background: #fbfdff; transition: border-color .15s, background .15s; }
-    .inline-html-entry.is-expanded { border-color: #b7c9d9; border-left-color: #1769aa; background: #fff; }
-    .inline-html-summary { margin-top: 0; margin-bottom: 0; }
-    .inline-html-actions { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-left: 10px; vertical-align: middle; }
-    .inline-html-toggle, .inline-html-standalone, .inline-html-close { display: inline-flex; min-height: 30px; align-items: center; justify-content: center; padding: 5px 10px; border: 1px solid #b9c9d8; border-radius: 6px; background: #fff; color: #37516a; font: inherit; font-size: 12px; font-weight: 700; line-height: 1.35; text-decoration: none; cursor: pointer; }
-    .inline-html-source-link { display: none; }
-    .inline-html-toggle:hover, .inline-html-standalone:hover, .inline-html-close:hover { border-color: #1769aa; color: #1769aa; }
-    .inline-html-toggle:disabled { cursor: wait; opacity: .6; }
-    .inline-html-panel { margin: 18px 0 0; padding-top: 24px; border-top: 1px solid #e2e8f0; }
-    .inline-html-panel[hidden] { display: none; }
-    .inline-html-body h1:first-child { display: none; }
-    .inline-html-status { color: #64748b; font-size: 14px; }
-    .inline-html-error { color: #9f1239; }
-    .inline-html-footer { display: flex; justify-content: flex-end; margin-top: 30px; padding-top: 16px; border-top: 1px solid #e2e8f0; }
-    @media (max-width: 640px) {
-      .inline-html-entry { padding: 14px 14px 16px; }
-      .inline-html-actions { display: flex; margin: 10px 0 0; }
-      .inline-html-toggle, .inline-html-standalone, .inline-html-close { min-height: 36px; }
+
+  
+    .academic-main img {
+      display: block; width: 100%; max-height: 620px; object-fit: contain;
+      margin: 1.1rem auto .45rem; border: 1px solid #dce5ec;
+      border-radius: 10px; background: #fff; box-shadow: 0 8px 24px #1c38500d;
     }
-
-
-
-    /* A focused entry is emitted as title, classification, then one-line summary. */
-    .academic-main h4 + p,
-    .academic-main h4 + p + p,
-    .academic-main h5 + p,
-    .academic-main h5 + p + p { font-size: 16px; }
+    .academic-main .mermaid {
+      margin: 1.25rem 0 1.7rem; padding: 1rem; overflow-x: auto;
+      border: 1px solid #dce5ec; border-radius: 10px; background: #fbfdff;
+    }
+    .academic-main > blockquote:first-of-type {
+      border-left: 4px solid #1769aa; background: #f2f7fb;
+      border-radius: 0 8px 8px 0; padding: .8rem 1rem;
+    }
 </style>
 </head>
 <body>
@@ -557,131 +543,1195 @@ div.pswp__img--placeholder,
     <aside class="academic-sidebar" id="academic-sidebar" aria-label="文档目录">
       <div class="toc-panel">
         <p class="toc-heading">目录</p>
-        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#2026-w38-论文周报">2026-W38 · 论文周报</a><a class="toc-link toc-level-2" href="#重点解析">重点解析</a><a class="toc-link toc-level-3" href="#3d">3D</a><a class="toc-link toc-level-4" href="#2026-09-18">2026-09-18</a><a class="toc-link toc-level-5" href="#famos-feed-forward-3d-articulation-modeling-from-sparse-observations">FAMOS: Feed-Forward 3D Articulation Modeling from Sparse Observations</a><a class="toc-link toc-level-4" href="#2026-09-17">2026-09-17</a><a class="toc-link toc-level-5" href="#eventegohands-event-based-egocentric-3d-hand-mesh-reconstruction-with-real-dataset">EventEgoHands++: Event-based Egocentric 3D Hand Mesh Reconstruction with Real Dataset</a><a class="toc-link toc-level-4" href="#2026-09-15">2026-09-15</a><a class="toc-link toc-level-5" href="#bvb-benchmarking-agentic-video-understanding-via-programmatic-reconstruction-in-blender">BVB: Benchmarking Agentic Video Understanding via Programmatic Reconstruction in Blender</a><a class="toc-link toc-level-5" href="#kaininja-extending-native-3d-generators-to-the-part-level">KaiNinja: Extending Native 3D Generators to the Part Level</a><a class="toc-link toc-level-4" href="#2026-09-14">2026-09-14</a><a class="toc-link toc-level-5" href="#remomask-2-latent-retrieval-augmented-masked-motion-generation">ReMoMask-2: Latent Retrieval-Augmented Masked Motion Generation</a><a class="toc-link toc-level-5" href="#snap3d-physically-grounded-3d-parts-for-assembly-from-a-single-image">SNAP3D: Physically Grounded 3D Parts for Assembly from a Single Image</a><a class="toc-link toc-level-3" href="#视频">视频</a><a class="toc-link toc-level-4" href="#2026-09-18-2">2026-09-18</a><a class="toc-link toc-level-5" href="#jepa-anything-learning-predictive-models-across-different-worlds">JEPA-Anything: Learning Predictive Models across Different Worlds</a><a class="toc-link toc-level-5" href="#video-deltanet-a-video-native-hybrid-attention-for-livestream-video-generation">Video DeltaNet: A Video-Native Hybrid Attention for Livestream Video Generation</a><a class="toc-link toc-level-4" href="#2026-09-17-2">2026-09-17</a><a class="toc-link toc-level-5" href="#zing-0-5-toward-playable-worlds-with-real-time-joint-action-and-text-control">Zing-0.5: Toward Playable Worlds with Real-Time Joint Action and Text Control</a><a class="toc-link toc-level-4" href="#2026-09-16">2026-09-16</a><a class="toc-link toc-level-5" href="#modality-autoregressive-world-action-models">Modality-Autoregressive World-Action Models</a><a class="toc-link toc-level-5" href="#physstream-streaming-physics-grounded-video-generation-with-structured-scene-memory-and-fine-grained-motion-control">PhysStream: Streaming Physics-Grounded Video Generation with Structured Scene Memory and Fine-Grained Motion Control</a><a class="toc-link toc-level-4" href="#2026-09-15-2">2026-09-15</a><a class="toc-link toc-level-5" href="#alayavista-streaming-world-modeling-from-panoramic-states-to-perspective-video">AlayaVista: Streaming World Modeling from Panoramic States to Perspective Video</a><a class="toc-link toc-level-5" href="#lynnreal-omni-native-multi-modal-video-generation-for-agentic-visual-workflows">LynnReal-Omni: Native multi-modal Video Generation for Agentic Visual Workflows</a><a class="toc-link toc-level-5" href="#physbrain-1-5-from-vision-language-models-to-physical-foundation-models">PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models</a><a class="toc-link toc-level-4" href="#2026-09-14-2">2026-09-14</a><a class="toc-link toc-level-5" href="#actionsplice-in-flight-action-editing-for-interactive-world-models">ActionSplice: In-Flight Action Editing for Interactive World Models</a><a class="toc-link toc-level-5" href="#pelican-sim-1-0-a-general-world-model-simulator-for-embodied-intelligence">Pelican-Sim 1.0: A General World Model Simulator for Embodied Intelligence</a><a class="toc-link toc-level-2" href="#全量论文简报">全量论文简报</a><a class="toc-link toc-level-3" href="#2026-09-18-3">2026-09-18</a><a class="toc-link toc-level-3" href="#2026-09-17-3">2026-09-17</a><a class="toc-link toc-level-3" href="#2026-09-16-2">2026-09-16</a><a class="toc-link toc-level-3" href="#2026-09-15-3">2026-09-15</a><a class="toc-link toc-level-3" href="#2026-09-14-3">2026-09-14</a></nav>
+        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#bibtex-与-dblp-查询结果">BibTeX 与 DBLP 查询结果</a><a class="toc-link toc-level-2" href="#bibtex">BibTeX</a><a class="toc-link toc-level-2" href="#未找到或请求失败">未找到或请求失败</a></nav>
       </div>
     </aside>
-    <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../index.html">论文阅读首页</a> <a href="../../date/index.html">日报目录</a> <a href="../index.html">周报目录</a> <a href="../../month/index.html">月报目录</a></p>
-<h1 id="2026-w38-论文周报">2026-W38 · 论文周报</h1>
-<blockquote>收录 <strong>131 篇</strong>论文，重点解析 <strong>16 篇</strong>。正文按需展开，或可单独打开。</blockquote>
-<h2 id="重点解析">重点解析</h2>
-<h3 id="3d">3D</h3>
-<h4 id="2026-09-18">2026-09-18</h4>
-<h5 id="famos-feed-forward-3d-articulation-modeling-from-sparse-observations">FAMOS: Feed-Forward 3D Articulation Modeling from Sparse Observations</h5>
-<p><strong>分类：</strong> 3D；3d articulation</p>
-<p>提出FAMOS，从稀疏多视角点云前馈建模可动部件分割与关节参数。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.20817v1/method.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.20817v1/method.png" alt="FAMOS: Feed-Forward 3D Articulation Modeling from Sparse Observations 论文图" loading="lazy"></a><span class="image-caption">FAMOS: Feed-Forward 3D Articulation Modeling from Sparse Observations 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.20817">arXiv</a> · <a href="https://huggingface.co/papers/2609.20817">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.20817">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.20817/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-09-17">2026-09-17</h4>
-<h5 id="eventegohands-event-based-egocentric-3d-hand-mesh-reconstruction-with-real-dataset">EventEgoHands++: Event-based Egocentric 3D Hand Mesh Reconstruction with Real Dataset</h5>
-<p><strong>分类：</strong> 3D；3D reconstruction</p>
-<p>提出事件相机下的第一人称三维手部网格重建方法，并构建大规模真实数据集。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.17189v1/model.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.17189v1/model.png" alt="EventEgoHands++: Event-based Egocentric 3D Hand Mesh Reconstruction with Real Dataset 论文图" loading="lazy"></a><span class="image-caption">EventEgoHands++: Event-based Egocentric 3D Hand Mesh Reconstruction with Real Dataset 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.17189">arXiv</a> · <a href="https://huggingface.co/papers/2609.17189">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.17189">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.17189/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-09-15">2026-09-15</h4>
-<h5 id="bvb-benchmarking-agentic-video-understanding-via-programmatic-reconstruction-in-blender">BVB: Benchmarking Agentic Video Understanding via Programmatic Reconstruction in Blender</h5>
-<p><strong>分类：</strong> 3D；3D reconstruction</p>
-<p>提出BVB基准，用Blender程序化重建真实视频来评测智能体视频理解能力。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.15478v1/teaser_frontier_combined.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.15478v1/teaser_frontier_combined.png" alt="BVB: Benchmarking Agentic Video Understanding via Programmatic Reconstruction in Blender 论文图" loading="lazy"></a><span class="image-caption">BVB: Benchmarking Agentic Video Understanding via Programmatic Reconstruction in Blender 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.15478">arXiv</a> · <a href="https://huggingface.co/papers/2609.15478">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.15478">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.15478/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="kaininja-extending-native-3d-generators-to-the-part-level">KaiNinja: Extending Native 3D Generators to the Part Level</h5>
-<p><strong>分类：</strong> 3D；3d generation</p>
-<p>提出基于双体积表征的KaiNinja，将原生3D生成器扩展至部件级，无需分割网络并提升生成质量。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.15659v2/figures/teaser.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.15659v2/figures/teaser.png" alt="KaiNinja: Extending Native 3D Generators to the Part Level 论文图" loading="lazy"></a><span class="image-caption">KaiNinja: Extending Native 3D Generators to the Part Level 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.15659">arXiv</a> · <a href="https://huggingface.co/papers/2609.15659">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.15659">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.15659/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-09-14">2026-09-14</h4>
-<h5 id="remomask-2-latent-retrieval-augmented-masked-motion-generation">ReMoMask-2: Latent Retrieval-Augmented Masked Motion Generation</h5>
-<p><strong>分类：</strong> 3D；3d animation generation</p>
-<p>提出ReMoMask-2，在潜在空间检索增强文本生成动作，性能最优</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.08365v1/framework.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.08365v1/framework.png" alt="ReMoMask-2: Latent Retrieval-Augmented Masked Motion Generation 论文图" loading="lazy"></a><span class="image-caption">ReMoMask-2: Latent Retrieval-Augmented Masked Motion Generation 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.08365v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.08365">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.08365">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.08365/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="snap3d-physically-grounded-3d-parts-for-assembly-from-a-single-image">SNAP3D: Physically Grounded 3D Parts for Assembly from a Single Image</h5>
-<p><strong>分类：</strong> 3D；3d generation</p>
-<p>提出物理引导框架SNAP3D，从单图生成部件级3D模型，确保几何与装配稳定性。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.13146v1/pipeline.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.13146v1/pipeline.png" alt="SNAP3D: Physically Grounded 3D Parts for Assembly from a Single Image 论文图" loading="lazy"></a><span class="image-caption">SNAP3D: Physically Grounded 3D Parts for Assembly from a Single Image 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.13146v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.13146">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.13146">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.13146/index.html" data-inline-html="true">展开正文</a></p>
-<h3 id="视频">视频</h3>
-<h4 id="2026-09-18-2">2026-09-18</h4>
-<h5 id="jepa-anything-learning-predictive-models-across-different-worlds">JEPA-Anything: Learning Predictive Models across Different Worlds</h5>
-<p><strong>分类：</strong> 视频；JEPA</p>
-<p>提出跨域统一预测框架JEPA-Anything，在七个领域验证其有效性与科学发现能力。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.20800v1/figures/JEPA-Anything-final.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.20800v1/figures/JEPA-Anything-final.png" alt="JEPA-Anything: Learning Predictive Models across Different Worlds 论文图" loading="lazy"></a><span class="image-caption">JEPA-Anything: Learning Predictive Models across Different Worlds 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.20800">arXiv</a> · <a href="https://huggingface.co/papers/2609.20800">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.20800">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.20800/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="video-deltanet-a-video-native-hybrid-attention-for-livestream-video-generation">Video DeltaNet: A Video-Native Hybrid Attention for Livestream Video Generation</h5>
-<p><strong>分类：</strong> 视频；video diffusion model</p>
-<p>提出视频原生混合注意力Video DeltaNet，加速直播视频生成扩散模型。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.20744v1/figure3.svg" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.20744v1/figure3.svg" alt="Video DeltaNet: A Video-Native Hybrid Attention for Livestream Video Generation 论文图" loading="lazy"></a><span class="image-caption">Video DeltaNet: A Video-Native Hybrid Attention for Livestream Video Generation 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.20744">arXiv</a> · <a href="https://huggingface.co/papers/2609.20744">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.20744">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.20744/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-09-17-2">2026-09-17</h4>
-<h5 id="zing-0-5-toward-playable-worlds-with-real-time-joint-action-and-text-control">Zing-0.5: Toward Playable Worlds with Real-Time Joint Action and Text Control</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出5B自回归世界模型Zing-0.5，支持实时键盘与文本联合控制生成世界，实现可游玩交互。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.17909v1/joint_control_demo.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.17909v1/joint_control_demo.png" alt="Zing-0.5: Toward Playable Worlds with Real-Time Joint Action and Text Control 论文图" loading="lazy"></a><span class="image-caption">Zing-0.5: Toward Playable Worlds with Real-Time Joint Action and Text Control 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.17909">arXiv</a> · <a href="https://huggingface.co/papers/2609.17909">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.17909">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.17909/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-09-16">2026-09-16</h4>
-<h5 id="modality-autoregressive-world-action-models">Modality-Autoregressive World-Action Models</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出首个自回归去噪多种未来模态的世界动作模型ModAR，提升动作预测性能。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.17524v1/arch.svg" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.17524v1/arch.svg" alt="Modality-Autoregressive World-Action Models 论文图" loading="lazy"></a><span class="image-caption">Modality-Autoregressive World-Action Models 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.17524">arXiv</a> · <a href="https://huggingface.co/papers/2609.17524">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.17524">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.17524/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="physstream-streaming-physics-grounded-video-generation-with-structured-scene-memory-and-fine-grained-motion-control">PhysStream: Streaming Physics-Grounded Video Generation with Structured Scene Memory and Fine-Grained Motion Control</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出PhysStream，基于结构化场景记忆与稀疏速度信号的可交互物理视频生成模型。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.17521v1/teaser.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.17521v1/teaser.png" alt="PhysStream: Streaming Physics-Grounded Video Generation with Structured Scene Memory and Fine-Grained Motion Control 论文图" loading="lazy"></a><span class="image-caption">PhysStream: Streaming Physics-Grounded Video Generation with Structured Scene Memory and Fine-Grained Motion Control 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.17521v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.17521">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.17521">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.17521/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-09-15-2">2026-09-15</h4>
-<h5 id="alayavista-streaming-world-modeling-from-panoramic-states-to-perspective-video">AlayaVista: Streaming World Modeling from Panoramic States to Perspective Video</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出AlayaVista，将全景状态与视角视频解码分离的流式视频世界模型，并构建MUGEN数据集。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.14462v1/method_pipeline.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.14462v1/method_pipeline.png" alt="AlayaVista: Streaming World Modeling from Panoramic States to Perspective Video 论文图" loading="lazy"></a><span class="image-caption">AlayaVista: Streaming World Modeling from Panoramic States to Perspective Video 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.14462">arXiv</a> · <a href="https://huggingface.co/papers/2609.14462">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.14462">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.14462/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="lynnreal-omni-native-multi-modal-video-generation-for-agentic-visual-workflows">LynnReal-Omni: Native multi-modal Video Generation for Agentic Visual Workflows</h5>
-<p><strong>分类：</strong> 视频；video diffusion model</p>
-<p>提出LynnReal-Omni，一个统一可控的多模态视频生成框架，支持智能体视觉工作流。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.15863v1/agent_workflows_1.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.15863v1/agent_workflows_1.png" alt="LynnReal-Omni: Native multi-modal Video Generation for Agentic Visual Workflows 论文图" loading="lazy"></a><span class="image-caption">LynnReal-Omni: Native multi-modal Video Generation for Agentic Visual Workflows 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.15863">arXiv</a> · <a href="https://huggingface.co/papers/2609.15863">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.15863">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.15863/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="physbrain-1-5-from-vision-language-models-to-physical-foundation-models">PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出统一物理基础模型PhysBrain 1.5，从视觉语言模型扩展至物理环境理解、动作生成与状态预测。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.14973v1/leaderboard.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.14973v1/leaderboard.png" alt="PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models 论文图" loading="lazy"></a><span class="image-caption">PhysBrain 1.5: From Vision-Language Models to Physical Foundation Models 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.14973">arXiv</a> · <a href="https://huggingface.co/papers/2609.14973">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.14973">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.14973/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-09-14-2">2026-09-14</h4>
-<h5 id="actionsplice-in-flight-action-editing-for-interactive-world-models">ActionSplice: In-Flight Action Editing for Interactive World Models</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出ActionSplice框架，通过反事实状态传输实现交互式世界模型的飞行中动作编辑。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.08230v1/main.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.08230v1/main.png" alt="ActionSplice: In-Flight Action Editing for Interactive World Models 论文图" loading="lazy"></a><span class="image-caption">ActionSplice: In-Flight Action Editing for Interactive World Models 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.08230v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.08230">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.08230">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.08230/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="pelican-sim-1-0-a-general-world-model-simulator-for-embodied-intelligence">Pelican-Sim 1.0: A General World Model Simulator for Embodied Intelligence</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出Pelican-Sim 1.0，一种面向具身智能的通用世界模型模拟器，从视觉和动作预测未来观测。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.12036v1/teaser.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.12036v1/teaser.png" alt="Pelican-Sim 1.0: A General World Model Simulator for Embodied Intelligence 论文图" loading="lazy"></a><span class="image-caption">Pelican-Sim 1.0: A General World Model Simulator for Embodied Intelligence 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.12036v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.12036">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.12036">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.12036/index.html" data-inline-html="true">展开正文</a></p>
-<h2 id="全量论文简报">全量论文简报</h2>
-<h3 id="2026-09-18-3">2026-09-18</h3>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.20817">FAMOS</a></td><td>3D</td><td>提出FAMOS，从稀疏多视角点云前馈建模可动部件分割与关节参数。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20800">JEPA-Anything</a></td><td>视频</td><td>提出跨域统一预测框架JEPA-Anything，在七个领域验证其有效性与科学发现能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20744">Video DeltaNet</a></td><td>视频</td><td>提出视频原生混合注意力Video DeltaNet，加速直播视频生成扩散模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20804">An Empirical Study of Harness Design for Coding Agents</a></td><td>其他</td><td>通过固定执行循环、变化组件，对编码智能体框架的规划、动作空间和上下文管理进行模块化实证研究。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.18323">Can MiniMax-H3 Reason About the Physical World? An Evaluation of Omni-Modal Generative Model</a></td><td>其他</td><td>评估多模态生成模型MiniMax-H3在物理世界推理上的表现，提出四维评测框架。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19969">DeepSeek-V4.1-Flash</a></td><td>其他</td><td>提出DeepSeek-V4.1-Flash多模态MoE模型，通过CED架构和KV缓存压缩技术大幅降低部署成本。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20715">Don&#x27;t Mask the Environment</a></td><td>其他</td><td>提出ActObs方法，对轨迹中的观测token联合监督，提升强化学习探索性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.18605">PACT</a></td><td>其他</td><td>提出PACT基准，测试企业AI助手在压力下遵守规则的能力，发现多数模型违规率显著上升。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.17653">Reflect, Revise, Reuse</a></td><td>其他</td><td>提出免训练框架EvoSkill-GUI，通过反思-修正-复用循环让GUI智能体动态演进技能库。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19745">Region-Level Policy Optimization for Fine-grained MLLM Perception</a></td><td>其他</td><td>提出Vision-RL2，用区域级强化学习优化MLLM细粒度感知，减少视觉令牌。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20784">RetireOPD</a></td><td>其他</td><td>提出RetireOPD，通过自适应退休的在线策略蒸馏提升智能体强化学习性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.16900">RiskChainBench</a></td><td>其他</td><td>提出RiskChainBench基准，评估混淆平台消息恢复与证据导向的网页调查，双阶段组合测试模型能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19499">Sample Count Is Not Enough</a></td><td>其他</td><td>研究大模型测试时缩放中候选生成策略对能耗和性能的影响，强调候选数N不足。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19656">Self-Evolving Search Index</a></td><td>其他</td><td>提出SELF-INDEX框架，使检索索引无需人工干预即可自我进化，提升检索性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20519">SoL-Pi</a></td><td>其他</td><td>提出SoL-Pi机制，递归扩展自动研究循环，在同等性能下降低编码代理的token用量和API成本。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.05661">Srijika</a></td><td>其他</td><td>提出Srijika系统，复用OpenType布局为九种印度天城文等文字重绘字体并生成可安装字体。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.12397">UFO</a></td><td>其他</td><td>提出UFO框架，用原子化评估链实现多模态图像生成的全条件对齐评估。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19879">V\={a}kQA</a></td><td>其他</td><td>构建泰卢固语口语事实问答基准VākQA并评估模型，发现翻译丢失文化、语音混淆等问题。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19554">VABench</a></td><td>其他</td><td>提出VA-Bench，评估多模态大模型基于视觉演示、主动感知和度量控制完成具身空间任务闭环的能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.17496">Verifiable Social Reasoning for LLM Assistants</a></td><td>其他</td><td>提出多智能体模拟框架Fuse，用于可验证地评估LLM助手在用户咨询中的社会推理能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20423">WeVisDoc</a></td><td>其他</td><td>提出WeVisDoc数据驱动框架，通过覆盖扩展与残差诊断提升文档解析鲁棒性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20612">What Does Privileged Information Add to On-Policy Self-Distillation?</a></td><td>其他</td><td>研究在线策略自蒸馏中特权参考信息的作用，构建数学基准并发现其增益有限。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20511">When EOS Tokens Disagree</a></td><td>其他</td><td>研究在线策略蒸馏中终止符不匹配导致生成长度膨胀，提出共享语义终止动作缓解。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19671">When2Think</a></td><td>其他</td><td>提出When2Think框架，按难度动态控制推理长度，提升混合推理模型的效率与准确性。</td></tr></tbody></table></div>
-<h3 id="2026-09-17-3">2026-09-17</h3>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.17189">EventEgoHands++</a></td><td>3D</td><td>提出事件相机下的第一人称三维手部网格重建方法，并构建大规模真实数据集。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.17909">Zing-0.5</a></td><td>视频</td><td>提出5B自回归世界模型Zing-0.5，支持实时键盘与文本联合控制生成世界，实现可游玩交互。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19144">A Zeroth-Order Paradigm for LLM Preference Alignment</a></td><td>其他</td><td>提出基于比较反馈的零阶偏好优化方法ComPO，用于大模型偏好对齐，缓解似然位移。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.18487">ActionPiece</a></td><td>其他</td><td>提出ActionPiece，通过物理关系一致性改进动作分词，提升自回归VLA模型表现。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.18094">Agora</a></td><td>其他</td><td>提出一种以Git中追加式有向无环图作为共享记忆的多智能体自动研究方法，并在权重迁移实验中验证其效果。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15524">Assessing nnU-Net Generalization across Brain Tumor Populations in BraTS-GoAT 2026</a></td><td>其他</td><td>评估nnU-Net在脑肿瘤分割跨人群泛化性能，发现体积与连通性影响失败案例。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.18779">CERA-MoA</a></td><td>其他</td><td>提出CERA-MoA迭代强化学习框架，协同进化路由机制与持续学习智能体，提升混合智能体性能与效率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.17708">Confidence Comes from Experience</a></td><td>其他</td><td>提出基于模型自身历史经验估计置信度的新方法XConf，无需逻辑访问或权重更新，且成本低。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.17632">EvolveTrade</a></td><td>其他</td><td>提出EvolveTrade，让LLM交易代理通过经验驱动自我演化策略提示，提升交易表现。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.17652">Fathom</a></td><td>其他</td><td>提出Fathom，按查询自适应读取键通道位数，加速卸载KV缓存上的稀疏解码。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.17172">Fingers as Legs</a></td><td>其他</td><td>本文用强化学习让拟人手掌以手指作腿，实现无额外机构的移动与操作。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.14306">Flattening Every Memory Peak in Long-Context Mixture-of-Experts Training</a></td><td>其他</td><td>提出四种方法同时压平长上下文混合专家训练的四种显存峰值，支持百万级上下文训练。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.18011">Gaze as Evidence for Common Grounding</a></td><td>其他</td><td>本研究跨语料分析MapTask和MUNDEX，考察注视行为是否提供共同基础证据。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15938">HypoEvolve</a></td><td>其他</td><td>提出HypoEvolve，用遗传算法协调多智能体LLM协作发现科学假设，在药物重定位评测中优于六种基线。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19138">In-Context Robot Learning with VLM Agents</a></td><td>其他</td><td>提出GPT-Policy框架，利用视觉语言模型实现机器人情境学习与动作执行。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.17488">LimiX-2</a></td><td>其他</td><td>提出LimiX-2模型，采用上下文机制网络，实现通用结构化数据智能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19143">PANORAMA</a></td><td>其他</td><td>提出全景定位描述任务和PANORAMA模型，通过掩码提议选择实现短语级像素定位。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.18805">ProgramDistill</a></td><td>其他</td><td>提出ProgramDistill基准，从完整交互式Web应用自动挖掘可验证行为，构建SWE任务评估编码智能体。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.18708">Rethinking Critic Learning in PPO</a></td><td>其他</td><td>揭示PPO批评者训练中的价值扁平化问题，提出稀疏监督方法SP3O缓解并提升策略。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19134">ScienceIDE</a></td><td>其他</td><td>提出ScienceIDE，把科学代码库变为智能体可学习环境，并训练PhAI-IDE系列模型验证效果。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.14320">SpectralShift</a></td><td>其他</td><td>基于谱重参数化提出SpectralShift，扩展Gated DeltaNet上下文窗口，提升长程建模能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.18063">The Other Half of the Memory Wall</a></td><td>其他</td><td>提出Edge0，通过预路由预测从SSD流式加载MoE专家，在24GB显存上以20tok/s服务35B模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15810">VC-Attention</a></td><td>其他</td><td>提出低比特注意力加速框架，结合值平滑与Softmax转换，提升视频生成效率。</td></tr></tbody></table></div>
-<h3 id="2026-09-16-2">2026-09-16</h3>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.17524">Modality-Autoregressive World-Action Models</a></td><td>视频</td><td>提出首个自回归去噪多种未来模态的世界动作模型ModAR，提升动作预测性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.17521v1">PhysStream</a></td><td>视频</td><td>提出PhysStream，基于结构化场景记忆与稀疏速度信号的可交互物理视频生成模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.16679">AI for Games in the Foundation Model Era</a></td><td>其他</td><td>综述基础模型时代AI在游戏全生命周期中的六种角色及其迁移挑战。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.14803">Another Blueprint In The Wall</a></td><td>其他</td><td>研究六种前沿模型在不同受众框架下生成架构的趋同现象，提出“认知越狱”概念。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.06986">Continual Learning Mechanisms Compose for Long-Horizon Memorization</a></td><td>其他</td><td>针对语言模型长期记忆任务，提出组合持续学习机制以缓解灾难性遗忘并大幅提升保留率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.14011">Convergent Emergence of In-Context Learning Across Modalities</a></td><td>其他</td><td>研究上下文学习跨模态的收敛涌现，构建统一框架验证六种模态中的ICL能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.16204">Decoy Direction Optimization</a></td><td>其他</td><td>提出解耦方向优化（DDO），一种无需微调的后处理防御方法，对抗LLM消融攻击。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15975">Disentangling Representation Evolution in Transformers through Directional Decomposition</a></td><td>其他</td><td>本文通过方向分解研究Transformer表示演化，揭示并行分量及其对编辑鲁棒性、压缩诊断和训练干预的作用。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13680">Drift-Constrained Optimization</a></td><td>其他</td><td>提出漂移约束优化框架，将微调视为方向选择问题，仅改变更新方向即可提升指令模型性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.17320">Emergence World</a></td><td>其他</td><td>研建持续运行多智能体环境，对抗压力测试长期自主系统。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.16591">FLAT</a></td><td>其他</td><td>提出FLAT框架，将图文统一为1D灵活长度令牌，联合优化表征学习与生成，实现检索和生成。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13406">Generalized Agent Iteration</a></td><td>其他</td><td>提出广义智能体迭代框架，统一刻画迭代策略改进与递归自我改进，并给出形式化坐标。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15195">HarnessVLN</a></td><td>其他</td><td>提出训练免费框架HarnessVLN，统一指令跟随与目标导航任务。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.16816">ImpossibleRubrics</a></td><td>其他</td><td>提出ImpossibleRubrics基准，用不可完成任务压力测试生成式评分标准，发现其易被对抗性答案利用。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15972">Mind2Dialogue</a></td><td>其他</td><td>提出Mind2Dialogue框架，通过模拟用户心理状态训练具备人类意识的大语言模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.14857">ModularRSI</a></td><td>其他</td><td>提出模块化可泛化的递归自我改进框架ModularRSI，通过对比聚合和模块分解提升跨任务性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.16057">OmniHarness</a></td><td>其他</td><td>提出OmniHarness框架，通过符号策略学习实现泛化视觉生成，解决现有方法泛化性差等问题。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.16372">Register Tokens for Bounded-State Reasoning in Diffusion Language Models</a></td><td>其他</td><td>提出寄存器令牌作为固定大小状态，使掩码扩散语言模型在清除上下文后继续推理，提升数学和代码生成性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.12552">RelateAnything</a></td><td>其他</td><td>提出实时开放词汇关系预测模型RelateAnything，支持任意区域来源与推理时自定义谓词表。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.17523">ScienceBuddy</a></td><td>其他</td><td>提出交互式科学智能体ScienceBuddy，通过递归自改进持续优化科研支持。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.16034">StepAudio 3 Music Technical Report</a></td><td>其他</td><td>本文提出StepAudio 3 Music，一个支持显式音乐规划和开放域文本控制的长篇幅音乐生成模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.14005">StepAudio 3 Realtime Technical Report</a></td><td>其他</td><td>提出StepAudio 3 Realtime音频语言模型，通过Think-While-Speaking实现实时语音对话与深度推理并行。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.11873">The Last AI Built by Humans</a></td><td>其他</td><td>提出递归自我改进概念及路线图，并用Headroom-Closed指数揭示现有LLM问题，探讨实现真正RSI的挑战。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15982">The Router Within</a></td><td>其他</td><td>提出Gavel，从冻结LLM内部状态读出技能路由信号，仅训练两个线性映射。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13770">Training Specialist Models without Reasoning Trajectories for Domain Expert Distillation</a></td><td>其他</td><td>研究无推理轨迹时专家模型精调如何隐式决定下游学生模型的 specialization 与 generalization 权衡。</td></tr></tbody></table></div>
-<h3 id="2026-09-15-3">2026-09-15</h3>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.15478">BVB</a></td><td>3D</td><td>提出BVB基准，用Blender程序化重建真实视频来评测智能体视频理解能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15659">KaiNinja</a></td><td>3D</td><td>提出基于双体积表征的KaiNinja，将原生3D生成器扩展至部件级，无需分割网络并提升生成质量。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.14462">AlayaVista</a></td><td>视频</td><td>提出AlayaVista，将全景状态与视角视频解码分离的流式视频世界模型，并构建MUGEN数据集。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15863">LynnReal-Omni</a></td><td>视频</td><td>提出LynnReal-Omni，一个统一可控的多模态视频生成框架，支持智能体视觉工作流。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.14973">PhysBrain 1.5</a></td><td>视频</td><td>提出统一物理基础模型PhysBrain 1.5，从视觉语言模型扩展至物理环境理解、动作生成与状态预测。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.12541">Agent as Policy for Robotic Manipulation</a></td><td>其他</td><td>提出Agent as Policy方法，使通用智能体直接驱动机器人完成多种操作任务。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15818">Atria Dawn</a></td><td>其他</td><td>提出Atria Dawn Preview智能体语言模型，通过可验证经验管线提升科研工程生产力，实现人机协作新范式。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13318">Attention-DP3</a></td><td>其他</td><td>提出空间物体感知的3D扩散策略Attention-DP3，通过注意力注入物体几何线索以提升杂乱场景操纵性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13498">Building a Production Greek-English Speech Recognizer</a></td><td>其他</td><td>构建生产级希腊语-英语双语语音识别系统Sophea，报告数据管线和集成方法等工程实践。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15973">Discovery Foundation Models</a></td><td>其他</td><td>提出发现基础模型（DFMs），实现开放式发现智能，并给出Zetema框架与GALILEO系统。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.14858">Dream-RSI</a></td><td>其他</td><td>提出Dream-RSI，用历史发现树构建重放模拟器，以低成本离线反馈改进探索策略，实现递归自我改进。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13053">Dynin-Robotics</a></td><td>其他</td><td>提出统一扩散视觉-语言-动作模型Dynin-Robotics，共享轨迹建模实现目标预测与动作生成。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.14302">E2A-Bench</a></td><td>其他</td><td>提出E2A-Bench基准，评估金融图表推理中证据到行动的全链路可靠性，揭示单一幻觉分数的不足。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15078">Enabling Creative Exploration for Vibe Design Agents</a></td><td>其他</td><td>面向Vibe设计代理，提出结构化设计规范作为中间决策，实现界面创意探索与生成解耦。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13058">Expert-Space Exploration in MoE Reinforcement Learning</a></td><td>其他</td><td>提出专家空间探索方法ESRL，通过扰动路由提升MoE强化学习的性能与多样性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13285">Grouped Value Attention</a></td><td>其他</td><td>提出Grouped Value Attention，压缩KV缓存并通过线性映射重建键，保持近似GQA精度。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15134">HazardAuditor</a></td><td>其他</td><td>提出HazardAuditor执行级安全框架和GuardPO优化，提升计算机使用代理的安全准确性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15504">How Lossless Is Lossless Speculative Decoding? The Role of Numerical Precision in Orthrus</a></td><td>其他</td><td>本文检验Orthrus推测解码在不同数值精度下的无损性，发现FP32才完全等价。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.01430">Learning Sparse Decision Trees via Transformer Variational Auto-Encoders</a></td><td>其他</td><td>提出基于Transformer变分自编码器的TREVIS方法，在连续潜在空间学习稀疏决策树，兼顾性能与稀疏性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13443">Learning to Solve Hard Problems in RL for LLMs by Never Giving Up</a></td><td>其他</td><td>提出NGU自适应采样方法，解决RL训练LLM中难题提升小的问题</td></tr><tr><td><a href="https://arxiv.org/abs/2609.14708">Lightning Weave</a></td><td>其他</td><td>提出闪电编织后训练框架，通过能力组合蒸馏，将独立模型的准确性与效率优势集成到单一推理模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13287">LLaDA-UI</a></td><td>其他</td><td>提出基于块状扩散的16.7B多模态GUI智能体LLaDA-UI，验证并行解码优势并超越对比模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.12419">MInTRL</a></td><td>其他</td><td>提出最小干预强化学习（MInTRL）：在策略采样中稀疏局部修正，提升数学与代码任务RL性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15635">ModaLens</a></td><td>其他</td><td>提出ModaLens图像交换审计方法，测量放射学报告可用性对医学视觉语言模型图像敏感性的影响。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15051">Not All Prompts Are Equal</a></td><td>其他</td><td>本文提出探索引导的提示脚手架框架，动态调整训练提示分布以提升多模态强化后训练效果。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15128">Omni-Streaming Thinking</a></td><td>其他</td><td>提出OST方法，用结构化证据验证解决流式全模态中的过早跨模态承诺问题。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15029">Pick Your Poison</a></td><td>其他</td><td>提出SAILS方法，通过学习选择中毒样本集，显著提升LLM后门攻击成功率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13463">Root-Cause Attribution Is a Search Problem</a></td><td>其他</td><td>提出持续搜索框架，通过迭代提示提升长周期AI代理故障根因归因准确率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15364">RSIAgent</a></td><td>其他</td><td>提出训练免费的多智能体框架RSIAgent，通过自主记忆构建实现新环境中的递归自我改进。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13948">Thought without systematicity? Evaluating reasoning models on rule induction tasks</a></td><td>其他</td><td>评估推理模型在规则归纳任务上是否具备系统性的能力，发现模型常在同构任务上表现不一致。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.11638">Vidu S2</a></td><td>其他</td><td>提出Vidu S2，包含实时交互数字人模型和实时视频编辑模型，并探索实时空间视频生成。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15309">When Agents Slow Down</a></td><td>其他</td><td>研究LLM代理测试时策略，提出Elo-per-token分析方法，揭示缩放规律并定义拐点。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13356">ZGCM-1</a></td><td>其他</td><td>提出全开源7B基础模型ZGCM-1，通过内部思考与外部工具结合，高效提升数学推理与智能体搜索。</td></tr></tbody></table></div>
-<h3 id="2026-09-14-3">2026-09-14</h3>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.08365v1">ReMoMask-2</a></td><td>3D</td><td>提出ReMoMask-2，在潜在空间检索增强文本生成动作，性能最优</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13146v1">SNAP3D</a></td><td>3D</td><td>提出物理引导框架SNAP3D，从单图生成部件级3D模型，确保几何与装配稳定性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.08230v1">ActionSplice</a></td><td>视频</td><td>提出ActionSplice框架，通过反事实状态传输实现交互式世界模型的飞行中动作编辑。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.12036v1">Pelican-Sim 1.0</a></td><td>视频</td><td>提出Pelican-Sim 1.0，一种面向具身智能的通用世界模型模拟器，从视觉和动作预测未来观测。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.07154">Ambient @ EgoLongQA 2026</a></td><td>其他</td><td>通过蒸馏工具智能体感知模块，将十米长视频问答能力压缩至2B模型并夺冠。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.07099">Ambient @ EgoProactive 2026</a></td><td>其他</td><td>提出可视化监督与单令牌分类方法，提升可穿戴设备主动干预时机预测的F1分数。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.11115">Benchmark Radar</a></td><td>其他</td><td>构建AI基准测试活数据库与搜索引擎，支持发现、检索和分数比较。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.05824">Beyond Top-$k$ Skill Retrieval</a></td><td>其他</td><td>提出多样性感知的技能路由框架DSR，用行列式点过程平衡相关性与非冗余性，提升LLM代理技能选择效果。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.12641">Breaking the Vision-Action Shortcut</a></td><td>其他</td><td>提出潜在接口训练，消除视觉-动作捷径，提升机器人基础模型的泛化能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.03502">Building and Evaluating Fixed-Voice Thai TTS from Synthetic Speech</a></td><td>其他</td><td>利用大模型合成语音训练紧凑型固定音色泰语TTS，实现设备端合成。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.11682">COBRA-Skills</a></td><td>其他</td><td>提出COBRA-Skills框架，用上下文赌博机引导技能优化，降低开销并提升智能体性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.12101">Competence-Gated Pooling of Language Models and Priors for Event Forecasting</a></td><td>其他</td><td>提出能力门控机制，根据边际价值选择性融合语言模型与外部预测，提升事件预测精度。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.06107">DataFlex-RL</a></td><td>其他</td><td>构建RLVR数据策略评估平台，发现统一采样优于复杂选择与加权策略。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.12078">Feature Recovery for Object Understanding After Irreversible Fire Damage</a></td><td>其他</td><td>提出火灾后物体理解基准TRACE与特征恢复模块FRM，提升退化物体检测与原始属性恢复。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.08418">Feyospace-v1</a></td><td>其他</td><td>提出数据为中心的框架，训练开源网络智能体，三个检查点在CyberGym上平均提升23.76%。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.03595">How Far Can Synthetic Data Take Thai OCR?</a></td><td>其他</td><td>探究合成数据到真实泰文的OCR迁移因素，构建纯合成训练的Wayu-Paxa-OCR-Zero模型</td></tr><tr><td><a href="https://arxiv.org/abs/2609.06251">MobileVLA-R1 2.0</a></td><td>其他</td><td>提出MobileVLA-R1 2.0，用强化学习增强推理与行动，提升移动机器人指令执行能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.11977">Occamy-1.0</a></td><td>其他</td><td>提出一种高效协同工作智能体，采用分阶段后训练，在性能与成本间达到帕累托前沿。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.05820">Online Learning with LLM Experts from Limited Feedback</a></td><td>其他</td><td>研究在线路由提示词给LLM专家，在有限反馈下最小化遗憾，提出两种算法。</td></tr><tr><td><a href="https://arxiv.org/abs/2608.30597">PLC-DPO</a></td><td>其他</td><td>针对偏好优化中噪声与模糊标签，提出基于后验标签修正的PLC-DPO方法，提升对齐鲁棒性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.10895">ReactHuman</a></td><td>其他</td><td>提出ReactHuman基准，测试多模态大模型在具身模拟中面对突发物理危险的反应决策能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13141">SAS</a></td><td>其他</td><td>提出简单注意力稀疏化SAS，通过端到端优化上下文排序改进Transformer推理效率</td></tr><tr><td><a href="https://arxiv.org/abs/2609.12945">StepAudio 3 Gen Technical Report</a></td><td>其他</td><td>提出StepAudio 3 Gen统一音频生成模型，基于离散自回归和RVQ token，支持多种音频生成任务。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.10824">Studying Without a Syllabus</a></td><td>其他</td><td>研究任务无关的环境预处理，让智能体在无任务信息时预习环境并构建可复用资源，提升下游任务效率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.10728">Towards a Deterministic Math Solver for Clinical Language Models</a></td><td>其他</td><td>提出程序求解接口：让临床语言模型生成Python代码，由确定性执行器计算，避免直接算术错误。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.10297">TRACE</a></td><td>其他</td><td>提出轨迹鲁棒准入与证据排序框架，剪枝视觉token提升GUI智能体效率</td></tr></tbody></table></div></div></article></main>
+    <main class="academic-main"><article><div class="markdown-image-gallery"><h1 id="bibtex-与-dblp-查询结果">BibTeX 与 DBLP 查询结果</h1>
+<blockquote><a href="../">快速理解版</a> · <a href="../full/">逐篇解析</a></blockquote>
+<p>本页由确定性 Python 程序生成，不使用 LLM。已知 DBLP 标识通过 DBLP 官方 SPARQL/RDF 服务获取；没有标识时仅使用 DOI 或精确标题在同一官方服务中查询。BibTeX 字段只来自 DBLP 返回值。</p>
+<ul><li><strong>DBLP 收录并生成 BibTeX：</strong> 108 篇</li><li><strong>DBLP 未找到：</strong> 1 篇</li><li><strong>请求失败：</strong> 0 篇</li></ul>
+<h2 id="bibtex">BibTeX</h2>
+<pre data-language="bibtex"><code>@article{DBLP:journals/corr/abs-2608-02711,
+  author    = {Junliang Ye and Kenkun Liu and Guocun Wang and Yang Li 0197 and Yansong Qu and Chunshi Wang and Jingwei Xu and Yunhan Yang and Zibo Zhao 0001 and Jiachen Xu and Jiaao Yu and Lifu Wang and Zhihao Liang and Xin Huang and Zhuo Chen 0054 and Chunchao Guo},
+  title     = {Hunyuan3D-Buffalo 1.0: A Unified Multimodal Model for Scalable 3D Generation, Understanding, and Editing},
+  journal   = {CoRR},
+  year      = {2026},
+  doi       = {10.48550/ARXIV.2608.02711},
+  url       = {https://doi.org/10.48550/ARXIV.2608.02711},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2608-02711.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2607-14927,
+  author    = {Siwoo Lim and Sunjae Yoon and Gwanhyeong Koo and Hyeonseo Yun and Chang D. Yoo},
+  title     = {TanGO: Training-Free 3D Editing via Tangent-Space Guidance and Optimization},
+  journal   = {CoRR},
+  year      = {2026},
+  doi       = {10.48550/ARXIV.2607.14927},
+  url       = {https://doi.org/10.48550/ARXIV.2607.14927},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2607-14927.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2607-07187,
+  author    = {Youtan Yin and Yanning Zhou and Jiacheng Wei and Xiaofeng Yang and Jun Zhang and Jiayang Bai and Jingwen Ye and Weidong Zhang and Guosheng Lin},
+  title     = {EditVerse3D: High-Quality 3D Object Editing with Region-Aware Learning},
+  journal   = {CoRR},
+  year      = {2026},
+  doi       = {10.48550/ARXIV.2607.07187},
+  url       = {https://doi.org/10.48550/ARXIV.2607.07187},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2607-07187.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2606-30673,
+  author    = {Chunshi Wang and Haohan Weng and Junliang Ye and Biwen Lei and Yang Li 0197 and Zibo Zhao 0001 and Zeqiang Lai and Kaiyi Zhang and Yunhan Yang and Zhuo Chen 0054 and Chunchao Guo and Yawei Luo},
+  title     = {PolyFlow: Continuous Topology Embedding Flow Matching for Artist-style Mesh Generation},
+  journal   = {CoRR},
+  year      = {2026},
+  doi       = {10.48550/ARXIV.2606.30673},
+  url       = {https://doi.org/10.48550/ARXIV.2606.30673},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2606-30673.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2606-04621,
+  author    = {Weiyu Li and Antoine Toisoul and Tom Monnier and Roman Shapovalov and Rakesh Ranjan and Ping Tan 0002 and Andrea Vedaldi},
+  title     = {MeshFlow: Efficient Artistic Mesh Generation via MeshVAE and Flow-based Diffusion Transformer},
+  journal   = {CoRR},
+  year      = {2026},
+  doi       = {10.48550/ARXIV.2606.04621},
+  url       = {https://doi.org/10.48550/ARXIV.2606.04621},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2606-04621.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2605-28548,
+  author    = {Ruowen Zhao and Bangguo Li and Zuyan Liu and Yinan Liang and Junliang Ye and Fangfu Liu and Diankun Wu and Zhengyi Wang and Xumin Yu and Yongming Rao and Han Hu 0001 and Jun Zhu 0001},
+  title     = {GEM: Generative Supervision Helps Embodied Intelligence},
+  journal   = {CoRR},
+  year      = {2026},
+  doi       = {10.48550/ARXIV.2605.28548},
+  url       = {https://doi.org/10.48550/ARXIV.2605.28548},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2605-28548.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2605-28763,
+  author    = {Yiheng Zhu and Kangle Deng and Jean-Philippe Fauconnier and Inaki Navarro and Daiqing Li and Ava Pun and Yinan Zhang and Peiye Zhuang and Xiaoxia Sun and Maneesh Agrawala and Kiran Bhat and Tinghui Zhou},
+  title     = {CubePart: An Open-Vocabulary Part-Controllable 3D Generator},
+  journal   = {CoRR},
+  year      = {2026},
+  doi       = {10.48550/ARXIV.2605.28763},
+  url       = {https://doi.org/10.48550/ARXIV.2605.28763},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2605-28763.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2605-27351,
+  author    = {Jiawei Weng and Saining Zhang and Zhenxin Diao and Peishuo Li and Henghaofan Zhang and Junhao Chen and Hao Zhao},
+  title     = {Feedforward 3D Editing Learns from Semantic-Part Transformation},
+  journal   = {CoRR},
+  year      = {2026},
+  doi       = {10.48550/ARXIV.2605.27351},
+  url       = {https://doi.org/10.48550/ARXIV.2605.27351},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2605-27351.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2605-16745,
+  author    = {Zongyuan Yang and Mingjing Yi and Wanli Ma and Chenzhuo Fan and Bocheng Li and Baolin Liu and Yuke Lou and Yingde Song and Yongping Xiong and Zhengdong Guo and Shimu Wang},
+  title     = {EVA01: Unified Native 3D Understanding and Generation via Mixture-of-Transformers},
+  journal   = {CoRR},
+  year      = {2026},
+  doi       = {10.48550/ARXIV.2605.16745},
+  url       = {https://doi.org/10.48550/ARXIV.2605.16745},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2605-16745.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2605-07385,
+  author    = {Hao Liu and Yuxuan Lin and Jingfeng Guo and Ruihang Chu and Junjie Wang and Ruotong Li and Yujiu Yang 0001},
+  title     = {Velocity-Space 3D Asset Editing},
+  journal   = {CoRR},
+  year      = {2026},
+  doi       = {10.48550/ARXIV.2605.07385},
+  url       = {https://doi.org/10.48550/ARXIV.2605.07385},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2605-07385.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2605-05163,
+  author    = {Yunhan Yang and Chunshi Wang and Junliang Ye and Yang Li 0197 and Zanxin Chen and Zehuan Huang and Yao Mu and Zhuo Chen 0054 and Chunchao Guo and Xihui Liu},
+  title     = {PhysForge: Generating Physics-Grounded 3D Assets for Interactive Virtual World},
+  journal   = {CoRR},
+  year      = {2026},
+  doi       = {10.48550/ARXIV.2605.05163},
+  url       = {https://doi.org/10.48550/ARXIV.2605.05163},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2605-05163.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2604-23774,
+  author    = {Etai Sella and Hao Phung and Nitay Amiel and Or Litany and Or Patashnik and Hadar Averbuch-Elor},
+  title     = {Prox-E: Fine-Grained 3D Shape Editing via Primitive-Based Abstractions},
+  journal   = {CoRR},
+  year      = {2026},
+  doi       = {10.48550/ARXIV.2604.23774},
+  url       = {https://doi.org/10.48550/ARXIV.2604.23774},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2604-23774.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2604-20329,
+  author    = {Valentin Gabeur and Shangbang Long and Songyou Peng and Paul Voigtlaender and Shuyang Sun and Yanan Bao and Karen Truong and Zhicheng Wang and Wenlei Zhou and Jonathan T. Barron and Kyle Genova and Nithish Kannen and Sherry Ben and Yandong Li and Mandy Guo and Suhas Yogin and Yiming Gu and Huizhong Chen and Oliver Wang and Saining Xie and Howard Zhou and Kaiming He and Thomas A. Funkhouser and Jean-Baptiste Alayrac and Radu Soricut},
+  title     = {Image Generators are Generalist Vision Learners},
+  journal   = {CoRR},
+  year      = {2026},
+  doi       = {10.48550/ARXIV.2604.20329},
+  url       = {https://doi.org/10.48550/ARXIV.2604.20329},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2604-20329.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2604-13688,
+  author    = {Yizhao Xu and Hongyuan Zhu 0001 and Caiyun Liu and Tianfu Wang 0002 and Keyu Chen and Sicheng Xu and Jiaolong Yang and Nicholas Jing Yuan and Qi Zhang 0066},
+  title     = {Beyond Voxel 3D Editing: Learning from 3D Masks and Self-Constructed Data},
+  journal   = {CoRR},
+  year      = {2026},
+  doi       = {10.48550/ARXIV.2604.13688},
+  url       = {https://doi.org/10.48550/ARXIV.2604.13688},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2604-13688.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2604-02289,
+  author    = {Chongjie Ye and Cheng Cao and Chuanyu Pan and Yiming Hao and Yihao Zhi and Yuanming Hu and Xiaoguang Han 0001},
+  title     = {Omni123: Exploring 3D Native Foundation Models with Limited 3D Data by Unifying Text to 2D and 3D Generation},
+  journal   = {CoRR},
+  year      = {2026},
+  doi       = {10.48550/ARXIV.2604.02289},
+  url       = {https://doi.org/10.48550/ARXIV.2604.02289},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2604-02289.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2603-17841,
+  author    = {Liyi Chen 0002 and Pengfei Wang 0012 and Guowen Zhang and Zhiyuan Ma 0002 and Lei Zhang 0006},
+  title     = {Omni-3DEdit: Generalized Versatile 3D Editing in One-Pass},
+  journal   = {CoRR},
+  year      = {2026},
+  doi       = {10.48550/ARXIV.2603.17841},
+  url       = {https://doi.org/10.48550/ARXIV.2603.17841},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2603-17841.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2603-06357,
+  author    = {Tianhao Zhao and Youjia Zhang and Hang Long and Jinshen Zhang and Wenbing Li and Yang Yang and Gongbo Zhang and Jozef Hladký and Matthias Nießner and Wei Yang},
+  title     = {LATO: 3D Mesh Flow Matching with Structured TOpology Preserving LAtents},
+  journal   = {CoRR},
+  year      = {2026},
+  doi       = {10.48550/ARXIV.2603.06357},
+  url       = {https://doi.org/10.48550/ARXIV.2603.06357},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2603-06357.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2603-01515,
+  author    = {Hanxiao Wang and Yuan-Chen Guo and Ying-Tian Liu and Zi-Xin Zou and Biao Zhang 0005 and Weize Quan and Ding Liang and Yan-Pei Cao 0001 and Dong-Ming Yan 0001},
+  title     = {FACE: A Face-based Autoregressive Representation for High-Fidelity and Efficient Mesh Generation},
+  journal   = {CoRR},
+  year      = {2026},
+  doi       = {10.48550/ARXIV.2603.01515},
+  url       = {https://doi.org/10.48550/ARXIV.2603.01515},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2603-01515.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2602-21499,
+  author    = {Shimin Hu 0004 and Yuanyi Wei and Fei Zha and Yudong Guo and Juyong Zhang},
+  title     = {Easy3E: Feed-Forward 3D Asset Editing via Rectified Voxel Flow},
+  journal   = {CoRR},
+  year      = {2026},
+  doi       = {10.48550/ARXIV.2602.21499},
+  url       = {https://doi.org/10.48550/ARXIV.2602.21499},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2602-21499.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2602-05676,
+  author    = {Inbar Gat and Dana Cohen-Bar and Guy Levy and Elad Richardson and Daniel Cohen-Or},
+  title     = {ShapeUP: Scalable Image-Conditioned 3D Editing},
+  journal   = {CoRR},
+  year      = {2026},
+  doi       = {10.48550/ARXIV.2602.05676},
+  url       = {https://doi.org/10.48550/ARXIV.2602.05676},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2602-05676.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2602-04349,
+  author    = {Teng-Fang Hsiao and Bo-Kai Ruan and Yu-Lun Liu 0001 and Hong-Han Shuai},
+  title     = {VecSet-Edit: Unleashing Pre-trained LRM for Mesh Editing from Single Image},
+  journal   = {CoRR},
+  year      = {2026},
+  doi       = {10.48550/ARXIV.2602.04349},
+  url       = {https://doi.org/10.48550/ARXIV.2602.04349},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2602-04349.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2601-21798,
+  author    = {Junming Huang and Weiwei Xu},
+  title     = {CG-MLLM: Captioning and Generating 3D content via Multi-modal Large Language Models},
+  journal   = {CoRR},
+  year      = {2026},
+  doi       = {10.48550/ARXIV.2601.21798},
+  url       = {https://doi.org/10.48550/ARXIV.2601.21798},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2601-21798.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2512-13678,
+  author    = {Ziqi Ma and Hongqiao Chen 0001 and Yisong Yue and Georgia Gkioxari},
+  title     = {Feedforward 3D Editing via Text-Steerable Image-to-3D},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2512.13678},
+  url       = {https://doi.org/10.48550/ARXIV.2512.13678},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2512-13678.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2512-07628,
+  author    = {Zhiqi Li and Wenhuan Li and Tengfei Wang 0002 and Zhenwei Wang 0003 and Junta Wu and Haoyuan Wang and Yunhan Yang and Zehuan Huang and Yang Li and Peidong Liu and Chunchao Guo},
+  title     = {MoCA: Mixture-of-Components Attention for Scalable Compositional 3D Generation},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2512.07628},
+  url       = {https://doi.org/10.48550/ARXIV.2512.07628},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2512-07628.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2511-22357,
+  author    = {Zhenglin Zhou and Fan Ma and Chengzhuo Gui and Xiaobo Xia and Hehe Fan and Yi Yang 0001 and Tat-Seng Chua},
+  title     = {AnchorFlow: Training-Free 3D Editing via Latent Anchor-Aligned Flows},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2511.22357},
+  url       = {https://doi.org/10.48550/ARXIV.2511.22357},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2511-22357.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2512-03052,
+  author    = {Zeqiang Lai and Yunfei Zhao and Zibo Zhao 0001 and Haolin Liu and Qingxiang Lin and Jingwei Huang and Chunchao Guo and Xiangyu Yue 0001},
+  title     = {LATTICE: Democratize High-Fidelity 3D Generation at Scale},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2512.03052},
+  url       = {https://doi.org/10.48550/ARXIV.2512.03052},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2512-03052.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2511-17501,
+  author    = {Weiwei Cai and Shuangkang Fang and Weicai Ye and Xin Dong and Yunhan Yang and Xuanyang Zhang and Wei Cheng and Yanpei Cao 0001 and Gang Yu 0002 and Tao Chen 0003},
+  title     = {Native 3D Editing with Full Attention},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2511.17501},
+  url       = {https://doi.org/10.48550/ARXIV.2511.17501},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2511-17501.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2511-16317,
+  author    = {Zeqiang Lai and Yunfei Zhao and Zibo Zhao 0001 and Xin Yang and Xin Huang and Jingwei Huang and Xiangyu Yue 0001 and Chunchao Guo},
+  title     = {NaTex: Seamless Texture Generation as Latent Color Diffusion},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2511.16317},
+  url       = {https://doi.org/10.48550/ARXIV.2511.16317},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2511-16317.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2511-13647,
+  author    = {Chunshi Wang and Junliang Ye and Yunhan Yang and Yang Li 0197 and Zizhuo Lin and Jun Zhu and Zhuo Chen 0054 and Yawei Luo and Chunchao Guo},
+  title     = {Part-X-MLLM: Part-aware 3D Multimodal Large Language Model},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2511.13647},
+  url       = {https://doi.org/10.48550/ARXIV.2511.13647},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2511-13647.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2510-20155,
+  author    = {Penghao Wang 0003 and Yiyang He and Xin Lv and Yukai Zhou and Lan Xu 0003 and Jingyi Yu 0001 and Jiayuan Gu},
+  title     = {PartNeXt: A Next-Generation Dataset for Fine-Grained and Hierarchical 3D Part Understanding},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2510.20155},
+  url       = {https://doi.org/10.48550/ARXIV.2510.20155},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2510-20155.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2510-15857,
+  author    = {Jiuhai Chen and Le Xue and Zhiyang Xu and Xichen Pan and Shusheng Yang and Can Qin and An Yan and Honglu Zhou and Zeyuan Chen 0001 and Lifu Huang and Tianyi Zhou 0001 and Junnan Li 0001 and Silvio Savarese and Caiming Xiong and Ran Xu 0001},
+  title     = {BLIP3o-NEXT: Next Frontier of Native Image Generation},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2510.15857},
+  url       = {https://doi.org/10.48550/ARXIV.2510.15857},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2510-15857.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2510-15019,
+  author    = {Junliang Ye and Shenghao Xie 0002 and Ruowen Zhao and Zhengyi Wang and Hongyu Yan and Wenqiang Zu and Lei Ma 0008 and Jun Zhu 0001},
+  title     = {NANO3D: A Training-Free Approach for Efficient 3D Editing Without Masks},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2510.15019},
+  url       = {https://doi.org/10.48550/ARXIV.2510.15019},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2510-15019.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2510-06590,
+  author    = {Ziyuan Huang and Dandan Zheng and Cheng Zou and Rui Liu 0019 and Xiaolong Wang 0013 and Kaixiang Ji and Weilong Chai and Jianxin Sun 0005 and Libin Wang and Yongjie Lv and Taozhi Huang and Jiajia Liu 0002 and Qingpei Guo and Ming Yang 0007 and Jingdong Chen and Jun Zhou 0011},
+  title     = {Ming-UniVision: Joint Image Understanding and Generation with a Unified Continuous Tokenizer},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2510.06590},
+  url       = {https://doi.org/10.48550/ARXIV.2510.06590},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2510-06590.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2510-02994,
+  author    = {Ruihao Xia and Yang Tang 0001 and Pan Zhou 0002},
+  title     = {Towards Scalable and Consistent 3D Editing},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2510.02994},
+  url       = {https://doi.org/10.48550/ARXIV.2510.02994},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2510-02994.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2509-23951,
+  author    = {Siyu Cao and Hangting Chen and Peng Chen 0024 and Yiji Cheng and Yutao Cui and Xinchi Deng and Ying Dong and Kipper Gong and Tianpeng Gu and Xiusen Gu and Tiankai Hang and Duojun Huang and Jie Jiang 0015 and Zhengkai Jiang 0001 and Weijie Kong and Changlin Li and Donghao Li and Junzhe Li and Xin Li 0110 and Yang Li 0197 and Zhenxi Li and Zhimin Li and Jiaxin Lin and Linus and Lucaz Liu and Shu Liu and Songtao Liu and Yu Liu 0015 and Yuhong Liu and Yanxin Long and Fanbin Lu and Qinglin Lu and Yuyang Peng and Yuanbo Peng and Xiangwei Shen and Yixuan Shi and Jiale Tao and Yangyu Tao and Qi Tian 0003 and Pengfei Wan 0001 and Chunyu Wang 0001 and Kai Wang 0036 and Lei Wang and Linqing Wang and Lucas Wang and Qixun Wang 0001 and Weiyan Wang and Hao Wen and Bing Wu and Jianbing Wu and Yue Wu and Senhao Xie and Fang Yang and Miles Yang and Xiaofeng Yang and Xuan Yang and Zhantao Yang and Jingmiao Yu and Zheng Yuan and Chao Zhang 0014 and Jian-Wei Zhang and Peizhen Zhang and Shi-Xue Zhang and Tao Zhang 0042 and Weigang Zhang and Yepeng Zhang and Yingfang Zhang and Zihao Zhang and Zijian Zhang 0002 and Penghao Zhao and Zhiyuan Zhao 0002 and Xuefei Zhe and Jianchen Zhu and Zhao Zhong},
+  title     = {HunyuanImage 3.0 Technical Report},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2509.23951},
+  url       = {https://doi.org/10.48550/ARXIV.2509.23951},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2509-23951.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2509-20427,
+  author    = {Yunpeng Chen and Yu Gao and Lixue Gong and Meng Guo and Qiushan Guo and Zhiyao Guo and Xiaoxia Hou and Weilin Huang and Yixuan Huang and Xiaowen Jian and Huafeng Kuang and Zhichao Lai and Fanshi Li and Liang Li and Xiaochen Lian and Chao Liao and Liyang Liu and Wei Liu and Yanzuo Lu and Zhengxiong Luo and Tongtong Ou and Guang Shi and Yichun Shi and Shiqi Sun and Yu Tian and Zhi Tian and Peng Wang and Rui Wang 0089 and Xun Wang and Ye Wang and Guofeng Wu and Jie Wu 0032 and Wenxu Wu and Yonghui Wu and Xin Xia 0005 and Xuefeng Xiao 0001 and Shuang Xu and Xin Yan and Ceyuan Yang and Jianchao Yang and Zhonghua Zhai and Chenlin Zhang and Heng Zhang and Qi Zhang and Xinyu Zhang and Yuwei Zhang and Shijia Zhao and Wenliang Zhao and Wenjia Zhu},
+  title     = {Seedream 4.0: Toward Next-generation Multimodal Image Generation},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2509.20427},
+  url       = {https://doi.org/10.48550/ARXIV.2509.20427},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2509-20427.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2509-12815,
+  author    = {Tencent Hunyuan3D},
+  title     = {Hunyuan3D Studio: End-to-End AI Pipeline for Game-Ready 3D Asset Generation},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2509.12815},
+  url       = {https://doi.org/10.48550/ARXIV.2509.12815},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2509-12815.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2509-08643,
+  author    = {Xinhao Yan and Jiachen Xu and Yang Li 0197 and Changfeng Ma and Yunhan Yang and Chunshi Wang and Zibo Zhao 0001 and Zeqiang Lai and Yunfei Zhao and Zhuo Chen 0054 and Chunchao Guo},
+  title     = {X-Part: high fidelity and structure coherent shape decomposition},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2509.08643},
+  url       = {https://doi.org/10.48550/ARXIV.2509.08643},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2509-08643.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2508-19188,
+  author    = {Jeonghwan Kim and Yushi Lan and Armando Fortes and Yongwei Chen and Xingang Pan},
+  title     = {FastMesh: Efficient Artistic Mesh Generation via Component Decoupling},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2508.19188},
+  url       = {https://doi.org/10.48550/ARXIV.2508.19188},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2508-19188.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2508-19247,
+  author    = {Lin Li and Zehuan Huang and Haoran Feng and Gengxiong Zhuang and Rui Chen and Chunchao Guo and Lu Sheng},
+  title     = {VoxHammer: Training-Free Precise and Coherent 3D Editing in Native 3D Space},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2508.19247},
+  url       = {https://doi.org/10.48550/ARXIV.2508.19247},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2508-19247.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2508-02324,
+  author    = {Chenfei Wu and Jiahao Li and Jingren Zhou 0001 and Junyang Lin and Kaiyuan Gao and Kun Yan 0004 and Shengming Yin and Shuai Bai and Xiao Xu 0005 and Yilei Chen and Yuxiang Chen and Zecheng Tang and Zekai Zhang and Zhengyi Wang and An Yang and Bowen Yu 0002 and Chen Cheng and Dayiheng Liu and Deqing Li and Hang Zhang and Hao Meng and Hu Wei and Jingyuan Ni and Kai Chen 0026 and Kuan Cao and Liang Peng and Lin Qu and Minggang Wu and Peng Wang 0028 and Shuting Yu and Tingkun Wen and Wensen Feng and Xiaoxiao Xu and Yi Wang 0074 and Yichang Zhang and Yongqiang Zhu and Yujia Wu and Yuxuan Cai and Zenan Liu},
+  title     = {Qwen-Image Technical Report},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2508.02324},
+  url       = {https://doi.org/10.48550/ARXIV.2508.02324},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2508-02324.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2507-17745,
+  author    = {Yiwen Chen and Zhihao Li and Yikai Wang 0001 and Hu Zhang and Qin Li and Chi Zhang 0007 and Guosheng Lin},
+  title     = {Ultra3D: Efficient and High-Fidelity 3D Generation with Part Attention},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2507.17745},
+  url       = {https://doi.org/10.48550/ARXIV.2507.17745},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2507-17745.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2507-06165,
+  author    = {Yunhan Yang and Yufan Zhou 0004 and Yuan-Chen Guo and Zi-Xin Zou and Yukun Huang and Ying-Tian Liu and Hao Xu 0049 and Ding Liang and Yan-Pei Cao 0001 and Xihui Liu},
+  title     = {OmniPart: Part-Aware 3D Generation with Semantic Decoupling and Structural Cohesion},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2507.06165},
+  url       = {https://doi.org/10.48550/ARXIV.2507.06165},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2507-06165.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2506-20652,
+  author    = {Roi Bar-On and Dana Cohen-Bar and Daniel Cohen-Or},
+  title     = {EditP23: 3D Editing via Propagation of Image Prompts to Multi-View},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2506.20652},
+  url       = {https://doi.org/10.48550/ARXIV.2506.20652},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2506-20652.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2506-18017,
+  author    = {Yang Li 0197 and Victor Cheung and Xinhai Liu and Yuguang Chen and Zhongjin Luo and Biwen Lei and Haohan Weng and Zibo Zhao 0001 and Jingwei Huang and Zhuo Chen 0054 and Chunchao Guo},
+  title     = {Auto-Regressive Surface Cutting},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2506.18017},
+  url       = {https://doi.org/10.48550/ARXIV.2506.18017},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2506-18017.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2506-16504,
+  author    = {Zeqiang Lai and Yunfei Zhao and Haolin Liu and Zibo Zhao 0001 and Qingxiang Lin and Huiwen Shi and Xianghui Yang and Mingxin Yang and Shuhui Yang and Yifei Feng and Sheng Zhang and Xin Huang and Di Luo and Fan Yang and Fang Yang and Lifu Wang and Sicong Liu and Yixuan Tang and Yulin Cai and Zebin He and Tian Liu and Yuhong Liu and Jie Jiang 0015 and Linus and Jingwei Huang and Chunchao Guo},
+  title     = {Hunyuan3D 2.5: Towards High-Fidelity 3D Assets Generation with Ultimate Details},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2506.16504},
+  url       = {https://doi.org/10.48550/ARXIV.2506.16504},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2506-16504.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2506-15442,
+  author    = {Team Hunyuan3D and Shuhui Yang and Mingxin Yang and Yifei Feng and Xin Huang and Sheng Zhang and Zebin He and Di Luo and Haolin Liu and Yunfei Zhao and Qingxiang Lin and Zeqiang Lai and Xianghui Yang and Huiwen Shi and Zibo Zhao 0001 and Bowen Zhang and Hongyu Yan and Lifu Wang and Sicong Liu and Jihong Zhang and Meng Chen and Liang Dong and Yiwen Jia and Yulin Cai and Jiaao Yu and Yixuan Tang and Dongyuan Guo and Junlin Yu and Hao Zhang 0073 and Zheng Ye and Peng He and Runzhou Wu and Shida Wei and Chao Zhang 0119 and Yonghao Tan and Yifu Sun and Lin Niu and Shirui Huang and Bojian Zheng and Shu Liu and Shilin Chen and Xiang Yuan and Xiaofeng Yang and Kai Liu 0052 and Jianchen Zhu and Peng Chen 0021 and Tian Liu and Di Wang 0052 and Yuhong Liu and Linus and Jie Jiang 0015 and Jingwei Huang and Chunchao Guo},
+  title     = {Hunyuan3D 2.1: From Images to High-Fidelity 3D Assets with Production-Ready PBR Material},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2506.15442},
+  url       = {https://doi.org/10.48550/ARXIV.2506.15442},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2506-15442.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/nips/YeWZXZ25,
+  author    = {Junliang Ye and Zhengyi Wang and Ruowen Zhao and Shenghao Xie 0002 and Jun Zhu 0001},
+  title     = {ShapeLLM-Omni: A Native Multimodal LLM for 3D Generation and Understanding},
+  booktitle = {NeurIPS},
+  year      = {2025},
+  url       = {http://papers.nips.cc/paper\_files/paper/2025/hash/80b3224c35ad857b951b8bfccfd32fa5-Abstract-Conference.html},
+  biburl    = {https://dblp.org/rec/conf/nips/YeWZXZ25.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/nips/ZhengHCM25,
+  author    = {Yang Zheng and Mengqi Huang and Nan Chen and Zhendong Mao 0001},
+  title     = {Pro3D-Editor: A Progressive-Views Perspective for Consistent and Precise 3D Editing},
+  booktitle = {NeurIPS},
+  year      = {2025},
+  url       = {http://papers.nips.cc/paper\_files/paper/2025/hash/bc6a1f968f8b1dae3e880f3f723d7d46-Abstract-Conference.html},
+  biburl    = {https://dblp.org/rec/conf/nips/ZhengHCM25.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2505-14683,
+  author    = {Chaorui Deng and Deyao Zhu and Kunchang Li 0002 and Chenhui Gou and Feng Li and Zeyu Wang 0008 and Shu Zhong and Weihao Yu 0001 and Xiaonan Nie and Ziang Song and Shi Guang and Haoqi Fan 0001},
+  title     = {Emerging Properties in Unified Multimodal Pretraining},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2505.14683},
+  url       = {https://doi.org/10.48550/ARXIV.2505.14683},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2505-14683.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2505-14521,
+  author    = {Zhihao Li and Yufei Wang 0006 and Heliang Zheng and Yihao Luo and Bihan Wen},
+  title     = {Sparc3D: Sparse Representation and Construction for High-Resolution 3D Shapes Modeling},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2505.14521},
+  url       = {https://doi.org/10.48550/ARXIV.2505.14521},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2505-14521.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2505-09568,
+  author    = {Jiuhai Chen and Zhiyang Xu and Xichen Pan and Yushi Hu and Can Qin and Tom Goldstein and Lifu Huang and Tianyi Zhou 0001 and Saining Xie and Silvio Savarese and Le Xue and Caiming Xiong and Ran Xu 0001},
+  title     = {BLIP3-o: A Family of Fully Open Unified Multimodal Models-Architecture, Training and Dataset},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2505.09568},
+  url       = {https://doi.org/10.48550/ARXIV.2505.09568},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2505-09568.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2504-11451,
+  author    = {Ming-Yu Liu 0001 and Mikaela Angelina Uy and Donglai Xiang and Hao Su and Sanja Fidler and Nicholas Sharp and Jun Gao 0004},
+  title     = {PARTFIELD: Learning 3D Feature Fields for Part Segmentation and Beyond},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2504.11451},
+  url       = {https://doi.org/10.48550/ARXIV.2504.11451},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2504-11451.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2504-11346,
+  author    = {Yu Gao and Lixue Gong and Qiushan Guo and Xiaoxia Hou and Zhichao Lai and Fanshi Li and Liang Li and Xiaochen Lian and Chao Liao and Liyang Liu and Wei Liu and Yichun Shi and Shiqi Sun and Yu Tian and Zhi Tian and Peng Wang and Rui Wang 0089 and Xuanda Wang and Xun Wang and Ye Wang and Guofeng Wu and Jie Wu 0032 and Xin Xia 0005 and Xuefeng Xiao 0001 and Zhonghua Zhai and Xinyu Zhang and Qi Zhang and Yuwei Zhang and Shijia Zhao and Jianchao Yang and Weilin Huang},
+  title     = {Seedream 3.0 Technical Report},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2504.11346},
+  url       = {https://doi.org/10.48550/ARXIV.2504.11346},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2504-11346.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2504-06256,
+  author    = {Xichen Pan and Satya Narayan Shukla and Aashu Singh and Zhuokai Zhao and Shlok Kumar Mishra and Jialiang Wang 0001 and Zhiyang Xu and Jiuhai Chen and Kunpeng Li and Felix Juefei-Xu and Ji Hou and Saining Xie},
+  title     = {Transfer between Modalities with MetaQueries},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2504.06256},
+  url       = {https://doi.org/10.48550/ARXIV.2504.06256},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2504-06256.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/cvpr/DinhLKSH25,
+  author    = {Nam Anh Dinh and Itai Lang and Hyunwoo Kim and Oded Stein and Rana Hanocka},
+  title     = {Geometry in Style: 3D Stylization via Surface Normal Deformation},
+  booktitle = {CVPR},
+  year      = {2025},
+  doi       = {10.1109/CVPR52734.2025.02650},
+  url       = {https://doi.org/10.1109/CVPR52734.2025.02650},
+  biburl    = {https://dblp.org/rec/conf/cvpr/DinhLKSH25.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2503-21732,
+  author    = {Xianglong He and Zi-Xin Zou and Chia-Hao Chen and Yuan-Chen Guo and Ding Liang and Chun Yuan 0003 and Wanli Ouyang and Yan-Pei Cao 0001 and Yangguang Li 0001},
+  title     = {SparseFlex: High-Resolution and Arbitrary-Topology 3D Shape Modeling},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2503.21732},
+  url       = {https://doi.org/10.48550/ARXIV.2503.21732},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2503-21732.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2503-15265,
+  author    = {Ruowen Zhao and Junliang Ye and Zhengyi Wang and Guangce Liu and Yiwen Chen and Yikai Wang 0001 and Jun Zhu 0001},
+  title     = {DeepMesh: Auto-Regressive Artist-mesh Creation with Reinforcement Learning},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2503.15265},
+  url       = {https://doi.org/10.48550/ARXIV.2503.15265},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2503-15265.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2503-15475,
+  author    = {Kiran Bhat and Nishchaie Khanna and Karun Channa and Tinghui Zhou and Yiheng Zhu and Xiaoxia Sun and Charles Shang and Anirudh Sudarshan and Maurice Chu and Daiqing Li and Kangle Deng and Jean-Philippe Fauconnier and Tijmen Verhulsdonck and Maneesh Agrawala and Kayvon Fatahalian and Alexander Weiss and Christian Reiser and Ravi Kiran Chirravuri and Ravali Kandur and Alejandro Pelaez and Akash Garg and Michael Palleschi and Jessica Wang and Skylar Litz and Leon Liu and Anying Li and David Harmon and Derek Liu and Liangjun Feng and Denis Goupil and Lukas Kuczynski and Jihyun Yoon and Naveen Marri and Peiye Zhuang and Yinan Zhang and Brian Yin and Haomiao Jiang and Marcel van Workum and Thomas Lane and Bryce Erickson and Salil Pathare and Kyle Price and Anupam Singh and David Baszucki},
+  title     = {Cube: A Roblox View of 3D Intelligence},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2503.15475},
+  url       = {https://doi.org/10.48550/ARXIV.2503.15475},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2503-15475.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2502-13923,
+  author    = {Shuai Bai and Keqin Chen and Xuejing Liu and Jialin Wang and Wenbin Ge and Sibo Song and Kai Dang and Peng Wang 0028 and Shijie Wang 0007 and Jun Tang 0008 and Humen Zhong and Yuanzhi Zhu and Ming-Hsuan Yang 0001 and Zhaohai Li and Jianqiang Wan and Pengfei Wang and Wei Ding and Zheren Fu and Yiheng Xu and Jiabo Ye and Xi Zhang and Tianbao Xie and Zesen Cheng and Hang Zhang and Zhibo Yang 0003 and Haiyang Xu 0001 and Junyang Lin},
+  title     = {Qwen2.5-VL Technical Report},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2502.13923},
+  url       = {https://doi.org/10.48550/ARXIV.2502.13923},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2502-13923.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2502-06608,
+  author    = {Yangguang Li 0001 and Zi-Xin Zou and Zexiang Liu and Dehu Wang and Yuan Liang and Zhipeng Yu and Xingchao Liu and Yuan-Chen Guo and Ding Liang and Wanli Ouyang and Yan-Pei Cao 0001},
+  title     = {TripoSG: High-Fidelity 3D Shape Synthesis using Large-Scale Rectified Flow Models},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2502.06608},
+  url       = {https://doi.org/10.48550/ARXIV.2502.06608},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2502-06608.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2501-17811,
+  author    = {Xiaokang Chen and Zhiyu Wu and Xingchao Liu and Zizheng Pan and Wen Liu 0011 and Zhenda Xie and Xingkai Yu and Chong Ruan},
+  title     = {Janus-Pro: Unified Multimodal Understanding and Generation with Data and Model Scaling},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2501.17811},
+  url       = {https://doi.org/10.48550/ARXIV.2501.17811},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2501-17811.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2501-16177,
+  author    = {Zhongjin Luo and Yang Li 0193 and Mingrui Zhang and Senbo Wang and Han Yan 0004 and Xibin Song and Taizhang Shang and Wei Mao 0001 and Hongdong Li and Xiaoguang Han 0001 and Pan Ji},
+  title     = {BAG: Body-Aligned 3D Wearable Asset Generation},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2501.16177},
+  url       = {https://doi.org/10.48550/ARXIV.2501.16177},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2501-16177.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2412-14164,
+  author    = {Shengbang Tong and David Fan 0001 and Jiachen Zhu 0002 and Yunyang Xiong and Xinlei Chen and Koustuv Sinha and Michael Rabbat and Yann LeCun and Saining Xie and Zhuang Liu 0003},
+  title     = {MetaMorph: Multimodal Understanding and Generation via Instruction Tuning},
+  journal   = {CoRR},
+  year      = {2024},
+  doi       = {10.48550/ARXIV.2412.14164},
+  url       = {https://doi.org/10.48550/ARXIV.2412.14164},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2412-14164.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2412-09548,
+  author    = {Zekun Hao and David W. Romero and Tsung-Yi Lin and Ming-Yu Liu 0001},
+  title     = {Meshtron: High-Fidelity, Artist-Like 3D Mesh Generation at Scale},
+  journal   = {CoRR},
+  year      = {2024},
+  doi       = {10.48550/ARXIV.2412.09548},
+  url       = {https://doi.org/10.48550/ARXIV.2412.09548},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2412-09548.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/iccv/GaoWFBSLDRS25,
+  author    = {Will Gao and Dilin Wang and Yuchen Fan 0001 and Aljaz Bozic and Tuur Stuyck and Zhengqin Li and Zhao Dong 0001 and Rakesh Ranjan and Nikolaos Sarafianos},
+  title     = {3D Mesh Editing Using Masked LRMs},
+  booktitle = {ICCV},
+  year      = {2025},
+  doi       = {10.1109/ICCV51701.2025.00672},
+  url       = {https://doi.org/10.1109/ICCV51701.2025.00672},
+  biburl    = {https://dblp.org/rec/conf/iccv/GaoWFBSLDRS25.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2412-03069,
+  author    = {Liao Qu and Huichao Zhang and Yiheng Liu and Xu Wang and Yi Jiang 0009 and Yiming Gao and Hu Ye and Daniel K. Du and Zehuan Yuan and Xinglong Wu},
+  title     = {TokenFlow: Unified Image Tokenizer for Multimodal Understanding and Generation},
+  journal   = {CoRR},
+  year      = {2024},
+  doi       = {10.48550/ARXIV.2412.03069},
+  url       = {https://doi.org/10.48550/ARXIV.2412.03069},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2412-03069.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/cvpr/XiangLXDWZC0Y25,
+  author    = {Jianfeng Xiang and Zelong Lv and Sicheng Xu and Yu Deng 0006 and Ruicheng Wang and Bowen Zhang 0010 and Dong Chen 0003 and Xin Tong 0001 and Jiaolong Yang},
+  title     = {Structured 3D Latents for Scalable and Versatile 3D Generation},
+  booktitle = {CVPR},
+  year      = {2025},
+  doi       = {10.1109/CVPR52734.2025.02000},
+  url       = {https://openaccess.thecvf.com/content/CVPR2025/html/Xiang\_Structured\_3D\_Latents\_for\_Scalable\_and\_Versatile\_3D\_Generation\_CVPR\_2025\_paper.html},
+  biburl    = {https://dblp.org/rec/conf/cvpr/XiangLXDWZC0Y25.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/cvpr/BardaGKABG25,
+  author    = {Amir Barda and Matheus Gadelha and Vladimir G. Kim and Noam Aigerman and Amit H. Bermano and Thibault Groueix},
+  title     = {Instant3dit: Multiview Inpainting for Fast Editing of 3D Objects},
+  booktitle = {CVPR},
+  year      = {2025},
+  doi       = {10.1109/CVPR52734.2025.01517},
+  url       = {https://openaccess.thecvf.com/content/CVPR2025/html/Barda\_Instant3dit\_Multiview\_Inpainting\_for\_Fast\_Editing\_of\_3D\_Objects\_CVPR\_2025\_paper.html},
+  biburl    = {https://dblp.org/rec/conf/cvpr/BardaGKABG25.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2411-18548,
+  author    = {Han Yan 0004 and Mingrui Zhang and Yang Li 0193 and Chao Ma 0004 and Pan Ji},
+  title     = {PhyCAGE: Physically Plausible Compositional 3D Asset Generation from a Single Image},
+  journal   = {CoRR},
+  year      = {2024},
+  doi       = {10.48550/ARXIV.2411.18548},
+  url       = {https://doi.org/10.48550/ARXIV.2411.18548},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2411-18548.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/cvpr/WengZLYLLCLJGZG25,
+  author    = {Haohan Weng and Zibo Zhao 0001 and Biwen Lei and Xianghui Yang and Jian Liu 0036 and Zeqiang Lai and Zhuo Chen 0054 and Yuhong Liu and Jie Jiang 0015 and Chunchao Guo and Tong Zhang 0015 and Shenghua Gao and C. L. Philip Chen},
+  title     = {Scaling Mesh Generation via Compressive Tokenization},
+  booktitle = {CVPR},
+  year      = {2025},
+  doi       = {10.1109/CVPR52734.2025.01036},
+  url       = {https://doi.org/10.1109/CVPR52734.2025.01036},
+  biburl    = {https://dblp.org/rec/conf/cvpr/WengZLYLLCLJGZG25.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2410-16770,
+  author    = {Yunzhi Zhang and Zizhang Li and Matt Zhou and Shangzhe Wu and Jiajun Wu 0001},
+  title     = {The Scene Language: Representing Scenes with Programs, Words, and Embeddings},
+  journal   = {CoRR},
+  year      = {2024},
+  doi       = {10.48550/ARXIV.2410.16770},
+  url       = {https://doi.org/10.48550/ARXIV.2410.16770},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2410-16770.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2409-18869,
+  author    = {Xinlong Wang and Xiaosong Zhang and Zhengxiong Luo and Quan Sun and Yufeng Cui and Jinsheng Wang and Fan Zhang and Yueze Wang and Zhen Li and Qiying Yu and Yingli Zhao and Yulong Ao and Xuebin Min and Tao Li and Boya Wu and Bo Zhao 0015 and Bowen Zhang 0011 and Liangdong Wang and Guang Liu 0006 and Zheqi He and Xi Yang and Jingjing Liu and Yonghua Lin and Tiejun Huang 0001 and Zhongyuan Wang 0006},
+  title     = {Emu3: Next-Token Prediction is All You Need},
+  journal   = {CoRR},
+  year      = {2024},
+  doi       = {10.48550/ARXIV.2409.18869},
+  url       = {https://doi.org/10.48550/ARXIV.2409.18869},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2409-18869.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/iclr/TangLHLZLZ25,
+  author    = {Jiaxiang Tang and Zhaoshuo Li and Zekun Hao and Xian Liu and Gang Zeng and Ming-Yu Liu 0001 and Qinsheng Zhang},
+  title     = {EdgeRunner: Auto-regressive Auto-encoder for Artistic Mesh Generation},
+  booktitle = {ICLR},
+  year      = {2025},
+  url       = {https://openreview.net/forum?id=81cta3WQVI},
+  biburl    = {https://dblp.org/rec/conf/iclr/TangLHLZLZ25.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2408-08000,
+  author    = {Chenjie Cao and Chaohui Yu and Yanwei Fu 0001 and Fan Wang 0019 and Xiangyang Xue 0001},
+  title     = {MVInpainter: Learning Multi-View Consistent Inpainting to Bridge 2D and 3D Editing},
+  journal   = {CoRR},
+  year      = {2024},
+  doi       = {10.48550/ARXIV.2408.08000},
+  url       = {https://doi.org/10.48550/ARXIV.2408.08000},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2408-08000.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2408-02555,
+  author    = {Yiwen Chen and Yikai Wang 0001 and Yihao Luo and Zhengyi Wang and Zilong Chen and Jun Zhu 0001 and Chi Zhang 0007 and Guosheng Lin},
+  title     = {MeshAnything V2: Artist-Created Mesh Generation With Adjacent Mesh Tokenization},
+  journal   = {CoRR},
+  year      = {2024},
+  doi       = {10.48550/ARXIV.2408.02555},
+  url       = {https://doi.org/10.48550/ARXIV.2408.02555},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2408-02555.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2407-06191,
+  author    = {Zhangyang Qi and Yunhan Yang and Mengchen Zhang 0001 and Long Xing and Xiaoyang Wu 0002 and Tong Wu and Dahua Lin and Xihui Liu and Jiaqi Wang 0003 and Hengshuang Zhao},
+  title     = {Tailor3D: Customized 3D Assets Editing and Generation with Dual-Side Images},
+  journal   = {CoRR},
+  year      = {2024},
+  doi       = {10.48550/ARXIV.2407.06191},
+  url       = {https://doi.org/10.48550/ARXIV.2407.06191},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2407-06191.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2406-10163,
+  author    = {Yiwen Chen and Tong He 0001 and Di Huang and Weicai Ye and Sijin Chen and Jiaxiang Tang and Xin Chen 0040 and Zhongang Cai and Lei Yang 0045 and Gang Yu 0002 and Guosheng Lin and Chi Zhang 0007},
+  title     = {MeshAnything: Artist-Created Mesh Generation with Autoregressive Transformers},
+  journal   = {CoRR},
+  year      = {2024},
+  doi       = {10.48550/ARXIV.2406.10163},
+  url       = {https://doi.org/10.48550/ARXIV.2406.10163},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2406-10163.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/tog/ZhangWZQPJYXY24,
+  author    = {Longwen Zhang and Ziyu Wang and Qixuan Zhang and Qiwei Qiu and Anqi Pang and Haoran Jiang and Wei Yang 0034 and Lan Xu 0003 and Jingyi Yu 0001},
+  title     = {CLAY: A Controllable Large-scale Generative Model for Creating High-quality 3D Assets},
+  journal   = {ACM Trans. Graph.},
+  year      = {2024},
+  doi       = {10.1145/3658146},
+  url       = {https://doi.org/10.1145/3658146},
+  biburl    = {https://dblp.org/rec/journals/tog/ZhangWZQPJYXY24.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/iclr/WengWZCZ25,
+  author    = {Haohan Weng and Yikai Wang and Tong Zhang 0015 and C. L. Philip Chen and Jun Zhu},
+  title     = {PivotMesh: Generic 3D Mesh Generation via Pivot Vertices Guidance},
+  booktitle = {ICLR},
+  year      = {2025},
+  url       = {https://openreview.net/forum?id=WAC8LmlKYf},
+  biburl    = {https://dblp.org/rec/conf/iclr/WengWZCZ25.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2405-14979,
+  author    = {Weiyu Li and Jiarui Liu 0003 and Rui Chen and Yixun Liang and Xuelin Chen and Ping Tan 0002 and Xiaoxiao Long},
+  title     = {CraftsMan: High-fidelity Mesh Generation with 3D Native Generation and Interactive Geometry Refiner},
+  journal   = {CoRR},
+  year      = {2024},
+  doi       = {10.48550/ARXIV.2405.14979},
+  url       = {https://doi.org/10.48550/ARXIV.2405.14979},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2405-14979.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2405-09818,
+  author    = {Chameleon Team},
+  title     = {Chameleon: Mixed-Modal Early-Fusion Foundation Models},
+  journal   = {CoRR},
+  year      = {2024},
+  doi       = {10.48550/ARXIV.2405.09818},
+  url       = {https://doi.org/10.48550/ARXIV.2405.09818},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2405-09818.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/cvpr/DongDHWXX24,
+  author    = {Shaocong Dong and Lihe Ding and Zhanpeng Huang and Zibin Wang and Tianfan Xue and Dan Xu 0002},
+  title     = {Interactive3D: Create What You Want by Interactive 3D Generation},
+  booktitle = {CVPR},
+  year      = {2024},
+  doi       = {10.1109/CVPR52733.2024.00478},
+  url       = {https://doi.org/10.1109/CVPR52733.2024.00478},
+  biburl    = {https://dblp.org/rec/conf/cvpr/DongDHWXX24.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2403-16210,
+  author    = {Han Yan 0004 and Yang Li 0193 and Zhennan Wu and Shenzhou Chen and Weixuan Sun and Taizhang Shang and Weizhe Liu and Tian Chen and Xiaqiang Dai and Chao Ma 0004 and Hongdong Li and Pan Ji},
+  title     = {Frankenstein: Generating Semantic-Compositional 3D Scenes in One Tri-Plane},
+  journal   = {CoRR},
+  year      = {2024},
+  doi       = {10.48550/ARXIV.2403.16210},
+  url       = {https://doi.org/10.48550/ARXIV.2403.16210},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2403-16210.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2403-14613,
+  author    = {Junliang Ye and Fangfu Liu and Qixiu Li and Zhengyi Wang and Yikai Wang 0001 and Xinzhou Wang and Yueqi Duan and Jun Zhu 0001},
+  title     = {DreamReward: Text-to-3D Generation with Human Preference},
+  journal   = {CoRR},
+  year      = {2024},
+  doi       = {10.48550/ARXIV.2403.14613},
+  url       = {https://doi.org/10.48550/ARXIV.2403.14613},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2403-14613.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2403-12032,
+  author    = {Hansheng Chen 0001 and Ruoxi Shi and Yulin Liu and Bokui Shen and Jiayuan Gu and Gordon Wetzstein and Hao Su 0001 and Leonidas J. Guibas},
+  title     = {Generic 3D Diffusion Adapter Using Controlled Multi-View Editing},
+  journal   = {CoRR},
+  year      = {2024},
+  doi       = {10.48550/ARXIV.2403.12032},
+  url       = {https://doi.org/10.48550/ARXIV.2403.12032},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2403-12032.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/eccv/LiuWCSD24,
+  author    = {Fangfu Liu and Hanyang Wang 0003 and Weiliang Chen and Haowen Sun 0004 and Yueqi Duan},
+  title     = {Make-Your-3D: Fast and Consistent Subject-Driven 3D Content Generation},
+  booktitle = {ECCV (84)},
+  year      = {2025},
+  doi       = {10.1007/978-3-031-72907-2\_23},
+  url       = {https://doi.org/10.1007/978-3-031-72907-2\_23},
+  biburl    = {https://dblp.org/rec/conf/eccv/LiuWCSD24.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2402-17766,
+  author    = {Zekun Qi and Runpei Dong and Shaochen Zhang and Haoran Geng and Chunrui Han and Zheng Ge and He Wang 0010 and Li Yi 0001 and Kaisheng Ma},
+  title     = {ShapeLLM: Universal 3D Object Understanding for Embodied Interaction},
+  journal   = {CoRR},
+  year      = {2024},
+  doi       = {10.48550/ARXIV.2402.17766},
+  url       = {https://doi.org/10.48550/ARXIV.2402.17766},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2402-17766.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/tog/ZhuangKCLLS24,
+  author    = {Jingyu Zhuang and Di Kang and Yan-Pei Cao 0001 and Guanbin Li and Liang Lin 0004 and Ying Shan},
+  title     = {TIP-Editor: An Accurate 3D Editor Following Both Text-Prompts And Image-Prompts},
+  journal   = {ACM Trans. Graph.},
+  year      = {2024},
+  doi       = {10.1145/3658205},
+  url       = {https://doi.org/10.1145/3658205},
+  biburl    = {https://dblp.org/rec/journals/tog/ZhuangKCLLS24.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/cvpr/Wu0YYZ24,
+  author    = {Zike Wu and Pan Zhou 0002 and Xuanyu Yi and Xiaoding Yuan and Hanwang Zhang},
+  title     = {Consistent3D: Towards Consistent High-Fidelity Text-to-3D Generation with Deterministic Sampling Prior},
+  booktitle = {CVPR},
+  year      = {2024},
+  doi       = {10.1109/CVPR52733.2024.00944},
+  url       = {https://doi.org/10.1109/CVPR52733.2024.00944},
+  biburl    = {https://dblp.org/rec/conf/cvpr/Wu0YYZ24.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/cvpr/ChenXLV24,
+  author    = {Minghao Chen and Junyu Xie and Iro Laina and Andrea Vedaldi},
+  title     = {Shap-Editor: Instruction-guided Latent 3D Editing in Seconds},
+  booktitle = {CVPR},
+  year      = {2024},
+  doi       = {10.1109/CVPR52733.2024.02498},
+  url       = {https://doi.org/10.1109/CVPR52733.2024.02498},
+  biburl    = {https://dblp.org/rec/conf/cvpr/ChenXLV24.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/cvpr/QiF0WW0LZ24,
+  author    = {Zhangyang Qi and Ye Fang and Zeyi Sun 0002 and Xiaoyang Wu 0002 and Tong Wu and Jiaqi Wang 0003 and Dahua Lin and Hengshuang Zhao},
+  title     = {GPT4Point: A Unified Framework for Point-Language Understanding and Generation},
+  booktitle = {CVPR},
+  year      = {2024},
+  doi       = {10.1109/CVPR52733.2024.02495},
+  url       = {https://doi.org/10.1109/CVPR52733.2024.02495},
+  biburl    = {https://dblp.org/rec/conf/cvpr/QiF0WW0LZ24.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/cvpr/QiuC0ZXWYDB024,
+  author    = {Lingteng Qiu and Guanying Chen and Xiaodong Gu 0004 and Qi Zuo and Mutian Xu and Yushuang Wu and Weihao Yuan 0001 and Zilong Dong and Liefeng Bo and Xiaoguang Han 0001},
+  title     = {RichDreamer: A Generalizable Normal-Depth Diffusion Model for Detail Richness in Text-to-3D},
+  booktitle = {CVPR},
+  year      = {2024},
+  doi       = {10.1109/CVPR52733.2024.00946},
+  url       = {https://doi.org/10.1109/CVPR52733.2024.00946},
+  biburl    = {https://dblp.org/rec/conf/cvpr/QiuC0ZXWYDB024.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/cvpr/YiFWWX000W24,
+  author    = {Taoran Yi and Jiemin Fang and Junjie Wang 0012 and Guanjun Wu and Lingxi Xie and Xiaopeng Zhang 0008 and Wenyu Liu 0001 and Qi Tian 0001 and Xinggang Wang},
+  title     = {GaussianDreamer: Fast Generation from Text to 3D Gaussians by Bridging 2D and 3D Diffusion Models},
+  booktitle = {CVPR},
+  year      = {2024},
+  doi       = {10.1109/CVPR52733.2024.00649},
+  url       = {https://doi.org/10.1109/CVPR52733.2024.00649},
+  biburl    = {https://dblp.org/rec/conf/cvpr/YiFWWX000W24.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2309-16653,
+  author    = {Jiaxiang Tang and Jiawei Ren 0001 and Hang Zhou 0009 and Ziwei Liu 0002 and Gang Zeng},
+  title     = {DreamGaussian: Generative Gaussian Splatting for Efficient 3D Content Creation},
+  journal   = {CoRR},
+  year      = {2023},
+  doi       = {10.48550/ARXIV.2309.16653},
+  url       = {https://doi.org/10.48550/ARXIV.2309.16653},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2309-16653.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/eccv/XuWWCPL24,
+  author    = {Runsen Xu and Xiaolong Wang 0013 and Tai Wang and Yilun Chen and Jiangmiao Pang and Dahua Lin},
+  title     = {PointLLM: Empowering Large Language Models to Understand Point Clouds},
+  booktitle = {ECCV (25)},
+  year      = {2025},
+  doi       = {10.1007/978-3-031-72698-9\_8},
+  url       = {https://doi.org/10.1007/978-3-031-72698-9\_8},
+  biburl    = {https://dblp.org/rec/conf/eccv/XuWWCPL24.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/iclr/ShiWYMLY24,
+  author    = {Yichun Shi and Peng Wang and Jianglong Ye and Long Mai and Kejie Li and Xiao Yang},
+  title     = {MVDream: Multi-view Diffusion for 3D Generation},
+  booktitle = {ICLR},
+  year      = {2024},
+  url       = {https://openreview.net/forum?id=FUgrjq2pbB},
+  biburl    = {https://dblp.org/rec/conf/iclr/ShiWYMLY24.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2306-17115,
+  author    = {Zibo Zhao 0001 and Wen Liu 0003 and Xin Chen 0040 and Xianfang Zeng and Rui Wang 0099 and Pei Cheng and Bin Fu and Tao Chen 0003 and Gang Yu 0002 and Shenghua Gao},
+  title     = {Michelangelo: Conditional 3D Shape Generation based on Shape-Image-Text Aligned Latent Representation},
+  journal   = {CoRR},
+  year      = {2023},
+  doi       = {10.48550/ARXIV.2306.17115},
+  url       = {https://doi.org/10.48550/ARXIV.2306.17115},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2306-17115.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/nips/Wang00BL0023,
+  author    = {Zhengyi Wang and Cheng Lu 0011 and Yikai Wang 0001 and Fan Bao and Chongxuan Li and Hang Su 0006 and Jun Zhu 0001},
+  title     = {ProlificDreamer: High-Fidelity and Diverse Text-to-3D Generation with Variational Score Distillation},
+  booktitle = {NeurIPS},
+  year      = {2023},
+  url       = {http://papers.nips.cc/paper\_files/paper/2023/hash/1a87980b9853e84dfb295855b425c262-Abstract-Conference.html},
+  biburl    = {https://dblp.org/rec/conf/nips/Wang00BL0023.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2303-13873,
+  author    = {Rui Chen and Yongwei Chen and Ningxin Jiao and Kui Jia},
+  title     = {Fantasia3D: Disentangling Geometry and Appearance for High-quality Text-to-3D Content Creation},
+  journal   = {CoRR},
+  year      = {2023},
+  doi       = {10.48550/ARXIV.2303.13873},
+  url       = {https://doi.org/10.48550/ARXIV.2303.13873},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2303-13873.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/iccv/HaqueTEHK23,
+  author    = {Ayaan Haque and Matthew Tancik and Alexei A. Efros and Aleksander Holynski and Angjoo Kanazawa},
+  title     = {Instruct-NeRF2NeRF: Editing 3D Scenes with Instructions},
+  booktitle = {ICCV},
+  year      = {2023},
+  doi       = {10.1109/ICCV51070.2023.01808},
+  url       = {https://doi.org/10.1109/ICCV51070.2023.01808},
+  biburl    = {https://dblp.org/rec/conf/iccv/HaqueTEHK23.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2302-13971,
+  author    = {Hugo Touvron and Thibaut Lavril and Gautier Izacard and Xavier Martinet and Marie-Anne Lachaux and Timothée Lacroix and Baptiste Rozière and Naman Goyal 0001 and Eric Hambro and Faisal Azhar and Aurélien Rodriguez and Armand Joulin and Edouard Grave and Guillaume Lample},
+  title     = {LLaMA: Open and Efficient Foundation Language Models},
+  journal   = {CoRR},
+  year      = {2023},
+  doi       = {10.48550/ARXIV.2302.13971},
+  url       = {https://doi.org/10.48550/ARXIV.2302.13971},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2302-13971.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2301-11445,
+  author    = {Biao Zhang 0005 and Jiapeng Tang and Matthias Nießner and Peter Wonka},
+  title     = {3DShape2VecSet: A 3D Shape Representation for Neural Fields and Generative Diffusion Models},
+  journal   = {CoRR},
+  year      = {2023},
+  doi       = {10.48550/ARXIV.2301.11445},
+  url       = {https://doi.org/10.48550/ARXIV.2301.11445},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2301-11445.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2211-10440,
+  author    = {Chen-Hsuan Lin 0001 and Jun Gao 0004 and Luming Tang and Towaki Takikawa and Xiaohui Zeng and Xun Huang 0002 and Karsten Kreis and Sanja Fidler and Ming-Yu Liu 0001 and Tsung-Yi Lin},
+  title     = {Magic3D: High-Resolution Text-to-3D Content Creation},
+  journal   = {CoRR},
+  year      = {2022},
+  doi       = {10.48550/ARXIV.2211.10440},
+  url       = {https://doi.org/10.48550/ARXIV.2211.10440},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2211-10440.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2209-14988,
+  author    = {Ben Poole and Ajay Jain and Jonathan T. Barron and Ben Mildenhall},
+  title     = {DreamFusion: Text-to-3D using 2D Diffusion},
+  journal   = {CoRR},
+  year      = {2022},
+  doi       = {10.48550/ARXIV.2209.14988},
+  url       = {https://doi.org/10.48550/ARXIV.2209.14988},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2209-14988.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-1812-02713,
+  author    = {Kaichun Mo and Shilin Zhu and Angel X. Chang and Li Yi 0001 and Subarna Tripathi and Leonidas J. Guibas and Hao Su 0001},
+  title     = {PartNet: A Large-scale Benchmark for Fine-grained and Hierarchical Part-level 3D Object Understanding},
+  journal   = {CoRR},
+  year      = {2018},
+  url       = {http://arxiv.org/abs/1812.02713},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-1812-02713.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{DBLP:conf/nips/OordVK17,
+  author    = {Aäron van den Oord and Oriol Vinyals and Koray Kavukcuoglu},
+  title     = {Neural Discrete Representation Learning},
+  booktitle = {NIPS},
+  year      = {2017},
+  url       = {https://proceedings.neurips.cc/paper/2017/hash/7a98af17e63a0ac09ce2e96d03992fbc-Abstract.html},
+  biburl    = {https://dblp.org/rec/conf/nips/OordVK17.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-2506-18871,
+  author    = {Chenyuan Wu and Pengfei Zheng and Ruiran Yan and Shitao Xiao and Xin Luo and Yueze Wang and Wanli Li and Xiyan Jiang and Yexin Liu and Junjie Zhou 0001 and Ze Liu and Ziyi Xia and Chaofan Li and Haoge Deng and Jiahao Wang and Kun Luo and Bo Zhang and Defu Lian and Xinlong Wang and Zhongyuan Wang 0006 and Tiejun Huang 0001 and Zheng Liu 0011},
+  title     = {OmniGen2: Exploration to Advanced Multimodal Generation},
+  journal   = {CoRR},
+  year      = {2025},
+  doi       = {10.48550/ARXIV.2506.18871},
+  url       = {https://doi.org/10.48550/ARXIV.2506.18871},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2506-18871.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}</code></pre>
+<h2 id="未找到或请求失败">未找到或请求失败</h2>
+<div class="table-wrap"><table><thead><tr><th>paper_id</th><th>title</th><th>status</th><th>error</th></tr></thead><tbody><tr><td>doi_10_1109_tpami_2025_3609680</td><td>DreamReward-X: Boosting High-Quality 3D Generation with Human Preference Alignment.</td><td>not_found</td><td></td></tr></tbody></table></div></div></article></main>
   </div>
   <script>/*!
   * PhotoSwipe 5.4.4 - https://photoswipe.com
@@ -830,209 +1880,7 @@ div.pswp__img--placeholder,
       }, { passive: true });
       updateToc();
     }
-
-
-    (() => {
-      const cache = new Map();
-
-      async function fetchLinkedPage(url) {
-        if (!cache.has(url)) {
-          const request = fetch(url, { credentials: "same-origin" })
-            .then(async (response) => {
-              if (!response.ok) throw new Error(`HTTP ${response.status}`);
-              return { text: await response.text(), url: response.url };
-            })
-            .catch((error) => {
-              cache.delete(url);
-              throw error;
-            });
-          cache.set(url, request);
-        }
-        return cache.get(url);
-      }
-
-      function rewriteReferences(root, pageUrl) {
-        root.querySelectorAll("[src], [href]").forEach((node) => {
-          ["src", "href"].forEach((attribute) => {
-            const value = node.getAttribute(attribute);
-            if (!value || value.startsWith("#") || /^(?:data|blob|mailto|tel|javascript):/i.test(value)) return;
-            try {
-              node.setAttribute(attribute, new URL(value, pageUrl).href);
-            } catch (_) {
-              // Leave malformed references unchanged; the browser will expose the failure.
-            }
-          });
-        });
-      }
-
-      function isolateIds(root, prefix) {
-        const replacements = new Map();
-        root.querySelectorAll("[id]").forEach((node) => {
-          const original = node.id;
-          const replacement = `${prefix}-${original}`;
-          replacements.set(original, replacement);
-          node.id = replacement;
-        });
-        root.querySelectorAll('a[href^="#"]').forEach((node) => {
-          const original = decodeURIComponent(node.getAttribute("href").slice(1));
-          if (replacements.has(original)) node.setAttribute("href", `#${replacements.get(original)}`);
-        });
-      }
-
-      function prepareDynamicImages(root) {
-        root.querySelectorAll("a.pswp-image").forEach((item) => {
-          const image = item.querySelector("img");
-          if (!image) return;
-          const sync = () => {
-            item.dataset.pswpSrc = image.currentSrc || image.src;
-            if (item.dataset.referenceImage === "true" && image.naturalWidth && image.naturalHeight) {
-              item.dataset.pswpWidth = String(image.naturalWidth);
-              item.dataset.pswpHeight = String(image.naturalHeight);
-            }
-          };
-          sync();
-          image.addEventListener("load", sync, { once: true });
-        });
-      }
-
-      document.querySelectorAll('a[data-inline-html="true"]').forEach((link, index) => {
-        const summary = link.closest("p, li, blockquote, td") || link.parentElement;
-        if (!summary) return;
-        const dedicatedExpand = link.textContent.trim() === "展开正文";
-        let entry = summary.closest(".inline-html-entry");
-        if (!entry) {
-          if (summary.tagName === "LI" || summary.tagName === "TD") {
-            entry = summary;
-            entry.classList.add("inline-html-entry");
-          } else {
-            entry = document.createElement("section");
-            entry.className = "inline-html-entry";
-            summary.before(entry);
-            entry.append(summary);
-          }
-        }
-        summary.classList.add("inline-html-summary");
-        if (dedicatedExpand) link.classList.add("inline-html-source-link");
-
-        const panel = document.createElement("section");
-        panel.className = "inline-html-panel";
-        panel.id = `inline-html-panel-${index + 1}`;
-        panel.hidden = true;
-        panel.setAttribute("aria-live", "polite");
-
-        const actions = document.createElement("span");
-        actions.className = "inline-html-actions";
-        const toggle = document.createElement("button");
-        toggle.className = "inline-html-toggle";
-        toggle.type = "button";
-        toggle.textContent = "展开正文";
-        toggle.setAttribute("aria-controls", panel.id);
-        toggle.setAttribute("aria-expanded", "false");
-        const standalone = document.createElement("a");
-        standalone.className = "inline-html-standalone";
-        standalone.href = link.href;
-        standalone.textContent = "单独打开";
-        actions.append(toggle, standalone);
-        summary.append(document.createTextNode(" "), actions);
-        entry.append(panel);
-
-        let state = "idle";
-
-        function setOpen(open, returnToSummary = false) {
-          panel.hidden = !open;
-          entry.classList.toggle(
-            "is-expanded",
-            Boolean(entry.querySelector(".inline-html-panel:not([hidden])"))
-          );
-          const expanded = String(open);
-          toggle.setAttribute("aria-expanded", expanded);
-          link.setAttribute("aria-expanded", expanded);
-          toggle.textContent = open ? (state === "error" ? "重试加载" : "收起正文") : "展开正文";
-          if (!open && returnToSummary) {
-            summary.scrollIntoView({ behavior: "smooth", block: "start" });
-            toggle.focus({ preventScroll: true });
-          }
-        }
-
-        function appendCloseFooter(target) {
-          const footer = document.createElement("div");
-          footer.className = "inline-html-footer";
-          const close = document.createElement("button");
-          close.className = "inline-html-close";
-          close.type = "button";
-          close.textContent = "收起正文并返回摘要";
-          close.addEventListener("click", () => setOpen(false, true));
-          footer.append(close);
-          target.append(footer);
-        }
-
-        async function toggleInlinePage() {
-          if (state === "loaded") {
-            setOpen(panel.hidden);
-            return;
-          }
-          if (state === "loading") return;
-
-          state = "loading";
-          toggle.disabled = true;
-          panel.replaceChildren();
-          const loading = document.createElement("p");
-          loading.className = "inline-html-status";
-          loading.textContent = "正在加载完整正文…";
-          panel.append(loading);
-          setOpen(true);
-
-          try {
-            const fetched = await fetchLinkedPage(link.href);
-            const parsed = new DOMParser().parseFromString(fetched.text, "text/html");
-            const source = parsed.querySelector(".markdown-image-gallery")
-              || parsed.querySelector("main article")
-              || parsed.querySelector("article")
-              || parsed.querySelector("main");
-            if (!source) throw new Error("linked page does not contain a readable article");
-            const body = source.cloneNode(true);
-            if (body.firstElementChild && body.firstElementChild.tagName === "H1") {
-              body.firstElementChild.remove();
-            }
-            isolateIds(body, `inline-${index + 1}`);
-            rewriteReferences(body, fetched.url);
-            body.classList.add("inline-html-body");
-            panel.replaceChildren(body);
-            appendCloseFooter(panel);
-            prepareDynamicImages(body);
-            state = "loaded";
-            setOpen(true);
-            if (window.mermaid && typeof window.mermaid.run === "function") {
-              const diagrams = Array.from(body.querySelectorAll(".mermaid"));
-              if (diagrams.length) window.mermaid.run({ nodes: diagrams }).catch(() => {});
-            }
-
-            if (window.MathJax && typeof window.MathJax.typesetPromise === "function") {
-              window.MathJax.typesetPromise([body]).catch(() => {});
-            }
-
-          } catch (error) {
-            panel.replaceChildren();
-            const message = document.createElement("p");
-            message.className = "inline-html-status inline-html-error";
-            message.textContent = `正文加载失败：${error.message}`;
-            panel.append(message);
-            appendCloseFooter(panel);
-            state = "error";
-            setOpen(true);
-          } finally {
-            toggle.disabled = false;
-          }
-        }
-
-        toggle.addEventListener("click", toggleInlinePage);
-        link.addEventListener("click", (event) => {
-          if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-          event.preventDefault();
-          toggleInlinePage();
-        });
-      });
-    })();
+        
 
 
   </script>
