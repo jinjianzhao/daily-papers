@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>2026-W39 · 论文周报</title>
+  <title>GAE: Learning a Geometry-Native Latent Space for 3D-Consistent World Generation</title>
 
   <script>
     window.MathJax = {
@@ -515,38 +515,10 @@ div.pswp__img--placeholder,
       .academic-main article { padding: 30px 22px 52px; border: 0; border-radius: 0; }
     }
 
-    h3 { font-size: 20px; }
-    h4 { font-size: 17px; }
-    h5 { font-size: 18px; }
-
-    .inline-html-entry { margin: 18px 0; padding: 16px 18px 18px; border: 1px solid #d8e2eb; border-left: 3px solid #91abc2; border-radius: 6px; background: #fbfdff; transition: border-color .15s, background .15s; }
-    .inline-html-entry.is-expanded { border-color: #b7c9d9; border-left-color: #1769aa; background: #fff; }
-    .inline-html-summary { margin-top: 0; margin-bottom: 0; }
-    .inline-html-actions { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-left: 10px; vertical-align: middle; }
-    .inline-html-toggle, .inline-html-standalone, .inline-html-close { display: inline-flex; min-height: 30px; align-items: center; justify-content: center; padding: 5px 10px; border: 1px solid #b9c9d8; border-radius: 6px; background: #fff; color: #37516a; font: inherit; font-size: 12px; font-weight: 700; line-height: 1.35; text-decoration: none; cursor: pointer; }
-    .inline-html-source-link { display: none; }
-    .inline-html-toggle:hover, .inline-html-standalone:hover, .inline-html-close:hover { border-color: #1769aa; color: #1769aa; }
-    .inline-html-toggle:disabled { cursor: wait; opacity: .6; }
-    .inline-html-panel { margin: 18px 0 0; padding-top: 24px; border-top: 1px solid #e2e8f0; }
-    .inline-html-panel[hidden] { display: none; }
-    .inline-html-body h1:first-child { display: none; }
-    .inline-html-status { color: #64748b; font-size: 14px; }
-    .inline-html-error { color: #9f1239; }
-    .inline-html-footer { display: flex; justify-content: flex-end; margin-top: 30px; padding-top: 16px; border-top: 1px solid #e2e8f0; }
-    @media (max-width: 640px) {
-      .inline-html-entry { padding: 14px 14px 16px; }
-      .inline-html-actions { display: flex; margin: 10px 0 0; }
-      .inline-html-toggle, .inline-html-standalone, .inline-html-close { min-height: 36px; }
-    }
 
 
 
-    /* A focused entry is emitted as title, classification, then one-line summary. */
-    .academic-main h4 + p,
-    .academic-main h4 + p + p,
-    .academic-main h5 + p,
-    .academic-main h5 + p + p { font-size: 16px; }
-</style>
+  </style>
 </head>
 <body>
 
@@ -557,87 +529,72 @@ div.pswp__img--placeholder,
     <aside class="academic-sidebar" id="academic-sidebar" aria-label="文档目录">
       <div class="toc-panel">
         <p class="toc-heading">目录</p>
-        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#2026-w39-论文周报">2026-W39 · 论文周报</a><a class="toc-link toc-level-2" href="#重点解析">重点解析</a><a class="toc-link toc-level-3" href="#3d">3D</a><a class="toc-link toc-level-4" href="#2026-09-23">2026-09-23</a><a class="toc-link toc-level-5" href="#gae-learning-a-geometry-native-latent-space-for-3d-consistent-world-generation">GAE: Learning a Geometry-Native Latent Space for 3D-Consistent World Generation</a><a class="toc-link toc-level-5" href="#geometric-and-semantic-coupling-for-interaction-understanding-in-3d-scenes">Geometric and Semantic Coupling for Interaction Understanding in 3D Scenes</a><a class="toc-link toc-level-4" href="#2026-09-22">2026-09-22</a><a class="toc-link toc-level-5" href="#mira-scene-pixel-aligned-layouts-for-generative-3d-scene-reconstruction">Mira-Scene: Pixel-Aligned Layouts for Generative 3D Scene Reconstruction</a><a class="toc-link toc-level-5" href="#ultratex-unleashing-2k-multi-view-diffusion-for-3d-texturing">UltraTex: Unleashing 2K Multi-View Diffusion for 3D Texturing</a><a class="toc-link toc-level-4" href="#2026-09-21">2026-09-21</a><a class="toc-link toc-level-5" href="#cadworld-computer-use-benchmark-for-long-horizon-computer-aided-design">CADWorld: Computer-Use Benchmark for Long-Horizon Computer-Aided Design</a><a class="toc-link toc-level-5" href="#deformsmith-physics-harness-guided-hierarchical-generation-of-deformable-assets-for-robot-manipulation">DeformSmith: Physics Harness-Guided Hierarchical Generation of Deformable Assets for Robot Manipulation</a><a class="toc-link toc-level-3" href="#视频">视频</a><a class="toc-link toc-level-4" href="#2026-09-23-2">2026-09-23</a><a class="toc-link toc-level-5" href="#gae-learning-a-geometry-native-latent-space-for-3d-consistent-world-generation-2">GAE: Learning a Geometry-Native Latent Space for 3D-Consistent World Generation</a><a class="toc-link toc-level-4" href="#2026-09-22-2">2026-09-22</a><a class="toc-link toc-level-5" href="#streaming-video-editing-with-easy-adaptation">Streaming Video Editing with Easy Adaptation</a><a class="toc-link toc-level-5" href="#why-do-video-diffusion-models-violate-physics-unveiling-the-flaws-in-attention-mechanisms">Why Do Video Diffusion Models Violate Physics? Unveiling the Flaws in Attention Mechanisms</a><a class="toc-link toc-level-5" href="#worldcrafter-consistent-video-world-model-with-implicit-3d-aware-memory">WorldCrafter: Consistent Video World Model with Implicit 3D-aware Memory</a><a class="toc-link toc-level-2" href="#全量论文简报">全量论文简报</a><a class="toc-link toc-level-3" href="#2026-09-23-3">2026-09-23</a><a class="toc-link toc-level-3" href="#2026-09-22-3">2026-09-22</a><a class="toc-link toc-level-3" href="#2026-09-21-2">2026-09-21</a></nav>
+        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#gae-learning-a-geometry-native-latent-space-for-3d-consistent-world-generation">GAE: Learning a Geometry-Native Latent Space for 3D-Consistent World Generation</a><a class="toc-link toc-level-2" href="#快速理解">快速理解</a><a class="toc-link toc-level-2" href="#中文摘要">中文摘要</a><a class="toc-link toc-level-2" href="#详细分析">详细分析</a><a class="toc-link toc-level-2" href="#1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</a><a class="toc-link toc-level-2" href="#2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</a><a class="toc-link toc-level-2" href="#3-核心贡献-约300字">3. 核心贡献（约300字）</a><a class="toc-link toc-level-2" href="#4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</a><a class="toc-link toc-level-2" href="#5-核心方法-按论文-method-小节总结-约600字">5. 核心方法：按论文 Method 小节总结（约600字）</a><a class="toc-link toc-level-3" href="#3-1-geometry-native-codec-几何原生编解码器">3.1 Geometry-native codec（几何原生编解码器）</a><a class="toc-link toc-level-3" href="#3-2-organizing-the-latent-for-generation-为生成组织潜在表示">3.2 Organizing the latent for generation（为生成组织潜在表示）</a><a class="toc-link toc-level-3" href="#3-3-conditional-flow-matching-and-generation-条件流匹配与生成">3.3 Conditional flow matching and generation（条件流匹配与生成）</a><a class="toc-link toc-level-2" href="#6-局限性和展望-约300字">6. 局限性和展望（约300字）</a></nav>
       </div>
     </aside>
-    <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../index.html">论文阅读首页</a> <a href="../../date/index.html">日报目录</a> <a href="../index.html">周报目录</a> <a href="../../month/index.html">月报目录</a></p>
-<h1 id="2026-w39-论文周报">2026-W39 · 论文周报</h1>
-<blockquote>收录 <strong>87 篇</strong>论文，重点解析 <strong>9 篇</strong>。正文按需展开，或可单独打开。</blockquote>
-<h2 id="重点解析">重点解析</h2>
-<h3 id="3d">3D</h3>
-<h4 id="2026-09-23">2026-09-23</h4>
-<h5 id="gae-learning-a-geometry-native-latent-space-for-3d-consistent-world-generation">GAE: Learning a Geometry-Native Latent Space for 3D-Consistent World Generation</h5>
-<p><strong>分类：</strong> 视频 / 3D；video world model、3D world model</p>
-<p>提出几何原生隐空间GAE，统一感知与生成，提升3D一致世界生成质量。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.24981v1/gae_teaser.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.24981v1/gae_teaser.png" alt="GAE: Learning a Geometry-Native Latent Space for 3D-Consistent World Generation 论文图" loading="lazy"></a><span class="image-caption">GAE: Learning a Geometry-Native Latent Space for 3D-Consistent World Generation 论文图</span></span></p>
+    <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../date/">← 返回日报目录</a></p>
+<h1 id="gae-learning-a-geometry-native-latent-space-for-3d-consistent-world-generation">GAE: Learning a Geometry-Native Latent Space for 3D-Consistent World Generation</h1>
 <p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.24981">arXiv</a> · <a href="https://huggingface.co/papers/2609.24981">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.24981">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.24981/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="geometric-and-semantic-coupling-for-interaction-understanding-in-3d-scenes">Geometric and Semantic Coupling for Interaction Understanding in 3D Scenes</h5>
-<p><strong>分类：</strong> 3D；3d articulation</p>
-<p>提出Segment-Snap，通过几何与语义耦合实现3D场景中部件、运动和操作区域的联合理解。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.25247v1/pipeline_rgb.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.25247v1/pipeline_rgb.png" alt="Geometric and Semantic Coupling for Interaction Understanding in 3D Scenes 论文图" loading="lazy"></a><span class="image-caption">Geometric and Semantic Coupling for Interaction Understanding in 3D Scenes 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.25247">arXiv</a> · <a href="https://huggingface.co/papers/2609.25247">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.25247">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.25247/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-09-22">2026-09-22</h4>
-<h5 id="mira-scene-pixel-aligned-layouts-for-generative-3d-scene-reconstruction">Mira-Scene: Pixel-Aligned Layouts for Generative 3D Scene Reconstruction</h5>
-<p><strong>分类：</strong> 3D；3D reconstruction</p>
-<p>提出Mira-Scene，用像素对齐的规范化坐标图实现单图像3D场景重建，提升布局精度。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.23796v2/teaser.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.23796v2/teaser.png" alt="Mira-Scene: Pixel-Aligned Layouts for Generative 3D Scene Reconstruction 论文图" loading="lazy"></a><span class="image-caption">Mira-Scene: Pixel-Aligned Layouts for Generative 3D Scene Reconstruction 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.23796v2">arXiv</a> · <a href="https://huggingface.co/papers/2609.23796">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.23796">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.23796/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="ultratex-unleashing-2k-multi-view-diffusion-for-3d-texturing">UltraTex: Unleashing 2K Multi-View Diffusion for 3D Texturing</h5>
-<p><strong>分类：</strong> 3D；3d texture generation</p>
-<p>提出UltraTex，通过高效多视图扩散实现2K分辨率3D纹理生成。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.23169v1/pipeline.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.23169v1/pipeline.png" alt="UltraTex: Unleashing 2K Multi-View Diffusion for 3D Texturing 论文图" loading="lazy"></a><span class="image-caption">UltraTex: Unleashing 2K Multi-View Diffusion for 3D Texturing 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.23169">arXiv</a> · <a href="https://huggingface.co/papers/2609.23169">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.23169">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.23169/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-09-21">2026-09-21</h4>
-<h5 id="cadworld-computer-use-benchmark-for-long-horizon-computer-aided-design">CADWorld: Computer-Use Benchmark for Long-Horizon Computer-Aided Design</h5>
-<p><strong>分类：</strong> 3D；3d generation</p>
-<p>提出CADWorld基准，评估GUI代理在FreeCAD长时机械设计任务中的能力。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.16251v2/overview.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.16251v2/overview.png" alt="CADWorld: Computer-Use Benchmark for Long-Horizon Computer-Aided Design 论文图" loading="lazy"></a><span class="image-caption">CADWorld: Computer-Use Benchmark for Long-Horizon Computer-Aided Design 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.16251v2">arXiv</a> · <a href="https://huggingface.co/papers/2609.16251">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.16251">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.16251/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="deformsmith-physics-harness-guided-hierarchical-generation-of-deformable-assets-for-robot-manipulation">DeformSmith: Physics Harness-Guided Hierarchical Generation of Deformable Assets for Robot Manipulation</h5>
-<p><strong>分类：</strong> 3D；3d generation</p>
-<p>提出DeformSmith，从文本或单图分层生成机器人操作所需可变形资产，以物理引导和交互反馈优化。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.18620v2/figures/deformsmith_pipeline.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.18620v2/figures/deformsmith_pipeline.png" alt="DeformSmith: Physics Harness-Guided Hierarchical Generation of Deformable Assets for Robot Manipulation 论文图" loading="lazy"></a><span class="image-caption">DeformSmith: Physics Harness-Guided Hierarchical Generation of Deformable Assets for Robot Manipulation 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.18620">arXiv</a> · <a href="https://huggingface.co/papers/2609.18620">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.18620">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.18620/index.html" data-inline-html="true">展开正文</a></p>
-<h3 id="视频">视频</h3>
-<h4 id="2026-09-23-2">2026-09-23</h4>
-<h5 id="gae-learning-a-geometry-native-latent-space-for-3d-consistent-world-generation-2">GAE: Learning a Geometry-Native Latent Space for 3D-Consistent World Generation</h5>
-<p><strong>分类：</strong> 视频 / 3D；video world model、3D world model</p>
-<p>提出几何原生隐空间GAE，统一感知与生成，提升3D一致世界生成质量。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.24981v1/gae_teaser.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.24981v1/gae_teaser.png" alt="GAE: Learning a Geometry-Native Latent Space for 3D-Consistent World Generation 论文图" loading="lazy"></a><span class="image-caption">GAE: Learning a Geometry-Native Latent Space for 3D-Consistent World Generation 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.24981">arXiv</a> · <a href="https://huggingface.co/papers/2609.24981">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.24981">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.24981/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-09-22-2">2026-09-22</h4>
-<h5 id="streaming-video-editing-with-easy-adaptation">Streaming Video Editing with Easy Adaptation</h5>
-<p><strong>分类：</strong> 视频；video diffusion model</p>
-<p>提出SVEET框架，仅训练预训练双向视频扩散模型即可实现高质量流式视频编辑，并达到实时性能。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.24788v1/teaser_new.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.24788v1/teaser_new.png" alt="Streaming Video Editing with Easy Adaptation 论文图" loading="lazy"></a><span class="image-caption">Streaming Video Editing with Easy Adaptation 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.24788">arXiv</a> · <a href="https://huggingface.co/papers/2609.24788">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.24788">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.24788/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="why-do-video-diffusion-models-violate-physics-unveiling-the-flaws-in-attention-mechanisms">Why Do Video Diffusion Models Violate Physics? Unveiling the Flaws in Attention Mechanisms</h5>
-<p><strong>分类：</strong> 视频；video diffusion model</p>
-<p>研究视频扩散模型违反物理规律的原因，揭示注意力机制缺陷并提出改进方法。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.23658v1/basketball_seed26.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.23658v1/basketball_seed26.png" alt="Why Do Video Diffusion Models Violate Physics? Unveiling the Flaws in Attention Mechanisms 论文图" loading="lazy"></a><span class="image-caption">Why Do Video Diffusion Models Violate Physics? Unveiling the Flaws in Attention Mechanisms 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.23658v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.23658">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.23658">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.23658/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="worldcrafter-consistent-video-world-model-with-implicit-3d-aware-memory">WorldCrafter: Consistent Video World Model with Implicit 3D-aware Memory</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出WorldCrafter视频世界模型，用隐式3D感知记忆实现长时程多视角一致的场景探索。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.24984v1/pipeline.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.24984v1/pipeline.png" alt="WorldCrafter: Consistent Video World Model with Implicit 3D-aware Memory 论文图" loading="lazy"></a><span class="image-caption">WorldCrafter: Consistent Video World Model with Implicit 3D-aware Memory 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.24984v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.24984">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.24984">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.24984/index.html" data-inline-html="true">展开正文</a></p>
-<h2 id="全量论文简报">全量论文简报</h2>
-<h3 id="2026-09-23-3">2026-09-23</h3>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.24981">GAE</a></td><td>视频 / 3D</td><td>提出几何原生隐空间GAE，统一感知与生成，提升3D一致世界生成质量。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25247">Geometric and Semantic Coupling for Interaction Understanding in 3D Scenes</a></td><td>3D</td><td>提出Segment-Snap，通过几何与语义耦合实现3D场景中部件、运动和操作区域的联合理解。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.26781">Agensh</a></td><td>其他</td><td>提出无中心协调器的多智能体框架Agensh，将智能体规模扩展至1024个，提升复杂任务性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24058">All-in-One Multilingual Scene Text Recognition with Script-aware Mixture-of-Experts</a></td><td>其他</td><td>提出脚本感知混合专家模型，构建多语种场景文本数据集，实现轻量高精度的统一识别器。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22323">ALPINE</a></td><td>其他</td><td>提出一种超轻量级自适应定位的少样本图像分类架构，在极低参数和训练样本下提升精度与鲁棒性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15987">Bellman Policy Optimization</a></td><td>其他</td><td>提出贝尔曼策略优化BPO，用贝尔曼方程重写策略镜像下降，免评论家训练大模型推理。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.26346">Blaming Across the Aisle</a></td><td>其他</td><td>研究丹麦议会1997-2026年指责归因，构建BlameBERT分类器，揭示意识形态不对称的政治话语硬化。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24657">Circuit Hypernetworks for Quantum-Augmented Diffusion Language Models</a></td><td>其他</td><td>提出HyperQ，用量子残差分支增强冻结扩散语言模型，实现量子增强语言建模。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22319">Embedding Physics Priors in Robot Learning</a></td><td>其他</td><td>综述物理先验嵌入机器人学习的方法，提出统一分类法并分析挑战与方向。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24967">Emergent Collusion in Long-Horizon LLM Agent Interaction</a></td><td>其他</td><td>研究LLM智能体在长期多智能体交互中合谋行为的涌现及其影响因素。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.26796">Flash-dLLM</a></td><td>其他</td><td>提出Flash-dLLM，用IO感知KV缓存与并行解码加速扩散LLM推理。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25186">From Pattern Recognizers to Personalized Companions</a></td><td>其他</td><td>综述大语言模型在心理健康中的三个阶段演进，从信息工具到个性化陪伴。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25267">ImIR</a></td><td>其他</td><td>提出ImIR，用图像自身生成指令微调模型，实现多退化类型的全合一图像恢复。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.26550">JEV-as-a-Judge</a></td><td>其他</td><td>研究决策型裁判JEV作为经济初筛，不确定时升级强裁判，保精度降成本。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25053">LatentPort</a></td><td>其他</td><td>提出混合状态迁移方法，实现4B到9B混合语言模型间直接传递记忆状态，无需重读上下文。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25199">Lean Pool</a></td><td>其他</td><td>介绍AI维护的形式化数学仓库Lean Pool，其由AI代理增长、维护和优化。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25165">Ovis-Embedding</a></td><td>其他</td><td>本文提出Ovis-Embedding，一种基于共享多模态主干的全模态嵌入模型，在多项基准上达到最优。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.26457">Recursive self-improvement of AI research agents</a></td><td>其他</td><td>提出AIDE^2系统，让AI研究代理通过递归自我改进提升自身研究效率，并在多个基准上验证泛化。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25636">RoboFollow</a></td><td>其他</td><td>提出RoboFollow诊断基准，揭示具身智能体指令跟随能力被低场景熵掩盖的真相。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25270">RULER</a></td><td>其他</td><td>提出RULER，用实例感知的rubric奖励优化SVG生成，提升文本到SVG质量。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.26774">StableVQ</a></td><td>其他</td><td>针对VQ tokenizer训练不稳定的问题，提出StableVQ，通过解耦编码器-解码器与码本优化目标提升稳定性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25804">The Tasteful Agent</a></td><td>其他</td><td>提出Taste-Bench基准与蒸馏训练法，衡量并改善长程任务中智能体的决策品味。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.06011">Tri-PvP</a></td><td>其他</td><td>提出Tri-PvP基准，揭示全模态大语言模型在跨模态冲突中的模态偏好与证据形式偏好。</td></tr></tbody></table></div>
-<h3 id="2026-09-22-3">2026-09-22</h3>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.23796v2">Mira-Scene</a></td><td>3D</td><td>提出Mira-Scene，用像素对齐的规范化坐标图实现单图像3D场景重建，提升布局精度。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.23169">UltraTex</a></td><td>3D</td><td>提出UltraTex，通过高效多视图扩散实现2K分辨率3D纹理生成。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24788">Streaming Video Editing with Easy Adaptation</a></td><td>视频</td><td>提出SVEET框架，仅训练预训练双向视频扩散模型即可实现高质量流式视频编辑，并达到实时性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.23658v1">Why Do Video Diffusion Models Violate Physics? Unveiling the Flaws in Attention Mechanisms</a></td><td>视频</td><td>研究视频扩散模型违反物理规律的原因，揭示注意力机制缺陷并提出改进方法。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24984v1">WorldCrafter</a></td><td>视频</td><td>提出WorldCrafter视频世界模型，用隐式3D感知记忆实现长时程多视角一致的场景探索。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24432">1% of Tokens Can Be Enough</a></td><td>其他</td><td>提出信息效率比改进稀疏在线策略蒸馏的token选择，极小预算下达到或超过完整监督。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.21996">A Lie Detector Test for Language Models</a></td><td>其他</td><td>提出PIR方法，从模型内部状态识别其隐藏的知识，区分不愿回答与无法回答。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.23989">ACLArena</a></td><td>其他</td><td>提出ACLArena框架，研究多阶段后训练中智能体持续学习，并提出结合回放与LoRA路由的新配方。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24118">CARE</a></td><td>其他</td><td>提出CARE框架，利用执行失败经验生成纠正数据，提升VLA策略机器人操作的恢复能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24797">Complex KDA</a></td><td>其他</td><td>提出Complex KDA，增强线性RNN表达能力，实现二维旋转与状态跟踪。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22255">Deep Persona</a></td><td>其他</td><td>提出基于心理学分层架构的角色扮演智能体构建与无参考评估框架，提升对话自然度。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24220">Document Retrieval-Aware Chunking (D-RAC)</a></td><td>其他</td><td>提出文档检索感知分块框架D-RAC，通过PDF规范化与多模态Markdown转换实现企业文档的高效低耗分块。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24115">EDGEGEN</a></td><td>其他</td><td>提出EdgeGen框架，自动生成基于数据库的边界用例，提升工具调用智能体性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25001">GameHorizon Suite</a></td><td>其他</td><td>提出GameHorizon套件，含自动化标注、跨21游戏数据集及离线在线评测，评估多模态游戏AI。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.23863">Grounded Action Model</a></td><td>其他</td><td>提出基于3D接地的Grounded Action Model机器人操作基础模型，以物体中心表示预测动作，提升泛化性能</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24974">Harness-Zero</a></td><td>其他</td><td>提出Harness-Zero，通过agent-as-harness将优化harness的行为蒸馏到模型权重，部署时无需专用harness。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.10706">HuRo</a></td><td>其他</td><td>提出HuRo流水线，将人类视频机器人化并构建大规模数据集，用于预训练VLA策略，提升真实操作任务成功率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.23986">Jev-Mem</a></td><td>其他</td><td>提出System-One控制的智能体记忆架构，提升效率并降低延迟。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22220">Measuring the Checker</a></td><td>其他</td><td>提出变异分析作为GPU内核基准测试预言机的充分性度量，自动注入故障并评估测试协议。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.23088">OmniEdu</a></td><td>其他</td><td>提出OmniEdu教育基础模型，通过能力均衡的指令微调，提升K-12解题、课程理解和教学辅导性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.23377">One to More, More to One</a></td><td>其他</td><td>面向仓库级软件工程任务，提出类别感知专家训练与策略整合框架，提升多类别问题解决率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24983">onPanda</a></td><td>其他</td><td>提出onPanda工具，通过token级纠错高效标注LLM与智能体的on-policy对齐数据。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20758">Prediction-Powered Smoothing and Validation for Disaggregated AI Evaluation</a></td><td>其他</td><td>提出预测驱动的平滑与验证方法，用于AI系统分域评估的估计和选择。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13814">Realtime-Venus</a></td><td>其他</td><td>提出Realtime-Venus全双工交互系统，集成连续感知与异步委托</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24972">RRSI</a></td><td>其他</td><td>提出正则化递归自改进方法RRSI，约束智能体外挂演进，提升分布外泛化并降低计算成本。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13231">ShieldVLA</a></td><td>其他</td><td>提出ShieldVLA，基于HJ可达性约束视觉-语言-动作模型的安全微调，降低安全代价并提升成功率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.06052">SkillSpec</a></td><td>其他</td><td>提出SkillSpec框架，用意图掩码规格推理验证智能体技能正确性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20869">TAPe+ML</a></td><td>其他</td><td>提出TAPe+ML v3，基于结构化表示TAPe的紧凑多任务视觉系统，实现检测、分割与分类。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15991">The Functionalizer</a></td><td>其他</td><td>提出无损预分词框架，将大小写、变音和重复等词形变体分解为可逆操作码/操作数，压缩词表并改善建模。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24682">Think Like a World Model, Act Like a VLA</a></td><td>其他</td><td>将世界模型内部特征蒸馏到VLA策略中，提升机器人操作鲁棒性且零额外推理开销。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22870">Towards Full Pipeline FP8 Reinforcement Learning for LLMs</a></td><td>其他</td><td>提出Calibrated Clipping方法，解决FP8强化学习训练中的熵增与不稳定问题。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22966">Transferring the Intelligence of VLMs to Robotic Control</a></td><td>其他</td><td>提出RoboDawn接口，让视觉语言模型通过离散指令零样本控制机器人，无需任务训练。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24997">VideoGen-Agent</a></td><td>其他</td><td>提出视频生成智能体VideoGen-Agent，用多任务强化学习协调外部工具提升视频生成质量。</td></tr></tbody></table></div>
-<h3 id="2026-09-21-2">2026-09-21</h3>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.16251v2">CADWorld</a></td><td>3D</td><td>提出CADWorld基准，评估GUI代理在FreeCAD长时机械设计任务中的能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.18620">DeformSmith</a></td><td>3D</td><td>提出DeformSmith，从文本或单图分层生成机器人操作所需可变形资产，以物理引导和交互反馈优化。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22076">APort Vault</a></td><td>其他</td><td>提出APort Vault基准，评估AI代理支付授权与开放代理护照机制。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20886">BI-Agent and BI-Bench</a></td><td>其他</td><td>提出端到端商业智能基准BI-Bench和工具增强智能体BI-Agent，提升LLM在商业智能任务中的准确率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.21619">Calibrating Teacher--Student Discrepancy for On-Policy Distillation</a></td><td>其他</td><td>提出Cal-OPD方法，校准教师自身偏差以提升在线蒸馏效果</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22068">CodeMidas</a></td><td>其他</td><td>提出CodeMidas，从源码自动构建编码智能体RL环境，提升多基准编程性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22086">Designer-RSI</a></td><td>其他</td><td>提出Designer-RSI框架，通过外部程序记忆从用户流量中进化设计流程，提升代理图形设计成功率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15779">EvoOntology</a></td><td>其他</td><td>提出自进化本体层EvoOntology，弥合数据代理与异构数据间的鸿沟。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.18766">FRAUDSkill</a></td><td>其他</td><td>提出FRAUDSkill，通过冻结权重优化外部技能实现结构化音频反欺诈检测。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.21788">From Pretraining to Proficiency</a></td><td>其他</td><td>提出PARTS框架，用真实世界子任务强化学习微调机器人长时程操作策略，提升成功率并减少人工干预。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19315">GAVEL</a></td><td>其他</td><td>提出GAVEL框架，基于图世界模型验证与修复LLM长时程任务规划，显著提升BEHAVIOR-1K成功率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.21094">Geometry of Values</a></td><td>其他</td><td>构建跨语言道德困境数据集，用任务向量正交化实现价值观偏好对齐。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.21749">GraphSkillEvo</a></td><td>其他</td><td>提出图结构技能表示与进化优化框架GraphSkillEvo，提升大模型智能体任务表现。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22039">Gricea</a></td><td>其他</td><td>提出开放科学平台Gricea，支持会话式AI研究的构建、复现与扩展。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.05571">Grounded Skill Synthesis from Code at Scale for Agentic Intelligence</a></td><td>其他</td><td>提出Code2Skill，从代码库自动合成可验证的智能体技能，构建百万级技能库并提升下游任务性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.21346">IntBMoE</a></td><td>其他</td><td>提出IntBMoE块级条件MoE，解耦参与、执行和物化，实现全参与且高效。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20669">Learning Foresight without Explicit Trajectories for 3D Diffusion Policies</a></td><td>其他</td><td>提出Movement Trend Guidance，为3D扩散策略提供交互趋势潜变量，提升操作成功率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22083">MintAct</a></td><td>其他</td><td>提出统一视觉智能体MintAct，在移动、桌面和网页环境中实现UI理解、多步导航及视觉工具使用，达到最先进性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.09206">MLLMs Hallucinate when Information Distribution Drifts in Synergy Heads</a></td><td>其他</td><td>提出HEAL方法，通过头部信息解缠与校准减少多模态大语言模型幻觉。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15126">MoME</a></td><td>其他</td><td>提出MoME机制，用混合记忆槽实现上下文感知的稀疏查找，提升语言模型效率与语义区分。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22069">OmniVBench</a></td><td>其他</td><td>提出OmniVBench基准和Omni-R2V数据集，用于评估和训练通用参考视频生成模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.21465">OmniVChat</a></td><td>其他</td><td>提出原生音视频对话任务，构建合成数据引擎与基准，并用强化学习训练提升模型性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20816">Paint-Anything</a></td><td>其他</td><td>提出基于十六进制颜色提示的统一图像生成与编辑方法，实现任意颜色控制。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22000">RecreationWorld</a></td><td>其他</td><td>介绍RecreationWorld，一个用于混合计算机使用代理的可扩展可验证环境框架。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20633">Refinement Is Inherently Editable</a></td><td>其他</td><td>提出基于生成精炼网络的无训练提示引导图像编辑框架，用比特路由与稳定机制实现高质量编辑。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.21038">Retention-Constrained Post-Training Quantization of Cellpose-SAM for Stem Cell Microscopy</a></td><td>其他</td><td>研究Cellpose-SAM在干细胞显微图像上的保留约束后训练量化，验证混合W4/W8方案高效且无灾难性失败。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19169">SiliconBench</a></td><td>其他</td><td>提出SiliconBench，从速度、内存和保真度三方面评测苹果统一内存桌面上的LLM服务引擎。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.12623">SteerDuplex</a></td><td>其他</td><td>提出SteerDuplex全双工语音对话模型及SteerBench基准，提升语音可控性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.18748">TeleAntiFraud 2.0</a></td><td>其他</td><td>提出TeleAntiFraud 2.0音频基准，用于在近域混淆条件下评估电信诈骗检测模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19122">Training-Adaptive Convolutional Sparse Coding via Information Bottleneck for Robust Visual Representation</a></td><td>其他</td><td>提出训练自适应卷积稀疏编码框架，通过信息瓶颈平衡压缩与保留，提升鲁棒视觉表示。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20942">When AI Reviews Train AI Reviewers</a></td><td>其他</td><td>研究AI评审递归训练中科学判断崩溃现象，并提出TrustReviewer干预方法。</td></tr></tbody></table></div></div></article></main>
+<p><strong>一句话主题：</strong> 设计几何原生自编码器，构建支持外观与几何联合解码的隐空间用于3D一致生成</p>
+<p><strong>领域标签：</strong> 3D生成 / 隐空间表示 / 几何一致性</p>
+<h2 id="快速理解">快速理解</h2>
+<p><strong>背景与任务：</strong> 现有视觉生成器使用外观中心隐空间，难以保持三维场景一致性。</p>
+<p><strong>核心工作：</strong> 作者将几何基础模型特征重参数化为紧凑隐空间，并训练GAE使其可联合解码外观、深度、相机和点图，用于条件生成。</p>
+<h2 id="中文摘要">中文摘要</h2>
+<p>我们提出一种紧凑的几何原生潜在空间，作为感知与生成的共享基础。视觉生成器可以生成逼真帧，而无需保持一致的3D场景。我们认为这不仅是一个建模问题，也是一个表示问题：生成器通常演化外观中心的潜在表示，而感知模型在编码跨视角结构的语义丰富空间中恢复几何。我们不是将几何作为额外输出添加，而是将几何基础模型的特征重新参数化为一个用于生成的紧凑潜在空间。我们通过几何原生自编码器（GAE）实现这一转变，其潜在表示可联合解码为外观、深度、相机和点图。凭借这种状态，一个标准条件流支持多种生成任务。在保持生成器和训练协议固定的受控比较中，用GAE替换潜在表示同时改善了视觉质量和独立测量的3D一致性：在RealEstate10K和DL3DV上FVD分别下降$12.7\%$和$23.1\%$，在RealEstate10K上相机轨迹误差减半。这些结果共同表明，潜在空间对于几何一致的生成至关重要，并可作为感知与生成之间的共享接口。</p>
+<h2 id="详细分析">详细分析</h2>
+<h2 id="1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</h2>
+<p>GAE 的输入是参考图像（一张或多张）、目标相机轨迹和可选文本；输出是沿轨迹的多个目标视图的 RGB 帧，以及从同一潜在表示解码出的深度、相机光线/位姿和点图，并可从这些几何产物拼出 3D 点云。功能上，它把外观与几何统一到一个共享的紧凑潜在空间，支持文本到图像、相机控制视频生成和参考视图新视角合成。边界是：它生成的是可被 DA3 这类几何基础模型读出的静态场景级几何，不是显式物理仿真，也不对生成结果做几何真值认证。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.24981v1/gae_teaser.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.24981v1/gae_teaser.png" alt="Figure 1: 几何原生世界生成。给定参考图像、相机轨迹和可选文本，GAE 从共享、紧凑的潜在空间中联合生成 RGB 视图和 3D 几何。每个示例将生成的 RGB 序列和深度序列与最终 3D 点云配对展示。" loading="lazy"></a><span class="image-caption">Figure 1: 几何原生世界生成。给定参考图像、相机轨迹和可选文本，GAE 从共享、紧凑的潜在空间中联合生成 RGB 视图和 3D 几何。每个示例将生成的 RGB 序列和深度序列与最终 3D 点云配对展示。</span></span></p>
+<h2 id="2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</h2>
+<p>视频生成器可以生成照片级逼真的帧，但这些帧并不保证构成一个一致的 3D 场景；从生成视频中恢复的深度、相机轨迹和点图会漂移，甚至偏离用户指定的路径。论文认为这不仅是建模能力问题，更是表示问题：现有生成模型通常在“外观中心”或“语义中心”的潜在空间中演化，而感知模型是在一个能编码跨视图结构的几何相关表示中恢复几何。于是出现“感知能读的，生成写不出”的错配。</p>
+<p>常见的补救方式是在外观原生潜在表示之外增加几何控制、几何输出或几何后训练，但这没有改变生成状态本身。论文进一步诊断了直接使用几何基础模型特征作为生成状态的困难：以 DA3-GIANT 为例，四个层级的特征总计有数千通道，单层就达 3,072 通道，但有效秩只有约 11，条件数高达 \(10^8\) 到 \(10^{16}\)，信息高度冗余且各向异性。单个层级不足以保留几何解码所需信息，直接建模全层级又需要复杂的级联扩散。</p>
+<p>核心 insight 是：与其在生成器外补几何，不如把生成器实际演化的那个潜在状态本身变成“几何原生”的。做法是用一个自编码器将冻结的几何基础模型特征层级重参数化为紧凑潜在表示，使该潜在表示既能解码出外观，也能被冻结的几何头直接读出几何，并专门为生成式传输组织其结构。</p>
+<h2 id="3-核心贡献-约300字">3. 核心贡献（约300字）</h2>
+<p>论文的主要贡献如下：</p>
+<ol><li><strong>提出“几何原生潜在空间”问题</strong>：明确把 3D 一致生成的瓶颈定位为生成器所演化的潜在表示，而不是单纯增加几何输出或几何损失。</li><li><strong>提出 GAE（Geometry-Native Autoencoder）</strong>：在冻结的 DA3 编码器与冻结的 DPT 几何头之间学习紧凑瓶颈，把四个层级的特征压缩为 64 或 128 通道的空间潜在表示；特征解码器重建完整层级以供几何读出，同时一个学习到的 RGB 头从同一潜在表示解码外观。</li><li><strong>提出潜在表示组织准则</strong>：GAE 同时通过 C-RADIO 的逐 token 对齐和 DINOv2 的关系结构匹配来塑造潜在空间，使它在保持几何可读性的同时具有更适合流匹配的平滑传输结构和跨视图对应关系。</li><li><strong>构建统一生成框架</strong>：在标准化后的 GAE 潜在空间上训练一个 DiT 条件流模型，同一组权重支持文本到图像、相机控制视频、参考条件新视角合成。</li><li><strong>受控实验验证表示的关键作用</strong>：在固定生成器和训练协议下，GAE 相比像素 VAE、语义 RAE 和原始几何特征，在 RealEstate10K 上 FVD 降低 12.7%，在 DL3DV 上降低 23.1%，相机轨迹误差约减半。</li></ol>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.24981v1/compare.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.24981v1/compare.png" alt="Figure 5: 跨潜在表示族的独立 3D 检查。外观原生 Wan2.1 VAE、语义原生 RAEv2 和几何原生 GAE 均以相同参考图像和指定相机轨迹为条件。生成视图、细节裁剪图、VGGT 重建的点云和恢复的相机轨迹突出了潜在表示对跨视图视觉一致性和相机控制的影响。" loading="lazy"></a><span class="image-caption">Figure 5: 跨潜在表示族的独立 3D 检查。外观原生 Wan2.1 VAE、语义原生 RAEv2 和几何原生 GAE 均以相同参考图像和指定相机轨迹为条件。生成视图、细节裁剪图、VGGT 重建的点云和恢复的相机轨迹突出了潜在表示对跨视图视觉一致性和相机控制的影响。</span></span></p>
+<h2 id="4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</h2>
+<p>推理时使用两类基模：DA3 几何基础模型（编码器加 DPT 几何头）和 DiT 条件流模型。DA3 负责把参考图变成几何特征，并负责从重建的特征层级中读出深度、相机光线和点图；DiT 负责在 GAE 的紧凑几何潜在空间中生成所有目标视图的潜在表示。GAE 编解码器与 RGB 头作为已经就绪的输入/输出接口，不参与生成状态的随机演化。</p>
+<ol><li><strong>输入 → 条件编码 → 固定条件 token</strong>  </li></ol>
+<p>用户输入参考图像、可选文本和目标相机轨迹。参考图像先经过 DA3 编码器和 GAE 编码器，得到干净的参考潜在标记；文本和轨迹分别编码为文本嵌入与度量 Plücker 光线嵌入。这些信息作为后续生成过程的固定条件。</p>
+<ol><li><strong>输入 → 条件流采样 → 生成的目标潜在表示</strong>  </li></ol>
+<p>系统用高斯噪声初始化所有目标视图的潜在标记，并把上一步的条件 token 一起送入 DiT 条件流模型。模型从噪声向数据做 ODE 采样；参考 token、文本和相机信息只作控制，不参与积分状态的演化。</p>
+<ol><li><strong>输入 → 反标准化 → GAE 紧凑潜在表示</strong>  </li></ol>
+<p>采样得到的标准化目标潜在标记通过固定的逐通道反标准化，还原为 GAE 编解码器可以直接解码的紧凑潜在表示。</p>
+<ol><li><strong>输入 → 双路解码 → RGB 与几何</strong>  </li></ol>
+<p>该紧凑潜在表示同时输入 RGB 头和特征解码器：RGB 头输出目标视图图像；特征解码器重建完整 DA3 特征层级，再由 DA3 的 DPT 头输出深度、相机光线和点图。</p>
+<ol><li><strong>输入 → 点云合并 → 最终 3D 输出</strong>  </li></ol>
+<p>系统按解码出的相机位姿把各视图深度图反投影并合并，得到可直接展示的 3D 点云。输出交给用户的是 RGB 序列、逐视图几何，以及一个统一的 3D 点云。</p>
+<div class="mermaid">flowchart TD
+    U[&quot;用户输入: 参考图像 / 可选文本 / 相机轨迹&quot;] --&gt; E[&quot;条件编码: DA3编码器 + GAE编码器 + 文本/Plücker嵌入&quot;]
+    N[&quot;高斯噪声初始化的目标视图潜在表示&quot;] --&gt; F[&quot;DiT条件流模型: ODE采样 t=1→0&quot;]
+    E --&gt; F
+    F --&gt; S[&quot;反标准化为GAE紧凑潜在表示&quot;]
+    S --&gt; R[&quot;RGB解码头: 生成RGB帧&quot;]
+    S --&gt; FEAT[&quot;特征解码器: 重建DA3四层特征&quot;]
+    FEAT --&gt; GEO[&quot;DA3 DPT头: 深度 / 相机光线 / 点图&quot;]
+    R --&gt; OUT[&quot;输出: RGB序列 + 3D点云&quot;]
+    GEO --&gt; OUT</div>
+<h2 id="5-核心方法-按论文-method-小节总结-约600字">5. 核心方法：按论文 Method 小节总结（约600字）</h2>
+<p>GAE 的目标是在冻结的 DA3 编码器和冻结的 DPT 几何头之间学习一个紧凑的中间状态，而不是直接扩散 DA3 的原始多级特征。整体分为两个阶段：阶段一训练编解码器与 RGB 头；阶段二冻结编解码器，训练条件流模型。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.24981v1/ngd_pipeline_overview.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.24981v1/ngd_pipeline_overview.png" alt="Figure 2: 几何原生自编码器（GAE）概览。阶段 1（编解码器训练）将冻结的多层级几何基础特征压缩为紧凑、可扩散的几何潜在表示；特征解码器重建完整层级结构，用于冻结的几何读出，而另一个独立的学习头解码 RGB。阶段 2（流训练）仅对生成视图的潜在表示执行条件流匹配，同时以干净参考潜在表示、相机光线和文本作为控制条件。" loading="lazy"></a><span class="image-caption">Figure 2: 几何原生自编码器（GAE）概览。阶段 1（编解码器训练）将冻结的多层级几何基础特征压缩为紧凑、可扩散的几何潜在表示；特征解码器重建完整层级结构，用于冻结的几何读出，而另一个独立的学习头解码 RGB。阶段 2（流训练）仅对生成视图的潜在表示执行条件流匹配，同时以干净参考潜在表示、相机光线和文本作为控制条件。</span></span></p>
+<h3 id="3-1-geometry-native-codec-几何原生编解码器">3.1 Geometry-native codec（几何原生编解码器）</h3>
+<p>这一小节的目的是把 DA3 的四层特征层级压缩成一个紧凑空间潜在表示，同时保证冻结的几何头仍能读出几何。</p>
+<p>DA3 编码器对每个视图产生四个层级的 patch token。GAE 先对每个层级用固定的逐通道统计做归一化，再按空间网格 reshape 并沿通道拼接成融合张量 \(\mathbf{X}_v\)。编码器 \(\mathrm{Enc}_\phi\) 输出均值和 log 方差，并采样得到潜在 \(\mathbf{z}_v\)；解码器 \(\mathrm{Dec}_\phi\) 从 \(\mathbf{z}_v\) 重建完整的四层特征层级。潜在表示保留 DA3 的 patch 网格，只压缩通道数，典型设置为 64 或 128 通道，远小于单层原始特征的 3,072 通道。</p>
+<p>外观与几何从同一潜在表示读出： \[ \hat{\mathbf{I}}_v=\mathcal{D}^{\mathrm{rgb}}_\theta(\mathbf{z}_v),\qquad \hat{\mathbf{G}}_v=\mathcal{H}_{\mathrm{DPT}}(\mathrm{Dec}_\phi(\mathbf{z}_v)), \] 其中 \(\mathcal{H}_{\mathrm{DPT}}\) 是冻结的 DA3 DPT 头，输出深度、相机光线和点图。训练损失包括层级特征重建、RGB 像素/感知重建、深度/光线重建、KL 正则以及表征组织项。几何监督目标是伪真值，即冻结 DA3 头作用在原始特征上的输出，而不是直接的三维真值；保持 DPT 头冻结可以防止几何解码器在压缩损失发生时“自适应地迁就”信息缺失。</p>
+<h3 id="3-2-organizing-the-latent-for-generation-为生成组织潜在表示">3.2 Organizing the latent for generation（为生成组织潜在表示）</h3>
+<p>这一小节处理“重建得好不等于适合生成”的问题。仅有重建损失的潜在空间虽然紧凑、良态，但传输平滑性、语义邻域和关系结构仍不足。</p>
+<p>论文先用 C-RADIO 做逐 token 对齐：把潜在 token 经过投影后，与同一位置的 C-RADIO 特征做余弦对齐。这个 \(\mathcal{L}_{\mathrm{tok}}\) 提高了传输平滑性（\(\rho\)）和局部邻域一致性（LNC），但它把每个位置独立对待，破坏了 pairwise 的空间关系，导致结构度量下降。</p>
+<p>为恢复关系结构，论文用 DINOv2 提供 pairwise 相似度，并直接在潜在空间中匹配这种相似度： \[ \mathcal{L}_{\mathrm{struct}}= \frac{1}{VN(N-1)}\sum_v\sum_{i\neq j} \left( \langle\hat{\boldsymbol{\mu}}_{v,i},\hat{\boldsymbol{\mu}}_{v,j}\rangle- \langle\hat{\mathbf{d}}_{v,i},\hat{\mathbf{d}}_{v,j}\rangle \right)^2. \] 最终的表征组织项为： \[ \mathcal{L}_{\mathrm{repr}}= \lambda_{\mathrm{repa}}\left(\mathcal{L}_{\mathrm{tok}}+\lambda_\mu\mathcal{L}_{\mathrm{struct}}\right), \quad \lambda_{\mathrm{repa}}=0.25,\ \lambda_\mu=8.0. \] 编解码器训练完成后，C-RADIO、DINOv2 和投影器都被丢弃，只保留经过塑造的潜在空间。随后对潜在表示做逐通道标准化，作为流匹配的目标空间。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.24981v1/output_quality_radar.svg" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.24981v1/output_quality_radar.svg" alt="Figure 3: 潜在表示质量与匹配的 DiT 生成。表示（绿）、RGB 生成（蓝）和 3D 一致性（橙）的归一化概览。" loading="lazy"></a><span class="image-caption">Figure 3: 潜在表示质量与匹配的 DiT 生成。表示（绿）、RGB 生成（蓝）和 3D 一致性（橙）的归一化概览。</span></span></p>
+<h3 id="3-3-conditional-flow-matching-and-generation-条件流匹配与生成">3.3 Conditional flow matching and generation（条件流匹配与生成）</h3>
+<p>这一小节冻结 GAE 编解码器，只在标准化后的潜在表示上训练条件流模型。给定干净目标潜在 \(\bar{\mathbf{z}}^{\mathrm{gt}}\) 和高斯噪声 \(\boldsymbol{\epsilon}\)，采用线性插值路径 \(\bar{\mathbf{z}}_t=(1-t)\bar{\mathbf{z}}^{\mathrm{gt}}+t\boldsymbol{\epsilon}\)，训练目标是： \[ \mathcal{L}_{\mathrm{flow}}= \mathbb{E}\left[ \rho(t)\left\| \hat{\mathbf{u}}_\psi(\bar{\mathbf{z}}_t,t,\mathcal{C})- (\boldsymbol{\epsilon}-\bar{\mathbf{z}}^{\mathrm{gt}}) \right\|_2^2 \right], \] 网络采用 RAEv2 式的“干净潜在预测”，再转换成速度。单个 Transformer 同时建模所有目标视图，使跨视图交互直接发生在紧凑几何原生状态中。</p>
+<p>参考图条件采用“干净条件 token”设计：由于几何编码器是 set-conditioned，参考图若与目标视图联合编码，其训练时可用的特征在测试时无法构造；因此系统只把观测到的参考视图作为上下文编码，并将得到的干净参考令牌作为固定条件前置，所有目标视图槽仍保持为噪声变量。参考 token 被赋予 \(t=0\)，与噪声状态联合做注意力，但在预测头之前被移除。相机控制通过度量 Plücker 光线嵌入加入自注意力的 query/key；文本通过冻结语言模型特征进入交叉注意力。条件 dropout 使同一模型可以支持纯文本、相机控制、参考条件等多种生成模式。推理时从高斯噪声积分到干净潜在，再反标准化并解码出 RGB 与几何。</p>
+<h2 id="6-局限性和展望-约300字">6. 局限性和展望（约300字）</h2>
+<p>论文没有单设独立的 Limitations 小节，但可以从正文区分出明确边界与可谨慎推断的局限。</p>
+<p><strong>论文明确或实验上可见的边界</strong>包括：GAE 是针对 DA3 的四层特征层级和冻结 DPT 头设计的，几何监督目标是 DA3 头产生的伪真值，因此几何质量上限受到 DA3 本身能力的约束；受控实验主要在 RealEstate10K 和 DL3DV 上进行，采用 64 个场景、每个场景 9 个视图、252² 分辨率；长 81 帧 rollout 和文本生成结果属于能力展示，没有纳入定量基准。</p>
+<p><strong>可以谨慎推断的局限</strong>包括：该潜在空间与 DA3 的特征分布紧密耦合，换用 VGGT 等其他几何基础模型时，很可能需要重新学习编解码器，而非直接迁移；方法主要面向静态场景级世界生成，动态场景、物体运动和物理一致性尚未被验证；3D 一致性是通过生成结果在统计和几何度量上的改善体现的，并不提供可证明的几何约束。展望上，GAE 的核心思路——让生成状态本身可被几何基础模型读写——可以推广到更多几何骨干、动态世界模型，以及与重建、规划共享统一表征的方向。</p></div></article></main>
   </div>
   <script>/*!
   * PhotoSwipe 5.4.4 - https://photoswipe.com
@@ -787,208 +744,6 @@ div.pswp__img--placeholder,
       updateToc();
     }
 
-
-    (() => {
-      const cache = new Map();
-
-      async function fetchLinkedPage(url) {
-        if (!cache.has(url)) {
-          const request = fetch(url, { credentials: "same-origin" })
-            .then(async (response) => {
-              if (!response.ok) throw new Error(`HTTP ${response.status}`);
-              return { text: await response.text(), url: response.url };
-            })
-            .catch((error) => {
-              cache.delete(url);
-              throw error;
-            });
-          cache.set(url, request);
-        }
-        return cache.get(url);
-      }
-
-      function rewriteReferences(root, pageUrl) {
-        root.querySelectorAll("[src], [href]").forEach((node) => {
-          ["src", "href"].forEach((attribute) => {
-            const value = node.getAttribute(attribute);
-            if (!value || value.startsWith("#") || /^(?:data|blob|mailto|tel|javascript):/i.test(value)) return;
-            try {
-              node.setAttribute(attribute, new URL(value, pageUrl).href);
-            } catch (_) {
-              // Leave malformed references unchanged; the browser will expose the failure.
-            }
-          });
-        });
-      }
-
-      function isolateIds(root, prefix) {
-        const replacements = new Map();
-        root.querySelectorAll("[id]").forEach((node) => {
-          const original = node.id;
-          const replacement = `${prefix}-${original}`;
-          replacements.set(original, replacement);
-          node.id = replacement;
-        });
-        root.querySelectorAll('a[href^="#"]').forEach((node) => {
-          const original = decodeURIComponent(node.getAttribute("href").slice(1));
-          if (replacements.has(original)) node.setAttribute("href", `#${replacements.get(original)}`);
-        });
-      }
-
-      function prepareDynamicImages(root) {
-        root.querySelectorAll("a.pswp-image").forEach((item) => {
-          const image = item.querySelector("img");
-          if (!image) return;
-          const sync = () => {
-            item.dataset.pswpSrc = image.currentSrc || image.src;
-            if (item.dataset.referenceImage === "true" && image.naturalWidth && image.naturalHeight) {
-              item.dataset.pswpWidth = String(image.naturalWidth);
-              item.dataset.pswpHeight = String(image.naturalHeight);
-            }
-          };
-          sync();
-          image.addEventListener("load", sync, { once: true });
-        });
-      }
-
-      document.querySelectorAll('a[data-inline-html="true"]').forEach((link, index) => {
-        const summary = link.closest("p, li, blockquote, td") || link.parentElement;
-        if (!summary) return;
-        const dedicatedExpand = link.textContent.trim() === "展开正文";
-        let entry = summary.closest(".inline-html-entry");
-        if (!entry) {
-          if (summary.tagName === "LI" || summary.tagName === "TD") {
-            entry = summary;
-            entry.classList.add("inline-html-entry");
-          } else {
-            entry = document.createElement("section");
-            entry.className = "inline-html-entry";
-            summary.before(entry);
-            entry.append(summary);
-          }
-        }
-        summary.classList.add("inline-html-summary");
-        if (dedicatedExpand) link.classList.add("inline-html-source-link");
-
-        const panel = document.createElement("section");
-        panel.className = "inline-html-panel";
-        panel.id = `inline-html-panel-${index + 1}`;
-        panel.hidden = true;
-        panel.setAttribute("aria-live", "polite");
-
-        const actions = document.createElement("span");
-        actions.className = "inline-html-actions";
-        const toggle = document.createElement("button");
-        toggle.className = "inline-html-toggle";
-        toggle.type = "button";
-        toggle.textContent = "展开正文";
-        toggle.setAttribute("aria-controls", panel.id);
-        toggle.setAttribute("aria-expanded", "false");
-        const standalone = document.createElement("a");
-        standalone.className = "inline-html-standalone";
-        standalone.href = link.href;
-        standalone.textContent = "单独打开";
-        actions.append(toggle, standalone);
-        summary.append(document.createTextNode(" "), actions);
-        entry.append(panel);
-
-        let state = "idle";
-
-        function setOpen(open, returnToSummary = false) {
-          panel.hidden = !open;
-          entry.classList.toggle(
-            "is-expanded",
-            Boolean(entry.querySelector(".inline-html-panel:not([hidden])"))
-          );
-          const expanded = String(open);
-          toggle.setAttribute("aria-expanded", expanded);
-          link.setAttribute("aria-expanded", expanded);
-          toggle.textContent = open ? (state === "error" ? "重试加载" : "收起正文") : "展开正文";
-          if (!open && returnToSummary) {
-            summary.scrollIntoView({ behavior: "smooth", block: "start" });
-            toggle.focus({ preventScroll: true });
-          }
-        }
-
-        function appendCloseFooter(target) {
-          const footer = document.createElement("div");
-          footer.className = "inline-html-footer";
-          const close = document.createElement("button");
-          close.className = "inline-html-close";
-          close.type = "button";
-          close.textContent = "收起正文并返回摘要";
-          close.addEventListener("click", () => setOpen(false, true));
-          footer.append(close);
-          target.append(footer);
-        }
-
-        async function toggleInlinePage() {
-          if (state === "loaded") {
-            setOpen(panel.hidden);
-            return;
-          }
-          if (state === "loading") return;
-
-          state = "loading";
-          toggle.disabled = true;
-          panel.replaceChildren();
-          const loading = document.createElement("p");
-          loading.className = "inline-html-status";
-          loading.textContent = "正在加载完整正文…";
-          panel.append(loading);
-          setOpen(true);
-
-          try {
-            const fetched = await fetchLinkedPage(link.href);
-            const parsed = new DOMParser().parseFromString(fetched.text, "text/html");
-            const source = parsed.querySelector(".markdown-image-gallery")
-              || parsed.querySelector("main article")
-              || parsed.querySelector("article")
-              || parsed.querySelector("main");
-            if (!source) throw new Error("linked page does not contain a readable article");
-            const body = source.cloneNode(true);
-            if (body.firstElementChild && body.firstElementChild.tagName === "H1") {
-              body.firstElementChild.remove();
-            }
-            isolateIds(body, `inline-${index + 1}`);
-            rewriteReferences(body, fetched.url);
-            body.classList.add("inline-html-body");
-            panel.replaceChildren(body);
-            appendCloseFooter(panel);
-            prepareDynamicImages(body);
-            state = "loaded";
-            setOpen(true);
-            if (window.mermaid && typeof window.mermaid.run === "function") {
-              const diagrams = Array.from(body.querySelectorAll(".mermaid"));
-              if (diagrams.length) window.mermaid.run({ nodes: diagrams }).catch(() => {});
-            }
-
-            if (window.MathJax && typeof window.MathJax.typesetPromise === "function") {
-              window.MathJax.typesetPromise([body]).catch(() => {});
-            }
-
-          } catch (error) {
-            panel.replaceChildren();
-            const message = document.createElement("p");
-            message.className = "inline-html-status inline-html-error";
-            message.textContent = `正文加载失败：${error.message}`;
-            panel.append(message);
-            appendCloseFooter(panel);
-            state = "error";
-            setOpen(true);
-          } finally {
-            toggle.disabled = false;
-          }
-        }
-
-        toggle.addEventListener("click", toggleInlinePage);
-        link.addEventListener("click", (event) => {
-          if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-          event.preventDefault();
-          toggleInlinePage();
-        });
-      });
-    })();
 
 
   </script>
