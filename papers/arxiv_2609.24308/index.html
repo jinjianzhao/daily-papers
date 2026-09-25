@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>2026-W39 · 论文周报</title>
+  <title>HappyWorld-Bench</title>
 
   <script>
     window.MathJax = {
@@ -515,38 +515,10 @@ div.pswp__img--placeholder,
       .academic-main article { padding: 30px 22px 52px; border: 0; border-radius: 0; }
     }
 
-    h3 { font-size: 20px; }
-    h4 { font-size: 17px; }
-    h5 { font-size: 18px; }
-
-    .inline-html-entry { margin: 18px 0; padding: 16px 18px 18px; border: 1px solid #d8e2eb; border-left: 3px solid #91abc2; border-radius: 6px; background: #fbfdff; transition: border-color .15s, background .15s; }
-    .inline-html-entry.is-expanded { border-color: #b7c9d9; border-left-color: #1769aa; background: #fff; }
-    .inline-html-summary { margin-top: 0; margin-bottom: 0; }
-    .inline-html-actions { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-left: 10px; vertical-align: middle; }
-    .inline-html-toggle, .inline-html-standalone, .inline-html-close { display: inline-flex; min-height: 30px; align-items: center; justify-content: center; padding: 5px 10px; border: 1px solid #b9c9d8; border-radius: 6px; background: #fff; color: #37516a; font: inherit; font-size: 12px; font-weight: 700; line-height: 1.35; text-decoration: none; cursor: pointer; }
-    .inline-html-source-link { display: none; }
-    .inline-html-toggle:hover, .inline-html-standalone:hover, .inline-html-close:hover { border-color: #1769aa; color: #1769aa; }
-    .inline-html-toggle:disabled { cursor: wait; opacity: .6; }
-    .inline-html-panel { margin: 18px 0 0; padding-top: 24px; border-top: 1px solid #e2e8f0; }
-    .inline-html-panel[hidden] { display: none; }
-    .inline-html-body h1:first-child { display: none; }
-    .inline-html-status { color: #64748b; font-size: 14px; }
-    .inline-html-error { color: #9f1239; }
-    .inline-html-footer { display: flex; justify-content: flex-end; margin-top: 30px; padding-top: 16px; border-top: 1px solid #e2e8f0; }
-    @media (max-width: 640px) {
-      .inline-html-entry { padding: 14px 14px 16px; }
-      .inline-html-actions { display: flex; margin: 10px 0 0; }
-      .inline-html-toggle, .inline-html-standalone, .inline-html-close { min-height: 36px; }
-    }
 
 
 
-    /* A focused entry is emitted as title, classification, then one-line summary. */
-    .academic-main h4 + p,
-    .academic-main h4 + p + p,
-    .academic-main h5 + p,
-    .academic-main h5 + p + p { font-size: 16px; }
-</style>
+  </style>
 </head>
 <body>
 
@@ -557,121 +529,80 @@ div.pswp__img--placeholder,
     <aside class="academic-sidebar" id="academic-sidebar" aria-label="文档目录">
       <div class="toc-panel">
         <p class="toc-heading">目录</p>
-        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#2026-w39-论文周报">2026-W39 · 论文周报</a><a class="toc-link toc-level-2" href="#重点解析">重点解析</a><a class="toc-link toc-level-3" href="#3d">3D</a><a class="toc-link toc-level-4" href="#2026-09-24">2026-09-24</a><a class="toc-link toc-level-5" href="#happyworld-bench">HappyWorld-Bench</a><a class="toc-link toc-level-4" href="#2026-09-23">2026-09-23</a><a class="toc-link toc-level-5" href="#gae-learning-a-geometry-native-latent-space-for-3d-consistent-world-generation">GAE: Learning a Geometry-Native Latent Space for 3D-Consistent World Generation</a><a class="toc-link toc-level-5" href="#geometric-and-semantic-coupling-for-interaction-understanding-in-3d-scenes">Geometric and Semantic Coupling for Interaction Understanding in 3D Scenes</a><a class="toc-link toc-level-4" href="#2026-09-22">2026-09-22</a><a class="toc-link toc-level-5" href="#mira-scene-pixel-aligned-layouts-for-generative-3d-scene-reconstruction">Mira-Scene: Pixel-Aligned Layouts for Generative 3D Scene Reconstruction</a><a class="toc-link toc-level-5" href="#ultratex-unleashing-2k-multi-view-diffusion-for-3d-texturing">UltraTex: Unleashing 2K Multi-View Diffusion for 3D Texturing</a><a class="toc-link toc-level-4" href="#2026-09-21">2026-09-21</a><a class="toc-link toc-level-5" href="#cadworld-computer-use-benchmark-for-long-horizon-computer-aided-design">CADWorld: Computer-Use Benchmark for Long-Horizon Computer-Aided Design</a><a class="toc-link toc-level-5" href="#deformsmith-physics-harness-guided-hierarchical-generation-of-deformable-assets-for-robot-manipulation">DeformSmith: Physics Harness-Guided Hierarchical Generation of Deformable Assets for Robot Manipulation</a><a class="toc-link toc-level-3" href="#视频">视频</a><a class="toc-link toc-level-4" href="#2026-09-24-2">2026-09-24</a><a class="toc-link toc-level-5" href="#happyworld-bench-2">HappyWorld-Bench</a><a class="toc-link toc-level-5" href="#all-modalities-are-equal-but-video-is-more-equal-closing-the-cross-attention-gap-in-joint-video-generation">All modalities are equal, but video is more equal: Closing the Cross-Attention Gap in Joint Video Generation</a><a class="toc-link toc-level-5" href="#internw0-a-foundational-physical-world-model-for-efficient-real-world-interactions">InternW0: A Foundational Physical World Model for Efficient Real-World Interactions</a><a class="toc-link toc-level-5" href="#uranus-building-the-next-generation-simulation-infrastructure-for-embodied-ai">Uranus: Building the Next-Generation Simulation Infrastructure for Embodied AI</a><a class="toc-link toc-level-4" href="#2026-09-23-2">2026-09-23</a><a class="toc-link toc-level-5" href="#gae-learning-a-geometry-native-latent-space-for-3d-consistent-world-generation-2">GAE: Learning a Geometry-Native Latent Space for 3D-Consistent World Generation</a><a class="toc-link toc-level-4" href="#2026-09-22-2">2026-09-22</a><a class="toc-link toc-level-5" href="#streaming-video-editing-with-easy-adaptation">Streaming Video Editing with Easy Adaptation</a><a class="toc-link toc-level-5" href="#why-do-video-diffusion-models-violate-physics-unveiling-the-flaws-in-attention-mechanisms">Why Do Video Diffusion Models Violate Physics? Unveiling the Flaws in Attention Mechanisms</a><a class="toc-link toc-level-5" href="#worldcrafter-consistent-video-world-model-with-implicit-3d-aware-memory">WorldCrafter: Consistent Video World Model with Implicit 3D-aware Memory</a><a class="toc-link toc-level-2" href="#全量论文简报">全量论文简报</a><a class="toc-link toc-level-3" href="#2026-09-24-3">2026-09-24</a><a class="toc-link toc-level-3" href="#2026-09-23-3">2026-09-23</a><a class="toc-link toc-level-3" href="#2026-09-22-3">2026-09-22</a><a class="toc-link toc-level-3" href="#2026-09-21-2">2026-09-21</a></nav>
+        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#happyworld-bench">HappyWorld-Bench</a><a class="toc-link toc-level-2" href="#快速理解">快速理解</a><a class="toc-link toc-level-2" href="#中文摘要">中文摘要</a><a class="toc-link toc-level-2" href="#详细分析">详细分析</a><a class="toc-link toc-level-2" href="#1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</a><a class="toc-link toc-level-2" href="#2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</a><a class="toc-link toc-level-2" href="#3-核心贡献-约300字">3. 核心贡献（约300字）</a><a class="toc-link toc-level-2" href="#4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</a><a class="toc-link toc-level-2" href="#5-核心方法-按论文-method-小节总结-约600字">5. 核心方法：按论文 Method 小节总结（约600字）</a><a class="toc-link toc-level-3" href="#3-1-data-construction-数据构建">3.1 Data Construction（数据构建）</a><a class="toc-link toc-level-3" href="#3-2-evaluation-metrics-评估指标">3.2 Evaluation Metrics（评估指标）</a><a class="toc-link toc-level-3" href="#3-3-experimental-results-实验结果">3.3 Experimental Results（实验结果）</a><a class="toc-link toc-level-3" href="#4-1-data-construction-数据构建">4.1 Data Construction（数据构建）</a><a class="toc-link toc-level-3" href="#4-2-evaluation-metrics-评估指标">4.2 Evaluation Metrics（评估指标）</a><a class="toc-link toc-level-3" href="#4-3-experimental-results-实验结果">4.3 Experimental Results（实验结果）</a><a class="toc-link toc-level-3" href="#5-embodied-world-model-track-具身世界模型轨道">5 Embodied World Model Track（具身世界模型轨道）</a><a class="toc-link toc-level-2" href="#6-局限性和展望-约300字">6. 局限性和展望（约300字）</a></nav>
       </div>
     </aside>
-    <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../index.html">论文阅读首页</a> <a href="../../date/index.html">日报目录</a> <a href="../index.html">周报目录</a> <a href="../../month/index.html">月报目录</a></p>
-<h1 id="2026-w39-论文周报">2026-W39 · 论文周报</h1>
-<blockquote>收录 <strong>116 篇</strong>论文，重点解析 <strong>13 篇</strong>。正文按需展开，或可单独打开。</blockquote>
-<h2 id="重点解析">重点解析</h2>
-<h3 id="3d">3D</h3>
-<h4 id="2026-09-24">2026-09-24</h4>
-<h5 id="happyworld-bench">HappyWorld-Bench</h5>
-<p><strong>分类：</strong> 视频 / 3D；video world model、3D world model</p>
-<p>提出HappyWorld-Bench基准，从六个能力层次评估视频、空间、具身世界模型的可靠性与交互一致性。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.24308v1/HappyWorld_Fig1_0914.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.24308v1/HappyWorld_Fig1_0914.png" alt="HappyWorld-Bench 论文图" loading="lazy"></a><span class="image-caption">HappyWorld-Bench 论文图</span></span></p>
+    <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../date/">← 返回日报目录</a></p>
+<h1 id="happyworld-bench">HappyWorld-Bench</h1>
 <p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.24308">arXiv</a> · <a href="https://huggingface.co/papers/2609.24308">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.24308">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.24308/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-09-23">2026-09-23</h4>
-<h5 id="gae-learning-a-geometry-native-latent-space-for-3d-consistent-world-generation">GAE: Learning a Geometry-Native Latent Space for 3D-Consistent World Generation</h5>
-<p><strong>分类：</strong> 视频 / 3D；video world model、3D world model</p>
-<p>提出几何原生隐空间GAE，统一感知与生成，提升3D一致世界生成质量。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.24981v1/gae_teaser.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.24981v1/gae_teaser.png" alt="GAE: Learning a Geometry-Native Latent Space for 3D-Consistent World Generation 论文图" loading="lazy"></a><span class="image-caption">GAE: Learning a Geometry-Native Latent Space for 3D-Consistent World Generation 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.24981">arXiv</a> · <a href="https://huggingface.co/papers/2609.24981">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.24981">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.24981/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="geometric-and-semantic-coupling-for-interaction-understanding-in-3d-scenes">Geometric and Semantic Coupling for Interaction Understanding in 3D Scenes</h5>
-<p><strong>分类：</strong> 3D；3d articulation</p>
-<p>提出Segment-Snap，通过几何与语义耦合实现3D场景中部件、运动和操作区域的联合理解。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.25247v1/pipeline_rgb.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.25247v1/pipeline_rgb.png" alt="Geometric and Semantic Coupling for Interaction Understanding in 3D Scenes 论文图" loading="lazy"></a><span class="image-caption">Geometric and Semantic Coupling for Interaction Understanding in 3D Scenes 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.25247">arXiv</a> · <a href="https://huggingface.co/papers/2609.25247">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.25247">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.25247/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-09-22">2026-09-22</h4>
-<h5 id="mira-scene-pixel-aligned-layouts-for-generative-3d-scene-reconstruction">Mira-Scene: Pixel-Aligned Layouts for Generative 3D Scene Reconstruction</h5>
-<p><strong>分类：</strong> 3D；3D reconstruction</p>
-<p>提出Mira-Scene，用像素对齐的规范化坐标图实现单图像3D场景重建，提升布局精度。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.23796v2/teaser.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.23796v2/teaser.png" alt="Mira-Scene: Pixel-Aligned Layouts for Generative 3D Scene Reconstruction 论文图" loading="lazy"></a><span class="image-caption">Mira-Scene: Pixel-Aligned Layouts for Generative 3D Scene Reconstruction 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.23796v2">arXiv</a> · <a href="https://huggingface.co/papers/2609.23796">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.23796">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.23796/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="ultratex-unleashing-2k-multi-view-diffusion-for-3d-texturing">UltraTex: Unleashing 2K Multi-View Diffusion for 3D Texturing</h5>
-<p><strong>分类：</strong> 3D；3d texture generation</p>
-<p>提出UltraTex，通过高效多视图扩散实现2K分辨率3D纹理生成。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.23169v1/pipeline.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.23169v1/pipeline.png" alt="UltraTex: Unleashing 2K Multi-View Diffusion for 3D Texturing 论文图" loading="lazy"></a><span class="image-caption">UltraTex: Unleashing 2K Multi-View Diffusion for 3D Texturing 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.23169">arXiv</a> · <a href="https://huggingface.co/papers/2609.23169">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.23169">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.23169/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-09-21">2026-09-21</h4>
-<h5 id="cadworld-computer-use-benchmark-for-long-horizon-computer-aided-design">CADWorld: Computer-Use Benchmark for Long-Horizon Computer-Aided Design</h5>
-<p><strong>分类：</strong> 3D；3d generation</p>
-<p>提出CADWorld基准，评估GUI代理在FreeCAD长时机械设计任务中的能力。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.16251v2/overview.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.16251v2/overview.png" alt="CADWorld: Computer-Use Benchmark for Long-Horizon Computer-Aided Design 论文图" loading="lazy"></a><span class="image-caption">CADWorld: Computer-Use Benchmark for Long-Horizon Computer-Aided Design 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.16251v2">arXiv</a> · <a href="https://huggingface.co/papers/2609.16251">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.16251">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.16251/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="deformsmith-physics-harness-guided-hierarchical-generation-of-deformable-assets-for-robot-manipulation">DeformSmith: Physics Harness-Guided Hierarchical Generation of Deformable Assets for Robot Manipulation</h5>
-<p><strong>分类：</strong> 3D；3d generation</p>
-<p>提出DeformSmith，从文本或单图分层生成机器人操作所需可变形资产，以物理引导和交互反馈优化。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.18620v2/figures/deformsmith_pipeline.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.18620v2/figures/deformsmith_pipeline.png" alt="DeformSmith: Physics Harness-Guided Hierarchical Generation of Deformable Assets for Robot Manipulation 论文图" loading="lazy"></a><span class="image-caption">DeformSmith: Physics Harness-Guided Hierarchical Generation of Deformable Assets for Robot Manipulation 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.18620">arXiv</a> · <a href="https://huggingface.co/papers/2609.18620">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.18620">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.18620/index.html" data-inline-html="true">展开正文</a></p>
-<h3 id="视频">视频</h3>
-<h4 id="2026-09-24-2">2026-09-24</h4>
-<h5 id="happyworld-bench-2">HappyWorld-Bench</h5>
-<p><strong>分类：</strong> 视频 / 3D；video world model、3D world model</p>
-<p>提出HappyWorld-Bench基准，从六个能力层次评估视频、空间、具身世界模型的可靠性与交互一致性。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.24308v1/HappyWorld_Fig1_0914.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.24308v1/HappyWorld_Fig1_0914.png" alt="HappyWorld-Bench 论文图" loading="lazy"></a><span class="image-caption">HappyWorld-Bench 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.24308">arXiv</a> · <a href="https://huggingface.co/papers/2609.24308">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.24308">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.24308/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="all-modalities-are-equal-but-video-is-more-equal-closing-the-cross-attention-gap-in-joint-video-generation">All modalities are equal, but video is more equal: Closing the Cross-Attention Gap in Joint Video Generation</h5>
-<p><strong>分类：</strong> 视频；video diffusion model</p>
-<p>提出RecCAR正则化，弥合多模态视频生成中交叉注意力不对称，提升运动与音频质量。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.27901v1/teaser.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.27901v1/teaser.png" alt="All modalities are equal, but video is more equal: Closing the Cross-Attention Gap in Joint Video Generation 论文图" loading="lazy"></a><span class="image-caption">All modalities are equal, but video is more equal: Closing the Cross-Attention Gap in Joint Video Generation 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.27901">arXiv</a> · <a href="https://huggingface.co/papers/2609.27901">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.27901">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.27901/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="internw0-a-foundational-physical-world-model-for-efficient-real-world-interactions">InternW0: A Foundational Physical World Model for Efficient Real-World Interactions</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出InternW0物理世界模型，支持异步多频感知与机器人控制，实现高效真实交互。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.27656v1/internw.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.27656v1/internw.png" alt="InternW0: A Foundational Physical World Model for Efficient Real-World Interactions 论文图" loading="lazy"></a><span class="image-caption">InternW0: A Foundational Physical World Model for Efficient Real-World Interactions 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.27656">arXiv</a> · <a href="https://huggingface.co/papers/2609.27656">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.27656">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.27656/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="uranus-building-the-next-generation-simulation-infrastructure-for-embodied-ai">Uranus: Building the Next-Generation Simulation Infrastructure for Embodied AI</h5>
-<p><strong>分类：</strong> 视频；video world model、video diffusion model</p>
-<p>提出Uranus数据驱动机器人模拟器，基于关节轨迹条件自回归扩散模型，支持流式生成与低延迟多视角渲染。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.24815v3/framework_revised.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.24815v3/framework_revised.png" alt="Uranus: Building the Next-Generation Simulation Infrastructure for Embodied AI 论文图" loading="lazy"></a><span class="image-caption">Uranus: Building the Next-Generation Simulation Infrastructure for Embodied AI 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.24815">arXiv</a> · <a href="https://huggingface.co/papers/2609.24815">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.24815">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.24815/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-09-23-2">2026-09-23</h4>
-<h5 id="gae-learning-a-geometry-native-latent-space-for-3d-consistent-world-generation-2">GAE: Learning a Geometry-Native Latent Space for 3D-Consistent World Generation</h5>
-<p><strong>分类：</strong> 视频 / 3D；video world model、3D world model</p>
-<p>提出几何原生隐空间GAE，统一感知与生成，提升3D一致世界生成质量。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.24981v1/gae_teaser.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.24981v1/gae_teaser.png" alt="GAE: Learning a Geometry-Native Latent Space for 3D-Consistent World Generation 论文图" loading="lazy"></a><span class="image-caption">GAE: Learning a Geometry-Native Latent Space for 3D-Consistent World Generation 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.24981">arXiv</a> · <a href="https://huggingface.co/papers/2609.24981">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.24981">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.24981/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-09-22-2">2026-09-22</h4>
-<h5 id="streaming-video-editing-with-easy-adaptation">Streaming Video Editing with Easy Adaptation</h5>
-<p><strong>分类：</strong> 视频；video diffusion model</p>
-<p>提出SVEET框架，仅训练预训练双向视频扩散模型即可实现高质量流式视频编辑，并达到实时性能。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.24788v1/teaser_new.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.24788v1/teaser_new.png" alt="Streaming Video Editing with Easy Adaptation 论文图" loading="lazy"></a><span class="image-caption">Streaming Video Editing with Easy Adaptation 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.24788">arXiv</a> · <a href="https://huggingface.co/papers/2609.24788">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.24788">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.24788/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="why-do-video-diffusion-models-violate-physics-unveiling-the-flaws-in-attention-mechanisms">Why Do Video Diffusion Models Violate Physics? Unveiling the Flaws in Attention Mechanisms</h5>
-<p><strong>分类：</strong> 视频；video diffusion model</p>
-<p>研究视频扩散模型违反物理规律的原因，揭示注意力机制缺陷并提出改进方法。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.23658v1/basketball_seed26.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.23658v1/basketball_seed26.png" alt="Why Do Video Diffusion Models Violate Physics? Unveiling the Flaws in Attention Mechanisms 论文图" loading="lazy"></a><span class="image-caption">Why Do Video Diffusion Models Violate Physics? Unveiling the Flaws in Attention Mechanisms 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.23658v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.23658">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.23658">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.23658/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="worldcrafter-consistent-video-world-model-with-implicit-3d-aware-memory">WorldCrafter: Consistent Video World Model with Implicit 3D-aware Memory</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出WorldCrafter视频世界模型，用隐式3D感知记忆实现长时程多视角一致的场景探索。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.24984v1/pipeline.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.24984v1/pipeline.png" alt="WorldCrafter: Consistent Video World Model with Implicit 3D-aware Memory 论文图" loading="lazy"></a><span class="image-caption">WorldCrafter: Consistent Video World Model with Implicit 3D-aware Memory 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.24984v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.24984">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.24984">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.24984/index.html" data-inline-html="true">展开正文</a></p>
-<h2 id="全量论文简报">全量论文简报</h2>
-<h3 id="2026-09-24-3">2026-09-24</h3>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.24308">HappyWorld-Bench</a></td><td>视频 / 3D</td><td>提出HappyWorld-Bench基准，从六个能力层次评估视频、空间、具身世界模型的可靠性与交互一致性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.27901">All modalities are equal, but video is more equal</a></td><td>视频</td><td>提出RecCAR正则化，弥合多模态视频生成中交叉注意力不对称，提升运动与音频质量。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.27656">InternW0</a></td><td>视频</td><td>提出InternW0物理世界模型，支持异步多频感知与机器人控制，实现高效真实交互。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24815">Uranus</a></td><td>视频</td><td>提出Uranus数据驱动机器人模拟器，基于关节轨迹条件自回归扩散模型，支持流式生成与低延迟多视角渲染。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.26489">Calibration as a First-Class Criterion in LLM Evaluation</a></td><td>其他</td><td>呼吁将置信度校准作为大模型评估的必备指标，而非小众话题。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.26637">Capable yet Parsimonious</a></td><td>其他</td><td>通过API工具诱导前沿模型外部化隐藏思维链，评估其有效性并表征推理特征</td></tr><tr><td><a href="https://arxiv.org/abs/2609.27308">EmbodiedSWE</a></td><td>其他</td><td>本文提出EmbodiedSWE框架，利用编码代理解决长期灵巧机器人任务，并生成数据训练机器人策略。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.27657">FLEET</a></td><td>其他</td><td>提出FLEET方法，利用熵阈值轨迹记忆调整logits，提升LLM文本生成的效率与准确性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25963">GeoPair</a></td><td>其他</td><td>提出免训练跨层分解框架GeoPair，通过保几何的权重配对与共享字典分解压缩Transformer。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.27284">Hunyuan-A13B Technical Report</a></td><td>其他</td><td>提出开源混合专家大模型Hunyuan-A13B，总参数800亿激活130亿，兼顾性能与效率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.27334">Just-in-Time Memory</a></td><td>其他</td><td>本文提出Just-in-Time Memory，在读取时按当前任务动态提炼记忆，提升LLM智能体性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.26634">Knowledge Pull Requests for Continual Document Authoring</a></td><td>其他</td><td>提出知识拉取请求框架，将新知识以可解释变更日志方式整合进持续文档写作。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.28256">MemBodied</a></td><td>其他</td><td>提出MemBodied固定大小情景记忆，用于视觉-语言-动作模型的历史依赖操控。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25853">MemoryAthena</a></td><td>其他</td><td>提出MemoryAthena，通过轻量路由选择生成记忆干预直接检索，提升问答与NLP任务性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.28473">On the Diffusibility of High-Dimensional Latents</a></td><td>其他</td><td>研究高维潜在空间中扩散模型的训练，提出用x0预测提升生成性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.23784">PackLab</a></td><td>其他</td><td>提出PackLab框架，用于开发、训练和评估面向机器人箱体码放的多模态大语言模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.26355">PACT</a></td><td>其他</td><td>提出三个正则条件唯一刻画token级信用，据此设计PACT对齐评论家，提升LLM后训练性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22947">RewardVerse</a></td><td>其他</td><td>提出RewardVerse框架，用动态规则引导视频奖励建模，缓解标量漂移并提升RL训练效果。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.27891">Schr\&quot;odinger&#x27;s Code Repository</a></td><td>其他</td><td>提出动态实例化代码仓库的评测框架，检验大模型编码智能体是学到能力还是记忆数据。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22682">Self-Organizing Agent Teams Learn to Reason Together</a></td><td>其他</td><td>提出自组织智能体团队，让固定AI团队从经验学习协作策略，协同推理并提高数学物理准确率</td></tr><tr><td><a href="https://arxiv.org/abs/2609.27980">Six Layers Less</a></td><td>其他</td><td>提出基于留一法WER排序的Whisper编码器剪枝，移除六层并用无标签数据蒸馏恢复性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.23038">Spatial-Interactor</a></td><td>其他</td><td>提出Spatial-Interactor框架，通过交互轨迹训练视觉语言模型建模空间状态转移，提升长程空间推理能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.26780">SpeakerMem-R1</a></td><td>其他</td><td>提出说话人中心双轨记忆系统，解决多方对话中的消息归属与关系状态重建问题。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.28470">StudentBench</a></td><td>其他</td><td>通过大规模学生-AI交互数据，证明AI辅导在GRE学习收益上等效于人类辅导且成本极低。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.27158">The Linear Representation Hypothesis Needs a Group Action</a></td><td>其他</td><td>提出用群作用形式化表示等价性，阐明线性表示假设是一族声明并用于审计可解释性分析。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.28466">The Past Frames the Future</a></td><td>其他</td><td>本文综述自回归视频生成中的记忆机制，提出统一框架并梳理形式、功能、操作、学习与评估五大视角。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.27321">Verifiable Hidden Dynamics Play</a></td><td>其他</td><td>提出VHD-Play，先从已解机制生成可验证状态化智能体环境，低成本训练提升智能体性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.27490">WhatWorkedBench</a></td><td>其他</td><td>提出WhatWorkedBench基准，评估AI代理在有限实验下预测组件变化影响的能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25187">X-Planner</a></td><td>其他</td><td>X-Planner：面向具身智能的事件结构化任务规划前端，提升推理监督与表示。</td></tr></tbody></table></div>
-<h3 id="2026-09-23-3">2026-09-23</h3>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.24981">GAE</a></td><td>视频 / 3D</td><td>提出几何原生隐空间GAE，统一感知与生成，提升3D一致世界生成质量。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25247">Geometric and Semantic Coupling for Interaction Understanding in 3D Scenes</a></td><td>3D</td><td>提出Segment-Snap，通过几何与语义耦合实现3D场景中部件、运动和操作区域的联合理解。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.26781">Agensh</a></td><td>其他</td><td>提出无中心协调器的多智能体框架Agensh，将智能体规模扩展至1024个，提升复杂任务性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24058">All-in-One Multilingual Scene Text Recognition with Script-aware Mixture-of-Experts</a></td><td>其他</td><td>提出脚本感知混合专家模型，构建多语种场景文本数据集，实现轻量高精度的统一识别器。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22323">ALPINE</a></td><td>其他</td><td>提出一种超轻量级自适应定位的少样本图像分类架构，在极低参数和训练样本下提升精度与鲁棒性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15987">Bellman Policy Optimization</a></td><td>其他</td><td>提出贝尔曼策略优化BPO，用贝尔曼方程重写策略镜像下降，免评论家训练大模型推理。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.26346">Blaming Across the Aisle</a></td><td>其他</td><td>研究丹麦议会1997-2026年指责归因，构建BlameBERT分类器，揭示意识形态不对称的政治话语硬化。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24657">Circuit Hypernetworks for Quantum-Augmented Diffusion Language Models</a></td><td>其他</td><td>提出HyperQ，用量子残差分支增强冻结扩散语言模型，实现量子增强语言建模。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22319">Embedding Physics Priors in Robot Learning</a></td><td>其他</td><td>综述物理先验嵌入机器人学习的方法，提出统一分类法并分析挑战与方向。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24967">Emergent Collusion in Long-Horizon LLM Agent Interaction</a></td><td>其他</td><td>研究LLM智能体在长期多智能体交互中合谋行为的涌现及其影响因素。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.26796">Flash-dLLM</a></td><td>其他</td><td>提出Flash-dLLM，用IO感知KV缓存与并行解码加速扩散LLM推理。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25186">From Pattern Recognizers to Personalized Companions</a></td><td>其他</td><td>综述大语言模型在心理健康中的三个阶段演进，从信息工具到个性化陪伴。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25267">ImIR</a></td><td>其他</td><td>提出ImIR，用图像自身生成指令微调模型，实现多退化类型的全合一图像恢复。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.26550">JEV-as-a-Judge</a></td><td>其他</td><td>研究决策型裁判JEV作为经济初筛，不确定时升级强裁判，保精度降成本。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25053">LatentPort</a></td><td>其他</td><td>提出混合状态迁移方法，实现4B到9B混合语言模型间直接传递记忆状态，无需重读上下文。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25199">Lean Pool</a></td><td>其他</td><td>介绍AI维护的形式化数学仓库Lean Pool，其由AI代理增长、维护和优化。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25165">Ovis-Embedding</a></td><td>其他</td><td>本文提出Ovis-Embedding，一种基于共享多模态主干的全模态嵌入模型，在多项基准上达到最优。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.26457">Recursive self-improvement of AI research agents</a></td><td>其他</td><td>提出AIDE^2系统，让AI研究代理通过递归自我改进提升自身研究效率，并在多个基准上验证泛化。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25636">RoboFollow</a></td><td>其他</td><td>提出RoboFollow诊断基准，揭示具身智能体指令跟随能力被低场景熵掩盖的真相。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25270">RULER</a></td><td>其他</td><td>提出RULER，用实例感知的rubric奖励优化SVG生成，提升文本到SVG质量。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.26774">StableVQ</a></td><td>其他</td><td>针对VQ tokenizer训练不稳定的问题，提出StableVQ，通过解耦编码器-解码器与码本优化目标提升稳定性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25804">The Tasteful Agent</a></td><td>其他</td><td>提出Taste-Bench基准与蒸馏训练法，衡量并改善长程任务中智能体的决策品味。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.06011">Tri-PvP</a></td><td>其他</td><td>提出Tri-PvP基准，揭示全模态大语言模型在跨模态冲突中的模态偏好与证据形式偏好。</td></tr></tbody></table></div>
-<h3 id="2026-09-22-3">2026-09-22</h3>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.23796v2">Mira-Scene</a></td><td>3D</td><td>提出Mira-Scene，用像素对齐的规范化坐标图实现单图像3D场景重建，提升布局精度。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.23169">UltraTex</a></td><td>3D</td><td>提出UltraTex，通过高效多视图扩散实现2K分辨率3D纹理生成。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24788">Streaming Video Editing with Easy Adaptation</a></td><td>视频</td><td>提出SVEET框架，仅训练预训练双向视频扩散模型即可实现高质量流式视频编辑，并达到实时性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.23658v1">Why Do Video Diffusion Models Violate Physics? Unveiling the Flaws in Attention Mechanisms</a></td><td>视频</td><td>研究视频扩散模型违反物理规律的原因，揭示注意力机制缺陷并提出改进方法。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24984v1">WorldCrafter</a></td><td>视频</td><td>提出WorldCrafter视频世界模型，用隐式3D感知记忆实现长时程多视角一致的场景探索。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24432">1% of Tokens Can Be Enough</a></td><td>其他</td><td>提出信息效率比改进稀疏在线策略蒸馏的token选择，极小预算下达到或超过完整监督。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.21996">A Lie Detector Test for Language Models</a></td><td>其他</td><td>提出PIR方法，从模型内部状态识别其隐藏的知识，区分不愿回答与无法回答。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.23989">ACLArena</a></td><td>其他</td><td>提出ACLArena框架，研究多阶段后训练中智能体持续学习，并提出结合回放与LoRA路由的新配方。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24118">CARE</a></td><td>其他</td><td>提出CARE框架，利用执行失败经验生成纠正数据，提升VLA策略机器人操作的恢复能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24797">Complex KDA</a></td><td>其他</td><td>提出Complex KDA，增强线性RNN表达能力，实现二维旋转与状态跟踪。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22255">Deep Persona</a></td><td>其他</td><td>提出基于心理学分层架构的角色扮演智能体构建与无参考评估框架，提升对话自然度。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24220">Document Retrieval-Aware Chunking (D-RAC)</a></td><td>其他</td><td>提出文档检索感知分块框架D-RAC，通过PDF规范化与多模态Markdown转换实现企业文档的高效低耗分块。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24115">EDGEGEN</a></td><td>其他</td><td>提出EdgeGen框架，自动生成基于数据库的边界用例，提升工具调用智能体性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25001">GameHorizon Suite</a></td><td>其他</td><td>提出GameHorizon套件，含自动化标注、跨21游戏数据集及离线在线评测，评估多模态游戏AI。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.23863">Grounded Action Model</a></td><td>其他</td><td>提出基于3D接地的Grounded Action Model机器人操作基础模型，以物体中心表示预测动作，提升泛化性能</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24974">Harness-Zero</a></td><td>其他</td><td>提出Harness-Zero，通过agent-as-harness将优化harness的行为蒸馏到模型权重，部署时无需专用harness。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.10706">HuRo</a></td><td>其他</td><td>提出HuRo流水线，将人类视频机器人化并构建大规模数据集，用于预训练VLA策略，提升真实操作任务成功率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.23986">Jev-Mem</a></td><td>其他</td><td>提出System-One控制的智能体记忆架构，提升效率并降低延迟。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22220">Measuring the Checker</a></td><td>其他</td><td>提出变异分析作为GPU内核基准测试预言机的充分性度量，自动注入故障并评估测试协议。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.23088">OmniEdu</a></td><td>其他</td><td>提出OmniEdu教育基础模型，通过能力均衡的指令微调，提升K-12解题、课程理解和教学辅导性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.23377">One to More, More to One</a></td><td>其他</td><td>面向仓库级软件工程任务，提出类别感知专家训练与策略整合框架，提升多类别问题解决率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24983">onPanda</a></td><td>其他</td><td>提出onPanda工具，通过token级纠错高效标注LLM与智能体的on-policy对齐数据。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20758">Prediction-Powered Smoothing and Validation for Disaggregated AI Evaluation</a></td><td>其他</td><td>提出预测驱动的平滑与验证方法，用于AI系统分域评估的估计和选择。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13814">Realtime-Venus</a></td><td>其他</td><td>提出Realtime-Venus全双工交互系统，集成连续感知与异步委托</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24972">RRSI</a></td><td>其他</td><td>提出正则化递归自改进方法RRSI，约束智能体外挂演进，提升分布外泛化并降低计算成本。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.13231">ShieldVLA</a></td><td>其他</td><td>提出ShieldVLA，基于HJ可达性约束视觉-语言-动作模型的安全微调，降低安全代价并提升成功率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.06052">SkillSpec</a></td><td>其他</td><td>提出SkillSpec框架，用意图掩码规格推理验证智能体技能正确性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20869">TAPe+ML</a></td><td>其他</td><td>提出TAPe+ML v3，基于结构化表示TAPe的紧凑多任务视觉系统，实现检测、分割与分类。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15991">The Functionalizer</a></td><td>其他</td><td>提出无损预分词框架，将大小写、变音和重复等词形变体分解为可逆操作码/操作数，压缩词表并改善建模。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24682">Think Like a World Model, Act Like a VLA</a></td><td>其他</td><td>将世界模型内部特征蒸馏到VLA策略中，提升机器人操作鲁棒性且零额外推理开销。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22870">Towards Full Pipeline FP8 Reinforcement Learning for LLMs</a></td><td>其他</td><td>提出Calibrated Clipping方法，解决FP8强化学习训练中的熵增与不稳定问题。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22966">Transferring the Intelligence of VLMs to Robotic Control</a></td><td>其他</td><td>提出RoboDawn接口，让视觉语言模型通过离散指令零样本控制机器人，无需任务训练。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24997">VideoGen-Agent</a></td><td>其他</td><td>提出视频生成智能体VideoGen-Agent，用多任务强化学习协调外部工具提升视频生成质量。</td></tr></tbody></table></div>
-<h3 id="2026-09-21-2">2026-09-21</h3>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.16251v2">CADWorld</a></td><td>3D</td><td>提出CADWorld基准，评估GUI代理在FreeCAD长时机械设计任务中的能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.18620">DeformSmith</a></td><td>3D</td><td>提出DeformSmith，从文本或单图分层生成机器人操作所需可变形资产，以物理引导和交互反馈优化。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22076">APort Vault</a></td><td>其他</td><td>提出APort Vault基准，评估AI代理支付授权与开放代理护照机制。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20886">BI-Agent and BI-Bench</a></td><td>其他</td><td>提出端到端商业智能基准BI-Bench和工具增强智能体BI-Agent，提升LLM在商业智能任务中的准确率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.21619">Calibrating Teacher--Student Discrepancy for On-Policy Distillation</a></td><td>其他</td><td>提出Cal-OPD方法，校准教师自身偏差以提升在线蒸馏效果</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22068">CodeMidas</a></td><td>其他</td><td>提出CodeMidas，从源码自动构建编码智能体RL环境，提升多基准编程性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22086">Designer-RSI</a></td><td>其他</td><td>提出Designer-RSI框架，通过外部程序记忆从用户流量中进化设计流程，提升代理图形设计成功率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15779">EvoOntology</a></td><td>其他</td><td>提出自进化本体层EvoOntology，弥合数据代理与异构数据间的鸿沟。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.18766">FRAUDSkill</a></td><td>其他</td><td>提出FRAUDSkill，通过冻结权重优化外部技能实现结构化音频反欺诈检测。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.21788">From Pretraining to Proficiency</a></td><td>其他</td><td>提出PARTS框架，用真实世界子任务强化学习微调机器人长时程操作策略，提升成功率并减少人工干预。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19315">GAVEL</a></td><td>其他</td><td>提出GAVEL框架，基于图世界模型验证与修复LLM长时程任务规划，显著提升BEHAVIOR-1K成功率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.21094">Geometry of Values</a></td><td>其他</td><td>构建跨语言道德困境数据集，用任务向量正交化实现价值观偏好对齐。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.21749">GraphSkillEvo</a></td><td>其他</td><td>提出图结构技能表示与进化优化框架GraphSkillEvo，提升大模型智能体任务表现。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22039">Gricea</a></td><td>其他</td><td>提出开放科学平台Gricea，支持会话式AI研究的构建、复现与扩展。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.05571">Grounded Skill Synthesis from Code at Scale for Agentic Intelligence</a></td><td>其他</td><td>提出Code2Skill，从代码库自动合成可验证的智能体技能，构建百万级技能库并提升下游任务性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.21346">IntBMoE</a></td><td>其他</td><td>提出IntBMoE块级条件MoE，解耦参与、执行和物化，实现全参与且高效。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20669">Learning Foresight without Explicit Trajectories for 3D Diffusion Policies</a></td><td>其他</td><td>提出Movement Trend Guidance，为3D扩散策略提供交互趋势潜变量，提升操作成功率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22083">MintAct</a></td><td>其他</td><td>提出统一视觉智能体MintAct，在移动、桌面和网页环境中实现UI理解、多步导航及视觉工具使用，达到最先进性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.09206">MLLMs Hallucinate when Information Distribution Drifts in Synergy Heads</a></td><td>其他</td><td>提出HEAL方法，通过头部信息解缠与校准减少多模态大语言模型幻觉。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15126">MoME</a></td><td>其他</td><td>提出MoME机制，用混合记忆槽实现上下文感知的稀疏查找，提升语言模型效率与语义区分。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22069">OmniVBench</a></td><td>其他</td><td>提出OmniVBench基准和Omni-R2V数据集，用于评估和训练通用参考视频生成模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.21465">OmniVChat</a></td><td>其他</td><td>提出原生音视频对话任务，构建合成数据引擎与基准，并用强化学习训练提升模型性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20816">Paint-Anything</a></td><td>其他</td><td>提出基于十六进制颜色提示的统一图像生成与编辑方法，实现任意颜色控制。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22000">RecreationWorld</a></td><td>其他</td><td>介绍RecreationWorld，一个用于混合计算机使用代理的可扩展可验证环境框架。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20633">Refinement Is Inherently Editable</a></td><td>其他</td><td>提出基于生成精炼网络的无训练提示引导图像编辑框架，用比特路由与稳定机制实现高质量编辑。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.21038">Retention-Constrained Post-Training Quantization of Cellpose-SAM for Stem Cell Microscopy</a></td><td>其他</td><td>研究Cellpose-SAM在干细胞显微图像上的保留约束后训练量化，验证混合W4/W8方案高效且无灾难性失败。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19169">SiliconBench</a></td><td>其他</td><td>提出SiliconBench，从速度、内存和保真度三方面评测苹果统一内存桌面上的LLM服务引擎。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.12623">SteerDuplex</a></td><td>其他</td><td>提出SteerDuplex全双工语音对话模型及SteerBench基准，提升语音可控性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.18748">TeleAntiFraud 2.0</a></td><td>其他</td><td>提出TeleAntiFraud 2.0音频基准，用于在近域混淆条件下评估电信诈骗检测模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.19122">Training-Adaptive Convolutional Sparse Coding via Information Bottleneck for Robust Visual Representation</a></td><td>其他</td><td>提出训练自适应卷积稀疏编码框架，通过信息瓶颈平衡压缩与保留，提升鲁棒视觉表示。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.20942">When AI Reviews Train AI Reviewers</a></td><td>其他</td><td>研究AI评审递归训练中科学判断崩溃现象，并提出TrustReviewer干预方法。</td></tr></tbody></table></div></div></article></main>
+<p><strong>一句话主题：</strong> 构建世界模型综合评估基准，衡量其在交互、探索和修改下的状态一致性与行为正确性</p>
+<p><strong>领域标签：</strong> 人工智能 / 世界模型评估 / 交互可靠性基准</p>
+<h2 id="快速理解">快速理解</h2>
+<p><strong>背景与任务：</strong> 世界模型评估不仅需要关注生成世界的质量，还需考察其在智能体交互下的稳定性与响应正确性。</p>
+<p><strong>核心工作：</strong> 作者构建了包含三个轨道的HappyWorld-Bench基准及Arena评估平台，系统评测多类模型并揭示其可靠性差距。</p>
+<h2 id="中文摘要">中文摘要</h2>
+<p>评估世界模型需要同时考察它们所生成世界的质量，以及这些世界在探索、交互和修改之下的一致性与响应性。我们提出HappyWorld-Bench，一个综合性基准，用于评估当智能体与世界交互时，所生成的世界是否仍然保持可靠。我们的设计基于一个由六种世界能力（W1-W6）组成的分层能力框架，涵盖从生成式构建到统一世界建模，并在三个独立的评测轨道中实例化：视频世界模型、空间世界模型和具身世界模型。HappyWorld-Bench包含1,138个视频提示、300个空间场景和254个具身测试案例。在全部三个轨道中，我们构建并运行HappyWorld-Arena，以组织人类A/B比较并得出模型级Elo评分，这些评分与新增的、用于捕获行为正确性的自动化指标互为补充。我们在此统一框架下评估了14个视频世界模型、9个空间系统和8个具身候选模型。结果揭示了三个轨道中仍然存在的可靠性差距：视频模型在长时间展开和重新访问时一致性下降；空间模型的放置准确率最高仅为70.14%，编辑执行率为73.33%；具身模型则难以在多步动作中保持状态，并且无法精确响应改变后的动作条件和物理规则。这些发现表明，评估世界模型不仅需要考察视觉质量，还需要考察状态一致性及其对动作和干预响应的正确性。</p>
+<h2 id="详细分析">详细分析</h2>
+<h2 id="1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</h2>
+<p>HappyWorld-Bench 的输入是测试用例与被测评的世界模型：测试用例可以是首帧图像加文本描述/控制序列，也可以是空间场景或具身动作条件。输出是该模型在 W1–W6 能力层级上的自动指标分数，以及 Arena 人类成对比较得到的模型级 Elo 评分。功能是统一衡量生成世界在探索、交互、编辑下的可靠性；边界是不评价单纯图像美学，也不要求模型具备真实机器人闭环执行能力。</p>
+<h2 id="2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</h2>
+<p>世界模型要有用，前提是它内部模拟的世界足够可靠：仅生成一张逼真帧不够，模型还需要在相机运动、物理交互、长时扩展、显式干预和重访场景时保持几何、状态、因果与控制上的一致性。但现有评估高度碎片化：视频世界模型基准侧重视觉质量和动作跟随，空间场景基准侧重资产质量和场景合理性，具身世界模型基准侧重动作视频外观或下游任务收益。各社区使用不同的测试接口和能力定义，导致“某个模型是否真的具备世界建模能力”这个问题难以回答。</p>
+<p>核心 insight 是：应该把世界模型放到 agent 与它交互的闭环中去考察，并把“可靠性”分解为可操作的 W1–W6 能力层级——从感知连贯的 W1、交互响应的 W2、长时持久的 W3、可编程干预的 W4、多智能体可扩展的 W5，到最终统一的 W6。这样，视频生成、3D 场景重建和具身预测这三类形态不同的系统，就能在同一个框架下比较。与此同时，人类偏好与自动化行为指标必须互补：人类偏好反映整体观感，自动指标才能定位状态一致性、因果正确性、编辑保持程度等具体失败点。论文通过统一基准证明，当前模型的主要短板不是生成质量，而是“一碰就坏、一改就乱、一久就漂移”的交互可靠性。</p>
+<h2 id="3-核心贡献-约300字">3. 核心贡献（约300字）</h2>
+<ol><li><strong>提出 W1–W6 世界能力层级框架</strong>：从 Perceptual World 到 Universal World，定义了生成世界在感知、交互、持久、可编程、可扩展和通用性上的递进要求，为三类世界模型提供共同评价词汇。</li></ol>
+<ol><li><strong>构建大规模 HappyWorld-Bench 数据集</strong>：包含 1,138 个视频提示、300 个空间场景和 254 个具身测试用例；视频用例覆盖 W1–W5，细化为 74 个评估面与五个能力维度；数据横跨机器人、城市、室内、自然、交通、游戏、日常、工业、奇幻和材料等九个应用域。</li></ol>
+<ol><li><strong>建立 HappyWorld-Arena</strong>：在视频、空间、具身三条轨道上组织人类 A/B 比较，得到模型级 Elo 评分；同时设计自动指标，分别捕捉视频轨道的感知/一致性/因果/交互，空间轨道的物理可用性/持久性/编辑/扩展，以及具身轨道的原子动作/多阶段/配对干预正确性。</li></ol>
+<ol><li><strong>完成系统性实证研究</strong>：统一评估 14 个视频世界模型、9 个空间系统和 8 个具身候选模型，揭示视觉质量与状态可靠性分离、编辑执行与内容保持分离、多步动作状态难以保持等具体缺口。</li></ol>
+<h2 id="4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</h2>
+<p>推理时使用的基模有两类：被测世界模型是把视觉、文本和动作条件映射成视频/显式场景/动作视频的生成器；评估基础模型（视觉语言模型、光流、重投影、分割与跟踪模型等）则把生成结果转换成可判别的行为证据。图1给出了这一基准所依据的世界能力层级。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.24308v1/worldarena_w1_w6_cases_20260916035612.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.24308v1/worldarena_w1_w6_cases_20260916035612.png" alt="图1：HappyWorld-Bench的世界层级。" loading="lazy"></a><span class="image-caption">图1：HappyWorld-Bench的世界层级。</span></span></p>
+<p>一个典型评测请求会经过以下步骤：</p>
+<ol><li><strong>启动生成</strong>：输入测试用例（首帧图像、场景/主体文本、时间索引控制序列） → 被测世界模型以这些条件生成候选输出（视频片段、可渲染空间场景或动作条件视频） → 将原始输出交给下一步。</li></ol>
+<ol><li><strong>交互反馈循环（按需）</strong>：输入当前已生成的观测和状态 → 若用例要求 W2–W4 的多步交互或长时探测，评测前端解析当前可见状态，生成下一步动作或控制命令并送回被测模型；被测模型基于历史和新命令继续生成 → 输出下一段 rollout，重复直到终止条件。</li></ol>
+<ol><li><strong>标准化观测</strong>：输入完整 rollout → 空间模型渲染 360° 视频/轨迹视频并导出几何；视频和具身模型直接抽帧 → 输出统一格式的视频帧与几何文件。</li></ol>
+<ol><li><strong>自动指标计算</strong>：输入标准化输出与测试用例标签 → 指标组依次计算感知、一致性、因果、交互、编辑保持和扩展等证据 → 输出各维度原始分数。</li></ol>
+<ol><li><strong>Arena 人类偏好比较</strong>：输入两个模型在同一用例上的输出 → 人类评审在 Arena 界面中选择更符合条件、更可靠的输出，系统按 Elo 规则更新双方评分 → 输出模型级 Arena Elo。</li></ol>
+<ol><li><strong>汇总能力报告</strong>：输入自动原始分数与 Arena Elo → 按 W1–W6 映射、归一化并聚合成能力画像 → 输出该模型在对应轨道上的分维度可靠性报告。</li></ol>
+<p>完整推理闭环如下：</p>
+<div class="mermaid">flowchart TD
+    A[用户输入测试用例] --&gt; B[被测世界模型生成候选输出]
+    B --&gt; C{需要多步交互/长时探测?}
+    C -- 是 --&gt; D[解析当前状态并生成下一步控制] --&gt; B
+    C -- 否 --&gt; E[标准化观测并导出几何/帧]
+    E --&gt; F[自动指标计算]
+    F --&gt; G[Arena 成对偏好比较并更新 Elo]
+    G --&gt; H[按 W1-W6 聚合输出能力报告]</div>
+<h2 id="5-核心方法-按论文-method-小节总结-约600字">5. 核心方法：按论文 Method 小节总结（约600字）</h2>
+<p>论文没有独立 Method 章；以下沿用正文中定义数据与指标的编号。3.3 与 4.3 是实验验证，只为保持编号顺序而简列。提供文本在第 4 节后截断，因此原第 5 节“Embodied World Model Track”的编号小节未给出，最后只根据摘要和图 7–9 概括其可见设计，不虚构原始编号。</p>
+<h3 id="3-1-data-construction-数据构建">3.1 Data Construction（数据构建）</h3>
+<p>目的：生成可执行、可判分的视频世界模型测试用例。机制：每个用例由首帧图像、场景/主体文本、时间索引控制序列组成；W1 无外部动作，W2/W3 使用方向和时间控制，W4 加入自然语言干预，W5 允许多主体控制；人工审核保证条件可行、目标可观察。最终得到 1,138 个视频用例，W1–W5 分别为 218、294、342、180、104 个，并细化为 74 个评估面。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.24308v1/HappyWorld_Fig1_0914.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.24308v1/HappyWorld_Fig1_0914.png" alt="图3：HappyWorld-Bench的数据流水线。" loading="lazy"></a><span class="image-caption">图3：HappyWorld-Bench的数据流水线。</span></span></p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.24308v1/HappyWorld_Fig2_0920.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.24308v1/HappyWorld_Fig2_0920.png" alt="图2：HappyWorld-Bench的数据统计。" loading="lazy"></a><span class="image-caption">图2：HappyWorld-Bench的数据统计。</span></span></p>
+<h3 id="3-2-evaluation-metrics-评估指标">3.2 Evaluation Metrics（评估指标）</h3>
+<p>目的：为四个能力维度提供自动打分。机制：感知与表示维度使用视频质量、感知偏好、成像稳定度、动态度、指令跟随；一致性与状态保持使用背景、几何、纹理、状态、主体一致性；因果与因果展开使用物理因果、内容因果、穿插检测；可控交互与反事实使用轨迹准确度、动作执行，W4 额外使用交互有效性和状态保真。自动指标在 Arena 之前提供行为正确性证据。</p>
+<h3 id="3-3-experimental-results-实验结果">3.3 Experimental Results（实验结果）</h3>
+<p>该节验证上述指标：14 个交互世界模型和 5 个 W1 视频生成基线的 W1–W4 分数与 Arena Elo 并置，显示总体偏好与层级能力并不一致；W4 干预设置仅 HappyOyster 和 Lingbot-World-v2 可测。图4给出定性示例。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.24308v1/w1-w4-demo-cases.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.24308v1/w1-w4-demo-cases.png" alt="图4：HappyWorld-Bench中视频世界模型的定性示例。" loading="lazy"></a><span class="image-caption">图4：HappyWorld-Bench中视频世界模型的定性示例。</span></span></p>
+<h3 id="4-1-data-construction-数据构建">4.1 Data Construction（数据构建）</h3>
+<p>目的：构造显式、可渲染、可编辑和可扩展的空间场景测试集。机制：从视频轨道筛选静态场景，排除人物和肢体，改写视角描述；在 266 个快照场景中标注 424 个目标物体、72 个支撑面、30 个编辑指令（18 个物体级、12 个全局），另选 34 个扩展场景。任务特定标注分别支撑 W1–W5 的后续评估。图5展示四类任务示例。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.24308v1/data_a.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.24308v1/data_a.png" alt="(a) 用于基于轨道的一致性评估的物体目标。" loading="lazy"></a><span class="image-caption">(a) 用于基于轨道的一致性评估的物体目标。</span></span></p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.24308v1/data_b.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.24308v1/data_b.png" alt="(b) 用于盘子放置试验的支撑表面。" loading="lazy"></a><span class="image-caption">(b) 用于盘子放置试验的支撑表面。</span></span></p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.24308v1/data_c.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.24308v1/data_c.png" alt="(c) 对象级和全局编辑的示例指令。" loading="lazy"></a><span class="image-caption">(c) 对象级和全局编辑的示例指令。</span></span></p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.24308v1/data_d.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.24308v1/data_d.png" alt="(d) 一个选定用于空间扩展的地铁站场景。" loading="lazy"></a><span class="image-caption">(d) 一个选定用于空间扩展的地铁站场景。</span></span></p>
+<h3 id="4-2-evaluation-metrics-评估指标">4.2 Evaluation Metrics（评估指标）</h3>
+<p>目的：对显式环境的物理可用性、持久性、可编辑性和扩展性打分。机制：W1 用渲染观感、条件对齐、孔洞率和目标覆盖；W2 用导航网格最大连通区域比例和仿真平台上的盘子放置成功率；W3 分场景级（边界内比例、亮度/色调一致性、位置 HPS F1）与物体级（HPS F1、Track F1、VLM F1）；W4 用编辑成功率与背景保持（RGB 保持、LPIPS、DINO、深度一致性）；W5 用面积增长、接口覆盖、新旧区域与路径保持。所有分数统一归一化到 0–100。</p>
+<h3 id="4-3-experimental-results-实验结果">4.3 Experimental Results（实验结果）</h3>
+<p>该节验证指标：9 个空间系统中，Marble 和 HYWorld 的视觉质量领先，但 GPT-6-Astra 在 W3–W5 上领先；FlashWorld 与 Lyra 可渲染但 W2 几乎为 0，说明“可渲染”不等于“可导航、可支撑”。图6给出定性示例。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.24308v1/recon_result.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.24308v1/recon_result.png" alt="图6：HappyWorld-Bench中空间世界模型的定性示例。" loading="lazy"></a><span class="image-caption">图6：HappyWorld-Bench中空间世界模型的定性示例。</span></span></p>
+<h3 id="5-embodied-world-model-track-具身世界模型轨道">5 Embodied World Model Track（具身世界模型轨道）</h3>
+<p>原文截断，不虚构原始小节编号。从摘要和图 7–9 可见其设计：254 个测试用例，覆盖原子动作（W2）、多阶段序列（W3）、匹配动作对与物理规则编辑（W4）；输入为单帧第一人称参考帧加动作提示。图 7–9 分别显示 W2 接触与指向错误、W3 初始/中间/最终状态不保持、W4 编辑条件无后果或实现方式不精确。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.24308v1/embodied_wm_assets/fig_embodied_w2_failures.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.24308v1/embodied_wm_assets/fig_embodied_w2_failures.png" alt="图7：代表性的W2失败轨迹；每行将一个动作提示与对应生成视频的六个关键帧配对。(a) 规定的接触从未建立。提示：两个夹爪抓住切菜板的侧边并将其垂直提起，同时保持其水平。生成结果：夹爪在板旁的空气中反复开合，从未抓住其侧边，且板从未离开桌子。(b) 交互被错误地指向非预期物体。提示：右夹爪抓住地板上网篮内的皱纸并将其从篮中取出。生成结果：夹爪转而抓住篮旁地板上的纸巾，将其提到篮子上方，然后放回地板，而规定的纸从未离开篮子。(c) 无原因的场景和视角变化。提示：将托盘及其上的物品在桌子上向前推。生成结果：最初空着的托盘出现了原本不存在的盘子和餐具，且视角跳离固定摄像机。" loading="lazy"></a><span class="image-caption">图7：代表性的W2失败轨迹；每行将一个动作提示与对应生成视频的六个关键帧配对。(a) 规定的接触从未建立。提示：两个夹爪抓住切菜板的侧边并将其垂直提起，同时保持其水平。生成结果：夹爪在板旁的空气中反复开合，从未抓住其侧边，且板从未离开桌子。(b) 交互被错误地指向非预期物体。提示：右夹爪抓住地板上网篮内的皱纸并将其从篮中取出。生成结果：夹爪转而抓住篮旁地板上的纸巾，将其提到篮子上方，然后放回地板，而规定的纸从未离开篮子。(c) 无原因的场景和视角变化。提示：将托盘及其上的物品在桌子上向前推。生成结果：最初空着的托盘出现了原本不存在的盘子和餐具，且视角跳离固定摄像机。</span></span></p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.24308v1/embodied_wm_assets/fig_embodied_w3_failures.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.24308v1/embodied_wm_assets/fig_embodied_w3_failures.png" alt="图8：代表性的W3失败轨迹；每行将一个动作提示与对应生成视频的六个关键帧配对。(a) 初始状态从未建立。提示：打开马桶盖，抓住毛巾，来回擦拭座圈，然后将毛巾放到一边。生成结果：盖子从未打开；左臂仍然抓住毛巾，在关闭的盖子上执行擦拭动作，并且轨迹结束时毛巾仍被握住，而不是放到一边。(b) 中间状态从未转移。提示：将挂有衬衫的衣架从杆上取下，将其移到左侧空杆位置，并在松手前重新挂好。生成结果：右夹爪将衬衫衣架从杆上取下，但一直握着它，没有将其移到左侧空杆位置；同时另一个夹爪从杆上取下一个空铁丝衣架并将其悬在半空；规定的重新挂好从未发生。(c) 最终状态从未实现。提示：两个夹爪抓住绿色T恤的两侧，提起并抖开，然后将其放入桌子右侧的条纹篮子中。生成结果：衬衫被抓住、提起并抖开，但最后在松开时掉落到篮子边缘，轨迹结束时衬衫堆在桌子上，只有一端垂入篮子中，而篮子其他部分空着。" loading="lazy"></a><span class="image-caption">图8：代表性的W3失败轨迹；每行将一个动作提示与对应生成视频的六个关键帧配对。(a) 初始状态从未建立。提示：打开马桶盖，抓住毛巾，来回擦拭座圈，然后将毛巾放到一边。生成结果：盖子从未打开；左臂仍然抓住毛巾，在关闭的盖子上执行擦拭动作，并且轨迹结束时毛巾仍被握住，而不是放到一边。(b) 中间状态从未转移。提示：将挂有衬衫的衣架从杆上取下，将其移到左侧空杆位置，并在松手前重新挂好。生成结果：右夹爪将衬衫衣架从杆上取下，但一直握着它，没有将其移到左侧空杆位置；同时另一个夹爪从杆上取下一个空铁丝衣架并将其悬在半空；规定的重新挂好从未发生。(c) 最终状态从未实现。提示：两个夹爪抓住绿色T恤的两侧，提起并抖开，然后将其放入桌子右侧的条纹篮子中。生成结果：衬衫被抓住、提起并抖开，但最后在松开时掉落到篮子边缘，轨迹结束时衬衫堆在桌子上，只有一端垂入篮子中，而篮子其他部分空着。</span></span></p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.24308v1/embodied_wm_assets/fig_embodied_w4_failures.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.24308v1/embodied_wm_assets/fig_embodied_w4_failures.png" alt="图9：来自同一初始状态的代表性W4失败对；每对显示一个匹配组在两种规定条件下的两条轨迹，条件为编辑后的动作条件或编辑后的物理规则，上下两行按所述顺序对应这两种条件。(a) 编辑后的物理规则没有可观察到的后果。提示：两条轨迹均抓取并提起罐子，下方轨迹额外规定了软橡胶材质。生成结果：两条轨迹均以相同的刚性变形提起罐子，因此改变的材质规则在动力学中没有留下任何痕迹，这对轨迹在视觉上仍然无法区分。(b) 编辑后的动作条件实现不精确。提示：上方轨迹规定抓住咖啡机右侧的银色牛奶壶并向上提起，而下方轨迹规定接触同一牛奶壶并沿桌子向左推。生成结果：上方轨迹按规定提起牛奶壶；在下方轨迹中，牛奶壶确实向左移动，但夹爪是通过抓住其手柄并拖过桌子来实现这一位移，而非通过规定的推动接触，因此该条件在方向上得到满足，但在方式上不满足。" loading="lazy"></a><span class="image-caption">图9：来自同一初始状态的代表性W4失败对；每对显示一个匹配组在两种规定条件下的两条轨迹，条件为编辑后的动作条件或编辑后的物理规则，上下两行按所述顺序对应这两种条件。(a) 编辑后的物理规则没有可观察到的后果。提示：两条轨迹均抓取并提起罐子，下方轨迹额外规定了软橡胶材质。生成结果：两条轨迹均以相同的刚性变形提起罐子，因此改变的材质规则在动力学中没有留下任何痕迹，这对轨迹在视觉上仍然无法区分。(b) 编辑后的动作条件实现不精确。提示：上方轨迹规定抓住咖啡机右侧的银色牛奶壶并向上提起，而下方轨迹规定接触同一牛奶壶并沿桌子向左推。生成结果：上方轨迹按规定提起牛奶壶；在下方轨迹中，牛奶壶确实向左移动，但夹爪是通过抓住其手柄并拖过桌子来实现这一位移，而非通过规定的推动接触，因此该条件在方向上得到满足，但在方式上不满足。</span></span></p>
+<h2 id="6-局限性和展望-约300字">6. 局限性和展望（约300字）</h2>
+<p>论文明确说明的限制包括：空间轨道目前只评估静态场景，因为尚无方法能完成时空一致的空间世界建模；视频 W4 干预比较只有两个模型可测；具身轨道只接受单帧第一人称参考帧加动作提示，不接真实执行器或仿真器，因此不能直接推断闭环策略性能；W6 未给出可操作评分，W5 的视频多主体协调用例也只有 57 个。</p>
+<p>可以谨慎推断的限制包括：自动指标依赖多个基础模型（如视觉语言模型、光流、分割/跟踪模型），可能继承这些模型的感知偏差；Arena Elo 依赖参与模型集合与人类评审选择，跨轮比较时需要谨慎；各能力层级的用例数量不均，可能影响细分维度上的统计功效；编辑成功率和部分空间指标采用二元化或聚合评分，会损失连续的质量信息。</p>
+<p>展望方面，后续可以加入动态空间场景，扩展 W4–W6 的覆盖；将具身轨道接入仿真器或机器人闭环，检验世界模型在下游决策中的实际效用；同时借助 HappyWorld-Arena 的社区机制持续吸纳新模型和更多人类偏好数据，使评估结果随领域进展不断更新。</p></div></article></main>
   </div>
   <script>/*!
   * PhotoSwipe 5.4.4 - https://photoswipe.com
@@ -821,208 +752,6 @@ div.pswp__img--placeholder,
       updateToc();
     }
 
-
-    (() => {
-      const cache = new Map();
-
-      async function fetchLinkedPage(url) {
-        if (!cache.has(url)) {
-          const request = fetch(url, { credentials: "same-origin" })
-            .then(async (response) => {
-              if (!response.ok) throw new Error(`HTTP ${response.status}`);
-              return { text: await response.text(), url: response.url };
-            })
-            .catch((error) => {
-              cache.delete(url);
-              throw error;
-            });
-          cache.set(url, request);
-        }
-        return cache.get(url);
-      }
-
-      function rewriteReferences(root, pageUrl) {
-        root.querySelectorAll("[src], [href]").forEach((node) => {
-          ["src", "href"].forEach((attribute) => {
-            const value = node.getAttribute(attribute);
-            if (!value || value.startsWith("#") || /^(?:data|blob|mailto|tel|javascript):/i.test(value)) return;
-            try {
-              node.setAttribute(attribute, new URL(value, pageUrl).href);
-            } catch (_) {
-              // Leave malformed references unchanged; the browser will expose the failure.
-            }
-          });
-        });
-      }
-
-      function isolateIds(root, prefix) {
-        const replacements = new Map();
-        root.querySelectorAll("[id]").forEach((node) => {
-          const original = node.id;
-          const replacement = `${prefix}-${original}`;
-          replacements.set(original, replacement);
-          node.id = replacement;
-        });
-        root.querySelectorAll('a[href^="#"]').forEach((node) => {
-          const original = decodeURIComponent(node.getAttribute("href").slice(1));
-          if (replacements.has(original)) node.setAttribute("href", `#${replacements.get(original)}`);
-        });
-      }
-
-      function prepareDynamicImages(root) {
-        root.querySelectorAll("a.pswp-image").forEach((item) => {
-          const image = item.querySelector("img");
-          if (!image) return;
-          const sync = () => {
-            item.dataset.pswpSrc = image.currentSrc || image.src;
-            if (item.dataset.referenceImage === "true" && image.naturalWidth && image.naturalHeight) {
-              item.dataset.pswpWidth = String(image.naturalWidth);
-              item.dataset.pswpHeight = String(image.naturalHeight);
-            }
-          };
-          sync();
-          image.addEventListener("load", sync, { once: true });
-        });
-      }
-
-      document.querySelectorAll('a[data-inline-html="true"]').forEach((link, index) => {
-        const summary = link.closest("p, li, blockquote, td") || link.parentElement;
-        if (!summary) return;
-        const dedicatedExpand = link.textContent.trim() === "展开正文";
-        let entry = summary.closest(".inline-html-entry");
-        if (!entry) {
-          if (summary.tagName === "LI" || summary.tagName === "TD") {
-            entry = summary;
-            entry.classList.add("inline-html-entry");
-          } else {
-            entry = document.createElement("section");
-            entry.className = "inline-html-entry";
-            summary.before(entry);
-            entry.append(summary);
-          }
-        }
-        summary.classList.add("inline-html-summary");
-        if (dedicatedExpand) link.classList.add("inline-html-source-link");
-
-        const panel = document.createElement("section");
-        panel.className = "inline-html-panel";
-        panel.id = `inline-html-panel-${index + 1}`;
-        panel.hidden = true;
-        panel.setAttribute("aria-live", "polite");
-
-        const actions = document.createElement("span");
-        actions.className = "inline-html-actions";
-        const toggle = document.createElement("button");
-        toggle.className = "inline-html-toggle";
-        toggle.type = "button";
-        toggle.textContent = "展开正文";
-        toggle.setAttribute("aria-controls", panel.id);
-        toggle.setAttribute("aria-expanded", "false");
-        const standalone = document.createElement("a");
-        standalone.className = "inline-html-standalone";
-        standalone.href = link.href;
-        standalone.textContent = "单独打开";
-        actions.append(toggle, standalone);
-        summary.append(document.createTextNode(" "), actions);
-        entry.append(panel);
-
-        let state = "idle";
-
-        function setOpen(open, returnToSummary = false) {
-          panel.hidden = !open;
-          entry.classList.toggle(
-            "is-expanded",
-            Boolean(entry.querySelector(".inline-html-panel:not([hidden])"))
-          );
-          const expanded = String(open);
-          toggle.setAttribute("aria-expanded", expanded);
-          link.setAttribute("aria-expanded", expanded);
-          toggle.textContent = open ? (state === "error" ? "重试加载" : "收起正文") : "展开正文";
-          if (!open && returnToSummary) {
-            summary.scrollIntoView({ behavior: "smooth", block: "start" });
-            toggle.focus({ preventScroll: true });
-          }
-        }
-
-        function appendCloseFooter(target) {
-          const footer = document.createElement("div");
-          footer.className = "inline-html-footer";
-          const close = document.createElement("button");
-          close.className = "inline-html-close";
-          close.type = "button";
-          close.textContent = "收起正文并返回摘要";
-          close.addEventListener("click", () => setOpen(false, true));
-          footer.append(close);
-          target.append(footer);
-        }
-
-        async function toggleInlinePage() {
-          if (state === "loaded") {
-            setOpen(panel.hidden);
-            return;
-          }
-          if (state === "loading") return;
-
-          state = "loading";
-          toggle.disabled = true;
-          panel.replaceChildren();
-          const loading = document.createElement("p");
-          loading.className = "inline-html-status";
-          loading.textContent = "正在加载完整正文…";
-          panel.append(loading);
-          setOpen(true);
-
-          try {
-            const fetched = await fetchLinkedPage(link.href);
-            const parsed = new DOMParser().parseFromString(fetched.text, "text/html");
-            const source = parsed.querySelector(".markdown-image-gallery")
-              || parsed.querySelector("main article")
-              || parsed.querySelector("article")
-              || parsed.querySelector("main");
-            if (!source) throw new Error("linked page does not contain a readable article");
-            const body = source.cloneNode(true);
-            if (body.firstElementChild && body.firstElementChild.tagName === "H1") {
-              body.firstElementChild.remove();
-            }
-            isolateIds(body, `inline-${index + 1}`);
-            rewriteReferences(body, fetched.url);
-            body.classList.add("inline-html-body");
-            panel.replaceChildren(body);
-            appendCloseFooter(panel);
-            prepareDynamicImages(body);
-            state = "loaded";
-            setOpen(true);
-            if (window.mermaid && typeof window.mermaid.run === "function") {
-              const diagrams = Array.from(body.querySelectorAll(".mermaid"));
-              if (diagrams.length) window.mermaid.run({ nodes: diagrams }).catch(() => {});
-            }
-
-            if (window.MathJax && typeof window.MathJax.typesetPromise === "function") {
-              window.MathJax.typesetPromise([body]).catch(() => {});
-            }
-
-          } catch (error) {
-            panel.replaceChildren();
-            const message = document.createElement("p");
-            message.className = "inline-html-status inline-html-error";
-            message.textContent = `正文加载失败：${error.message}`;
-            panel.append(message);
-            appendCloseFooter(panel);
-            state = "error";
-            setOpen(true);
-          } finally {
-            toggle.disabled = false;
-          }
-        }
-
-        toggle.addEventListener("click", toggleInlinePage);
-        link.addEventListener("click", (event) => {
-          if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-          event.preventDefault();
-          toggleInlinePage();
-        });
-      });
-    })();
 
 
   </script>
