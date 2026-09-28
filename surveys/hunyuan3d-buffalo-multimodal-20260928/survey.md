@@ -1,6 +1,6 @@
 # Hunyuan3D-Buffalo：统一多模态3D生成、理解与编辑：快速理解
 
-> 当前页面用于快速建立领域地图。 [逐篇解析（109 篇）](full/) · [BibTeX 与 DBLP 查询结果](bibliography/index.html)
+> 当前页面用于快速建立领域地图。 [逐篇解析（109 篇）](full/) · [BibTeX 与 DBLP 查询结果](bibliography/index.html) · [返回综述目录](../)
 
 ## 总述
 

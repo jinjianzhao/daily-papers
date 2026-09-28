@@ -1,6 +1,6 @@
 # Hunyuan3D-Buffalo：统一多模态3D生成、理解与编辑：逐篇解析
 
-> 当前页面按分类和时间顺序逐篇介绍论文。 [快速理解版](../) · [BibTeX 与 DBLP 查询结果](../bibliography/index.html)
+> 当前页面按分类和时间顺序逐篇介绍论文。 [快速理解版](../) · [BibTeX 与 DBLP 查询结果](../bibliography/index.html) · [返回综述目录](../../)
 
 ## 逐篇解析
 
