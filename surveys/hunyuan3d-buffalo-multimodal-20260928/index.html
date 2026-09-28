@@ -543,7 +543,7 @@ div.pswp__img--placeholder,
     <aside class="academic-sidebar" id="academic-sidebar" aria-label="文档目录">
       <div class="toc-panel">
         <p class="toc-heading">目录</p>
-        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#hunyuan3d-buffalo-统一多模态3d生成-理解与编辑-快速理解">Hunyuan3D-Buffalo：统一多模态3D生成、理解与编辑：快速理解</a><a class="toc-link toc-level-2" href="#总述">总述</a><a class="toc-link toc-level-3" href="#一句话定义">一句话定义</a><a class="toc-link toc-level-3" href="#任务边界">任务边界</a><a class="toc-link toc-level-3" href="#快速要点">快速要点</a><a class="toc-link toc-level-3" href="#领域标准流程">领域标准流程</a><a class="toc-link toc-level-2" href="#分类">分类</a><a class="toc-link toc-level-3" href="#任务维度">任务维度</a><a class="toc-link toc-level-3" href="#方法维度">方法维度</a><a class="toc-link toc-level-3" href="#架构维度">架构维度</a><a class="toc-link toc-level-2" href="#相关工作">相关工作</a><a class="toc-link toc-level-3" href="#三维资产生成-generation-2">三维资产生成（generation）</a><a class="toc-link toc-level-3" href="#三维资产编辑-editing-2">三维资产编辑（editing）</a><a class="toc-link toc-level-3" href="#adjacent">adjacent</a><a class="toc-link toc-level-3" href="#背景与上下文工作-非任务背景">背景与上下文工作（非任务背景）</a></nav>
+        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#hunyuan3d-buffalo-统一多模态3d生成-理解与编辑-快速理解">Hunyuan3D-Buffalo：统一多模态3D生成、理解与编辑：快速理解</a><a class="toc-link toc-level-2" href="#总述">总述</a><a class="toc-link toc-level-3" href="#一句话定义">一句话定义</a><a class="toc-link toc-level-3" href="#任务边界">任务边界</a><a class="toc-link toc-level-3" href="#快速要点">快速要点</a><a class="toc-link toc-level-3" href="#领域标准流程">领域标准流程</a><a class="toc-link toc-level-2" href="#分类">分类</a><a class="toc-link toc-level-3" href="#任务维度">任务维度</a><a class="toc-link toc-level-3" href="#方法维度">方法维度</a><a class="toc-link toc-level-3" href="#架构维度">架构维度</a><a class="toc-link toc-level-2" href="#相关工作">相关工作</a><a class="toc-link toc-level-3" href="#统一模型内的三维生成能力-generation-2">统一模型内的三维生成能力（generation）</a><a class="toc-link toc-level-3" href="#三维资产编辑-editing-2">三维资产编辑（editing）</a><a class="toc-link toc-level-3" href="#adjacent">adjacent</a><a class="toc-link toc-level-3" href="#背景与上下文工作-非任务背景">背景与上下文工作（非任务背景）</a></nav>
       </div>
     </aside>
     <main class="academic-main"><article><div class="markdown-image-gallery"><h1 id="hunyuan3d-buffalo-统一多模态3d生成-理解与编辑-快速理解">Hunyuan3D-Buffalo：统一多模态3D生成、理解与编辑：快速理解</h1>
@@ -554,7 +554,7 @@ div.pswp__img--placeholder,
 <h3 id="任务边界">任务边界</h3>
 <div class="mermaid">flowchart LR
   INPUT[&quot;多模态条件&lt;br/&gt;文本 · 图像 · 既有 3D&quot;]
-  T1[&quot;三维资产生成&quot;]
+  T1[&quot;统一模型内的三维生成能力&quot;]
   O1[&quot;完整的三维几何与外观表示（网格、点云、高斯泼溅或体素）&quot;]
   INPUT --&gt; T1
   T1 --&gt; O1
@@ -591,7 +591,7 @@ div.pswp__img--placeholder,
   ROOT[&quot;多模态 3D 方法地图&quot;]
   D1[&quot;任务：最终要完成什么&quot;]
   ROOT --&gt; D1
-  D1C1[&quot;三维资产生成&quot;]
+  D1C1[&quot;统一模型内的三维生成能力&quot;]
   D1 --&gt; D1C1
   D1C2[&quot;三维资产编辑&quot;]
   D1 --&gt; D1C2
@@ -613,8 +613,9 @@ div.pswp__img--placeholder,
   ROOT --&gt; D3
   D3C1[&quot;统一多模态模型&quot;]
   D3 --&gt; D3C1</div>
+<blockquote><strong>阅读提示：</strong>“统一模型内的三维生成能力”只指统一多模态模型中的一个任务分支；独立的 text-to-3D、image-to-3D 和单任务 3D 生成器仍然只作为相邻或背景工作，不属于本综述主体。</blockquote>
 <h3 id="任务维度">任务维度</h3>
-<h4 id="三维资产生成-generation">三维资产生成（generation）</h4>
+<h4 id="统一模型内的三维生成能力-generation">统一模型内的三维生成能力（generation）</h4>
 <p>指模型接收文本、图像或其他非3D模态作为条件输入，直接输出完整的、无显式部件结构标注的三维资产（如网格 Mesh、高斯泼溅 Gaussian Splatting 或神经辐射场 NeRF）。在此综述契约下，仅当该生成能力是统一多模态模型的一部分，且模型同时具备理解或编辑等其他跨模态交互能力时，才归入主体论文；独立的 text-to-3D 或 image-to-3D 生成器仅作为相邻工作。</p>
 <p><strong>核心范式：</strong> Input: Text/Image prompts or semantic conditions; Output: Complete 3D asset (Mesh/Gaussian/NeRF); Mechanism: Mapping conditional embeddings to 3D geometry/appearance via diffusion, flow, or autoregressive processes within a shared backbone.</p>
 <p><strong>典型输入：</strong> 文本提示词、参考图像、语义条件向量</p>
@@ -691,7 +692,7 @@ div.pswp__img--placeholder,
 <p><strong>典型输出：</strong> 跨模态的输出（3D资产、文本、标签等）</p>
 <h2 id="相关工作">相关工作</h2>
 <p>本章不重复逐篇摘要，而是按照领域类别串起方法演化：先说明问题和范式，再说明代表工作如何改变方法，最后指出仍未解决的缺口。</p>
-<h3 id="三维资产生成-generation-2">三维资产生成（generation）</h3>
+<h3 id="统一模型内的三维生成能力-generation-2">统一模型内的三维生成能力（generation）</h3>
 <div class="mermaid">flowchart LR
   P1[&quot;1. 统一框架中的三维原生生成&quot;]</div>
 <ul><li><strong>统一框架中的三维原生生成</strong>：综合来看，已有方法依赖间接管线，先在二维编辑再通过优化提升到三维，导致三维几何一致性受损；同时高质量三维资产稀缺，使三维合成欠约束。；方法变化：这些摘要共同显示，Omni123 将文本、图像与三维表示为共享序列中的离散词元，用跨模态一致性作为隐式结构约束，在统一自回归框架中同时实现文本到二维和文本到三维生成，从而改变了过去分离处理二维与三维生成的做法。；代表论文：arxiv_2604.02289。</li></ul>
