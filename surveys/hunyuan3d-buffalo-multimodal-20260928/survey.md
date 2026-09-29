@@ -263,9 +263,13 @@ flowchart LR
 
 *相关工作代表图：[Omni123](https://arxiv.org/html/2604.02289v1/pretraining2.png)。文本、图像和 3D 形状被编码为统一序列，由共享自回归主干进行跨模态建模。*
 
+**核心范式：** 输入可以是文本、图像或 3D 形状；模型先把不同模态都转换成离散 token，再把这些 token 拼成同一条序列，由一个自回归 Transformer 按顺序预测后续 token，最后把 token 解码回图像或 3D 结果。
+
 ![CubePart 相关工作代表图](assets/related-work/02-generation-2.png)
 
 *相关工作代表图：[CubePart](https://arxiv.org/html/2605.28763v1/method.png)。先生成整体形状，再分解并生成具有部件结构的多网格结果；全局文本与部件 schema 共同控制生成。*
+
+**核心范式：** 输入是一段描述整体物体的文本和部件清单；第一阶段先生成一个整体 3D 形状表示，第二阶段再根据部件之间的结构关系把它拆成多个部件表示，并分别解码为可编辑的 3D 网格。
 
 ```mermaid
 flowchart LR
@@ -282,9 +286,13 @@ flowchart LR
 
 *相关工作代表图：[Omni-3DEdit](https://arxiv.org/html/2603.17841v1/method.png)。从编辑指令和多视图图像得到条件视图，再传播编辑线索并重建编辑后的 3D 资产。*
 
+**核心范式：** 输入是原始 3D 资产的多视图图像和编辑指令；模型先把指令落实到一个参考视图，再把这个视图中的编辑信息传播到其他视角，最后用编辑后的多视图图像重建 3D 资产。
+
 ![PartFlow 相关工作代表图](assets/related-work/04-editing-2.png)
 
 *相关工作代表图：[PartFlow](https://arxiv.org/html/2605.27351v5/PartFlow.png)。两阶段 ControlNet 风格架构分别编辑稀疏结构和几何外观潜变量，并用部件变换监督保持未编辑区域。*
+
+**核心范式：** 输入是原始 3D 表示和部件级编辑条件；第一阶段在稀疏结构潜空间中改变物体布局，第二阶段在更细的几何与外观潜空间中细化结果，最后把两个阶段的潜变量解码成编辑后的 3D 资产。
 
 ```mermaid
 flowchart LR
@@ -301,9 +309,13 @@ flowchart LR
 
 *相关工作代表图：[Beyond Voxel 3D Editing](https://arxiv.org/html/2604.13688v1/imgs/gs.png)。在原生稀疏 3D 表示中进行结构编辑和外观编辑，减少多视图传播与逐实例优化的依赖。*
 
+**核心范式：** 输入是一个已有的 3D 资产、文本指令和可选的参考图像；模型直接在稀疏 3D 潜表示中先调整结构，再调整外观，最后一次前向解码出编辑后的资产，而不是逐个场景反复优化。
+
 ![VecSet-Edit 相关工作代表图](assets/related-work/06-adjacent-2.png)
 
 *相关工作代表图：[VecSet-Edit](https://arxiv.org/html/2602.04349v3/fig4_pipeline_revision.png)。利用单张图像、编辑掩码和目标视图初始化区域 token，再通过预训练 LRM 直接完成网格编辑。*
+
+**核心范式：** 输入是原始网格、一个视图、编辑区域和目标图像；模型把网格编码成一组可交互的 token，用编辑区域初始化相关 token，再由预训练的 3D 重建模型整体更新并解码出新网格。
 
 ```mermaid
 flowchart LR
@@ -326,9 +338,13 @@ flowchart LR
 
 *相关工作代表图：[PolyFlow](https://arxiv.org/html/2606.30673v1/Pipeline.png)。把顶点位置、法向和拓扑嵌入组成连续流状态，并在推理时并行去噪后解码出网格拓扑。*
 
+**核心范式：** 模型把一个网格表示成每个顶点的位置、法向和拓扑特征；训练时学习如何从噪声恢复这些连续特征，推理时并行生成所有顶点特征，再根据预测结果恢复边和面。
+
 ![MeshFlow 相关工作代表图](assets/related-work/08-context-2.png)
 
 *相关工作代表图：[MeshFlow](https://arxiv.org/html/2606.04621v2/overview_v1_1.png)。MeshVAE 将顶点、法向和离散邻接关系压缩到连续潜空间，再用流匹配 Transformer 生成并解码网格。*
+
+**核心范式：** 模型先用 MeshVAE 把网格的顶点、法向和邻接关系压缩成连续潜变量，再在潜空间中用流匹配 Transformer 从噪声生成潜变量，最后由解码器还原成完整网格。
 
 ```mermaid
 flowchart LR
