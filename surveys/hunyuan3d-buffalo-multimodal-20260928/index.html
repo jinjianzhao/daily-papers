@@ -627,6 +627,8 @@ div.pswp__img--placeholder,
   S3[&quot;3. 步骤 3&lt;br/&gt;核心&quot;]
   S1 --&gt; S2
   S2 --&gt; S3</div>
+<p><span class="embedded-image"><a class="pswp-image" href="assets/01-generation.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="assets/01-generation.png" alt="Hunyuan3D-Buffalo 1.0 方法图" loading="lazy"></a><span class="image-caption">Hunyuan3D-Buffalo 1.0 方法图</span></span></p>
+<p><em>原图：<a href="https://arxiv.org/html/2608.02711v3/Pipeline.png">Hunyuan3D-Buffalo 1.0</a>。统一架构同时连接 3D 问答与 grounding、文本到 3D 生成和 3D 编辑；这里的生成图只代表统一模型中的一个任务分支。</em></p>
 <h4 id="三维资产编辑-editing">三维资产编辑（editing）</h4>
 <p>指模型接收已有的三维资产以及文本或图像形式的编辑指令，输出修改后的三维资产。重点在于保持未编辑区域的几何一致性，同时准确执行语义或几何变更。在统一框架中，编辑通常复用生成模型的先验或通过共享的理解模块解析指令。</p>
 <p><strong>核心范式：</strong> Input: Existing 3D Asset + Edit Instruction (Text/Image); Output: Edited 3D Asset; Mechanism: Inversion into latent space, latent manipulation guided by multimodal features, or feed-forward transformation using shared priors.</p>
@@ -639,6 +641,8 @@ div.pswp__img--placeholder,
   S3[&quot;3. 步骤 3&lt;br/&gt;核心&quot;]
   S1 --&gt; S2
   S2 --&gt; S3</div>
+<p><span class="embedded-image"><a class="pswp-image" href="assets/02-editing.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="assets/02-editing.png" alt="Omni-3DEdit 方法图" loading="lazy"></a><span class="image-caption">Omni-3DEdit 方法图</span></span></p>
+<p><em>原图：<a href="https://arxiv.org/html/2603.17841v1/method.png">Omni-3DEdit</a>。从编辑指令和多视图图像得到条件视图，再传播编辑线索并重建编辑后的 3D 资产。</em></p>
 <h4 id="三维场景理解-understanding">三维场景理解（understanding）</h4>
 <p>指模型接收三维资产作为输入，输出文本描述、问答答案、语义标签、部件关系或操作计划。在统一框架中，理解模块通常作为编码器或共享主干的一部分，为生成和编辑提供语义 grounding（接地）。</p>
 <p><strong>核心范式：</strong> Input: 3D Asset (and optional Text Query); Output: Text Description, Answer, Labels, or Plans; Mechanism: Encoding 3D geometry into tokens/features, processing via Multimodal LLM backbone, decoding into language or semantic structures.</p>
@@ -651,6 +655,8 @@ div.pswp__img--placeholder,
   S3[&quot;3. 步骤 3&lt;br/&gt;核心&quot;]
   S1 --&gt; S2
   S2 --&gt; S3</div>
+<p><span class="embedded-image"><a class="pswp-image" href="assets/03-understanding.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="assets/03-understanding.png" alt="Hunyuan3D-Buffalo 1.0 方法图" loading="lazy"></a><span class="image-caption">Hunyuan3D-Buffalo 1.0 方法图</span></span></p>
+<p><em>原图：<a href="https://arxiv.org/html/2608.02711v3/Pipeline.png">Hunyuan3D-Buffalo 1.0</a>。同一 pipeline 中的 3D QA 和 grounding 路径展示了三维理解如何与语言及生成模块交互。</em></p>
 <h4 id="部件结构化生成-partstructuredgeneration">部件结构化生成（part_structured_generation）</h4>
 <p>指模型生成具有显式语义部件及其层级、连接或空间关系的三维资产。与普通生成不同，它强调结构的显式建模（如椅子腿、靠背的独立网格及连接关系）。在统一框架中，这通常结合了理解（语义分解）和生成（部件合成）的能力。</p>
 <p><strong>核心范式：</strong> Input: Text/Image Conditions; Output: 3D Asset with Explicit Semantic Parts and Relations; Mechanism: Coordinated generation of parts via multi-branch diffusion, autoregressive part assembly, or structured latent spaces grounded by multimodal understanding.</p>
@@ -663,6 +669,8 @@ div.pswp__img--placeholder,
   S3[&quot;3. 步骤 3&lt;br/&gt;核心&quot;]
   S1 --&gt; S2
   S2 --&gt; S3</div>
+<p><span class="embedded-image"><a class="pswp-image" href="assets/04-part-structured-generation.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="assets/04-part-structured-generation.png" alt="CubePart 方法图" loading="lazy"></a><span class="image-caption">CubePart 方法图</span></span></p>
+<p><em>原图：<a href="https://arxiv.org/html/2605.28763v1">CubePart</a>。先生成整体形状，再分解并生成具有部件结构的多网格结果；图中展示了全局文本与部件 schema 的联合条件。</em></p>
 <h3 id="方法维度">方法维度</h3>
 <h4 id="实例级优化-instanceleveloptimization">实例级优化（instance_level_optimization）</h4>
 <p>指在推理或测试阶段，针对当前特定的输入实例（如特定的文本提示或3D资产），通过梯度下降等优化算法反复调整模型参数、潜变量或显式表示（如NeRF参数、Gaussian属性），以最小化多模态损失（如SDS损失）。</p>
@@ -690,6 +698,8 @@ div.pswp__img--placeholder,
 <p><strong>核心范式：</strong> Single Backbone handling 3D and Non-3D Modalities; Shared Representations; Multi-task Capability (Understanding, Generation, Editing).</p>
 <p><strong>典型输入：</strong> 3D数据、文本、图像等多模态输入</p>
 <p><strong>典型输出：</strong> 跨模态的输出（3D资产、文本、标签等）</p>
+<p><span class="embedded-image"><a class="pswp-image" href="assets/05-unified-multimodal-model.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="assets/05-unified-multimodal-model.png" alt="Omni123 方法图" loading="lazy"></a><span class="image-caption">Omni123 方法图</span></span></p>
+<p><em>原图：<a href="https://arxiv.org/html/2604.02289v1/pretraining2.png">Omni123</a>。文本、图像和 3D 形状被编码为统一序列，由共享自回归主干进行跨模态建模。</em></p>
 <h2 id="相关工作">相关工作</h2>
 <p>本章不重复逐篇摘要，而是按照领域类别串起方法演化：先说明问题和范式，再说明代表工作如何改变方法，最后指出仍未解决的缺口。</p>
 <h3 id="统一模型内的三维生成能力-generation-2">统一模型内的三维生成能力（generation）</h3>

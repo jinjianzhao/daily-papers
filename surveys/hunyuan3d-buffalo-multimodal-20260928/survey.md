@@ -116,6 +116,10 @@ flowchart LR
   S2 --> S3
 ```
 
+![Hunyuan3D-Buffalo 1.0 方法图](assets/01-generation.png)
+
+*原图：[Hunyuan3D-Buffalo 1.0](https://arxiv.org/html/2608.02711v3/Pipeline.png)。统一架构同时连接 3D 问答与 grounding、文本到 3D 生成和 3D 编辑；这里的生成图只代表统一模型中的一个任务分支。*
+
 #### 三维资产编辑（editing）
 
 指模型接收已有的三维资产以及文本或图像形式的编辑指令，输出修改后的三维资产。重点在于保持未编辑区域的几何一致性，同时准确执行语义或几何变更。在统一框架中，编辑通常复用生成模型的先验或通过共享的理解模块解析指令。
@@ -136,6 +140,10 @@ flowchart LR
   S1 --> S2
   S2 --> S3
 ```
+
+![Omni-3DEdit 方法图](assets/02-editing.png)
+
+*原图：[Omni-3DEdit](https://arxiv.org/html/2603.17841v1/method.png)。从编辑指令和多视图图像得到条件视图，再传播编辑线索并重建编辑后的 3D 资产。*
 
 #### 三维场景理解（understanding）
 
@@ -158,6 +166,10 @@ flowchart LR
   S2 --> S3
 ```
 
+![Hunyuan3D-Buffalo 1.0 方法图](assets/03-understanding.png)
+
+*原图：[Hunyuan3D-Buffalo 1.0](https://arxiv.org/html/2608.02711v3/Pipeline.png)。同一 pipeline 中的 3D QA 和 grounding 路径展示了三维理解如何与语言及生成模块交互。*
+
 #### 部件结构化生成（part_structured_generation）
 
 指模型生成具有显式语义部件及其层级、连接或空间关系的三维资产。与普通生成不同，它强调结构的显式建模（如椅子腿、靠背的独立网格及连接关系）。在统一框架中，这通常结合了理解（语义分解）和生成（部件合成）的能力。
@@ -178,6 +190,10 @@ flowchart LR
   S1 --> S2
   S2 --> S3
 ```
+
+![CubePart 方法图](assets/04-part-structured-generation.png)
+
+*原图：[CubePart](https://arxiv.org/html/2605.28763v1)。先生成整体形状，再分解并生成具有部件结构的多网格结果；图中展示了全局文本与部件 schema 的联合条件。*
 
 ### 方法维度
 
@@ -232,6 +248,10 @@ flowchart LR
 **典型输入：** 3D数据、文本、图像等多模态输入
 
 **典型输出：** 跨模态的输出（3D资产、文本、标签等）
+
+![Omni123 方法图](assets/05-unified-multimodal-model.png)
+
+*原图：[Omni123](https://arxiv.org/html/2604.02289v1/pretraining2.png)。文本、图像和 3D 形状被编码为统一序列，由共享自回归主干进行跨模态建模。*
 
 ## 相关工作
 
