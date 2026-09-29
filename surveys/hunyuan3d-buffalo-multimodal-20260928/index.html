@@ -703,16 +703,28 @@ div.pswp__img--placeholder,
 <h2 id="相关工作">相关工作</h2>
 <p>本章不重复逐篇摘要，而是按照领域类别串起方法演化：先说明问题和范式，再说明代表工作如何改变方法，最后指出仍未解决的缺口。</p>
 <h3 id="统一模型内的三维生成能力-generation-2">统一模型内的三维生成能力（generation）</h3>
+<p><span class="embedded-image"><a class="pswp-image" href="assets/related-work/01-generation-1.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="assets/related-work/01-generation-1.png" alt="Omni123 相关工作代表图" loading="lazy"></a><span class="image-caption">Omni123 相关工作代表图</span></span></p>
+<p><em>相关工作代表图：<a href="https://arxiv.org/html/2604.02289v1/pretraining2.png">Omni123</a>。文本、图像和 3D 形状被编码为统一序列，由共享自回归主干进行跨模态建模。</em></p>
+<p><span class="embedded-image"><a class="pswp-image" href="assets/related-work/02-generation-2.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="assets/related-work/02-generation-2.png" alt="CubePart 相关工作代表图" loading="lazy"></a><span class="image-caption">CubePart 相关工作代表图</span></span></p>
+<p><em>相关工作代表图：<a href="https://arxiv.org/html/2605.28763v1/method.png">CubePart</a>。先生成整体形状，再分解并生成具有部件结构的多网格结果；全局文本与部件 schema 共同控制生成。</em></p>
 <div class="mermaid">flowchart LR
   P1[&quot;1. 统一框架中的三维原生生成&quot;]</div>
 <ul><li><strong>统一框架中的三维原生生成</strong>：综合来看，已有方法依赖间接管线，先在二维编辑再通过优化提升到三维，导致三维几何一致性受损；同时高质量三维资产稀缺，使三维合成欠约束。；方法变化：这些摘要共同显示，Omni123 将文本、图像与三维表示为共享序列中的离散词元，用跨模态一致性作为隐式结构约束，在统一自回归框架中同时实现文本到二维和文本到三维生成，从而改变了过去分离处理二维与三维生成的做法。；代表论文：arxiv_2604.02289。</li></ul>
 <p><strong>读者应记住：</strong> 本批材料仅能支撑：统一三维生成正在尝试把文本、图像与三维放进同一自回归框架，并以跨模态一致性弥补三维数据稀缺；但尚不能确认该模型已覆盖理解或编辑任务，训练与推理细节也需全文核验。</p>
 <h3 id="三维资产编辑-editing-2">三维资产编辑（editing）</h3>
+<p><span class="embedded-image"><a class="pswp-image" href="assets/related-work/03-editing-1.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="assets/related-work/03-editing-1.png" alt="Omni-3DEdit 相关工作代表图" loading="lazy"></a><span class="image-caption">Omni-3DEdit 相关工作代表图</span></span></p>
+<p><em>相关工作代表图：<a href="https://arxiv.org/html/2603.17841v1/method.png">Omni-3DEdit</a>。从编辑指令和多视图图像得到条件视图，再传播编辑线索并重建编辑后的 3D 资产。</em></p>
+<p><span class="embedded-image"><a class="pswp-image" href="assets/related-work/04-editing-2.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="assets/related-work/04-editing-2.png" alt="PartFlow 相关工作代表图" loading="lazy"></a><span class="image-caption">PartFlow 相关工作代表图</span></span></p>
+<p><em>相关工作代表图：<a href="https://arxiv.org/html/2605.27351v5/PartFlow.png">PartFlow</a>。两阶段 ControlNet 风格架构分别编辑稀疏结构和几何外观潜变量，并用部件变换监督保持未编辑区域。</em></p>
 <div class="mermaid">flowchart LR
   P1[&quot;1. 基于跨模态一致性的3D原生统一建模探索&quot;]</div>
 <ul><li><strong>基于跨模态一致性的3D原生统一建模探索</strong>：综合来看，现有方法在处理3D编辑与生成时，常因高质量3D资产稀缺而依赖间接的2D优化流程，牺牲了几何一致性，且难以在统一框架内有效约束3D结构。；方法变化：这些摘要共同显示，通过引入3D原生基础模型，将文本、图像和3D资产统一表示为共享序列中的离散token，利用跨模态一致性作为隐式结构约束，从而在单个自回归框架内统一处理生成任务。；代表论文：arxiv_2604.02289。</li></ul>
 <p><strong>读者应记住：</strong> Omni123代表了通过统一离散表示和跨模态一致性约束来解决3D数据稀缺和几何不一致问题的早期探索，为统一3D多模态编辑提供了新的建模范式。</p>
 <h3 id="adjacent">adjacent</h3>
+<p><span class="embedded-image"><a class="pswp-image" href="assets/related-work/05-adjacent-1.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="assets/related-work/05-adjacent-1.png" alt="Beyond Voxel 3D Editing 相关工作代表图" loading="lazy"></a><span class="image-caption">Beyond Voxel 3D Editing 相关工作代表图</span></span></p>
+<p><em>相关工作代表图：<a href="https://arxiv.org/html/2604.13688v1/imgs/gs.png">Beyond Voxel 3D Editing</a>。在原生稀疏 3D 表示中进行结构编辑和外观编辑，减少多视图传播与逐实例优化的依赖。</em></p>
+<p><span class="embedded-image"><a class="pswp-image" href="assets/related-work/06-adjacent-2.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="assets/related-work/06-adjacent-2.png" alt="VecSet-Edit 相关工作代表图" loading="lazy"></a><span class="image-caption">VecSet-Edit 相关工作代表图</span></span></p>
+<p><em>相关工作代表图：<a href="https://arxiv.org/html/2602.04349v3/fig4_pipeline_revision.png">VecSet-Edit</a>。利用单张图像、编辑掩码和目标视图初始化区域 token，再通过预训练 LRM 直接完成网格编辑。</em></p>
 <div class="mermaid">flowchart LR
   P1[&quot;1. 基于多视图传播与逐实例优化的早期编辑范式&quot;]
   P2[&quot;2. 基于原生3D表示与前馈学习的效率提升范式&quot;]
@@ -722,6 +734,10 @@ div.pswp__img--placeholder,
 <ul><li><strong>基于多视图传播与逐实例优化的早期编辑范式</strong>：综合来看，早期方法主要依赖将2D编辑结果投影回3D空间，面临多视图不一致和计算效率低下的瓶颈。Pro3D-Editor指出传统方法无差别地编辑2D视图并投影回3D，忽视了跨视图依赖，导致不一致；EditP23也指出传统方法依赖文本提示或显式空间掩码，且往往涉及耗时的优化过程。；方法变化：这些摘要共同显示，后续方法试图通过改进视图传播策略来解决一致性问题。Pro3D-Editor提出了“渐进视图范式”，将编辑语义从显著视图传播到稀疏视图；EditP23则采用前馈方式，利用预训练多视图扩散模型的潜空间流，将单视图的图像编辑提示传播到多视图表示中，避免了显式的逐实例优化。；代表论文：arxiv_2506.00512、arxiv_2506.20652。</li><li><strong>基于原生3D表示与前馈学习的效率提升范式</strong>：综合来看，这一阶段的方法旨在解决基于2D投影方法的几何不一致性和迭代优化的高计算成本问题。Omni-3DEdit指出显式操作3D几何需要依赖任务的规则且迭代优化耗时；Easy3E指出现有方法依赖计算密集型的逐场景迭代优化并遭受多视图不一致；ShapeUP指出优化方法速度慢，多视图2D传播存在视觉漂移；VecSet-Edit指出体素方法分辨率受限且需要劳动密集型的3D掩码；NANO3D指出多视图渲染后重建会引入伪影。；方法变化：这些摘要共同显示，研究重心转向利用原生3D表示（如体素、网格词元）和前馈网络架构。Omni-3DEdit提出统一的基于学习的模型，隐式泛化各种3D编辑任务；Easy3E基于TRELLIS生成主干，引入体素流编辑（Voxel FlowEdit）在稀疏体素潜空间中实现单次传递的全局一致变形；ShapeUP将编辑公式化为原生3D表示内的监督潜空间到潜空间翻译；VecSet-Edit利用VecSet大型重建模型（LRM） backbone，通过掩码引导的词元种子化和区域生长直接编辑网格；NANO3D整合FlowEdit到TRELLIS中，无需掩码即可进行局部编辑。；代表论文：arxiv_2604.13688、arxiv_2603.17841、arxiv_2602.21499、arxiv_2602.05676、arxiv_2602.04349、arxiv_2510.15019。</li><li><strong>高保真3D生成作为编辑的基础支撑</strong>：综合来看，3D形状生成技术在输出质量、泛化能力和与输入条件的对齐方面面临挑战，限制了其作为编辑基础模型的能力。TripoSG指出3D数据规模限制、处理复杂性以及对先进技术探索不足导致3D生成落后于图像和视频生成。；方法变化：这些摘要共同显示，通过引入大规模整流流变换器（rectified flow transformer）和结构化潜在表示，提升了3D生成的保真度和对应精度，为后续的编辑任务提供了更高质量的基础资产。TripoSG提出了一种简化的形状扩散范式，能够生成与输入图像精确对应的高保真3D网格。；代表论文：arxiv_2502.06608。</li></ul>
 <p><strong>读者应记住：</strong> 相邻工作展示了3D编辑领域在表示学习（从2D投影到原生3D潜空间）、推理效率（从迭代优化到前馈预测）和数据构建（自构建数据集）方面的显著进步。然而，这些工作大多仍局限于单一的编辑或生成任务，缺乏将生成、编辑和理解统一在一个共享主干或多模态交互框架中的主体模型，这正是本综述主体部分需要进一步探讨的核心缺口。</p>
 <h3 id="背景与上下文工作-非任务背景">背景与上下文工作（非任务背景）</h3>
+<p><span class="embedded-image"><a class="pswp-image" href="assets/related-work/07-context-1.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="assets/related-work/07-context-1.png" alt="PolyFlow 相关工作代表图" loading="lazy"></a><span class="image-caption">PolyFlow 相关工作代表图</span></span></p>
+<p><em>相关工作代表图：<a href="https://arxiv.org/html/2606.30673v1/Pipeline.png">PolyFlow</a>。把顶点位置、法向和拓扑嵌入组成连续流状态，并在推理时并行去噪后解码出网格拓扑。</em></p>
+<p><span class="embedded-image"><a class="pswp-image" href="assets/related-work/08-context-2.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="assets/related-work/08-context-2.png" alt="MeshFlow 相关工作代表图" loading="lazy"></a><span class="image-caption">MeshFlow 相关工作代表图</span></span></p>
+<p><em>相关工作代表图：<a href="https://arxiv.org/html/2606.04621v2/overview_v1_1.png">MeshFlow</a>。MeshVAE 将顶点、法向和离散邻接关系压缩到连续潜空间，再用流匹配 Transformer 生成并解码网格。</em></p>
 <div class="mermaid">flowchart LR
   P1[&quot;1. 3D表示与生成基础的连续化重构&quot;]
   P2[&quot;2. 专用3D编辑与物理增强框架的探索&quot;]

@@ -259,6 +259,14 @@ flowchart LR
 
 ### 统一模型内的三维生成能力（generation）
 
+![Omni123 相关工作代表图](assets/related-work/01-generation-1.png)
+
+*相关工作代表图：[Omni123](https://arxiv.org/html/2604.02289v1/pretraining2.png)。文本、图像和 3D 形状被编码为统一序列，由共享自回归主干进行跨模态建模。*
+
+![CubePart 相关工作代表图](assets/related-work/02-generation-2.png)
+
+*相关工作代表图：[CubePart](https://arxiv.org/html/2605.28763v1/method.png)。先生成整体形状，再分解并生成具有部件结构的多网格结果；全局文本与部件 schema 共同控制生成。*
+
 ```mermaid
 flowchart LR
   P1["1. 统一框架中的三维原生生成"]
@@ -270,6 +278,14 @@ flowchart LR
 
 ### 三维资产编辑（editing）
 
+![Omni-3DEdit 相关工作代表图](assets/related-work/03-editing-1.png)
+
+*相关工作代表图：[Omni-3DEdit](https://arxiv.org/html/2603.17841v1/method.png)。从编辑指令和多视图图像得到条件视图，再传播编辑线索并重建编辑后的 3D 资产。*
+
+![PartFlow 相关工作代表图](assets/related-work/04-editing-2.png)
+
+*相关工作代表图：[PartFlow](https://arxiv.org/html/2605.27351v5/PartFlow.png)。两阶段 ControlNet 风格架构分别编辑稀疏结构和几何外观潜变量，并用部件变换监督保持未编辑区域。*
+
 ```mermaid
 flowchart LR
   P1["1. 基于跨模态一致性的3D原生统一建模探索"]
@@ -280,6 +296,14 @@ flowchart LR
 **读者应记住：** Omni123代表了通过统一离散表示和跨模态一致性约束来解决3D数据稀缺和几何不一致问题的早期探索，为统一3D多模态编辑提供了新的建模范式。
 
 ### adjacent
+
+![Beyond Voxel 3D Editing 相关工作代表图](assets/related-work/05-adjacent-1.png)
+
+*相关工作代表图：[Beyond Voxel 3D Editing](https://arxiv.org/html/2604.13688v1/imgs/gs.png)。在原生稀疏 3D 表示中进行结构编辑和外观编辑，减少多视图传播与逐实例优化的依赖。*
+
+![VecSet-Edit 相关工作代表图](assets/related-work/06-adjacent-2.png)
+
+*相关工作代表图：[VecSet-Edit](https://arxiv.org/html/2602.04349v3/fig4_pipeline_revision.png)。利用单张图像、编辑掩码和目标视图初始化区域 token，再通过预训练 LRM 直接完成网格编辑。*
 
 ```mermaid
 flowchart LR
@@ -297,6 +321,14 @@ flowchart LR
 **读者应记住：** 相邻工作展示了3D编辑领域在表示学习（从2D投影到原生3D潜空间）、推理效率（从迭代优化到前馈预测）和数据构建（自构建数据集）方面的显著进步。然而，这些工作大多仍局限于单一的编辑或生成任务，缺乏将生成、编辑和理解统一在一个共享主干或多模态交互框架中的主体模型，这正是本综述主体部分需要进一步探讨的核心缺口。
 
 ### 背景与上下文工作（非任务背景）
+
+![PolyFlow 相关工作代表图](assets/related-work/07-context-1.png)
+
+*相关工作代表图：[PolyFlow](https://arxiv.org/html/2606.30673v1/Pipeline.png)。把顶点位置、法向和拓扑嵌入组成连续流状态，并在推理时并行去噪后解码出网格拓扑。*
+
+![MeshFlow 相关工作代表图](assets/related-work/08-context-2.png)
+
+*相关工作代表图：[MeshFlow](https://arxiv.org/html/2606.04621v2/overview_v1_1.png)。MeshVAE 将顶点、法向和离散邻接关系压缩到连续潜空间，再用流匹配 Transformer 生成并解码网格。*
 
 ```mermaid
 flowchart LR
