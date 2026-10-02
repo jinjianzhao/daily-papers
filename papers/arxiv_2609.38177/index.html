@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BibTeX 与 DBLP 查询结果</title>
+  <title>Imagine3D-LLM: Teaching MLLMs to Imagine 3D Scenes Before Answering</title>
 
   <script>
     window.MathJax = {
@@ -21,16 +21,16 @@
 .pswp {
   --pswp-bg: #000;
   --pswp-placeholder-bg: #222;
-  
+
 
   --pswp-root-z-index: 100000;
-  
+
   --pswp-preloader-color: rgba(79, 79, 79, 0.4);
   --pswp-preloader-color-secondary: rgba(255, 255, 255, 0.9);
-  
+
   /* defined via js:
   --pswp-transition-duration: 333ms; */
-  
+
   --pswp-icon-color: #fff;
   --pswp-icon-color-secondary: #4f4f4f;
   --pswp-icon-stroke-color: #4f4f4f;
@@ -518,25 +518,11 @@ div.pswp__img--placeholder,
       .academic-shell { width: 100%; padding: 60px 0 0; }
       .academic-main article { padding: 30px 22px 52px; border: 0; border-radius: 0; }
     }
-        
 
 
 
-  
-    .academic-main img {
-      display: block; width: 100%; max-height: 620px; object-fit: contain;
-      margin: 1.1rem auto .45rem; border: 1px solid #dce5ec;
-      border-radius: 10px; background: #fff; box-shadow: 0 8px 24px #1c38500d;
-    }
-    .academic-main .mermaid {
-      margin: 1.25rem 0 1.7rem; padding: 1rem; overflow-x: auto;
-      border: 1px solid #dce5ec; border-radius: 10px; background: #fbfdff;
-    }
-    .academic-main > blockquote:first-of-type {
-      border-left: 4px solid #1769aa; background: #f2f7fb;
-      border-radius: 0 8px 8px 0; padding: .8rem 1rem;
-    }
-</style>
+
+  </style>
 </head>
 <body>
 
@@ -547,797 +533,84 @@ div.pswp__img--placeholder,
     <aside class="academic-sidebar" id="academic-sidebar" aria-label="文档目录">
       <div class="toc-panel">
         <p class="toc-heading">目录</p>
-        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#bibtex-与-dblp-查询结果">BibTeX 与 DBLP 查询结果</a><a class="toc-link toc-level-2" href="#bibtex">BibTeX</a><a class="toc-link toc-level-2" href="#未找到或请求失败">未找到或请求失败</a></nav>
+        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#imagine3d-llm-teaching-mllms-to-imagine-3d-scenes-before-answering">Imagine3D-LLM: Teaching MLLMs to Imagine 3D Scenes Before Answering</a><a class="toc-link toc-level-2" href="#快速理解">快速理解</a><a class="toc-link toc-level-2" href="#中文摘要">中文摘要</a><a class="toc-link toc-level-2" href="#详细分析">详细分析</a><a class="toc-link toc-level-2" href="#1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</a><a class="toc-link toc-level-2" href="#2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</a><a class="toc-link toc-level-2" href="#3-核心贡献-约300字">3. 核心贡献（约300字）</a><a class="toc-link toc-level-2" href="#4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</a><a class="toc-link toc-level-2" href="#5-核心方法-按论文-method-小节总结-约600字">5. 核心方法：按论文 Method 小节总结（约600字）</a><a class="toc-link toc-level-3" href="#3-1-preliminaries-multi-view-mllms-多视图-mllm-基础">3.1 Preliminaries: Multi-view MLLMs（多视图 MLLM 基础）</a><a class="toc-link toc-level-3" href="#3-2-imagine3d-llm-总体框架">3.2 Imagine3D-LLM（总体框架）</a><a class="toc-link toc-level-3" href="#3-2-1-mental-reconstruction-via-gaussian-summary-tokens-通过高斯摘要-token-进行心理重建">3.2.1 Mental Reconstruction via Gaussian Summary Tokens（通过高斯摘要 token 进行心理重建）</a><a class="toc-link toc-level-3" href="#3-2-2-accelerating-convergence-via-distillation-from-a-compact-gaussian-teacher-用紧凑高斯教师加速收敛">3.2.2 Accelerating Convergence via Distillation from a Compact Gaussian Teacher（用紧凑高斯教师加速收敛）</a><a class="toc-link toc-level-3" href="#3-3-analysis-分析">3.3 Analysis（分析）</a><a class="toc-link toc-level-2" href="#6-局限性和展望-约300字">6. 局限性和展望（约300字）</a></nav>
       </div>
     </aside>
-    <main class="academic-main"><article><div class="markdown-image-gallery"><h1 id="bibtex-与-dblp-查询结果">BibTeX 与 DBLP 查询结果</h1>
-<blockquote><a href="../">快速理解版</a> · <a href="../full/">逐篇解析</a> · <a href="../../">返回综述目录</a></blockquote>
-<p>本页由确定性 Python 程序生成，不使用 LLM。已知 DBLP 标识通过 DBLP 官方 SPARQL/RDF 服务获取；没有标识时仅使用 DOI 或精确标题在同一官方服务中查询。BibTeX 字段只来自 DBLP 返回值。</p>
-<ul><li><strong>DBLP 收录并生成 BibTeX：</strong> 73 篇</li><li><strong>DBLP 未找到：</strong> 4 篇</li><li><strong>请求失败：</strong> 0 篇</li></ul>
-<h2 id="bibtex">BibTeX</h2>
-<pre data-language="bibtex"><code>@article{DBLP:journals/corr/abs-2512-14692,
-  author    = {Jianfeng Xiang and Xiaoxue Chen and Sicheng Xu and Ruicheng Wang and Zelong Lv and Yu Deng 0006 and Hongyuan Zhu 0001 and Yue Dong 0001 and Hao Zhao 0002 and Nicholas Jing Yuan and Jiaolong Yang},
-  title     = {Native and Compact Structured Latents for 3D Generation},
-  journal   = {CoRR},
-  year      = {2025},
-  doi       = {10.48550/ARXIV.2512.14692},
-  url       = {https://doi.org/10.48550/ARXIV.2512.14692},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2512-14692.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2508-10868,
-  author    = {Yibo Zhang and Li Zhang and Rui Ma and Nan Cao},
-  title     = {TexVerse: A Universe of 3D Objects with High-Resolution Textures},
-  journal   = {CoRR},
-  year      = {2025},
-  doi       = {10.48550/ARXIV.2508.10868},
-  url       = {https://doi.org/10.48550/ARXIV.2508.10868},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2508-10868.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2507-17745,
-  author    = {Yiwen Chen and Zhihao Li and Yikai Wang 0001 and Hu Zhang and Qin Li and Chi Zhang 0007 and Guosheng Lin},
-  title     = {Ultra3D: Efficient and High-Fidelity 3D Generation with Part Attention},
-  journal   = {CoRR},
-  year      = {2025},
-  doi       = {10.48550/ARXIV.2507.17745},
-  url       = {https://doi.org/10.48550/ARXIV.2507.17745},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2507-17745.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2506-15442,
-  author    = {Team Hunyuan3D and Shuhui Yang and Mingxin Yang and Yifei Feng and Xin Huang and Sheng Zhang and Zebin He and Di Luo and Haolin Liu and Yunfei Zhao and Qingxiang Lin and Zeqiang Lai and Xianghui Yang and Huiwen Shi and Zibo Zhao 0001 and Bowen Zhang and Hongyu Yan and Lifu Wang and Sicong Liu and Jihong Zhang and Meng Chen and Liang Dong and Yiwen Jia and Yulin Cai and Jiaao Yu and Yixuan Tang and Dongyuan Guo and Junlin Yu and Hao Zhang 0073 and Zheng Ye and Peng He and Runzhou Wu and Shida Wei and Chao Zhang 0119 and Yonghao Tan and Yifu Sun and Lin Niu and Shirui Huang and Bojian Zheng and Shu Liu and Shilin Chen and Xiang Yuan and Xiaofeng Yang and Kai Liu 0052 and Jianchen Zhu and Peng Chen 0021 and Tian Liu and Di Wang 0052 and Yuhong Liu and Linus and Jie Jiang 0015 and Jingwei Huang and Chunchao Guo},
-  title     = {Hunyuan3D 2.1: From Images to High-Fidelity 3D Assets with Production-Ready PBR Material},
-  journal   = {CoRR},
-  year      = {2025},
-  doi       = {10.48550/ARXIV.2506.15442},
-  url       = {https://doi.org/10.48550/ARXIV.2506.15442},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2506-15442.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2505-17412,
-  author    = {Shuang Wu and Youtian Lin and Feihu Zhang and Yifei Zeng and Yikang Yang and Yajie Bao and Jiachen Qian and Siyu Zhu 0001 and Xun Cao and Philip Torr 0001 and Yao Yao 0008},
-  title     = {Direct3D-S2: Gigascale 3D Generation Made Easy with Spatial Sparse Attention},
-  journal   = {CoRR},
-  year      = {2025},
-  doi       = {10.48550/ARXIV.2505.17412},
-  url       = {https://doi.org/10.48550/ARXIV.2505.17412},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2505-17412.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2505-14521,
-  author    = {Zhihao Li and Yufei Wang 0006 and Heliang Zheng and Yihao Luo and Bihan Wen},
-  title     = {Sparc3D: Sparse Representation and Construction for High-Resolution 3D Shapes Modeling},
-  journal   = {CoRR},
-  year      = {2025},
-  doi       = {10.48550/ARXIV.2505.14521},
-  url       = {https://doi.org/10.48550/ARXIV.2505.14521},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2505-14521.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2505-07747,
-  author    = {Weiyu Li and Xuanyang Zhang and Zheng Sun and Di Qi and Hao Li 0069 and Wei Cheng and Weiwei Cai and Shihao Wu and Jiarui Liu 0003 and Zihao Wang and Xiao Chen and Feipeng Tian and Jianxiong Pan and Zeming Li and Gang Yu 0002 and Xiangyu Zhang 0005 and Daxin Jiang and Ping Tan 0002},
-  title     = {Step1X-3D: Towards High-Fidelity and Controllable Generation of Textured 3D Assets},
-  journal   = {CoRR},
-  year      = {2025},
-  doi       = {10.48550/ARXIV.2505.07747},
-  url       = {https://doi.org/10.48550/ARXIV.2505.07747},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2505-07747.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2503-22236,
-  author    = {Chongjie Ye and Yushuang Wu and Ziteng Lu and Jiahao Chang and Xiaoyang Guo and Jiaqing Zhou and Hao Zhao 0002 and Xiaoguang Han 0001},
-  title     = {Hi3DGen: High-fidelity 3D Geometry Generation from Images via Normal Bridging},
-  journal   = {CoRR},
-  year      = {2025},
-  doi       = {10.48550/ARXIV.2503.22236},
-  url       = {https://doi.org/10.48550/ARXIV.2503.22236},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2503-22236.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2503-21732,
-  author    = {Xianglong He and Zi-Xin Zou and Chia-Hao Chen and Yuan-Chen Guo and Ding Liang and Chun Yuan 0003 and Wanli Ouyang and Yan-Pei Cao 0001 and Yangguang Li 0001},
-  title     = {SparseFlex: High-Resolution and Arbitrary-Topology 3D Shape Modeling},
-  journal   = {CoRR},
-  year      = {2025},
-  doi       = {10.48550/ARXIV.2503.21732},
-  url       = {https://doi.org/10.48550/ARXIV.2503.21732},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2503-21732.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2502-14247,
-  author    = {Jiayu Yang and Taizhang Shang and Weixuan Sun and Xibin Song and Ziang Cheng and Senbo Wang and Shenzhou Chen and Weizhe Liu and Hongdong Li and Pan Ji},
-  title     = {Pandora3D: A Comprehensive Framework for High-Quality 3D Shape and Texture Generation},
-  journal   = {CoRR},
-  year      = {2025},
-  doi       = {10.48550/ARXIV.2502.14247},
-  url       = {https://doi.org/10.48550/ARXIV.2502.14247},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2502-14247.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2502-06608,
-  author    = {Yangguang Li 0001 and Zi-Xin Zou and Zexiang Liu and Dehu Wang and Yuan Liang and Zhipeng Yu and Xingchao Liu and Yuan-Chen Guo and Ding Liang and Wanli Ouyang and Yan-Pei Cao 0001},
-  title     = {TripoSG: High-Fidelity 3D Shape Synthesis using Large-Scale Rectified Flow Models},
-  journal   = {CoRR},
-  year      = {2025},
-  doi       = {10.48550/ARXIV.2502.06608},
-  url       = {https://doi.org/10.48550/ARXIV.2502.06608},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2502-06608.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@inproceedings{DBLP:conf/cvpr/ChenZLLLLLLFT25,
-  author    = {Rui Chen and Jianfeng Zhang and Yixun Liang and Guan Luo and Weiyu Li and Jiarui Liu 0003 and Xiu Li 0001 and Xiaoxiao Long and Jiashi Feng and Ping Tan 0002},
-  title     = {Dora: Sampling and Benchmarking for 3D Shape Variational Auto-Encoders},
-  booktitle = {CVPR},
-  year      = {2025},
-  doi       = {10.1109/CVPR52734.2025.01515},
-  url       = {https://doi.org/10.1109/CVPR52734.2025.01515},
-  biburl    = {https://dblp.org/rec/conf/cvpr/ChenZLLLLLLFT25.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@inproceedings{DBLP:conf/cvpr/XiangLXDWZC0Y25,
-  author    = {Jianfeng Xiang and Zelong Lv and Sicheng Xu and Yu Deng 0006 and Ruicheng Wang and Bowen Zhang 0010 and Dong Chen 0003 and Xin Tong 0001 and Jiaolong Yang},
-  title     = {Structured 3D Latents for Scalable and Versatile 3D Generation},
-  booktitle = {CVPR},
-  year      = {2025},
-  doi       = {10.1109/CVPR52734.2025.02000},
-  url       = {https://openaccess.thecvf.com/content/CVPR2025/html/Xiang\_Structured\_3D\_Latents\_for\_Scalable\_and\_Versatile\_3D\_Generation\_CVPR\_2025\_paper.html},
-  biburl    = {https://dblp.org/rec/conf/cvpr/XiangLXDWZC0Y25.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/tog/YuYGLLLCLQ24,
-  author    = {Xin Yu 0004 and Ze Yuan and Yuan-Chen Guo and Ying-Tian Liu and Jianhui Liu and Yangguang Li 0001 and Yan-Pei Cao 0001 and Ding Liang and Xiaojuan Qi 0001},
-  title     = {TEXGen: a Generative Diffusion Model for Mesh Textures},
-  journal   = {ACM Trans. Graph.},
-  year      = {2024},
-  doi       = {10.1145/3687909},
-  url       = {https://doi.org/10.1145/3687909},
-  biburl    = {https://dblp.org/rec/journals/tog/YuYGLLLCLQ24.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@inproceedings{DBLP:conf/iclr/ChenCCXYTL025,
-  author    = {Junyu Chen 0003 and Han Cai and Junsong Chen and Enze Xie and Shang Yang and Haotian Tang and Muyang Li and Song Han 0003},
-  title     = {Deep Compression Autoencoder for Efficient High-Resolution Diffusion Models},
-  booktitle = {ICLR},
-  year      = {2025},
-  url       = {https://openreview.net/forum?id=wH8XXUOUZU},
-  biburl    = {https://dblp.org/rec/conf/iclr/ChenCCXYTL025.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@inproceedings{DBLP:conf/cvpr/0009TDCHL0XWSPL25,
-  author    = {Zhaoxi Chen 0009 and Jiaxiang Tang and Yuhao Dong and Ziang Cao and Fangzhou Hong and Yushi Lan and Tengfei Wang 0002 and Haozhe Xie and Tong Wu and Shunsuke Saito and Liang Pan and Dahua Lin and Ziwei Liu 0002},
-  title     = {3DTopia-XL: Scaling High-quality 3D Asset Generation via Primitive Diffusion},
-  booktitle = {CVPR},
-  year      = {2025},
-  doi       = {10.1109/CVPR52734.2025.02475},
-  url       = {https://openaccess.thecvf.com/content/CVPR2025/html/Chen\_3DTopia-XL\_Scaling\_High-quality\_3D\_Asset\_Generation\_via\_Primitive\_Diffusion\_CVPR\_2025\_paper.html},
-  biburl    = {https://dblp.org/rec/conf/cvpr/0009TDCHL0XWSPL25.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@inproceedings{DBLP:conf/cvpr/Meng0ND25,
-  author    = {Quan Meng and Lei Li 0038 and Matthias Nießner and Angela Dai},
-  title     = {LT3SD: Latent Trees for 3D Scene Diffusion},
-  booktitle = {CVPR},
-  year      = {2025},
-  doi       = {10.1109/CVPR52734.2025.00069},
-  url       = {https://doi.org/10.1109/CVPR52734.2025.00069},
-  biburl    = {https://dblp.org/rec/conf/cvpr/Meng0ND25.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/cgf/XiongWZCLW25,
-  author    = {Bojun Xiong and Si-Tong Wei and Xin-Yang Zheng and Yan-Pei Cao 0001 and Zhouhui Lian and Peng-Shuai Wang},
-  title     = {OctFusion: Octree-based Diffusion Models for 3D Shape Generation},
-  journal   = {Comput. Graph. Forum},
-  year      = {2025},
-  doi       = {10.1111/CGF.70198},
-  url       = {https://doi.org/10.1111/CGF.70198},
-  biburl    = {https://dblp.org/rec/journals/cgf/XiongWZCLW25.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@inproceedings{DBLP:conf/iclr/0005DJXPH25,
-  author    = {Haitao Yang 0005 and Yuan Dong and Hanwen Jiang and Dejia Xu and Georgios Pavlakos and Qixing Huang},
-  title     = {Atlas Gaussians Diffusion for 3D Generation},
-  booktitle = {ICLR},
-  year      = {2025},
-  url       = {https://openreview.net/forum?id=H2Gxil855b},
-  biburl    = {https://dblp.org/rec/conf/iclr/0005DJXPH25.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2407-01781,
-  author    = {Francis Williams and Jiahui Huang and Jonathan Swartz and Gergely Klár and Vijay Thakkar and Matthew Cong and Xuanchi Ren and Ruilong Li and Clement Fuji-Tsang and Sanja Fidler and Eftychios Sifakis and Ken Museth},
-  title     = {fVDB: A Deep-Learning Framework for Sparse, Large-Scale, and High-Performance Spatial Intelligence},
-  journal   = {CoRR},
-  year      = {2024},
-  doi       = {10.48550/ARXIV.2407.01781},
-  url       = {https://doi.org/10.48550/ARXIV.2407.01781},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2407-01781.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2406-10163,
-  author    = {Yiwen Chen and Tong He 0001 and Di Huang and Weicai Ye and Sijin Chen and Jiaxiang Tang and Xin Chen 0040 and Zhongang Cai and Lei Yang 0045 and Gang Yu 0002 and Guosheng Lin and Chi Zhang 0007},
-  title     = {MeshAnything: Artist-Created Mesh Generation with Autoregressive Transformers},
-  journal   = {CoRR},
-  year      = {2024},
-  doi       = {10.48550/ARXIV.2406.10163},
-  url       = {https://doi.org/10.48550/ARXIV.2406.10163},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2406-10163.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/tog/ZhangWZQPJYXY24,
-  author    = {Longwen Zhang and Ziyu Wang and Qixuan Zhang and Qiwei Qiu and Anqi Pang and Haoran Jiang and Wei Yang 0034 and Lan Xu 0003 and Jingyi Yu 0001},
-  title     = {CLAY: A Controllable Large-scale Generative Model for Creating High-quality 3D Assets},
-  journal   = {ACM Trans. Graph.},
-  year      = {2024},
-  doi       = {10.1145/3658146},
-  url       = {https://doi.org/10.1145/3658146},
-  biburl    = {https://dblp.org/rec/journals/tog/ZhangWZQPJYXY24.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@inproceedings{DBLP:conf/nips/WuLZZ00C024,
-  author    = {Shuang Wu and Youtian Lin and Yifei Zeng and Feihu Zhang and Jingxi Xu 0001 and Philip Torr 0001 and Xun Cao and Yao Yao 0008},
-  title     = {Direct3D: Scalable Image-to-3D Generation via 3D Latent Diffusion Transformer},
-  booktitle = {NeurIPS},
-  year      = {2024},
-  url       = {http://papers.nips.cc/paper\_files/paper/2024/hash/dc970c91c0a82c6e4cb3c4af7bff5388-Abstract-Conference.html},
-  biburl    = {https://dblp.org/rec/conf/nips/WuLZZ00C024.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@inproceedings{DBLP:conf/eccv/HeCPHLHYOH24,
-  author    = {Xianglong He and Junyi Chen and Sida Peng and Di Huang and Yangguang Li 0001 and Xiaoshui Huang and Chun Yuan 0003 and Wanli Ouyang and Tong He 0001},
-  title     = {GVGEN: Text-to-3D Generation with Volumetric Representation},
-  booktitle = {ECCV (8)},
-  year      = {2025},
-  doi       = {10.1007/978-3-031-73242-3\_26},
-  url       = {https://doi.org/10.1007/978-3-031-73242-3\_26},
-  biburl    = {https://dblp.org/rec/conf/eccv/HeCPHLHYOH24.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/pami/LanHZYMCLDPL26,
-  author    = {Yushi Lan and Fangzhou Hong and Shangchen Zhou and Shuai Yang 0001 and Xuyi Meng and Yongwei Chen and Zhaoyang Lyu and Bo Dai 0002 and Xingang Pan and Chen Change Loy},
-  title     = {LN3Diff++: Scalable Latent Neural Fields Diffusion for Speedy 3D Generation},
-  journal   = {IEEE Trans. Pattern Anal. Mach. Intell.},
-  year      = {2026},
-  doi       = {10.1109/TPAMI.2025.3633073},
-  url       = {https://doi.org/10.1109/TPAMI.2025.3633073},
-  biburl    = {https://dblp.org/rec/journals/pami/LanHZYMCLDPL26.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2403-03206,
-  author    = {Patrick Esser and Sumith Kulal and Andreas Blattmann and Rahim Entezari and Jonas Müller and Harry Saini and Yam Levi and Dominik Lorenz and Axel Sauer and Frederic Boesel and Dustin Podell and Tim Dockhorn and Zion English and Kyle Lacey and Alex Goodwin and Yannik Marek and Robin Rombach},
-  title     = {Scaling Rectified Flow Transformers for High-Resolution Image Synthesis},
-  journal   = {CoRR},
-  year      = {2024},
-  doi       = {10.48550/ARXIV.2403.03206},
-  url       = {https://doi.org/10.48550/ARXIV.2403.03206},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2403-03206.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2312-11459,
-  author    = {Zhicong Tang and Shuyang Gu and Chunyu Wang 0001 and Ting Zhang 0002 and Jianmin Bao and Dong Chen 0003 and Baining Guo},
-  title     = {VolumeDiffusion: Flexible Text-to-3D Generation with Efficient Volumetric Encoder},
-  journal   = {CoRR},
-  year      = {2023},
-  doi       = {10.48550/ARXIV.2312.11459},
-  url       = {https://doi.org/10.48550/ARXIV.2312.11459},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2312-11459.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@inproceedings{DBLP:conf/cvpr/RenHZMFW24,
-  author    = {Xuanchi Ren and Jiahui Huang and Xiaohui Zeng and Ken Museth and Sanja Fidler and Francis Williams},
-  title     = {XCube: Large-Scale 3D Generative Modeling using Sparse Voxel Hierarchies},
-  booktitle = {CVPR},
-  year      = {2024},
-  doi       = {10.1109/CVPR52733.2024.00403},
-  url       = {https://doi.org/10.1109/CVPR52733.2024.00403},
-  biburl    = {https://dblp.org/rec/conf/cvpr/RenHZMFW24.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@inproceedings{DBLP:conf/cvpr/YuCHS024,
-  author    = {Zehao Yu 0002 and Anpei Chen and Binbin Huang 0004 and Torsten Sattler and Andreas Geiger 0001},
-  title     = {Mip-Splatting: Alias-Free 3D Gaussian Splatting},
-  booktitle = {CVPR},
-  year      = {2024},
-  doi       = {10.1109/CVPR52733.2024.01839},
-  url       = {https://doi.org/10.1109/CVPR52733.2024.01839},
-  biburl    = {https://dblp.org/rec/conf/cvpr/YuCHS024.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@inproceedings{DBLP:conf/micro/TangYLHYLD0023,
-  author    = {Haotian Tang and Shang Yang and Zhijian Liu and Ke Hong and Zhongming Yu and Xiuyu Li and Guohao Dai 0001 and Yu Wang 0002 and Song Han 0003},
-  title     = {TorchSparse++: Efficient Training and Inference Framework for Sparse Convolution on GPUs},
-  booktitle = {MICRO},
-  year      = {2023},
-  doi       = {10.1145/3613424.3614303},
-  url       = {https://doi.org/10.1145/3613424.3614303},
-  biburl    = {https://dblp.org/rec/conf/micro/TangYLHYLD0023.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@inproceedings{DBLP:conf/iclr/ZhouWML0W24,
-  author    = {Junsheng Zhou and Jinsheng Wang and Baorui Ma and Yu-Shen Liu and Tiejun Huang 0001 and Xinlong Wang},
-  title     = {Uni3D: Exploring Unified 3D Representation at Scale},
-  booktitle = {ICLR},
-  year      = {2024},
-  url       = {https://openreview.net/forum?id=wcaE4Dfgt8},
-  biburl    = {https://dblp.org/rec/conf/iclr/ZhouWML0W24.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2310-00426,
-  author    = {Junsong Chen and Jincheng Yu and Chongjian Ge and Lewei Yao and Enze Xie and Yue Wu 0002 and Zhongdao Wang and James T. Kwok and Ping Luo 0002 and Huchuan Lu and Zhenguo Li},
-  title     = {PixArt-α: Fast Training of Diffusion Transformer for Photorealistic Text-to-Image Synthesis},
-  journal   = {CoRR},
-  year      = {2023},
-  doi       = {10.48550/ARXIV.2310.00426},
-  url       = {https://doi.org/10.48550/ARXIV.2310.00426},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2310-00426.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/tog/KerblKLD23,
-  author    = {Bernhard Kerbl and Georgios Kopanas and Thomas Leimkühler and George Drettakis},
-  title     = {3D Gaussian Splatting for Real-Time Radiance Field Rendering},
-  journal   = {ACM Trans. Graph.},
-  year      = {2023},
-  doi       = {10.1145/3592433},
-  url       = {https://doi.org/10.1145/3592433},
-  biburl    = {https://dblp.org/rec/journals/tog/KerblKLD23.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2308-05371,
-  author    = {Tianchang Shen and Jacob Munkberg and Jon Hasselgren and Kangxue Yin and Zian Wang and Wenzheng Chen and Zan Gojcic and Sanja Fidler and Nicholas Sharp and Jun Gao 0004},
-  title     = {Flexible Isosurface Extraction for Gradient-Based Mesh Optimization},
-  journal   = {CoRR},
-  year      = {2023},
-  doi       = {10.48550/ARXIV.2308.05371},
-  url       = {https://doi.org/10.48550/ARXIV.2308.05371},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2308-05371.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@inproceedings{DBLP:conf/nips/DeitkeLWNMKFLVG23,
-  author    = {Matt Deitke and Ruoshi Liu and Matthew Wallingford and Huong Ngo and Oscar Michel and Aditya Kusupati and Alan Fan and Christian Laforte and Vikram Voleti and Samir Yitzhak Gadre and Eli VanderBilt and Aniruddha Kembhavi and Carl Vondrick and Georgia Gkioxari and Kiana Ehsani and Ludwig Schmidt and Ali Farhadi},
-  title     = {Objaverse-XL: A Universe of 10M+ 3D Objects},
-  booktitle = {NeurIPS},
-  year      = {2023},
-  url       = {http://papers.nips.cc/paper\_files/paper/2023/hash/70364304877b5e767de4e9a2a511be0c-Abstract-Datasets\_and\_Benchmarks.html},
-  biburl    = {https://dblp.org/rec/conf/nips/DeitkeLWNMKFLVG23.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@inproceedings{DBLP:conf/nips/NtavelisSOWGT23,
-  author    = {Evangelos Ntavelis and Aliaksandr Siarohin and Kyle Olszewski and Chaoyang Wang 0001 and Luc Van Gool and Sergey Tulyakov},
-  title     = {Autodecoding Latent 3D Diffusion Models},
-  booktitle = {NeurIPS},
-  year      = {2023},
-  url       = {http://papers.nips.cc/paper\_files/paper/2023/hash/d3b93537b521f15613524415dfe43f37-Abstract-Conference.html},
-  biburl    = {https://dblp.org/rec/conf/nips/NtavelisSOWGT23.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2306-17115,
-  author    = {Zibo Zhao 0001 and Wen Liu 0003 and Xin Chen 0040 and Xianfang Zeng and Rui Wang 0099 and Pei Cheng and Bin Fu and Tao Chen 0003 and Gang Yu 0002 and Shenghua Gao},
-  title     = {Michelangelo: Conditional 3D Shape Generation based on Shape-Image-Text Aligned Latent Representation},
-  journal   = {CoRR},
-  year      = {2023},
-  doi       = {10.48550/ARXIV.2306.17115},
-  url       = {https://doi.org/10.48550/ARXIV.2306.17115},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2306-17115.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@inproceedings{DBLP:conf/cvpr/KhannaM0HSBCUCS24,
-  author    = {Mukul Khanna and Yongsen Mao and Hanxiao Jiang 0001 and Sanjay Haresh and Brennan Shacklett and Dhruv Batra and Alexander Clegg and Eric Undersander and Angel X. Chang and Manolis Savva},
-  title     = {Habitat Synthetic Scenes Dataset (HSSD-200): An Analysis of 3D Scene Scale and Realism Tradeoffs for ObjectGoal Navigation},
-  booktitle = {CVPR},
-  year      = {2024},
-  doi       = {10.1109/CVPR52733.2024.01550},
-  url       = {https://doi.org/10.1109/CVPR52733.2024.01550},
-  biburl    = {https://dblp.org/rec/conf/cvpr/KhannaM0HSBCUCS24.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@inproceedings{DBLP:conf/cvpr/XueY0P0M0XXNS24,
-  author    = {Le Xue and Ning Yu 0006 and Shu Zhang 0007 and Artemis Panagopoulou and Junnan Li 0001 and Roberto Martín-Martín and Jiajun Wu 0001 and Caiming Xiong and Ran Xu 0001 and Juan Carlos Niebles and Silvio Savarese},
-  title     = {ULIP-2: Towards Scalable Multimodal Pre-Training for 3D Understanding},
-  booktitle = {CVPR},
-  year      = {2024},
-  doi       = {10.1109/CVPR52733.2024.02558},
-  url       = {https://doi.org/10.1109/CVPR52733.2024.02558},
-  biburl    = {https://dblp.org/rec/conf/cvpr/XueY0P0M0XXNS24.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2305-04461,
-  author    = {Xin-Yang Zheng and Hao Pan 0001 and Peng-Shuai Wang and Xin Tong 0001 and Yang Liu 0014 and Heung-Yeung Shum},
-  title     = {Locally Attentional SDF Diffusion for Controllable 3D Shape Generation},
-  journal   = {CoRR},
-  year      = {2023},
-  doi       = {10.48550/ARXIV.2305.04461},
-  url       = {https://doi.org/10.48550/ARXIV.2305.04461},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2305-04461.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2305-02463,
-  author    = {Heewoo Jun and Alex Nichol},
-  title     = {Shap-E: Generating Conditional 3D Implicit Functions},
-  journal   = {CoRR},
-  year      = {2023},
-  doi       = {10.48550/ARXIV.2305.02463},
-  url       = {https://doi.org/10.48550/ARXIV.2305.02463},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2305-02463.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2303-05371,
-  author    = {Anchit Gupta and Wenhan Xiong and Yixin Nie and Ian Jones and Barlas Oguz},
-  title     = {3DGen: Triplane Latent Diffusion for Textured Mesh Generation},
-  journal   = {CoRR},
-  year      = {2023},
-  doi       = {10.48550/ARXIV.2303.05371},
-  url       = {https://doi.org/10.48550/ARXIV.2303.05371},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2303-05371.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/tog/ZhangTNW23,
-  author    = {Biao Zhang 0005 and Jiapeng Tang and Matthias Nießner and Peter Wonka},
-  title     = {3DShape2VecSet: A 3D Shape Representation for Neural Fields and Generative Diffusion Models},
-  journal   = {ACM Trans. Graph.},
-  year      = {2023},
-  doi       = {10.1145/3592442},
-  url       = {https://doi.org/10.1145/3592442},
-  biburl    = {https://dblp.org/rec/journals/tog/ZhangTNW23.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2212-09748,
-  author    = {William Peebles and Saining Xie},
-  title     = {Scalable Diffusion Models with Transformers},
-  journal   = {CoRR},
-  year      = {2022},
-  doi       = {10.48550/ARXIV.2212.09748},
-  url       = {https://doi.org/10.48550/ARXIV.2212.09748},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2212-09748.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2212-08751,
-  author    = {Alex Nichol and Heewoo Jun and Prafulla Dhariwal and Pamela Mishkin and Mark Chen 0003},
-  title     = {Point-E: A System for Generating 3D Point Clouds from Complex Prompts},
-  journal   = {CoRR},
-  year      = {2022},
-  doi       = {10.48550/ARXIV.2212.08751},
-  url       = {https://doi.org/10.48550/ARXIV.2212.08751},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2212-08751.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2212-08051,
-  author    = {Matt Deitke and Dustin Schwenk and Jordi Salvador and Luca Weihs and Oscar Michel and Eli VanderBilt and Ludwig Schmidt and Kiana Ehsani and Aniruddha Kembhavi and Ali Farhadi},
-  title     = {Objaverse: A Universe of Annotated 3D Objects},
-  journal   = {CoRR},
-  year      = {2022},
-  doi       = {10.48550/ARXIV.2212.08051},
-  url       = {https://doi.org/10.48550/ARXIV.2212.08051},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2212-08051.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2212-01206,
-  author    = {Norman Müller and Yawar Siddiqui and Lorenzo Porzi and Samuel Rota Bulò and Peter Kontschieder and Matthias Nießner},
-  title     = {DiffRF: Rendering-Guided 3D Radiance Field Diffusion},
-  journal   = {CoRR},
-  year      = {2022},
-  doi       = {10.48550/ARXIV.2212.01206},
-  url       = {https://doi.org/10.48550/ARXIV.2212.01206},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2212-01206.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2210-06978,
-  author    = {Xiaohui Zeng and Arash Vahdat and Francis Williams and Zan Gojcic and Or Litany and Sanja Fidler and Karsten Kreis},
-  title     = {LION: Latent Point Diffusion Models for 3D Shape Generation},
-  journal   = {CoRR},
-  year      = {2022},
-  doi       = {10.48550/ARXIV.2210.06978},
-  url       = {https://doi.org/10.48550/ARXIV.2210.06978},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2210-06978.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2210-02747,
-  author    = {Yaron Lipman and Ricky T. Q. Chen and Heli Ben-Hamu and Maximilian Nickel and Matt Le 0001},
-  title     = {Flow Matching for Generative Modeling},
-  journal   = {CoRR},
-  year      = {2022},
-  doi       = {10.48550/ARXIV.2210.02747},
-  url       = {https://doi.org/10.48550/ARXIV.2210.02747},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2210-02747.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2209-08725,
-  author    = {Ka-Hei Hui and Ruihui Li and Jingyu Hu 0001 and Chi-Wing Fu},
-  title     = {Neural Wavelet-domain Diffusion for 3D Shape Generation},
-  journal   = {CoRR},
-  year      = {2022},
-  doi       = {10.48550/ARXIV.2209.08725},
-  url       = {https://doi.org/10.48550/ARXIV.2209.08725},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2209-08725.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@inproceedings{DBLP:conf/iclr/LiuG023,
-  author    = {Xingchao Liu and Chengyue Gong and Qiang Liu 0001},
-  title     = {Flow Straight and Fast: Learning to Generate and Transfer Data with Rectified Flow},
-  booktitle = {ICLR},
-  year      = {2023},
-  url       = {https://openreview.net/forum?id=XVjTT1nw5z},
-  biburl    = {https://dblp.org/rec/conf/iclr/LiuG023.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2202-01999,
-  author    = {Zhiqin Chen and Andrea Tagliasacchi and Thomas A. Funkhouser and Hao Zhang 0002},
-  title     = {Neural Dual Contouring},
-  journal   = {CoRR},
-  year      = {2022},
-  url       = {https://arxiv.org/abs/2202.01999},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2202-01999.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2201-03545,
-  author    = {Zhuang Liu 0003 and Hanzi Mao and Chao-Yuan Wu and Christoph Feichtenhofer and Trevor Darrell and Saining Xie},
-  title     = {A ConvNet for the 2020s},
-  journal   = {CoRR},
-  year      = {2022},
-  url       = {https://arxiv.org/abs/2201.03545},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2201-03545.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2112-10752,
-  author    = {Robin Rombach and Andreas Blattmann and Dominik Lorenz and Patrick Esser and Björn Ommer},
-  title     = {High-Resolution Image Synthesis with Latent Diffusion Models},
-  journal   = {CoRR},
-  year      = {2021},
-  url       = {https://arxiv.org/abs/2112.10752},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2112-10752.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2111-12503,
-  author    = {Jacob Munkberg and Jon Hasselgren and Tianchang Shen and Jun Gao 0004 and Wenzheng Chen and Alex Evans and Thomas Müller 0013 and Sanja Fidler},
-  title     = {Extracting Triangular 3D Models, Materials, and Lighting From Images},
-  journal   = {CoRR},
-  year      = {2021},
-  url       = {https://arxiv.org/abs/2111.12503},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2111-12503.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2110-06199,
-  author    = {Jasmine Collins and Shubham Goel 0001 and Achleshwar Luthra and Leon Xu and Kenan Deng 0001 and Xi Zhang and Tomas F. Yago Vicente and Himanshu Arora and Thomas Dideriksen and Matthieu Guillaumin and Jitendra Malik},
-  title     = {ABO: Dataset and Benchmarks for Real-World 3D Object Understanding},
-  journal   = {CoRR},
-  year      = {2021},
-  url       = {https://arxiv.org/abs/2110.06199},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2110-06199.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@inproceedings{DBLP:conf/iclr/JaegleBADIDKZBS22,
-  author    = {Andrew Jaegle and Sebastian Borgeaud and Jean-Baptiste Alayrac and Carl Doersch and Catalin Ionescu and David Ding and Skanda Koppula and Daniel Zoran and Andrew Brock and Evan Shelhamer and Olivier J. Hénaff and Matthew M. Botvinick and Andrew Zisserman and Oriol Vinyals and João Carreira 0001},
-  title     = {Perceiver IO: A General Architecture for Structured Inputs \&amp; Outputs},
-  booktitle = {ICLR},
-  year      = {2022},
-  url       = {https://openreview.net/forum?id=fILj7WpI-g},
-  biburl    = {https://dblp.org/rec/conf/iclr/JaegleBADIDKZBS22.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/ijon/SuALPBL24,
-  author    = {Jianlin Su and Murtadha H. M. Ahmed and Yu Lu and Shengfeng Pan and Wen Bo and Yunfeng Liu},
-  title     = {RoFormer: Enhanced transformer with Rotary Position Embedding},
-  journal   = {Neurocomputing},
-  year      = {2024},
-  doi       = {10.1016/J.NEUCOM.2023.127063},
-  url       = {https://doi.org/10.1016/J.NEUCOM.2023.127063},
-  biburl    = {https://dblp.org/rec/journals/ijon/SuALPBL24.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@inproceedings{DBLP:conf/iccv/ZhouD021,
-  author    = {Linqi Zhou and Yilun Du and Jiajun Wu 0001},
-  title     = {3D Shape Generation and Completion through Point-Voxel Diffusion},
-  booktitle = {ICCV},
-  year      = {2021},
-  doi       = {10.1109/ICCV48922.2021.00577},
-  url       = {https://doi.org/10.1109/ICCV48922.2021.00577},
-  biburl    = {https://dblp.org/rec/conf/iccv/ZhouD021.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2103-01458,
-  author    = {Shitong Luo and Wei Hu 0003},
-  title     = {Diffusion Probabilistic Models for 3D Point Cloud Generation},
-  journal   = {CoRR},
-  year      = {2021},
-  url       = {https://arxiv.org/abs/2103.01458},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2103-01458.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@inproceedings{DBLP:conf/icml/RadfordKHRGASAM21,
-  author    = {Alec Radford and Jong Wook Kim and Chris Hallacy and Aditya Ramesh and Gabriel Goh and Sandhini Agarwal and Girish Sastry and Amanda Askell and Pamela Mishkin and Jack Clark and Gretchen Krueger and Ilya Sutskever},
-  title     = {Learning Transferable Visual Models From Natural Language Supervision},
-  booktitle = {ICML},
-  year      = {2021},
-  url       = {http://proceedings.mlr.press/v139/radford21a.html},
-  biburl    = {https://dblp.org/rec/conf/icml/RadfordKHRGASAM21.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@inproceedings{DBLP:conf/cvpr/StojanovTR21,
-  author    = {Stefan Stojanov and Anh Thai and James M. Rehg},
-  title     = {Using Shape To Categorize: Low-Shot Learning With an Explicit Shape Bias},
-  booktitle = {CVPR},
-  year      = {2021},
-  doi       = {10.1109/CVPR46437.2021.00184},
-  url       = {https://openaccess.thecvf.com/content/CVPR2021/html/Stojanov\_Using\_Shape\_To\_Categorize\_Low-Shot\_Learning\_With\_an\_Explicit\_Shape\_CVPR\_2021\_paper.html},
-  biburl    = {https://dblp.org/rec/conf/cvpr/StojanovTR21.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2011-13650,
-  author    = {Yu Deng 0006 and Jiaolong Yang and Xin Tong 0001},
-  title     = {Deformed Implicit Field: Modeling 3D Shapes with Learned Dense Correspondence},
-  journal   = {CoRR},
-  year      = {2020},
-  url       = {https://arxiv.org/abs/2011.13650},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2011-13650.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/ijcv/FuJGGZMT21,
-  author    = {Huan Fu and Rongfei Jia and Lin Gao 0004 and Mingming Gong and Binqiang Zhao and Stephen J. Maybank and Dacheng Tao},
-  title     = {3D-FUTURE: 3D Furniture Shape with TextURE},
-  journal   = {Int. J. Comput. Vis.},
-  year      = {2021},
-  doi       = {10.1007/S11263-021-01534-Z},
-  url       = {https://doi.org/10.1007/S11263-021-01534-Z},
-  biburl    = {https://dblp.org/rec/journals/ijcv/FuJGGZMT21.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2002-10880,
-  author    = {Charlie Nash and Yaroslav Ganin and S. M. Ali Eslami and Peter W. Battaglia},
-  title     = {PolyGen: An Autoregressive Generative Model of 3D Meshes},
-  journal   = {CoRR},
-  year      = {2020},
-  url       = {https://arxiv.org/abs/2002.10880},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2002-10880.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@inproceedings{DBLP:conf/nips/ZhangS19a,
-  author    = {Biao Zhang 0006 and Rico Sennrich},
-  title     = {Root Mean Square Layer Normalization},
-  booktitle = {NeurIPS},
-  year      = {2019},
-  url       = {http://papers.nips.cc/paper/9403-root-mean-square-layer-normalization},
-  biburl    = {https://dblp.org/rec/conf/nips/ZhangS19a.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@inproceedings{DBLP:conf/pldi/TilletKC19,
-  author    = {Philippe Tillet and Hsiang-Tsung Kung 0001 and David D. Cox},
-  title     = {Triton: an intermediate language and compiler for tiled neural network computations},
-  booktitle = {MAPL@PLDI},
-  year      = {2019},
-  doi       = {10.1145/3315508.3329973},
-  url       = {https://doi.org/10.1145/3315508.3329973},
-  biburl    = {https://dblp.org/rec/conf/pldi/TilletKC19.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-1901-05103,
-  author    = {Jeong Joon Park and Peter R. Florence and Julian Straub and Richard A. Newcombe and Steven Lovegrove},
-  title     = {DeepSDF: Learning Continuous Signed Distance Functions for Shape Representation},
-  journal   = {CoRR},
-  year      = {2019},
-  url       = {http://arxiv.org/abs/1901.05103},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-1901-05103.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-1812-03828,
-  author    = {Lars M. Mescheder and Michael Oechsle and Michael Niemeyer and Sebastian Nowozin and Andreas Geiger 0001},
-  title     = {Occupancy Networks: Learning 3D Reconstruction in Function Space},
-  journal   = {CoRR},
-  year      = {2018},
-  url       = {http://arxiv.org/abs/1812.03828},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-1812-03828.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@inproceedings{DBLP:conf/iclr/LoshchilovH19,
-  author    = {Ilya Loshchilov and Frank Hutter},
-  title     = {Decoupled Weight Decay Regularization},
-  booktitle = {ICLR (Poster)},
-  year      = {2019},
-  url       = {https://openreview.net/forum?id=Bkg6RiCqY7},
-  biburl    = {https://dblp.org/rec/conf/iclr/LoshchilovH19.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2411-08033,
-  author    = {Yushi Lan and Shangchen Zhou and Zhaoyang Lyu and Fangzhou Hong and Shuai Yang 0001 and Bo Dai 0002 and Xingang Pan and Chen Change Loy},
-  title     = {GaussianAnything: Interactive Point Cloud Latent Diffusion for 3D Generation},
-  journal   = {CoRR},
-  year      = {2024},
-  doi       = {10.48550/ARXIV.2411.08033},
-  url       = {https://doi.org/10.48550/ARXIV.2411.08033},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2411-08033.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2403-19655,
-  author    = {Bowen Zhang 0010 and Yiji Cheng and Jiaolong Yang and Chunyu Wang 0001 and Feng Zhao 0004 and Yansong Tang and Dong Chen 0003 and Baining Guo},
-  title     = {GaussianCube: Structuring Gaussian Splatting using Optimal Transport for 3D Generative Modeling},
-  journal   = {CoRR},
-  year      = {2024},
-  doi       = {10.48550/ARXIV.2403.19655},
-  url       = {https://doi.org/10.48550/ARXIV.2403.19655},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2403-19655.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-
-@article{DBLP:journals/corr/abs-2405-14979,
-  author    = {Weiyu Li and Jiarui Liu 0003 and Rui Chen and Yixun Liang and Xuelin Chen and Ping Tan 0002 and Xiaoxiao Long},
-  title     = {CraftsMan: High-fidelity Mesh Generation with 3D Native Generation and Interactive Geometry Refiner},
-  journal   = {CoRR},
-  year      = {2024},
-  doi       = {10.48550/ARXIV.2405.14979},
-  url       = {https://doi.org/10.48550/ARXIV.2405.14979},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2405-14979.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}</code></pre>
-<h2 id="未找到或请求失败">未找到或请求失败</h2>
-<div class="table-wrap"><table><thead><tr><th>paper_id</th><th>title</th><th>status</th><th>error</th></tr></thead><tbody><tr><td>doi_10_1145_566570_566586</td><td>Dual contouring of hermite data</td><td>not_found</td><td></td></tr><tr><td>doi_10_24926_548719_085</td><td>SUBMANIFOLD SPARSE CONVOLUTIONAL NETWORKS</td><td>not_found</td><td></td></tr><tr><td>title_blender_a_3d_modelling_and_rendering_package</td><td>Blender — a 3D modelling and rendering package</td><td>not_found</td><td></td></tr><tr><td>corpus_286787543</td><td>NeRF: Representing scenes as neural radiance ﬁelds for view synthesis</td><td>not_found</td><td></td></tr></tbody></table></div></div></article></main>
+    <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../date/">← 返回日报目录</a></p>
+<h1 id="imagine3d-llm-teaching-mllms-to-imagine-3d-scenes-before-answering">Imagine3D-LLM: Teaching MLLMs to Imagine 3D Scenes Before Answering</h1>
+<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.38177v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.38177">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.38177">AlphaXiv</a></p>
+<p><strong>一句话主题：</strong> 训练多模态大语言模型从多视图图像中构建紧凑3D表示并用于回答</p>
+<p><strong>领域标签：</strong> 多模态大语言模型 / 3D场景理解 / 空间推理</p>
+<h2 id="快速理解">快速理解</h2>
+<p><strong>背景与任务：</strong> 多模态大语言模型难以从多视图图像整合出连贯的3D理解，与人类空间推理能力差距明显。</p>
+<p><strong>核心工作：</strong> 作者提出Imagine3D-LLM，通过可学习摘要令牌解码为3D高斯泼溅表示并联合训练，使模型先想象3D场景再作答。</p>
+<h2 id="中文摘要">中文摘要</h2>
+<p>从多视角图像推理3D世界仍然是多模态大语言模型（MLLMs）面临的基本挑战。虽然现代MLLMs能有效处理单图像输入，但它们在将跨视角证据整合为连贯的3D理解方面存在困难。越来越多的研究工作试图通过向MLLMs注入3D感知来弥合这一差距，要么增强细粒度的像素级跨视角对应，要么融合来自3D几何基础模型的特征，然而与人类推理之间仍存在显著差距。在这项工作中，我们重新审视人类空间推理，这表明人类并非依赖细粒度的几何线索，而是粗略地识别跨视图的常见物体，推断视角之间的相对几何关系，并组装出场景的粗略3D布局。受这一过程的启发，我们提出了Imagine3D-LLM，一种学习组装类似紧凑场景3D表示，并基于该表示来生成答案的MLLM。具体而言，我们在图像令牌之后附加一小部分可学习的摘要令牌，将其解码为紧凑的3D高斯溅射表示，并通过光度重建损失进行监督，同时与标准的下一个令牌预测目标联合训练。值得注意的是，尽管只有摘要令牌直接接收重建监督，但该目标也促使LLM底层图像特征中产生更强的跨帧对应，这表明学习重建会将3D感知信号传播到整个模型中。因此，Imagine3D-LLM在多个空间推理和3D理解基准上持续优于先前方法，这表明想象场景可能比被告知其像素级几何更有效。</p>
+<h2 id="详细分析">详细分析</h2>
+<h2 id="1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</h2>
+<p>输入是同一场景的 K 幅多视图图像和一段自然语言指令（例如“椅子在桌子的哪一边？”）。输出是模型生成的自然语言回答；在回答之前，模型内部会用一组 3D 高斯原语形成一张紧凑的 3D 场景“草图”。功能边界是面向空间关系、3D 问答、视觉定位等推理任务，不追求精确三维重建或照片级新视角渲染；图像数量、token 数量和可表达的物体细节均受训练设置限制。</p>
+<h2 id="2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</h2>
+<p>多模态大语言模型（MLLM）是指能同时把图像和文本作为输入、并生成文本回话的模型。面对单张图像时，它可以利用大量图文知识回答问题；但面对多张不同视角的图像时，它往往只把每张图当成独立图片，缺少跨视角的统一物体定位，因此 3D 空间推理明显偏弱。</p>
+<p>近期工作试图给 MLLM 补充 3D 先验。一类方法把点云坐标、视觉标记或跨帧重建任务加进图像特征，强制网络寻找像素级对应；另一类方法把 3D 重建基础模型（如 CUT3R、VGGT）输出的稠密几何特征融合进语言模型。这些方法都把“精确的像素级 3D 信息”当作提升 3D 推理的途径，但论文指出，这与人类的空间推理方式并不一致。认知研究发现，人类从多个视角观察一个场景时，不会在脑中保存精准的深度图或逐像素对应，而是先识别出不同视角中反复出现的物体，以这些物体为锚点推断视角之间的相对关系，再在脑中拼出一张粗略的 3D 布局图。</p>
+<p>由此得到核心洞察：MLLM 也应该在回答前“想象”一个紧凑的 3D 场景表示，而不是被“告知”像素级几何。为了让这种想象可学习，论文使用 3D 高斯溅射（3DGS）——一种用带位置、形状、颜色和不透明度的 3D 高斯原语表示场景的方法——并要求 MLLM 用少数几个摘要 token 去生成这些原语。token 数量远少于图像 token 数量，所以模型不得不把跨视图看到的同一物体合并到同一个 token 中，自然地形成人类那种物体级、视图一致的 3D 心理模型。</p>
+<h2 id="3-核心贡献-约300字">3. 核心贡献（约300字）</h2>
+<p>论文提出并验证了以下几点：</p>
+<ul><li><strong>一个新范式</strong>：给 MLLM 增加一个“想象 3D 场景”的中间表示，让模型在回答前把多视图输入压缩成一组紧凑 3D 高斯，再基于这个内部场景布局生成文本。</li><li><strong>一种具体机制</strong>：在输入序列中加入少量可学习的高斯摘要 token，让它们充当场景摘要；这些 token 被解码为 3D 高斯原语，并同时参与语言生成。</li><li><strong>一种联合训练目标</strong>：语言建模、图像重建、从紧凑高斯教师蒸馏三路并行，使摘要 token 既能支持问答，又能重建场景。</li><li><strong>一项分析发现</strong>：即使重建监督只作用在摘要 token 上，LLM 内部的图像特征也会变得更跨视图一致，并出现类似物体分组的结构。</li><li><strong>一系列实验证据</strong>：在 SQA3D、Real-3DQA、ScanQA、Scan2Cap、ScanRefer、Multi3DRefer 和 SPAR-Bench 共 7 个基准上，该方法一致超过基于像素级几何或 3D 基础模型特征的已有方法，尤其在中高难度、需要跨视图推理的 SPAR-Bench 题目上提升显著。</li></ul>
+<h2 id="4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</h2>
+<p>在推理阶段，系统不依赖外部 3D 传感器或离线建库。基模是一个多模态大语言模型（MLLM），其视觉编码器把每张输入图变成一组视觉 token，语言 Transformer 负责融合整个 token 序列并自回归地输出文本；此外，一个 3D 高斯解码器和一个渲染器作为内部“想象”模块，把摘要 token 变成一张粗略 3D 场景布局。整体流程如下：</p>
+<ol><li><strong>输入：用户给出的多视图图像和文本指令</strong>。  </li></ol>
+<p>视觉编码器将每张图像编码为视觉 token；文本嵌入层将指令编码为文本 token；同时读取一组固定的高斯摘要 token。 <strong>输出/交给下一步：</strong> 按“图像 token → 高斯摘要 token → 文本 token”顺序拼接得到的完整 token 序列。</p>
+<ol><li><strong>输入：完整 token 序列</strong>。  </li></ol>
+<p>语言 Transformer 在序列上做自注意力，使图像 token、摘要 token 和文本 token 相互交换信息；它在计算中途把摘要 token 当前位置的表示取出来。 <strong>输出/交给下一步：</strong> 一方面将摘要表示交给高斯解码器，另一方面原始序列继续在 Transformer 中向前计算。</p>
+<ol><li><strong>输入：取出的摘要 token 表示</strong>。  </li></ol>
+<p>3D 高斯解码器把每个摘要 token 映射成若干个 3D 高斯原语；渲染器按输入视角渲染这些原语，得到一张内部场景草图。 <strong>输出/交给下一步：</strong> 内部场景草图作为模型对场景布局的估计；摘要 token 的表示继续留在 Transformer 的后续计算中，供文本 token 参考。</p>
+<ol><li><strong>输入：Transformer 中继续前向的序列</strong>。  </li></ol>
+<p>语言 Transformer 基于当前序列预测下一个文本 token；每预测出一个 token 就将其接回序列末端，并重复预测，直到生成结束符。 <strong>输出：</strong> 最终自然语言回答。</p>
+<p>整个流程没有外部环境反馈；唯一的循环来自自回归文本生成，即新预测的 token 作为下一轮预测的输入。</p>
+<div class="mermaid">flowchart TD
+    A[多视图图像 + 文本指令] --&gt; B[视觉编码与文本嵌入]
+    B --&gt; C[拼接 图像token / 高斯摘要token / 文本token]
+    C --&gt; D[语言Transformer 全局自注意力]
+    D --&gt; E[中途取出高斯摘要token表示]
+    D --&gt; F[文本token自回归预测]
+    E --&gt; G[3D高斯解码器]
+    G --&gt; H[渲染器生成内部场景草图]
+    H --&gt; I[紧凑3D场景表示]
+    E -.-&gt; F
+    F --&gt; J{生成结束?}
+    J -- 否 --&gt; K[新文本token接回序列]
+    K --&gt; F
+    J -- 是 --&gt; L[最终回答]</div>
+<h2 id="5-核心方法-按论文-method-小节总结-约600字">5. 核心方法：按论文 Method 小节总结（约600字）</h2>
+<h3 id="3-1-preliminaries-multi-view-mllms-多视图-mllm-基础">3.1 Preliminaries: Multi-view MLLMs（多视图 MLLM 基础）</h3>
+<p>这一节说明基线模型的输入输出形式。多视图 MLLM 由视觉编码器 \(V_\psi\)、视觉-语言投影器 \(P_\phi\) 和语言模型 \(LM_\theta\) 组成。给定 K 帧图像 \(I_k\)，视觉编码器对每帧独立提取 patch 特征 \(\mathbf{z}_k\)，投影器将其映射到语言模型嵌入维度，得到视觉 token \(\mathbf{e}^{img}_k\)。所有帧的视觉 token 拼接成 \(\mathbf{e}^{img}\)，再与文本 token \(\mathbf{e}^{text}\) 拼接，输入语言模型按自回归方式生成文本。这个标准结构是后续插入高斯摘要 token 的基础。</p>
+<h3 id="3-2-imagine3d-llm-总体框架">3.2 Imagine3D-LLM（总体框架）</h3>
+<p>Imagine3D-LLM 的核心修改是在图像 token 和文本 token 之间插入 M 个高斯摘要 token，形成序列 \([\mathbf{e}^{img}; \mathbf{e}^{gs}; \mathbf{e}^{text}]\)。这些摘要 token 在 LLM 的自注意力中可以看到全部图像 token，从而汇总多视图信息。模型在某个中间层取出摘要 token 位置的隐藏状态，交给高斯头解码为 3D 高斯原语；同时语言模型继续执行文本生成。总体框架如下图所示。</p>
+<p>![图1：Imagine3D-LLM 的整体架构。给定场景的多视图图像和文本指令，我们的模型在图像 token 与文本 token 之间附加一组紧凑的可学习高斯摘要 token。在中间层 ℓ，高斯摘要 token 位置的隐藏状态被解码为紧凑的 3D Gaussian Splatting 表示，从而抽象地重建场景。模型联合训练：对文本输出使用标准语言建模损失，通过在输入视角渲染预测高斯得到的光度重建损失，以及来自预训练紧凑高斯教师 [1] 的蒸馏损失。](https://arxiv.org/html/2609.38177v1/ThinkingLLM_FIg1_3.png)</p>
+<h3 id="3-2-1-mental-reconstruction-via-gaussian-summary-tokens-通过高斯摘要-token-进行心理重建">3.2.1 Mental Reconstruction via Gaussian Summary Tokens（通过高斯摘要 token 进行心理重建）</h3>
+<p>这一小节是方法的核心：</p>
+<ul><li><strong>高斯解码</strong>：每个摘要 token \(i\) 不是只产生一个高斯，而是产生 G 个高斯原语 \(\{G_{i,j}\}_{j=1}^G\)。每个原语包含 3D 中心、不透明度、协方差矩阵和球谐系数（球谐系数用于表达随视角变化的颜色）。这些原语可通过标准 3D 高斯栅格化渲染到任意视角。</li><li><strong>重建损失</strong>：把预测的高斯渲染到输入视角 \(\pi_k\)，与原始图像 \(I_k\) 比较，用 MSE 和 LPIPS 的加权和作为损失 \(\mathcal{L}_{recon}\)。这迫使摘要 token 编码足够的场景布局和外观信息。</li><li><strong>信息瓶颈</strong>：M 远小于图像 token 总数 \(K N&#x27;\)。模型无法逐块记录像素，只能把多个视角中反复出现的同一物体或区域合并到同一个摘要 token，才能用有限容量重建场景。这种“瓶颈诱导的物体分组”是形成抽象 3D 布局的关键。</li><li><strong>中间层选择</strong>：提取摘要 token 状态时选择中间层 \(\ell\)，而不是最浅或最深。太早则摘要 token 还没有汇集完整视觉证据；太晚则剩余层数不足以让文本 token 与摘要 token 充分交互。论文在 28 层 LLM 中比较 \(\ell=7,14,21\)，中间层 \(\ell=14\) 最好。</li></ul>
+<p>下图展示了由摘要 token 解码出的 3D 高斯重建结果。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.38177v1/gaussian_viz_2.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.38177v1/gaussian_viz_2.png" alt="图8：使用估计高斯的场景重建可视化。（上）输入多视图图像；（下）由我们的高斯摘要 token 解码出的 3D 高斯渲染得到的视图。尽管由于紧凑的 M=2592 token 瓶颈，渲染较为粗糙，但它保留了整体场景布局和主要物体的位置，表明这些 token 编码了场景的一致 3D 抽象。" loading="lazy"></a><span class="image-caption">图8：使用估计高斯的场景重建可视化。（上）输入多视图图像；（下）由我们的高斯摘要 token 解码出的 3D 高斯渲染得到的视图。尽管由于紧凑的 M=2592 token 瓶颈，渲染较为粗糙，但它保留了整体场景布局和主要物体的位置，表明这些 token 编码了场景的一致 3D 抽象。</span></span></p>
+<h3 id="3-2-2-accelerating-convergence-via-distillation-from-a-compact-gaussian-teacher-用紧凑高斯教师加速收敛">3.2.2 Accelerating Convergence via Distillation from a Compact Gaussian Teacher（用紧凑高斯教师加速收敛）</h3>
+<p>纯光度监督在 LLM 中收敛很慢，因此论文引入一个冻结的紧凑高斯教师 ZipSplat。ZipSplat 本身能从多视图图像预测一组紧凑 3D 高斯，并且内部也使用 M 个查询 token，正好与学生的摘要 token 一一对应。</p>
+<p>蒸馏包含两个信号：</p>
+<ul><li><strong>token 级余弦损失</strong>：将学生的摘要 token 状态经过一个小投影头，与教师的查询 token 状态做余弦相似度，让学生的摘要表示贴近教师已经“会解码”的表示空间。</li><li><strong>参数级 L2 损失</strong>：让学生预测的高斯参数（中心、协方差、不透明度、球谐系数等）直接逼近教师预测的参数。</li></ul>
+<p>最终总目标为</p>
+<p>\[ \mathcal{L}_{\mathrm{full}} = \mathcal{L}_{\mathrm{LM}} + \lambda_{\mathrm{recon}}\mathcal{L}_{\mathrm{recon}} + \lambda_{\mathrm{distill}}\mathcal{L}_{\mathrm{distill}}. \]</p>
+<p>消融实验表明，去掉蒸馏后只靠重建损失也能提升性能，但需要更多训练轮数；蒸馏的主要作用是显著加速收敛，使系统在实际训练预算内达到稳定性能。</p>
+<h3 id="3-3-analysis-分析">3.3 Analysis（分析）</h3>
+<p>这一节不是新模块，而是分析训练后模型内部发生了哪些有意义的变化：</p>
+<ul><li><strong>图像特征变得更 3D 一致</strong>：虽然重建损失只加在摘要 token 上，但 LLM 的图像特征本身被重塑。从某查询点出发的图像间注意力图，在联合重建训练后更集中地落在另一视角的对应位置；PCA 可视化显示同一物体在不同视角下颜色一致，说明图像特征开始按跨视图语义组织。</li><li><strong>摘要 token 自发形成物体分组</strong>：对摘要 token 做 K-means 聚类，同一聚类对应的 3D 高斯往往集中在同一个物体上。模型没有显式物体监督，却自发学会了“哪些 token 属于同一个物体”。</li><li><strong>逐层对应分数上升</strong>：训练过程中，从 LLM 中间层提取的图像特征跨视图对应分数持续提升，且在高斯解码层附近提升最明显，说明重建目标的信息传播主要发生在该位置。</li></ul>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.38177v1/corr_pca_single_4.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.38177v1/corr_pca_single_4.png" alt="图2：联合重建训练对 LLM 图像特征的影响。(a) 查询点（红点）与其它输入视图之间的图像到图像注意力图。我们的模型展现出比基线显著更强的跨视图对应关系，表明高斯摘要 token 隐式地促使图像特征在视图间对齐。(b) LLM 图像特征的 PCA 可视化（前三个分量以 RGB 显示）。我们的特征明显更干净、语义结构更清晰，对应物体（如椅子、桌子）在视图间以一致的颜色编码，反映了物体级抽象的出现。" loading="lazy"></a><span class="image-caption">图2：联合重建训练对 LLM 图像特征的影响。(a) 查询点（红点）与其它输入视图之间的图像到图像注意力图。我们的模型展现出比基线显著更强的跨视图对应关系，表明高斯摘要 token 隐式地促使图像特征在视图间对齐。(b) LLM 图像特征的 PCA 可视化（前三个分量以 RGB 显示）。我们的特征明显更干净、语义结构更清晰，对应物体（如椅子、桌子）在视图间以一致的颜色编码，反映了物体级抽象的出现。</span></span></p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.38177v1/cluster_gaussian_2.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.38177v1/cluster_gaussian_2.png" alt="图3：来自摘要 token 的聚类高斯可视化。我们通过 K-means 对一组高斯摘要 token 进行聚类，并可视化聚类得到的高斯（青色表示属于同一聚类的高斯）。相似的摘要 token 被映射到同一物体，无需任何显式聚类监督。" loading="lazy"></a><span class="image-caption">图3：来自摘要 token 的聚类高斯可视化。我们通过 K-means 对一组高斯摘要 token 进行聚类，并可视化聚类得到的高斯（青色表示属于同一聚类的高斯）。相似的摘要 token 被映射到同一物体，无需任何显式聚类监督。</span></span></p>
+<p>![图4：训练过程中逐层的跨视图对应关系。我们报告在 SQA3D [52] 测试样本上从 LLM 中间层 ℓ=11∼18 提取的图像 token 表示的跨视图对应分数。分数在整个训练过程中持续上升，在高斯解码层（ℓ=14）附近提升尤为明显，表明联合重建训练改善了中间图像特征的视图一致性。阴影区域表示 SQA3D [52] 测试样本间的方差。](https://arxiv.org/html/2609.38177v1/corr.png)</p>
+<h2 id="6-局限性和展望-约300字">6. 局限性和展望（约300字）</h2>
+<p><strong>论文明确说明或直接可读出的限制：</strong></p>
+<ul><li>重建结果是粗糙的。论文使用 \(M=2592\) 个摘要 token、每个 token 产生 32 个高斯，渲染出的图像只保留大致布局和主要物体，缺少精细几何。若下游任务需要精确位置或细粒度形状，这种紧凑表示可能不够。</li><li>训练依赖一个已经训练好的紧凑高斯教师 ZipSplat 来加速收敛。没有教师或教师所处场景分布与目标域差异较大时，训练会更困难。</li><li>训练成本仍然较高。论文在 16 块 GH200 GPU、有效 batch size 64 的设置下运行，虽然只训练 1 个 epoch，总计算量并不小。</li></ul>
+<p><strong>可以谨慎推断的限制：</strong></p>
+<ul><li>实验集中在 ScanNet 为主的室内场景和 SPAR-Bench，对室外场景、动态物体、开放词汇等泛化尚未验证。</li><li>输入视角数量在多数设置中固定为 32，摘要 token 数量也固定。更少或更多视角、物体更密集时，最优 token 数量可能变化，论文未系统讨论。</li><li>3DGS 本身适合静态场景，直接扩展到动态场景需要额外的表示设计。</li></ul>
+<p><strong>展望：</strong> 后续可以探索自适应摘要 token 数量、更强的紧凑 3D 表示，以及去除教师依赖的训练方式，并把“先想象再回答”的思想推广到机器人规划和具身智能等领域。</p></div></article></main>
   </div>
   <script>/*!
   * PhotoSwipe 5.4.4 - https://photoswipe.com
@@ -1486,7 +759,7 @@ div.pswp__img--placeholder,
       }, { passive: true });
       updateToc();
     }
-        
+
 
 
   </script>

@@ -21,8 +21,8 @@ flowchart LR
 
 ### 快速要点
 
-- **任务：** 在已确认的单张物体图像条件下，学习其外观与三维形状之间的概率对应关系，并通过扩散式逐步去噪或等价连续生成过程生成完整、细节丰富且具有合理背面与结构的三维几何。
-- **输入：** 用户侧主要输入是一张包含单个物体的图像；但本综述将“图像”限定为已由证据确认的单张物体图像。仅确认包含图像条件、文本或多视图条件的论文，暂列为待核验或相邻路线。模型可内部提取图像特征、预测法线或合成辅助多视图，但这些不是用户必需输入。
+- **任务：** 给定一张物体图像，学习其外观与三维形状之间的概率对应关系，并通过扩散式逐步去噪生成完整、细节丰富且具有合理背面与结构的三维几何。
+- **输入：** 用户侧主要输入是一张包含单个物体的图像；模型可内部提取图像特征、预测法线或合成辅助多视图，但这些不是用户必需输入。
 - **输出：** 输出完整物体的高模几何或包含该几何的三维资产，可表现为隐式场、稀疏体素、点云、高斯基元或网格，并可附带外观。
 - **核心关注：** 单张图像对不可见背面、内部结构和真实尺度存在严重歧义，需要建立可靠的三维先验；高分辨率三维数据具有不规则结构与立方级计算开销，表示压缩和稀疏计算必须兼顾细节；图像条件与三维几何之间存在模态鸿沟，生成结果容易出现语义正确但局部形状或细节错误；开放、非流形和复杂拓扑难以由传统封闭隐式场稳定表达，网格提取还可能损失高频特征；几何、纹理和材质若分阶段生成，容易产生视图不一致、投影错位及几何与外观不匹配。
 - **不纳入：** 本综述不总结独立的 text-to-3D、image-to-3D 或其他 standalone 3D generation；只有统一多模态模型内部的生成能力可以作为主体任务标签；只生成二维图像而不返回三维结果的工作；仅提供数据集、评测、压缩或底层表示而不完成上述任务的工作。
@@ -59,14 +59,10 @@ flowchart LR
   D1 --> D1C1
   D2["方法：怎样完成，可叠加"]
   ROOT --> D2
-  D2C1["隐式场空间扩散"]
+  D2C1["稀疏结构化潜空间扩散"]
   D2 --> D2C1
-  D2C2["稀疏结构化潜空间扩散"]
+  D2C2["无序潜变量集合扩散"]
   D2 --> D2C2
-  D2C3["无序潜变量集合扩散"]
-  D2 --> D2C3
-  D2C4["显式几何基元空间扩散"]
-  D2 --> D2C4
   D3["架构：怎样组织模型，可叠加"]
   ROOT --> D3
   D3C1["原生三维几何与外观联合生成框架"]
@@ -100,17 +96,19 @@ flowchart LR
   S4 --> S5
 ```
 
+![Hi3dgen: High-Fidelity 3D Geometry Generation From Images Via Normal Bridging 方法图](assets/01-generation.png)
+
+*原图：[Hi3dgen: High-Fidelity 3D Geometry Generation From Images Via Normal Bridging](https://arxiv.org/html/2503.22236v2/images/method_overview.png)。Figure 1 : Overview of the proposed normal-bridged 3D geometry generation method. Our Hi3DGen comprises three components: an image-to-normal estimator, a normal-to-geometry generator, and a synthesized dataset (DetailVerse) construction pipeline.*
+
+![Pandora3D: A Comprehensive Framework for High-Quality 3D Shape and Texture Generation 方法图](assets/02-generation.png)
+
+*原图：[Pandora3D: A Comprehensive Framework for High-Quality 3D Shape and Texture Generation](https://arxiv.org/html/2502.14247v2/figures/diffusion/diffusion.png)。Figure 2: Diffusion pipeline.*
+
+![TripoSG: High-Fidelity 3D Shape Synthesis using Large-Scale Rectified Flow Models 方法图](assets/03-generation.png)
+
+*原图：[TripoSG: High-Fidelity 3D Shape Synthesis using Large-Scale Rectified Flow Models](https://arxiv.org/html/2502.06608v3/pipeline.png)。Figure 2 : The overview of our method consists of two main components: (i) Data-Building System and (ii) TripoSG Model. The data-building system processes the 3D models from various datasets (e.g., Objaverse and ShapeNet) through a series of data processing steps to create the training data. Our TripoSG model is then trained on this curated dataset for high-fidelity shape generation from a single input image.*
+
 ### 方法维度
-
-#### 隐式场空间扩散（Implicit-field diffusion）
-
-扩散过程直接作用于隐式几何场或其紧密对应的规则离散场表示，例如 occupancy field（占据场）或 SDF。隐式场以空间坐标为输入并预测几何标量；SDF 以带符号距离的零等值面定义物体表面。
-
-**核心范式：** 单图特征条件化隐式场表示上的扩散去噪，得到完整占据场或 SDF，再查询空间并提取等值面。
-
-**典型输入：** 单图条件特征、随机噪声，以及隐式场查询坐标或场网格。
-
-**典型输出：** 完整物体的 occupancy field、SDF 或同类隐式几何场；可进一步输出 mesh。
 
 #### 稀疏结构化潜空间扩散（Sparse structured-latent diffusion）
 
@@ -122,6 +120,14 @@ flowchart LR
 
 **典型输出：** 完整物体的结构化三维潜表示，解码后得到高分辨率几何、mesh 或带材质的三维资产。
 
+![Structured 3D Latents for Scalable and Versatile 3D Generation 方法图](assets/04-sparse-structured-latent-diffusion.png)
+
+*原图：[Structured 3D Latents for Scalable and Versatile 3D Generation](https://arxiv.org/html/2412.01506v3/pipeline_v3.png)。Figure 2 : Overview of our method. Encoding & Decoding: We adopt a structured latent representation ( SLat ) for 3D assets encoding, which defines local latents on a sparse 3D grid to represent both geometry and appearance information. It is encoded from the 3D assets by fusing and processing dense multiview visual features extracted from a DINOv2 encoder, and can be decoded into versatile output representations with different decoders. Generation: Two specialized rectified flow transformers are utilized to generate SLat , one for the sparse structure and the other for local latents attached to it.*
+
+![Direct3D: Scalable Image-to-3D Generation via 3D Latent Diffusion Transformer 方法图](assets/05-sparse-structured-latent-diffusion.png)
+
+*原图：[Direct3D: Scalable Image-to-3D Generation via 3D Latent Diffusion Transformer](https://arxiv.org/html/2405.14832v2/pipeline_final.png)。Figure 2: The framework of our Direct3D. (a) We utilize transformer to encode point cloud sampled from 3D model, along with a set of learnable tokens, into an explicit triplane latent space. Subsequently, a CNN-based decoder is employed to upsample these latent representations into high-resolution triplane feature maps. The occupancy values of queried points can be decoded through a geometric mapping network. (b) Then we train the image conditioned latent diffusion transformer in the 3D latent space obtained by VAE. Pixel-level information and semantic-level information from images are extracted using DINO-v2 and CLIP, respectively, and then injected into each DiT block.*
+
 #### 无序潜变量集合扩散（Unstructured latent-set diffusion）
 
 将三维物体编码为不依赖规则网格顺序的潜特征向量集合，并在该集合空间中执行条件扩散。引用材料将其描述为受 Perceiver 风格架构启发的 unordered feature vectors；这里按扩散所作用的表示空间归类，而不是按网络架构另立类别。
@@ -132,27 +138,33 @@ flowchart LR
 
 **典型输出：** 完整物体的无序潜变量集合，解码后得到隐式几何、显式几何或完整三维资产。
 
-#### 显式几何基元空间扩散（Explicit primitive-space diffusion）
+![Pandora3D: A Comprehensive Framework for High-Quality 3D Shape and Texture Generation 方法图](assets/06-unstructured-latent-set-diffusion.png)
 
-扩散过程直接生成或去噪具有显式几何意义的三维基元，例如点云、网格顶点或面参数、Gaussian 基元。Gaussian 在此指带位置、尺度、方向、不透明度及可选颜色特征的三维高斯基元，可用于显式表示和渲染物体。
+*原图：[Pandora3D: A Comprehensive Framework for High-Quality 3D Shape and Texture Generation](https://arxiv.org/html/2502.14247v2/figures/diffusion/diffusion.png)。Figure 2: Diffusion pipeline.*
 
-**核心范式：** 以单图特征为条件，从随机点、网格元素或 Gaussian 参数出发进行扩散去噪，得到覆盖完整物体的显式基元集合；必要时再执行表面重建或网格整理。
+![CLAY: A Controllable Large-scale Generative Model for Creating High-quality 3D Assets 方法图](assets/07-unstructured-latent-set-diffusion.png)
 
-**典型输入：** 单图条件特征，以及带噪点、网格元素参数或三维 Gaussian 参数。
-
-**典型输出：** 完整物体的点云、显式网格参数、Gaussian 集合，或经表面重建得到的 mesh。
+*原图：[CLAY: A Controllable Large-scale Generative Model for Creating High-quality 3D Assets](https://arxiv.org/html/2406.13897v1/fig/overview.png)。Figure 1: Overview of CLAY.*
 
 ### 架构维度
 
 #### 原生三维几何与外观联合生成框架（Joint native-3D asset generation）
 
-仅在证据直接表明几何与外观或材质在共同的原生三维表示和生成框架中联合生成时使用。若摘要只说明同时支持几何与材质，或材质由多视图模块生成，不足以归入本类。
+在共同的原生三维表示和生成框架中联合建模几何与外观或材质，直接产生完整三维资产。引用材料将其与“先生成形状、再合成多视图纹理并进行烘焙和对齐”的两阶段系统对比。此类别描述共同系统框架，不替代按扩散表示空间划分的方法类别。
 
-**核心范式：** 在共享三维表示中联合建模几何与外观或材质，并解码为完整三维资产。
+**核心范式：** 单图条件同时引导共享三维表示中的几何与材质属性生成，统一解码为高保真、带纹理或材质的完整三维资产，而非先生成几何后依赖视图空间拼接外观。
 
-**典型输入：** 需以论文证据确认的条件输入与三维生成状态。
+**典型输入：** 单张物体图像以及共享三维生成状态中的噪声。
 
-**典型输出：** 同时包含几何和外观或材质的三维资产。
+**典型输出：** 同时包含高细节几何和一致外观或材质的完整三维资产。
+
+![Structured 3D Latents for Scalable and Versatile 3D Generation 方法图](assets/08-joint-native-3d-asset-generation.png)
+
+*原图：[Structured 3D Latents for Scalable and Versatile 3D Generation](https://arxiv.org/html/2412.01506v3/pipeline_v3.png)。Figure 2 : Overview of our method. Encoding & Decoding: We adopt a structured latent representation ( SLat ) for 3D assets encoding, which defines local latents on a sparse 3D grid to represent both geometry and appearance information. It is encoded from the 3D assets by fusing and processing dense multiview visual features extracted from a DINOv2 encoder, and can be decoded into versatile output representations with different decoders. Generation: Two specialized rectified flow transformers are utilized to generate SLat , one for the sparse structure and the other for local latents attached to it.*
+
+![CLAY: A Controllable Large-scale Generative Model for Creating High-quality 3D Assets 方法图](assets/09-joint-native-3d-asset-generation.png)
+
+*原图：[CLAY: A Controllable Large-scale Generative Model for Creating High-quality 3D Assets](https://arxiv.org/html/2406.13897v1/fig/overview.png)。Figure 1: Overview of CLAY.*
 
 ## 相关工作
 
@@ -160,22 +172,44 @@ flowchart LR
 
 ### 单图条件完整物体高模几何生成（generation）
 
+![Michelangelo: Conditional 3D Shape Generation based on Shape-Image-Text Aligned Latent Representation 相关工作代表图](assets/related-work/01-generation-1.png)
+
+*相关工作代表图：[Michelangelo: Conditional 3D Shape Generation based on Shape-Image-Text Aligned Latent Representation](https://arxiv.org/html/2306.17115v2/newnetwork.png)。Figure 2 : Alignment-before-generation pipeline . Our method contains two models: the Shape-Image-Text-Aligned Variational Auto-Encoder (SITA-VAE) and the Aligned Shape Latent Diffusion Model (ASLDM). The SITA-VAE consists of four modules: an image encoder, a text encoder, a 3D shape encoder, and a 3D shape decoder. Encoders encode inputs pair into an aligned space, and the 3D shape decoder reconstructs 3D shapes given embeddings from the aligned space. The ASLDM maps the image or text condition to the aligned shape latent space for sampling a high-quality 3D shape embedding, which latterly reconstructed to high-fidelity 3D shapes by the 3D shape decoder.*
+
+![Locally Attentional SDF Diffusion for Controllable 3D Shape Generation 相关工作代表图](assets/related-work/02-generation-2.png)
+
+*相关工作代表图：[Locally Attentional SDF Diffusion for Controllable 3D Shape Generation](https://arxiv.org/html/2305.04461v2/sketchdiffusion-pipeline.png)。Method pipeline for locally attentional SDF diffusion.*
+
 ```mermaid
 flowchart LR
-  P1["1. 已确认的隐式场生成方向"]
-  P2["2. 包含图像条件但单图输入待核验的候选路线"]
-  P3["3. 图像条件高保真几何的待核验候选路线"]
+  P1["1. 从跨模态对齐到条件三维潜空间扩散"]
+  P2["2. 粗到细的隐式场扩散"]
+  P3["3. 原生三维潜变量与直接图像到几何生成"]
+  P4["4. 多分辨率三维生成与统一资产输出"]
+  P5["5. 大规模连续流与高保真图像条件几何生成"]
   P1 --> P2
   P2 --> P3
+  P3 --> P4
+  P4 --> P5
 ```
 
-- **已确认的隐式场生成方向**：证据显示该方法处理整体形状与细粒度几何的分阶段生成，但其输入明确为 2D sketch image，因此与单张物体图像范围的关系尚需确认。；方法变化：证据支持其将低分辨率 occupancy field 与高分辨率 SDF 生成分为两个 diffusion 阶段；这属于隐式场表示轴，不应表述为已确认的单图像主体路线。；代表论文：arxiv_2305.04461。
-- **包含图像条件但单图输入待核验的候选路线**：这些论文的摘要分别支持图像或图像与文本、多视图及其他条件，但现有证据不足以确认用户侧主要输入始终为单张物体图像。；方法变化：方法变化涉及对齐潜表示、三平面或其他结构化潜表示、三维 latent space 及统一资产表示；这些是并行表示与架构路线，不构成已确认的主体时间链。；代表论文：arxiv_2306.17115、arxiv_2405.14832、arxiv_2406.13897、arxiv_2412.01506。
-- **图像条件高保真几何的待核验候选路线**：摘要支持图像与高保真三维几何之间的对应关系，但不足以确认用户侧主要输入是单张图像。；方法变化：TripoSG 的证据支持高保真 mesh 输出但不证明扩散直接作用于 mesh；Hi3DGen 的证据支持图像到法线再到几何的方向，但具体生成表示和单图设置尚需核验。；代表论文：arxiv_2502.06608、arxiv_2503.22236。
+- **从跨模态对齐到条件三维潜空间扩散**：综合来看，早期单图到三维生成的主要问题是二维图像、文本与三维形状之间存在分布差异，直接学习条件生成容易产生与输入条件不一致的形状。；方法变化：综合来看，Michelangelo 的方法变化轴是先学习形状、图像和文本对齐的潜表示，再在对齐后的形状潜空间中执行条件扩散，以缓解跨模态域差异。；代表论文：arxiv_2306.17115。
+- **粗到细的隐式场扩散**：综合来看，单阶段三维生成难以同时处理整体形状和细粒度表面几何，且普通用户对局部几何的控制能力有限。；方法变化：综合来看，Locally Attentional SDF Diffusion 的方法变化轴是把低分辨率占据场生成与高分辨率 SDF 细化分成两个扩散阶段，使粗形状建模和局部几何生成分别处理。；代表论文：arxiv_2305.04461。
+- **原生三维潜变量与直接图像到几何生成**：综合来看，传统流程依赖多视图扩散或 SDS 优化，并且缺少能够表达复杂几何分布且可扩展的三维表示。；方法变化：综合来看，Direct3D 的方法变化轴是使用直接三维变分自编码器和三维扩散 Transformer，在紧凑、连续的三维潜空间中直接进行图像到三维生成，并对解码几何进行直接监督。；代表论文：arxiv_2405.14832。
+- **多分辨率三维生成与统一资产输出**：综合来看，单一三维表示难以同时支持高质量几何、外观信息和多种资产输出格式，且三维生成模型需要更大规模的数据与模型容量。；方法变化：综合来看，CLAY 通过多分辨率 VAE 与潜扩散 Transformer 提取三维几何先验，Structured 3D Latents 则进一步采用统一结构化潜表示，将稀疏三维网格与多视图视觉特征结合，并支持解码为多种三维格式；这一阶段的共同变化轴是提升三维潜表示的容量与可解码性。；代表论文：arxiv_2406.13897、arxiv_2412.01506。
+- **大规模连续流与高保真图像条件几何生成**：综合来看，后续方法仍需同时提高三维几何细节、输入图像对应关系和跨图像分布的泛化能力。；方法变化：综合来看，TripoSG 将重点放在大规模 rectified flow 模型和直接生成高保真 mesh，Hi3DGen 则引入图像到法线的桥接并在几何潜扩散中加入法线正则化；二者共同体现了从单纯扩大三维生成器向结合连续生成与几何中间约束的变化。；代表论文：arxiv_2502.06608、arxiv_2503.22236。
 
-**读者应记住：** 当前证据下，只有明确确认用户侧主要输入为单张物体图像、且存在独立高模几何生成阶段的论文，才可列为主体 core。其余仅证明包含 image condition、文本或多视图条件的论文应列为 adjacent 或待核验候选。最终输出为 mesh 不等于扩散直接作用于 mesh；草图输入也不自动等同于单张物体图像输入。
+**读者应记住：** 综合来看，给定论文中最符合“单张图像驱动的 diffusion 系列完整物体高模几何生成”主体范围的是 Michelangelo、Locally Attentional SDF Diffusion、Direct3D、CLAY、Structured 3D Latents、TripoSG 和 Hi3DGen。由于当前材料主要是摘要而非完整正文、方法图、公式和实验，关于具体用户输入是否始终为单张图像、最终高模表示、网格提取过程和各阶段独立创新性的判断应视为摘要级证据；其中 CLAY 和 Structured 3D Latents 支持多种输入，纳入依据是摘要明确包含图像条件和三维生成，但其单图像子流程仍需全文核验。
 
 ### adjacent
+
+![3DTopia-XL: Scaling High-quality 3D Asset Generation via Primitive Diffusion 相关工作代表图](assets/related-work/05-adjacent-1.png)
+
+*相关工作代表图：[3DTopia-XL: Scaling High-quality 3D Asset Generation via Primitive Diffusion](https://arxiv.org/html/2409.12957v2/gen_model.png)。Figure 3 : Overview of 3DTopia-XL. As a native 3D diffusion model, 3DTopia-XL is built upon a novel 3D representation PrimX (Sec. 3.1 ). This compact and expressive representation encodes the shape, texture, and material of a textured mesh efficiently, which allows modeling high-resolution geometry with PBR assets. Furthermore, this tensorial representation facilitates our patch-based compression using primitive patch VAE (Sec. 3.2 ). We then use our novel latent primitive diffusion (Sec. 3.3 ) for 3D generative modeling, which operates the diffusion and denoising process on the set of latent PrimX, naturally compatible with Transformer-based neural architectures.*
+
+![OctFusion: Octree‐based Diffusion Models for 3D Shape Generation 相关工作代表图](assets/related-work/06-adjacent-2.svg)
+
+*相关工作代表图：[OctFusion: Octree‐based Diffusion Models for 3D Shape Generation](https://arxiv.org/html/2408.14732v2/vae.svg)。Figure 16 : The network architecture of Octree-based VAE.*
 
 ```mermaid
 flowchart LR
@@ -190,6 +224,14 @@ flowchart LR
 **读者应记住：** 当前材料显示，这两篇论文可作为主体方法的三维表示和扩散生成背景，但不应被表述为满足主体范围的单图像高模三维生成方法。
 
 ### 背景与上下文工作（非任务背景）
+
+![Native and Compact Structured Latents for 3D Generation 相关工作代表图](assets/related-work/03-context-1.png)
+
+*相关工作代表图：[Native and Compact Structured Latents for 3D Generation](https://arxiv.org/html/2512.14692v1/overview_v5.png)。Figure 2 : Overview of our approach. We introduce O-Voxel for shape and material representation (Sec. 3.1 ), based on which we employ Sparse Compression VAEs for compact latent space learning (Sec. 3.2 ) and large flow models for 3D generation (Sec. 3.3 ).*
+
+![TexVerse: A Universe of 3D Objects with High-Resolution Textures 相关工作代表图](assets/related-work/04-context-2.png)
+
+*相关工作代表图：[TexVerse: A Universe of 3D Objects with High-Resolution Textures](https://arxiv.org/html/2508.10868v2/compare.png)。Figure 3: Objaverse only provides versions up to 1024 resolution for objects labeled as having higher-resolution textures in the metadata, whereas we provide genuine high-resolution versions. The UIDs are d4d12479b5bb4bfaa72dbcf1955d5eb7 and d5e6b6a11da646f68a5fcba661dcae99 .*
 
 ```mermaid
 flowchart LR
