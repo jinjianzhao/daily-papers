@@ -1,6 +1,6 @@
 # 单图像扩散高模 3D 生成：逐篇解析
 
-> 当前页面按分类和时间顺序逐篇介绍论文。 [快速理解版](../) · [BibTeX 与 DBLP 查询结果](../bibliography/index.html) · [返回综述目录](../../)
+> 当前页面按分类和时间顺序逐篇介绍论文。 [快速理解版](../) · [待核验论文（4 篇）](../uncertain-papers/index.html) · [BibTeX 与 DBLP 查询结果](../bibliography/index.html) · [返回综述目录](../../)
 
 ## 逐篇解析
 
