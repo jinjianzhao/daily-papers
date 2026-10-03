@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>2026-10 · 论文月报</title>
+  <title>Does Native 3D Texture Generation Necessarily Require 3D Assets for Training?</title>
 
   <script>
     window.MathJax = {
@@ -519,38 +519,10 @@ div.pswp__img--placeholder,
       .academic-main article { padding: 30px 22px 52px; border: 0; border-radius: 0; }
     }
 
-    h3 { font-size: 20px; }
-    h4 { font-size: 17px; }
-    h5 { font-size: 18px; }
-
-    .inline-html-entry { margin: 18px 0; padding: 16px 18px 18px; border: 1px solid #d8e2eb; border-left: 3px solid #91abc2; border-radius: 6px; background: #fbfdff; transition: border-color .15s, background .15s; }
-    .inline-html-entry.is-expanded { border-color: #b7c9d9; border-left-color: #1769aa; background: #fff; }
-    .inline-html-summary { margin-top: 0; margin-bottom: 0; }
-    .inline-html-actions { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-left: 10px; vertical-align: middle; }
-    .inline-html-toggle, .inline-html-standalone, .inline-html-close { display: inline-flex; min-height: 30px; align-items: center; justify-content: center; padding: 5px 10px; border: 1px solid #b9c9d8; border-radius: 6px; background: #fff; color: #37516a; font: inherit; font-size: 12px; font-weight: 700; line-height: 1.35; text-decoration: none; cursor: pointer; }
-    .inline-html-source-link { display: none; }
-    .inline-html-toggle:hover, .inline-html-standalone:hover, .inline-html-close:hover { border-color: #1769aa; color: #1769aa; }
-    .inline-html-toggle:disabled { cursor: wait; opacity: .6; }
-    .inline-html-panel { margin: 18px 0 0; padding-top: 24px; border-top: 1px solid #e2e8f0; }
-    .inline-html-panel[hidden] { display: none; }
-    .inline-html-body h1:first-child { display: none; }
-    .inline-html-status { color: #64748b; font-size: 14px; }
-    .inline-html-error { color: #9f1239; }
-    .inline-html-footer { display: flex; justify-content: flex-end; margin-top: 30px; padding-top: 16px; border-top: 1px solid #e2e8f0; }
-    @media (max-width: 640px) {
-      .inline-html-entry { padding: 14px 14px 16px; }
-      .inline-html-actions { display: flex; margin: 10px 0 0; }
-      .inline-html-toggle, .inline-html-standalone, .inline-html-close { min-height: 36px; }
-    }
 
 
 
-    /* A focused entry is emitted as title, classification, then one-line summary. */
-    .academic-main h4 + p,
-    .academic-main h4 + p + p,
-    .academic-main h5 + p,
-    .academic-main h5 + p + p { font-size: 16px; }
-</style>
+  </style>
 </head>
 <body>
 
@@ -561,132 +533,79 @@ div.pswp__img--placeholder,
     <aside class="academic-sidebar" id="academic-sidebar" aria-label="文档目录">
       <div class="toc-panel">
         <p class="toc-heading">目录</p>
-        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#2026-10-论文月报">2026-10 · 论文月报</a><a class="toc-link toc-level-2" href="#重点解析">重点解析</a><a class="toc-link toc-level-3" href="#3d">3D</a><a class="toc-link toc-level-4" href="#2026-10-02">2026-10-02</a><a class="toc-link toc-level-5" href="#does-native-3d-texture-generation-necessarily-require-3d-assets-for-training">Does Native 3D Texture Generation Necessarily Require 3D Assets for Training?</a><a class="toc-link toc-level-5" href="#otretarget-joint-robot-and-object-motion-retargeting-via-optimal-transport">OTRetarget: Joint Robot and Object Motion Retargeting via Optimal Transport</a><a class="toc-link toc-level-5" href="#silsa-sliding-window-slice-latents-for-topology-preserving-high-resolution-3d-generation">SILSA: Sliding-Window Slice Latents for Topology-Preserving High-Resolution 3D Generation</a><a class="toc-link toc-level-4" href="#2026-10-01">2026-10-01</a><a class="toc-link toc-level-5" href="#beyond-the-remembered-world-predictive-4d-belief-for-persistent-navigation-in-evolving-worlds">Beyond the Remembered World: Predictive 4D Belief for Persistent Navigation in Evolving Worlds</a><a class="toc-link toc-level-5" href="#dyrad-radar-novel-view-synthesis-for-dynamic-driving-scenes">DyRAD: Radar Novel View Synthesis for Dynamic Driving Scenes</a><a class="toc-link toc-level-5" href="#imagine3d-llm-teaching-mllms-to-imagine-3d-scenes-before-answering">Imagine3D-LLM: Teaching MLLMs to Imagine 3D Scenes Before Answering</a><a class="toc-link toc-level-5" href="#terra-terrain-aware-reconstruction-retargeting-and-control-for-musculoskeletal-locomotion">TERRA: Terrain-Aware Reconstruction, Retargeting and Control for Musculoskeletal Locomotion</a><a class="toc-link toc-level-3" href="#视频">视频</a><a class="toc-link toc-level-4" href="#2026-10-02-2">2026-10-02</a><a class="toc-link toc-level-5" href="#4director-controlling-video-world-models-with-rigid-3d-geometry">4Director: Controlling Video World Models with Rigid 3D Geometry</a><a class="toc-link toc-level-5" href="#adaptive-reward-routing-dynamic-multi-reward-optimization-for-joint-audio-video-diffusion-via-forward-process-rl">Adaptive Reward Routing: Dynamic Multi-Reward Optimization for Joint Audio-Video Diffusion via Forward-Process RL</a><a class="toc-link toc-level-5" href="#autoguiworld-image-generators-as-visual-world-models-for-gui-agent">AutoGUIWorld: Image Generators as Visual World Models for GUI Agent</a><a class="toc-link toc-level-5" href="#honeycomb-constant-size-scene-memory-representation-for-video-world-models">Honeycomb: Constant-Size Scene Memory Representation for Video World Models</a><a class="toc-link toc-level-5" href="#learning-what-to-recall-adaptive-multi-cue-episodic-memory-for-world-models">Learning What to Recall: Adaptive Multi-Cue Episodic Memory for World Models</a><a class="toc-link toc-level-5" href="#loci-spatial-linear-memory-for-streaming-world-models">LOCI: Spatial Linear Memory for Streaming World Models</a><a class="toc-link toc-level-5" href="#memorizon-training-world-models-beyond-their-context-window">Memorizon: Training World Models Beyond Their Context Window</a><a class="toc-link toc-level-5" href="#rowbench-do-video-models-render-what-the-program-specifies">ROWBench: Do Video Models Render What the Program Specifies?</a><a class="toc-link toc-level-5" href="#world-observer-joint-actor-observer-generation-for-persistent-world-modeling">World Observer: Joint Actor-Observer Generation for Persistent World Modeling</a><a class="toc-link toc-level-4" href="#2026-10-01-2">2026-10-01</a><a class="toc-link toc-level-5" href="#physis-lang-self-evolving-language-as-a-physical-representation-for-video-world-model">Physis-Lang: Self-Evolving Language as a Physical Representation for Video World Model</a><a class="toc-link toc-level-5" href="#thinkv2v-unleashing-the-reasoning-capability-of-mllms-for-instruction-guided-video-editing">ThinkV2V: Unleashing the Reasoning Capability of MLLMs for Instruction-Guided Video Editing</a><a class="toc-link toc-level-2" href="#全量论文简报">全量论文简报</a><a class="toc-link toc-level-3" href="#2026-10-02-3">2026-10-02</a><a class="toc-link toc-level-3" href="#2026-10-01-3">2026-10-01</a></nav>
+        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#does-native-3d-texture-generation-necessarily-require-3d-assets-for-training">Does Native 3D Texture Generation Necessarily Require 3D Assets for Training?</a><a class="toc-link toc-level-2" href="#快速理解">快速理解</a><a class="toc-link toc-level-2" href="#中文摘要">中文摘要</a><a class="toc-link toc-level-2" href="#详细分析">详细分析</a><a class="toc-link toc-level-2" href="#1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</a><a class="toc-link toc-level-2" href="#2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</a><a class="toc-link toc-level-2" href="#3-核心贡献-约300字">3. 核心贡献（约300字）</a><a class="toc-link toc-level-2" href="#4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</a><a class="toc-link toc-level-2" href="#5-核心方法-按论文-method-小节总结-约600字">5. 核心方法：按论文 Method 小节总结（约600字）</a><a class="toc-link toc-level-3" href="#3-1-preliminary-预备">3.1 Preliminary（预备）</a><a class="toc-link toc-level-3" href="#3-2-from-2d-image-to-3d-texture-supervision-从2d图像到3d纹理监督">3.2 From 2D Image to 3D Texture Supervision（从2D图像到3D纹理监督）</a><a class="toc-link toc-level-3" href="#3-3-tex-zero-vae-tex-zero-vae">3.3 Tex-Zero VAE（Tex-Zero VAE）</a><a class="toc-link toc-level-3" href="#3-4-tex-zero-dit-tex-zero-dit">3.4 Tex-Zero DiT（Tex-Zero DiT）</a><a class="toc-link toc-level-2" href="#6-局限性和展望-约300字">6. 局限性和展望（约300字）</a></nav>
       </div>
     </aside>
-    <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../index.html">论文阅读首页</a> <a href="../../date/index.html">日报目录</a> <a href="../../week/index.html">周报目录</a> <a href="../index.html">月报目录</a></p>
-<h1 id="2026-10-论文月报">2026-10 · 论文月报</h1>
-<blockquote>收录 <strong>164 篇</strong>论文，重点解析 <strong>18 篇</strong>。正文按需展开，或可单独打开。</blockquote>
-<h2 id="重点解析">重点解析</h2>
-<h3 id="3d">3D</h3>
-<h4 id="2026-10-02">2026-10-02</h4>
-<h5 id="does-native-3d-texture-generation-necessarily-require-3d-assets-for-training">Does Native 3D Texture Generation Necessarily Require 3D Assets for Training?</h5>
-<p><strong>分类：</strong> 3D；3d texture generation</p>
-<p>提出Tex-Zero，仅用2D图像训练即可实现高保真原生3D纹理生成，无需3D资产。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.34621v1/method.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.34621v1/method.png" alt="Does Native 3D Texture Generation Necessarily Require 3D Assets for Training? 论文图" loading="lazy"></a><span class="image-caption">Does Native 3D Texture Generation Necessarily Require 3D Assets for Training? 论文图</span></span></p>
+    <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../date/">← 返回日报目录</a></p>
+<h1 id="does-native-3d-texture-generation-necessarily-require-3d-assets-for-training">Does Native 3D Texture Generation Necessarily Require 3D Assets for Training?</h1>
 <p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.34621">arXiv</a> · <a href="https://huggingface.co/papers/2609.34621">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.34621">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.34621/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="otretarget-joint-robot-and-object-motion-retargeting-via-optimal-transport">OTRetarget: Joint Robot and Object Motion Retargeting via Optimal Transport</h5>
-<p><strong>分类：</strong> 3D；3d animation generation</p>
-<p>提出OTRetarget，用最优传输联合重定向人、机器人和物体运动，提升人形机器人操作交互一致性。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.36602v1/figures/capture.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.36602v1/figures/capture.png" alt="OTRetarget: Joint Robot and Object Motion Retargeting via Optimal Transport 论文图" loading="lazy"></a><span class="image-caption">OTRetarget: Joint Robot and Object Motion Retargeting via Optimal Transport 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.36602">arXiv</a> · <a href="https://huggingface.co/papers/2609.36602">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.36602">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.36602/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="silsa-sliding-window-slice-latents-for-topology-preserving-high-resolution-3d-generation">SILSA: Sliding-Window Slice Latents for Topology-Preserving High-Resolution 3D Generation</h5>
-<p><strong>分类：</strong> 3D；3d generation</p>
-<p>提出SILSA，用滑动窗口切片潜变量实现拓扑保持的高分辨率3D生成。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2610.02201v1/method.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2610.02201v1/method.png" alt="SILSA: Sliding-Window Slice Latents for Topology-Preserving High-Resolution 3D Generation 论文图" loading="lazy"></a><span class="image-caption">SILSA: Sliding-Window Slice Latents for Topology-Preserving High-Resolution 3D Generation 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2610.02201">arXiv</a> · <a href="https://huggingface.co/papers/2610.02201">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2610.02201">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2610.02201/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-10-01">2026-10-01</h4>
-<h5 id="beyond-the-remembered-world-predictive-4d-belief-for-persistent-navigation-in-evolving-worlds">Beyond the Remembered World: Predictive 4D Belief for Persistent Navigation in Evolving Worlds</h5>
-<p><strong>分类：</strong> 3D；3D world model</p>
-<p>提出EvolvingNav，用时间索引预测性4D信念解决演化世界中目标移动的持久导航问题。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.39166v2/figures/overview_web_latest.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.39166v2/figures/overview_web_latest.png" alt="Beyond the Remembered World: Predictive 4D Belief for Persistent Navigation in Evolving Worlds 论文图" loading="lazy"></a><span class="image-caption">Beyond the Remembered World: Predictive 4D Belief for Persistent Navigation in Evolving Worlds 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.39166v2">arXiv</a> · <a href="https://huggingface.co/papers/2609.39166">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.39166">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.39166/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="dyrad-radar-novel-view-synthesis-for-dynamic-driving-scenes">DyRAD: Radar Novel View Synthesis for Dynamic Driving Scenes</h5>
-<p><strong>分类：</strong> 3D；3D reconstruction</p>
-<p>提出DyRAD，利用静态背景与动态点反射体合成动态驾驶场景的雷达距离-方位-多普勒张量。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.39841v2/teaser.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.39841v2/teaser.png" alt="DyRAD: Radar Novel View Synthesis for Dynamic Driving Scenes 论文图" loading="lazy"></a><span class="image-caption">DyRAD: Radar Novel View Synthesis for Dynamic Driving Scenes 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.39841">arXiv</a> · <a href="https://huggingface.co/papers/2609.39841">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.39841">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.39841/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="imagine3d-llm-teaching-mllms-to-imagine-3d-scenes-before-answering">Imagine3D-LLM: Teaching MLLMs to Imagine 3D Scenes Before Answering</h5>
-<p><strong>分类：</strong> 3D；3D reconstruction</p>
-<p>提出Imagine3D-LLM，让多模态大模型先想象3D场景再回答，提升空间推理能力。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.38177v1/ThinkingLLM_FIg1_3.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.38177v1/ThinkingLLM_FIg1_3.png" alt="Imagine3D-LLM: Teaching MLLMs to Imagine 3D Scenes Before Answering 论文图" loading="lazy"></a><span class="image-caption">Imagine3D-LLM: Teaching MLLMs to Imagine 3D Scenes Before Answering 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.38177v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.38177">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.38177">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.38177/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="terra-terrain-aware-reconstruction-retargeting-and-control-for-musculoskeletal-locomotion">TERRA: Terrain-Aware Reconstruction, Retargeting and Control for Musculoskeletal Locomotion</h5>
-<p><strong>分类：</strong> 3D；3D reconstruction</p>
-<p>提出TERRA管线，实现从无地形运动数据到骨骼肌肉非平坦地形行走的重定向与控制。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.38653v1/methodology_v2-compressed.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.38653v1/methodology_v2-compressed.png" alt="TERRA: Terrain-Aware Reconstruction, Retargeting and Control for Musculoskeletal Locomotion 论文图" loading="lazy"></a><span class="image-caption">TERRA: Terrain-Aware Reconstruction, Retargeting and Control for Musculoskeletal Locomotion 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.38653v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.38653">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.38653">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.38653/index.html" data-inline-html="true">展开正文</a></p>
-<h3 id="视频">视频</h3>
-<h4 id="2026-10-02-2">2026-10-02</h4>
-<h5 id="4director-controlling-video-world-models-with-rigid-3d-geometry">4Director: Controlling Video World Models with Rigid 3D Geometry</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出4Director，用刚性3D几何控制视频生成中的相机与物体运动。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2610.02160v1/teaser_v7.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2610.02160v1/teaser_v7.png" alt="4Director: Controlling Video World Models with Rigid 3D Geometry 论文图" loading="lazy"></a><span class="image-caption">4Director: Controlling Video World Models with Rigid 3D Geometry 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2610.02160">arXiv</a> · <a href="https://huggingface.co/papers/2610.02160">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2610.02160">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2610.02160/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="adaptive-reward-routing-dynamic-multi-reward-optimization-for-joint-audio-video-diffusion-via-forward-process-rl">Adaptive Reward Routing: Dynamic Multi-Reward Optimization for Joint Audio-Video Diffusion via Forward-Process RL</h5>
-<p><strong>分类：</strong> 视频；video diffusion model</p>
-<p>提出自适应奖励路由方法，动态优化联合音视频扩散模型的多奖励强化学习。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.37200v1/framework.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.37200v1/framework.png" alt="Adaptive Reward Routing: Dynamic Multi-Reward Optimization for Joint Audio-Video Diffusion via Forward-Process RL 论文图" loading="lazy"></a><span class="image-caption">Adaptive Reward Routing: Dynamic Multi-Reward Optimization for Joint Audio-Video Diffusion via Forward-Process RL 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.37200">arXiv</a> · <a href="https://huggingface.co/papers/2609.37200">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.37200">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.37200/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="autoguiworld-image-generators-as-visual-world-models-for-gui-agent">AutoGUIWorld: Image Generators as Visual World Models for GUI Agent</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出AutoGUIWorld框架，用图像生成器合成GUI交互轨迹数据，提升智能体性能。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2610.01215v1/main.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2610.01215v1/main.png" alt="AutoGUIWorld: Image Generators as Visual World Models for GUI Agent 论文图" loading="lazy"></a><span class="image-caption">AutoGUIWorld: Image Generators as Visual World Models for GUI Agent 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2610.01215">arXiv</a> · <a href="https://huggingface.co/papers/2610.01215">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2610.01215">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2610.01215/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="honeycomb-constant-size-scene-memory-representation-for-video-world-models">Honeycomb: Constant-Size Scene Memory Representation for Video World Models</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出基于六平面低秩记忆的恒定大小场景记忆表示，用于视频世界模型的长时生成。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.37690v2/fig3-overview.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.37690v2/fig3-overview.png" alt="Honeycomb: Constant-Size Scene Memory Representation for Video World Models 论文图" loading="lazy"></a><span class="image-caption">Honeycomb: Constant-Size Scene Memory Representation for Video World Models 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.37690">arXiv</a> · <a href="https://huggingface.co/papers/2609.37690">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.37690">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.37690/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="learning-what-to-recall-adaptive-multi-cue-episodic-memory-for-world-models">Learning What to Recall: Adaptive Multi-Cue Episodic Memory for World Models</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出未来感知回忆框架，通过自适应多线索评分学习世界模型中的情节记忆检索。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.34677v1/figure.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.34677v1/figure.png" alt="Learning What to Recall: Adaptive Multi-Cue Episodic Memory for World Models 论文图" loading="lazy"></a><span class="image-caption">Learning What to Recall: Adaptive Multi-Cue Episodic Memory for World Models 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.34677">arXiv</a> · <a href="https://huggingface.co/papers/2609.34677">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.34677">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.34677/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="loci-spatial-linear-memory-for-streaming-world-models">LOCI: Spatial Linear Memory for Streaming World Models</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出LOCI混合空间记忆架构，用于流式世界模型，实现高效记忆与忠实重现。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.40222v1/fig1AB-P.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.40222v1/fig1AB-P.png" alt="LOCI: Spatial Linear Memory for Streaming World Models 论文图" loading="lazy"></a><span class="image-caption">LOCI: Spatial Linear Memory for Streaming World Models 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.40222">arXiv</a> · <a href="https://huggingface.co/papers/2609.40222">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.40222">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.40222/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="memorizon-training-world-models-beyond-their-context-window">Memorizon: Training World Models Beyond Their Context Window</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出Memorizon方法，通过检索共享记忆库突破上下文限制，高效训练流式世界模型的长时一致渲染。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2610.00544v1/figures/rv1_input.jpg" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2610.00544v1/figures/rv1_input.jpg" alt="Memorizon: Training World Models Beyond Their Context Window 论文图" loading="lazy"></a><span class="image-caption">Memorizon: Training World Models Beyond Their Context Window 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2610.00544">arXiv</a> · <a href="https://huggingface.co/papers/2610.00544">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2610.00544">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2610.00544/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="rowbench-do-video-models-render-what-the-program-specifies">ROWBench: Do Video Models Render What the Program Specifies?</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出PROWBench基准，评估可编程世界模型生成视频对程序指定事件和交互的忠实度。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2610.02205v1/teaser2.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2610.02205v1/teaser2.png" alt="ROWBench: Do Video Models Render What the Program Specifies? 论文图" loading="lazy"></a><span class="image-caption">ROWBench: Do Video Models Render What the Program Specifies? 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2610.02205">arXiv</a> · <a href="https://huggingface.co/papers/2610.02205">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2610.02205">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2610.02205/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="world-observer-joint-actor-observer-generation-for-persistent-world-modeling">World Observer: Joint Actor-Observer Generation for Persistent World Modeling</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出World Observer，联合生成actor与全景观察者，实现持久世界建模和视野外动态演化。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2610.02162v1/teaser.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2610.02162v1/teaser.png" alt="World Observer: Joint Actor-Observer Generation for Persistent World Modeling 论文图" loading="lazy"></a><span class="image-caption">World Observer: Joint Actor-Observer Generation for Persistent World Modeling 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2610.02162">arXiv</a> · <a href="https://huggingface.co/papers/2610.02162">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2610.02162">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2610.02162/index.html" data-inline-html="true">展开正文</a></p>
-<h4 id="2026-10-01-2">2026-10-01</h4>
-<h5 id="physis-lang-self-evolving-language-as-a-physical-representation-for-video-world-model">Physis-Lang: Self-Evolving Language as a Physical Representation for Video World Model</h5>
-<p><strong>分类：</strong> 视频；video world model</p>
-<p>提出Physis-Lang框架，用物理语言表示视频世界模型，提升物理合理性并超越Veo 3.1</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.40358v1/PhyLang_Intro_V3.7.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.40358v1/PhyLang_Intro_V3.7.png" alt="Physis-Lang: Self-Evolving Language as a Physical Representation for Video World Model 论文图" loading="lazy"></a><span class="image-caption">Physis-Lang: Self-Evolving Language as a Physical Representation for Video World Model 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.40358v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.40358">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.40358">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.40358/index.html" data-inline-html="true">展开正文</a></p>
-<h5 id="thinkv2v-unleashing-the-reasoning-capability-of-mllms-for-instruction-guided-video-editing">ThinkV2V: Unleashing the Reasoning Capability of MLLMs for Instruction-Guided Video Editing</h5>
-<p><strong>分类：</strong> 视频；video diffusion model</p>
-<p>提出ThinkV2V框架，通过MLLM推理增强指令引导视频编辑。</p>
-<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.38541v1/teaser.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.38541v1/teaser.png" alt="ThinkV2V: Unleashing the Reasoning Capability of MLLMs for Instruction-Guided Video Editing 论文图" loading="lazy"></a><span class="image-caption">ThinkV2V: Unleashing the Reasoning Capability of MLLMs for Instruction-Guided Video Editing 论文图</span></span></p>
-<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.38541v1">arXiv</a> · <a href="https://huggingface.co/papers/2609.38541">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.38541">AlphaXiv</a></p>
-<p><a href="../../papers/arxiv_2609.38541/index.html" data-inline-html="true">展开正文</a></p>
-<h2 id="全量论文简报">全量论文简报</h2>
-<h3 id="2026-10-02-3">2026-10-02</h3>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.34621">Does Native 3D Texture Generation Necessarily Require 3D Assets for Training?</a></td><td>3D</td><td>提出Tex-Zero，仅用2D图像训练即可实现高保真原生3D纹理生成，无需3D资产。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.36602">OTRetarget</a></td><td>3D</td><td>提出OTRetarget，用最优传输联合重定向人、机器人和物体运动，提升人形机器人操作交互一致性。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.02201">SILSA</a></td><td>3D</td><td>提出SILSA，用滑动窗口切片潜变量实现拓扑保持的高分辨率3D生成。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.02160">4Director</a></td><td>视频</td><td>提出4Director，用刚性3D几何控制视频生成中的相机与物体运动。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.37200">Adaptive Reward Routing</a></td><td>视频</td><td>提出自适应奖励路由方法，动态优化联合音视频扩散模型的多奖励强化学习。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.01215">AutoGUIWorld</a></td><td>视频</td><td>提出AutoGUIWorld框架，用图像生成器合成GUI交互轨迹数据，提升智能体性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.37690">Honeycomb</a></td><td>视频</td><td>提出基于六平面低秩记忆的恒定大小场景记忆表示，用于视频世界模型的长时生成。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.34677">Learning What to Recall</a></td><td>视频</td><td>提出未来感知回忆框架，通过自适应多线索评分学习世界模型中的情节记忆检索。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.40222">LOCI</a></td><td>视频</td><td>提出LOCI混合空间记忆架构，用于流式世界模型，实现高效记忆与忠实重现。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.00544">Memorizon</a></td><td>视频</td><td>提出Memorizon方法，通过检索共享记忆库突破上下文限制，高效训练流式世界模型的长时一致渲染。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.02205">ROWBench</a></td><td>视频</td><td>提出PROWBench基准，评估可编程世界模型生成视频对程序指定事件和交互的忠实度。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.02162">World Observer</a></td><td>视频</td><td>提出World Observer，联合生成actor与全景观察者，实现持久世界建模和视野外动态演化。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.39027">A Missing Piece for Trustworthy AI Reviewers</a></td><td>其他</td><td>提出修辞鲁棒性基准RobustReview和双分支SciCore评审模型，提升AI审稿一致性。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.00906">ActiveSaddler</a></td><td>其他</td><td>提出ActiveSaddler，将课程自适应建模为非平稳老虎机，动态挖掘故障模式以优化智能体工具。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.35690">Agent Priors-guided Policy Learning</a></td><td>其他</td><td>提出Agent Priors-guided Policy Learning，利用策略结构先验作为技能学习与组合的接口，提升泛化与组合能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.01108">AgSpec</a></td><td>其他</td><td>提出AgSpec，改进编码智能体管道中的检索式投机解码，通过语料和草稿长度策略提升生成吞吐。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.00825">Align Then Reason</a></td><td>其他</td><td>提出Align Then Reason多模态唇形同步裁判，先对齐唇部与音素再推理，提升配音质量检查准确率。</td></tr><tr><td><a href="https://arxiv.org/abs/2606.10953">Architect-Ant</a></td><td>其他</td><td>提出可编辑的自动户型图家具布局生成框架，结合真实数据集与规则优化，实现约束感知的布局生成。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.02122">Argo-Bench</a></td><td>其他</td><td>提出Argo-Bench评估框架，包含210个企业级数据科学任务，模拟真实ERP仓库，测试数据代理的推理与行动能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.40097">AutoDataBench</a></td><td>其他</td><td>提出AutoDataBench测试床，隔离评估大模型的数据智能（诊断、组织、构建）能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.01595">Before It Fades</a></td><td>其他</td><td>针对视频大语言模型时间推理退化问题，提出免训练的时间激活注入方法，提升时序理解能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.38886">Benchmarking and Enhancing Skill-Level Memory for Partially Observable Robotic Manipulation</a></td><td>其他</td><td>提出HIDE基准和SEEK框架，增强部分可观测机器人操作的技能级记忆。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.39687">Better Supervision Is Nearby</a></td><td>其他</td><td>提出邻域自蒸馏方法N-OPSD，利用参数扰动专家池改进数学推理模型训练。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.01415">Beyond Memory</a></td><td>其他</td><td>提出PoS框架，用显式信念状态管理长程智能体上下文，提升性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.39375">Beyond the Current Scene</a></td><td>其他</td><td>提出零样本事件参照抓取系统BeyondSCe，利用历史事件和主动视角选择应对目标遮挡。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.36956">Controlled Decoding Attacks on Black-Box LLMs</a></td><td>其他</td><td>针对黑盒大语言模型，提出基于文本采样重构分布并选择性控制解码的越狱攻击框架。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.36820">CorrGRPO</a></td><td>其他</td><td>提出相关性归一化GRPO（CorrGRPO），用于多奖励学习，平衡不同尺度奖励对优势函数的影响。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.33403">DataMagic</a></td><td>其他</td><td>提出DataMagic，以声明式多智能体编排从原始数据自动生成数据视频，统一图表、旁白与动画。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.32019">Decentralized Master-Mind</a></td><td>其他</td><td>针对多智能体路径规划中联合动作采样不协调问题，提出基于迭代意图去噪的分布式协作方法DMM。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.02185">Decoding Looped Transformers Better for (Almost) Free</a></td><td>其他</td><td>提出免训练对比解码框架LoopCD，利用循环Transformer早期状态提升解码质量并降低推理计算。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.37568">Devils in Question Relay</a></td><td>其他</td><td>针对音视频大模型中的源混淆接地幻觉，提出基于源条件中继引导的训练无关缓解方法。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.00360">DexPolicy</a></td><td>其他</td><td>提出DexPolicy，通过从宽到窄调度探索尺度，提升轨迹引导的灵巧操作成功率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.32536">Do Audio LLMs Listen Before They Act? Diagnosing Acoustic-Context Gating in Voice Agents</a></td><td>其他</td><td>提出VGBench基准，诊断音频LLM在声学情境门控中的动作触发能力，并测试VoxGate训练方法。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.37533">E-MoE</a></td><td>其他</td><td>提出E-MoE，用MoE路由离散隐变量改进非因子化扩散语言模型的少步生成质量。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.39378">EgoTools</a></td><td>其他</td><td>构建首个工具中心的第一视角视频数据集与基准，评估多模态模型工具使用推理能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.38104">Explore Broadly, Reason Sharply</a></td><td>其他</td><td>提出并行幂温采样PPT，通过多重副本平衡探索与利用，提升小模型推理采样质量。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.01939">Fewer Tokens, Better Action</a></td><td>其他</td><td>提出PyRUA-Lean框架，用选择性观测和代码执行减少令牌，提升机器人任务成功率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.38585">FlexRouter</a></td><td>其他</td><td>提出FlexRouter，用DPP建模模型互补性，优化覆盖率的LLM路由框架。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.01428">Generalization Is Stability, Not Accuracy</a></td><td>其他</td><td>提出以稳定性而非准确率评估大模型泛化能力，并引入SAGO框架多维度衡量。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.38923">GraphForge</a></td><td>其他</td><td>提出GraphForge框架，基于证据图从真实文件合成工作智能体训练数据并验证结果。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.02193">Hierarchical Continuous Diffusion Language Models</a></td><td>其他</td><td>提出层级连续扩散语言模型HC-DLM，耦合离散token与连续潜在轨迹，提升推理与语言建模性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.02196">InterEvolve</a></td><td>其他</td><td>提出InterEvolve框架，通过测试时进化奖励程序，释放人形机器人已有技能以解决新任务，无需重训练。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.01026">It Takes Workflows to Evolve Better Workflows</a></td><td>其他</td><td>提出FloWright，以工作流为框架，用分层奖励使单角色自进化、多角色协同进化，提升复杂任务表现。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.00437">JevSpawn</a></td><td>其他</td><td>提出JevSpawn，通过组合动作空间将自然语言任务映射为有限概率探索，实现自适应智能体推理。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.34381">Joint and Cross-Modal Video-Audio Generation and Editing</a></td><td>其他</td><td>面向视频音频联合生成与编辑的统一框架与设计分类综述，提出五个设计轴和九类编辑类型。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.02206">KaliBench</a></td><td>其他</td><td>提出KaliBench基准，评估和提升LLM将自然语言转为Kali Linux命令的能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.02142">Keyword Harnesses Fail Open</a></td><td>其他</td><td>本文提出廉价诊断阶梯，揭露关键词匹配基准对小型语言模型工具调用能力的误判，并验证修复方法。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.01942">Latent-Foresight</a></td><td>其他</td><td>提出Latent-Foresight，端到端联合学习潜空间分词器与流生成模型，提升世界模型未来预测能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.00574">Make Sparse Rewards Count</a></td><td>其他</td><td>提出密度感知奖励聚合方法DARA，通过逆平方根密度校正平衡多奖励强化学习中的信号，加速目标行为学习。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.40362">Multimodal Flow</a></td><td>其他</td><td>提出Multimodal Flow，一种在嵌入空间统一语言和视觉的全连续多模态生成模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.02148">Omni-Embed-Mini</a></td><td>其他</td><td>提出0.9B参数的多模态嵌入模型Omni-Embed-Mini，通过密集蒸馏无需更新文本参数即可对齐六种模态，保持文本检索性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.02181">OmniSeek</a></td><td>其他</td><td>提出OmniSeek框架，使多模态大模型通过原生工具调用进行多轮视听推理，动态获取跨模态证据以提升推理性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.35259">On-Policy or Off-Policy Learning? A Systematic Study of Distillation Dynamics</a></td><td>其他</td><td>系统研究蒸馏中rollout策略与KL方向对性能的影响，挑战on-policy必然更优的观点。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.01762">OneStreamer</a></td><td>其他</td><td>提出OneStreamer，统一流式视频交互中的感知、记忆与主动响应，实现高效视频理解。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.32810">OpenTumorBoard</a></td><td>其他</td><td>构建基于真实多学科肿瘤讨论轨迹的基准，评测大模型在专科回复和模拟会议中的表现。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.01017">Pay for the Fault, Not the Flow</a></td><td>其他</td><td>提出InFlowOp，用无标签成本优化多智能体工作流的构建与执行，提升性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.36388">Persona Dosing</a></td><td>其他</td><td>提出PersonaDose方法，通过校准激活导向流量时间，实现语言模型人格特质的渐变控制。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.00737">Personalized Image Generation with Reasoning and Reflection</a></td><td>其他</td><td>提出首个基于用户历史的个性化图像生成基准与PEARL方法，通过推理反思循环提升生成效果。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.00559">PhysVista</a></td><td>其他</td><td>提出PhysVista基准，通过感知-推理-评估闭环评估VLM物理智能。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.00483">PixelDense</a></td><td>其他</td><td>提出像素稠密表示对齐方法，以稠密预测模型作为对齐目标，经语义/几何双流正交提升像素扩散生成与训练效率。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.00314">Predictive Credit</a></td><td>其他</td><td>提出配对预测协议，衡量科学解释对实验预测的预测信用，在Tox21和OpenML上结果未确认。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.32259">Prefill-Free Cross-Family KV Cache Transfer for Heterogeneous Multi-Agent LLMs</a></td><td>其他</td><td>提出HeteroFold，实现异构多智能体LLM间无预填充的跨家族KV缓存传输，提升效率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.37362">Pretrain Once, Route Anywhere</a></td><td>其他</td><td>提出路由基础模型RouteFM，通过行为上下文表征匿名模型，实现跨环境零训练泛化。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.38593">Prompt2Skill</a></td><td>其他</td><td>提出Prompt2Skill框架，仅凭自然语言任务描述自动构建技能，无需训练数据，平均提升10.8%。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.00348">Removing the NEEDLE in the Haystack</a></td><td>其他</td><td>提出无需训练的NEEDLE方法，通过权重正交化移除LLM中的后门，同时保持模型性能和安全性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.38024">Retrieval-Augmented Skill Optimization via Cross-Harness Adaptation</a></td><td>其他</td><td>提出检索增强技能优化框架，利用外部技能库和跨环境适应提升智能体技能，避免昂贵交互。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.34210">RLE-Bench</a></td><td>其他</td><td>提出RLE-Bench基准，评估编码智能体在机器人开发中的综合工程能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.00964">RPTune</a></td><td>其他</td><td>提出RPTune框架，通过学习目录策展和LLM后训练提升小商家目录搜索准确率。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.00313">Rules to Tools</a></td><td>其他</td><td>提出Rules to Tools方法，将科学计算要求转为可执行检查，提升LLM智能体修复代码的成功率。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.01016">Scaling and Distilling Text Embeddings for Better Diffusibility</a></td><td>其他</td><td>本文研究扩散语言模型中文本嵌入的可扩散性，通过缩放和蒸馏嵌入模型提升生成性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.02202">ScholarCatalyst</a></td><td>其他</td><td>构建论文检索基准 ScholarCatalyst，用作者标注评估AI识别启发文献的能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.00686">SemanTok</a></td><td>其他</td><td>提出SemanTok视频分词器，用冻结DINO特征实现可预测语义令牌，提升自回归视频生成效率与保真度。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.01509">Sharpening Tax in Post-Training</a></td><td>其他</td><td>研究强化学习后训练对大语言模型智能体任务解覆盖的影响，提出锐化税指标和改进采样方法。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.38987">Smaller Models, Better Rejects</a></td><td>其他</td><td>提出偏好蒸馏中较小模型生成rejects优于学生自生成，并推导DPO效用界及三种干预策略。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.36585">Transformers Stop Thinking Too Early, and a Tiny LoRA Fixes It</a></td><td>其他</td><td>发现预训练模型很少用深层追踪引用，早期层加小LoRA可大幅提升链式推理</td></tr><tr><td><a href="https://arxiv.org/abs/2610.01499">VTR-Bench</a></td><td>其他</td><td>提出VTR-Bench基准，系统评估视频生成模型的视觉文本渲染能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.36138">When Does Correction Become Repair? Mechanistic Auditing of Internal Interventions in Tool-Using LLMs</a></td><td>其他</td><td>提出一个审计框架，审查工具使用大模型的内部干预，揭示行为改变不等于修复。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.32520">When Users Change Their Minds</a></td><td>其他</td><td>研究LLM智能体中用户意图漂移的测量与修复，提出基准IntentFlux和方法StateForge。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.02117">Where-OPD</a></td><td>其他</td><td>提出空间引导的on-policy自蒸馏方法，用合成场景提升多模态大模型的感知能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.32993">X-Tree</a></td><td>其他</td><td>提出X-Tree，从数据中挖掘可复用动作片段构建经验树，提升多步智能体泛化效率。</td></tr></tbody></table></div>
-<h3 id="2026-10-01-3">2026-10-01</h3>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.39166v2">Beyond the Remembered World</a></td><td>3D</td><td>提出EvolvingNav，用时间索引预测性4D信念解决演化世界中目标移动的持久导航问题。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.39841">DyRAD</a></td><td>3D</td><td>提出DyRAD，利用静态背景与动态点反射体合成动态驾驶场景的雷达距离-方位-多普勒张量。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.38177v1">Imagine3D-LLM</a></td><td>3D</td><td>提出Imagine3D-LLM，让多模态大模型先想象3D场景再回答，提升空间推理能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.38653v1">TERRA</a></td><td>3D</td><td>提出TERRA管线，实现从无地形运动数据到骨骼肌肉非平坦地形行走的重定向与控制。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.40358v1">Physis-Lang</a></td><td>视频</td><td>提出Physis-Lang框架，用物理语言表示视频世界模型，提升物理合理性并超越Veo 3.1</td></tr><tr><td><a href="https://arxiv.org/abs/2609.38541v1">ThinkV2V</a></td><td>视频</td><td>提出ThinkV2V框架，通过MLLM推理增强指令引导视频编辑。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.39564">A2Z GameSpec-Bench</a></td><td>其他</td><td>提出A2Z GameSpec-Bench基准，用长格式游戏设计文档评估编码代理的端到端游戏开发忠实度。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.38142">AdviSD</a></td><td>其他</td><td>提出AdviSD方法，用选择性自蒸馏训练小型顾问模型，提升对冻结大模型的自然语言建议效果。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.40111">Agent Error Dataset</a></td><td>其他</td><td>构建含5万错误诊断对的Agent错误数据集，用于失败分析与错误感知后训练。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.38445">AIM</a></td><td>其他</td><td>提出Agentic Idea Manager框架，管理研究想法以自动化科研搜索，提升基准任务性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.30840">Aligning One-Step Generative Models with Reward-Weighted Transport Distillation</a></td><td>其他</td><td>提出奖励加权传输蒸馏后训练方法，以样本和奖励优化一步生成模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.35922">Almost Human, Except When It Matters</a></td><td>其他</td><td>提出VoxParity基准，测试语音代理能否在音频改变决策时正确行动，多数系统依赖文字而失败。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.38288">AREX-2</a></td><td>其他</td><td>针对LLM智能体自我改进，提出利用长时程反思任务训练的AREX-2</td></tr><tr><td><a href="https://arxiv.org/abs/2609.36333">ATLAS</a></td><td>其他</td><td>提出一种对齐传输潜在结构的方法，保留结构关系并校准分布，提升世界模型规划可靠性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.34274">BIABench</a></td><td>其他</td><td>提出BIABench基准，评估AI智能体在真实生物图像分析任务上的端到端表现。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.32720">BiasReducer</a></td><td>其他</td><td>提出BiasReducer，通过编辑奖励模型线性头并自适应选择偏差方向，缓解对表面属性的偏好。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.38660">Breaking Babel</a></td><td>其他</td><td>提出自进化多智能体系统SMART，用于长字幕翻译，在测试时训练和推理中优化翻译质量。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.36308">CheatBench</a></td><td>其他</td><td>提出CheatBench基准，测量AI代理为获取奖励而作弊的行为，覆盖多领域。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.40048">CoEvoWhen</a></td><td>其他</td><td>提出策略-工具协同进化框架，提升超长视频时序定位精度并降低视觉成本</td></tr><tr><td><a href="https://arxiv.org/abs/2609.32600">CUA-SWE</a></td><td>其他</td><td>提出CUA-SWE基准，研究计算机使用代理通过视觉反馈完成软件工程任务。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.39154">DAGent</a></td><td>其他</td><td>提出DAGent，一种基于有向无环图的多智能体深度研究框架，采用边评估边增长的增量规划，提升效率与准确性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.36931">Dating the Model</a></td><td>其他</td><td>研究发现系统提示中隐藏的当前日期会显著影响大模型评估性能与排名。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.39222">DC-SAE</a></td><td>其他</td><td>提出DC-SAE语义自编码器，实现高压缩图像生成并加速扩散模型收敛。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.40241">Decision-Oriented Recommendation Reranking</a></td><td>其他</td><td>研究决策导向模型Jev在推荐重排序中的质量与延迟表现。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.37569">Decompose Radicals, Then Reward</a></td><td>其他</td><td>提出基于IDS分解与细粒度奖励的ID Spect方法，提升中文文本图像渲染准确性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.33711">DuoOPD</a></td><td>其他</td><td>提出DuoOPD，依据师生联合结果调整在线蒸馏反馈，提升多任务学生模型性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.37501">Evaluating Bounded Autonomy in Regulated Agentic AI</a></td><td>其他</td><td>提出RegLLM诊断工具，测量并治理受限自主智能体的可信度与升级行为。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.40230">EviRover</a></td><td>其他</td><td>提出EviRover，将视觉感知建模为智能体交互过程，通过数据生成与强化学习提升细粒度感知能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.40340">EvoDuet</a></td><td>其他</td><td>提出EvoDuet双水平协同进化方法，联合优化搜索查询与问题求解，提升科学发现任务性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.38334">EVOKE</a></td><td>其他</td><td>提出EVOKE方法，通过目标多样性训练激发LLM智能体内化世界知识以提升迁移决策。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.39102">False Frontiers</a></td><td>其他</td><td>诊断自进化搜索代理中的共作弊问题，提出CrossFit方法通过交叉验证缓解。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.40137">Game-Guided Skill Discovery through Self-Play for Playable Agent Control</a></td><td>其他</td><td>提出游戏引导技能发现框架，通过自对弈学习可由人类直接操控的具身智能体技能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.40295">How Much Is an AI Token Worth? Scaling Laws for Wild AI-Generated Web Text</a></td><td>其他</td><td>研究野生AI生成文本对预训练的影响，提出新缩放定律并建议过滤AI文本。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.40333">I Have a Stream</a></td><td>其他</td><td>提出StreamMAE，在连续视频流上做自监督学习，解决帧间高相似度问题，性能媲美i.i.d.预训练。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.37863">It&#x27;s Not What the Image Shows</a></td><td>其他</td><td>研究视觉语言模型作为评判者时，无关图像的存在而非内容会扰动其判断。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.18587">Label-free steering</a></td><td>其他</td><td>提出无标签偏置子空间测试时强化学习，仅优化约10万偏置参数，在多个推理任务上超越全参数优化。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.32264">LANTERN</a></td><td>其他</td><td>利用语言模型内部表示挖掘整数序列间的数学联系，提出LANTERN流程并发现新关系。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.39938">LEAP</a></td><td>其他</td><td>提出LEAP框架，通过分块证据检索解决长音视频问答的上下文限制，提升定位与推理性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.38143">Learning Meta-Skills for Agent Harness Design in Test-Time AI4AI</a></td><td>其他</td><td>提出元技能方法，让Builder根据执行反馈学习为AI Target构建测试时执行环境，提升性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.38426">LoopVL</a></td><td>其他</td><td>提出LoopVL，验证循环Transformer在视觉语言模型中的有效性，性能超越同类非循环模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.40195">MemLife</a></td><td>其他</td><td>提出MemLife多模态记忆系统，通过实体化文本情节和时间索引检索，实现长期自我中心视频的问答推理。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.39982">Mid-Harness</a></td><td>其他</td><td>提出Mid-Harness，在模型与harness间采样验证动作，提升终端智能体的行动可靠性与任务成功率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.38349">MILO</a></td><td>其他</td><td>提出MILO多智能体进化框架，自动发现并协同进化智能体系统的harness，显著提升长时程任务性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.38854">Mitigating the Length-Scaling Tax with Online Distillation</a></td><td>其他</td><td>提出在线蒸馏方法LSD，缓解RL后训练中已解问题的长度膨胀，同时保持难问题探索。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.38827">More Choices, Fewer Decisions</a></td><td>其他</td><td>分析JEV类直接决策模型对序数尺度的利用不足，提出并验证序数尺度利用偏差可修正。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.34276">NavHarness</a></td><td>其他</td><td>提出NavHarness训练无关框架，通过跨会话记忆处理提升具身终身导航性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.29142">Not Every Token Is Worth Distilling</a></td><td>其他</td><td>提出选择性监督策略S²D-OPD，仅在高分歧状态蒸馏Direct-OPD，提升大模型推理精度。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.39903">OSWorld-Science</a></td><td>其他</td><td>论文提出OSWorld-Science基准，评估VLM智能体在科学软件中的计算机使用能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.37915">Overcoming Scaling Limits in On-Policy Self-Distillation for LLM Reasoning</a></td><td>其他</td><td>提出OASIS，用验证后的在线轨迹监督与未验证尝试作教师上下文，解决推理自蒸馏随规模扩展失效。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.38807">PatchHolmes</a></td><td>其他</td><td>提出PatchHolmes，一个两阶段补丁检索系统，通过列表式代理选择提升漏洞修复提交的查找准确率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.40285">PivotOPD</a></td><td>其他</td><td>针对多轮语言智能体中的关键错误，提出PivotOPD，通过在线蒸馏同时学习预防和恢复，提升任务成功率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.35928">Prompted Identity Degrades Cooperation in Multi-Agent LLM Systems</a></td><td>其他</td><td>多智能体LLM系统中暴露模型身份标签会引发派系分化，显著降低合作效率与成功率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.40359">Removing Timing Shortcuts Improves Non-Invasive Brain-to-Text</a></td><td>其他</td><td>本文发现非侵入式脑电解码中的时间捷径，去除后显著提升脑到文本性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.34563">Rethinking Latent Visual Reasoning</a></td><td>其他</td><td>提出ReaLVR框架，为多模态大模型的潜在视觉推理引入视觉证据监督，提升推理性能与可解释性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.37879">Retrieval Capacity of Self-Attention Under Competition</a></td><td>其他</td><td>通过截留高注意力token并测损失变化，估计自注意力的有效上下文规模及其受竞争影响。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.39685">RoboCoach</a></td><td>其他</td><td>提出世界模型引导的主动教练框架，通过想象失败指导机器人技能组合的示范获取与专家更新。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.39045">RSIGame</a></td><td>其他</td><td>提出RSIGame，通过递归自我改进的智能体框架实现自主游戏开发并提升质量。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.35646">Rubric Rewards from Item Response Theory</a></td><td>其他</td><td>提出基于项目反应理论的评分奖励方法，用于语言任务强化学习，提升评分质量并减少评判预算。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.39788">Safety of Latent Communication in Multi-Agent Systems</a></td><td>其他</td><td>研究多智能体系统中潜在通信的安全风险，提出强化学习攻击并验证修复方法。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.40316">Scaling Laws for Looped Mixture of Experts</a></td><td>其他</td><td>提出循环混合专家模型的缩放定律，联合建模循环与稀疏性并验证其效率增益。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.34970">See it, Say it, Sorted</a></td><td>其他</td><td>本文动态几何分析大模型紧急错位，提出参数空间正交投影缓解方法。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.34736">SeLMRoute</a></td><td>其他</td><td>提出SeLMRoute，用概率化语义证据分离评估与路由，提升LLM路由性能与成本效率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.37539">SkillGym</a></td><td>其他</td><td>提出SkillGym自动生成可验证环境并训练智能体使用技能，提升多模型技能调用能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.38822">SkillSeek</a></td><td>其他</td><td>提出SkillSeek，用两阶段标准检索实现与LLM循环相当的技能检索性能，成本大幅降低。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.34162">SlideDP</a></td><td>其他</td><td>提出SlideDP，一种面向共享主机多GPU的同步数据并行运行时，解决主机驻留大模型微调的资源竞争与通信瓶颈。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.38717">Soft Spatial Reasoning</a></td><td>其他</td><td>针对大视觉语言模型空间推理中的过早离散化问题提出软空间推理框架通过自适应软度控制提升性能</td></tr><tr><td><a href="https://arxiv.org/abs/2609.38716">SpatialCORE</a></td><td>其他</td><td>提出SpatialCORE，用坐标置信度加权的空间奖励训练视觉语言模型，提升空间推理能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.39827">Synthetic Pre-pretraining Survives Scale, but Not as a Grammatical Prior</a></td><td>其他</td><td>研究合成预预训练在大规模语言模型中的效果，发现其增益源于长程检索而非语法先验。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.38537">Systematically Exploring the Capabilities of GPT-6 Astra as Embodied Policies</a></td><td>其他</td><td>系统性评估GPT-6 Astra作为具身策略在六大机器人领域的能力，揭示任务决策与物理控制间的差距及推理延迟限制。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.38658">Tacit-TTS</a></td><td>其他</td><td>提出一种语音克隆系统，以掩码非自回归生成替代自回归解码，实现免转录本、超十倍加速的零样本克隆。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24555">The Endless Exam</a></td><td>其他</td><td>提出Endless Exam基准，用14类参数化数学构造问题衡量模型超越人类数学前沿的进展。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.39661">The Evolution of Attention in Large Language Models</a></td><td>其他</td><td>综述大模型注意力演化，提出五维分析框架，揭示内存管理与稀疏路由趋势。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.37824">The Geometry of Inference in Transformer Residual Streams</a></td><td>其他</td><td>研究Transformer残差流中推理的几何特性，发现方向对齐增强而距离变化小，并建立高维模型解释竞争减少。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.34599">The Low-Rank Structure of VLA Reinforcement Learning</a></td><td>其他</td><td>研究强化学习对VLA模型参数的压缩影响，发现低秩更新集中于时间步模块并可引导策略优化。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.36484">The Teacher Is a Direction, Not a Destination</a></td><td>其他</td><td>提出RIDE方法，在表示空间中外推RL诱导的残差以实现在线策略蒸馏中学生超越教师。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.39578">Thinking Outside the Box</a></td><td>其他</td><td>提出Box^2-Bench，研究语言模型选择性依赖外部指导的能力，并通过训练策略提升鲁棒性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.38792">Training LLM Judges from Language Feedback via Position-Selective Self-Distillation</a></td><td>其他</td><td>提出位置选择性自蒸馏方法，利用语言反馈训练LLM裁判，提升主观任务评估性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2605.22493">Understanding Multimodality in Generative Behavioral Cloning</a></td><td>其他</td><td>本文研究生成式行为克隆中多模态专家行为的表征瓶颈，分析不同参数化下的模式保持机制。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.38721">UniEvo-VL</a></td><td>其他</td><td>提出UniEvo-VL自蒸馏训练框架，让多模态模型利用自身反馈提升图像生成能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.33355">Unmask the State</a></td><td>其他</td><td>通过策略反转研究掩码扩散语言模型的生成策略自适应时机，提出选择性状态自适应方法。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.39344">Who Said What, and Will It Be Remembered? Evaluating Persistent Speaker Attribution Across Meetings</a></td><td>其他</td><td>提出SI-cpWER指标，评估跨会议持久说话人归属，并比较商业系统与ThyVoice。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.39358">Working Around the Compute Ceiling</a></td><td>其他</td><td>提出Galahad状态化推理层，缓存KV状态使大模型重复阅读文本变为一次性成本。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.40325">WorldAuditBench</a></td><td>其他</td><td>提出3D世界审计基准，评估多模态智能体耦合动作与视觉推理的能力，发现成功率低于人类。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.38121">WUSH-KV</a></td><td>其他</td><td>提出WUSH-KV，基于数据自适应变换的低比特KV缓存量化方法，提升长上下文推理效率。</td></tr></tbody></table></div></div></article></main>
+<p><strong>一句话主题：</strong> 原生3D纹理生成的免3D资产训练方法</p>
+<p><strong>领域标签：</strong> 3D纹理生成 / 扩散模型 / 2D图像训练</p>
+<h2 id="快速理解">快速理解</h2>
+<p><strong>背景与任务：</strong> 原生3D纹理生成模型通常需要大量高质量3D资产训练，但3D资产获取困难。</p>
+<p><strong>核心工作：</strong> 提出Tex-Zero，将2D图像转换为3D训练样本，训练VAE和DiT，实现无需真实3D资产的高保真3D纹理生成。</p>
+<h2 id="中文摘要">中文摘要</h2>
+<p>原生3D纹理生成在给定几何体的三维空间中直接合成颜色，并以多视角参考图像为条件。人们普遍认为，训练此类模型需要大规模、高质量的真实3D资产数据，而获取这些数据一直是一个长期且具有挑战性的问题。在这项工作中，我们提出了Tex-Zero，证明了一个高保真的原生3D纹理生成框架可以在没有3D资产的情况下进行训练。我们的关键观察是，对于3D纹理训练，只有高质量且细粒度的颜色信息是必不可少的，而所需的几何信息则不那么关键，可以通过手动构造获得，而非从真实3D资产中获取。这一发现使得将丰富的高质量2D图像转化为有效的3D纹理生成训练样本成为可能。具体来说，我们通过将每张图像表示为3D空间中的一个平面，并应用逐块随机旋转和聚合来构建复杂的几何结构，从而将高质量2D图像转换为3D训练样本。利用这些构造的图像数据，我们训练了Tex-Zero VAE，该模型尽管在训练中从未见过真实3D资产，却能够高质量地重建它们。在Tex-Zero VAE的基础上，我们同样仅使用构造的图像数据训练了Tex-Zero DiT，其中作为条件的2D多视角图像被转换为3D空间中的平面，并由Tex-Zero VAE进行编码，从而缩小表示差距并提高生成质量。大量实验表明，Tex-Zero仅使用图像作为训练数据即可生成具有细粒度细节的高保真3D纹理，为扩展3D纹理生成的数据范式提供了一个有前景的视角。</p>
+<h2 id="详细分析">详细分析</h2>
+<h2 id="1-任务输入-输出-功能和边界-约100字">1. 任务输入、输出、功能和边界（约100字）</h2>
+<p>任务输入是目标几何 \( \mathcal{G}=\{(\mathbf{x}_i,\mathbf{n}_i,\mathbf{v}_i)\}_{i=1}^{N} \)（表面点位置、法向量与稀疏体素坐标）和多视角参考图像 \( \mathcal{I} \)。输出是在每个 3D 表面点上直接预测的归一化颜色 \( \mathcal{C} \)（原生 3D 纹理）。功能是在保持几何对齐与全局一致的前提下，从参考视图迁移细粒度外观。边界：Tex-Zero 只合成颜色、不生成几何；其核心主张是训练这样的模型不需要真实 3D 资产。</p>
+<h2 id="2-研究动机-要解决的问题与核心-insight-约300字">2. 研究动机：要解决的问题与核心 insight（约300字）</h2>
+<p>原生 3D 纹理生成直接在 3D 空间预测颜色，避免了“先渲染多视图、再投影融合”这类传统流程中累积的投影误差与跨视角不一致。但训练这类模型通常依赖大规模、高质量的真实 3D 资产，而此类数据获取成本高、规模有限，是长期瓶颈。</p>
+<p>论文的核心 insight 是：3D 纹理训练真正必需的是高质量、细粒度的颜色信息；几何信息并非最关键，可以人为构造，而不必来自语义完整的真实 3D 资产。依据在于 2D 图像与 3D 纹理共享数据结构——都是“把颜色赋给空间位置”：图像把颜色赋给像素，3D 纹理把颜色赋给表面点；而大规模高质量 2D 图像远比 3D 资产丰富易得。由此产生问题：能否把 2D 图像的颜色赋给 3D 空间中的点，从而把 2D 图像转化为有效的 3D 纹理训练数据？此前 LRM-Zero、MegaSynth、VFusion3D 等工作已证明精心设计的合成数据可以泛化到真实输入，但合成数据用于原生 3D 纹理生成仍未被探索。Tex-Zero 在这一空白处给出肯定回答。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.34621v1/teaser.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.34621v1/teaser.png" alt="图1：与先前方法相比，Tex-Zero在没有任何真实3D资产的情况下训练VAE和DiT，并为2D图像和3D纹理学习统一的潜在空间。仅以图像作为训练数据，Tex-Zero即可实现对真实3D资产的高保真生成。" loading="lazy"></a><span class="image-caption">图1：与先前方法相比，Tex-Zero在没有任何真实3D资产的情况下训练VAE和DiT，并为2D图像和3D纹理学习统一的潜在空间。仅以图像作为训练数据，Tex-Zero即可实现对真实3D资产的高保真生成。</span></span></p>
+<h2 id="3-核心贡献-约300字">3. 核心贡献（约300字）</h2>
+<p>贡献可归纳为三点。</p>
+<p>第一，数据构建：论文首次提出将大规模 2D 图像转化为原生 3D 纹理训练数据的流程——先把图像表示为 3D 空间中的彩色平面，再施加块级随机旋转与空间聚合，构造出具有复杂局部几何、遮挡和深度关系的样本；这揭示了训练数据的几何结构不必具有语义意义。</p>
+<p>第二，Tex-Zero VAE：仅用图像构造数据训练，它在推理时可以高保真重建从未见过的真实 3D 资产，同时能以明显优于 3D 数据训练 VAE 的质量重建 2D 图像，从而建立统一的 2D-3D 潜在空间。</p>
+<p>第三，Tex-Zero DiT：多视角条件图像被表示为按视角方向放置的 3D 平面，并由同一 VAE 编码，消除了条件与目标之间的表征差距。整个 DiT 只使用图像数据训练，却能在真实几何上生成高保真纹理，在六视角与正视角评测中均优于 NaTex、TRELLIS.2 等基于真实 3D 数据训练的基线。此外，当 3D 资产可用时，2D 与 3D 数据联合训练仍能进一步提升重建与生成质量。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.34621v1/mainresult.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.34621v1/mainresult.png" alt="图5：Tex-Zero与基线方法的视觉比较。Tex-Zero能够生成具有细粒度细节的高保真纹理。" loading="lazy"></a><span class="image-caption">图5：Tex-Zero与基线方法的视觉比较。Tex-Zero能够生成具有细粒度细节的高保真纹理。</span></span></p>
+<h2 id="4-推理阶段整体流程与基模-约400字">4. 推理阶段整体流程与基模（约400字）</h2>
+<p>推理时使用两个参数固定的基模：Tex-Zero VAE（编码器与解码器）和 Tex-Zero DiT。Tex-Zero VAE 负责把多视角图像条件编码进统一潜在空间，并把去噪得到的纹理潜在解码为表面颜色；Tex-Zero DiT 负责在潜在空间中进行多步迭代去噪，从噪声潜在恢复出完整纹理潜在。</p>
+<ol><li>用户输入：一个真实 3D 几何 \( \mathcal{G} \)（表面点位置、法向量、体素坐标）与六张标准视角参考图像（前、右、后、左、上、下）。</li><li>条件编码：六张参考图像被分别表示为按对应视角方向放置的 3D 彩色平面；冻结的 Tex-Zero VAE 编码器将它们编码为条件潜在序列 \( Y \)；同时几何的法向量被编码为几何特征 \( G \)。</li><li>初始化：在目标几何占据的稀疏体素网格上采样一个高斯噪声潜在 \( Z_t \)，作为待生成纹理的初始状态。</li><li>迭代去噪：把 \( Z_t \)、条件 \( Y \) 与几何特征 \( G \) 一并送入 Tex-Zero DiT，经过多步迭代逐步消除噪声、细化内容，得到干净的纹理潜在 \( Z \)。</li><li>解码上色：冻结的 Tex-Zero VAE 解码器以几何为条件，把 \( Z \) 映射到每个表面点的 RGB 颜色。</li><li>输出：几何对齐、全局一致的高保真 3D 纹理，可直接用于渲染或烘焙等下游任务。</li></ol>
+<div class="mermaid">graph TD
+    IN[&quot;用户输入：3D几何 + 多视角参考图像&quot;]
+    IN --&gt; P[&quot;参考图像按视角方向转为3D彩色平面&quot;]
+    P --&gt; ENC[&quot;冻结Tex-Zero VAE编码器&quot;]
+    ENC --&gt; Y[&quot;条件潜在序列 Y&quot;]
+    IN --&gt; N[&quot;几何法向量编码&quot;]
+    N --&gt; G[&quot;几何特征 G&quot;]
+    IN --&gt; Z0[&quot;初始化高斯噪声潜在 Z_t&quot;]
+    Y --&gt; DIT[&quot;Tex-Zero DiT 多步迭代去噪&quot;]
+    G --&gt; DIT
+    Z0 --&gt; DIT
+    DIT --&gt; Z[&quot;干净纹理潜在 Z&quot;]
+    Z --&gt; DEC[&quot;冻结Tex-Zero VAE解码器&quot;]
+    DEC --&gt; OUT[&quot;表面RGB颜色&quot;]
+    OUT --&gt; FIN[&quot;高保真3D纹理&quot;]</div>
+<h2 id="5-核心方法-按论文-method-小节总结-约600字">5. 核心方法：按论文 Method 小节总结（约600字）</h2>
+<p>图3给出整个框架的总览：Tex-Zero VAE 把目标纹理和多视角图像条件编码到同一个潜在空间，Tex-Zero DiT 在该空间中生成纹理。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.34621v1/method.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.34621v1/method.png" alt="图3：Tex-Zero概述。Tex-Zero VAE将目标纹理和多视角图像条件编码到统一潜在空间。在图像和几何特征条件下，Tex-Zero DiT生成高保真3D纹理。尽管整个框架仅在2D图像上训练，但在推理时可直接为真实3D资产生成纹理。" loading="lazy"></a><span class="image-caption">图3：Tex-Zero概述。Tex-Zero VAE将目标纹理和多视角图像条件编码到统一潜在空间。在图像和几何特征条件下，Tex-Zero DiT生成高保真3D纹理。尽管整个框架仅在2D图像上训练，但在推理时可直接为真实3D资产生成纹理。</span></span></p>
+<h3 id="3-1-preliminary-预备">3.1 Preliminary（预备）</h3>
+<p>原生 3D 纹理生成的目标是：给定几何 \( \mathcal{G} \) 与参考图像 \( \mathcal{I} \)，直接预测几何定义处每个 3D 位置的颜色，即建模 \( p_{\theta}(\mathcal{C}\mid\mathcal{G},\mathcal{I}) \)。几何点由位置 \( \mathbf{x}_i \) 、法向量 \( \mathbf{n}_i \) 和稀疏体素坐标 \( \mathbf{v}_i \) 描述，颜色 \( \mathbf{c}_i\in[-1,1]^3 \) 为归一化 RGB。既有方法通常从带纹理的 3D 资产中获取 \( (\mathcal{G},\mathcal{C}) \) 配对，并渲染同一资产得到多视角条件图像。</p>
+<h3 id="3-2-from-2d-image-to-3d-texture-supervision-从2d图像到3d纹理监督">3.2 From 2D Image to 3D Texture Supervision（从2D图像到3D纹理监督）</h3>
+<p><strong>图像作为彩色平面。</strong> 每个像素 \( (u_i,v_i) \) 被映射为平面上的一点 \( \mathbf{x}_i=(u_i,v_i,0)^\top \)，法向量置为 \( (0,0,1)^\top \)，RGB 值保持不变。这样完整保留了原始图像的空间与颜色信息，并转化为 3D 模型可处理的表示。</p>
+<p><strong>块级几何增广。</strong> 把图像平面划分为不重叠的块，对每个块独立采样 3D 旋转 \( R_k\in\mathrm{SO}(3) \) 与平移 \( \mathbf{t}_k \)：</p>
+<p>\[ \widetilde{\mathbf{x}}_{i}=R_{k}(\mathbf{x}_{i}-\boldsymbol{\mu}_{k})+\mathbf{t}_{k},\qquad \widetilde{\mathbf{n}}_{i}=R_{k}\mathbf{n}_{i},\qquad \widetilde{\mathbf{c}}_{i}=\mathbf{c}_{i}. \]</p>
+<p>由于旋转保持欧氏距离，块内纹理内容、边缘和细粒度图案保持不变，只是被放置到不同的空间位置与朝向。</p>
+<p><strong>聚合。</strong> 将旋转后的块放入有界 3D 区域并鼓励相互重叠，减少独立漂浮块（floaters），同时产生真实的跨块交叠与视角相关遮挡。</p>
+<p><strong>训练样本构建。</strong> 把变换后点云体素化到分辨率 \( R \)，同一体素内只保留一点；再渲染正交视角图作为条件图像，最终每个源图像生成三元组 \( (\tilde{\mathcal{G}},\tilde{\mathcal{C}},\tilde{\mathcal{I}}) \)。论文从稀疏卷积方向监督、协方差退化、局部感受野跨块交互三个角度解释了该构造为何有效，并通过消融实验逐步验证了全局旋转、块级旋转和聚合的必要性（图6）。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.34621v1/datapreprocess.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.34621v1/datapreprocess.png" alt="图2：从2D图像构建3D训练数据。我们将图像视为3D空间中的彩色平面，将其划分为多个块，并独立旋转和排列这些块，以构建具有复杂几何结构的3D样本。" loading="lazy"></a><span class="image-caption">图2：从2D图像构建3D训练数据。我们将图像视为3D空间中的彩色平面，将其划分为多个块，并独立旋转和排列这些块，以构建具有复杂几何结构的3D样本。</span></span></p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.34621v1/ablation_vae.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.34621v1/ablation_vae.png" alt="图6：数据预处理策略的消融实验。" loading="lazy"></a><span class="image-caption">图6：数据预处理策略的消融实验。</span></span></p>
+<h3 id="3-3-tex-zero-vae-tex-zero-vae">3.3 Tex-Zero VAE（Tex-Zero VAE）</h3>
+<p>模型采用编码器-解码器结构：\( Z=E(\mathcal{C},\mathcal{G});\ \widehat{\mathcal{C}}=D(Z,\mathcal{G}) \)，即编码器把颜色与几何压缩为潜在 \( Z \)，解码器在几何条件下重建颜色。网络采用类似 FLUX VAE 的整体架构，但把密集 2D 操作替换为稀疏 3D 操作。</p>
+<p>训练包含两个阶段：先用“单平面 + 整体随机旋转”的简化样本做预热（否则训练不收敛），再切换到完整构造流程。损失为逐点颜色重建损失、图像空间感知损失（把重建颜色逆变换回原图布局后计算 LPIPS）与 KL 正则的组合。</p>
+<p>推理时，该 VAE 能重建真实 3D 资产，也能把表示为平面的 2D 图像高保真编码与重建，而 3D 数据训练的 VAE 对 2D 图像重建往往模糊。这使 2D 图像与 3D 纹理可以共享同一潜在空间（图4）。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.34621v1/vaeresult.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.34621v1/vaeresult.png" alt="图4：Tex-Zero VAE重建结果。尽管未使用任何3D资产训练，Tex-Zero VAE仍能准确编码并重建具有细粒度细节的真实3D资产。" loading="lazy"></a><span class="image-caption">图4：Tex-Zero VAE重建结果。尽管未使用任何3D资产训练，Tex-Zero VAE仍能准确编码并重建具有细粒度细节的真实3D资产。</span></span></p>
+<h3 id="3-4-tex-zero-dit-tex-zero-dit">3.4 Tex-Zero DiT（Tex-Zero DiT）</h3>
+<p>DiT 的输入为噪声纹理潜在 \( Z_t \)、多视角参考图像 \( I \) 与几何。六个标准视角图像先被表示为按各自视角方向放置的彩色平面，由冻结的 Tex-Zero VAE 编码后拼接成条件序列 \( Y \)；几何法向量被编码并与 \( Z_t \) 沿通道拼接。为区分目标与各视角，论文设计联合旋转位置编码（RoPE）：每个 token 有 4 维位置索引 \( \mathbf{p}_j=(g_j,s_{j,x},s_{j,y},s_{j,z}) \)，其中 \( g_j=0 \) 表示目标纹理 token，\( g_j=1,\ldots,6 \) 分别表示六个视角，从而让注意力同时建模相对空间位置与视角身份。骨干网络直接采用 FLUX 的 MMDiT 架构。</p>
+<p>训练只用图像构造的样本，并随机采样不同数量与组合的视角子集作为条件；由于块间遮挡，部分区域在条件图中不可见而需要在目标中补全，形成类似图像外补全（outpainting）的任务。训练采用流匹配（flow matching）目标并加入条件丢弃以实现无分类器引导。</p>
+<p>推理时，编码条件与几何后执行多步去噪，最后由冻结的 VAE 解码器得到表面颜色。条件策略消融表明，统一 2D-3D 潜在空间对保留参考图像细节至关重要（图7）。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.34621v1/ablation_dit.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.34621v1/ablation_dit.png" alt="图7：不同条件策略下DiT生成结果的可视化。我们使用2D-3D统一潜在空间、仅以图像训练的Tex-Zero最能保留参考图像中的细粒度细节，实现高保真纹理生成。" loading="lazy"></a><span class="image-caption">图7：不同条件策略下DiT生成结果的可视化。我们使用2D-3D统一潜在空间、仅以图像训练的Tex-Zero最能保留参考图像中的细粒度细节，实现高保真纹理生成。</span></span></p>
+<h2 id="6-局限性和展望-约300字">6. 局限性和展望（约300字）</h2>
+<p>论文没有单设局限性章节，以下区分明确设定与可谨慎推断的限制。</p>
+<p>明确设定层面：（1）任务限定为颜色纹理，不涉及 PBR 材质、光照或视角相关效应；（2）条件为六视角正交视图，几何必须由用户给出，模型不生成几何；（3）训练几何由矩形块的随机旋转与聚合构成，不包含真实物体的闭合形态、连续拓扑与语义结构。论文用附录分析与消融说明这些构造足以覆盖真实几何的局部方向、遮挡与深度关系，但并未声称无差别泛化到任意几何。</p>
+<p>可谨慎推断的限制：其一，对条件视图中完全不可见的区域，模型依赖上下文补全，若参考视图覆盖很差，生成内容可能缺乏依据；其二，真实资产中的细长结构、复杂自遮挡或非流形表面在构造数据中很少出现，可能导致模糊或伪影；其三，论文实验显示 2D 与 3D 数据联合训练仍优于纯 2D 数据训练，说明图像构造数据有效但并非上限。</p>
+<p>展望：用更大规模 2D 数据扩展 3D 纹理生成；把构造思路延伸至材质、光照与场景级重建；设计更丰富的可构造几何先验，进一步逼近真实几何分布。</p></div></article></main>
   </div>
   <script>/*!
   * PhotoSwipe 5.4.4 - https://photoswipe.com
@@ -836,208 +755,6 @@ div.pswp__img--placeholder,
       updateToc();
     }
 
-
-    (() => {
-      const cache = new Map();
-
-      async function fetchLinkedPage(url) {
-        if (!cache.has(url)) {
-          const request = fetch(url, { credentials: "same-origin" })
-            .then(async (response) => {
-              if (!response.ok) throw new Error(`HTTP ${response.status}`);
-              return { text: await response.text(), url: response.url };
-            })
-            .catch((error) => {
-              cache.delete(url);
-              throw error;
-            });
-          cache.set(url, request);
-        }
-        return cache.get(url);
-      }
-
-      function rewriteReferences(root, pageUrl) {
-        root.querySelectorAll("[src], [href]").forEach((node) => {
-          ["src", "href"].forEach((attribute) => {
-            const value = node.getAttribute(attribute);
-            if (!value || value.startsWith("#") || /^(?:data|blob|mailto|tel|javascript):/i.test(value)) return;
-            try {
-              node.setAttribute(attribute, new URL(value, pageUrl).href);
-            } catch (_) {
-              // Leave malformed references unchanged; the browser will expose the failure.
-            }
-          });
-        });
-      }
-
-      function isolateIds(root, prefix) {
-        const replacements = new Map();
-        root.querySelectorAll("[id]").forEach((node) => {
-          const original = node.id;
-          const replacement = `${prefix}-${original}`;
-          replacements.set(original, replacement);
-          node.id = replacement;
-        });
-        root.querySelectorAll('a[href^="#"]').forEach((node) => {
-          const original = decodeURIComponent(node.getAttribute("href").slice(1));
-          if (replacements.has(original)) node.setAttribute("href", `#${replacements.get(original)}`);
-        });
-      }
-
-      function prepareDynamicImages(root) {
-        root.querySelectorAll("a.pswp-image").forEach((item) => {
-          const image = item.querySelector("img");
-          if (!image) return;
-          const sync = () => {
-            item.dataset.pswpSrc = image.currentSrc || image.src;
-            if (item.dataset.referenceImage === "true" && image.naturalWidth && image.naturalHeight) {
-              item.dataset.pswpWidth = String(image.naturalWidth);
-              item.dataset.pswpHeight = String(image.naturalHeight);
-            }
-          };
-          sync();
-          image.addEventListener("load", sync, { once: true });
-        });
-      }
-
-      document.querySelectorAll('a[data-inline-html="true"]').forEach((link, index) => {
-        const summary = link.closest("p, li, blockquote, td") || link.parentElement;
-        if (!summary) return;
-        const dedicatedExpand = link.textContent.trim() === "展开正文";
-        let entry = summary.closest(".inline-html-entry");
-        if (!entry) {
-          if (summary.tagName === "LI" || summary.tagName === "TD") {
-            entry = summary;
-            entry.classList.add("inline-html-entry");
-          } else {
-            entry = document.createElement("section");
-            entry.className = "inline-html-entry";
-            summary.before(entry);
-            entry.append(summary);
-          }
-        }
-        summary.classList.add("inline-html-summary");
-        if (dedicatedExpand) link.classList.add("inline-html-source-link");
-
-        const panel = document.createElement("section");
-        panel.className = "inline-html-panel";
-        panel.id = `inline-html-panel-${index + 1}`;
-        panel.hidden = true;
-        panel.setAttribute("aria-live", "polite");
-
-        const actions = document.createElement("span");
-        actions.className = "inline-html-actions";
-        const toggle = document.createElement("button");
-        toggle.className = "inline-html-toggle";
-        toggle.type = "button";
-        toggle.textContent = "展开正文";
-        toggle.setAttribute("aria-controls", panel.id);
-        toggle.setAttribute("aria-expanded", "false");
-        const standalone = document.createElement("a");
-        standalone.className = "inline-html-standalone";
-        standalone.href = link.href;
-        standalone.textContent = "单独打开";
-        actions.append(toggle, standalone);
-        summary.append(document.createTextNode(" "), actions);
-        entry.append(panel);
-
-        let state = "idle";
-
-        function setOpen(open, returnToSummary = false) {
-          panel.hidden = !open;
-          entry.classList.toggle(
-            "is-expanded",
-            Boolean(entry.querySelector(".inline-html-panel:not([hidden])"))
-          );
-          const expanded = String(open);
-          toggle.setAttribute("aria-expanded", expanded);
-          link.setAttribute("aria-expanded", expanded);
-          toggle.textContent = open ? (state === "error" ? "重试加载" : "收起正文") : "展开正文";
-          if (!open && returnToSummary) {
-            summary.scrollIntoView({ behavior: "smooth", block: "start" });
-            toggle.focus({ preventScroll: true });
-          }
-        }
-
-        function appendCloseFooter(target) {
-          const footer = document.createElement("div");
-          footer.className = "inline-html-footer";
-          const close = document.createElement("button");
-          close.className = "inline-html-close";
-          close.type = "button";
-          close.textContent = "收起正文并返回摘要";
-          close.addEventListener("click", () => setOpen(false, true));
-          footer.append(close);
-          target.append(footer);
-        }
-
-        async function toggleInlinePage() {
-          if (state === "loaded") {
-            setOpen(panel.hidden);
-            return;
-          }
-          if (state === "loading") return;
-
-          state = "loading";
-          toggle.disabled = true;
-          panel.replaceChildren();
-          const loading = document.createElement("p");
-          loading.className = "inline-html-status";
-          loading.textContent = "正在加载完整正文…";
-          panel.append(loading);
-          setOpen(true);
-
-          try {
-            const fetched = await fetchLinkedPage(link.href);
-            const parsed = new DOMParser().parseFromString(fetched.text, "text/html");
-            const source = parsed.querySelector(".markdown-image-gallery")
-              || parsed.querySelector("main article")
-              || parsed.querySelector("article")
-              || parsed.querySelector("main");
-            if (!source) throw new Error("linked page does not contain a readable article");
-            const body = source.cloneNode(true);
-            if (body.firstElementChild && body.firstElementChild.tagName === "H1") {
-              body.firstElementChild.remove();
-            }
-            isolateIds(body, `inline-${index + 1}`);
-            rewriteReferences(body, fetched.url);
-            body.classList.add("inline-html-body");
-            panel.replaceChildren(body);
-            appendCloseFooter(panel);
-            prepareDynamicImages(body);
-            state = "loaded";
-            setOpen(true);
-            if (window.mermaid && typeof window.mermaid.run === "function") {
-              const diagrams = Array.from(body.querySelectorAll(".mermaid"));
-              if (diagrams.length) window.mermaid.run({ nodes: diagrams }).catch(() => {});
-            }
-
-            if (window.MathJax && typeof window.MathJax.typesetPromise === "function") {
-              window.MathJax.typesetPromise([body]).catch(() => {});
-            }
-
-          } catch (error) {
-            panel.replaceChildren();
-            const message = document.createElement("p");
-            message.className = "inline-html-status inline-html-error";
-            message.textContent = `正文加载失败：${error.message}`;
-            panel.append(message);
-            appendCloseFooter(panel);
-            state = "error";
-            setOpen(true);
-          } finally {
-            toggle.disabled = false;
-          }
-        }
-
-        toggle.addEventListener("click", toggleInlinePage);
-        link.addEventListener("click", (event) => {
-          if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-          event.preventDefault();
-          toggleInlinePage();
-        });
-      });
-    })();
 
 
   </script>
