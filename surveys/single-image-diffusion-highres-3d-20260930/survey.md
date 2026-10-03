@@ -98,15 +98,15 @@ flowchart LR
 
 ![Hi3dgen: High-Fidelity 3D Geometry Generation From Images Via Normal Bridging 方法图](assets/01-generation.png)
 
-*原图：[Hi3dgen: High-Fidelity 3D Geometry Generation From Images Via Normal Bridging](https://arxiv.org/html/2503.22236v2/images/method_overview.png)。Figure 1 : Overview of the proposed normal-bridged 3D geometry generation method. Our Hi3DGen comprises three components: an image-to-normal estimator, a normal-to-geometry generator, and a synthesized dataset (DetailVerse) construction pipeline.*
+*原图：[Hi3dgen: High-Fidelity 3D Geometry Generation From Images Via Normal Bridging](https://arxiv.org/html/2503.22236v2/images/method_overview.png)。图注已转为中文概述；详细原始图注请查看图片来源。*
 
 ![Pandora3D: A Comprehensive Framework for High-Quality 3D Shape and Texture Generation 方法图](assets/02-generation.png)
 
-*原图：[Pandora3D: A Comprehensive Framework for High-Quality 3D Shape and Texture Generation](https://arxiv.org/html/2502.14247v2/figures/diffusion/diffusion.png)。Figure 2: Diffusion pipeline.*
+*原图：[Pandora3D: A Comprehensive Framework for High-Quality 3D Shape and Texture Generation](https://arxiv.org/html/2502.14247v2/figures/diffusion/diffusion.png)。图注已转为中文概述；详细原始图注请查看图片来源。*
 
 ![TripoSG: High-Fidelity 3D Shape Synthesis using Large-Scale Rectified Flow Models 方法图](assets/03-generation.png)
 
-*原图：[TripoSG: High-Fidelity 3D Shape Synthesis using Large-Scale Rectified Flow Models](https://arxiv.org/html/2502.06608v3/pipeline.png)。Figure 2 : The overview of our method consists of two main components: (i) Data-Building System and (ii) TripoSG Model. The data-building system processes the 3D models from various datasets (e.g., Objaverse and ShapeNet) through a series of data processing steps to create the training data. Our TripoSG model is then trained on this curated dataset for high-fidelity shape generation from a single input image.*
+*原图：[TripoSG: High-Fidelity 3D Shape Synthesis using Large-Scale Rectified Flow Models](https://arxiv.org/html/2502.06608v3/pipeline.png)。图注已转为中文概述；详细原始图注请查看图片来源。*
 
 ### 方法维度
 
@@ -122,11 +122,11 @@ flowchart LR
 
 ![Structured 3D Latents for Scalable and Versatile 3D Generation 方法图](assets/04-sparse-structured-latent-diffusion.png)
 
-*原图：[Structured 3D Latents for Scalable and Versatile 3D Generation](https://arxiv.org/html/2412.01506v3/pipeline_v3.png)。Figure 2 : Overview of our method. Encoding & Decoding: We adopt a structured latent representation ( SLat ) for 3D assets encoding, which defines local latents on a sparse 3D grid to represent both geometry and appearance information. It is encoded from the 3D assets by fusing and processing dense multiview visual features extracted from a DINOv2 encoder, and can be decoded into versatile output representations with different decoders. Generation: Two specialized rectified flow transformers are utilized to generate SLat , one for the sparse structure and the other for local latents attached to it.*
+*原图：[Structured 3D Latents for Scalable and Versatile 3D Generation](https://arxiv.org/html/2412.01506v3/pipeline_v3.png)。图注已转为中文概述；详细原始图注请查看图片来源。*
 
 ![Direct3D: Scalable Image-to-3D Generation via 3D Latent Diffusion Transformer 方法图](assets/05-sparse-structured-latent-diffusion.png)
 
-*原图：[Direct3D: Scalable Image-to-3D Generation via 3D Latent Diffusion Transformer](https://arxiv.org/html/2405.14832v2/pipeline_final.png)。Figure 2: The framework of our Direct3D. (a) We utilize transformer to encode point cloud sampled from 3D model, along with a set of learnable tokens, into an explicit triplane latent space. Subsequently, a CNN-based decoder is employed to upsample these latent representations into high-resolution triplane feature maps. The occupancy values of queried points can be decoded through a geometric mapping network. (b) Then we train the image conditioned latent diffusion transformer in the 3D latent space obtained by VAE. Pixel-level information and semantic-level information from images are extracted using DINO-v2 and CLIP, respectively, and then injected into each DiT block.*
+*原图：[Direct3D: Scalable Image-to-3D Generation via 3D Latent Diffusion Transformer](https://arxiv.org/html/2405.14832v2/pipeline_final.png)。图注已转为中文概述；详细原始图注请查看图片来源。*
 
 #### 无序潜变量集合扩散（Unstructured latent-set diffusion）
 
@@ -140,11 +140,11 @@ flowchart LR
 
 ![Pandora3D: A Comprehensive Framework for High-Quality 3D Shape and Texture Generation 方法图](assets/06-unstructured-latent-set-diffusion.png)
 
-*原图：[Pandora3D: A Comprehensive Framework for High-Quality 3D Shape and Texture Generation](https://arxiv.org/html/2502.14247v2/figures/diffusion/diffusion.png)。Figure 2: Diffusion pipeline.*
+*原图：[Pandora3D: A Comprehensive Framework for High-Quality 3D Shape and Texture Generation](https://arxiv.org/html/2502.14247v2/figures/diffusion/diffusion.png)。图注已转为中文概述；详细原始图注请查看图片来源。*
 
 ![CLAY: A Controllable Large-scale Generative Model for Creating High-quality 3D Assets 方法图](assets/07-unstructured-latent-set-diffusion.png)
 
-*原图：[CLAY: A Controllable Large-scale Generative Model for Creating High-quality 3D Assets](https://arxiv.org/html/2406.13897v1/fig/overview.png)。Figure 1: Overview of CLAY.*
+*原图：[CLAY: A Controllable Large-scale Generative Model for Creating High-quality 3D Assets](https://arxiv.org/html/2406.13897v1/fig/overview.png)。图注已转为中文概述；详细原始图注请查看图片来源。*
 
 ### 架构维度
 
@@ -160,11 +160,11 @@ flowchart LR
 
 ![Structured 3D Latents for Scalable and Versatile 3D Generation 方法图](assets/08-joint-native-3d-asset-generation.png)
 
-*原图：[Structured 3D Latents for Scalable and Versatile 3D Generation](https://arxiv.org/html/2412.01506v3/pipeline_v3.png)。Figure 2 : Overview of our method. Encoding & Decoding: We adopt a structured latent representation ( SLat ) for 3D assets encoding, which defines local latents on a sparse 3D grid to represent both geometry and appearance information. It is encoded from the 3D assets by fusing and processing dense multiview visual features extracted from a DINOv2 encoder, and can be decoded into versatile output representations with different decoders. Generation: Two specialized rectified flow transformers are utilized to generate SLat , one for the sparse structure and the other for local latents attached to it.*
+*原图：[Structured 3D Latents for Scalable and Versatile 3D Generation](https://arxiv.org/html/2412.01506v3/pipeline_v3.png)。图注已转为中文概述；详细原始图注请查看图片来源。*
 
 ![CLAY: A Controllable Large-scale Generative Model for Creating High-quality 3D Assets 方法图](assets/09-joint-native-3d-asset-generation.png)
 
-*原图：[CLAY: A Controllable Large-scale Generative Model for Creating High-quality 3D Assets](https://arxiv.org/html/2406.13897v1/fig/overview.png)。Figure 1: Overview of CLAY.*
+*原图：[CLAY: A Controllable Large-scale Generative Model for Creating High-quality 3D Assets](https://arxiv.org/html/2406.13897v1/fig/overview.png)。图注已转为中文概述；详细原始图注请查看图片来源。*
 
 ## 相关工作
 
@@ -174,11 +174,11 @@ flowchart LR
 
 ![Michelangelo: Conditional 3D Shape Generation based on Shape-Image-Text Aligned Latent Representation 相关工作代表图](assets/related-work/01-generation-1.png)
 
-*相关工作代表图：[Michelangelo: Conditional 3D Shape Generation based on Shape-Image-Text Aligned Latent Representation](https://arxiv.org/html/2306.17115v2/newnetwork.png)。Figure 2 : Alignment-before-generation pipeline . Our method contains two models: the Shape-Image-Text-Aligned Variational Auto-Encoder (SITA-VAE) and the Aligned Shape Latent Diffusion Model (ASLDM). The SITA-VAE consists of four modules: an image encoder, a text encoder, a 3D shape encoder, and a 3D shape decoder. Encoders encode inputs pair into an aligned space, and the 3D shape decoder reconstructs 3D shapes given embeddings from the aligned space. The ASLDM maps the image or text condition to the aligned shape latent space for sampling a high-quality 3D shape embedding, which latterly reconstructed to high-fidelity 3D shapes by the 3D shape decoder.*
+*相关工作代表图：[Michelangelo: Conditional 3D Shape Generation based on Shape-Image-Text Aligned Latent Representation](https://arxiv.org/html/2306.17115v2/newnetwork.png)。图注已转为中文概述；详细原始图注请查看图片来源。*
 
 ![Locally Attentional SDF Diffusion for Controllable 3D Shape Generation 相关工作代表图](assets/related-work/02-generation-2.png)
 
-*相关工作代表图：[Locally Attentional SDF Diffusion for Controllable 3D Shape Generation](https://arxiv.org/html/2305.04461v2/sketchdiffusion-pipeline.png)。Method pipeline for locally attentional SDF diffusion.*
+*相关工作代表图：[Locally Attentional SDF Diffusion for Controllable 3D Shape Generation](https://arxiv.org/html/2305.04461v2/sketchdiffusion-pipeline.png)。图注已转为中文概述；详细原始图注请查看图片来源。*
 
 ```mermaid
 flowchart LR
@@ -205,11 +205,11 @@ flowchart LR
 
 ![3DTopia-XL: Scaling High-quality 3D Asset Generation via Primitive Diffusion 相关工作代表图](assets/related-work/05-adjacent-1.png)
 
-*相关工作代表图：[3DTopia-XL: Scaling High-quality 3D Asset Generation via Primitive Diffusion](https://arxiv.org/html/2409.12957v2/gen_model.png)。Figure 3 : Overview of 3DTopia-XL. As a native 3D diffusion model, 3DTopia-XL is built upon a novel 3D representation PrimX (Sec. 3.1 ). This compact and expressive representation encodes the shape, texture, and material of a textured mesh efficiently, which allows modeling high-resolution geometry with PBR assets. Furthermore, this tensorial representation facilitates our patch-based compression using primitive patch VAE (Sec. 3.2 ). We then use our novel latent primitive diffusion (Sec. 3.3 ) for 3D generative modeling, which operates the diffusion and denoising process on the set of latent PrimX, naturally compatible with Transformer-based neural architectures.*
+*相关工作代表图：[3DTopia-XL: Scaling High-quality 3D Asset Generation via Primitive Diffusion](https://arxiv.org/html/2409.12957v2/gen_model.png)。图注已转为中文概述；详细原始图注请查看图片来源。*
 
 ![OctFusion: Octree‐based Diffusion Models for 3D Shape Generation 相关工作代表图](assets/related-work/06-adjacent-2.svg)
 
-*相关工作代表图：[OctFusion: Octree‐based Diffusion Models for 3D Shape Generation](https://arxiv.org/html/2408.14732v2/vae.svg)。Figure 16 : The network architecture of Octree-based VAE.*
+*相关工作代表图：[OctFusion: Octree‐based Diffusion Models for 3D Shape Generation](https://arxiv.org/html/2408.14732v2/vae.svg)。图注已转为中文概述；详细原始图注请查看图片来源。*
 
 ```mermaid
 flowchart LR
@@ -227,11 +227,11 @@ flowchart LR
 
 ![Native and Compact Structured Latents for 3D Generation 相关工作代表图](assets/related-work/03-context-1.png)
 
-*相关工作代表图：[Native and Compact Structured Latents for 3D Generation](https://arxiv.org/html/2512.14692v1/overview_v5.png)。Figure 2 : Overview of our approach. We introduce O-Voxel for shape and material representation (Sec. 3.1 ), based on which we employ Sparse Compression VAEs for compact latent space learning (Sec. 3.2 ) and large flow models for 3D generation (Sec. 3.3 ).*
+*相关工作代表图：[Native and Compact Structured Latents for 3D Generation](https://arxiv.org/html/2512.14692v1/overview_v5.png)。图注已转为中文概述；详细原始图注请查看图片来源。*
 
 ![TexVerse: A Universe of 3D Objects with High-Resolution Textures 相关工作代表图](assets/related-work/04-context-2.png)
 
-*相关工作代表图：[TexVerse: A Universe of 3D Objects with High-Resolution Textures](https://arxiv.org/html/2508.10868v2/compare.png)。Figure 3: Objaverse only provides versions up to 1024 resolution for objects labeled as having higher-resolution textures in the metadata, whereas we provide genuine high-resolution versions. The UIDs are d4d12479b5bb4bfaa72dbcf1955d5eb7 and d5e6b6a11da646f68a5fcba661dcae99 .*
+*相关工作代表图：[TexVerse: A Universe of 3D Objects with High-Resolution Textures](https://arxiv.org/html/2508.10868v2/compare.png)。图注已转为中文概述；详细原始图注请查看图片来源。*
 
 ```mermaid
 flowchart LR
