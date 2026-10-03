@@ -96,17 +96,17 @@ flowchart LR
   S4 --> S5
 ```
 
-![Hi3dgen: High-Fidelity 3D Geometry Generation From Images Via Normal Bridging 方法图](assets/01-generation.png)
+![代表论文方法图](assets/01-generation.png)
 
-*原图：[Hi3dgen: High-Fidelity 3D Geometry Generation From Images Via Normal Bridging](https://arxiv.org/html/2503.22236v2/images/method_overview.png)。图注已转为中文概述；详细原始图注请查看图片来源。*
+*代表论文方法图。图注为中文概述；[查看图片来源](https://arxiv.org/html/2503.22236v2/images/method_overview.png)*
 
-![Pandora3D: A Comprehensive Framework for High-Quality 3D Shape and Texture Generation 方法图](assets/02-generation.png)
+![代表论文方法图](assets/02-generation.png)
 
-*原图：[Pandora3D: A Comprehensive Framework for High-Quality 3D Shape and Texture Generation](https://arxiv.org/html/2502.14247v2/figures/diffusion/diffusion.png)。图注已转为中文概述；详细原始图注请查看图片来源。*
+*代表论文方法图。图注为中文概述；[查看图片来源](https://arxiv.org/html/2502.14247v2/figures/diffusion/diffusion.png)*
 
-![TripoSG: High-Fidelity 3D Shape Synthesis using Large-Scale Rectified Flow Models 方法图](assets/03-generation.png)
+![代表论文方法图](assets/03-generation.png)
 
-*原图：[TripoSG: High-Fidelity 3D Shape Synthesis using Large-Scale Rectified Flow Models](https://arxiv.org/html/2502.06608v3/pipeline.png)。图注已转为中文概述；详细原始图注请查看图片来源。*
+*代表论文方法图。图注为中文概述；[查看图片来源](https://arxiv.org/html/2502.06608v3/pipeline.png)*
 
 ### 方法维度
 
@@ -120,13 +120,13 @@ flowchart LR
 
 **典型输出：** 完整物体的结构化三维潜表示，解码后得到高分辨率几何、mesh 或带材质的三维资产。
 
-![Structured 3D Latents for Scalable and Versatile 3D Generation 方法图](assets/04-sparse-structured-latent-diffusion.png)
+![代表论文方法图](assets/04-sparse-structured-latent-diffusion.png)
 
-*原图：[Structured 3D Latents for Scalable and Versatile 3D Generation](https://arxiv.org/html/2412.01506v3/pipeline_v3.png)。图注已转为中文概述；详细原始图注请查看图片来源。*
+*代表论文方法图。图注为中文概述；[查看图片来源](https://arxiv.org/html/2412.01506v3/pipeline_v3.png)*
 
-![Direct3D: Scalable Image-to-3D Generation via 3D Latent Diffusion Transformer 方法图](assets/05-sparse-structured-latent-diffusion.png)
+![代表论文方法图](assets/05-sparse-structured-latent-diffusion.png)
 
-*原图：[Direct3D: Scalable Image-to-3D Generation via 3D Latent Diffusion Transformer](https://arxiv.org/html/2405.14832v2/pipeline_final.png)。图注已转为中文概述；详细原始图注请查看图片来源。*
+*代表论文方法图。图注为中文概述；[查看图片来源](https://arxiv.org/html/2405.14832v2/pipeline_final.png)*
 
 #### 无序潜变量集合扩散（Unstructured latent-set diffusion）
 
@@ -138,13 +138,13 @@ flowchart LR
 
 **典型输出：** 完整物体的无序潜变量集合，解码后得到隐式几何、显式几何或完整三维资产。
 
-![Pandora3D: A Comprehensive Framework for High-Quality 3D Shape and Texture Generation 方法图](assets/06-unstructured-latent-set-diffusion.png)
+![代表论文方法图](assets/06-unstructured-latent-set-diffusion.png)
 
-*原图：[Pandora3D: A Comprehensive Framework for High-Quality 3D Shape and Texture Generation](https://arxiv.org/html/2502.14247v2/figures/diffusion/diffusion.png)。图注已转为中文概述；详细原始图注请查看图片来源。*
+*代表论文方法图。图注为中文概述；[查看图片来源](https://arxiv.org/html/2502.14247v2/figures/diffusion/diffusion.png)*
 
-![CLAY: A Controllable Large-scale Generative Model for Creating High-quality 3D Assets 方法图](assets/07-unstructured-latent-set-diffusion.png)
+![代表论文方法图](assets/07-unstructured-latent-set-diffusion.png)
 
-*原图：[CLAY: A Controllable Large-scale Generative Model for Creating High-quality 3D Assets](https://arxiv.org/html/2406.13897v1/fig/overview.png)。图注已转为中文概述；详细原始图注请查看图片来源。*
+*代表论文方法图。图注为中文概述；[查看图片来源](https://arxiv.org/html/2406.13897v1/fig/overview.png)*
 
 ### 架构维度
 
@@ -158,13 +158,13 @@ flowchart LR
 
 **典型输出：** 同时包含高细节几何和一致外观或材质的完整三维资产。
 
-![Structured 3D Latents for Scalable and Versatile 3D Generation 方法图](assets/08-joint-native-3d-asset-generation.png)
+![代表论文方法图](assets/08-joint-native-3d-asset-generation.png)
 
-*原图：[Structured 3D Latents for Scalable and Versatile 3D Generation](https://arxiv.org/html/2412.01506v3/pipeline_v3.png)。图注已转为中文概述；详细原始图注请查看图片来源。*
+*代表论文方法图。图注为中文概述；[查看图片来源](https://arxiv.org/html/2412.01506v3/pipeline_v3.png)*
 
-![CLAY: A Controllable Large-scale Generative Model for Creating High-quality 3D Assets 方法图](assets/09-joint-native-3d-asset-generation.png)
+![代表论文方法图](assets/09-joint-native-3d-asset-generation.png)
 
-*原图：[CLAY: A Controllable Large-scale Generative Model for Creating High-quality 3D Assets](https://arxiv.org/html/2406.13897v1/fig/overview.png)。图注已转为中文概述；详细原始图注请查看图片来源。*
+*代表论文方法图。图注为中文概述；[查看图片来源](https://arxiv.org/html/2406.13897v1/fig/overview.png)*
 
 ## 相关工作
 
@@ -172,13 +172,13 @@ flowchart LR
 
 ### 单图条件完整物体高模几何生成（generation）
 
-![Michelangelo: Conditional 3D Shape Generation based on Shape-Image-Text Aligned Latent Representation 相关工作代表图](assets/related-work/01-generation-1.png)
+![相关工作代表论文方法图](assets/related-work/01-generation-1.png)
 
-*相关工作代表图：[Michelangelo: Conditional 3D Shape Generation based on Shape-Image-Text Aligned Latent Representation](https://arxiv.org/html/2306.17115v2/newnetwork.png)。图注已转为中文概述；详细原始图注请查看图片来源。*
+*相关工作代表论文方法图。图注为中文概述；[查看图片来源](https://arxiv.org/html/2306.17115v2/newnetwork.png)*
 
-![Locally Attentional SDF Diffusion for Controllable 3D Shape Generation 相关工作代表图](assets/related-work/02-generation-2.png)
+![相关工作代表论文方法图](assets/related-work/02-generation-2.png)
 
-*相关工作代表图：[Locally Attentional SDF Diffusion for Controllable 3D Shape Generation](https://arxiv.org/html/2305.04461v2/sketchdiffusion-pipeline.png)。图注已转为中文概述；详细原始图注请查看图片来源。*
+*相关工作代表论文方法图。图注为中文概述；[查看图片来源](https://arxiv.org/html/2305.04461v2/sketchdiffusion-pipeline.png)*
 
 ```mermaid
 flowchart LR
@@ -203,13 +203,13 @@ flowchart LR
 
 ### adjacent
 
-![3DTopia-XL: Scaling High-quality 3D Asset Generation via Primitive Diffusion 相关工作代表图](assets/related-work/05-adjacent-1.png)
+![相关工作代表论文方法图](assets/related-work/05-adjacent-1.png)
 
-*相关工作代表图：[3DTopia-XL: Scaling High-quality 3D Asset Generation via Primitive Diffusion](https://arxiv.org/html/2409.12957v2/gen_model.png)。图注已转为中文概述；详细原始图注请查看图片来源。*
+*相关工作代表论文方法图。图注为中文概述；[查看图片来源](https://arxiv.org/html/2409.12957v2/gen_model.png)*
 
-![OctFusion: Octree‐based Diffusion Models for 3D Shape Generation 相关工作代表图](assets/related-work/06-adjacent-2.svg)
+![相关工作代表论文方法图](assets/related-work/06-adjacent-2.svg)
 
-*相关工作代表图：[OctFusion: Octree‐based Diffusion Models for 3D Shape Generation](https://arxiv.org/html/2408.14732v2/vae.svg)。图注已转为中文概述；详细原始图注请查看图片来源。*
+*相关工作代表论文方法图。图注为中文概述；[查看图片来源](https://arxiv.org/html/2408.14732v2/vae.svg)*
 
 ```mermaid
 flowchart LR
@@ -225,13 +225,13 @@ flowchart LR
 
 ### 背景与上下文工作（非任务背景）
 
-![Native and Compact Structured Latents for 3D Generation 相关工作代表图](assets/related-work/03-context-1.png)
+![相关工作代表论文方法图](assets/related-work/03-context-1.png)
 
-*相关工作代表图：[Native and Compact Structured Latents for 3D Generation](https://arxiv.org/html/2512.14692v1/overview_v5.png)。图注已转为中文概述；详细原始图注请查看图片来源。*
+*相关工作代表论文方法图。图注为中文概述；[查看图片来源](https://arxiv.org/html/2512.14692v1/overview_v5.png)*
 
-![TexVerse: A Universe of 3D Objects with High-Resolution Textures 相关工作代表图](assets/related-work/04-context-2.png)
+![相关工作代表论文方法图](assets/related-work/04-context-2.png)
 
-*相关工作代表图：[TexVerse: A Universe of 3D Objects with High-Resolution Textures](https://arxiv.org/html/2508.10868v2/compare.png)。图注已转为中文概述；详细原始图注请查看图片来源。*
+*相关工作代表论文方法图。图注为中文概述；[查看图片来源](https://arxiv.org/html/2508.10868v2/compare.png)*
 
 ```mermaid
 flowchart LR

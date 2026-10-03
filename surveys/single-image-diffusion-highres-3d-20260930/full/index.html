@@ -3,7 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>survey</title>
+  <title>单图像扩散高模 3D 生成：逐篇解析</title>
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 
   <style>
 /*! PhotoSwipe main CSS by Dmytro Semenov | photoswipe.com */
@@ -11,16 +21,16 @@
 .pswp {
   --pswp-bg: #000;
   --pswp-placeholder-bg: #222;
-  
+
 
   --pswp-root-z-index: 100000;
-  
+
   --pswp-preloader-color: rgba(79, 79, 79, 0.4);
   --pswp-preloader-color-secondary: rgba(255, 255, 255, 0.9);
-  
+
   /* defined via js:
   --pswp-transition-duration: 333ms; */
-  
+
   --pswp-icon-color: #fff;
   --pswp-icon-color-secondary: #4f4f4f;
   --pswp-icon-stroke-color: #4f4f4f;
@@ -437,7 +447,8 @@ div.pswp__img--placeholder,
     h1 { margin: 0 0 28px; font-size: 30px; }
     h2 { margin: 38px 0 14px; padding-bottom: 8px; border-bottom: 1px solid #e5e8eb; font-size: 21px; }
     h3 { margin: 28px 0 10px; font-size: 17px; }
-
+    h1 { color: #1769aa; }
+    h2 { color: #1769aa; }
     p, li { font-size: 15px; }
     ul, ol { padding-left: 26px; }
     ul ul, ul ol, ol ul, ol ol { margin-top: 7px; margin-bottom: 0; }
@@ -464,7 +475,7 @@ div.pswp__img--placeholder,
 
     html { scroll-padding-top: 24px; }
     body { background: #f8fafc; }
-    .academic-shell { width: min(1440px, calc(100% - 40px)); margin: 0 auto; padding: 32px 0 80px; display: grid; grid-template-columns: 272px minmax(0, 1120px); justify-content: center; gap: 32px; align-items: start; }
+    .academic-shell { width: min(1840px, calc(100% - 40px)); margin: 0 auto; padding: 32px 0 80px; display: grid; grid-template-columns: 272px minmax(0, 1500px); justify-content: center; gap: 32px; align-items: start; }
     .academic-sidebar { position: sticky; top: 24px; max-height: calc(100vh - 48px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #cbd5e1 transparent; }
     .toc-panel { border: 1px solid #e2e8f0; border-radius: 16px; background: rgba(255, 255, 255, .96); padding: 16px 12px; box-shadow: 0 8px 24px rgba(15, 23, 42, .05); }
     .toc-heading { margin: 0 8px 10px; color: #94a3b8; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
@@ -480,7 +491,7 @@ div.pswp__img--placeholder,
     .toc-level-6 { padding-left: 52px; font-size: 11px; }
     .toc-empty { margin: 8px; color: #94a3b8; font-size: 12px; }
     .toc-collapse-button { display: inline-flex; position: fixed; z-index: 70; top: 24px; left: 12px; align-items: center; gap: 7px; padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 8px; background: rgba(255, 255, 255, .96); color: #475569; font: inherit; font-size: 12px; font-weight: 700; box-shadow: 0 6px 18px rgba(15, 23, 42, .08); cursor: pointer; }
-    body.toc-collapsed .academic-shell { grid-template-columns: minmax(0, 1120px); gap: 0; }
+    body.toc-collapsed .academic-shell { grid-template-columns: minmax(0, 1500px); gap: 0; }
     body.toc-collapsed .academic-sidebar { display: none; }
     .academic-main { width: 100%; min-width: 0; margin: 0; padding: 0; }
     .academic-main article { border-color: #e2e8f0; border-radius: 18px; padding: 48px 44px 64px; box-shadow: 0 10px 32px rgba(15, 23, 42, .06); }
@@ -507,11 +518,25 @@ div.pswp__img--placeholder,
       .academic-shell { width: 100%; padding: 60px 0 0; }
       .academic-main article { padding: 30px 22px 52px; border: 0; border-radius: 0; }
     }
-        
 
 
 
-  </style>
+
+
+    .academic-main img {
+      display: block; width: 100%; max-height: 620px; object-fit: contain;
+      margin: 1.1rem auto .45rem; border: 1px solid #dce5ec;
+      border-radius: 10px; background: #fff; box-shadow: 0 8px 24px #1c38500d;
+    }
+    .academic-main .mermaid {
+      margin: 1.25rem 0 1.7rem; padding: 1rem; overflow-x: auto;
+      border: 1px solid #dce5ec; border-radius: 10px; background: #fbfdff;
+    }
+    .academic-main > blockquote:first-of-type {
+      border-left: 4px solid #1769aa; background: #f2f7fb;
+      border-radius: 0 8px 8px 0; padding: .8rem 1rem;
+    }
+</style>
 </head>
 <body>
 
@@ -522,7 +547,7 @@ div.pswp__img--placeholder,
     <aside class="academic-sidebar" id="academic-sidebar" aria-label="文档目录">
       <div class="toc-panel">
         <p class="toc-heading">目录</p>
-        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#单图像扩散高模-3d-生成-逐篇解析">单图像扩散高模 3D 生成：逐篇解析</a><a class="toc-link toc-level-2" href="#逐篇解析">逐篇解析</a><a class="toc-link toc-level-3" href="#主体论文-统一多模态模型">主体论文（统一多模态模型）</a><a class="toc-link toc-level-4" href="#任务标签-单图条件完整物体高模几何生成-generation">任务标签：单图条件完整物体高模几何生成（generation）</a><a class="toc-link toc-level-5" href="#2023">2023</a><a class="toc-link toc-level-5" href="#locally-attentional-sdf-diffusion-for-controllable-3d-shape-generation">Locally Attentional SDF Diffusion for Controllable 3D Shape Generation</a><a class="toc-link toc-level-5" href="#michelangelo-conditional-3d-shape-generation-based-on-shape-image-text-aligned-latent-representation">Michelangelo: Conditional 3D Shape Generation based on Shape-Image-Text Aligned Latent Representation</a><a class="toc-link toc-level-5" href="#2024">2024</a><a class="toc-link toc-level-5" href="#direct3d-scalable-image-to-3d-generation-via-3d-latent-diffusion-transformer">Direct3D: Scalable Image-to-3D Generation via 3D Latent Diffusion Transformer</a><a class="toc-link toc-level-5" href="#clay-a-controllable-large-scale-generative-model-for-creating-high-quality-3d-assets">CLAY: A Controllable Large-scale Generative Model for Creating High-quality 3D Assets</a><a class="toc-link toc-level-5" href="#structured-3d-latents-for-scalable-and-versatile-3d-generation">Structured 3D Latents for Scalable and Versatile 3D Generation</a><a class="toc-link toc-level-5" href="#2025">2025</a><a class="toc-link toc-level-5" href="#pandora3d-a-comprehensive-framework-for-high-quality-3d-shape-and-texture-generation">Pandora3D: A Comprehensive Framework for High-Quality 3D Shape and Texture Generation</a><a class="toc-link toc-level-5" href="#triposg-high-fidelity-3d-shape-synthesis-using-large-scale-rectified-flow-models">TripoSG: High-Fidelity 3D Shape Synthesis using Large-Scale Rectified Flow Models</a><a class="toc-link toc-level-5" href="#hi3dgen-high-fidelity-3d-geometry-generation-from-images-via-normal-bridging">Hi3dgen: High-Fidelity 3D Geometry Generation From Images Via Normal Bridging</a><a class="toc-link toc-level-3" href="#相邻工作">相邻工作</a><a class="toc-link toc-level-4" href="#相邻工作-adjacent">相邻工作：adjacent</a><a class="toc-link toc-level-5" href="#2024-2">2024</a><a class="toc-link toc-level-5" href="#octfusion-octree-based-diffusion-models-for-3d-shape-generation">OctFusion: Octree‐based Diffusion Models for 3D Shape Generation</a><a class="toc-link toc-level-5" href="#3dtopia-xl-scaling-high-quality-3d-asset-generation-via-primitive-diffusion">3DTopia-XL: Scaling High-quality 3D Asset Generation via Primitive Diffusion</a><a class="toc-link toc-level-3" href="#背景与上下文工作">背景与上下文工作</a><a class="toc-link toc-level-4" href="#背景类别-背景与上下文-context">背景类别：背景与上下文（context）</a><a class="toc-link toc-level-5" href="#2002">2002</a><a class="toc-link toc-level-5" href="#dual-contouring-of-hermite-data">Dual contouring of hermite data</a><a class="toc-link toc-level-5" href="#2017">2017</a><a class="toc-link toc-level-5" href="#decoupled-weight-decay-regularization">Decoupled Weight Decay Regularization</a><a class="toc-link toc-level-5" href="#2018">2018</a><a class="toc-link toc-level-5" href="#occupancy-networks-learning-3d-reconstruction-in-function-space">Occupancy Networks: Learning 3D Reconstruction in Function Space</a><a class="toc-link toc-level-5" href="#blender-a-3d-modelling-and-rendering-package">Blender — a 3D modelling and rendering package</a><a class="toc-link toc-level-5" href="#2019">2019</a><a class="toc-link toc-level-5" href="#deepsdf-learning-continuous-signed-distance-functions-for-shape-representation">DeepSDF: Learning Continuous Signed Distance Functions for Shape Representation</a><a class="toc-link toc-level-5" href="#root-mean-square-layer-normalization">Root Mean Square Layer Normalization</a><a class="toc-link toc-level-5" href="#submanifold-sparse-convolutional-networks">SUBMANIFOLD SPARSE CONVOLUTIONAL NETWORKS</a><a class="toc-link toc-level-5" href="#triton-an-intermediate-language-and-compiler-for-tiled-neural-network-computations">Triton: an intermediate language and compiler for tiled neural network computations</a><a class="toc-link toc-level-5" href="#2020">2020</a><a class="toc-link toc-level-5" href="#polygen-an-autoregressive-generative-model-of-3d-meshes">PolyGen: An Autoregressive Generative Model of 3D Meshes</a><a class="toc-link toc-level-5" href="#3d-future-3d-furniture-shape-with-texture">3D-FUTURE: 3D Furniture Shape with TextURE</a><a class="toc-link toc-level-5" href="#deformed-implicit-field-modeling-3d-shapes-with-learned-dense-correspondence">Deformed Implicit Field: Modeling 3D Shapes with Learned Dense Correspondence</a><a class="toc-link toc-level-5" href="#2021">2021</a><a class="toc-link toc-level-5" href="#using-shape-to-categorize-low-shot-learning-with-an-explicit-shape-bias">Using Shape to Categorize: Low-Shot Learning with an Explicit Shape Bias</a><a class="toc-link toc-level-5" href="#diffusion-probabilistic-models-for-3d-point-cloud-generation">Diffusion Probabilistic Models for 3D Point Cloud Generation</a><a class="toc-link toc-level-5" href="#learning-transferable-visual-models-from-natural-language-supervision">Learning Transferable Visual Models From Natural Language Supervision</a><a class="toc-link toc-level-5" href="#3d-shape-generation-and-completion-through-point-voxel-diffusion">3D Shape Generation and Completion through Point-Voxel Diffusion</a><a class="toc-link toc-level-5" href="#roformer-enhanced-transformer-with-rotary-position-embedding">RoFormer: Enhanced Transformer with Rotary Position Embedding</a><a class="toc-link toc-level-5" href="#perceiver-io-a-general-architecture-for-structured-inputs-outputs">Perceiver IO: A General Architecture for Structured Inputs &amp; Outputs</a><a class="toc-link toc-level-5" href="#abo-dataset-and-benchmarks-for-real-world-3d-object-understanding">ABO: Dataset and Benchmarks for Real-World 3D Object Understanding</a><a class="toc-link toc-level-5" href="#extracting-triangular-3d-models-materials-and-lighting-from-images">Extracting Triangular 3D Models, Materials, and Lighting From Images</a><a class="toc-link toc-level-5" href="#high-resolution-image-synthesis-with-latent-diffusion-models">High-Resolution Image Synthesis with Latent Diffusion Models</a><a class="toc-link toc-level-5" href="#2022">2022</a><a class="toc-link toc-level-5" href="#a-convnet-for-the-2020s">A ConvNet for the 2020s</a><a class="toc-link toc-level-5" href="#neural-dual-contouring">Neural dual contouring</a><a class="toc-link toc-level-5" href="#flow-straight-and-fast-learning-to-generate-and-transfer-data-with-rectified-flow">Flow Straight and Fast: Learning to Generate and Transfer Data with Rectified Flow</a><a class="toc-link toc-level-5" href="#neural-wavelet-domain-diffusion-for-3d-shape-generation">Neural Wavelet-domain Diffusion for 3D Shape Generation</a><a class="toc-link toc-level-5" href="#flow-matching-for-generative-modeling">Flow Matching for Generative Modeling</a><a class="toc-link toc-level-5" href="#lion-latent-point-diffusion-models-for-3d-shape-generation">LION: Latent Point Diffusion Models for 3D Shape Generation</a><a class="toc-link toc-level-5" href="#diffrf-rendering-guided-3d-radiance-field-diffusion">DiffRF: Rendering-Guided 3D Radiance Field Diffusion</a><a class="toc-link toc-level-5" href="#objaverse-a-universe-of-annotated-3d-objects">Objaverse: A Universe of Annotated 3D Objects</a><a class="toc-link toc-level-5" href="#point-e-a-system-for-generating-3d-point-clouds-from-complex-prompts">Point-E: A System for Generating 3D Point Clouds from Complex Prompts</a><a class="toc-link toc-level-5" href="#scalable-diffusion-models-with-transformers">Scalable Diffusion Models with Transformers</a><a class="toc-link toc-level-5" href="#2023-2">2023</a><a class="toc-link toc-level-5" href="#3dshape2vecset-a-3d-shape-representation-for-neural-fields-and-generative-diffusion-models">3DShape2VecSet: A 3D Shape Representation for Neural Fields and Generative Diffusion Models</a><a class="toc-link toc-level-5" href="#3dgen-triplane-latent-diffusion-for-textured-mesh-generation">3DGen: Triplane Latent Diffusion for Textured Mesh Generation</a><a class="toc-link toc-level-5" href="#shap-e-generating-conditional-3d-implicit-functions">Shap-E: Generating Conditional 3D Implicit Functions</a><a class="toc-link toc-level-5" href="#ulip-2-towards-scalable-multimodal-pre-training-for-3d-understanding">ULIP-2: Towards Scalable Multimodal Pre-Training for 3D Understanding</a><a class="toc-link toc-level-5" href="#habitat-synthetic-scenes-dataset-hssd-200-an-analysis-of-3d-scene-scale-and-realism-tradeoffs-for-objectgoal-navigation">Habitat Synthetic Scenes Dataset (HSSD-200): An Analysis of 3D Scene Scale and Realism Tradeoffs for ObjectGoal Navigation</a><a class="toc-link toc-level-5" href="#autodecoding-latent-3d-diffusion-models">AutoDecoding Latent 3D Diffusion Models</a><a class="toc-link toc-level-5" href="#objaverse-xl-a-universe-of-10m-3d-objects">Objaverse-XL: A Universe of 10M+ 3D Objects</a><a class="toc-link toc-level-5" href="#3d-gaussian-splatting-for-real-time-radiance-field-rendering">3D Gaussian Splatting for Real-Time Radiance Field Rendering</a><a class="toc-link toc-level-5" href="#flexible-isosurface-extraction-for-gradient-based-mesh-optimization">Flexible Isosurface Extraction for Gradient-Based Mesh Optimization</a><a class="toc-link toc-level-5" href="#pixart-α-fast-training-of-diffusion-transformer-for-photorealistic-text-to-image-synthesis">PixArt-α: Fast Training of Diffusion Transformer for Photorealistic Text-to-Image Synthesis</a><a class="toc-link toc-level-5" href="#uni3d-exploring-unified-3d-representation-at-scale">Uni3D: Exploring Unified 3D Representation at Scale</a><a class="toc-link toc-level-5" href="#mip-splatting-alias-free-3d-gaussian-splatting">Mip-Splatting: Alias-Free 3D Gaussian Splatting</a><a class="toc-link toc-level-5" href="#torchsparse-efficient-training-and-inference-framework-for-sparse-convolution-on-gpus">TorchSparse++: Efficient Training and Inference Framework for Sparse Convolution on GPUs</a><a class="toc-link toc-level-5" href="#volumediffusion-flexible-text-to-3d-generation-with-efficient-volumetric-encoder">VolumeDiffusion: Flexible Text-to-3D Generation with Efficient Volumetric Encoder</a><a class="toc-link toc-level-5" href="#xcube-large-scale-3d-generative-modeling-using-sparse-voxel-hierarchies">XCube: Large-Scale 3D Generative Modeling using Sparse Voxel Hierarchies</a><a class="toc-link toc-level-5" href="#2024-3">2024</a><a class="toc-link toc-level-5" href="#gvgen-text-to-3d-generation-with-volumetric-representation">GVGEN: Text-to-3D Generation with Volumetric Representation</a><a class="toc-link toc-level-5" href="#ln3diff-scalable-latent-neural-fields-diffusion-for-speedy-3d-generation">LN3Diff++: Scalable Latent Neural Fields Diffusion for Speedy 3D Generation</a><a class="toc-link toc-level-5" href="#scaling-rectified-flow-transformers-for-high-resolution-image-synthesis">Scaling Rectified Flow Transformers for High-Resolution Image Synthesis</a><a class="toc-link toc-level-5" href="#meshanything-artist-created-mesh-generation-with-autoregressive-transformers">MeshAnything: Artist-Created Mesh Generation with Autoregressive Transformers</a><a class="toc-link toc-level-5" href="#fvdb-a-deep-learning-framework-for-sparse-large-scale-and-high-performance-spatial-intelligence">fVDB : A Deep-Learning Framework for Sparse, Large Scale, and High Performance Spatial Intelligence</a><a class="toc-link toc-level-5" href="#atlas-gaussians-diffusion-for-3d-generation-with-infinite-number-of-points">Atlas Gaussians Diffusion for 3D Generation with Infinite Number of Points</a><a class="toc-link toc-level-5" href="#lt3sd-latent-trees-for-3d-scene-diffusion">LT3SD: Latent Trees for 3D Scene Diffusion</a><a class="toc-link toc-level-5" href="#deep-compression-autoencoder-for-efficient-high-resolution-diffusion-models">Deep Compression Autoencoder for Efficient High-Resolution Diffusion Models</a><a class="toc-link toc-level-5" href="#texgen-a-generative-diffusion-model-for-mesh-textures">TEXGen: a Generative Diffusion Model for Mesh Textures</a><a class="toc-link toc-level-5" href="#dora-sampling-and-benchmarking-for-3d-shape-variational-auto-encoders">Dora: Sampling and Benchmarking for 3D Shape Variational Auto-Encoders</a><a class="toc-link toc-level-5" href="#craftsman-high-fidelity-mesh-generation-with-3d-native-generation-and-interactive-geometry-refiner">CraftsMan: High-fidelity Mesh Generation with 3D Native Generation and Interactive Geometry Refiner</a><a class="toc-link toc-level-5" href="#gaussiananything-interactive-point-cloud-latent-diffusion-for-3d-generation">GaussianAnything: Interactive Point Cloud Latent Diffusion for 3D Generation</a><a class="toc-link toc-level-5" href="#gaussiancube-structuring-gaussian-splatting-using-optimal-transport-for-3d-generative-modeling">GaussianCube: Structuring Gaussian Splatting using Optimal Transport for 3D Generative Modeling</a><a class="toc-link toc-level-5" href="#2025-2">2025</a><a class="toc-link toc-level-5" href="#sparseflex-high-resolution-and-arbitrary-topology-3d-shape-modeling">SparseFlex: High-Resolution and Arbitrary-Topology 3D Shape Modeling</a><a class="toc-link toc-level-5" href="#direct3d-s2-gigascale-3d-generation-made-easy-with-spatial-sparse-attention">Direct3D-S2: Gigascale 3D Generation Made Easy with Spatial Sparse Attention</a><a class="toc-link toc-level-5" href="#sparc3d-sparse-representation-and-construction-for-high-resolution-3d-shapes-modeling">Sparc3D: Sparse Representation and Construction for High-Resolution 3D Shapes Modeling</a><a class="toc-link toc-level-5" href="#step1x-3d-towards-high-fidelity-and-controllable-generation-of-textured-3d-assets">Step1X-3D: Towards High-Fidelity and Controllable Generation of Textured 3D Assets</a><a class="toc-link toc-level-5" href="#hunyuan3d-2-1-from-images-to-high-fidelity-3d-assets-with-production-ready-pbr-material">Hunyuan3D 2.1: From Images to High-Fidelity 3D Assets with Production-Ready PBR Material</a><a class="toc-link toc-level-5" href="#ultra3d-efficient-and-high-fidelity-3d-generation-with-part-attention">Ultra3D: Efficient and High-Fidelity 3D Generation with Part Attention</a><a class="toc-link toc-level-5" href="#texverse-a-universe-of-3d-objects-with-high-resolution-textures">TexVerse: A Universe of 3D Objects with High-Resolution Textures</a><a class="toc-link toc-level-5" href="#native-and-compact-structured-latents-for-3d-generation">Native and Compact Structured Latents for 3D Generation</a><a class="toc-link toc-level-5" href="#年份未知">年份未知</a><a class="toc-link toc-level-5" href="#nerf-representing-scenes-as-neural-radiance-ﬁelds-for-view-synthesis">NeRF: Representing scenes as neural radiance ﬁelds for view synthesis</a></nav>
+        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#单图像扩散高模-3d-生成-逐篇解析">单图像扩散高模 3D 生成：逐篇解析</a><a class="toc-link toc-level-2" href="#逐篇解析">逐篇解析</a><a class="toc-link toc-level-3" href="#主体论文-统一多模态模型">主体论文（统一多模态模型）</a><a class="toc-link toc-level-3" href="#相邻工作">相邻工作</a><a class="toc-link toc-level-3" href="#背景与上下文工作">背景与上下文工作</a></nav>
       </div>
     </aside>
     <main class="academic-main"><article><div class="markdown-image-gallery"><h1 id="单图像扩散高模-3d-生成-逐篇解析">单图像扩散高模 3D 生成：逐篇解析</h1>
@@ -1388,7 +1413,7 @@ div.pswp__img--placeholder,
       }, { passive: true });
       updateToc();
     }
-        
+
 
 
   </script>
