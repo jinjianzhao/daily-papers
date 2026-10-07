@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DeepSeek 主模型系列演进：V1 到 V4：快速理解</title>
+  <title>DeepSeek 主模型系列演进：V1 到 V4.1：快速理解</title>
 
   <script>
     window.MathJax = {
@@ -21,16 +21,16 @@
 .pswp {
   --pswp-bg: #000;
   --pswp-placeholder-bg: #222;
-
+  
 
   --pswp-root-z-index: 100000;
-
+  
   --pswp-preloader-color: rgba(79, 79, 79, 0.4);
   --pswp-preloader-color-secondary: rgba(255, 255, 255, 0.9);
-
+  
   /* defined via js:
   --pswp-transition-duration: 333ms; */
-
+  
   --pswp-icon-color: #fff;
   --pswp-icon-color-secondary: #4f4f4f;
   --pswp-icon-stroke-color: #4f4f4f;
@@ -518,11 +518,11 @@ div.pswp__img--placeholder,
       .academic-shell { width: 100%; padding: 60px 0 0; }
       .academic-main article { padding: 30px 22px 52px; border: 0; border-radius: 0; }
     }
+        
 
 
 
-
-
+  
     .academic-main img {
       display: block; width: 100%; max-height: 620px; object-fit: contain;
       margin: 1.1rem auto .45rem; border: 1px solid #dce5ec;
@@ -547,17 +547,17 @@ div.pswp__img--placeholder,
     <aside class="academic-sidebar" id="academic-sidebar" aria-label="文档目录">
       <div class="toc-panel">
         <p class="toc-heading">目录</p>
-        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#deepseek-主模型系列演进-v1-到-v4-快速理解">DeepSeek 主模型系列演进：V1 到 V4：快速理解</a><a class="toc-link toc-level-2" href="#总述">总述</a><a class="toc-link toc-level-3" href="#一句话定义">一句话定义</a><a class="toc-link toc-level-3" href="#任务边界">任务边界</a><a class="toc-link toc-level-3" href="#快速要点">快速要点</a><a class="toc-link toc-level-3" href="#领域标准流程">领域标准流程</a><a class="toc-link toc-level-2" href="#分类">分类</a><a class="toc-link toc-level-3" href="#任务维度">任务维度</a><a class="toc-link toc-level-3" href="#方法维度">方法维度</a><a class="toc-link toc-level-3" href="#架构维度">架构维度</a><a class="toc-link toc-level-2" href="#相关工作">相关工作</a><a class="toc-link toc-level-3" href="#通用语言建模-general-language-modeling-2">通用语言建模（General Language Modeling）</a><a class="toc-link toc-level-3" href="#指令遵循与对话生成-instruction-following-2">指令遵循与对话生成（Instruction Following）</a><a class="toc-link toc-level-3" href="#长上下文建模-long-context-modeling-2">长上下文建模（Long-Context Modeling）</a><a class="toc-link toc-level-3" href="#高效自回归生成-efficient-autoregressive-generation-2">高效自回归生成（Efficient Autoregressive Generation）</a></nav>
+        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#deepseek-主模型系列演进-v1-到-v4-1-快速理解">DeepSeek 主模型系列演进：V1 到 V4.1：快速理解</a><a class="toc-link toc-level-2" href="#总述">总述</a><a class="toc-link toc-level-3" href="#一句话定义">一句话定义</a><a class="toc-link toc-level-3" href="#任务边界">任务边界</a><a class="toc-link toc-level-3" href="#快速要点">快速要点</a><a class="toc-link toc-level-3" href="#领域标准流程">领域标准流程</a><a class="toc-link toc-level-2" href="#分类">分类</a><a class="toc-link toc-level-3" href="#任务维度">任务维度</a><a class="toc-link toc-level-3" href="#方法维度">方法维度</a><a class="toc-link toc-level-3" href="#架构维度">架构维度</a><a class="toc-link toc-level-2" href="#相关工作">相关工作</a><a class="toc-link toc-level-3" href="#通用语言建模-general-language-modeling-2">通用语言建模（General Language Modeling）</a><a class="toc-link toc-level-3" href="#指令遵循与对话生成-instruction-following-2">指令遵循与对话生成（Instruction Following）</a><a class="toc-link toc-level-3" href="#长上下文建模-long-context-modeling-2">长上下文建模（Long-Context Modeling）</a><a class="toc-link toc-level-3" href="#高效自回归生成-efficient-autoregressive-generation-2">高效自回归生成（Efficient Autoregressive Generation）</a></nav>
       </div>
     </aside>
-    <main class="academic-main"><article><div class="markdown-image-gallery"><h1 id="deepseek-主模型系列演进-v1-到-v4-快速理解">DeepSeek 主模型系列演进：V1 到 V4：快速理解</h1>
+    <main class="academic-main"><article><div class="markdown-image-gallery"><h1 id="deepseek-主模型系列演进-v1-到-v4-1-快速理解">DeepSeek 主模型系列演进：V1 到 V4.1：快速理解</h1>
 <blockquote>当前页面用于快速建立领域地图。 <a href="full/">逐篇解析（6 篇）</a> · <a href="bibliography/index.html">BibTeX 与 DBLP 查询结果</a> · <a href="../">返回综述目录</a></blockquote>
 <h2 id="总述">总述</h2>
 <h3 id="一句话定义">一句话定义</h3>
 <p>本综述严格覆盖 DeepSeek-AI 官方通用主模型论文：DeepSeek LLM（V1）、DeepSeek-V2、V3、V3.2、V4 与 V4.1-Flash，追踪其从稠密扩展转向混合专家计算，再到多词元预测、稀疏注意力、百万词元上下文与键值缓存压缩的演进。核心目标是在保持通用语言建模、指令遵循与推理能力的同时，降低训练成本、长序列计算量、推理时延及存储开销。V4.1-Flash 仅按通用主模型能力讨论，不扩展至视觉专项任务；未检索到 V2.5 或 V3.1 的独立官方论文。</p>
 <h3 id="任务边界">任务边界</h3>
 <div class="mermaid">flowchart LR
-  INPUT[&quot;多模态条件&lt;br/&gt;文本 · 图像 · 既有 3D&quot;]
+  INPUT[&quot;研究输入&quot;]
   T1[&quot;通用语言建模&quot;]
   O1[&quot;下一词元概率分布、续写词元序列或完整自然语言文本。&quot;]
   INPUT --&gt; T1
@@ -575,7 +575,7 @@ div.pswp__img--placeholder,
   INPUT --&gt; T4
   T4 --&gt; O4</div>
 <h3 id="快速要点">快速要点</h3>
-<ul><li><strong>任务：</strong> 给定通用文本前缀、用户指令或长对话上下文，主模型以因果方式预测后续词元并生成回答；研究重点是比较各版本在预训练、计算激活、注意力、后训练及部署效率上的连续演进，而非代码、数学、视觉或推理专项模型。</li><li><strong>输入：</strong> 输入包括经过词元化的通用语料、指令与回答样本、偏好或奖励反馈，以及推理阶段的提示和历史生成前缀；长上下文版本可接收数万至百万级词元。</li><li><strong>输出：</strong> 训练输出为可用于通用生成的模型参数及推理状态；推理输出为下一词元概率分布或自回归文本，同时关注回答质量、指令满足度、上下文利用率、吞吐量、时延和缓存占用。</li><li><strong>核心关注：</strong> 在扩大总参数容量的同时控制每词元激活计算、专家负载失衡和跨设备通信；让数万至百万级上下文真正利用远距离证据，并限制注意力计算、预填充时延与键值缓存增长；在低精度、大规模并行和新型连接或优化器下保持训练收敛稳定与数值可靠性；协调下一词元、多词元、指令微调和强化学习目标，避免通用能力、推理能力与对齐效果相互损害；在统一硬件、上下文长度和解码设置下公平比较版本质量、吞吐量、时延、显存及存储成本。</li><li><strong>不纳入：</strong> 本综述不总结独立的 text-to-3D、image-to-3D 或其他 standalone 3D generation；只有统一多模态模型内部的生成能力可以作为主体任务标签；只生成二维图像而不返回三维结果的工作；仅提供数据集、评测、压缩或底层表示而不完成上述任务的工作。</li></ul>
+<ul><li><strong>任务：</strong> 给定通用文本前缀、用户指令或长对话上下文，主模型以因果方式预测后续词元并生成回答；研究重点是比较各版本在预训练、计算激活、注意力、后训练及部署效率上的连续演进，而非代码、数学、视觉或推理专项模型。</li><li><strong>输入：</strong> 输入包括经过词元化的通用语料、指令与回答样本、偏好或奖励反馈，以及推理阶段的提示和历史生成前缀；长上下文版本可接收数万至百万级词元。</li><li><strong>输出：</strong> 训练输出为可用于通用生成的模型参数及推理状态；推理输出为下一词元概率分布或自回归文本，同时关注回答质量、指令满足度、上下文利用率、吞吐量、时延和缓存占用。</li><li><strong>核心关注：</strong> 在扩大总参数容量的同时控制每词元激活计算、专家负载失衡和跨设备通信；让数万至百万级上下文真正利用远距离证据，并限制注意力计算、预填充时延与键值缓存增长；在低精度、大规模并行和新型连接或优化器下保持训练收敛稳定与数值可靠性；协调下一词元、多词元、指令微调和强化学习目标，避免通用能力、推理能力与对齐效果相互损害；在统一硬件、上下文长度和解码设置下公平比较版本质量、吞吐量、时延、显存及存储成本。</li></ul>
 <p><em>面向读者：了解 Transformer 基础、希望快速理解 DeepSeek 主模型技术演进的研究者；综述截止日期：2026-10-07。</em></p>
 <h3 id="领域标准流程">领域标准流程</h3>
 <p>下图只表达跨任务、跨论文的共同范式；标为可选的环节并非所有方法都包含。</p>
@@ -594,7 +594,7 @@ div.pswp__img--placeholder,
 <h2 id="分类">分类</h2>
 <p>先按研究角色区分主体论文、相邻工作和背景工作；主体论文内部的任务标签可以多选。方法标签和架构标签可以叠加。</p>
 <div class="mermaid">flowchart LR
-  ROOT[&quot;多模态 3D 方法地图&quot;]
+  ROOT[&quot;领域方法地图&quot;]
   D1[&quot;任务：最终要完成什么&quot;]
   ROOT --&gt; D1
   D1C1[&quot;通用语言建模&quot;]
@@ -955,7 +955,7 @@ div.pswp__img--placeholder,
       }, { passive: true });
       updateToc();
     }
-
+        
 
 
   </script>
