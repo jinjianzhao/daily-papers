@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Knowledge</title>
+  <style>
+    :root{font-family:Inter,"PingFang SC","Microsoft YaHei",sans-serif;color:#172033}
+    *{box-sizing:border-box}body{margin:0;background:#f7f9fb;line-height:1.6}
+    a{color:#1769aa}.topbar{border-bottom:1px solid #dfe7ef;background:#fff}.topbar-inner,main{width:min(1180px,calc(100% - 40px));margin:0 auto}.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px 0}.brand{color:#334155;font-size:14px;font-weight:800;text-decoration:none}.nav{display:flex;gap:6px;flex-wrap:wrap}.nav a{padding:6px 10px;border-radius:6px;color:#64748b;font-size:13px;font-weight:700;text-decoration:none}.nav a[aria-current=page]{background:#eaf3fb;color:#1769aa}
+    main{padding:48px 0 84px}.eyebrow{margin:0 0 7px;color:#1769aa;font-size:12px;font-weight:800;letter-spacing:.04em}h1{margin:0;color:#1769aa;font-size:32px;line-height:1.25}.description{max-width:760px;margin:12px 0 32px;color:#64748b}.filters{padding:20px 0;border-top:1px solid #dfe7ef;border-bottom:1px solid #dfe7ef}.filter-label{display:block;margin-bottom:10px;color:#334155;font-size:13px;font-weight:800}.search-input{width:min(100%,420px);height:42px;margin:0 0 18px;padding:8px 12px;border:1px solid #cbd8e3;border-radius:6px;background:#fff;color:#172033;font:inherit;font-size:14px}.search-input:focus{outline:2px solid #b4d7f0;outline-offset:1px}.filter-buttons{display:flex;gap:8px;flex-wrap:wrap}.filter-button{border:1px solid #cbd8e3;border-radius:6px;padding:7px 12px;background:#fff;color:#425466;font:inherit;font-size:13px;cursor:pointer}.filter-button:hover,.filter-button[aria-pressed=true]{border-color:#1769aa;background:#eaf3fb;color:#1769aa}.result-count{margin:20px 0 12px;color:#64748b;font-size:13px}.entries{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.entry{display:flex;flex-direction:column;min-height:190px;padding:22px;border:1px solid #dfe7ef;border-radius:8px;background:#fff}.entry h2{margin:0 0 8px;font-size:20px;line-height:1.35}.entry h2 a{color:#1769aa;text-decoration:none}.entry p{margin:0 0 16px;color:#596779;font-size:14px}.entry-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;color:#7a8794;font-size:12px}.entry-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:4px}.tag{padding:2px 7px;border-radius:4px;background:#eef3f7;color:#526679;font-size:12px}@media(max-width:900px){.entries{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:620px){.topbar-inner,main{width:min(100% - 28px,1180px)}.entries{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header class="topbar"><div class="topbar-inner"><a class="brand" href="../">论文阅读</a><nav class="nav" aria-label="报告与专题"><a href="../date/">日报</a><a href="../week/">周报</a><a href="../month/">月报</a><a href="../surveys/">Survey</a><a href="./" aria-current="page">Knowledge</a></nav></div></header>
+  <main>
+    <p class="eyebrow">KNOWLEDGE</p>
+    <h1>知识文章</h1>
+    <p class="description">按主题整理的技术知识短文。文章由 Markdown 维护，目录和筛选在浏览器中完成。</p>
+    <section class="filters" aria-label="搜索与标签筛选"><label class="filter-label" for="search-input">搜索标题或简介</label><input id="search-input" class="search-input" type="search" placeholder="输入关键词" autocomplete="off"><span class="filter-label">按标签筛选</span><div id="filter-buttons" class="filter-buttons"></div></section>
+    <p id="result-count" class="result-count"></p>
+    <section id="entries" class="entries" aria-live="polite"></section>
+  </main>
+  <script>
+    const entriesContainer = document.getElementById('entries');
+    const filterButtons = document.getElementById('filter-buttons');
+    const resultCount = document.getElementById('result-count');
+    const searchInput = document.getElementById('search-input');
+    let entries = [];
+    let selectedTag = '';
+    let tagOrder = [];
+    const entryLabels = entry => [entry.category, entry.level, ...(entry.tags || [])].filter(Boolean);
+    const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+    function renderButtons() {
+      const tags = [...new Set(entries.flatMap(entryLabels))];
+      const order = tag => tagOrder.indexOf(tag) < 0 ? 999 : tagOrder.indexOf(tag);
+      tags.sort((a, b) => order(a) - order(b) || a.localeCompare(b, 'zh-CN'));
+      filterButtons.innerHTML = '';
+      ['全部', ...tags].forEach(label => {
+        const button = document.createElement('button');
+        button.className = 'filter-button';
+        button.type = 'button';
+        button.textContent = label;
+        button.setAttribute('aria-pressed', label === '全部' ? !selectedTag : selectedTag === label);
+        button.addEventListener('click', () => { selectedTag = label === '全部' ? '' : label; renderButtons(); renderEntries(); });
+        filterButtons.appendChild(button);
+      });
+    }
+    function renderEntries() {
+      const query = searchInput.value.trim().toLocaleLowerCase();
+      const visible = entries.filter(entry => {
+        if (selectedTag && !entryLabels(entry).includes(selectedTag)) return false;
+        const searchable = [entry.title, entry.description, ...entryLabels(entry)].join(' ').toLocaleLowerCase();
+        return !query || searchable.includes(query);
+      });
+      resultCount.textContent = `${visible.length} 篇知识文章`;
+      entriesContainer.innerHTML = '';
+      if (!visible.length) { entriesContainer.innerHTML = '<p>没有匹配的文章。</p>'; return; }
+      visible.forEach(entry => {
+        const card = document.createElement('article');
+        card.className = 'entry';
+        const tags = entryLabels(entry).map(tag => `<span class="tag">${escapeHtml(tag)}</span>`).join('');
+        card.innerHTML = `<h2><a href="article.html?slug=${encodeURIComponent(entry.slug)}">${escapeHtml(entry.title)}</a></h2><p>${escapeHtml(entry.description)}</p><div class="entry-tags">${tags}</div><div class="entry-meta"><span>${escapeHtml(entry.category)} · ${escapeHtml(entry.level)}</span><time datetime="${escapeHtml(entry.updated_at)}">${escapeHtml(entry.updated_at)}</time></div>`;
+        entriesContainer.appendChild(card);
+      });
+    }
+    async function loadEntries() {
+      try {
+        const [indexResponse, taxonomyResponse] = await Promise.all([fetch('index.json'), fetch('taxonomy.json')]);
+        if (!indexResponse.ok || !taxonomyResponse.ok) throw new Error('知识目录加载失败');
+        entries = await indexResponse.json();
+        const taxonomy = await taxonomyResponse.json();
+        tagOrder = [...(taxonomy.categories || []), ...(taxonomy.levels || []), ...(taxonomy.tags || [])].map(item => typeof item === 'string' ? item : item.name);
+        entries.sort((a, b) => String(b.updated_at || '').localeCompare(String(a.updated_at || '')));
+        renderButtons(); renderEntries();
+      } catch (error) { resultCount.textContent = error.message; }
+    }
+    searchInput.addEventListener('input', renderEntries);
+    loadEntries();
+  </script>
+</body>
+</html>
