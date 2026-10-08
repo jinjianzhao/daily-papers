@@ -8,7 +8,7 @@
     :root{font-family:Inter,"PingFang SC","Microsoft YaHei",sans-serif;color:#172033}
     *{box-sizing:border-box}body{margin:0;background:#f7f9fb;line-height:1.7}
     a{color:#1769aa}.topbar{border-bottom:1px solid #dfe7ef;background:#fff}.topbar-inner{width:min(1180px,calc(100% - 40px));margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px 0}.brand{color:#334155;font-size:14px;font-weight:800;text-decoration:none}.nav{display:flex;gap:6px;flex-wrap:wrap}.nav a{padding:6px 10px;border-radius:6px;color:#64748b;font-size:13px;font-weight:700;text-decoration:none}.nav a[aria-current=page]{background:#eaf3fb;color:#1769aa}
-    main{width:min(920px,calc(100% - 40px));margin:0 auto;padding:48px 0 80px}.back{font-size:14px;font-weight:700}.article{margin-top:24px;padding:38px 48px;background:#fff;border:1px solid #dfe7ef;border-radius:8px;box-shadow:0 8px 24px rgba(36,54,74,.04)}.article h1{margin:0 0 30px;color:#1769aa;font-size:32px;line-height:1.3}.article h2{margin:34px 0 10px;color:#24364a;font-size:22px}.article p,.article li{color:#354052}.article code{padding:2px 5px;border-radius:4px;background:#eef3f7;color:#24516e}.article pre{overflow:auto;padding:16px;border-radius:6px;background:#172033;color:#edf4fa}.article img{max-width:100%;height:auto}@media(max-width:680px){.topbar-inner,main{width:min(100% - 28px,920px)}.article{padding:26px 20px}.article h1{font-size:27px}}
+    main{width:min(1240px,calc(100% - 56px));margin:0 auto;padding:48px 0 80px}.back{font-size:14px;font-weight:700}.article{margin-top:24px;padding:42px 64px;background:#fff;border:1px solid #dfe7ef;border-radius:12px;box-shadow:0 8px 24px rgba(36,54,74,.04)}.article h1{margin:0 0 30px;color:#1769aa;font-size:32px;line-height:1.3}.article h2{margin:42px 0 12px;color:#24364a;font-size:22px}.article h3{margin:30px 0 10px;color:#334155;font-size:18px}.article p,.article li{color:#354052}.article p{max-width:88ch}.article code{padding:2px 5px;border-radius:4px;background:#eef3f7;color:#24516e;font:500 .92em/1.4 ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace}.article pre{position:relative;overflow:auto;margin:18px 0 26px;padding:22px 24px;border:1px solid #26354a;border-radius:10px;background:#111827;color:#e5edf5;box-shadow:0 4px 14px rgba(15,23,42,.12);font:14px/1.65 ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;tab-size:4;-webkit-overflow-scrolling:touch}.article pre code{display:block;padding:0;background:transparent;color:inherit;font:inherit;white-space:pre}.article blockquote{margin:20px 0;padding:10px 18px;border-left:4px solid #9bc6e5;background:#f5f9fc;color:#526679}.article img{max-width:100%;height:auto}.collapse-block{margin:22px 0;border:1px solid #cbd8e3;border-radius:10px;background:#f8fbfd;overflow:hidden}.collapse-block summary{cursor:pointer;padding:13px 18px;color:#24516e;font-weight:800;list-style:none}.collapse-block summary::-webkit-details-marker{display:none}.collapse-block summary::before{display:inline-block;margin-right:9px;color:#1769aa;content:"▶";font-size:11px;transition:transform .15s ease}.collapse-block[open] summary::before{transform:rotate(90deg)}.collapse-body{padding:2px 20px 16px;border-top:1px solid #dfe7ef;background:#fff}.collapse-body pre{margin:16px 0}.collapse-return{display:block;margin-top:18px;color:#64748b;font-size:13px}@media(max-width:680px){.topbar-inner,main{width:min(100% - 28px,1240px)}.article{padding:28px 20px}.article h1{font-size:27px}.article pre{padding:16px;font-size:13px}}
   </style>
 </head>
 <body>
@@ -31,7 +31,7 @@
         if (!markdownResponse.ok) throw new Error('文章加载失败');
         const markdown = await markdownResponse.text();
         document.title = `${entry.title} · Knowledge`;
-        article.innerHTML = marked.parse(markdown);
+        article.innerHTML = renderMarkdownWithCollapses(markdown);
         // Markdown is stored beside the article metadata, so resolve relative
         // images and links from the Markdown file rather than this HTML shell.
         const markdownBase = new URL(entry.path, window.location.href);
@@ -46,6 +46,31 @@
       } catch (error) {
         article.textContent = error.message;
       }
+    }
+    // text-preview 的 :::collapse 不是标准 Markdown。Knowledge 仍以 Markdown
+    // 为唯一正文来源，因此在展示层实现同样的语法，而不是维护第二份 HTML。
+    function renderMarkdownWithCollapses(source) {
+      const lines = source.replace(/\r\n?/g, '\n').split('\n');
+      const output = [];
+      for (let index = 0; index < lines.length; index += 1) {
+        const opening = lines[index].match(/^:::collapse\s+id="([A-Za-z][A-Za-z0-9_.-]*)"\s+title="([^"]+)"\s*$/);
+        if (!opening) { output.push(lines[index]); continue; }
+        const inner = [];
+        let closed = false;
+        for (index += 1; index < lines.length; index += 1) {
+          if (lines[index].trim() === ':::') { closed = true; break; }
+          inner.push(lines[index]);
+        }
+        if (!closed) throw new Error(`折叠块 ${opening[1]} 缺少结束标记 :::`);
+        const title = escapeHtml(opening[2]);
+        const id = escapeHtml(opening[1]);
+        const body = marked.parse(inner.join('\n'));
+        output.push(`<details id="${id}" class="collapse-block"><summary>${title}</summary><div class="collapse-body">${body}<a class="collapse-return" href="#${id}">收起并返回标题</a></div></details>`);
+      }
+      return marked.parse(output.join('\n'));
+    }
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
     }
     loadArticle();
   </script>
