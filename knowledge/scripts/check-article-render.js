@@ -4,6 +4,16 @@ const path = require('node:path');
 const vm = require('node:vm');
 
 const knowledge = path.resolve(__dirname, '..');
+const allowedTags = JSON.parse(fs.readFileSync(path.join(knowledge, 'tags.json'), 'utf8'));
+const entries = JSON.parse(fs.readFileSync(path.join(knowledge, 'index.json'), 'utf8'));
+assert(Array.isArray(allowedTags) && allowedTags.length > 0, '候选标签文件必须是非空数组');
+assert.equal(new Set(allowedTags).size, allowedTags.length, '候选标签不能重复');
+for (const entry of entries) {
+  assert(Array.isArray(entry.tags) && entry.tags.length === 1, `${entry.slug} 应恰好有一个标签`);
+  assert(allowedTags.includes(entry.tags[0]), `${entry.slug} 使用了未登记标签 ${entry.tags[0]}`);
+}
+assert.equal(entries.find(entry => entry.slug === 'interview-code-diffusion-transformer-flow-matching-vit')?.title,
+  '手撕 Diffusion、Transformer、Flow Matching、ViT');
 const page = fs.readFileSync(path.join(knowledge, 'article.html'), 'utf8');
 const markdown = fs.readFileSync(
   path.join(knowledge, 'posts/interview-code-diffusion-transformer-flow-matching-vit/article.md'),
@@ -34,4 +44,4 @@ assert.match(jevHtml, /完整的一行是 <code>Best answer: \[1\]<\/code>/);
 assert.equal((jevHtml.match(/<h2>/g) || []).length, 7);
 assert.match(page, /buildArticleToc\(\)/);
 assert.match(page, /details\.className = 'article-toc'/);
-console.log('Knowledge 代码块渲染检查通过');
+console.log('Knowledge 标签与代码块渲染检查通过');

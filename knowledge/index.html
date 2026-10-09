@@ -28,13 +28,11 @@
     const searchInput = document.getElementById('search-input');
     let entries = [];
     let selectedTag = '';
-    let tagOrder = [];
-    const filterLabels = entry => [entry.category, ...(entry.tags || [])].filter(Boolean);
+    let allowedTags = [];
     const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
     function renderButtons() {
-      const tags = [...new Set(entries.flatMap(filterLabels))];
-      const order = tag => tagOrder.indexOf(tag) < 0 ? 999 : tagOrder.indexOf(tag);
-      tags.sort((a, b) => order(a) - order(b) || a.localeCompare(b, 'zh-CN'));
+      const usedTags = new Set(entries.flatMap(entry => entry.tags || []));
+      const tags = allowedTags.filter(tag => usedTags.has(tag));
       filterButtons.innerHTML = '';
       ['全部', ...tags].forEach(label => {
         const button = document.createElement('button');
@@ -49,8 +47,8 @@
     function renderEntries() {
       const query = searchInput.value.trim().toLocaleLowerCase();
       const visible = entries.filter(entry => {
-        if (selectedTag && !filterLabels(entry).includes(selectedTag)) return false;
-        const searchable = [entry.title, entry.description, entry.level, ...filterLabels(entry)].join(' ').toLocaleLowerCase();
+        if (selectedTag && !(entry.tags || []).includes(selectedTag)) return false;
+        const searchable = [entry.title, entry.description, entry.category, entry.level, ...(entry.tags || [])].join(' ').toLocaleLowerCase();
         return !query || searchable.includes(query);
       });
       resultCount.textContent = `${visible.length} 篇知识文章`;
@@ -60,17 +58,19 @@
         const card = document.createElement('article');
         card.className = 'entry';
         const tags = (entry.tags || []).map(tag => `<span class="tag">${escapeHtml(tag)}</span>`).join('');
-        card.innerHTML = `<h2><a href="article.html?slug=${encodeURIComponent(entry.slug)}">${escapeHtml(entry.title)}</a></h2><p>${escapeHtml(entry.description)}</p><div class="entry-tags">${tags}</div><div class="entry-meta"><span>${escapeHtml(entry.category)} · ${escapeHtml(entry.level)}</span><time datetime="${escapeHtml(entry.updated_at)}">${escapeHtml(entry.updated_at)}</time></div>`;
+        card.innerHTML = `<h2><a href="article.html?slug=${encodeURIComponent(entry.slug)}">${escapeHtml(entry.title)}</a></h2><p>${escapeHtml(entry.description)}</p><div class="entry-tags">${tags}</div><div class="entry-meta"><span>${escapeHtml(entry.level)}</span><time datetime="${escapeHtml(entry.updated_at)}">${escapeHtml(entry.updated_at)}</time></div>`;
         entriesContainer.appendChild(card);
       });
     }
     async function loadEntries() {
       try {
-        const [indexResponse, taxonomyResponse] = await Promise.all([fetch('index.json'), fetch('taxonomy.json')]);
-        if (!indexResponse.ok || !taxonomyResponse.ok) throw new Error('知识目录加载失败');
+        const [indexResponse, tagsResponse] = await Promise.all([fetch('index.json'), fetch('tags.json')]);
+        if (!indexResponse.ok || !tagsResponse.ok) throw new Error('知识目录加载失败');
         entries = await indexResponse.json();
-        const taxonomy = await taxonomyResponse.json();
-        tagOrder = [...(taxonomy.categories || []), ...(taxonomy.tags || [])].map(item => typeof item === 'string' ? item : item.name);
+        allowedTags = await tagsResponse.json();
+        if (!Array.isArray(allowedTags) || entries.some(entry => (entry.tags || []).some(tag => !allowedTags.includes(tag)))) {
+          throw new Error('文章使用了未登记的 Knowledge 标签');
+        }
         entries.sort((a, b) => String(b.updated_at || '').localeCompare(String(a.updated_at || '')));
         renderButtons(); renderEntries();
       } catch (error) { resultCount.textContent = error.message; }
