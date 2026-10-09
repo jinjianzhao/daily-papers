@@ -51,6 +51,10 @@ assert.match(introductionHtml, /<h1>LLM 入门：从预测下一个词到训练�
 for (const stage of ['第一阶段', '第二阶段', '第三阶段', '第四阶段', '第五阶段', '第六阶段']) {
   assert.match(introductionHtml, new RegExp(`<h2>${stage}：`), `${stage} 应有独立小节`);
 }
+assert.equal((introductionHtml.match(/<img /g) || []).length, 3, 'LLM 入门文应有三张原始配图');
+assert.match(introductionHtml, /The Illustrated GPT-2/);
+assert.match(introductionHtml, /InstructGPT 论文 Figure 2/);
+assert.match(introductionHtml, /DeepSeekMath 论文 Figure 4/);
 assert.match(page, /buildArticleToc\(\)/);
 assert.match(page, /details\.className = 'article-toc'/);
 console.log('Knowledge 标签与代码块渲染检查通过');
