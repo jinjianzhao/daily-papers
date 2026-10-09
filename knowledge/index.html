@@ -17,7 +17,7 @@
     <p class="eyebrow">KNOWLEDGE</p>
     <h1>知识文章</h1>
     <p class="description">按主题整理的技术知识短文。文章由 Markdown 维护，目录和筛选在浏览器中完成。</p>
-    <section class="filters" aria-label="搜索与标签筛选"><label class="filter-label" for="search-input">搜索标题或简介</label><input id="search-input" class="search-input" type="search" placeholder="输入关键词" autocomplete="off"><span class="filter-label">按标签筛选</span><div id="filter-buttons" class="filter-buttons"></div></section>
+    <section class="filters" aria-label="搜索与主题筛选"><label class="filter-label" for="search-input">搜索标题或简介</label><input id="search-input" class="search-input" type="search" placeholder="输入关键词" autocomplete="off"><span class="filter-label">按主题筛选</span><div id="filter-buttons" class="filter-buttons"></div></section>
     <p id="result-count" class="result-count"></p>
     <section id="entries" class="entries" aria-live="polite"></section>
   </main>
@@ -29,10 +29,10 @@
     let entries = [];
     let selectedTag = '';
     let tagOrder = [];
-    const entryLabels = entry => [entry.category, entry.level, ...(entry.tags || [])].filter(Boolean);
+    const filterLabels = entry => [entry.category, ...(entry.tags || [])].filter(Boolean);
     const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
     function renderButtons() {
-      const tags = [...new Set(entries.flatMap(entryLabels))];
+      const tags = [...new Set(entries.flatMap(filterLabels))];
       const order = tag => tagOrder.indexOf(tag) < 0 ? 999 : tagOrder.indexOf(tag);
       tags.sort((a, b) => order(a) - order(b) || a.localeCompare(b, 'zh-CN'));
       filterButtons.innerHTML = '';
@@ -49,8 +49,8 @@
     function renderEntries() {
       const query = searchInput.value.trim().toLocaleLowerCase();
       const visible = entries.filter(entry => {
-        if (selectedTag && !entryLabels(entry).includes(selectedTag)) return false;
-        const searchable = [entry.title, entry.description, ...entryLabels(entry)].join(' ').toLocaleLowerCase();
+        if (selectedTag && !filterLabels(entry).includes(selectedTag)) return false;
+        const searchable = [entry.title, entry.description, entry.level, ...filterLabels(entry)].join(' ').toLocaleLowerCase();
         return !query || searchable.includes(query);
       });
       resultCount.textContent = `${visible.length} 篇知识文章`;
@@ -59,7 +59,7 @@
       visible.forEach(entry => {
         const card = document.createElement('article');
         card.className = 'entry';
-        const tags = entryLabels(entry).map(tag => `<span class="tag">${escapeHtml(tag)}</span>`).join('');
+        const tags = (entry.tags || []).map(tag => `<span class="tag">${escapeHtml(tag)}</span>`).join('');
         card.innerHTML = `<h2><a href="article.html?slug=${encodeURIComponent(entry.slug)}">${escapeHtml(entry.title)}</a></h2><p>${escapeHtml(entry.description)}</p><div class="entry-tags">${tags}</div><div class="entry-meta"><span>${escapeHtml(entry.category)} · ${escapeHtml(entry.level)}</span><time datetime="${escapeHtml(entry.updated_at)}">${escapeHtml(entry.updated_at)}</time></div>`;
         entriesContainer.appendChild(card);
       });
@@ -70,7 +70,7 @@
         if (!indexResponse.ok || !taxonomyResponse.ok) throw new Error('知识目录加载失败');
         entries = await indexResponse.json();
         const taxonomy = await taxonomyResponse.json();
-        tagOrder = [...(taxonomy.categories || []), ...(taxonomy.levels || []), ...(taxonomy.tags || [])].map(item => typeof item === 'string' ? item : item.name);
+        tagOrder = [...(taxonomy.categories || []), ...(taxonomy.tags || [])].map(item => typeof item === 'string' ? item : item.name);
         entries.sort((a, b) => String(b.updated_at || '').localeCompare(String(a.updated_at || '')));
         renderButtons(); renderEntries();
       } catch (error) { resultCount.textContent = error.message; }
