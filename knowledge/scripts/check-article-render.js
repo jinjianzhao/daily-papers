@@ -55,6 +55,45 @@ assert.equal((introductionHtml.match(/<img /g) || []).length, 3, 'LLM 入门文�
 assert.match(introductionHtml, /The Illustrated GPT-2/);
 assert.match(introductionHtml, /InstructGPT/);
 assert.match(introductionHtml, /DeepSeekMath/);
+
+// 本轮 Knowledge 文章：只检查索引、正文路径和基本图片/标题约定；正文内容仍由主代理审阅。
+const newKnowledgeArticles = [
+  {
+    slug: 'reinforcement-learning-introduction',
+    heading: '强化学习入门：让模型通过试错学会行动',
+    path: 'posts/reinforcement-learning-introduction/article.md',
+    requiredImage: 'assets/rl-diagram.png',
+  },
+  {
+    slug: 'ppo-grpo',
+    heading: 'PPO 与 GRPO：语言模型如何用奖励学会更好的回答',
+    path: 'posts/ppo-grpo/article.md',
+  },
+  {
+    slug: 'deepseek-v1-training-paradigm',
+    heading: 'DeepSeek-V1 怎么训练：从 2T 语料到 Chat 模型',
+    path: 'posts/deepseek-v1-training-paradigm/article.md',
+    requiredImage: 'assets/pretrain_metric.png',
+  },
+  {
+    slug: 'deepseek-v4-v4-1-training-paradigm',
+    heading: 'DeepSeek-V4 与 V4.1：百万上下文模型怎样训练与部署',
+    path: 'posts/deepseek-v4-v4-1-training-paradigm/article.md',
+    requiredImages: ['assets/deepseek-v4-architecture.svg', 'assets/deepseek-v4-1-flash-architecture.svg'],
+  },
+];
+for (const item of newKnowledgeArticles) {
+  const entry = entries.find(candidate => candidate.slug === item.slug);
+  assert(entry, `${item.slug} 必须登记在 Knowledge 索引中`);
+  assert.equal(entry.path, item.path, `${item.slug} 的正文路径不一致`);
+  const articlePath = path.join(knowledge, item.path);
+  assert(fs.existsSync(articlePath), `${item.slug} 正文文件不存在`);
+  const articleSource = fs.readFileSync(articlePath, 'utf8');
+  assert.match(articleSource, new RegExp(`^# ${item.heading.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`, 'm'), `${item.slug} 标题不一致`);
+  for (const requiredImage of item.requiredImages || (item.requiredImage ? [item.requiredImage] : [])) {
+    assert(fs.existsSync(path.join(knowledge, path.dirname(item.path), requiredImage)), `${item.slug} 图片素材不存在`);
+  }
+}
 assert.match(page, /buildArticleToc\(\)/);
 assert.match(page, /details\.className = 'article-toc'/);
 console.log('Knowledge 标签与代码块渲染检查通过');
