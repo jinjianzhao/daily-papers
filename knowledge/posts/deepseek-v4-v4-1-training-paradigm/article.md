@@ -15,7 +15,7 @@
 
 ### 1.1 普通 decoder-only Transformer 在做什么
 
-给定 token 序列 (x_1,ldots,x_n)，标准因果语言模型在每个位置预测下一个 token：
+给定 token 序列 \(x_1,\ldots,x_n\)，标准因果语言模型在每个位置预测下一个 token：
 
 \[
  p(x_{t+1}\mid x_{\leq t}).
