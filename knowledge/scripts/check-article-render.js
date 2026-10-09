@@ -23,4 +23,15 @@ assert(diffusion, 'Diffusion 折叠块丢失');
 assert.equal((diffusion.match(/<pre>/g) || []).length, 1, 'Python 示例必须是一个完整代码块');
 assert.match(diffusion, /<pre><code class="language-python">[\s\S]*def q_sample\([\s\S]*def diffusion_loss\([\s\S]*<\/code><\/pre>/);
 assert.equal((html.match(/<pre><code class="language-python">/g) || []).length, 4);
+const jevMarkdown = fs.readFileSync(
+  path.join(knowledge, 'posts/jev-decision-model/article.md'),
+  'utf8',
+);
+const jevHtml = context.renderMarkdownWithCollapses(jevMarkdown);
+assert.match(jevHtml, /<h1>如何训练一个 Jev/);
+assert.match(jevHtml, /<pre><code class="language-text">[\s\S]*\[1\] 账单[\s\S]*Best answer: \[[\s\S]*<\/code><\/pre>/);
+assert.match(jevHtml, /完整的一行是 <code>Best answer: \[1\]<\/code>/);
+assert.equal((jevHtml.match(/<h2>/g) || []).length, 7);
+assert.match(page, /buildArticleToc\(\)/);
+assert.match(page, /details\.className = 'article-toc'/);
 console.log('Knowledge 代码块渲染检查通过');
