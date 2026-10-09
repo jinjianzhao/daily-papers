@@ -1,7 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "build:highlight": "esbuild scripts/highlight-python.js --bundle --minify --format=iife --target=es2020 --outfile=assets/shiki-python.min.js"
+    "build:highlight": "esbuild scripts/highlight-python.js --bundle --minify --format=iife --target=es2020 --outfile=assets/shiki-python.min.js",
+    "check:render": "node scripts/check-article-render.js"
   },
   "devDependencies": {
     "esbuild": "0.25.12",
