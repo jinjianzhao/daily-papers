@@ -55,9 +55,15 @@
     function renderMarkdownWithCollapses(source) {
       const lines = source.replace(/\r\n?/g, '\n').split('\n');
       const output = [];
+      let plainMarkdown = [];
+      const flushMarkdown = () => {
+        if (plainMarkdown.length) output.push(marked.parse(plainMarkdown.join('\n')));
+        plainMarkdown = [];
+      };
       for (let index = 0; index < lines.length; index += 1) {
         const opening = lines[index].match(/^:::collapse\s+id="([A-Za-z][A-Za-z0-9_.-]*)"\s+title="([^"]+)"\s*$/);
-        if (!opening) { output.push(lines[index]); continue; }
+        if (!opening) { plainMarkdown.push(lines[index]); continue; }
+        flushMarkdown();
         const inner = [];
         let closed = false;
         for (index += 1; index < lines.length; index += 1) {
@@ -70,7 +76,10 @@
         const body = marked.parse(inner.join('\n'));
         output.push(`<details id="${id}" class="collapse-block"><summary>${title}</summary><div class="collapse-body">${body}<a class="collapse-return" href="#${id}">收起并返回标题</a></div></details>`);
       }
-      return marked.parse(output.join('\n'));
+      flushMarkdown();
+      // Each Markdown segment was parsed once. Running marked.parse on the
+      // assembled HTML would turn code fences and docstrings into nested blocks.
+      return output.join('\n');
     }
     function escapeHtml(value) {
       return String(value).replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
