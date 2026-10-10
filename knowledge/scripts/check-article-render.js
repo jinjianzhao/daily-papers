@@ -28,19 +28,51 @@ assert.equal(entries.find(entry => entry.slug === 'interview-code-diffusion-tran
   '手撕 Diffusion、Transformer、Flow Matching、ViT');
 const page = fs.readFileSync(path.join(knowledge, 'article.html'), 'utf8');
 const indexPage = fs.readFileSync(path.join(knowledge, 'index.html'), 'utf8');
-const compareStart = indexPage.indexOf('    function compareEntries(');
+const compareStart = indexPage.indexOf('    function entryOrderKey(');
 const compareEnd = indexPage.indexOf('    function renderButtons()', compareStart);
 assert(compareStart >= 0 && compareEnd > compareStart, '找不到 Knowledge 目录排序函数');
 const ordering = vm.createContext({});
 vm.runInContext(indexPage.slice(compareStart, compareEnd), ordering);
 const sorted = entries.slice().sort(ordering.compareEntries);
-assert.deepEqual(sorted.filter(entry => entry.tags.includes('llm扫盲2610')).map(entry => entry.title), [
-  'LLM 入门（一）：基础概念和六个阶段',
-  'LLM 入门（二）：强化学习入门，让模型通过试错学会行动',
-  'LLM 入门（三）：PPO 与 GRPO，语言模型如何用奖励学会更好的回答',
-  'LLM 入门（四）：DeepSeek-V1 怎么训练',
-  'LLM 入门（五）：DeepSeek-V4 与 V4.1',
+assert.deepEqual(sorted.map(entry => entry.slug), [
+  'deepseek-v4-v4-1-training-paradigm',
+  'deepseek-v1-training-paradigm',
+  'ppo-grpo',
+  'reinforcement-learning-introduction',
+  'llm-introduction-six-stages',
+  'jev-decision-model',
+  'interview-code-diffusion-transformer-flow-matching-vit',
 ]);
+assert.deepEqual(sorted.filter(entry => entry.tags.includes('llm扫盲2610')).map(entry => entry.title), [
+  'LLM 入门（五）：DeepSeek-V4 与 V4.1',
+  'LLM 入门（四）：DeepSeek-V1 怎么训练',
+  'LLM 入门（三）：PPO 与 GRPO，语言模型如何用奖励学会更好的回答',
+  'LLM 入门（二）：强化学习入门，让模型通过试错学会行动',
+  'LLM 入门（一）：基础概念和六个阶段',
+]);
+const browser = {
+  location: new URL('https://example.test/daily-papers/knowledge/'),
+  history: {
+    pushState(_state, _title, url) { browser.location = new URL(url); },
+    replaceState(_state, _title, url) { browser.location = new URL(url); },
+  },
+};
+const filterInput = {value: ' GRPO '};
+const filters = vm.createContext({
+  URL, URLSearchParams, window: browser, searchInput: filterInput,
+  selectedTag: 'llm扫盲2610', allowedTags,
+});
+vm.runInContext(indexPage.slice(compareStart, compareEnd), filters);
+filters.syncFilterUrl(false);
+assert.equal(browser.location.searchParams.get('tag'), 'llm扫盲2610');
+assert.equal(browser.location.searchParams.get('q'), 'GRPO');
+browser.location = new URL('https://example.test/daily-papers/knowledge/?tag=llm&q=DeepSeek');
+filters.restoreFiltersFromUrl();
+assert.equal(filters.selectedTag, 'llm');
+assert.equal(filterInput.value, 'DeepSeek');
+assert.match(indexPage, /button\.addEventListener\('click', \(\) => \{[\s\S]*?syncFilterUrl\(false\)/);
+assert.match(indexPage, /searchInput\.addEventListener\('input', \(\) => \{ syncFilterUrl\(true\)/);
+assert.match(indexPage, /window\.addEventListener\('popstate', \(\) => \{ restoreFiltersFromUrl\(\)/);
 assert.match(indexPage, /<time datetime="\$\{escapeHtml\(entry\.date\)\}">\$\{escapeHtml\(entry\.date\)\}<\/time> · \$\{String\(entry\.sequence\)\.padStart\(2, '0'\)\}/);
 const markdown = fs.readFileSync(
   path.join(knowledge, 'posts/interview-code-diffusion-transformer-flow-matching-vit/article.md'),

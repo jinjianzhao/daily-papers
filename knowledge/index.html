@@ -30,8 +30,23 @@
     let selectedTag = '';
     let allowedTags = [];
     const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+    function entryOrderKey(entry) {
+      return `${entry.date}-${String(entry.sequence).padStart(6, '0')}`;
+    }
     function compareEntries(a, b) {
-      return String(b.date).localeCompare(String(a.date)) || a.sequence - b.sequence;
+      return entryOrderKey(b).localeCompare(entryOrderKey(a));
+    }
+    function syncFilterUrl(replace = true) {
+      const url = new URL(window.location.href);
+      if (selectedTag) url.searchParams.set('tag', selectedTag); else url.searchParams.delete('tag');
+      const query = searchInput.value.trim();
+      if (query) url.searchParams.set('q', query); else url.searchParams.delete('q');
+      window.history[replace ? 'replaceState' : 'pushState']({}, '', url);
+    }
+    function restoreFiltersFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      selectedTag = allowedTags.includes(params.get('tag')) ? params.get('tag') : '';
+      searchInput.value = params.get('q') || '';
     }
     function renderButtons() {
       const usedTags = new Set(entries.flatMap(entry => entry.tags || []));
@@ -43,7 +58,7 @@
         button.type = 'button';
         button.textContent = label;
         button.setAttribute('aria-pressed', label === '全部' ? !selectedTag : selectedTag === label);
-        button.addEventListener('click', () => { selectedTag = label === '全部' ? '' : label; renderButtons(); renderEntries(); });
+        button.addEventListener('click', () => { selectedTag = label === '全部' ? '' : label; syncFilterUrl(false); renderButtons(); renderEntries(); });
         filterButtons.appendChild(button);
       });
     }
@@ -74,11 +89,13 @@
         if (!Array.isArray(allowedTags) || entries.some(entry => (entry.tags || []).some(tag => !allowedTags.includes(tag)))) {
           throw new Error('文章使用了未登记的 Knowledge 标签');
         }
+        restoreFiltersFromUrl();
         entries.sort(compareEntries);
         renderButtons(); renderEntries();
       } catch (error) { resultCount.textContent = error.message; }
     }
-    searchInput.addEventListener('input', renderEntries);
+    searchInput.addEventListener('input', () => { syncFilterUrl(true); renderEntries(); });
+    window.addEventListener('popstate', () => { restoreFiltersFromUrl(); renderButtons(); renderEntries(); });
     loadEntries();
   </script>
 </body>
