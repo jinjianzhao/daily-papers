@@ -8,14 +8,40 @@ const allowedTags = JSON.parse(fs.readFileSync(path.join(knowledge, 'tags.json')
 const entries = JSON.parse(fs.readFileSync(path.join(knowledge, 'index.json'), 'utf8'));
 assert(Array.isArray(allowedTags) && allowedTags.length > 0, '候选标签文件必须是非空数组');
 assert.equal(new Set(allowedTags).size, allowedTags.length, '候选标签不能重复');
+const sequencesByDate = new Map();
 for (const entry of entries) {
   assert(Array.isArray(entry.tags) && entry.tags.length > 0, `${entry.slug} 至少需要一个标签`);
   assert.equal(new Set(entry.tags).size, entry.tags.length, `${entry.slug} 的标签不能重复`);
   for (const tag of entry.tags) assert(allowedTags.includes(tag), `${entry.slug} 使用了未登记标签 ${tag}`);
+  assert.match(entry.date, /^\d{4}-\d{2}-\d{2}$/, `${entry.slug} 日期格式无效`);
+  assert.equal(new Date(entry.date).toISOString().slice(0, 10), entry.date, `${entry.slug} 日期无效`);
+  assert(Number.isSafeInteger(entry.sequence) && entry.sequence > 0, `${entry.slug} 当天序号无效`);
+  const sequences = sequencesByDate.get(entry.date) || [];
+  sequences.push(entry.sequence);
+  sequencesByDate.set(entry.date, sequences);
+}
+for (const [date, sequences] of sequencesByDate) {
+  assert.deepEqual(sequences.slice().sort((a, b) => a - b),
+    Array.from({length: sequences.length}, (_, index) => index + 1), `${date} 的当天序号应从 1 连续排列`);
 }
 assert.equal(entries.find(entry => entry.slug === 'interview-code-diffusion-transformer-flow-matching-vit')?.title,
   '手撕 Diffusion、Transformer、Flow Matching、ViT');
 const page = fs.readFileSync(path.join(knowledge, 'article.html'), 'utf8');
+const indexPage = fs.readFileSync(path.join(knowledge, 'index.html'), 'utf8');
+const compareStart = indexPage.indexOf('    function compareEntries(');
+const compareEnd = indexPage.indexOf('    function renderButtons()', compareStart);
+assert(compareStart >= 0 && compareEnd > compareStart, '找不到 Knowledge 目录排序函数');
+const ordering = vm.createContext({});
+vm.runInContext(indexPage.slice(compareStart, compareEnd), ordering);
+const sorted = entries.slice().sort(ordering.compareEntries);
+assert.deepEqual(sorted.filter(entry => entry.tags.includes('llm扫盲2610')).map(entry => entry.title), [
+  'LLM 入门（一）：基础概念和六个阶段',
+  'LLM 入门（二）：强化学习入门，让模型通过试错学会行动',
+  'LLM 入门（三）：PPO 与 GRPO，语言模型如何用奖励学会更好的回答',
+  'LLM 入门（四）：DeepSeek-V1 怎么训练',
+  'LLM 入门（五）：DeepSeek-V4 与 V4.1',
+]);
+assert.match(indexPage, /<time datetime="\$\{escapeHtml\(entry\.date\)\}">\$\{escapeHtml\(entry\.date\)\}<\/time> · \$\{String\(entry\.sequence\)\.padStart\(2, '0'\)\}/);
 const markdown = fs.readFileSync(
   path.join(knowledge, 'posts/interview-code-diffusion-transformer-flow-matching-vit/article.md'),
   'utf8',

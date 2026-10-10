@@ -30,6 +30,9 @@
     let selectedTag = '';
     let allowedTags = [];
     const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+    function compareEntries(a, b) {
+      return String(b.date).localeCompare(String(a.date)) || a.sequence - b.sequence;
+    }
     function renderButtons() {
       const usedTags = new Set(entries.flatMap(entry => entry.tags || []));
       const tags = allowedTags.filter(tag => usedTags.has(tag));
@@ -58,7 +61,7 @@
         const card = document.createElement('article');
         card.className = 'entry';
         const tags = (entry.tags || []).map(tag => `<span class="tag">${escapeHtml(tag)}</span>`).join('');
-        card.innerHTML = `<h2><a href="article.html?slug=${encodeURIComponent(entry.slug)}">${escapeHtml(entry.title)}</a></h2><p>${escapeHtml(entry.description)}</p><div class="entry-tags">${tags}</div><div class="entry-meta"><span>${escapeHtml(entry.level)}</span><time datetime="${escapeHtml(entry.updated_at)}">${escapeHtml(entry.updated_at)}</time></div>`;
+        card.innerHTML = `<h2><a href="article.html?slug=${encodeURIComponent(entry.slug)}">${escapeHtml(entry.title)}</a></h2><p>${escapeHtml(entry.description)}</p><div class="entry-tags">${tags}</div><div class="entry-meta"><span>${escapeHtml(entry.level)}</span><span><time datetime="${escapeHtml(entry.date)}">${escapeHtml(entry.date)}</time> · ${String(entry.sequence).padStart(2, '0')}</span></div>`;
         entriesContainer.appendChild(card);
       });
     }
@@ -71,7 +74,7 @@
         if (!Array.isArray(allowedTags) || entries.some(entry => (entry.tags || []).some(tag => !allowedTags.includes(tag)))) {
           throw new Error('文章使用了未登记的 Knowledge 标签');
         }
-        entries.sort((a, b) => String(b.updated_at || '').localeCompare(String(a.updated_at || '')));
+        entries.sort(compareEntries);
         renderButtons(); renderEntries();
       } catch (error) { resultCount.textContent = error.message; }
     }
