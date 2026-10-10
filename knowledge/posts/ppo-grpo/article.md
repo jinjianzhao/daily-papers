@@ -167,3 +167,7 @@ PPO 和 GRPO 都是“用奖励更新语言模型”的策略优化算法。PPO 
 - Schulman et al., [Proximal Policy Optimization Algorithms](https://arxiv.org/abs/1707.06347), 2017。
 - Shao et al., [DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models](https://arxiv.org/abs/2402.03300), 2024，§4.1 “Group Relative Policy Optimization”。
 - Ouyang et al., [Training language models to follow instructions with human feedback](https://arxiv.org/abs/2203.02155), 2022。
+
+## QA
+
+暂无问答。

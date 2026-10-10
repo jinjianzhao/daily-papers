@@ -79,3 +79,7 @@ GRPO（Group Relative Policy Optimization）的直觉是：针对同一道题生
 - [Training language models to follow instructions with human feedback（InstructGPT）](https://arxiv.org/abs/2203.02155)
 - [DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models](https://arxiv.org/abs/2402.03300)
 - [DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning](https://arxiv.org/abs/2501.12948)
+
+## QA
+
+暂无问答。

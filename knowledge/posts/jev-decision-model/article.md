@@ -85,3 +85,7 @@ KL 约束不能替代好数据：如果训练集总让“是”当正确答案�
 - [LLM-as-Jev：论文与实验](https://arxiv.org/abs/2610.02076)
 - [TypeSafe AI：Jev 与 System One](https://docs.typesafe.ai/introduction)
 - [TypeSafe AI：三种问题形式](https://docs.typesafe.ai/primitives)
+
+## QA
+
+暂无问答。

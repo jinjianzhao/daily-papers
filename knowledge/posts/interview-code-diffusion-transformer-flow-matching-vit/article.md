@@ -249,3 +249,7 @@ class PatchEmbed(nn.Module):
 ## 建议复习顺序
 
 先独立写出 Transformer attention 和 ViT patchify，再写 Diffusion 的 `q_sample`，最后写 Flow Matching 的连续时间插值。每道题都要自己补 shape 注释、随机输入测试和一个最小 loss；面经只用于发现题型，最终以公式和代码行为为准。
+
+## QA
+
+暂无问答。

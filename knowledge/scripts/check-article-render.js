@@ -42,7 +42,14 @@ const jevHtml = context.renderMarkdownWithCollapses(jevMarkdown);
 assert.match(jevHtml, /<h1>如何训练一个 Jev/);
 assert.match(jevHtml, /<pre><code class="language-text">[\s\S]*\[1\] 账单[\s\S]*Best answer: \[[\s\S]*<\/code><\/pre>/);
 assert.match(jevHtml, /完整的一行是 <code>Best answer: \[1\]<\/code>/);
-assert.equal((jevHtml.match(/<h2>/g) || []).length, 7);
+assert.equal((jevHtml.match(/<h2>/g) || []).length, 8);
+for (const entry of entries) {
+  const source = fs.readFileSync(path.join(knowledge, entry.path), 'utf8');
+  assert.equal((source.match(/^## QA\s*$/gm) || []).length, 1, `${entry.slug} 应有一个 QA 区块`);
+  assert.match(source, /\n## QA\s*\n[\s\S]*$/, `${entry.slug} 的 QA 应位于正文末尾`);
+  const rendered = context.renderMarkdownWithCollapses(source);
+  assert.match(rendered, /<h2>QA<\/h2>/, `${entry.slug} 的 QA 应正常渲染`);
+}
 const introduction = entries.find(entry => entry.slug === 'llm-introduction-six-stages');
 assert.deepEqual(introduction?.tags, ['llm扫盲2610', 'llm']);
 const introductionMarkdown = fs.readFileSync(path.join(knowledge, introduction.path), 'utf8');
