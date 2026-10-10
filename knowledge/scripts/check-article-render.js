@@ -54,7 +54,7 @@ const introduction = entries.find(entry => entry.slug === 'llm-introduction-six-
 assert.deepEqual(introduction?.tags, ['llm扫盲2610', 'llm']);
 const introductionMarkdown = fs.readFileSync(path.join(knowledge, introduction.path), 'utf8');
 const introductionHtml = context.renderMarkdownWithCollapses(introductionMarkdown);
-assert.match(introductionHtml, /<h1>LLM 入门：从会续写到会解决问题<\/h1>/);
+assert.match(introductionHtml, /<h1>LLM 入门（一）：基础概念和六个阶段<\/h1>/);
 for (const stage of ['一、Transformer', '二、预训练', '三、SFT', '四、奖励与强化学习', '五、PPO 与 GRPO', '六、推理模型训练与评估']) {
   assert.match(introductionHtml, new RegExp(`<h2>${stage}`), `${stage} 应有独立小节`);
 }
@@ -67,24 +67,24 @@ assert.match(introductionHtml, /DeepSeekMath/);
 const newKnowledgeArticles = [
   {
     slug: 'reinforcement-learning-introduction',
-    heading: '强化学习入门：让模型通过试错学会行动',
+    heading: 'LLM 入门（二）：强化学习入门，让模型通过试错学会行动',
     path: 'posts/reinforcement-learning-introduction/article.md',
     requiredImage: 'assets/rl-diagram.png',
   },
   {
     slug: 'ppo-grpo',
-    heading: 'PPO 与 GRPO：语言模型如何用奖励学会更好的回答',
+    heading: 'LLM 入门（三）：PPO 与 GRPO，语言模型如何用奖励学会更好的回答',
     path: 'posts/ppo-grpo/article.md',
   },
   {
     slug: 'deepseek-v1-training-paradigm',
-    heading: 'DeepSeek-V1 怎么训练：从 2T 语料到 Chat 模型',
+    heading: 'LLM 入门（四）：DeepSeek-V1 怎么训练',
     path: 'posts/deepseek-v1-training-paradigm/article.md',
     requiredImage: 'assets/pretrain_metric.png',
   },
   {
     slug: 'deepseek-v4-v4-1-training-paradigm',
-    heading: 'DeepSeek-V4 与 V4.1：百万上下文模型怎样训练与部署',
+    heading: 'LLM 入门（五）：DeepSeek-V4 与 V4.1',
     path: 'posts/deepseek-v4-v4-1-training-paradigm/article.md',
     requiredImages: ['assets/deepseek-v4-architecture.svg', 'assets/deepseek-v4-1-flash-architecture.svg'],
   },

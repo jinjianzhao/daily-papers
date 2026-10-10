@@ -1,4 +1,4 @@
-# DeepSeek-V1 怎么训练：从 2T 语料到 Chat 模型
+# LLM 入门（四）：DeepSeek-V1 怎么训练
 
 > 本文讲的是 DeepSeek 主模型系列的早期 V1：论文正式名称是 [DeepSeek LLM: Scaling Open-Source Language Models with Longtermism](https://arxiv.org/abs/2401.02954)，不是 DeepSeekMath。读者是刚入学、已经懂基本 Transformer、但还不熟悉大模型训练路线的博士生。本文只解释这篇 DeepSeek LLM 论文公开报告的训练范式；DeepSeekMath（arXiv:2402.03300）会作为相关后续工作简短提及，不能把它的 GRPO 流程冒充 V1 主模型的训练流程。
 
