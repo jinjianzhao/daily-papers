@@ -35,6 +35,8 @@ const ordering = vm.createContext({});
 vm.runInContext(indexPage.slice(compareStart, compareEnd), ordering);
 const sorted = entries.slice().sort(ordering.compareEntries);
 assert.deepEqual(sorted.map(entry => entry.slug), [
+  'trl-grpo-framework',
+  'deepspeed-pretraining-framework',
   'deepseek-v4-v4-1-training-paradigm',
   'deepseek-v1-training-paradigm',
   'ppo-grpo',
@@ -123,6 +125,18 @@ assert.match(introductionHtml, /DeepSeekMath/);
 
 // 本轮 Knowledge 文章：只检查索引、正文路径和基本图片/标题约定；正文内容仍由主代理审阅。
 const newKnowledgeArticles = [
+  {
+    slug: 'deepspeed-pretraining-framework',
+    heading: '预训练 LLM 框架：DeepSpeed 怎么把大模型训练跑起来',
+    path: 'posts/deepspeed-pretraining-framework/article.md',
+    requiredImage: 'assets/zero-memory-figure.png',
+  },
+  {
+    slug: 'trl-grpo-framework',
+    heading: 'LLM 强化学习框架：用 TRL 跑通 GRPO',
+    path: 'posts/trl-grpo-framework/article.md',
+    requiredImage: 'assets/grpo_pipeline.png',
+  },
   {
     slug: 'reinforcement-learning-introduction',
     heading: 'LLM 入门（二）：强化学习入门，让模型通过试错学会行动',
