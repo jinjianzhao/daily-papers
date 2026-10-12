@@ -35,6 +35,7 @@ const ordering = vm.createContext({});
 vm.runInContext(indexPage.slice(compareStart, compareEnd), ordering);
 const sorted = entries.slice().sort(ordering.compareEntries);
 assert.deepEqual(sorted.map(entry => entry.slug), [
+  'csa-hca-cache-compression',
   'gator-3d-reconstruction',
   'llm-engineering-primer',
   'trl-grpo-framework',
@@ -128,6 +129,12 @@ assert.match(introductionHtml, /DeepSeekMath/);
 
 // 本轮 Knowledge 文章：只检查索引、正文路径和基本图片/标题约定；正文内容仍由主代理审阅。
 const newKnowledgeArticles = [
+  {
+    slug: 'csa-hca-cache-compression',
+    heading: 'LLM 长上下文工程：CSA、HCA 与分块 KV 缓存压缩',
+    path: 'posts/csa-hca-cache-compression/article.md',
+    requiredImage: 'assets/user-csa-hca-reference.png',
+  },
   {
     slug: 'gator-3d-reconstruction',
     heading: 'GATOR：从随手拍的照片重建可放回场景的 3D 物体',
