@@ -35,6 +35,7 @@ const ordering = vm.createContext({});
 vm.runInContext(indexPage.slice(compareStart, compareEnd), ordering);
 const sorted = entries.slice().sort(ordering.compareEntries);
 assert.deepEqual(sorted.map(entry => entry.slug), [
+  'gator-3d-reconstruction',
   'llm-engineering-primer',
   'trl-grpo-framework',
   'deepspeed-pretraining-framework',
@@ -127,6 +128,12 @@ assert.match(introductionHtml, /DeepSeekMath/);
 
 // 本轮 Knowledge 文章：只检查索引、正文路径和基本图片/标题约定；正文内容仍由主代理审阅。
 const newKnowledgeArticles = [
+  {
+    slug: 'gator-3d-reconstruction',
+    heading: 'GATOR：从随手拍的照片重建可放回场景的 3D 物体',
+    path: 'posts/gator-3d-reconstruction/article.md',
+    requiredImages: ['assets/fig2-method.png', 'assets/fig3-tabletop.png', 'assets/fig10-agent-refinement.png'],
+  },
   {
     slug: 'llm-engineering-primer',
     heading: 'LLM 入门（六）：大模型训练与推理的工程关键技术',
