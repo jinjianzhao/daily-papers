@@ -35,6 +35,7 @@ const ordering = vm.createContext({});
 vm.runInContext(indexPage.slice(compareStart, compareEnd), ordering);
 const sorted = entries.slice().sort(ordering.compareEntries);
 assert.deepEqual(sorted.map(entry => entry.slug), [
+  'llm-engineering-primer',
   'trl-grpo-framework',
   'deepspeed-pretraining-framework',
   'deepseek-v4-v4-1-training-paradigm',
@@ -46,6 +47,7 @@ assert.deepEqual(sorted.map(entry => entry.slug), [
   'interview-code-diffusion-transformer-flow-matching-vit',
 ]);
 assert.deepEqual(sorted.filter(entry => entry.tags.includes('llm扫盲2610')).map(entry => entry.title), [
+  'LLM 入门（六）：大模型训练与推理的工程关键技术',
   'LLM 入门（五）：DeepSeek-V4 与 V4.1',
   'LLM 入门（四）：DeepSeek-V1 怎么训练',
   'LLM 入门（三）：PPO 与 GRPO，语言模型如何用奖励学会更好的回答',
@@ -125,6 +127,11 @@ assert.match(introductionHtml, /DeepSeekMath/);
 
 // 本轮 Knowledge 文章：只检查索引、正文路径和基本图片/标题约定；正文内容仍由主代理审阅。
 const newKnowledgeArticles = [
+  {
+    slug: 'llm-engineering-primer',
+    heading: 'LLM 入门（六）：大模型训练与推理的工程关键技术',
+    path: 'posts/llm-engineering-primer/article.md',
+  },
   {
     slug: 'deepspeed-pretraining-framework',
     heading: '预训练 LLM 框架：DeepSpeed 怎么把大模型训练跑起来',
