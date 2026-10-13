@@ -35,6 +35,9 @@ const ordering = vm.createContext({});
 vm.runInContext(indexPage.slice(compareStart, compareEnd), ordering);
 const sorted = entries.slice().sort(ordering.compareEntries);
 assert.deepEqual(sorted.map(entry => entry.slug), [
+  'minimax-h3-video-generation',
+  'wan30-video-generation',
+  'video-generation-introduction',
   'csa-hca-cache-compression',
   'gator-3d-reconstruction',
   'llm-engineering-primer',
@@ -129,6 +132,22 @@ assert.match(introductionHtml, /DeepSeekMath/);
 
 // 本轮 Knowledge 文章：只检查索引、正文路径和基本图片/标题约定；正文内容仍由主代理审阅。
 const newKnowledgeArticles = [
+  {
+    slug: 'minimax-h3-video-generation',
+    heading: 'MiniMax-H3：从视频生成器到可控世界模型的范式',
+    path: 'posts/minimax-h3-video-generation/article.md',
+    requiredImage: 'assets/h3-world-method.png',
+  },
+  {
+    slug: 'wan30-video-generation',
+    heading: 'Wan 3.0：从视频生成范式到公开能力边界',
+    path: 'posts/wan30-video-generation/article.md',
+  },
+  {
+    slug: 'video-generation-introduction',
+    heading: '视频生成入门：从文本或图像到连续画面',
+    path: 'posts/video-generation-introduction/article.md',
+  },
   {
     slug: 'csa-hca-cache-compression',
     heading: 'LLM 长上下文工程：CSA、HCA 与分块 KV 缓存压缩',

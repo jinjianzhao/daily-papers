@@ -66,7 +66,7 @@
       const query = searchInput.value.trim().toLocaleLowerCase();
       const visible = entries.filter(entry => {
         if (selectedTag && !(entry.tags || []).includes(selectedTag)) return false;
-        const searchable = [entry.title, entry.description, entry.category, entry.level, ...(entry.tags || [])].join(' ').toLocaleLowerCase();
+        const searchable = [entry.title, entry.description, entry.category, ...(entry.tags || [])].join(' ').toLocaleLowerCase();
         return !query || searchable.includes(query);
       });
       resultCount.textContent = `${visible.length} 篇知识文章`;
@@ -76,7 +76,7 @@
         const card = document.createElement('article');
         card.className = 'entry';
         const tags = (entry.tags || []).map(tag => `<span class="tag">${escapeHtml(tag)}</span>`).join('');
-        card.innerHTML = `<h2><a href="article.html?slug=${encodeURIComponent(entry.slug)}">${escapeHtml(entry.title)}</a></h2><p>${escapeHtml(entry.description)}</p><div class="entry-tags">${tags}</div><div class="entry-meta"><span>${escapeHtml(entry.level)}</span><span><time datetime="${escapeHtml(entry.date)}">${escapeHtml(entry.date)}</time> · ${String(entry.sequence).padStart(2, '0')}</span></div>`;
+        card.innerHTML = `<h2><a href="article.html?slug=${encodeURIComponent(entry.slug)}">${escapeHtml(entry.title)}</a></h2><p>${escapeHtml(entry.description)}</p><div class="entry-tags">${tags}</div><div class="entry-meta"><span><time datetime="${escapeHtml(entry.date)}">${escapeHtml(entry.date)}</time> · ${String(entry.sequence).padStart(2, '0')}</span></div>`;
         entriesContainer.appendChild(card);
       });
     }
