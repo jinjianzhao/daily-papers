@@ -39,7 +39,6 @@ assert.deepEqual(sorted.map(entry => entry.slug), [
   'wan30-video-generation',
   'video-generation-introduction',
   'csa-hca-cache-compression',
-  'gator-3d-reconstruction',
   'llm-engineering-primer',
   'trl-grpo-framework',
   'deepspeed-pretraining-framework',
@@ -153,12 +152,6 @@ const newKnowledgeArticles = [
     heading: 'LLM 长上下文工程：CSA、HCA 与分块 KV 缓存压缩',
     path: 'posts/csa-hca-cache-compression/article.md',
     requiredImage: 'assets/user-csa-hca-reference.png',
-  },
-  {
-    slug: 'gator-3d-reconstruction',
-    heading: 'GATOR：从随手拍的照片重建可放回场景的 3D 物体',
-    path: 'posts/gator-3d-reconstruction/article.md',
-    requiredImages: ['assets/fig2-method.png', 'assets/fig3-tabletop.png', 'assets/fig10-agent-refinement.png'],
   },
   {
     slug: 'llm-engineering-primer',
