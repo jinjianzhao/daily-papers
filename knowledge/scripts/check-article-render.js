@@ -35,6 +35,7 @@ const ordering = vm.createContext({});
 vm.runInContext(indexPage.slice(compareStart, compareEnd), ordering);
 const sorted = entries.slice().sort(ordering.compareEntries);
 assert.deepEqual(sorted.map(entry => entry.slug), [
+  'llm-rl-course-project',
   'minimax-h3-video-generation',
   'wan30-video-generation',
   'video-generation-introduction',
@@ -146,6 +147,11 @@ const newKnowledgeArticles = [
     slug: 'video-generation-introduction',
     heading: '视频生成入门：从文本或图像到连续画面',
     path: 'posts/video-generation-introduction/article.md',
+  },
+  {
+    slug: 'llm-rl-course-project',
+    heading: 'LLM 强化学习大作业：从 20 行代码到 GRPO',
+    path: 'posts/llm-rl-course-project/article.md',
   },
   {
     slug: 'csa-hca-cache-compression',

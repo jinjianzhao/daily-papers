@@ -1,6 +1,8 @@
 # Knowledge 维护约定
 
-Knowledge 是独立的静态内容栏目，不接入论文检索、Survey pipeline 或 LLM 生成流程。
+Knowledge 是独立的静态内容栏目，不接入论文检索、Survey pipeline 或日报调度；如需写作，可以使用独立的 Knowledge writer，但它与论文处理流程分开。
+
+日报、Survey、Knowledge 的网站目录、临时输出和发布边界见仓库根目录的 [`WORKFLOW.md`](../WORKFLOW.md)；本文件只保留 Knowledge 栏目的维护约定。
 
 新增文章时：
 
