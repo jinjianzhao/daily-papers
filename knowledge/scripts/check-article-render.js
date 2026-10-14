@@ -150,7 +150,7 @@ const newKnowledgeArticles = [
   },
   {
     slug: 'llm-rl-course-project',
-    heading: 'LLM 强化学习大作业：从奖励漏洞到 GRPO',
+    heading: '用真实的奖励错配题完成第一个 GRPO 项目',
     path: 'posts/llm-rl-course-project/article.md',
   },
   {
