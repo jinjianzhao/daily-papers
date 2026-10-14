@@ -150,7 +150,7 @@ const newKnowledgeArticles = [
   },
   {
     slug: 'llm-rl-course-project',
-    heading: 'LLM 强化学习大作业：从 20 行代码到 GRPO',
+    heading: 'LLM 强化学习大作业：从奖励漏洞到 GRPO',
     path: 'posts/llm-rl-course-project/article.md',
   },
   {
