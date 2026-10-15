@@ -35,6 +35,7 @@ const ordering = vm.createContext({});
 vm.runInContext(indexPage.slice(compareStart, compareEnd), ordering);
 const sorted = entries.slice().sort(ordering.compareEntries);
 assert.deepEqual(sorted.map(entry => entry.slug), [
+  'matrix-game-world-model',
   'reinforce-to-grpo',
   'llm-rl-course-project',
   'minimax-h3-video-generation',
@@ -133,6 +134,16 @@ assert.match(introductionHtml, /DeepSeekMath/);
 
 // 本轮 Knowledge 文章：只检查索引、正文路径和基本图片/标题约定；正文内容仍由主代理审阅。
 const newKnowledgeArticles = [
+  {
+    slug: 'matrix-game-world-model',
+    heading: '世界模型入门：让引擎管世界、模型管画面',
+    path: 'posts/matrix-game-world-model/article.md',
+    requiredImages: [
+      'assets/world-model-03.png',
+      'assets/world-model-12.png',
+      'assets/world-model-14.png',
+    ],
+  },
   {
     slug: 'minimax-h3-video-generation',
     heading: 'MiniMax-H3：从视频生成器到可控世界模型的范式',
