@@ -222,8 +222,6 @@
 
 针对脑室分流术导管易阻塞问题，构建患者特异性数字孪生。基于CT重建解剖结构并搜索安全约束下的最优置管轨迹，输出指导手术的入点与深度参数。
 
-![论文方法图（来源：论文原文）](assets/2610.20074-first-page.png)
-
 **来源：** [arXiv 摘要](https://arxiv.org/abs/2610.20074) · [PDF](https://arxiv.org/pdf/2610.20074)
 
 ### Why 3D Reconstruction Breaks Down on Under-Ice AUV Video, and How to Predict It

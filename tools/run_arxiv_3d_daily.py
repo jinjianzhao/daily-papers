@@ -240,6 +240,8 @@ def figures(records: list[dict[str, object]], decisions: dict[str, list[str]], d
     from paper_reading.contracts import PaperRef
 
     assets_dir = site_day / "assets"
+    internal_assets_dir = data_root / "figures" / "assets"
+    internal_assets_dir.mkdir(parents=True, exist_ok=True)
     # This directory is generated exclusively by this Agent.  Rebuilding it
     # avoids stale files from an earlier run and, importantly, prevents two
     # papers whose source figure is both named ``figure-01.png`` from
@@ -271,6 +273,8 @@ def figures(records: list[dict[str, object]], decisions: dict[str, list[str]], d
         asset = assets_dir / str(value["asset"])
         bundle = data_root / "papers" / f"arxiv_{paper_id}" / "v1"
         source_path = bundle / "figures" / asset.name.split("-", 1)[-1]
+        if not source_path.is_file():
+            source_path = internal_assets_dir / asset.name
         if source_path.is_file():
             shutil.copy2(source_path, asset)
             result[paper_id] = f"assets/{asset.name}"
@@ -330,6 +334,7 @@ def figures(records: list[dict[str, object]], decisions: dict[str, list[str]], d
             asset = assets_dir / f"{paper_id}-first-page.png"
             pixmap.save(asset)
             document.close()
+            shutil.copy2(asset, internal_assets_dir / asset.name)
             result[paper_id] = f"assets/{asset.name}"
             manifest[paper_id] = {"asset": asset.name, "source_url": str(item["url"]), "caption": "论文 PDF 首页（原文）"}
         except Exception as error:
