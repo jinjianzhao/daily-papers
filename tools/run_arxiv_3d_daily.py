@@ -320,7 +320,7 @@ def figures(records: list[dict[str, object]], decisions: dict[str, list[str]], d
     # retains the same reference-image affordance when possible.
     for item in selected:
         paper_id = str(item["id"])
-        if paper_id in result or paper_id in manifest and isinstance(manifest[paper_id], dict) and manifest[paper_id].get("asset"):
+        if paper_id in result:
             continue
         bundle = data_root / "papers" / f"arxiv_{paper_id}" / "v1"
         pdf = bundle / "source" / "paper.pdf"
