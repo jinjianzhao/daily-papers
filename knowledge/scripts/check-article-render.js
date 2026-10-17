@@ -239,4 +239,12 @@ for (const item of newKnowledgeArticles) {
 }
 assert.match(page, /buildArticleToc\(\)/);
 assert.match(page, /details\.className = 'article-toc'/);
+assert.match(page, /window\.MathJax\s*=\s*\{/,
+  'Knowledge 文章页必须配置 MathJax');
+assert(page.includes("displayMath: [['\\\\[', '\\\\]'], ['$$', '$$']]"),
+  'Knowledge 文章页必须支持 \\[...\\] 和 $$...$$ 公式');
+assert.match(page, /await typesetArticleMath\(\)/,
+  'Knowledge 文章加载后必须执行公式 typeset');
+assert.match(page, /function normalizeMathDelimiters\(source\)/,
+  'Knowledge 文章页必须保留 text-preview 公式定界符');
 console.log('Knowledge 标签与代码块渲染检查通过');
