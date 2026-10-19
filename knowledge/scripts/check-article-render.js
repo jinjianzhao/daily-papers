@@ -35,6 +35,7 @@ const ordering = vm.createContext({});
 vm.runInContext(indexPage.slice(compareStart, compareEnd), ordering);
 const sorted = entries.slice().sort(ordering.compareEntries);
 assert.deepEqual(sorted.map(entry => entry.slug), [
+  'llm-svg-training',
   'blenderworld-benchmark',
   'edenlive-generative-rendering',
   'diffusion-langevin-sde',
@@ -228,6 +229,12 @@ const newKnowledgeArticles = [
     heading: 'LLM 入门（五）：DeepSeek-V4 与 V4.1',
     path: 'posts/deepseek-v4-v4-1-training-paradigm/article.md',
     requiredImages: ['assets/deepseek-v4-architecture.svg', 'assets/deepseek-v4-1-flash-architecture.svg'],
+  },
+  {
+    slug: 'llm-svg-training',
+    heading: 'LLM 如何学会画 SVG',
+    path: 'posts/llm-svg-training/article.md',
+    requiredImage: 'assets/starvector-arch.png',
   },
   {
     slug: 'blenderworld-benchmark',
