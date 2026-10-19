@@ -35,6 +35,9 @@ const ordering = vm.createContext({});
 vm.runInContext(indexPage.slice(compareStart, compareEnd), ordering);
 const sorted = entries.slice().sort(ordering.compareEntries);
 assert.deepEqual(sorted.map(entry => entry.slug), [
+  'edenlive-generative-rendering',
+  'diffusion-langevin-sde',
+  'associative-memory',
   'deepseek-v41-flash-1017',
   'part-generation-standard',
   'matrix-game-world-model',
@@ -224,6 +227,22 @@ const newKnowledgeArticles = [
     heading: 'LLM 入门（五）：DeepSeek-V4 与 V4.1',
     path: 'posts/deepseek-v4-v4-1-training-paradigm/article.md',
     requiredImages: ['assets/deepseek-v4-architecture.svg', 'assets/deepseek-v4-1-flash-architecture.svg'],
+  },
+  {
+    slug: 'associative-memory',
+    heading: '从记忆理解 Transformer',
+    path: 'posts/associative-memory/article.md',
+  },
+  {
+    slug: 'diffusion-langevin-sde',
+    heading: '从朗之万动力学到随机微分方程：扩散模型的连续时间视角',
+    path: 'posts/diffusion-langevin-sde/article.md',
+  },
+  {
+    slug: 'edenlive-generative-rendering',
+    heading: 'EdenLive：把可交互世界实时渲染成视频',
+    path: 'posts/edenlive-generative-rendering/article.md',
+    requiredImages: ['assets/system-overview.png', 'assets/streaming-pipeline.png'],
   },
 ];
 for (const item of newKnowledgeArticles) {
