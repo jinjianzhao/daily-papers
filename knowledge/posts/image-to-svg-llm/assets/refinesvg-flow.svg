@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 478" role="img" aria-labelledby="title desc">
+  <title id="title">RefineSVG 单步纠错流程</title>
+  <desc id="desc">目标图片进入多模态模型生成初稿 SVG，渲染后与目标图比较形成差异图。模型看到目标图、初稿渲染图和差异图，再输出修订后的 SVG。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#51677a"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="1038" height="476" rx="7" fill="#ffffff" stroke="#d9e2e8"/>
+  <text x="30" y="43" fill="#244156" font-size="21" font-weight="700" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif">RefineSVG：生成、观察、修订</text>
+  <text x="30" y="72" fill="#617484" font-size="14" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif">推理时只执行一次初稿生成和一次纠错</text>
+
+  <rect x="28" y="115" width="190" height="90" rx="6" fill="#eaf4f0" stroke="#7eae9c"/>
+  <text x="123" y="151" text-anchor="middle" fill="#1f5144" font-size="18" font-weight="700" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif">目标图片</text>
+  <text x="123" y="178" text-anchor="middle" fill="#43665a" font-size="14" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif">用户输入</text>
+
+  <rect x="287" y="115" width="190" height="90" rx="6" fill="#eaf2fa" stroke="#85abd0"/>
+  <text x="382" y="151" text-anchor="middle" fill="#245174" font-size="18" font-weight="700" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif">多模态模型</text>
+  <text x="382" y="178" text-anchor="middle" fill="#4b6983" font-size="14" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif">生成初稿 SVG</text>
+
+  <rect x="546" y="115" width="190" height="90" rx="6" fill="#f0effa" stroke="#aaa4d0"/>
+  <text x="641" y="151" text-anchor="middle" fill="#484274" font-size="18" font-weight="700" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif">外部渲染器</text>
+  <text x="641" y="178" text-anchor="middle" fill="#696586" font-size="14" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif">SVG → 初稿图片</text>
+
+  <rect x="805" y="115" width="206" height="90" rx="6" fill="#fbf3e7" stroke="#d4b284"/>
+  <text x="908" y="151" text-anchor="middle" fill="#76542a" font-size="18" font-weight="700" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif">制作 Diff-Map</text>
+  <text x="908" y="178" text-anchor="middle" fill="#856b4d" font-size="14" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif">对照目标图与初稿图</text>
+
+  <path d="M 218 160 H 278" stroke="#51677a" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 477 160 H 537" stroke="#51677a" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 736 160 H 796" stroke="#51677a" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 123 205 V 232 H 908 V 213" stroke="#7eae9c" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="486" y="224" fill="#527867" font-size="13" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif">目标图也用于比较</text>
+
+  <rect x="28" y="300" width="424" height="95" rx="6" fill="#f6f8fa" stroke="#b9c8d3"/>
+  <text x="240" y="336" text-anchor="middle" fill="#294458" font-size="18" font-weight="700" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif">多模态模型观察并修订</text>
+  <text x="240" y="365" text-anchor="middle" fill="#536b7c" font-size="14" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif">输入：目标图 + 初稿渲染图 + Diff-Map</text>
+
+  <rect x="591" y="300" width="420" height="95" rx="6" fill="#eaf4f0" stroke="#7eae9c"/>
+  <text x="801" y="336" text-anchor="middle" fill="#1f5144" font-size="18" font-weight="700" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif">最终 SVG</text>
+  <text x="801" y="365" text-anchor="middle" fill="#43665a" font-size="14" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif">模型输出修订后的代码</text>
+
+  <path d="M 908 205 V 265 H 240 V 291" stroke="#51677a" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 452 347 H 582" stroke="#51677a" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+  <text x="30" y="443" fill="#617484" font-size="13" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif">Diff-Map 综合亮度、色彩和边缘差异；它提供反馈，由模型负责修改 SVG。</text>
+</svg>

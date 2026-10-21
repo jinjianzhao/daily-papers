@@ -146,6 +146,7 @@ const newKnowledgeArticles = [
     slug: 'image-to-svg-llm',
     heading: '看图生成 SVG：LLM 真能把图片画成矢量图吗？',
     path: 'posts/image-to-svg-llm/article.md',
+    requiredImage: 'assets/refinesvg-flow.svg',
   },
   {
     slug: 'matrix-game-world-model',
