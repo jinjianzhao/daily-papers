@@ -35,6 +35,8 @@ const ordering = vm.createContext({});
 vm.runInContext(indexPage.slice(compareStart, compareEnd), ordering);
 const sorted = entries.slice().sort(ordering.compareEntries);
 assert.deepEqual(sorted.map(entry => entry.slug), [
+  'partpacker-omnipart-bang',
+  'octree-t3lescope',
   'image-to-svg-llm',
   'llm-svg-training',
   'blenderworld-benchmark',
@@ -142,6 +144,18 @@ assert.match(introductionHtml, /DeepSeekMath/);
 
 // 本轮 Knowledge 文章：只检查索引、正文路径和基本图片/标题约定；正文内容仍由主代理审阅。
 const newKnowledgeArticles = [
+  {
+    slug: 'partpacker-omnipart-bang',
+    heading: '一件物体如何变成可编辑的零件：PartPacker、OmniPart 与 BANG',
+    path: 'posts/partpacker-omnipart-bang/article.md',
+    requiredImages: ['assets/partpacker-method.png', 'assets/omnipart-method.png', 'assets/bang-overview.jpg'],
+  },
+  {
+    slug: 'octree-t3lescope',
+    heading: '八叉树入门：从空间细分到 T3lescope 的场景重建',
+    path: 'posts/octree-t3lescope/article.md',
+    requiredImages: ['assets/method-figure.svg', 'assets/octree-schematic.svg'],
+  },
   {
     slug: 'image-to-svg-llm',
     heading: '看图生成 SVG：LLM 真能把图片画成矢量图吗？',

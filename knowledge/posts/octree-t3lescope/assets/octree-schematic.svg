@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="430" viewBox="0 0 960 430" role="img" aria-labelledby="title desc">
+  <title id="title">八叉树的空间递归细分示意图</title>
+  <desc id="desc">左侧是根立方体的二维投影，划分为八个子区域，其中一个区域继续细分。右侧是对应的根节点、八个子节点和一个继续细分的叶子分支。</desc>
+  <defs>
+    <style>
+      .title { font: 700 24px sans-serif; fill: #172b4d; }
+      .label { font: 600 17px sans-serif; fill: #243b53; }
+      .small { font: 15px sans-serif; fill: #52667a; }
+      .node { fill: #fff; stroke: #6b7f93; stroke-width: 2; }
+      .node-active { fill: #e8f4fa; stroke: #1780a8; stroke-width: 2.5; }
+      .line { fill: none; stroke: #8a9bad; stroke-width: 2; }
+      .grid { fill: #f6fafc; stroke: #1780a8; stroke-width: 3; }
+      .gridline { stroke: #1780a8; stroke-width: 2; }
+    </style>
+  </defs>
+  <rect width="960" height="430" rx="10" fill="#ffffff"/>
+  <text x="46" y="48" class="title">空间怎么切</text>
+  <text x="520" y="48" class="title">树怎么记</text>
+
+  <g transform="translate(68 105)">
+    <rect x="0" y="0" width="300" height="250" class="grid"/>
+    <path d="M150 0V250 M0 125H300" class="gridline"/>
+    <rect x="150" y="125" width="150" height="125" fill="#d9eef7" stroke="#1780a8" stroke-width="3"/>
+    <path d="M225 125V250 M150 187.5H300" class="gridline"/>
+    <text x="74" y="285" class="label">根区域：先分成 2 × 2 × 2 共 8 个子区域</text>
+    <text x="93" y="312" class="small">图中用二维投影示意；被高亮的一个区域继续细分</text>
+  </g>
+
+  <g>
+    <path d="M603 104V135 M603 135H510 M603 135H704 M510 135V164 M704 135V164" class="line"/>
+    <rect x="548" y="70" width="110" height="38" rx="6" class="node-active"/>
+    <text x="603" y="95" text-anchor="middle" class="label">根节点</text>
+
+    <g class="small" text-anchor="middle">
+      <rect x="458" y="164" width="104" height="34" rx="5" class="node"/><text x="510" y="187">子区域 1</text>
+      <rect x="652" y="164" width="104" height="34" rx="5" class="node-active"/><text x="704" y="187">子区域 2</text>
+    </g>
+    <text x="610" y="221" class="small">其余 6 个子区域同理</text>
+
+    <path d="M704 198V250 M704 250H613 M704 250H795 M613 250V278 M795 250V278" class="line"/>
+    <g class="small" text-anchor="middle">
+      <rect x="562" y="278" width="102" height="34" rx="5" class="node"/><text x="613" y="301">更小区域</text>
+      <rect x="744" y="278" width="102" height="34" rx="5" class="node"/><text x="795" y="301">更小区域</text>
+    </g>
+    <text x="688" y="345" class="small">只对仍需细节的区域继续展开</text>
+  </g>
+</svg>
