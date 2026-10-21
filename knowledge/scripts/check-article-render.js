@@ -35,6 +35,7 @@ const ordering = vm.createContext({});
 vm.runInContext(indexPage.slice(compareStart, compareEnd), ordering);
 const sorted = entries.slice().sort(ordering.compareEntries);
 assert.deepEqual(sorted.map(entry => entry.slug), [
+  'image-to-svg-llm',
   'llm-svg-training',
   'blenderworld-benchmark',
   'edenlive-generative-rendering',
@@ -141,6 +142,11 @@ assert.match(introductionHtml, /DeepSeekMath/);
 
 // 本轮 Knowledge 文章：只检查索引、正文路径和基本图片/标题约定；正文内容仍由主代理审阅。
 const newKnowledgeArticles = [
+  {
+    slug: 'image-to-svg-llm',
+    heading: '看图生成 SVG：LLM 真能把图片画成矢量图吗？',
+    path: 'posts/image-to-svg-llm/article.md',
+  },
   {
     slug: 'matrix-game-world-model',
     heading: '世界模型入门：让引擎管世界、模型管画面',
