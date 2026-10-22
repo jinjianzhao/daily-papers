@@ -35,6 +35,7 @@ const ordering = vm.createContext({});
 vm.runInContext(indexPage.slice(compareStart, compareEnd), ordering);
 const sorted = entries.slice().sort(ordering.compareEntries);
 assert.deepEqual(sorted.map(entry => entry.slug), [
+  'llm-recursive-self-improvement',
   'ai-3d-character-rigging',
   'pi-vla-robot',
   'embodied-intelligence-introduction',
@@ -147,6 +148,12 @@ assert.match(introductionHtml, /DeepSeekMath/);
 
 // 本轮 Knowledge 文章：只检查索引、正文路径和基本图片/标题约定；正文内容仍由主代理审阅。
 const newKnowledgeArticles = [
+  {
+    slug: 'llm-recursive-self-improvement',
+    heading: 'LLM 的递归自我改进：从反思到自我改写的 Agent',
+    path: 'posts/llm-recursive-self-improvement/article.md',
+    requiredImage: 'assets/rsi-loop.svg',
+  },
   {
     slug: 'ai-3d-character-rigging',
     heading: '从静态模型到可动角色：3D 绑骨入门与自动绑骨方法',

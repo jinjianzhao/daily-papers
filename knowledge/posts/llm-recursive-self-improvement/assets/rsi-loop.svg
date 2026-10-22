@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="500" viewBox="0 0 1280 500" role="img" aria-labelledby="title desc">
+  <title id="title">LLM 递归自我改进的闭环</title>
+  <desc id="desc">当前系统产生候选改动，经过独立评估后接受或拒绝；接受的新版本进入下一轮。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M1 1 L11 6 L1 11 Z" fill="#3f5968" />
+    </marker>
+    <marker id="arrow-green" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M1 1 L11 6 L1 11 Z" fill="#15803d" />
+    </marker>
+    <style>
+      text { font-family: "Noto Sans CJK SC", "Microsoft YaHei", sans-serif; fill: #18313e; }
+      .box { stroke-width: 2; rx: 14; }
+      .title { font-size: 25px; font-weight: 700; }
+      .body { font-size: 17px; }
+      .small { font-size: 15px; }
+      .line { fill: none; stroke: #3f5968; stroke-width: 3; marker-end: url(#arrow); }
+      .accept { fill: none; stroke: #15803d; stroke-width: 3; marker-end: url(#arrow-green); }
+    </style>
+  </defs>
+  <rect width="1280" height="500" fill="#f7faf9" />
+  <text x="640" y="48" text-anchor="middle" font-size="28" font-weight="700">递归自我改进：关键是更新后的系统参与下一轮</text>
+
+  <rect class="box" x="52" y="142" width="245" height="164" fill="#e6f4f1" stroke="#0f766e" />
+  <text class="title" x="174" y="183" text-anchor="middle">当前系统 Aₜ</text>
+  <text class="body" x="174" y="220" text-anchor="middle">模型权重 / 记忆</text>
+  <text class="body" x="174" y="250" text-anchor="middle">工具 / Agent 代码</text>
+  <text class="small" x="174" y="280" text-anchor="middle">具体改什么，取决于方法</text>
+
+  <path class="line" d="M297 224 H360" />
+  <rect class="box" x="365" y="142" width="245" height="164" fill="#fff4df" stroke="#c47a12" />
+  <text class="title" x="487" y="183" text-anchor="middle">提出候选改进</text>
+  <text class="body" x="487" y="220" text-anchor="middle">新答案 / 新数据 / 新代码</text>
+  <text class="body" x="487" y="250" text-anchor="middle">或一次训练更新</text>
+  <text class="small" x="487" y="280" text-anchor="middle">候选不等于已经变好</text>
+
+  <path class="line" d="M610 224 H673" />
+  <rect class="box" x="678" y="142" width="245" height="164" fill="#e9f0fb" stroke="#315fa8" />
+  <text class="title" x="800" y="183" text-anchor="middle">评估候选版本</text>
+  <text class="body" x="800" y="220" text-anchor="middle">留出任务 / 单元测试</text>
+  <text class="body" x="800" y="250" text-anchor="middle">环境反馈 / 人类偏好</text>
+  <text class="small" x="800" y="280" text-anchor="middle">评估信号决定能否筛选</text>
+
+  <path class="line" d="M923 224 H986" />
+  <rect class="box" x="991" y="142" width="245" height="164" fill="#f1ebf8" stroke="#7952a1" />
+  <text class="title" x="1113" y="183" text-anchor="middle">接受、拒绝或存档</text>
+  <text class="body" x="1113" y="220" text-anchor="middle">保留有效版本</text>
+  <text class="body" x="1113" y="250" text-anchor="middle">失败版本可回退/分支</text>
+  <text class="small" x="1113" y="280" text-anchor="middle">避免一次失败覆盖基线</text>
+
+  <path class="accept" d="M1113 306 V387 H174 V312" />
+  <rect x="450" y="360" width="450" height="54" rx="27" fill="#ecfdf3" stroke="#15803d" stroke-width="2" />
+  <text x="675" y="395" text-anchor="middle" font-size="20" font-weight="700" fill="#166534">Aₜ₊₁ 成为下一轮的起点</text>
+  <text x="640" y="462" text-anchor="middle" font-size="16" fill="#49616c">仅重复生成更好的单次答案，不等于更新了模型或系统</text>
+</svg>
