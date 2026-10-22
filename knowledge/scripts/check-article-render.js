@@ -104,6 +104,10 @@ assert.match(indexPage, /button\.addEventListener\('click', \(\) => \{[\s\S]*?sy
 assert.match(indexPage, /searchInput\.addEventListener\('input', \(\) => \{ syncFilterUrl\(true\)/);
 assert.match(indexPage, /window\.addEventListener\('popstate', \(\) => \{ restoreFiltersFromUrl\(\)/);
 assert.match(indexPage, /<time datetime="\$\{escapeHtml\(entry\.date\)\}">\$\{escapeHtml\(entry\.date\)\}<\/time> · \$\{String\(entry\.sequence\)\.padStart\(2, '0'\)\}/);
+assert.match(indexPage, /localStorage\.getItem\(readStorageKey\)/, 'Knowledge 目录应从浏览器本地读取已读状态');
+assert.match(indexPage, /localStorage\.setItem\(readStorageKey/, 'Knowledge 目录应把已读状态保存到浏览器本地');
+assert.match(indexPage, /class="read-button"/, 'Knowledge 卡片应提供已读按钮');
+assert.match(indexPage, /window\.addEventListener\('storage'/, '已读状态应支持同源标签页同步');
 const markdown = fs.readFileSync(
   path.join(knowledge, 'posts/interview-code-diffusion-transformer-flow-matching-vit/article.md'),
   'utf8',

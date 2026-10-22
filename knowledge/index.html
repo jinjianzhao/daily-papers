@@ -8,7 +8,7 @@
     :root{font-family:Inter,"PingFang SC","Microsoft YaHei",sans-serif;color:#172033}
     *{box-sizing:border-box}body{margin:0;background:#f7f9fb;line-height:1.6}
     a{color:#1769aa}.topbar{border-bottom:1px solid #dfe7ef;background:#fff}.topbar-inner,main{width:min(1180px,calc(100% - 40px));margin:0 auto}.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px 0}.brand{color:#334155;font-size:14px;font-weight:800;text-decoration:none}.nav{display:flex;gap:6px;flex-wrap:wrap}.nav a{padding:6px 10px;border-radius:6px;color:#64748b;font-size:13px;font-weight:700;text-decoration:none}.nav a[aria-current=page]{background:#eaf3fb;color:#1769aa}
-    main{padding:48px 0 84px}.eyebrow{margin:0 0 7px;color:#1769aa;font-size:12px;font-weight:800;letter-spacing:.04em}h1{margin:0;color:#1769aa;font-size:32px;line-height:1.25}.description{max-width:760px;margin:12px 0 32px;color:#64748b}.filters{padding:20px 0;border-top:1px solid #dfe7ef;border-bottom:1px solid #dfe7ef}.filter-label{display:block;margin-bottom:10px;color:#334155;font-size:13px;font-weight:800}.search-input{width:min(100%,420px);height:42px;margin:0 0 18px;padding:8px 12px;border:1px solid #cbd8e3;border-radius:6px;background:#fff;color:#172033;font:inherit;font-size:14px}.search-input:focus{outline:2px solid #b4d7f0;outline-offset:1px}.filter-buttons{display:flex;gap:8px;flex-wrap:wrap}.filter-button{border:1px solid #cbd8e3;border-radius:6px;padding:7px 12px;background:#fff;color:#425466;font:inherit;font-size:13px;cursor:pointer}.filter-button:hover,.filter-button[aria-pressed=true]{border-color:#1769aa;background:#eaf3fb;color:#1769aa}.result-count{margin:20px 0 12px;color:#64748b;font-size:13px}.entries{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.entry{display:flex;flex-direction:column;min-height:190px;padding:22px;border:1px solid #dfe7ef;border-radius:8px;background:#fff}.entry h2{margin:0 0 8px;font-size:20px;line-height:1.35}.entry h2 a{color:#1769aa;text-decoration:none}.entry p{margin:0 0 16px;color:#596779;font-size:14px}.entry-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;color:#7a8794;font-size:12px}.entry-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:4px}.tag{padding:2px 7px;border-radius:4px;background:#eef3f7;color:#526679;font-size:12px}@media(max-width:900px){.entries{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:620px){.topbar-inner,main{width:min(100% - 28px,1180px)}.entries{grid-template-columns:1fr}}
+    main{padding:48px 0 84px}.eyebrow{margin:0 0 7px;color:#1769aa;font-size:12px;font-weight:800;letter-spacing:.04em}h1{margin:0;color:#1769aa;font-size:32px;line-height:1.25}.description{max-width:760px;margin:12px 0 32px;color:#64748b}.filters{padding:20px 0;border-top:1px solid #dfe7ef;border-bottom:1px solid #dfe7ef}.filter-label{display:block;margin-bottom:10px;color:#334155;font-size:13px;font-weight:800}.search-input{width:min(100%,420px);height:42px;margin:0 0 18px;padding:8px 12px;border:1px solid #cbd8e3;border-radius:6px;background:#fff;color:#172033;font:inherit;font-size:14px}.search-input:focus{outline:2px solid #b4d7f0;outline-offset:1px}.filter-buttons{display:flex;gap:8px;flex-wrap:wrap}.filter-button{border:1px solid #cbd8e3;border-radius:6px;padding:7px 12px;background:#fff;color:#425466;font:inherit;font-size:13px;cursor:pointer}.filter-button:hover,.filter-button[aria-pressed=true]{border-color:#1769aa;background:#eaf3fb;color:#1769aa}.result-count{margin:20px 0 12px;color:#64748b;font-size:13px}.entries{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.entry{display:flex;flex-direction:column;min-height:190px;padding:22px;border:1px solid #dfe7ef;border-radius:8px;background:#fff}.entry.is-read{border-color:#b9d4c3;background:#fbfefc}.entry h2{margin:0 0 8px;font-size:20px;line-height:1.35}.entry h2 a{color:#1769aa;text-decoration:none}.entry p{margin:0 0 16px;color:#596779;font-size:14px}.entry-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;color:#7a8794;font-size:12px}.read-button{flex:none;border:1px solid #b7c8d6;border-radius:999px;padding:4px 9px;background:#fff;color:#526679;font:inherit;font-size:12px;line-height:1.4;cursor:pointer}.read-button:hover,.read-button[aria-pressed=true]{border-color:#4d8b62;background:#edf8f0;color:#28633b}.entry-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:4px}.tag{padding:2px 7px;border-radius:4px;background:#eef3f7;color:#526679;font-size:12px}@media(max-width:900px){.entries{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:620px){.topbar-inner,main{width:min(100% - 28px,1180px)}.entries{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -29,6 +29,8 @@
     let entries = [];
     let selectedTag = '';
     let allowedTags = [];
+    let readSlugs = new Set();
+    const readStorageKey = 'daily-papers:knowledge:read:v1';
     const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
     function entryOrderKey(entry) {
       return `${entry.date}-${String(entry.sequence).padStart(6, '0')}`;
@@ -47,6 +49,23 @@
       const params = new URLSearchParams(window.location.search);
       selectedTag = allowedTags.includes(params.get('tag')) ? params.get('tag') : '';
       searchInput.value = params.get('q') || '';
+    }
+    function loadReadState() {
+      try {
+        const stored = JSON.parse(window.localStorage.getItem(readStorageKey) || '[]');
+        if (Array.isArray(stored)) readSlugs = new Set(stored.filter(slug => /^[a-z0-9-]+$/.test(slug)));
+      } catch (error) {
+        // Private browsing or blocked storage should not prevent the directory from loading.
+        readSlugs = new Set();
+      }
+    }
+    function saveReadState() {
+      try { window.localStorage.setItem(readStorageKey, JSON.stringify([...readSlugs])); } catch (error) { /* storage is optional */ }
+    }
+    function toggleRead(slug) {
+      if (readSlugs.has(slug)) readSlugs.delete(slug); else readSlugs.add(slug);
+      saveReadState();
+      renderEntries();
     }
     function renderButtons() {
       const usedTags = new Set(entries.flatMap(entry => entry.tags || []));
@@ -74,9 +93,11 @@
       if (!visible.length) { entriesContainer.innerHTML = '<p>没有匹配的文章。</p>'; return; }
       visible.forEach(entry => {
         const card = document.createElement('article');
-        card.className = 'entry';
+        const isRead = readSlugs.has(entry.slug);
+        card.className = `entry${isRead ? ' is-read' : ''}`;
         const tags = (entry.tags || []).map(tag => `<span class="tag">${escapeHtml(tag)}</span>`).join('');
-        card.innerHTML = `<h2><a href="article.html?slug=${encodeURIComponent(entry.slug)}">${escapeHtml(entry.title)}</a></h2><p>${escapeHtml(entry.description)}</p><div class="entry-tags">${tags}</div><div class="entry-meta"><span><time datetime="${escapeHtml(entry.date)}">${escapeHtml(entry.date)}</time> · ${String(entry.sequence).padStart(2, '0')}</span></div>`;
+        card.innerHTML = `<h2><a href="article.html?slug=${encodeURIComponent(entry.slug)}">${escapeHtml(entry.title)}</a></h2><p>${escapeHtml(entry.description)}</p><div class="entry-tags">${tags}</div><div class="entry-meta"><span><time datetime="${escapeHtml(entry.date)}">${escapeHtml(entry.date)}</time> · ${String(entry.sequence).padStart(2, '0')}</span><button class="read-button" type="button" aria-pressed="${isRead}" aria-label="${isRead ? '取消已读' : '标记为已读'}">${isRead ? '已读' : '标记已读'}</button></div>`;
+        card.querySelector('.read-button').addEventListener('click', () => toggleRead(entry.slug));
         entriesContainer.appendChild(card);
       });
     }
@@ -89,6 +110,7 @@
         if (!Array.isArray(allowedTags) || entries.some(entry => (entry.tags || []).some(tag => !allowedTags.includes(tag)))) {
           throw new Error('文章使用了未登记的 Knowledge 标签');
         }
+        loadReadState();
         restoreFiltersFromUrl();
         entries.sort(compareEntries);
         renderButtons(); renderEntries();
@@ -96,6 +118,9 @@
     }
     searchInput.addEventListener('input', () => { syncFilterUrl(true); renderEntries(); });
     window.addEventListener('popstate', () => { restoreFiltersFromUrl(); renderButtons(); renderEntries(); });
+    window.addEventListener('storage', event => {
+      if (event.key === readStorageKey) { loadReadState(); renderEntries(); }
+    });
     loadEntries();
   </script>
 </body>
