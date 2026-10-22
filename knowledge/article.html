@@ -47,7 +47,9 @@
     async function loadArticle() {
       if (!slug || !/^[a-z0-9-]+$/.test(slug)) { article.textContent = fallback; return; }
       try {
-        const response = await fetch(`index.json`);
+        // Use a slug-specific cache key so newly published articles are not
+        // hidden behind a stale CDN copy of index.json.
+        const response = await fetch(`index.json?article=${encodeURIComponent(slug)}`);
         if (!response.ok) throw new Error('目录加载失败');
         const entries = await response.json();
         const entry = entries.find(item => item.slug === slug);
