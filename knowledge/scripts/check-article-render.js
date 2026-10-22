@@ -35,6 +35,7 @@ const ordering = vm.createContext({});
 vm.runInContext(indexPage.slice(compareStart, compareEnd), ordering);
 const sorted = entries.slice().sort(ordering.compareEntries);
 assert.deepEqual(sorted.map(entry => entry.slug), [
+  'embodied-world-action-model-wam',
   'llm-recursive-self-improvement',
   'ai-3d-character-rigging',
   'pi-vla-robot',
