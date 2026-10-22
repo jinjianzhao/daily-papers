@@ -6,6 +6,10 @@ const vm = require('node:vm');
 const knowledge = path.resolve(__dirname, '..');
 const allowedTags = JSON.parse(fs.readFileSync(path.join(knowledge, 'tags.json'), 'utf8'));
 const entries = JSON.parse(fs.readFileSync(path.join(knowledge, 'index.json'), 'utf8'));
+const taxonomy = JSON.parse(fs.readFileSync(path.join(knowledge, 'taxonomy.json'), 'utf8')).categories;
+const categoryNames = taxonomy.map(category => category.name);
+assert.equal(new Set(categoryNames).size, categoryNames.length, 'Knowledge 大类不能重复');
+assert(entries.every(entry => categoryNames.includes(entry.category)), '每篇文章必须使用 taxonomy.json 中登记的大类');
 assert(Array.isArray(allowedTags) && allowedTags.length > 0, '候选标签文件必须是非空数组');
 assert.equal(new Set(allowedTags).size, allowedTags.length, '候选标签不能重复');
 const sequencesByDate = new Map();
@@ -29,12 +33,13 @@ assert.equal(entries.find(entry => entry.slug === 'interview-code-diffusion-tran
 const page = fs.readFileSync(path.join(knowledge, 'article.html'), 'utf8');
 const indexPage = fs.readFileSync(path.join(knowledge, 'index.html'), 'utf8');
 const compareStart = indexPage.indexOf('    function entryOrderKey(');
-const compareEnd = indexPage.indexOf('    function renderButtons()', compareStart);
+const compareEnd = indexPage.indexOf('    function makeTagButtons(', compareStart);
 assert(compareStart >= 0 && compareEnd > compareStart, '找不到 Knowledge 目录排序函数');
 const ordering = vm.createContext({});
 vm.runInContext(indexPage.slice(compareStart, compareEnd), ordering);
 const sorted = entries.slice().sort(ordering.compareEntries);
 assert.deepEqual(sorted.map(entry => entry.slug), [
+  'uv-unwrapping-methods',
   'tokenizer-llm',
   'moe-llm',
   'hisa-csa-sparse-attention',
@@ -91,17 +96,23 @@ const browser = {
 const filterInput = {value: ' GRPO '};
 const filters = vm.createContext({
   URL, URLSearchParams, window: browser, searchInput: filterInput,
-  selectedTag: 'llm扫盲2610', allowedTags,
+  selectedCategory: 'LLM', selectedTag: 'llm扫盲2610', allowedTags,
+  taxonomy: JSON.parse(fs.readFileSync(path.join(knowledge, 'taxonomy.json'), 'utf8')).categories,
 });
 vm.runInContext(indexPage.slice(compareStart, compareEnd), filters);
 filters.syncFilterUrl(false);
+assert.equal(browser.location.searchParams.get('category'), 'LLM');
 assert.equal(browser.location.searchParams.get('tag'), 'llm扫盲2610');
 assert.equal(browser.location.searchParams.get('q'), 'GRPO');
-browser.location = new URL('https://example.test/daily-papers/knowledge/?tag=llm&q=DeepSeek');
+browser.location = new URL('https://example.test/daily-papers/knowledge/?category=LLM&tag=llm&q=DeepSeek');
 filters.restoreFiltersFromUrl();
+assert.equal(filters.selectedCategory, 'LLM');
 assert.equal(filters.selectedTag, 'llm');
 assert.equal(filterInput.value, 'DeepSeek');
-assert.match(indexPage, /button\.addEventListener\('click', \(\) => \{[\s\S]*?syncFilterUrl\(false\)/);
+assert.match(indexPage, /category-folder/);
+assert.match(indexPage, /folder\.open = Boolean\(selectedCategory \|\| selectedTag \|\| query\)/);
+assert.match(indexPage, /selectedCategory = selectedCategory === category\.name \? '' : category\.name/);
+assert.match(indexPage, /taxonomy\.json/);
 assert.match(indexPage, /searchInput\.addEventListener\('input', \(\) => \{ syncFilterUrl\(true\)/);
 assert.match(indexPage, /window\.addEventListener\('popstate', \(\) => \{ restoreFiltersFromUrl\(\)/);
 assert.match(indexPage, /<time datetime="\$\{escapeHtml\(entry\.date\)\}">\$\{escapeHtml\(entry\.date\)\}<\/time> · \$\{String\(entry\.sequence\)\.padStart\(2, '0'\)\}/);
@@ -167,6 +178,11 @@ assert.match(introductionHtml, /DeepSeekMath/);
 
 // 本轮 Knowledge 文章：只检查索引、正文路径和基本图片/标题约定；正文内容仍由主代理审阅。
 const newKnowledgeArticles = [
+  {
+    slug: 'uv-unwrapping-methods',
+    heading: 'UV 展开的方法谱系：从传统参数化到学习式与部件式展开',
+    path: 'posts/uv-unwrapping-methods/article.md',
+  },
   {
     slug: 'llm-recursive-self-improvement',
     heading: 'LLM 的递归自我改进：从反思到自我改写的 Agent',
