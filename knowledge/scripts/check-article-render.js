@@ -35,6 +35,7 @@ const ordering = vm.createContext({});
 vm.runInContext(indexPage.slice(compareStart, compareEnd), ordering);
 const sorted = entries.slice().sort(ordering.compareEntries);
 assert.deepEqual(sorted.map(entry => entry.slug), [
+  'protein-structure-prediction',
   'zbrush-introduction',
   'embodied-world-action-model-wam',
   'llm-recursive-self-improvement',
@@ -134,6 +135,15 @@ for (const entry of entries) {
   assert.match(source, /\n## QA\s*\n[\s\S]*$/, `${entry.slug} 的 QA 应位于正文末尾`);
   const rendered = context.renderMarkdownWithCollapses(source);
   assert.match(rendered, /<h2>QA<\/h2>/, `${entry.slug} 的 QA 应正常渲染`);
+}
+const proteinEntry = entries.find(entry => entry.slug === 'protein-structure-prediction');
+assert.deepEqual(proteinEntry?.tags, ['AI4S']);
+const proteinSource = fs.readFileSync(path.join(knowledge, proteinEntry.path), 'utf8');
+assert.match(proteinSource, /^# 蛋白质结构预测入门：从氨基酸序列到三维形状$/m);
+assert.match(proteinSource, /^## 回到你给的文章：Claude 设计抗蝎毒蛋白做了什么？$/m);
+for (const imagePath of ['alphafold2-figure1.png', 'alphafold3-figure1.png', 'anthropic-design-funnel.png']) {
+  assert.match(proteinSource, new RegExp(`!\\[[^\\]]+\\]\\(assets/${imagePath.replace('.', '\\.')}\\)`));
+  assert(fs.existsSync(path.join(knowledge, 'posts/protein-structure-prediction/assets', imagePath)));
 }
 const introduction = entries.find(entry => entry.slug === 'llm-introduction-six-stages');
 assert.deepEqual(introduction?.tags, ['llm扫盲2610', 'llm']);
