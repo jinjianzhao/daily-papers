@@ -35,6 +35,8 @@ const ordering = vm.createContext({});
 vm.runInContext(indexPage.slice(compareStart, compareEnd), ordering);
 const sorted = entries.slice().sort(ordering.compareEntries);
 assert.deepEqual(sorted.map(entry => entry.slug), [
+  'pi-vla-robot',
+  'embodied-intelligence-introduction',
   'partpacker-omnipart-bang',
   'octree-t3lescope',
   'image-to-svg-llm',
@@ -144,6 +146,18 @@ assert.match(introductionHtml, /DeepSeekMath/);
 
 // 本轮 Knowledge 文章：只检查索引、正文路径和基本图片/标题约定；正文内容仍由主代理审阅。
 const newKnowledgeArticles = [
+  {
+    slug: 'pi-vla-robot',
+    heading: '从 VLM 到机器人动作：以 π0、π0.5 理解 VLA',
+    path: 'posts/pi-vla-robot/article.md',
+    requiredImages: ['assets/pi0-overview.png', 'assets/pi05-overview.png'],
+  },
+  {
+    slug: 'embodied-intelligence-introduction',
+    heading: '具身智能入门：让模型在真实世界里行动',
+    path: 'posts/embodied-intelligence-introduction/article.md',
+    requiredImage: 'assets/rt2-fig1.png',
+  },
   {
     slug: 'partpacker-omnipart-bang',
     heading: '一件物体如何变成可编辑的零件：PartPacker、OmniPart 与 BANG',
