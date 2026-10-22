@@ -1,109 +1,137 @@
-# UV 展开的方法谱系：从传统参数化到学习式与部件式展开
+# 从 3D 生成到可用资产：Meshy、Tripo、Hi3D 与 Rodin 的 UV 展开证据
 
-给一个 3D 模型贴颜色、照片或法线细节时，渲染器需要知道“模型表面的这个点应该读取纹理图片的哪个位置”。**UV 展开（UV unwrapping）**就是把三维表面映射到二维平面：对表面点 (p) 给出二维坐标 ((u,v))，然后在纹理图上用 ((u,v)) 采样。它也常被称为 mesh parameterization（网格参数化）。本文面向刚接触图形学的读者，先建立问题和指标的直觉，再按路线介绍 2020 年之后的代表性方法；2020 年以前的方法只做谱系概览，不逐篇展开。
+很多 3D 生成产品能导出带纹理的模型，但“能导出一个带颜色的 GLB”不等于“公开了一个 UV 展开算法”。这篇文章专门回答一个更窄、更实用的问题：Meshy、Tripo、Hi3D、Rodin 这些主流系统公开了什么与 UV 有关的内容？哪些是明确的 UV seam / unwrap 方法，哪些只是产品功能，哪些论文其实解决的是上游的几何或神经表示？
 
-## 1. UV 展开究竟在解决什么问题
+先记住资产管线：
 
-### 1.1 为什么要切缝
+`图像/文本 → 几何生成 → 网格化与修复 → UV seam 与参数化 → 纹理生成/烘焙 → UV 图集打包 → GLB/OBJ 等资产`
 
-一张平面纸不能无变形地包住球。对任意闭合或高亏格表面，要得到一个平面上的图，通常必须沿网格边切开若干条**缝（seam）**，把表面拆成一个或多个近似圆盘的**图表（chart）**。每个 chart 可以独立展到二维，再把它们平移、旋转、缩放后排进纹理图集（texture atlas）。切缝不表示模型被删掉了；它表示相邻三角形在 UV 平面中不再共享同一个坐标边界。
+论文可能只覆盖其中一段。不能因为一篇论文画了二维 feature plane，就把它称为 UV；也不能因为产品导出纹理，就反推它使用了某篇论文的 UV 算法。
 
-如果不同的三维点被映射到了同一片 UV 区域，就发生 **UV 重叠**。重叠会让两个表面区域读取同一纹理，除非这是有意设计，否则通常是错误。多图表的边界还可能出现接缝，所以实际工具会在几何不显眼处放缝，并把图表打包到有限的 0–1 纹理空间中。
+## 1. UV 展开是什么
 
-### 1.2 失真不是一个数就能概括
+UV 展开（UV unwrapping，也叫 mesh parameterization）把三维表面点映射到二维坐标 `(u, v)`，让纹理图像可以被采样到模型表面。曲面通常不能无失真地摊平，所以需要沿网格边设置 seam，把表面切成若干 chart，再把 chart 排进纹理图集。
 
-平面化一般不能同时保持长度、角度和面积。常见指标包括：
+主要工程目标包括：
 
-- **角度/共形失真**：局部角度是否保持，适合文字、图案不希望被扭斜的情况。
-- **面积/等距失真**：三角形在 UV 中的面积相对 3D 面积变化多大，影响纹理密度是否均匀。
-- **拉伸（stretch）**：局部最大奇异值或边长变化，反映纹理被拉长。
-- **翻转与双射性**：三角形是否反向、不同表面点是否被错误折叠到一起。
-- **缝长、图表数量和打包效率**：工程上希望缝短、chart 少、纹理空间利用率高，但这些目标常与低失真冲突。
+- **低失真**：尽量减少角度、面积和长度的拉伸。
+- **少而合理的 seams/charts**：避免纹理被切得过碎，同时让复杂部位能摊平。
+- **无重叠、无翻转**：除非明确要镜像复用，否则不同表面区域不应占同一片 UV。
+- **可编辑和可烘焙**：画师能定位部件，纹理烘焙时有足够的像素密度。
 
-因此“最好”的 UV 取决于用途：影视贴图可能更关心缝的位置和画师可编辑性，数值模拟可能关心角度或长度，自动生成内容则还要关心脏网格、非流形边和退化三角形能否处理。 [Shay、Solomon 与 Stein 的数据集和 benchmark](https://arxiv.org/abs/2208.01772) 特别强调，没有一个指标可以代表所有实际用户的偏好。
+因此，UV 算法的输出至少应涉及 seam、chart 或每个顶点的 UV 坐标；一个三维生成器的 latent、feature plane 或三维 token，并不是 UV。
 
-## 2. 2020 年以前：传统路线合并概览
+## 2. 先给结论：公开证据处于不同层级
 
-早期方法大致经历了三步：先给定或搜索切缝，再把每个圆盘 chart 通过 Tutte/Laplacian、LSCM、ABF 等方法展平，最后做图集打包。固定边界的线性方法简单、快，并可在适当条件下保证翻转不发生；自由边界和局部-全局优化方法能降低失真，但求解和初始化更复杂；像 OptCuts 一类方法进一步尝试联合优化切缝与参数化。
+| 公司/系统 | 公开资料明确说明了什么 | 能否确认公开了自己的 UV 展开算法 |
+| --- | --- | --- |
+| **Meshy / SeamFlow** | 公开了专门的 `SeamFlow: Structure-Aware Flow Matching on Edge Probabilities for Artist-Like UV Unwrapping`；从网格边概率生成 seam graph，再用标准参数化得到 UV islands。 | **可以**。这是本次调查中最明确的 UV 方法论文。 |
+| **Tripo / TripoSR / TripoSG** | 公开的是单图 3D 重建或形状生成模型；TripoSR README 说明可输出 vertex colors 或烘焙纹理，TripoSG README 讲形状生成和 SDF/VAE。 | **不能从公开资料确认** TripoSR/TripoSG 的底层 UV seam 算法。产品纹理功能不等于论文公开 UV 方法。 |
+| **Hi3D / Hi3D 3.0** | 公开的是单图到多视图、视频扩散、Gaussian Splatting、网格生成和高分辨率几何；没有在给定论文摘要中把 UV 展开作为核心方法。 | **不能确认** 有独立公开 UV 展开算法。 |
+| **Rodin** | 论文研究 neural radiance field 的 roll-out diffusion：把多个 2D feature maps roll out 到一个 feature plane，并用 3D-aware convolution 做生成。 | **不能确认** 有 UV 展开；feature plane 是神经表示，不是纹理 UV。 |
 
-这条路线的共同前提是：输入拓扑和网格质量相对规整，或者用户先手工处理 seam、分件和非流形问题。它们仍是工程基线，Blender、Unity 等软件也把 LSCM、ABF 等算法集成进了工作流。不要把“传统”理解成过时：在高质量手工模型上，它们通常很快、可控、可解释；困难主要出现在自动处理大规模普通扫描、重建或 AI 生成网格时。
+这个表是“公开证据边界”，不是对产品内部实现的否定。商业系统可能有未公开的后处理、第三方库或内部技术报告；在没有来源的情况下不能替它们补写一个算法。
 
-## 3. 2020 年以后：几条正在汇合的路线
+## 3. Meshy：SeamFlow 是明确的 UV seam 生成路线
 
-### 3.1 学习 Jacobian，再用几何求解恢复 UV：Neural Jacobian Fields
+### 3.1 论文和作者机构
 
-[Neural Jacobian Fields（NJF）](https://arxiv.org/abs/2205.02904)（2022）针对一个关键问题：不同模型的三角剖分可能完全不同，直接把“每个顶点的 UV”喂给固定网络，会把某个训练网格的连接关系误当成规律。
+Meshy 的项目页是 [SeamFlow: Artist-Like UV Unwrapping](https://meshy-dev.github.io/seamflow)，论文页面是 [arXiv:2609.04751](https://arxiv.org/abs/2609.04751)，Meshy 的介绍文章是 [SeamFlow: Flow Matching for UV Unwrapping](https://www.meshy.ai/blog/seamflow-flow-matching-uv-unwrapping)。项目页列出的作者机构包括 City University of Hong Kong、Meshy AI、Bambu Lab 和 Nanyang Technological University；arXiv 摘要将问题称为 3D surface cutting，并说明该方法用于 UV unwrapping。
 
-NJF 的做法是把网络要预测的对象改成**局部映射的 Jacobian（导数矩阵）**。MLP 根据一个点的空间位置和全局形状描述，先预测一个外在的矩阵场；随后利用当前网格每个三角形自己的切平面，把矩阵投影为该网格的内在 Jacobian。最后通过一个可微的 Poisson 求解，把各三角形的梯度场积分成连续的二维映射。Poisson 系统的分解可以缓存，训练时仍能反向传播。
+这里的时间边界要注意：项目页和 arXiv 条目对应 2026 年版本，Meshy 博客写的是 SIGGRAPH Asia 2026。不能把它当作 2020 年以前的成熟标准，也不能把博客中的结果脱离论文协议外推。
 
-它的输入可以是任意三角化的表面，输出是映射到二维的坐标（在 UV 任务中即 UV 参数化）。核心优势是**与三角剖分无关、在梯度域中保留细节**；核心代价是网络仍需学习形状先验，而且切缝、全局拓扑和图集打包不由这一 Jacobian 积分步骤自动解决。NJF 的论文还展示了形变迁移、配准等任务，因此不能把它误解成一个只针对纹理的“UV 生成器”。
+### 3.2 它究竟生成什么
 
-### 3.2 不把离散网格当成固定输入：Discretization-Agnostic Deep Self-Supervised Parameterization
+传统 UV 展开首先要决定“哪些网格边是 seam”。SeamFlow 把每条网格边是否成为 seam 的二值决策，放松成一个连续的边概率。模型从高斯噪声出发，在这个高维概率空间里进行 flow matching，通过概率流 ODE 让所有边概率并行演化，最后得到一张完整的 seam layout。
 
-[Discretization-Agnostic Deep Self-Supervised 3D Surface Parameterization](https://doi.org/10.1145/3550340.3564235)（2022）把重点放在两个限制上：许多网络依赖固定拓扑，且很多方法需要人工 UV 作为监督。它以点或局部表面采样为基本对象，利用深度网络学习从表面到参数域的映射，并通过几何约束构造自监督目标，而不是把一套人工 UV 当作唯一答案。
+它的 pipeline 可以写成：
 
-“Discretization-agnostic” 的含义是，改变三角化或采样密度后，方法仍应表达同一个连续表面映射；它并不等于完全不需要几何质量检查。训练信号通常来自映射的连续性、局部失真、覆盖/重建一致性等可计算量。此类方法的价值在于把“训练标签”从艺术家画好的 UV 扩展为几何规律，缺点是自监督损失如何平衡、如何防止折叠和跨 chart 不一致，往往决定最终效果。
+`网格坐标/法线 → 全局形状特征 + mesh edge tokens → flow matching 预测边 seam 概率 → 得到 seam graph → 标准参数化生成 UV islands`
 
-### 3.3 让参数化成为可评测的工程问题：Mesh Parameterization Benchmark
+项目页明确说，edge token 编码网格连通关系，使切缝落在真实网格边上；局部拓扑 token 和全局形状先验一起进入 Transformer；最终 seam graph 再交给标准参数化得到 UV map。也就是说，SeamFlow 的学习核心是**切缝布局**，不是把完整的 UV 顶点坐标直接当成扩散变量。
 
-[A Dataset and Benchmark for Mesh Parameterization](https://arxiv.org/abs/2208.01772) 本身不是一个新的展开网络，而是 2022 年很重要的**评测基础设施**。作者收集了 337 个来自 BlenderKit、Sketchfab 等真实来源的模型，并保留艺术家制作的 UV。benchmark 同时报告失真、鲁棒性、图表/缝等指标，并允许与艺术家 UV 对照。
+### 3.3 为什么使用 flow matching
 
-它提醒我们：一个模型在合成平面片上失真很低，不代表它在角色、CAD、扫描和有孔洞的真实资产上可用；“少一个 chart”也不一定比“画师更容易修改”重要。后续学习式方法若只给出单一平均误差而不说明拓扑、缝和打包协议，结论应谨慎解读。
+Meshy 的公开解释把两种问题区分开：自回归逐条边生成会带来生成顺序偏置，而且如果模型在三维空间预测后再投影回网格，可能有 projection error；SeamFlow 直接在 mesh edge 上预测，每条边的概率同时演化，因此更符合网格拓扑。
 
-### 3.4 以用户点为条件，找一个可展开的大局部：DA Wand
+这并不意味着 flow matching 自动解决所有参数化问题。最终 UV 仍需通过参数化求解；失真、缝长、语义完整性和图集打包仍是多个目标。SeamFlow 是 seam generation + parameterization 的一条完整链路，其中论文公开的神经生成部分主要负责 seam distribution。
 
-[DA Wand: Distortion-Aware Selection Using Neural Mesh Parameterization](https://openaccess.thecvf.com/content/CVPR2023/html/Liu_DA_Wand_Distortion-Aware_Selection_Using_Neural_Mesh_Parameterization_CVPR_2023_paper.html)（CVPR 2023）并不试图一次把整件模型展平。它解决的是贴花、局部绘画等交互任务：用户在网格上点一个三角形，系统找到一个尽可能大、又能低失真展平的局部区域。
+项目页报告在 2,000 个未见测试网格上的角度/面积失真、运行时间、用户偏好、纹理生成和跨分辨率泛化实验，并展示了 0.12 角度失真、0.14 面积失真和 5.63 秒等选定数值。这里的数值只能按其公开的 evaluation setup 理解，不能直接当成所有 Meshy 产品请求的服务延迟或保证。
 
-流程是：MeshCNN 编码网格和用户选中的三角形，预测软分割概率；把概率作为权重放进加权 LSCM（wLSCM）参数化层，得到可反传的 UV；再用**阈值化失真损失**惩罚超过容忍度的三角形，并用平滑/紧致性损失避免区域碎裂。训练先在带分割标签的合成“近可展开”形状上预训练，再在无标签自然形状上用参数化层做失真自监督。
+### 3.4 Meshy 产品功能和 SeamFlow 的关系
 
-所以 DA Wand 的输出是一个用户条件的局部 chart 和 UV，不是全模型 UV 图集。它适合交互式 decal、局部纹理和快速选面；如果目标是自动生成整件角色的最终贴图，它需要和全局切缝、图集打包工具串联。
+Meshy 产品页可能同时提供模型生成、AI Texturing、导出等功能；SeamFlow 论文则是一个明确的 UV/切缝研究。两者来自同一生态并不自动证明“线上每个版本的产品都已经部署了论文中的全部模块”。更严谨的说法是：**Meshy 公开了 SeamFlow 这一专门的 UV 研究路线；公开页面没有给出完整的线上产品版本映射。**
 
-### 3.5 从点到全局自由边界：Flatten Anything
+## 4. Tripo：公开的是生成和纹理接口，不是 UV 算法论文
 
-[Flatten Anything: Unsupervised Neural Surface Parameterization](https://arxiv.org/abs/2405.14633)（NeurIPS 2024）把目标扩大为**全局、自由边界、自动切缝**。其 Flatten Anything Model（FAM）直接学习表面点到自适应二维 UV 域的点到点映射；系统由表面切割、二维 UV 变形、3D→2D 展开和 2D→3D 回包等子网络组成，并通过双向 cycle 约束训练。
+### 4.1 TripoSR 公开了什么
 
-论文强调它不依赖 mesh connectivity，因此也能处理无结构表面采样；训练是对每个目标模型进行的无监督/过拟合式优化，而不是一个已经在所有类别上训练好、一次前向就适配任何模型的通用权重。损失包含展开与回包一致性、循环一致性、置信度/覆盖和共形等几何约束；网络学习过程中同时寻找切缝和 UV 边界。
+[TripoSR 官方代码仓库](https://github.com/VAST-AI-Research/TripoSR)和[技术报告](https://arxiv.org/abs/2403.02151)明确把 TripoSR 定义为单图快速 3D 重建模型，由 Tripo AI 与 Stability AI 合作。README 写明它可输出 3D model；通过 `--bake-texture` 可以输出纹理而不是 vertex colors，并能指定纹理分辨率。
 
-FAM 的优点是减少手工预切、对复杂拓扑和非理想网格更宽容；代价是每个模型需要优化，速度和稳定性依赖采样、损失权重及停止条件。它输出的是连续神经映射和 UV 结果，工业管线仍需把结果离散到顶点、检查翻转，并完成图集打包。
+这给出一个重要事实：TripoSR 的公开接口支持从重建结果得到纹理资产。但 README 和技术报告的公开重点是 LRM 风格的图像到三维重建速度/质量，而不是 seam 放置、参数化能量或 UV 图集算法。仅凭 `--bake-texture` 无法知道底层采用了哪种 UV 工具、是否使用内部后处理，也无法把 TripoSR 论文称为 UV 展开论文。
 
-### 3.6 以语义部件减少碎片：PartUV
+### 4.2 TripoSG 公开了什么
 
-[PartUV: Part-Based UV Unwrapping of 3D Meshes](https://arxiv.org/abs/2511.16659)（arXiv:2511.16659，2025 年论文条目；同时发表于 SIGGRAPH Asia 2025）针对 AI 生成网格常见的噪声、凹凸和糟糕拓扑。传统自动展开在这类网格上容易产生大量碎 chart 和难看的 seam。PartUV 的基本范式是**先用高层部件分解，再在部件内部做几何展开**。
+[TripoSG 代码仓库](https://github.com/VAST-AI-Research/TripoSG)（对应 [arXiv:2502.06608](https://arxiv.org/abs/2502.06608)）将自己描述为 image-to-3D foundation model。公开技术亮点包括 large-scale rectified flow Transformer、SDF VAE、混合 SDF/法线/eikonal 监督和大规模 Image-SDF 数据。推理脚本输出 `.glb`，也可以限制面数。
 
-论文以 PartField 一类的学习式部件分解作为先验，在 top-down 的递归流程中把模型分成语义上更完整的 part，再对每个 part 选择/修正参数化和图集布局。它允许用户给定失真阈值，在满足阈值的前提下尽量减少 chart 数；同时加入非流形、退化三角形的专门处理，并把参数化与 packing 做并行化。
+这些内容解决的是“如何生成高保真几何形状”，不是“如何给已有网格自动切缝和摊平”。在目前公开 README、论文摘要和仓库推理说明中，我没有找到对 seam graph、UV 坐标求解或 chart packing 的方法级描述。因此把 TripoSG 的 rectified flow 或 SDF VAE 写成 UV 展开，是把上游几何生成和下游资产处理混为一谈。
 
-PartUV 的输出是部件对齐的 charts、seams 和打包后的 UV。它与 DA Wand 的区别很关键：DA Wand 是“给一个点，找一个低失真局部 patch”；PartUV 是“把整件模型按部件拆开，再为各部件生成较少的全局 charts”。论文报告在手工模型、CAD、AI 生成模型和 Common Shapes 上，在 chart 数与 seam 长度方面优于若干工具和神经方法，同时保持相近失真；这些结论依赖其数据集和评价协议，不应外推为所有模型都必然更好。
+### 4.3 对 Tripo 产品的准确结论
 
-## 4. 四条路线怎么比较
+目前可以确认：Tripo 公开了能生成/导出带纹理资产的产品和开源模型；不能确认：TripoSR/TripoSG 论文公开了独立 UV 展开方法。若要继续查 Tripo 在线产品的具体 UV 实现，需要获得其产品版本说明、导出文件的 UV 审计或官方技术支持回复；现有公开入口不足以做更强断言。
 
-| 路线 | 典型代表 | 输入与输出 | 训练/优化信号 | 优点 | 局限与适用场景 |
-| --- | --- | --- | --- | --- | --- |
-| 传统全局参数化 | LSCM、ABF、自由边界和联合切缝优化 | 网格、seam 或拓扑约束 → charts/UV | 显式几何能量与线性/非线性求解 | 快、可解释、工业工具成熟 | 对脏网格和复杂拓扑敏感；适合规整资产和可控流水线 |
-| 学习式全局映射 | NJF、离散化无关自监督、Flatten Anything | 点/网格 → 连续映射或 UV | 监督 UV 或失真、循环、双射等自监督约束 | 能学习形状先验，减少固定拓扑依赖，部分方法自动找缝 | 训练/每模型优化成本、折叠与边界稳定性；适合批量普通数据或研究探索 |
-| 局部/部件式 | DA Wand、PartUV | 用户点或整件模型 → 局部 patch / 部件 charts | 可微参数化层、失真阈值、语义部件和几何启发式 | chart 更有意义，能控制局部失真和碎片 | 需要与图集拼装结合；适合贴花、部件贴图和 AI 生成网格 |
-| 生成式/艺术家式工作流 | 交互切缝、标记 seam、自动 packing 与人工修订 | 模型、用户意图、纹理需求 → 可编辑 UV 图集 | 不是单一训练损失，而是规则、启发式与人工反馈 | 能表达“这里必须连续/那里隐藏缝”等语义意图 | 不完全自动、成本依赖艺术家；最终交付仍常需要这一环节 |
+## 5. Hi3D：多视图和几何生成，不是公开 UV 展开方案
 
-一个实用选择顺序是：规整且拓扑可靠的模型先用传统工具；要在未知拓扑或脏网格上批量处理，考虑 FAM/NJF 等学习式方法；只需局部贴花用 DA Wand；希望 chart 按人体、家具、零件等语义组织，优先考虑 PartUV 式部件路线。无论哪条路线，最后都应检查 UV 是否翻转/重叠、纹理密度是否均匀、chart 是否方便后续编辑，并在自己的资产分布上复测。
+### 5.1 Hi3D（2024）
 
-## 5. 事实边界与容易混淆的地方
+[Hi3D: Pursuing High-Resolution Image-to-3D Generation with Video Diffusion Models](https://arxiv.org/abs/2409.07452)提出用视频扩散模型把单张图转成具有 3D-aware 条件的 orbital video / 多视图，再用 3D Gaussian Splatting 增强新视角，最后进行三维重建得到高保真网格。摘要中的关键词是多视图一致性、视频扩散、高分辨率纹理和重建；没有把 UV seam、参数化或图集打包作为贡献。
 
-1. **参数化不等于打包。** 得到每个 chart 的二维坐标后，还要把 chart 放进纹理图集；很多论文只研究前者。
-2. **学习式不等于一次推理。** NJF 是可泛化的映射框架，FAM 的论文设置则包含对目标模型的优化；二者不能用同一个“推理速度”结论比较。
-3. **低失真不等于画师友好。** 失真、缝长、chart 数、语义对齐和可编辑性是不同目标。
-4. PartUV 的版本和日期以 [arXiv 条目](https://arxiv.org/abs/2511.16659)为准；本文不引入未核验的 2026 年 DreamUV 说法。
+论文说“高分辨率纹理”时，指的是多视图图像中的外观细节和重建质量，不能自动理解为已公开了 UV 展开算法。即使最终系统导出一个带纹理网格，UV 可能是后端资产转换步骤，其细节并未在这篇论文中公开。
 
-## 小结
+### 5.2 Hi3D 3.0 / Twinkle3D（2026）
 
-UV 展开本质上是“把三维表面变成可在二维纹理中寻址的坐标”。2020 年以前的主线是手工/启发式切缝加几何参数化；2022 年以后，研究开始把 Jacobian、离散化无关网络、自监督几何损失和可微参数化层结合起来。DA Wand 把问题缩成用户条件的低失真局部选择，Flatten Anything 尝试全局自由边界，PartUV 则用部件语义减少 AI 网格上的碎片 charts。理解这些方法时，始终要同时问四个问题：输入是什么网格、输出是局部还是全局 UV、失真与缝如何衡量、结果是否能进入真实贴图管线。
+[Hi3D 3.0: Object-specific 3D Asset Generation with High Resolution](https://arxiv.org/abs/2610.11685)的摘要把重点放在 2048³ 分辨率的 watertight triangle mesh、最多 300K geometric tokens、DiT 设计和图像—几何跨模态交互，用来恢复铭文、品牌标记和重复结构。它报告的是几何 fidelity 指标，而不是 UV seam 或 chart 指标。
+
+因此 Hi3D 3.0 仍应归入“上游几何生成/资产生成”。截至本文调研，没有核验到独立公开 UV 展开算法或“Hi3D 专用 UV 网络”。
+
+## 6. Rodin：feature plane 不是 UV
+
+[Rodin: A Generative Model for Sculpting 3D Digital Avatars Using Diffusion](https://arxiv.org/abs/2212.06135)生成的是 neural radiance field（NeRF）表示。为降低三维扩散的内存成本，论文把多个 2D feature maps roll out 到一张 2D feature plane，并通过 3D-aware convolution 根据三维关系访问这些特征。
+
+这张 feature plane 只是在神经网络内部存储/计算特征的布局：它的坐标服务于网络的 3D-aware 运算，不是模型表面的纹理 `(u,v)` 坐标；它没有 seam graph、chart cut、纹理图集等 UV 展开语义。Rodin 的后续产品可能有网格或贴图导出，但给出的这篇论文不能作为 Rodin UV 算法的证据。
+
+## 7. 完整资产管线中，UV 处于什么位置
+
+如果把这几家公司放到一条统一流程中，可以这样理解：
+
+1. **几何生成**：TripoSR/TripoSG、Hi3D/Twinkle3D、Rodin 等公开论文主要解决图像/文本到三维表示或网格。
+2. **网格后处理**：去除孤立点、修洞、重网格、法线修复和必要的拓扑清理。公开论文通常不会把商业后处理全写出。
+3. **UV 切缝与参数化**：Meshy 的 SeamFlow 是此次资料中明确公开的神经 seam 生成路线；其他公司在给定入口中没有核验到同等公开算法。
+4. **纹理生成和烘焙**：用多视图图像、扩散模型或纹理网络生成颜色/材质，再将结果烘焙到 UV 图集。
+5. **导出与审计**：检查 UV 是否重叠、图集是否有足够 padding、纹理密度是否均匀，导出 GLB/OBJ 等格式。
+
+这里的“完整”是概念层面的资产管线，不是声称每家公司公开或采用了完全相同的内部实现。
+
+## 8. 仍未确认的内容
+
+- 没有公开资料证明 TripoSR、TripoSG 的具体 seam 放置、UV 参数化和 packing 实现。
+- 没有在 Hi3D 2024、Hi3D 3.0 的论文摘要/公开入口中核验到独立 UV 方法。
+- Rodin 论文的 feature plane 不是 UV；Rodin 产品侧是否有未公开的网格 UV 后处理，本文不猜测。
+- Meshy SeamFlow 的公开论文说明了 seam 生成与标准参数化链路，但线上 Meshy 产品各版本是否全部部署、部署时间和服务端细节未公开。
+- “公开产品支持纹理导出”不能替代“公开 UV 算法”的证据。若需要精确比较商业产品，下一步应固定版本，对导出的 GLB 做 UV 层审计，并把可观察行为与论文方法分开记录。
 
 ## 参考资料
 
-1. [Neural Jacobian Fields: Learning Intrinsic Mappings of Arbitrary Meshes, arXiv:2205.02904](https://arxiv.org/abs/2205.02904)
-2. [Discretization-Agnostic Deep Self-Supervised 3D Surface Parameterization, ACM DOI](https://doi.org/10.1145/3550340.3564235)
-3. [A Dataset and Benchmark for Mesh Parameterization, arXiv:2208.01772](https://arxiv.org/abs/2208.01772)
-4. [DA Wand: Distortion-Aware Selection Using Neural Mesh Parameterization, CVPR 2023](https://openaccess.thecvf.com/content/CVPR2023/html/Liu_DA_Wand_Distortion-Aware_Selection_Using_Neural_Mesh_Parameterization_CVPR_2023_paper.html)
-5. [Flatten Anything: Unsupervised Neural Surface Parameterization, arXiv:2405.14633](https://arxiv.org/abs/2405.14633)
-6. [PartUV: Part-Based UV Unwrapping of 3D Meshes, arXiv:2511.16659](https://arxiv.org/abs/2511.16659)
+- [Meshy SeamFlow 项目页](https://meshy-dev.github.io/seamflow)
+- [Meshy SeamFlow 介绍](https://www.meshy.ai/blog/seamflow-flow-matching-uv-unwrapping)
+- [SeamFlow, arXiv:2609.04751](https://arxiv.org/abs/2609.04751)
+- [TripoSR 官方仓库](https://github.com/VAST-AI-Research/TripoSR)
+- [TripoSR 技术报告, arXiv:2403.02151](https://arxiv.org/abs/2403.02151)
+- [TripoSG 官方仓库](https://github.com/VAST-AI-Research/TripoSG)
+- [TripoSG, arXiv:2502.06608](https://arxiv.org/abs/2502.06608)
+- [Hi3D, arXiv:2409.07452](https://arxiv.org/abs/2409.07452)
+- [Hi3D 3.0 / Twinkle3D, arXiv:2610.11685](https://arxiv.org/abs/2610.11685)
+- [Rodin, arXiv:2212.06135](https://arxiv.org/abs/2212.06135)
 
 ## QA
 

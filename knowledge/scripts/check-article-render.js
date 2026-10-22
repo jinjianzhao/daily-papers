@@ -109,9 +109,10 @@ filters.restoreFiltersFromUrl();
 assert.equal(filters.selectedCategory, 'LLM');
 assert.equal(filters.selectedTag, 'llm');
 assert.equal(filterInput.value, 'DeepSeek');
-assert.match(indexPage, /category-folder/);
-assert.match(indexPage, /folder\.open = Boolean\(selectedCategory \|\| selectedTag \|\| query\)/);
-assert.match(indexPage, /selectedCategory = selectedCategory === category\.name \? '' : category\.name/);
+assert.match(indexPage, /category-links/);
+assert.match(indexPage, /link\.href = `\?category=\$\{encodeURIComponent\(category\.name\)\}`/);
+assert.match(indexPage, /selectedCategory = taxonomy\.some\(item => item\.name === params\.get\('category'\)\)/);
+assert.doesNotMatch(indexPage, /document\.createElement\('details'\)/, 'Knowledge 分类不应使用展开式 details');
 assert.match(indexPage, /taxonomy\.json/);
 assert.match(indexPage, /searchInput\.addEventListener\('input', \(\) => \{ syncFilterUrl\(true\)/);
 assert.match(indexPage, /window\.addEventListener\('popstate', \(\) => \{ restoreFiltersFromUrl\(\)/);
@@ -180,7 +181,7 @@ assert.match(introductionHtml, /DeepSeekMath/);
 const newKnowledgeArticles = [
   {
     slug: 'uv-unwrapping-methods',
-    heading: 'UV 展开的方法谱系：从传统参数化到学习式与部件式展开',
+    heading: '从 3D 生成到可用资产：Meshy、Tripo、Hi3D 与 Rodin 的 UV 展开证据',
     path: 'posts/uv-unwrapping-methods/article.md',
   },
   {

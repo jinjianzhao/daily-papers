@@ -9,22 +9,25 @@
     *{box-sizing:border-box}body{margin:0;background:#f7f9fb;line-height:1.6}
     a{color:#1769aa}.topbar{border-bottom:1px solid #dfe7ef;background:#fff}.topbar-inner,main{width:min(1180px,calc(100% - 40px));margin:0 auto}.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px 0}.brand{color:#334155;font-size:14px;font-weight:800;text-decoration:none}.nav{display:flex;gap:6px;flex-wrap:wrap}.nav a{padding:6px 10px;border-radius:6px;color:#64748b;font-size:13px;font-weight:700;text-decoration:none}.nav a[aria-current=page]{background:#eaf3fb;color:#1769aa}
     main{padding:48px 0 84px}.eyebrow{margin:0 0 7px;color:#1769aa;font-size:12px;font-weight:800;letter-spacing:.04em}h1{margin:0;color:#1769aa;font-size:32px;line-height:1.25}.description{max-width:760px;margin:12px 0 32px;color:#64748b}.filters{padding:20px 0;border-top:1px solid #dfe7ef;border-bottom:1px solid #dfe7ef}.filter-label{display:block;margin-bottom:10px;color:#334155;font-size:13px;font-weight:800}.search-input{width:min(100%,420px);height:42px;margin:0 0 18px;padding:8px 12px;border:1px solid #cbd8e3;border-radius:6px;background:#fff;color:#172033;font:inherit;font-size:14px}.search-input:focus{outline:2px solid #b4d7f0;outline-offset:1px}.filter-buttons{display:flex;gap:8px;flex-wrap:wrap}.filter-button{border:1px solid #cbd8e3;border-radius:6px;padding:7px 12px;background:#fff;color:#425466;font:inherit;font-size:13px;cursor:pointer}.filter-button:hover,.filter-button[aria-pressed=true]{border-color:#1769aa;background:#eaf3fb;color:#1769aa}.result-count{margin:20px 0 12px;color:#64748b;font-size:13px}.category-folders{display:grid;gap:10px}.category-folder{border:1px solid #dfe7ef;border-radius:6px;background:#fff}.category-folder[open]{border-color:#b9c8d5}.category-folder>summary{display:flex;align-items:center;gap:10px;padding:13px 16px;color:#334155;font-size:15px;font-weight:800;cursor:pointer;list-style:none}.category-folder>summary::-webkit-details-marker{display:none}.category-folder>summary::before{content:'+';display:inline-grid;place-items:center;width:18px;height:18px;border:1px solid #cbd8e3;border-radius:4px;color:#526679;font-size:14px;line-height:1}.category-folder[open]>summary::before{content:'−'}.folder-count{margin-left:auto;color:#7a8794;font-size:12px;font-weight:500}.folder-content{padding:0 16px 16px}.category-filters{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 14px}.category-filters .filter-button{padding:5px 10px;font-size:12px}.entries{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.entry{display:flex;flex-direction:column;min-height:190px;padding:18px;border:1px solid #dfe7ef;border-radius:6px;background:#fff}.entry.is-read{border-color:#438350;background:#cde8d2}.entry h2{margin:0 0 8px;font-size:18px;line-height:1.35}.entry h2 a{color:#1769aa;text-decoration:none}.entry p{margin:0 0 16px;color:#596779;font-size:14px}.entry-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;color:#7a8794;font-size:12px}.read-button{flex:none;border:1px solid #b7c8d6;border-radius:999px;padding:4px 9px;background:#fff;color:#526679;font:inherit;font-size:12px;line-height:1.4;cursor:pointer}.read-button:hover:not([aria-pressed=true]){border-color:#1769aa;color:#1769aa}.read-button[aria-pressed=true]{border-color:#205b31;background:#2f7d45;color:#fff;font-weight:700}.entry-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:4px}.tag{padding:2px 7px;border-radius:4px;background:#eef3f7;color:#526679;font-size:12px}@media(max-width:900px){.entries{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:620px){.topbar-inner,main{width:min(100% - 28px,1180px)}.entries{grid-template-columns:1fr}}
+    .category-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.category-link{display:flex;flex-direction:column;gap:5px;min-height:112px;padding:18px;border:1px solid #dfe7ef;border-radius:6px;background:#fff;color:#172033;text-decoration:none}.category-link:hover{border-color:#1769aa;background:#f8fbfe}.category-link strong{color:#1769aa;font-size:17px}.category-link small{color:#64748b;font-size:13px}@media(max-width:900px){.category-links,.entries{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:620px){.category-links,.entries{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
   <header class="topbar"><div class="topbar-inner"><a class="brand" href="../">论文阅读</a><nav class="nav" aria-label="报告与专题"><a href="../date/">日报</a><a href="../week/">周报</a><a href="../month/">月报</a><a href="../surveys/">Survey</a><a href="./" aria-current="page">Knowledge</a></nav></div></header>
   <main>
     <p class="eyebrow">KNOWLEDGE</p>
-    <h1>知识文章</h1>
-    <p class="description">按主题整理的技术知识短文。文章由 Markdown 维护，目录和筛选在浏览器中完成。</p>
+    <h1 id="page-title">知识文章</h1>
+    <p id="page-description" class="description">按主题整理的技术知识短文。文章由 Markdown 维护，目录和筛选在浏览器中完成。</p>
     <section class="filters" aria-label="知识分类与搜索"><label class="filter-label" for="search-input">搜索标题或简介</label><input id="search-input" class="search-input" type="search" placeholder="输入关键词" autocomplete="off"><span class="filter-label">知识分类</span></section>
     <p id="result-count" class="result-count"></p>
-    <section id="entries" class="entries" aria-live="polite"></section>
+    <section id="entries" aria-live="polite"></section>
   </main>
   <script>
     const resultCount = document.getElementById('result-count');
     const searchInput = document.getElementById('search-input');
     const entriesContainer = document.getElementById('entries');
+    const pageTitle = document.getElementById('page-title');
+    const pageDescription = document.getElementById('page-description');
     let entries = [];
     let taxonomy = [];
     let selectedCategory = '';
@@ -94,6 +97,25 @@
       card.querySelector('.read-button').addEventListener('click', () => toggleRead(entry.slug));
       return card;
     }
+    function makeCategoryLinks() {
+      const links = document.createElement('div');
+      links.className = 'category-links';
+      taxonomy.forEach(category => {
+        const count = entries.filter(entry => entry.category === category.name).length;
+        const link = document.createElement('a');
+        link.className = 'category-link';
+        link.href = `?category=${encodeURIComponent(category.name)}`;
+        link.innerHTML = `<strong>${escapeHtml(category.name)}</strong><small>${escapeHtml(category.description || '')}</small><small>${count} 篇文章</small>`;
+        links.appendChild(link);
+      });
+      return links;
+    }
+    function renderCards(items) {
+      const cards = document.createElement('div');
+      cards.className = 'entries';
+      items.slice().sort(compareEntries).forEach(entry => cards.appendChild(makeEntryCard(entry)));
+      entriesContainer.appendChild(cards);
+    }
     function renderEntries() {
       const query = searchInput.value.trim().toLocaleLowerCase();
       const visible = entries.filter(entry => {
@@ -102,38 +124,27 @@
         const searchable = [entry.title, entry.description, entry.category, ...(entry.tags || [])].join(' ').toLocaleLowerCase();
         return !query || searchable.includes(query);
       });
-      resultCount.textContent = `${visible.length} 篇知识文章`;
       entriesContainer.innerHTML = '';
+      const category = taxonomy.find(item => item.name === selectedCategory);
+      if (!selectedCategory && !selectedTag && !query) {
+        pageTitle.textContent = '知识文章';
+        pageDescription.textContent = '按主题整理的技术知识短文。文章由 Markdown 维护，目录和筛选在浏览器中完成。';
+        resultCount.textContent = `${taxonomy.length} 个知识分类 · ${entries.length} 篇文章`;
+        entriesContainer.appendChild(makeCategoryLinks());
+        return;
+      }
+      pageTitle.textContent = category ? category.name : '知识文章';
+      pageDescription.textContent = category?.description || '按主题整理的技术知识短文。';
+      resultCount.textContent = `${visible.length} 篇知识文章`;
       if (!visible.length) { entriesContainer.innerHTML = '<p>没有匹配的文章。</p>'; return; }
-      const categoriesToShow = selectedCategory ? taxonomy.filter(item => item.name === selectedCategory) : taxonomy;
-      categoriesToShow.forEach(category => {
-        const categoryEntries = visible.filter(entry => entry.category === category.name);
-        if (!categoryEntries.length) return;
-        const folder = document.createElement('details');
-        folder.className = 'category-folder';
-        folder.open = Boolean(selectedCategory || selectedTag || query);
-        const summary = document.createElement('summary');
-        summary.innerHTML = `${escapeHtml(category.name)}<span class="folder-count">${categoryEntries.length} 篇</span>`;
-        summary.addEventListener('click', event => {
-          event.preventDefault();
-          selectedCategory = selectedCategory === category.name ? '' : category.name;
-          selectedTag = '';
-          syncFilterUrl(false);
-          renderEntries();
-        });
-        const content = document.createElement('div');
-        content.className = 'folder-content';
+      if (selectedCategory) {
         const filters = document.createElement('div');
         filters.className = 'category-filters';
-        filters.setAttribute('aria-label', `${category.name} 标签筛选`);
-        makeTagButtons(category.name, filters);
-        const cards = document.createElement('div');
-        cards.className = 'entries';
-        categoryEntries.forEach(entry => cards.appendChild(makeEntryCard(entry)));
-        content.append(filters, cards);
-        folder.append(summary, content);
-        entriesContainer.appendChild(folder);
-      });
+        filters.setAttribute('aria-label', `${selectedCategory} 标签筛选`);
+        makeTagButtons(selectedCategory, filters);
+        entriesContainer.appendChild(filters);
+      }
+      renderCards(visible);
     }
     async function loadEntries() {
       try {
