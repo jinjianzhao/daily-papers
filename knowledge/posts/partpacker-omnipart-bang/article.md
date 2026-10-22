@@ -89,3 +89,37 @@ PartPacker 把难点放在**表示**：用两个共享体处理任意数量的�
 ### BANG 的爆炸动画只是把现有零件向外平移吗？
 
 不是。**训练数据**里确实利用带零件结构的资产和优化出的平移向量合成序列；**推理模型**则在原始整体几何条件下生成各进度的网格状态。完全分离后还要从生成状态识别连通零件，并优化其回装轨迹。因此模型有生成式补充内部结构的空间，也有几何漂移与物理不准确的风险。
+
+### SAM3D-Part 如何从一个点击生成可复用的 3D 零件？
+
+这篇论文的题目是 [*SAM3D-Part: Interactive Part Selection and Generation from 3D Objects*](https://arxiv.org/html/2609.15639v1)。它解决的不是“把一个物体自动拆成所有零件”，而是一个更具体的交互任务：**用户已经有一个完整的 3D mesh，只想取出其中某一个部件，模型要生成这个部件的完整、可独立编辑的 mesh，并且放回原物体时位置仍然对得上。**
+
+可以把推理过程理解成下面这条链：
+
+```text
+已有物体 mesh
+   ↓ 从用户选定的视角渲染 RGB、前景和 point map
+用户在图像上点击目标部件
+   ↓ SAM 类分割器把点击变成 2D part mask
+RGB + mask + point map + 完整 mesh +（之前已经取出的部件）
+   ↓ 多模态条件送入两阶段生成器
+粗占据结构 + 到原 mesh 坐标的密集对应
+   ↓ 估计尺度/平移并回到源坐标系
+高分辨率、可独立使用的目标部件 mesh
+```
+
+这里的 point map 不是普通深度图：每个前景像素记录渲染时对应的 3D 坐标，背景设为常数。RGB 和 mask 由冻结的 DINOv2 编码，point map 由可训练的 patch encoder 编码；作者同时使用围绕 mask 的裁剪视图和完整视图。三种二维信号在相同 patch 位置融合成一个 token，而不是把三套 token 简单串起来。这样一个 token 同时携带外观、用户选中的区域和空间位置，条件长度也更短。仅靠一个视角仍然看不到完整几何，因此模型另用预训练 Hunyuan3D-2.1 ShapeVAE 把输入 mesh 编成 mesh anchor tokens，作为第二条 3D 条件流；两条条件通过 DiT 的 cross-attention 共同作用。[第 3.2 节](https://arxiv.org/html/2609.15639v1#S3.SS2)
+
+**第一阶段是稀疏结构和对应关系生成。** Flow-matching DiT 预测目标部件的粗 occupancy，同时预测一个 dense XYZ volume：每个被占据的 voxel 都给出它对应的源 mesh 坐标。生成部件先处在局部归一化坐标系，训练时只做居中和各向同性缩放，没有做旋转标准化，因此对齐步骤显式求的是尺度和位移：
+
+\[
+\min_{s,o}\sum_v\lVert s\,p_{local}(v)+o-p_{global}(v)\rVert_2^2 .
+\]
+
+闭式解得到尺度 `s` 和平移 `o`，再把部件放回源坐标系。它不是 ICP，也不是推理时自由估计 7-DoF 姿态；旋转一致性依赖训练中继承的坐标轴。[第 3.3 节](https://arxiv.org/html/2609.15639v1#S3.SS3)
+
+**第二阶段是结构化 latent 细化。** 它只在第一阶段预测的 occupied voxels 上进行 SLat DiT 去噪，补充局部几何和外观细节，并再次注入全局 mesh 条件，最后解码成完整的独立 mesh。两个阶段都使用 flow-matching 目标；论文实现中第一阶段使用 25 个采样步、第二阶段使用 12 个采样步，单张 H100、fp16 上完成推理。[第 3.3、4.1 节](https://arxiv.org/html/2609.15639v1#S3.SS3)
+
+如果用户连续取多个部件，模型还维护一个 **part cache**：把之前生成的部件体素化，对每个 mesh anchor 查询它是否已经被提取，再把这个二值历史标志拼入条件 token。这样后续查询能减少部件重复和相互冲突。它与前面三篇的关系是：PartPacker 从图像生成多部件并解决表示装箱；OmniPart 用 mask 控制粒度，再规划 3D 框并生成部件；BANG 从已有 3D 资产生成逐渐分离的爆炸动态；SAM3D-Part 则以已有 mesh 为几何依据，按用户点击**只生成当前需要的那个部件**。[方法与比较见第 3、4 节](https://arxiv.org/html/2609.15639v1)
+
+论文在多部件测试集上报告完整模型的 BBox IoU **0.641**、Chamfer Distance **0.053**、F1-0.1 **0.849**；加入 mesh conditioning、二维 token fusion、dense XYZ branch、part cache 和第二阶段 mesh condition 的消融，逐步改善了源物体对齐和细节。它仍会在细藤、叶脉、镂空框架等薄结构，以及多个部件在深度方向严重重叠时失败：当前稀疏表示可能抹平小于 voxel 尺度的结构，二维 mask 也可能无法唯一确定目标层。[实验与局限](https://arxiv.org/html/2609.15639v1#S4.SS2)
