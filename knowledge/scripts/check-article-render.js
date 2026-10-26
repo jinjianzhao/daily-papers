@@ -39,6 +39,8 @@ const ordering = vm.createContext({});
 vm.runInContext(indexPage.slice(compareStart, compareEnd), ordering);
 const sorted = entries.slice().sort(ordering.compareEntries);
 assert.deepEqual(sorted.map(entry => entry.slug), [
+  '3d-graphics-foundations',
+  'blender-knowledge',
   'uv-unwrapping-methods',
   'tokenizer-llm',
   'moe-llm',
