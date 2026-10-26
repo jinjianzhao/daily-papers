@@ -241,6 +241,107 @@ Blender 内置 Python API，可通过脚本批量创建对象、修改属性、�
 
 `.blend` 可包含对象、材质和节点等数据；外部图片、缓存、字体、视频通常仍可能是外部路径。相对路径和 Pack Resources 可减少丢失资源，但大缓存也会显著增大工程。建议按场景、集合、资产和输出版本建立命名规则，保存增量版本，标注 Blender 版本、渲染器、插件、随机种子和关键模拟缓存信息。多人协作可通过链接/追加（Link/Append）复用资产，但要理解链接数据与本地副本的差别。
 
+## 功能分类流程图与学习路径
+
+先用下面的功能树定位“该问题属于 Blender 的哪一层”。同一个项目通常会经过多个分支，但每个分支处理的对象不同：几何节点处理几何和属性，材质节点处理光照响应，模拟系统处理随时间变化的状态。
+
+```text
+Blender
+├── 场景数据：Scene / Collection / Object / Data-Block / View Layer
+├── 几何创建
+│   ├── 网格编辑、修改器、雕刻、重拓扑
+│   ├── 曲线、文本、曲面、体积
+│   └── Geometry Nodes：字段、属性、点云、实例、程序化工具
+├── 外观
+│   ├── 材质与 Shader Nodes
+│   ├── UV 与图像纹理
+│   └── 法线、位移、体积着色
+├── 时序
+│   ├── 关键帧、F-Curve、Action、NLA
+│   ├── 骨架、蒙皮、形状键、约束、驱动器
+│   └── Grease Pencil 与 2D/3D 动画
+├── 模拟
+│   ├── 粒子、毛发、力场、碰撞
+│   ├── 刚体、软体、布料
+│   ├── 流体、烟火、Dynamic Paint
+│   └── 缓存、烘焙、逐帧求解
+├── 成像
+│   ├── 相机、灯光、World、色彩管理
+│   ├── Eevee（实时取向）/ Cycles（路径追踪）
+│   └── Render Layers、分层输出、合成器
+├── 后期
+│   ├── Compositor：遮罩、颜色、效果、通道合成
+│   └── VSE：图像序列、视频、音频、剪辑
+└── 复用与交付
+    ├── Asset Browser、Link / Append
+    ├── Python API、脚本、扩展
+    └── glTF/GLB、FBX、USD、OBJ、Alembic、STL/PLY 等
+```
+
+从需求到交付的主流程可以压缩成一条检查链。模拟和动画不是所有项目都必需的分支，但一旦加入，就应在渲染前完成缓存验证：
+
+```text
+需求/参考图/输出平台
+          ↓
+场景初始化：单位、坐标、Collection、相机、帧率
+          ↓
+几何：网格/曲线/雕刻/修改器/Geometry Nodes
+          ↓
+材质：UV、纹理、Shader、法线与位移
+          ↓
+动画分支 ──→ 关键帧/骨架/约束/驱动器
+          │
+模拟分支 ──→ 粒子/布料/刚体/流体 → 缓存与烘焙
+          ↓
+灯光、World、相机、色彩管理、Eevee 或 Cycles 预览
+          ↓
+Render Layers / 帧序列
+          ↓
+Compositor 与 VSE 后期
+          ↓
+复核资源路径、单位、材质、动画和格式
+          ↓
+导出图像/视频/GLB/FBX/USD/其他目标格式
+```
+
+推荐的学习顺序不是把所有按钮逐个背下来，而是每层完成一个小闭环：先做“一个物体能被看见”，再做“一个物体能被修改”，然后做“一个物体能动/能模拟”，最后做“结果能稳定输出”。对应路径是：
+
+```text
+界面与数据模型
+      ↓
+网格 + 对象变换 + Collection
+      ↓
+修改器 + 材质节点 + UV + 相机灯光
+      ↓
+关键帧 + 骨架/约束（需要动画时）
+      ↓
+粒子/布料/刚体/流体（一次只学一种模拟）
+      ↓
+Geometry Nodes 与属性流（程序化和批量资产）
+      ↓
+渲染分层 + 合成/VSE
+      ↓
+Python 自动化 + 资产管理 + 目标格式交付
+```
+
+## 官方教程与资料入口：按问题查，而不是从头翻完
+
+下列入口均来自 Blender 官方站点或官方文档。它们的用途不同：Manual 更像可检索的参考书，Training 更像按项目组织的课程，API 文档解决自动化时的接口问题。链接中的 `latest` 会随 Blender 新版本更新；读文章时应把自己的 Blender 版本与页面版本对照。
+
+| 入口 | 适合解决的问题 | 使用方式 |
+| --- | --- | --- |
+| [Blender Manual：Getting Started](https://docs.blender.org/manual/en/latest/getting_started/index.html) | 第一次打开 Blender，不知道编辑器、快捷键、保存和基本操作 | 先完成界面、选择、变换和首个场景，不要一开始跳到模拟 |
+| [Blender Manual：Modeling](https://docs.blender.org/manual/en/latest/modeling/index.html) | 不确定某个建模工具、修改器、雕刻或曲线参数是什么意思 | 把它当“操作字典”按关键词查；遇到拓扑问题优先看对应对象类型章节 |
+| [Blender Manual：Geometry Nodes](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/introduction.html) | 想做散布、实例化、属性计算、程序化建模或节点工具 | 先理解 Geometry Nodes 的输入/输出、字段和实例，再照具体节点页面搭网络 |
+| [Blender Manual：Shader Nodes](https://docs.blender.org/manual/en/latest/render/shader_nodes/introduction.html) | 材质节点如何连接、颜色空间和不同着色器节点的作用 | 先用 Principled BSDF 做可控材质，再查纹理、法线、体积和渲染器差异 |
+| [Blender Manual：Physics](https://docs.blender.org/manual/en/latest/physics/index.html) | 粒子、毛发、刚体、软体、布料、流体、力场和缓存如何设置 | 先读对应模拟的“设置/缓存/碰撞”章节，用低分辨率短片段验证后再烘焙 |
+| [Blender Manual：Animation](https://docs.blender.org/manual/en/latest/animation/index.html) | 关键帧、曲线、骨架、约束、驱动器和非线性动画如何组织 | 先用一个对象练 F-Curve，再把关系扩展到骨架和 Action/NLA |
+| [Blender 官方教程目录](https://www.blender.org/support/tutorials/) | 想找按主题组织的视频、课程或社区教程，而不是只查单个参数 | 先按建模、动画、渲染等目标筛选；第三方教程要核对 Blender 版本和是否仍维护 |
+| [Blender Studio Training](https://studio.blender.org/training/) | 想通过一个完整制作项目学习角色、场景、动画或制作流程 | 适合已经会基本操作、希望学习可复用生产流程的人；部分内容需要账户或付费权限 |
+| [Blender Python API](https://docs.blender.org/api/current/) | 批量生成场景、修改对象、渲染、导入导出和自动化检查 | 先在 Text Editor 用小脚本读取/修改一个对象，再扩展到批处理；注意 API 随版本变化 |
+
+遇到具体问题时可以按这个顺序查：**先查 Manual 的概念页，再查对应属性页，最后看教程中的完整案例**。例如“粒子为什么不撞上地面”，先查粒子碰撞和力场的定义，再检查缓存与尺度，最后才参考一个完整爆炸或碎屑教程。这样能避免只复制节点而不了解数据流。
+
 ## 9. 一个从想法到交付的典型工作流
 
 1. 明确输出目标：单张图、动画、实时资产、仿真缓存还是可编辑场景；确定分辨率、帧率、格式和目标软件。
