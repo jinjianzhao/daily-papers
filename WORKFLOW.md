@@ -6,7 +6,7 @@
 
 ### 日报、周报和月报
 
-论文阅读 Skill 的 `run_daily` 负责发现、归档、分析和汇总日报，并同步生成 `date/`、`week/`、`month/` 等静态页面。调度器只负责按时间策略调用日报和月报任务，不调用 Survey 或 Knowledge 写作。运行状态和缓存放在调用方显式指定的数据根目录；不把临时文件隐式写进网站仓库。
+论文阅读 Skill 的 `run_daily` 负责发现、归档、分析和汇总日报，并同步生成 `date/`、`week/`、`month/` 等静态页面。调度器只负责按时间策略调用日报、arXiv 3D 日报和月报任务，不调用 Survey 或 Knowledge 写作。续跑必需、已校验可公开的报表状态和调度完成记录放在 `state/`，并与网站结果一同提交；下载缓存、原始错误和调试记录仍留在外部数据目录，不进 GitHub。
 
 ### Survey
 
@@ -71,6 +71,7 @@ daily-papers/week/          # 周报页面
 daily-papers/month/         # 月报页面
 daily-papers/surveys/       # Survey 静态结果
 daily-papers/knowledge/     # Knowledge 页面、索引、正文与素材
+daily-papers/state/         # 可公开的报表续跑状态与调度完成记录
 daily-papers/outputs_tmp/   # 显式指定的临时运行输出，不直接发布
 ```
 
