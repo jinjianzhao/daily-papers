@@ -34,7 +34,7 @@ flowchart LR
 
 ### 领域标准流程
 
-下图只表达跨任务、跨论文的共同范式；标为可选的环节并非所有方法都包含。
+下图是整个领域的共同骨架，概括从多视角观测到三维资产的主要环节；它不是某篇论文的原图。下面“生成任务”和“重建任务”的小图分别展开各自的侧重点：前者从生成条件和噪声出发，后者以已有观测和初始几何为约束。两类任务会共用模型，因此图中有重合，但不是两套必须先后执行的流程。标为可选的环节并非所有方法都包含。
 
 ```mermaid
 flowchart LR
@@ -90,28 +90,28 @@ flowchart LR
 
 **典型输出：** 三维网格(Mesh)、高斯泼溅(Gaussian Splatting)、神经辐射场(NeRF)或体素网格
 
-**类别典型流程（非领域标准）：**
+**生成任务典型流程（侧重从条件生成三维资产）：**
 
 ```mermaid
 flowchart LR
-  S1["1. 步骤 1<br/>核心"]
-  S2["2. 步骤 2<br/>核心"]
-  S3["3. 步骤 3<br/>核心"]
+  S1["1. 编码多视角图像与相机条件"]
+  S2["2. 从噪声经扩散或流匹配生成三维表示"]
+  S3["3. 解码为可渲染的三维资产"]
   S1 --> S2
   S2 --> S3
 ```
 
-![代表论文方法图](assets/01-generation.jpg)
+![T3lescope 方法图](assets/01-generation.jpg)
 
-*代表论文方法图。论文方法流程图（图 1）；原始图注与完整说明见图片来源。 [查看图片来源](https://arxiv.org/html/2610.03308v1/imgs/teaser/input3.jpg)*
+*T3lescope 方法图（论文 Figure 2：Method overview）。展示多尺度 cell、tile pyramid，以及共享的 SS/mesh 生成器；[查看原图](https://arxiv.org/html/2610.03308v1/imgs/teaser/input3.jpg)*
 
-![代表论文方法图](assets/02-generation.png)
+![UniForge3D 方法图](assets/02-generation.png)
 
-*代表论文方法图。论文方法流程图（图 1）；原始图注与完整说明见图片来源。 [查看图片来源](https://arxiv.org/html/2610.15357v1/fig/pipeline_uni.png)*
+*UniForge3D 方法图（论文 Figure 3：Overview of UniForge3D）。展示重建分支与生成分支在 shared anchor-guided space 中双向交互；[查看原图](https://arxiv.org/html/2610.15357v1/fig/pipeline_uni.png)*
 
-![代表论文方法图](assets/03-generation.png)
+![ReconViaGen 方法图](assets/03-generation.png)
 
-*代表论文方法图。论文方法流程图（图 1）；原始图注与完整说明见图片来源。 [查看图片来源](https://arxiv.org/html/2510.23306v1/images/method_overview.png)*
+*ReconViaGen 方法图（论文 Figure 2：Overview illustration of the proposed ReconViaGen framework）。展示重建先验与 3D diffusion 生成先验的结合；[查看原图](https://arxiv.org/html/2510.23306v1/images/method_overview.png)*
 
 #### 重建任务（reconstruction）
 
@@ -123,28 +123,28 @@ flowchart LR
 
 **典型输出：** 高保真三维几何（Mesh/Depth Map/Point Cloud）
 
-**类别典型流程（非领域标准）：**
+**重建任务典型流程（侧重让结果符合输入观测）：**
 
 ```mermaid
 flowchart LR
-  S1["1. 步骤 1<br/>核心"]
-  S2["2. 步骤 2<br/>核心"]
-  S3["3. 步骤 3<br/>核心"]
+  S1["1. 提取并对齐多视角观测的几何线索"]
+  S2["2. 以扩散或流匹配先验补全、细化三维几何"]
+  S3["3. 融合视角约束并输出一致的三维模型"]
   S1 --> S2
   S2 --> S3
 ```
 
-![代表论文方法图](assets/04-reconstruction.jpg)
+![T3lescope 方法图](assets/04-reconstruction.jpg)
 
-*代表论文方法图。论文方法流程图（图 1）；原始图注与完整说明见图片来源。 [查看图片来源](https://arxiv.org/html/2610.03308v1/imgs/teaser/input3.jpg)*
+*T3lescope 方法图（论文 Figure 2：Method overview）。展示多尺度 cell、tile pyramid，以及共享的 SS/mesh 生成器；[查看原图](https://arxiv.org/html/2610.03308v1/imgs/teaser/input3.jpg)*
 
-![代表论文方法图](assets/05-reconstruction.png)
+![UniForge3D 方法图](assets/05-reconstruction.png)
 
-*代表论文方法图。论文方法流程图（图 1）；原始图注与完整说明见图片来源。 [查看图片来源](https://arxiv.org/html/2610.15357v1/fig/pipeline_uni.png)*
+*UniForge3D 方法图（论文 Figure 3：Overview of UniForge3D）。展示重建分支与生成分支在 shared anchor-guided space 中双向交互；[查看原图](https://arxiv.org/html/2610.15357v1/fig/pipeline_uni.png)*
 
-![代表论文方法图](assets/06-reconstruction.png)
+![ReconViaGen 方法图](assets/06-reconstruction.png)
 
-*代表论文方法图。论文方法流程图（图 1）；原始图注与完整说明见图片来源。 [查看图片来源](https://arxiv.org/html/2510.23306v1/images/method_overview.png)*
+*ReconViaGen 方法图（论文 Figure 2：Overview illustration of the proposed ReconViaGen framework）。展示重建先验与 3D diffusion 生成先验的结合；[查看原图](https://arxiv.org/html/2510.23306v1/images/method_overview.png)*
 
 ### 方法维度
 
@@ -158,17 +158,17 @@ flowchart LR
 
 **典型输出：** 3D潜在变量或几何
 
-![代表论文方法图](assets/07-multi-view-conditioned-generation.jpg)
+![T3lescope 方法图](assets/07-multi-view-conditioned-generation.jpg)
 
-*代表论文方法图。论文方法流程图（图 1）；原始图注与完整说明见图片来源。 [查看图片来源](https://arxiv.org/html/2610.03308v1/imgs/teaser/input3.jpg)*
+*T3lescope 方法图（论文 Figure 2：Method overview）。展示多尺度 cell、tile pyramid，以及共享的 SS/mesh 生成器；[查看原图](https://arxiv.org/html/2610.03308v1/imgs/teaser/input3.jpg)*
 
-![代表论文方法图](assets/08-multi-view-conditioned-generation.png)
+![UniForge3D 方法图](assets/08-multi-view-conditioned-generation.png)
 
-*代表论文方法图。论文方法流程图（图 1）；原始图注与完整说明见图片来源。 [查看图片来源](https://arxiv.org/html/2610.15357v1/fig/pipeline_uni.png)*
+*UniForge3D 方法图（论文 Figure 3：Overview of UniForge3D）。展示重建分支与生成分支在 shared anchor-guided space 中双向交互；[查看原图](https://arxiv.org/html/2610.15357v1/fig/pipeline_uni.png)*
 
-![代表论文方法图](assets/09-multi-view-conditioned-generation.png)
+![ReconViaGen 方法图](assets/09-multi-view-conditioned-generation.png)
 
-*代表论文方法图。论文方法流程图（图 1）；原始图注与完整说明见图片来源。 [查看图片来源](https://arxiv.org/html/2510.23306v1/images/method_overview.png)*
+*ReconViaGen 方法图（论文 Figure 2：Overview illustration of the proposed ReconViaGen framework）。展示重建先验与 3D diffusion 生成先验的结合；[查看原图](https://arxiv.org/html/2510.23306v1/images/method_overview.png)*
 
 #### 联合重建与生成（joint_reconstruction_and_generation）
 
@@ -180,13 +180,13 @@ flowchart LR
 
 **典型输出：** 一致且完整的3D几何
 
-![代表论文方法图](assets/10-joint-reconstruction-and-generation.png)
+![UniForge3D 方法图](assets/10-joint-reconstruction-and-generation.png)
 
-*代表论文方法图。论文方法流程图（图 1）；原始图注与完整说明见图片来源。 [查看图片来源](https://arxiv.org/html/2610.15357v1/fig/pipeline_uni.png)*
+*UniForge3D 方法图（论文 Figure 3：Overview of UniForge3D）。展示重建分支与生成分支在 shared anchor-guided space 中双向交互；[查看原图](https://arxiv.org/html/2610.15357v1/fig/pipeline_uni.png)*
 
-![代表论文方法图](assets/11-joint-reconstruction-and-generation.png)
+![ReconViaGen 方法图](assets/11-joint-reconstruction-and-generation.png)
 
-*代表论文方法图。论文方法流程图（图 1）；原始图注与完整说明见图片来源。 [查看图片来源](https://arxiv.org/html/2510.23306v1/images/method_overview.png)*
+*ReconViaGen 方法图（论文 Figure 2：Overview illustration of the proposed ReconViaGen framework）。展示重建先验与 3D diffusion 生成先验的结合；[查看原图](https://arxiv.org/html/2510.23306v1/images/method_overview.png)*
 
 #### 层级级联生成（hierarchical_cascade_generation）
 
@@ -198,9 +198,9 @@ flowchart LR
 
 **典型输出：** 高分辨率/大规模3D场景
 
-![代表论文方法图](assets/12-hierarchical-cascade-generation.jpg)
+![T3lescope 方法图](assets/12-hierarchical-cascade-generation.jpg)
 
-*代表论文方法图。论文方法流程图（图 1）；原始图注与完整说明见图片来源。 [查看图片来源](https://arxiv.org/html/2610.03308v1/imgs/teaser/input3.jpg)*
+*T3lescope 方法图（论文 Figure 2：Method overview）。展示多尺度 cell、tile pyramid，以及共享的 SS/mesh 生成器；[查看原图](https://arxiv.org/html/2610.03308v1/imgs/teaser/input3.jpg)*
 
 #### 视图合成聚合（view_synthesis_aggregation）
 
@@ -212,9 +212,9 @@ flowchart LR
 
 **典型输出：** 3D表示（通常通过NeRF/GS优化得到）
 
-![代表论文方法图](assets/13-view-synthesis-aggregation.jpg)
+![T3lescope 方法图](assets/13-view-synthesis-aggregation.jpg)
 
-*代表论文方法图。论文方法流程图（图 1）；原始图注与完整说明见图片来源。 [查看图片来源](https://arxiv.org/html/2610.03308v1/imgs/teaser/input3.jpg)*
+*T3lescope 方法图（论文 Figure 2：Method overview）。展示多尺度 cell、tile pyramid，以及共享的 SS/mesh 生成器；[查看原图](https://arxiv.org/html/2610.03308v1/imgs/teaser/input3.jpg)*
 
 ### 架构维度
 
@@ -228,13 +228,13 @@ flowchart LR
 
 **典型输出：** 去噪后的3D潜在向量
 
-![代表论文方法图](assets/14-latent-diffusion-transformer.jpg)
+![T3lescope 方法图](assets/14-latent-diffusion-transformer.jpg)
 
-*代表论文方法图。论文方法流程图（图 1）；原始图注与完整说明见图片来源。 [查看图片来源](https://arxiv.org/html/2610.03308v1/imgs/teaser/input3.jpg)*
+*T3lescope 方法图（论文 Figure 2：Method overview）。展示多尺度 cell、tile pyramid，以及共享的 SS/mesh 生成器；[查看原图](https://arxiv.org/html/2610.03308v1/imgs/teaser/input3.jpg)*
 
-![代表论文方法图](assets/15-latent-diffusion-transformer.png)
+![UniForge3D 方法图](assets/15-latent-diffusion-transformer.png)
 
-*代表论文方法图。论文方法流程图（图 1）；原始图注与完整说明见图片来源。 [查看图片来源](https://arxiv.org/html/2610.15357v1/fig/pipeline_uni.png)*
+*UniForge3D 方法图（论文 Figure 3：Overview of UniForge3D）。展示重建分支与生成分支在 shared anchor-guided space 中双向交互；[查看原图](https://arxiv.org/html/2610.15357v1/fig/pipeline_uni.png)*
 
 ## 相关工作
 
@@ -242,11 +242,11 @@ flowchart LR
 
 ### 生成任务（generation）
 
-![相关工作代表论文方法图](assets/related-work/01-generation-1.png)
+![ReconViaGen 方法图](assets/related-work/01-generation-1.png)
 
 *相关工作代表论文方法图。论文方法流程图（图 1）；原始图注与完整说明见图片来源。 [查看图片来源](https://arxiv.org/html/2510.23306v1/images/method_overview.png)*
 
-![相关工作代表论文方法图](assets/related-work/02-generation-2.png)
+![UniForge3D 方法图](assets/related-work/02-generation-2.png)
 
 *相关工作代表论文方法图。论文方法流程图（图 1）；原始图注与完整说明见图片来源。 [查看图片来源](https://arxiv.org/html/2610.15357v1/fig/pipeline_uni.png)*
 
@@ -267,11 +267,11 @@ flowchart LR
 
 ### 重建任务（reconstruction）
 
-![相关工作代表论文方法图](assets/related-work/03-reconstruction-1.png)
+![ReconViaGen 方法图](assets/related-work/03-reconstruction-1.png)
 
 *相关工作代表论文方法图。论文方法流程图（图 1）；原始图注与完整说明见图片来源。 [查看图片来源](https://arxiv.org/html/2510.23306v1/images/method_overview.png)*
 
-![相关工作代表论文方法图](assets/related-work/04-reconstruction-2.png)
+![UniForge3D 方法图](assets/related-work/04-reconstruction-2.png)
 
 *相关工作代表论文方法图。论文方法流程图（图 1）；原始图注与完整说明见图片来源。 [查看图片来源](https://arxiv.org/html/2610.15357v1/fig/pipeline_uni.png)*
 
@@ -292,11 +292,11 @@ flowchart LR
 
 ### 背景与上下文工作（非任务背景）
 
-![相关工作代表论文方法图](assets/related-work/05-context-1.png)
+![MapAnything 方法图](assets/related-work/05-context-1.png)
 
 *相关工作代表论文方法图。论文方法流程图（图 1）；原始图注与完整说明见图片来源。 [查看图片来源](https://arxiv.org/html/2509.13414v3/MapAnything_Method.png)*
 
-![相关工作代表论文方法图](assets/related-work/06-context-2.png)
+![MILo 方法图](assets/related-work/06-context-2.png)
 
 *相关工作代表论文方法图。论文方法流程图（图 1）；原始图注与完整说明见图片来源。 [查看图片来源](https://arxiv.org/html/2506.24096v2/teaser.png)*
 
