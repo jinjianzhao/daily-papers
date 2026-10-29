@@ -229,3 +229,23 @@ Qwenputer 最值得理解的连接是：GDN 把持续状态带进模型，受控
 当前 `calc` 程序明确识别 `gcd(` 这几个字符，所以可以处理 `gcd(12,8)`，计算 12 和 8 的最大公约数，结果为 4。它并没有实现任意字母变量，因此不能据此认为输入 `A + 1` 就会自动得到数值答案。[计算程序的解析逻辑](https://github.com/divagr18/qwenputer/blob/main/experimental/riscv/chipformer/rv/env/calc/calc.c)
 
 **数字、字母和符号都能编码成特征。能执行哪些操作，取决于计算层提供的指令，以及加载的程序怎样解释这些数据。**
+
+### 5. 相当于直接改了 tokenizer 吗？LLM 需要重新训练吗？
+
+**它扩展了 tokenizer 的词表，同时改造了 embedding 并增加计算层；这项工作无需重新训练原 Qwen。** 三种改动要分开理解：
+
+| 部分 | 具体改动 |
+| --- | --- |
+| Tokenizer | 读取原来的 tokenizer，在原词表后追加 CPU 执行用的特殊 token，保留原有文本 token 的编号和普通分词规则。 |
+| Embedding | 保留原 token 的原始 embedding 部分，增加字符字节、控制标记等特征；为新增 CPU token 构造对应的向量。 |
+| 网络层 | 添加编译得到的 CPU 层，并对原 Qwen 层做扩维、补零和归一化缩放等适配，尽量保持原有文本计算行为。 |
+
+因此，前面说的“给特征加入字符编码”，具体发生在 **embedding 的新增维度**；单纯修改 tokenizer 并不会自动产生这些特征。[`extend_tokenizer`、`text_rows` 与模型合并代码](https://github.com/divagr18/qwenputer/blob/main/experimental/riscv/chipformer/rv/merge.py)
+
+**不需要重新训练原 Qwen，有三个原因：**
+
+1. **原 Qwen 继续处理自己已经认识的文本 token。** 它原本就会生成工具调用格式，因此可以发出 `calc` 请求。
+2. **新增 CPU token 由计算层处理。** CPU 的操作规则和对应向量由编译器直接构造；驱动不会把内部执行 token 送入原 Qwen 层，不要求原模型学习理解这些 token。
+3. **计算结果使用普通文本 token 返回。** 原 Qwen 已经能够读取这些数字和标记，继续组织回答。
+
+新增计算层的权重通过编译生成，而不是通过算术训练数据学习。整个合并检查点确实与原模型不同，但这里的参数构造和结构适配，不等于重新训练原语言模型。它仍需要项目配套的驱动和固件来运行。[`RvChat` 的 token 路由实现](https://github.com/divagr18/qwenputer/blob/main/experimental/riscv/chipformer/rv/chat.py)
