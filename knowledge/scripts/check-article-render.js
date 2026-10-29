@@ -39,6 +39,7 @@ const ordering = vm.createContext({});
 vm.runInContext(indexPage.slice(compareStart, compareEnd), ordering);
 const sorted = entries.slice().sort(ordering.compareEntries);
 assert.deepEqual(sorted.map(entry => entry.slug), [
+  'sam3-segment-anything',
   'blender-knight-rig-dance',
   'blender-cloth-simulation',
   '3d-graphics-foundations',
