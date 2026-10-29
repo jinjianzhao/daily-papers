@@ -304,3 +304,31 @@ Qwenputer 额外完成的是把这个执行器接入一个已有语言模型：
 **运行 MicroPython 时，多了一层解释器。** MicroPython 是一种 Python 实现，其解释器本身也是程序。作者把解释器编译成 RISC-V 程序，交给网络 CPU 执行；解释器再读取并执行预置的 Python 脚本。项目报告过运行 `print(2**100)` 的例子。因此，CPU 直接执行的是解释器的机器指令，解释器负责处理 Python 代码。[独立核心的软件栈与运行记录](https://github.com/divagr18/qwenputer/blob/main/experimental/riscv/docs/rv32.md#p2-rv32im--zba-a-software-stack-micropython-calc)
 
 **这不是让 Qwen 阅读代码后猜输出，而是执行程序规定的步骤。** 同时要区分完成范围：上述文档记录 MicroPython 已在独立核心和执行器上运行，接入 Qwen 聊天的合并版本当时使用的是 C 编写的 `calc` 程序；不能据此认为合并模型已经支持任意 Python 请求。[合并阶段的完成范围](https://github.com/divagr18/qwenputer/blob/main/experimental/riscv/docs/rv32.md#not-done-in-p3)
+
+### 9. “执行 C 程序”到底是在做什么？只能算数学题吗？
+
+**C 是编程语言。用 C 写程序，就是明确规定要保存什么数据、判断什么条件、重复哪些操作、最后输出什么。“执行”就是把这些规定实际做完。** 程序可以处理数字，也可以处理文字；任务不局限于加减乘除。
+
+例如，写一个把 `abc` 倒序输出的程序，其步骤可以是：
+
+1. 保存三个字符 `a`、`b`、`c`。
+2. 读取最后一个字符，输出 `c`。
+3. 再读取前一个，输出 `b`。
+4. 再读取前一个，输出 `a`，然后结束。
+
+这段程序的结果就是 `cba`。在这个例子中，网络 CPU 要按指令读取字符、改变读取位置和输出字符。这个例子用于说明可以怎样写程序，不是声称作者展示过这一条具体输入。
+
+项目已有的运行记录包括：
+
+| 程序 | 实际任务 |
+| --- | --- |
+| 排序 | 将 1,000 个整数从小到大排列。 |
+| 字符串操作 | 按程序处理字符数据。 |
+| CRC32 | 按固定规则处理一段数据，生成用于检查数据的数值。 |
+| MicroPython 解释器 | 读取并执行预置的 Python 脚本。 |
+
+这些程序需要组合使用读写、比较、条件跳转和重复执行等操作。[作者的程序运行记录](https://github.com/divagr18/qwenputer/blob/main/experimental/riscv/docs/rv32.md)
+
+**但“CPU 能运行多种程序”和“当前 Qwen 聊天入口开放了哪些功能”要分开。** 独立核心能运行适配其指令和内存限制的多种程序；当时接入 Qwen 的 `calc` 入口加载的是计算器程序，因此这个入口主要处理算式。要通过聊天做其他任务，还需要加载相应程序并接好输入输出。[合并版本的接口范围](https://github.com/divagr18/qwenputer/blob/main/experimental/riscv/docs/rv32.md#p3-the-rv32-computer-inside-qwen35-4b-a-calc-tool)
+
+它的运行环境也有限制：P2 核心可写内存为 32 KB，输入输出需要实现相应接口，因此支持某些 C 程序，并不意味着现成的浏览器、游戏或联网应用都可以直接运行。
