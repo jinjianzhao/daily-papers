@@ -1,0 +1,592 @@
+{
+  "scope": {
+    "date_start": "2023-10-29",
+    "date_end": "2026-10-29",
+    "task": "Knowledge article: open-category single-object mesh part segmentation",
+    "included": [
+      "mesh surface partition with face/vertex labels",
+      "internal point sampling permitted when original mesh partition is an explicit supported output",
+      "automatic, interactive, text-guided and generative approaches operating on existing mesh"
+    ],
+    "excluded": [
+      "point-cloud-only segmentation",
+      "scene or urban segmentation",
+      "medical-specialized segmentation",
+      "fixed-category supervised mesh networks",
+      "image/text to new multipart object generation without segmentation of existing mesh"
+    ],
+    "required_seeds": [
+      "SAMPart3D",
+      "SAMesh"
+    ]
+  },
+  "paper_count": 31,
+  "groups": {
+    "surface": 20,
+    "task-extension": 5,
+    "amodal-related": 6
+  },
+  "papers": [
+    {
+      "arxiv_id": "2311.17024",
+      "name": "Diff3F",
+      "title": "Diffusion 3D Features (Diff3F): Decorating Untextured Shapes with Distilled Semantic Features",
+      "first_public_date": "2023-11-28",
+      "group": "surface",
+      "control": "聚类数量或源形状的聚类中心",
+      "mechanism": "条件图像生成、特征回投与聚类",
+      "mesh_evidence": "原论文 Part Segmentation 节明确在原形状表面特征上 k-means，并在不同 mesh 间转移聚类中心。",
+      "paper_url": "https://arxiv.org/abs/2311.17024",
+      "full_text_url": "https://arxiv.org/html/2311.17024"
+    },
+    {
+      "arxiv_id": "2404.03219",
+      "name": "iSeg",
+      "title": "iSeg: Interactive 3D Segmentation via Interactive Attention",
+      "first_public_date": "2024-04-04",
+      "group": "surface",
+      "control": "正负点击",
+      "mechanism": "逐物体特征蒸馏，再交互解码",
+      "mesh_evidence": "预测输入 mesh 顶点属于选中区域的概率。",
+      "paper_url": "https://arxiv.org/abs/2404.03219",
+      "full_text_url": "https://arxiv.org/html/2404.03219"
+    },
+    {
+      "arxiv_id": "2405.19326",
+      "name": "Reasoning3D",
+      "title": "Reasoning3D -- Grounding and Reasoning in 3D: Fine-Grained Zero-Shot Open-Vocabulary 3D Reasoning Part Segmentation via Large Vision-Language Models",
+      "first_public_date": "2024-05-29",
+      "group": "surface",
+      "control": "自然语言推理指令",
+      "mechanism": "多视图推理分割与融合",
+      "mesh_evidence": "记录渲染 face ID，将推理分割掩码融合回原 mesh。",
+      "paper_url": "https://arxiv.org/abs/2405.19326",
+      "full_text_url": "https://arxiv.org/html/2405.19326"
+    },
+    {
+      "arxiv_id": "2407.13675",
+      "name": "MeshSegmenter",
+      "title": "MeshSegmenter: Zero-Shot Mesh Semantic Segmentation via Texture Synthesis",
+      "first_public_date": "2024-07-18",
+      "group": "surface",
+      "control": "物体名称与部件文本",
+      "mechanism": "纹理生成、二维分割、面投票",
+      "mesh_evidence": "方法明确输入顶点和三角面，输出由文本指定的面区域。",
+      "paper_url": "https://arxiv.org/abs/2407.13675",
+      "full_text_url": "https://arxiv.org/html/2407.13675"
+    },
+    {
+      "arxiv_id": "2408.13679",
+      "name": "SAMesh",
+      "title": "Segment Any Mesh",
+      "first_public_date": "2024-08-24",
+      "group": "surface",
+      "control": "自动",
+      "mechanism": "多模态渲染、掩码匹配图、社区检测",
+      "mesh_evidence": "使用 face ID 建立掩码匹配图，直接分配 mesh 面标签。",
+      "paper_url": "https://arxiv.org/abs/2408.13679",
+      "full_text_url": "https://arxiv.org/html/2408.13679"
+    },
+    {
+      "arxiv_id": "2411.07184",
+      "name": "SAMPart3D",
+      "title": "SAMPart3D: Segment Any Part in 3D Objects",
+      "first_public_date": "2024-11-11",
+      "group": "surface",
+      "control": "尺度，命名在分割之后",
+      "mechanism": "共享预训练、逐物体 MLP 优化、聚类",
+      "mesh_evidence": "方法 3.2 明确用投票把点分割转换为 mesh 分割。",
+      "paper_url": "https://arxiv.org/abs/2411.07184",
+      "full_text_url": "https://arxiv.org/html/2411.07184"
+    },
+    {
+      "arxiv_id": "2412.18608",
+      "name": "PartGen",
+      "title": "PartGen: Part-level 3D Generation and Reconstruction with Multi-View Diffusion Models",
+      "first_public_date": "2024-12-24",
+      "group": "amodal-related",
+      "control": "自动，支持已有三维资产",
+      "mechanism": "多视图分割、补全、重建",
+      "mesh_evidence": "方法明确已有 3D 对象可作输入，但输出是重建的完整零件。",
+      "paper_url": "https://arxiv.org/abs/2412.18608",
+      "full_text_url": "https://arxiv.org/html/2412.18608"
+    },
+    {
+      "name": "MeshSeg",
+      "title": "MeshSeg: 3D Mesh Segmentation Through Color Clustering for Controllable Texture Editing",
+      "first_public_date": "2025",
+      "date_precision": "year",
+      "publication_date": "2025-09-30",
+      "doi": "10.1109/SIBGRAPI67909.2025.11223390",
+      "group": "task-extension",
+      "control": "纹理图集区域与人工交互",
+      "mechanism": "纹理图集分割、颜色特征聚类与交互调整",
+      "mesh_evidence": "作者论文清单确认该工作；作者摘要定义为在 mesh 的纹理图集分割并聚类区域，用于局部纹理编辑。",
+      "paper_url": "https://doi.org/10.1109/SIBGRAPI67909.2025.11223390",
+      "sources": [
+        "https://www.inf.ufrgs.br/~oliveira/pubs_files/pubs.html",
+        "https://doi.org/10.2139/ssrn.5226203"
+      ],
+      "evidence_level": "author abstract and author publication record; full paper not retrieved"
+    },
+    {
+      "arxiv_id": "2503.18254",
+      "name": "Surface-Aware Features",
+      "title": "Surface-Aware Distilled 3D Semantic Features",
+      "first_public_date": "2025-03-24",
+      "group": "surface",
+      "control": "源形状或联合特征的聚类中心",
+      "mechanism": "表面距离约束的自监督特征学习",
+      "mesh_evidence": "原论文 §6.1 在 mesh 上展示实例部件分割，并在人体、动物、椅子、飞机间转移聚类中心。",
+      "paper_url": "https://arxiv.org/abs/2503.18254",
+      "full_text_url": "https://arxiv.org/html/2503.18254"
+    },
+    {
+      "arxiv_id": "2504.07943",
+      "name": "HoloPart",
+      "title": "HoloPart: Generative 3D Part Amodal Segmentation",
+      "first_public_date": "2025-04-10",
+      "group": "amodal-related",
+      "control": "上游表面分割",
+      "mechanism": "先分割，再条件补全",
+      "mesh_evidence": "论文使用 SAMPart3D 获得表面区域，核心创新在完整零件补全。",
+      "paper_url": "https://arxiv.org/abs/2504.07943",
+      "full_text_url": "https://arxiv.org/html/2504.07943"
+    },
+    {
+      "arxiv_id": "2504.11451",
+      "name": "PartField",
+      "title": "PARTFIELD: Learning 3D Feature Fields for Part Segmentation and Beyond",
+      "first_public_date": "2025-04-15",
+      "group": "surface",
+      "control": "聚类层级或部件数",
+      "mechanism": "前馈特征场，再聚类",
+      "mesh_evidence": "方法 3.4 明确查询每个面的特征并按面邻接图层次聚类。",
+      "paper_url": "https://arxiv.org/abs/2504.11451",
+      "full_text_url": "https://arxiv.org/html/2504.11451"
+    },
+    {
+      "arxiv_id": "2507.21493",
+      "name": "BANG",
+      "title": "BANG: Dividing 3D Assets via Generative Exploded Dynamics",
+      "first_public_date": "2025-07-29",
+      "group": "amodal-related",
+      "control": "输入几何与生成时间序列",
+      "mechanism": "生成展开的几何序列，再追踪零件",
+      "mesh_evidence": "输入已有几何，生成逐渐分开的零件网格；不保留原面索引。",
+      "paper_url": "https://arxiv.org/abs/2507.21493",
+      "full_text_url": "https://arxiv.org/html/2507.21493"
+    },
+    {
+      "arxiv_id": "2508.14036",
+      "name": "GeoSAM2",
+      "title": "GeoSAM2: Unleashing the Power of SAM2 for 3D Part Segmentation",
+      "first_public_date": "2025-08-19",
+      "group": "surface",
+      "control": "二维点击或框",
+      "mechanism": "几何模态 SAM2 与跨视图传播",
+      "mesh_evidence": "方法 5 使用 mesh 多视图，并提供 mesh-level 标签后处理。",
+      "paper_url": "https://arxiv.org/abs/2508.14036",
+      "full_text_url": "https://arxiv.org/html/2508.14036"
+    },
+    {
+      "arxiv_id": "2509.06784",
+      "name": "P3-SAM",
+      "title": "P3-SAM: Native 3D Part Segmentation",
+      "first_public_date": "2025-09-08",
+      "group": "surface",
+      "control": "单次三维点击，或自动采样",
+      "mechanism": "前馈多候选掩码、质量排序、合并",
+      "mesh_evidence": "任务明确输出每个原 mesh 三角面的实例标签。",
+      "paper_url": "https://arxiv.org/abs/2509.06784",
+      "full_text_url": "https://arxiv.org/html/2509.06784"
+    },
+    {
+      "arxiv_id": "2509.08643",
+      "name": "X-Part",
+      "title": "X-Part: high fidelity and structure coherent shape decomposition",
+      "first_public_date": "2025-09-10",
+      "group": "amodal-related",
+      "control": "上游部件线索，可编辑框",
+      "mechanism": "P3-SAM 线索与同步多部件生成",
+      "mesh_evidence": "从已有 mesh 采样并用 P3-SAM 得到特征、分割和框，再生成完整几何。",
+      "paper_url": "https://arxiv.org/abs/2509.08643",
+      "full_text_url": "https://arxiv.org/html/2509.08643"
+    },
+    {
+      "arxiv_id": "2509.21965",
+      "name": "PartSAM",
+      "title": "PartSAM: A Scalable Promptable Part Segmentation Model Trained on Native 3D Data",
+      "first_public_date": "2025-09-26",
+      "group": "surface",
+      "control": "三维正负点击，或自动",
+      "mechanism": "双分支三平面特征与提示解码",
+      "mesh_evidence": "论文展示 mesh 分解；官方 README 提供自有 mesh 推理入口。",
+      "paper_url": "https://arxiv.org/abs/2509.21965",
+      "full_text_url": "https://arxiv.org/html/2509.21965"
+    },
+    {
+      "arxiv_id": "2509.24288",
+      "name": "ASIA",
+      "title": "ASIA: Adaptive 3D Segmentation using Few Image Annotations",
+      "first_public_date": "2025-09-29",
+      "group": "surface",
+      "control": "少量已标注二维参考图",
+      "mechanism": "少样本适配、多视图 UV 融合、噪声优化",
+      "mesh_evidence": "方法明确将 UV-space 分割标签映射回输入 mesh。",
+      "paper_url": "https://arxiv.org/abs/2509.24288",
+      "full_text_url": "https://arxiv.org/html/2509.24288"
+    },
+    {
+      "name": "Articulation-Gen",
+      "title": "Articulation-Gen: 3D Part Segmentation and Articulated Object Generation",
+      "first_public_date": "2025-10-19",
+      "doi": "10.1109/IROS60139.2025.11246790",
+      "group": "task-extension",
+      "control": "部件提示及运动结构",
+      "mechanism": "多视图部件分割、物理关节优化与 URDF 生成",
+      "mesh_evidence": "官方源码 src/segment.py 使用 SAM2 多视图提示；models/segment_3d.py 根据原顶点标签分离和导出 GLB 子模型。",
+      "paper_url": "https://doi.org/10.1109/IROS60139.2025.11246790",
+      "sources": [
+        "https://github.com/PRS-Organization/articulation-gen"
+      ],
+      "evidence_level": "author abstract, publication metadata and official code; full paper not retrieved"
+    },
+    {
+      "arxiv_id": "2512.11798",
+      "name": "Particulate",
+      "title": "Particulate: Feed-Forward 3D Object Articulation",
+      "first_public_date": "2025-12-12",
+      "group": "task-extension",
+      "control": "自动",
+      "mechanism": "Part Articulation Transformer",
+      "mesh_evidence": "官方任务是输入物体 mesh，预测运动部件、树和关节，并映射回 mesh。",
+      "paper_url": "https://arxiv.org/abs/2512.11798",
+      "full_text_url": "https://arxiv.org/html/2512.11798"
+    },
+    {
+      "arxiv_id": "2512.18003",
+      "name": "ALIGN-Parts / Name That Part",
+      "title": "Name That Part: 3D Part Segmentation and Naming",
+      "first_public_date": "2025-12-19",
+      "group": "surface",
+      "control": "命名、描述匹配",
+      "mechanism": "融合几何与外观，集合匹配",
+      "mesh_evidence": "官方 README 提供 eval_align_parts_mesh.py 和保存的 face_clusters.npy 评测。",
+      "paper_url": "https://arxiv.org/abs/2512.18003",
+      "full_text_url": "https://arxiv.org/html/2512.18003"
+    },
+    {
+      "arxiv_id": "2603.16869",
+      "name": "SegviGen",
+      "title": "SegviGen: Repurposing 3D Generative Model for Part Segmentation",
+      "first_public_date": "2026-03-17",
+      "group": "surface",
+      "control": "自动、三维点或二维分割图",
+      "mechanism": "条件化三维生成模型预测部件颜色",
+      "mesh_evidence": "以输入 mesh 为几何条件预测三维部件颜色；含重建过程，需核对输出是否保持原拓扑。",
+      "paper_url": "https://arxiv.org/abs/2603.16869",
+      "full_text_url": "https://arxiv.org/html/2603.16869"
+    },
+    {
+      "arxiv_id": "2606.14699",
+      "name": "Instruct-Particulate",
+      "title": "Instruct-Particulate: Scaling Feed-Forward 3D Object Articulation with Kinematic Control",
+      "first_public_date": "2026-06-12",
+      "group": "task-extension",
+      "control": "部件、连通和关节说明，可选点",
+      "mechanism": "带运动结构条件的前馈预测",
+      "mesh_evidence": "输入 mesh 与运动结构说明，输出运动部件分割和运动参数。",
+      "paper_url": "https://arxiv.org/abs/2606.14699",
+      "full_text_url": "https://arxiv.org/html/2606.14699"
+    },
+    {
+      "arxiv_id": "2606.31533",
+      "name": "MV-GEL",
+      "title": "MV-GEL: Language-Driven Multi-View Geometric Entity Localization on Meshes",
+      "first_public_date": "2026-06-30",
+      "group": "task-extension",
+      "control": "描述面、边等实体的自然语言",
+      "mechanism": "选视图、二维推理分割、射线回投",
+      "mesh_evidence": "输出 polygon mesh 的面或边实体，任务比一般语义部件更细。",
+      "paper_url": "https://arxiv.org/abs/2606.31533",
+      "full_text_url": "https://arxiv.org/html/2606.31533"
+    },
+    {
+      "arxiv_id": "2607.27592",
+      "name": "MeshFM",
+      "title": "MeshFM: 2D Features Are All You Need for 3D Shape Understanding",
+      "first_public_date": "2026-07-30",
+      "group": "surface",
+      "control": "特征聚类或选择",
+      "mechanism": "前馈预测通用表面特征，再分割",
+      "mesh_evidence": "方法明确从输入 mesh 预测表面特征，实验包含 mesh 部件分割。",
+      "paper_url": "https://arxiv.org/abs/2607.27592",
+      "full_text_url": "https://arxiv.org/html/2607.27592"
+    },
+    {
+      "arxiv_id": "2608.00767",
+      "name": "Hi-TOPS",
+      "title": "Hi-TOPS: Hierarchical Topology-aware Scoring Prior for 3D Part Decomposition",
+      "first_public_date": "2026-08-01",
+      "group": "surface",
+      "control": "结构尺度与几何参数",
+      "mechanism": "多尺度体素先验、超二次曲面拟合",
+      "mesh_evidence": "SQ-to-mesh assignment 将几何分组映射回原 mesh 连通表面。",
+      "paper_url": "https://arxiv.org/abs/2608.00767",
+      "full_text_url": "https://arxiv.org/html/2608.00767"
+    },
+    {
+      "arxiv_id": "2608.01825",
+      "name": "PartMat",
+      "title": "PartMat: Material-Aware 3D Part Decomposition with a Single Global Latent",
+      "first_public_date": "2026-08-03",
+      "group": "amodal-related",
+      "control": "材质部件条件或整体形状",
+      "mechanism": "全局潜变量的材质感知分解与生成",
+      "mesh_evidence": "包含 mesh-to-parts 重建应用；按材质槽定义组件，需区别于功能性部件。",
+      "paper_url": "https://arxiv.org/abs/2608.01825",
+      "full_text_url": "https://arxiv.org/html/2608.01825"
+    },
+    {
+      "arxiv_id": "2609.15639",
+      "name": "SAM3D-Part",
+      "title": "SAM3D-Part: Interactive Part Selection and Generation from 3D Objects",
+      "first_public_date": "2026-09-14",
+      "group": "amodal-related",
+      "control": "一个渲染视图上的部件掩码",
+      "mechanism": "源几何条件化的完整部件生成",
+      "mesh_evidence": "方法明确现有 mesh 加二维掩码输入，输出完整部件 mesh。",
+      "paper_url": "https://arxiv.org/abs/2609.15639",
+      "full_text_url": "https://arxiv.org/html/2609.15639"
+    },
+    {
+      "arxiv_id": "2609.25832",
+      "name": "PartLLM",
+      "title": "PartLLM: A Unified Multimodal Foundation for 3D Part Segmentation",
+      "first_public_date": "2026-09-22",
+      "group": "surface",
+      "control": "文本、三维点击或全形状指令",
+      "mechanism": "语言模型生成部件假设，解码器联合分配",
+      "mesh_evidence": "官方推理文档明确 binary_mask.npy 按输入 mesh 面顺序存储，并支持彩色 mesh 导出。",
+      "paper_url": "https://arxiv.org/abs/2609.25832",
+      "full_text_url": "https://arxiv.org/html/2609.25832"
+    },
+    {
+      "arxiv_id": "2609.38180",
+      "name": "Point2Part",
+      "title": "Point2Part: Unified 3D Partitioning from Point Prompts",
+      "first_public_date": "2026-09-29",
+      "group": "surface",
+      "control": "每个目标部件一个三维点",
+      "mechanism": "联合空间分区；另有完整零件生成模式",
+      "mesh_evidence": "方法 3.1 明确 segmentation 模式给输入每个面分配提示对应的标签。",
+      "paper_url": "https://arxiv.org/abs/2609.38180",
+      "full_text_url": "https://arxiv.org/html/2609.38180"
+    },
+    {
+      "arxiv_id": "2610.04602",
+      "name": "RePart",
+      "title": "Organize Primitives into Semantic Parts: Reinforcement Reasoning for 3D Segmentation",
+      "first_public_date": "2026-10-03",
+      "group": "surface",
+      "control": "自动的合并和停止策略",
+      "mechanism": "几何基元工作区与强化学习分组",
+      "mesh_evidence": "Boundary-Aware Surface Labeling 将基元分组映射回原 mesh。",
+      "paper_url": "https://arxiv.org/abs/2610.04602",
+      "full_text_url": "https://arxiv.org/html/2610.04602"
+    },
+    {
+      "arxiv_id": "2610.23659",
+      "name": "FlexPart",
+      "title": "FlexPart: Text-Controlled Semantics-Aware 3D Part Segmentation at Flexible Granularity",
+      "first_public_date": "2026-10-16",
+      "group": "surface",
+      "control": "带位置和形状描述的部件列表",
+      "mechanism": "条件生成离散部件 ID 场",
+      "mesh_evidence": "方法在原 mesh 的面中心查询离散部件 ID，不改原几何。",
+      "paper_url": "https://arxiv.org/abs/2610.23659",
+      "full_text_url": "https://arxiv.org/html/2610.23659"
+    }
+  ],
+  "boundary_decisions": [
+    {
+      "arxiv_id": "2304.04909",
+      "name": "SATR",
+      "classification": "date-outside",
+      "reason": "2023-04 首次公开，早于滚动三年窗口；作为历史前驱引用。",
+      "paper_url": "https://arxiv.org/abs/2304.04909"
+    },
+    {
+      "arxiv_id": "2311.14262",
+      "name": "ZeroPS",
+      "classification": "point-cloud",
+      "reason": "原文把任务定义在物体点云上。",
+      "paper_url": "https://arxiv.org/abs/2311.14262"
+    },
+    {
+      "arxiv_id": "2312.03015",
+      "name": "PartSLIP++",
+      "classification": "point-cloud",
+      "reason": "点云部件实例/语义分割，保留为比较背景。",
+      "paper_url": "https://arxiv.org/abs/2312.03015"
+    },
+    {
+      "arxiv_id": "2312.04016",
+      "name": "PartDistill",
+      "classification": "point-cloud",
+      "reason": "学生网络预测点标签，未确认作者提供原 mesh 面输出。",
+      "paper_url": "https://arxiv.org/abs/2312.04016"
+    },
+    {
+      "arxiv_id": "2401.05906",
+      "name": "PartSTAD",
+      "classification": "point-cloud",
+      "reason": "目标评测和标签主要定义在点云上。",
+      "paper_url": "https://arxiv.org/abs/2401.05906"
+    },
+    {
+      "arxiv_id": "2404.03836",
+      "name": "PARIS3D",
+      "classification": "point-cloud",
+      "reason": "推理式点云部件分割。",
+      "paper_url": "https://arxiv.org/abs/2404.03836"
+    },
+    {
+      "arxiv_id": "2405.19678",
+      "name": "Ultrametric Feature Fields",
+      "classification": "field-and-point-cloud",
+      "reason": "原文从 NeRF 特征和深度生成点云，再做 watershed 分割；后续论文适配为 mesh 基线不等于原始任务。",
+      "paper_url": "https://arxiv.org/abs/2405.19678"
+    },
+    {
+      "arxiv_id": "2406.17741",
+      "name": "Point-SAM",
+      "classification": "point-cloud",
+      "reason": "作者定义为可提示点云分割。",
+      "paper_url": "https://arxiv.org/abs/2406.17741"
+    },
+    {
+      "arxiv_id": "2407.09648",
+      "name": "3×2 / 3-By-2",
+      "classification": "point-label-transfer",
+      "reason": "支持 mesh 渲染实验，但论文明确以查询点云及点级标签转移和评测为主要协议；渲染 mesh 本身不等于输出原面标签。",
+      "paper_url": "https://arxiv.org/abs/2407.09648"
+    },
+    {
+      "arxiv_id": "2411.13550",
+      "name": "Find3D",
+      "classification": "point-cloud",
+      "reason": "官方 in-the-wild 接口读取 .pcd，论文定义为点特征和文本检索。",
+      "paper_url": "https://arxiv.org/abs/2411.13550"
+    },
+    {
+      "arxiv_id": "2412.04247",
+      "name": "COPS",
+      "classification": "point-cloud",
+      "reason": "论文明确渲染点云并融合为点特征。",
+      "paper_url": "https://arxiv.org/abs/2412.04247"
+    },
+    {
+      "arxiv_id": "2504.11024",
+      "name": "Easy3D",
+      "classification": "scene",
+      "reason": "任务为交互式场景实例分割。",
+      "paper_url": "https://arxiv.org/abs/2504.11024"
+    },
+    {
+      "arxiv_id": "2509.25970",
+      "name": "PinPoint3D",
+      "classification": "scene-and-point-cloud",
+      "reason": "使用场景级合成部件标注与真实扫描点云。",
+      "paper_url": "https://arxiv.org/abs/2509.25970"
+    },
+    {
+      "arxiv_id": "2512.00995",
+      "name": "S²AM3D",
+      "classification": "point-cloud",
+      "reason": "论文明确将 mesh 基线输出采样为点云，以与自身点云任务比较。",
+      "paper_url": "https://arxiv.org/abs/2512.00995"
+    },
+    {
+      "arxiv_id": "2512.16143",
+      "name": "SegGraph",
+      "classification": "point-cloud",
+      "reason": "少样本点云标签传播与分割。",
+      "paper_url": "https://arxiv.org/abs/2512.16143"
+    },
+    {
+      "arxiv_id": "2601.02457",
+      "name": "PatchAlign3D",
+      "classification": "point-cloud",
+      "reason": "方法明确为直接处理点云的前馈编码器。",
+      "paper_url": "https://arxiv.org/abs/2601.02457"
+    },
+    {
+      "arxiv_id": "2603.01205",
+      "name": "CoSMo3D",
+      "classification": "point-cloud",
+      "reason": "输入点云的文本语义定位框架。",
+      "paper_url": "https://arxiv.org/abs/2603.01205"
+    },
+    {
+      "arxiv_id": "2609.12898",
+      "name": "UniPart（语言定位版本）",
+      "classification": "point-cloud",
+      "reason": "摘要明确自由文本选择 point cloud 上的功能部件。",
+      "paper_url": "https://arxiv.org/abs/2609.12898"
+    },
+    {
+      "arxiv_id": "2609.36918",
+      "name": "Seg3DParts",
+      "classification": "image-generation",
+      "reason": "主任务是单图生成部件几何，不是对已有 mesh 赋标签。",
+      "paper_url": "https://arxiv.org/abs/2609.36918"
+    },
+    {
+      "arxiv_id": "2502.19782",
+      "name": "HumanCLIP / 3D Human",
+      "classification": "specialized-domain",
+      "reason": "开放词汇人体分割；只针对人体，放在任务边界而非通用跨类别主线。",
+      "paper_url": "https://arxiv.org/abs/2502.19782"
+    },
+    {
+      "arxiv_id": "2412.05335",
+      "name": "Flexible Mesh Segmentation / Reeb Graph",
+      "classification": "geometry-related",
+      "reason": "按几何和拓扑做结构分区，作为非语义几何路线补充。",
+      "paper_url": "https://arxiv.org/abs/2412.05335"
+    },
+    {
+      "arxiv_id": "2507.19284",
+      "name": "Surface Mumford–Shah / TGV",
+      "classification": "geometry-related",
+      "reason": "表面几何信号分段优化，不以开放语义部件为任务。",
+      "paper_url": "https://arxiv.org/abs/2507.19284"
+    },
+    {
+      "arxiv_id": "2509.22847",
+      "name": "Empart",
+      "classification": "geometry-related",
+      "reason": "用户控制的凸分解工具，目标为碰撞近似和简化。",
+      "paper_url": "https://arxiv.org/abs/2509.22847"
+    },
+    {
+      "arxiv_id": "2412.00445",
+      "name": "Normal-TV Surface Segmentation",
+      "classification": "geometry-related",
+      "reason": "按法向变化分割表面，任务与开放语义部件有区别。",
+      "paper_url": "https://arxiv.org/abs/2412.00445"
+    },
+    {
+      "name": "DirectPart",
+      "doi": "10.1016/j.array.2026.101159",
+      "classification": "mesh-rendered-point-output",
+      "reason": "官方 README 明确从 mesh 渲染，经深度缓冲将掩码投到标注点云，最后逐点多数投票；不能仅凭输入含 mesh 纳入面标签方法。",
+      "paper_url": "https://doi.org/10.1016/j.array.2026.101159",
+      "sources": [
+        "https://github.com/MM88/directpart"
+      ]
+    }
+  ]
+}

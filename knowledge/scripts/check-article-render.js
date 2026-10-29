@@ -39,6 +39,7 @@ const ordering = vm.createContext({});
 vm.runInContext(indexPage.slice(compareStart, compareEnd), ordering);
 const sorted = entries.slice().sort(ordering.compareEntries);
 assert.deepEqual(sorted.map(entry => entry.slug), [
+  'mesh-part-segmentation',
   'llm-3d-part-generation',
   'qwenputer',
   'sam3-segment-anything',
