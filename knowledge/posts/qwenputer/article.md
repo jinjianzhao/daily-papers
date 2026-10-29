@@ -207,3 +207,25 @@ Qwenputer 最值得理解的连接是：GDN 把持续状态带进模型，受控
 普通文本 token 会经过新增计算层和原 Qwen 层。CPU 内部执行 token 只运行计算部分，不送进原 Qwen 层；它们由 RvChat 驱动区分处理。因而，不能把一次运算理解为只做一遍“输入特征 → 输出特征”：通常要生成多个执行 token，多次更新状态，才得到最终结果。[输入、逐层计算与解码代码：`RvChat`](https://github.com/divagr18/qwenputer/blob/main/experimental/riscv/chipformer/rv/chat.py)
 
 **直接回答：tokenizer 负责文本与编号之间的转换；新增网络层接收和输出特征；GDN 保存数据；执行过程由一连串 token 推进。**
+
+### 4. 怎么只用特征就能计算？只能输入数字，还是字母也可以？
+
+**字母也可以。特征向量本身由数字组成，但这些数字可以表示字母、数字字符或符号。** 在这里，作者给 embedding 增加了一些含义明确的维度，直接保存文本 token 对应的字符字节的 0/1 编码。原 Qwen 的特征仍然保留。
+
+例如，下面三个字符都可以用一个 UTF-8 字节表示：
+
+| 字符 | 字节值 | 二进制编码 |
+| --- | ---: | --- |
+| `3` | 51 | `00110011` |
+| `A` | 65 | `01000001` |
+| `+` | 43 | `00101011` |
+
+这些 0 和 1 被存入额外的特征维度，计算层就有了可以准确读取的数据。一个 token 可能包含多个字符；实现会按顺序编码它对应的字节，每个 token 最多保留 16 个字节。这里的字节值也不是 token ID。[编码代码](https://github.com/divagr18/qwenputer/blob/main/experimental/riscv/chipformer/rv/merge.py)、[token 到字节的转换](https://github.com/divagr18/qwenputer/blob/main/experimental/riscv/chipformer/rv/bridge.py)
+
+**接下来做什么，由正在执行的程序规定。** 网络层执行编译好的读写、运算和跳转规则；内置程序根据这些规则读取字符、解析输入，再完成计算。
+
+比如，字符 `3` 的编码是 51，字符 `0` 的编码是 48，因此程序可以通过 `51 - 48` 得到实际数值 3。字母 `A` 同样可以被保存、读取或比较；若要把它当变量使用，程序还需要规定变量怎样赋值、怎样查询。
+
+当前 `calc` 程序明确识别 `gcd(` 这几个字符，所以可以处理 `gcd(12,8)`，计算 12 和 8 的最大公约数，结果为 4。它并没有实现任意字母变量，因此不能据此认为输入 `A + 1` 就会自动得到数值答案。[计算程序的解析逻辑](https://github.com/divagr18/qwenputer/blob/main/experimental/riscv/chipformer/rv/env/calc/calc.c)
+
+**数字、字母和符号都能编码成特征。能执行哪些操作，取决于计算层提供的指令，以及加载的程序怎样解释这些数据。**
