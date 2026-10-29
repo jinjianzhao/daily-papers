@@ -2,7 +2,7 @@
 
 问语言模型“123456789 × 987654321 等于多少”，它通常沿着 token 序列生成答案；接上 Python 工具后，它可以让解释器执行计算。Qwenputer 提供了第三种实现：把一台计算机的运算逻辑写成新增的模型权重，让计算过程发生在模型的前向传播中。
 
-这项实验由 Divyansh Agrawal 开发，基于 Qwen3.5-4B。它保留原模型权重，增加编译得到的计算层，并把 Gated DeltaNet 的运行状态用作内存。模型仍负责理解问题、组织请求和解释结果，新增电路负责按指令执行计算。[作者博客](https://divagr.com/blog/qwenputer)、[项目代码](https://github.com/divagr18/qwenputer)
+这项实验由 Divyansh Agrawal 开发，基于 Qwen3.5-4B。它保留原模型权重，增加编译得到的计算层，并把这些新增层中的 Gated DeltaNet 运行状态用作内存。模型仍负责理解问题、组织请求和解释结果，新增电路负责按指令执行计算。[作者博客](https://divagr.com/blog/qwenputer)、[项目代码](https://github.com/divagr18/qwenputer)
 
 理解它时，先分清两个位置：**权重保存计算机的规则，状态保存这次计算的数据。** CPU 加载程序、更新寄存器和写入文件，都发生在运行状态中；每执行一道指令，无需重新训练或修改权重。
 
@@ -268,3 +268,22 @@ Qwenputer 最值得理解的连接是：GDN 把持续状态带进模型，受控
 这能提供一个研究模型内部状态和确定性计算的具体系统，但“能够这样实现”与“比外部工具更适合实际使用”是两个需要分别验证的问题。它仍依赖真实的 CPU/GPU 硬件和宿主推理程序；“模型内部”描述的是计算机制在软件中的位置。
 
 **因此，实用计算可以优先选择 Python 工具；阅读 Qwenputer，重点是理解神经网络还能怎样组织内存和程序执行。**
+
+### 7. CPU 可以独立运行，那它与 LLM 的实际关联在哪里？
+
+**CPU 核心确实能独立运行，核心算术不依赖 Qwen 的语言理解能力。** 项目的 P2 阶段已经单独执行 C 程序和 MicroPython；后面的 P3 阶段才将这个核心与 Qwen 合并。因此，单独做一个“用网络执行程序”的项目也能成立。[独立核心与合并阶段的设计记录](https://github.com/divagr18/qwenputer/blob/main/experimental/riscv/docs/rv32.md)
+
+Qwenputer 额外完成的是把这个执行器接入一个已有语言模型：
+
+| 关联 | 具体实现 |
+| --- | --- |
+| 语言接口 | Qwen 把自然语言问题组织成 `calc` 请求，并读取返回的结果，继续生成回答。 |
+| 模型结构 | 编译得到的 11 个计算层放在原 Qwen 的 32 层之前，合并模型扩展隐藏维度和 embedding，使计算模块与原模型兼容。 |
+| 输入输出 | 计算层读取 Qwen 生成的请求 token 对应的字符编码，结果转换成普通 Qwen token，接回文本生成流程。 |
+| 解码过程 | 同一生成循环中，有些位置由 Qwen 预测，有些位置由计算电路确定；内部 CPU token 只经过计算部分。 |
+
+**计算用的固件、RAM 和寄存器保存在新增计算层的 GDN 状态中。** 这里使用的是与 Qwen 兼容的 GDN 层结构，并不是把原来 32 层中负责语言处理的状态直接变成 CPU；原 Qwen 层也不读取或写入新增的 CPU 特征维度。[模型合并代码](https://github.com/divagr18/qwenputer/blob/main/experimental/riscv/chipformer/rv/merge.py)、[状态与解码路由](https://github.com/divagr18/qwenputer/blob/main/experimental/riscv/chipformer/rv/chat.py)
+
+从功能分工看，它仍然是“语言模型提出请求，独立的计算模块执行，再把结果交回语言模型”。与调用 Python 的重要区别，是把执行模块实现成兼容的网络层，并集成到合并模型及其解码过程，而不是交给外部 Python 解释器。
+
+因此，这项工作可以定位为**网络计算的编译与 LLM 集成实验**。它展示了一个可独立运行的执行器怎样接入现有 LLM，并保持原有文本能力；它没有证明原 Qwen 学会了 CPU 指令，也没有证明语言理解与算术执行已经通过训练形成了新的联合能力。
