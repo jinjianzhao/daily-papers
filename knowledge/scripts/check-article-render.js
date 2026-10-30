@@ -39,6 +39,7 @@ const ordering = vm.createContext({});
 vm.runInContext(indexPage.slice(compareStart, compareEnd), ordering);
 const sorted = entries.slice().sort(ordering.compareEntries);
 assert.deepEqual(sorted.map(entry => entry.slug), [
+  'skintokens-rigging',
   'game-rigging-3d-print-parts',
   'mesh-part-segmentation',
   'llm-3d-part-generation',
