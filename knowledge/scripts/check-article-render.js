@@ -160,10 +160,13 @@ assert.match(jevHtml, /完整的一行是 <code>Best answer: \[1\]<\/code>/);
 assert.equal((jevHtml.match(/<h2>/g) || []).length, 8);
 for (const entry of entries) {
   const source = fs.readFileSync(path.join(knowledge, entry.path), 'utf8');
-  assert.equal((source.match(/^## QA\s*$/gm) || []).length, 1, `${entry.slug} 应有一个 QA 区块`);
-  assert.match(source, /\n## QA\s*\n[\s\S]*$/, `${entry.slug} 的 QA 应位于正文末尾`);
   const rendered = context.renderMarkdownWithCollapses(source);
-  assert.match(rendered, /<h2>QA<\/h2>/, `${entry.slug} 的 QA 应正常渲染`);
+  const qaCount = (source.match(/^## QA\s*$/gm) || []).length;
+  assert(qaCount <= 1, `${entry.slug} 至多只能有一个 QA 区块`);
+  if (qaCount === 1) {
+    assert.match(source, /\n## QA\s*\n[\s\S]*$/, `${entry.slug} 的 QA 应位于正文末尾`);
+    assert.match(rendered, /<h2>QA<\/h2>/, `${entry.slug} 的 QA 应正常渲染`);
+  }
 }
 const proteinEntry = entries.find(entry => entry.slug === 'protein-structure-prediction');
 assert.deepEqual(proteinEntry?.tags, ['AI4S']);

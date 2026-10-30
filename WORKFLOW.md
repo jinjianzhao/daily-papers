@@ -49,7 +49,7 @@ knowledge/posts/<slug>/assets/
 knowledge/index.json
 ```
 
-文章末尾必须有一个 `## QA` 区块。标签只能来自 `knowledge/tags.json`；新增标签必须先登记并向用户说明。Knowledge 目录按 `date` 与同日 `sequence` 合成的时间值从晚到早排序，筛选和搜索通过浏览器 URL 参数分享。
+只有用户明确提出问题并要求追加 QA 时，才在文章末尾增加 `## QA`；初次写作不得由 subagent 自行生成 QA。标签只能来自 `knowledge/tags.json`；新增标签必须先登记并向用户说明。Knowledge 目录按 `date` 与同日 `sequence` 合成的时间值从晚到早排序，筛选和搜索通过浏览器 URL 参数分享。
 
 ## 检查与发布边界
 
