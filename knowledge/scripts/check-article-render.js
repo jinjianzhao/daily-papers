@@ -39,6 +39,10 @@ const ordering = vm.createContext({});
 vm.runInContext(indexPage.slice(compareStart, compareEnd), ordering);
 const sorted = entries.slice().sort(ordering.compareEntries);
 assert.deepEqual(sorted.map(entry => entry.slug), [
+  'huggingface-accelerate-introduction',
+  'deepspeed-introduction',
+  'apache-spark-introduction',
+  'distributed-computing-introduction',
   'china-llm-discussion',
   'skintokens-rigging',
   'game-rigging-3d-print-parts',
