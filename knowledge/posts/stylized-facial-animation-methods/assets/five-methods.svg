@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="890" viewBox="0 0 1080 890" role="img" aria-labelledby="title desc">
+<title id="title">五种面部表情实现路线的数据变化</title>
+<desc id="desc">骨骼改变变换，形状键组合顶点位移，变形器改变空间映射，几何替换选择网格，纹理动画选择采样区域。最终进入渲染。</desc>
+<rect width="1080" height="890" rx="20" fill="#f5f8fc"/>
+<text x="45" y="56" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="32" fill="#203247" font-weight="700" text-anchor="start">表情控制量，最终改变了什么？</text>
+<text x="45" y="92" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" fill="#53667c" font-weight="400" text-anchor="start">五类教学分组；同一个角色可以同时使用多类。</text>
+<rect x="30" y="122" width="1020" height="116" rx="13" fill="white" stroke="#d9e2ee"/>
+<rect x="44" y="136" width="230" height="88" rx="10" fill="#e8efff"/>
+<text x="59" y="165" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" fill="#5d6f83" font-weight="400" text-anchor="start">01</text>
+<text x="59" y="199" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="23" fill="#203247" font-weight="700" text-anchor="start">骨骼 + 蒙皮</text>
+<text x="304" y="160" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" fill="#203247" font-weight="400" text-anchor="start">骨骼位置 / 旋转 / 缩放</text>
+<text x="304" y="198" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" fill="#53667c" font-weight="400" text-anchor="start">按顶点权重计算形变</text>
+<text x="699" y="185" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="29" fill="#5774a0" font-weight="400" text-anchor="start">→</text>
+<text x="754" y="185" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="22" fill="#203247" font-weight="600" text-anchor="start">新的顶点坐标</text>
+<rect x="30" y="256" width="1020" height="116" rx="13" fill="white" stroke="#d9e2ee"/>
+<rect x="44" y="270" width="230" height="88" rx="10" fill="#e7f6ef"/>
+<text x="59" y="299" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" fill="#5d6f83" font-weight="400" text-anchor="start">02</text>
+<text x="59" y="333" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="23" fill="#203247" font-weight="700" text-anchor="start">Blendshape</text>
+<text x="304" y="294" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" fill="#203247" font-weight="400" text-anchor="start">形状权重 c₁, c₂, …</text>
+<text x="304" y="332" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" fill="#53667c" font-weight="400" text-anchor="start">叠加预制顶点位移</text>
+<text x="699" y="319" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="29" fill="#5774a0" font-weight="400" text-anchor="start">→</text>
+<text x="754" y="319" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="22" fill="#203247" font-weight="600" text-anchor="start">新的顶点坐标</text>
+<rect x="30" y="390" width="1020" height="116" rx="13" fill="white" stroke="#d9e2ee"/>
+<rect x="44" y="404" width="230" height="88" rx="10" fill="#fff1dc"/>
+<text x="59" y="433" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" fill="#5d6f83" font-weight="400" text-anchor="start">03</text>
+<text x="59" y="467" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="23" fill="#203247" font-weight="700" text-anchor="start">曲线 / 格笼变形</text>
+<text x="304" y="428" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" fill="#203247" font-weight="400" text-anchor="start">曲线或控制格点位置</text>
+<text x="304" y="466" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" fill="#53667c" font-weight="400" text-anchor="start">计算空间变形映射</text>
+<text x="699" y="453" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="29" fill="#5774a0" font-weight="400" text-anchor="start">→</text>
+<text x="754" y="453" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="22" fill="#203247" font-weight="600" text-anchor="start">新的顶点坐标</text>
+<rect x="30" y="524" width="1020" height="116" rx="13" fill="white" stroke="#d9e2ee"/>
+<rect x="44" y="538" width="230" height="88" rx="10" fill="#f2eaff"/>
+<text x="59" y="567" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" fill="#5d6f83" font-weight="400" text-anchor="start">04</text>
+<text x="59" y="601" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="23" fill="#203247" font-weight="700" text-anchor="start">几何 / 部件替换</text>
+<text x="304" y="562" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" fill="#203247" font-weight="400" text-anchor="start">部件编号 m</text>
+<text x="304" y="600" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" fill="#53667c" font-weight="400" text-anchor="start">选择可见的嘴或眼睛网格</text>
+<text x="699" y="587" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="29" fill="#5774a0" font-weight="400" text-anchor="start">→</text>
+<text x="754" y="587" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="22" fill="#203247" font-weight="600" text-anchor="start">当前使用的几何</text>
+<rect x="30" y="658" width="1020" height="116" rx="13" fill="white" stroke="#d9e2ee"/>
+<rect x="44" y="672" width="230" height="88" rx="10" fill="#ffe9ed"/>
+<text x="59" y="701" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="17" fill="#5d6f83" font-weight="400" text-anchor="start">05</text>
+<text x="59" y="735" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="23" fill="#203247" font-weight="700" text-anchor="start">纹理 / UV 动画</text>
+<text x="304" y="696" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" fill="#203247" font-weight="400" text-anchor="start">贴图编号或图集格子</text>
+<text x="304" y="734" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" fill="#53667c" font-weight="400" text-anchor="start">改变表面颜色的采样</text>
+<text x="699" y="721" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="29" fill="#5774a0" font-weight="400" text-anchor="start">→</text>
+<text x="754" y="721" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="22" fill="#203247" font-weight="600" text-anchor="start">当前表面图案</text>
+<text x="45" y="833" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="20" fill="#203247" font-weight="400" text-anchor="start">前 3 类连续改变几何；第 4 类可以离散切换几何；第 5 类主要改变表面图案。</text>
+<text x="45" y="864" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" fill="#53667c" font-weight="400" text-anchor="start">控制器、动画曲线、修正形状可以跨路线使用。</text>
+</svg>
