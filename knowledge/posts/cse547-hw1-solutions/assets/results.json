@@ -1,0 +1,552 @@
+{
+  "source": "https://courses.cs.washington.edu/courses/cse547/24sp/homeworks/hw1.html",
+  "data_bundle": "https://courses.cs.washington.edu/courses/cse547/24sp/homeworks/hw1-bundle.zip",
+  "bundle_sha256": "e1cf1515a518c8a87f2f4a581f823d14951e18615ad6887519261d814422c70b",
+  "environment": {
+    "python": "3.10.12",
+    "pyspark": "3.5.3",
+    "java": "17.0.9",
+    "execution": "local[4]"
+  },
+  "q1": {
+    "users": 49995,
+    "recommendations": {
+      "9990": [
+        {
+          "user": 13134,
+          "mutual_friends": 1
+        },
+        {
+          "user": 13478,
+          "mutual_friends": 1
+        },
+        {
+          "user": 13877,
+          "mutual_friends": 1
+        },
+        {
+          "user": 34299,
+          "mutual_friends": 1
+        },
+        {
+          "user": 34485,
+          "mutual_friends": 1
+        },
+        {
+          "user": 34642,
+          "mutual_friends": 1
+        },
+        {
+          "user": 37941,
+          "mutual_friends": 1
+        }
+      ],
+      "9992": [
+        {
+          "user": 9987,
+          "mutual_friends": 4
+        },
+        {
+          "user": 9989,
+          "mutual_friends": 4
+        },
+        {
+          "user": 35667,
+          "mutual_friends": 3
+        },
+        {
+          "user": 9991,
+          "mutual_friends": 2
+        }
+      ],
+      "9993": [
+        {
+          "user": 9991,
+          "mutual_friends": 5
+        },
+        {
+          "user": 13134,
+          "mutual_friends": 1
+        },
+        {
+          "user": 13478,
+          "mutual_friends": 1
+        },
+        {
+          "user": 13877,
+          "mutual_friends": 1
+        },
+        {
+          "user": 34299,
+          "mutual_friends": 1
+        },
+        {
+          "user": 34485,
+          "mutual_friends": 1
+        },
+        {
+          "user": 34642,
+          "mutual_friends": 1
+        },
+        {
+          "user": 37941,
+          "mutual_friends": 1
+        }
+      ],
+      "11": [
+        {
+          "user": 27552,
+          "mutual_friends": 4
+        },
+        {
+          "user": 7785,
+          "mutual_friends": 3
+        },
+        {
+          "user": 27573,
+          "mutual_friends": 3
+        },
+        {
+          "user": 27574,
+          "mutual_friends": 3
+        },
+        {
+          "user": 27589,
+          "mutual_friends": 3
+        },
+        {
+          "user": 27590,
+          "mutual_friends": 3
+        },
+        {
+          "user": 27600,
+          "mutual_friends": 3
+        },
+        {
+          "user": 27617,
+          "mutual_friends": 3
+        },
+        {
+          "user": 27620,
+          "mutual_friends": 3
+        },
+        {
+          "user": 27667,
+          "mutual_friends": 3
+        }
+      ],
+      "924": [
+        {
+          "user": 439,
+          "mutual_friends": 1
+        },
+        {
+          "user": 2409,
+          "mutual_friends": 1
+        },
+        {
+          "user": 6995,
+          "mutual_friends": 1
+        },
+        {
+          "user": 11860,
+          "mutual_friends": 1
+        },
+        {
+          "user": 15416,
+          "mutual_friends": 1
+        },
+        {
+          "user": 43748,
+          "mutual_friends": 1
+        },
+        {
+          "user": 45881,
+          "mutual_friends": 1
+        }
+      ],
+      "8941": [
+        {
+          "user": 8943,
+          "mutual_friends": 2
+        },
+        {
+          "user": 8944,
+          "mutual_friends": 2
+        },
+        {
+          "user": 8940,
+          "mutual_friends": 1
+        }
+      ],
+      "8942": [
+        {
+          "user": 8939,
+          "mutual_friends": 3
+        },
+        {
+          "user": 8940,
+          "mutual_friends": 1
+        },
+        {
+          "user": 8943,
+          "mutual_friends": 1
+        },
+        {
+          "user": 8944,
+          "mutual_friends": 1
+        }
+      ],
+      "9019": [
+        {
+          "user": 9022,
+          "mutual_friends": 2
+        },
+        {
+          "user": 317,
+          "mutual_friends": 1
+        },
+        {
+          "user": 9023,
+          "mutual_friends": 1
+        }
+      ],
+      "9020": [
+        {
+          "user": 9021,
+          "mutual_friends": 3
+        },
+        {
+          "user": 9016,
+          "mutual_friends": 2
+        },
+        {
+          "user": 9017,
+          "mutual_friends": 2
+        },
+        {
+          "user": 9022,
+          "mutual_friends": 2
+        },
+        {
+          "user": 317,
+          "mutual_friends": 1
+        },
+        {
+          "user": 9023,
+          "mutual_friends": 1
+        }
+      ],
+      "9021": [
+        {
+          "user": 9020,
+          "mutual_friends": 3
+        },
+        {
+          "user": 9016,
+          "mutual_friends": 2
+        },
+        {
+          "user": 9017,
+          "mutual_friends": 2
+        },
+        {
+          "user": 9022,
+          "mutual_friends": 2
+        },
+        {
+          "user": 317,
+          "mutual_friends": 1
+        },
+        {
+          "user": 9023,
+          "mutual_friends": 1
+        }
+      ],
+      "9022": [
+        {
+          "user": 9019,
+          "mutual_friends": 2
+        },
+        {
+          "user": 9020,
+          "mutual_friends": 2
+        },
+        {
+          "user": 9021,
+          "mutual_friends": 2
+        },
+        {
+          "user": 317,
+          "mutual_friends": 1
+        },
+        {
+          "user": 9016,
+          "mutual_friends": 1
+        },
+        {
+          "user": 9017,
+          "mutual_friends": 1
+        },
+        {
+          "user": 9023,
+          "mutual_friends": 1
+        }
+      ]
+    }
+  },
+  "q2": {
+    "baskets": 31101,
+    "threshold": 100,
+    "frequent_items": 647,
+    "frequent_pairs": 1334,
+    "candidate_triples": 7068,
+    "frequent_triples": 233,
+    "top_pairs": [
+      {
+        "items": [
+          "DAI62779",
+          "ELE17451"
+        ],
+        "support": 1592
+      },
+      {
+        "items": [
+          "FRO40251",
+          "SNA80324"
+        ],
+        "support": 1412
+      },
+      {
+        "items": [
+          "DAI75645",
+          "FRO40251"
+        ],
+        "support": 1254
+      },
+      {
+        "items": [
+          "FRO40251",
+          "GRO85051"
+        ],
+        "support": 1213
+      },
+      {
+        "items": [
+          "DAI62779",
+          "GRO73461"
+        ],
+        "support": 1139
+      }
+    ],
+    "top_pair_rules": [
+      {
+        "lhs": [
+          "DAI93865"
+        ],
+        "rhs": "FRO40251",
+        "support": 208,
+        "antecedent_support": 208,
+        "confidence_exact": "1",
+        "confidence": 1.0
+      },
+      {
+        "lhs": [
+          "GRO85051"
+        ],
+        "rhs": "FRO40251",
+        "support": 1213,
+        "antecedent_support": 1214,
+        "confidence_exact": "1213/1214",
+        "confidence": 0.999176276771005
+      },
+      {
+        "lhs": [
+          "GRO38636"
+        ],
+        "rhs": "FRO40251",
+        "support": 106,
+        "antecedent_support": 107,
+        "confidence_exact": "106/107",
+        "confidence": 0.9906542056074766
+      },
+      {
+        "lhs": [
+          "ELE12951"
+        ],
+        "rhs": "FRO40251",
+        "support": 105,
+        "antecedent_support": 106,
+        "confidence_exact": "105/106",
+        "confidence": 0.9905660377358491
+      },
+      {
+        "lhs": [
+          "DAI88079"
+        ],
+        "rhs": "FRO40251",
+        "support": 446,
+        "antecedent_support": 452,
+        "confidence_exact": "223/226",
+        "confidence": 0.9867256637168141
+      }
+    ],
+    "top_triples": [
+      {
+        "items": [
+          "DAI75645",
+          "FRO40251",
+          "SNA80324"
+        ],
+        "support": 550
+      },
+      {
+        "items": [
+          "DAI62779",
+          "FRO40251",
+          "SNA80324"
+        ],
+        "support": 476
+      },
+      {
+        "items": [
+          "FRO40251",
+          "GRO85051",
+          "SNA80324"
+        ],
+        "support": 471
+      },
+      {
+        "items": [
+          "DAI62779",
+          "ELE92920",
+          "SNA18336"
+        ],
+        "support": 432
+      },
+      {
+        "items": [
+          "DAI62779",
+          "DAI75645",
+          "SNA80324"
+        ],
+        "support": 421
+      }
+    ],
+    "top_triple_rules": [
+      {
+        "lhs": [
+          "DAI23334",
+          "ELE92920"
+        ],
+        "rhs": "DAI62779",
+        "support": 143,
+        "antecedent_support": 143,
+        "confidence_exact": "1",
+        "confidence": 1.0
+      },
+      {
+        "lhs": [
+          "DAI31081",
+          "GRO85051"
+        ],
+        "rhs": "FRO40251",
+        "support": 102,
+        "antecedent_support": 102,
+        "confidence_exact": "1",
+        "confidence": 1.0
+      },
+      {
+        "lhs": [
+          "DAI55911",
+          "GRO85051"
+        ],
+        "rhs": "FRO40251",
+        "support": 133,
+        "antecedent_support": 133,
+        "confidence_exact": "1",
+        "confidence": 1.0
+      },
+      {
+        "lhs": [
+          "DAI62779",
+          "DAI88079"
+        ],
+        "rhs": "FRO40251",
+        "support": 117,
+        "antecedent_support": 117,
+        "confidence_exact": "1",
+        "confidence": 1.0
+      },
+      {
+        "lhs": [
+          "DAI75645",
+          "GRO85051"
+        ],
+        "rhs": "FRO40251",
+        "support": 395,
+        "antecedent_support": 395,
+        "confidence_exact": "1",
+        "confidence": 1.0
+      }
+    ]
+  },
+  "verification": {
+    "random_graphs_checked": 70,
+    "random_basket_datasets_checked": 50,
+    "original_data_report_counts_checked": true,
+    "lsh": {
+      "hypergeometric_cases": 818,
+      "jaccard": "1/3",
+      "all_permutations_collision": "1/3",
+      "cyclic_collision": "1/2",
+      "cyclic_cases": [
+        {
+          "start": 1,
+          "order": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "min_a": 1,
+          "min_b": 1
+        },
+        {
+          "start": 2,
+          "order": [
+            2,
+            3,
+            4,
+            1
+          ],
+          "min_a": 2,
+          "min_b": 3
+        },
+        {
+          "start": 3,
+          "order": [
+            3,
+            4,
+            1,
+            2
+          ],
+          "min_a": 1,
+          "min_b": 3
+        },
+        {
+          "start": 4,
+          "order": [
+            4,
+            1,
+            2,
+            3
+          ],
+          "min_a": 1,
+          "min_b": 1
+        }
+      ]
+    },
+    "full_spark_matches_independent_reference": true
+  }
+}

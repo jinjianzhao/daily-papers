@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="490" viewBox="0 0 800 490" role="img" aria-label="四行集合的循环移位反例：Jaccard为三分之一，碰撞概率为二分之一">
+<rect width="800" height="490" rx="16" fill="#f6f9fc"/>
+<g font-family="Arial,Microsoft YaHei,sans-serif" fill="#20354b" text-anchor="middle">
+<text x="400" y="40" font-size="24" font-weight="bold">循环移位会给不同公共位置分配不同权重</text>
+<text x="90" y="90" font-size="20">行号</text>
+<text x="175" y="90" font-size="20">A</text>
+<text x="255" y="90" font-size="20">B</text>
+<text x="390" y="90" font-size="20">起点</text>
+<text x="525" y="90" font-size="20">扫描顺序</text>
+<text x="655" y="90" font-size="20">h(A)</text>
+<text x="720" y="90" font-size="20">h(B)</text>
+<rect x="350" y="112" width="400" height="42" rx="6" fill="#dcf2e7"/>
+<rect x="350" y="262" width="400" height="42" rx="6" fill="#dcf2e7"/>
+<text x="90" y="140" font-size="22">1</text>
+<text x="175" y="140" font-size="22">1</text>
+<text x="255" y="140" font-size="22">1</text>
+<text x="390" y="140" font-size="22">1</text>
+<text x="525" y="140" font-size="22">1 2 3 4</text>
+<text x="655" y="140" font-size="22">1</text>
+<text x="720" y="140" font-size="22">1</text>
+<text x="90" y="190" font-size="22">2</text>
+<text x="175" y="190" font-size="22">1</text>
+<text x="255" y="190" font-size="22">0</text>
+<text x="390" y="190" font-size="22">2</text>
+<text x="525" y="190" font-size="22">2 3 4 1</text>
+<text x="655" y="190" font-size="22">2</text>
+<text x="720" y="190" font-size="22">3</text>
+<text x="90" y="240" font-size="22">3</text>
+<text x="175" y="240" font-size="22">0</text>
+<text x="255" y="240" font-size="22">1</text>
+<text x="390" y="240" font-size="22">3</text>
+<text x="525" y="240" font-size="22">3 4 1 2</text>
+<text x="655" y="240" font-size="22">1</text>
+<text x="720" y="240" font-size="22">3</text>
+<text x="90" y="290" font-size="22">4</text>
+<text x="175" y="290" font-size="22">0</text>
+<text x="255" y="290" font-size="22">0</text>
+<text x="390" y="290" font-size="22">4</text>
+<text x="525" y="290" font-size="22">4 1 2 3</text>
+<text x="655" y="290" font-size="22">1</text>
+<text x="720" y="290" font-size="22">1</text>
+<text x="175" y="355" font-size="22">交集 = {1}</text><text x="175" y="391" font-size="22">并集 = {1,2,3}</text>
+<text x="560" y="355" font-size="22">起点 1、4 都首先遇到公共行 1</text>
+<text x="560" y="391" font-size="22">4 个起点中，有 2 个产生相同哈希</text>
+<rect x="70" y="422" width="660" height="46" rx="8" fill="#e3edf9"/>
+<text x="400" y="453" font-size="24" font-weight="bold">Jaccard = 1/3；循环移位碰撞概率 = 2/4 = 1/2</text>
+</g></svg>
