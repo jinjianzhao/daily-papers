@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="790" viewBox="0 0 1000 790" role="img" aria-labelledby="title desc">
+<title id="title">计算依赖和控制器显示的区别</title><desc id="desc">需要避免控制骨骼驱动形状键，形状键改变网格，网格又控制同一骨骼的循环。分离动画输入与跟随显示后，主计算可以保持单向。</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9Z" fill="#5073a0"/></marker></defs>
+<rect width="1000" height="790" rx="18" fill="#f5f8fc"/>
+<text x="38" y="50" text-anchor="start" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="30" fill="#253a52" font-weight="700">控制器跟随表情时，怎样避免依赖循环？</text>
+<text x="38" y="93" text-anchor="start" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="21" fill="#a24545" font-weight="700">需要避免：同一份驱动数据读回自己生成的结果</text>
+<rect x="45" y="122" width="270" height="88" rx="12" fill="#fff0ed" stroke="#e3b4ae"/>
+<text x="180" y="174" text-anchor="middle" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="24" fill="#253a52" font-weight="700">控制骨骼</text>
+<rect x="365" y="122" width="270" height="88" rx="12" fill="#fff0ed" stroke="#e3b4ae"/>
+<text x="500" y="174" text-anchor="middle" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="24" fill="#253a52" font-weight="700">形状键</text>
+<rect x="685" y="122" width="270" height="88" rx="12" fill="#fff0ed" stroke="#e3b4ae"/>
+<text x="820" y="174" text-anchor="middle" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="24" fill="#253a52" font-weight="700">最终网格</text>
+<path d="M315 166 L365 166" fill="none" stroke="#5073a0" stroke-width="3"  marker-end="url(#arrow)"/>
+<path d="M635 166 L685 166" fill="none" stroke="#5073a0" stroke-width="3"  marker-end="url(#arrow)"/>
+<path d="M820 210 L820 270 L180 270 L180 213" fill="none" stroke="#b34c4c" stroke-width="3"  marker-end="url(#arrow)"/>
+<text x="500" y="258" text-anchor="middle" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" fill="#a24545" font-weight="400">网格结果又决定同一控制骨骼的数据</text>
+<text x="38" y="329" text-anchor="start" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="23" fill="#253a52" font-weight="700">字幕中的思路：把动画输入与结果跟随位置分开</text>
+<rect x="45" y="358" width="270" height="88" rx="12" fill="#e7f4ec" stroke="#c8d7e6"/>
+<text x="180" y="410" text-anchor="middle" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="23" fill="#253a52" font-weight="700">动画输入骨骼</text>
+<rect x="365" y="358" width="270" height="88" rx="12" fill="#e7f4ec" stroke="#c8d7e6"/>
+<text x="500" y="410" text-anchor="middle" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="23" fill="#253a52" font-weight="700">形状键与网格</text>
+<rect x="685" y="358" width="270" height="88" rx="12" fill="#e7f4ec" stroke="#c8d7e6"/>
+<text x="820" y="410" text-anchor="middle" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="23" fill="#253a52" font-weight="700">跟随位置</text>
+<path d="M315 402 L365 402" fill="none" stroke="#5073a0" stroke-width="3"  marker-end="url(#arrow)"/>
+<path d="M635 402 L685 402" fill="none" stroke="#5073a0" stroke-width="3"  marker-end="url(#arrow)"/>
+<rect x="365" y="545" width="590" height="106" rx="12" fill="#e9effb" stroke="#c8d7e6"/>
+<text x="395" y="587" text-anchor="start" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="24" fill="#253a52" font-weight="700">界面显示 / 操作枢轴</text>
+<text x="395" y="625" text-anchor="start" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="20" fill="#546a82" font-weight="400">在当前表情附近显示控制器与手柄</text>
+<path d="M820 446 L820 542" fill="none" stroke="#5073a0" stroke-width="3" stroke-dasharray="7 6" marker-end="url(#arrow)"/>
+<text x="839" y="500" text-anchor="start" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="18" fill="#61748a" font-weight="400">显示位置</text>
+<path d="M180 446 L180 598 L362 598" fill="none" stroke="#5073a0" stroke-width="3" stroke-dasharray="7 6" marker-end="url(#arrow)"/>
+<text x="47" y="505" text-anchor="start" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="18" fill="#61748a" font-weight="400">对应输入控制</text>
+<text x="38" y="708" text-anchor="start" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="20" fill="#253a52" font-weight="400">实线：主要数据依赖；虚线：界面显示与交互所使用的关系。</text>
+<text x="38" y="745" text-anchor="start" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" font-size="19" fill="#61748a" font-weight="400">手柄显示在变形后的表面附近，不等于把该表面位置再作为驱动输入。</text>
+</svg>
