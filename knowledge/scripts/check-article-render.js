@@ -39,6 +39,7 @@ const ordering = vm.createContext({});
 vm.runInContext(indexPage.slice(compareStart, compareEnd), ordering);
 const sorted = entries.slice().sort(ordering.compareEntries);
 assert.deepEqual(sorted.map(entry => entry.slug), [
+  'game-production-pipeline-and-roles',
   'bcon2025-stylized-facial-rigging',
   'stylized-facial-animation-methods',
   'facial-rig-fundamentals',
