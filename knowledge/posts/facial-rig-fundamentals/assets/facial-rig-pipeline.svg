@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="700" viewBox="0 0 860 700" role="img" aria-label="控制器驱动形状权重、骨骼姿态和修正权重，参考网格经过形状混合、蒙皮和修正得到最终顶点">
+<defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6Z" fill="#428767"/></marker><marker id="b" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6Z" fill="#5288b7"/></marker></defs>
+<rect width="860" height="700" rx="16" fill="#f4f8fc"/>
+<g font-family="Arial,Microsoft YaHei,sans-serif" fill="#21364c" text-anchor="middle">
+<text x="430" y="36" font-size="25" font-weight="bold">Facial Rig：控制关系与几何计算</text>
+<g fill="#fff" stroke="#b9cfe1" stroke-width="2"><rect x="240" y="65" width="380" height="70" rx="10"/><rect x="240" y="180" width="380" height="65" rx="10"/>
+<rect x="305" y="315" width="250" height="65" rx="10"/><rect x="305" y="435" width="250" height="65" rx="10"/><rect x="305" y="555" width="250" height="65" rx="10"/>
+<rect x="25" y="315" width="195" height="65" rx="10"/><rect x="25" y="420" width="195" height="100" rx="10"/><rect x="640" y="530" width="195" height="90" rx="10"/></g>
+<g font-size="21"><text x="430" y="96">Controllers 控制器</text><text x="430" y="122" font-size="18">动画或采集输入 u(t)</text>
+<text x="430" y="219">驱动、约束与参数映射 F</text>
+<text x="430" y="354">Blendshapes 形状混合</text><text x="430" y="474">Skinning 蒙皮</text><text x="430" y="594">Correctives 修正计算</text>
+<text x="123" y="354">Mesh 参考顶点</text><text x="123" y="452">Bones 骨骼姿态</text><text x="123" y="481" font-size="17">绑定信息</text><text x="123" y="506" font-size="17">每个顶点的蒙皮权重</text>
+<text x="737" y="564">Corrective Shapes</text><text x="737" y="593" font-size="18">修正目标与激活权重</text>
+<text x="430" y="660" font-size="22" font-weight="bold">最终 Mesh 顶点 → 渲染画面</text></g>
+<g stroke="#5288b7" stroke-width="2.5" stroke-dasharray="7 4" fill="none" marker-end="url(#b)"><path d="M430 135 V175"/><path d="M430 245 V310"/><path d="M240 212 H10 V450 H23"/><path d="M620 212 H737 V525"/></g>
+<text x="492" y="285" font-size="17" fill="#44749b">形状权重</text>
+<g stroke="#428767" stroke-width="3" fill="none" marker-end="url(#a)"><path d="M220 347 H300"/><path d="M430 380 V430"/><path d="M220 470 H300"/><path d="M430 500 V550"/><path d="M640 580 H560"/><path d="M430 620 V635"/></g>
+<text x="430" y="688" font-size="16">蓝色虚线：上层控制；绿色实线：变形计算依赖（顺序为本例设定）</text>
+</g></svg>
