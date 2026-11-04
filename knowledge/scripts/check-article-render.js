@@ -39,6 +39,7 @@ const ordering = vm.createContext({});
 vm.runInContext(indexPage.slice(compareStart, compareEnd), ordering);
 const sorted = entries.slice().sort(ordering.compareEntries);
 assert.deepEqual(sorted.map(entry => entry.slug), [
+  'facial-expression-arkit-facs',
   'cse547-hw1-solutions',
   'huggingface-accelerate-introduction',
   'deepspeed-introduction',
