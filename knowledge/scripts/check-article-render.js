@@ -39,6 +39,7 @@ const ordering = vm.createContext({});
 vm.runInContext(indexPage.slice(compareStart, compareEnd), ordering);
 const sorted = entries.slice().sort(ordering.compareEntries);
 assert.deepEqual(sorted.map(entry => entry.slug), [
+  'blender-shape-keys-facial-animation',
   'fdm-lowpoly-color-parts-workflow',
   'figurine-printing-precision-and-painting',
   '3d-printing-types-for-beginners',

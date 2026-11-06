@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="850" viewBox="0 0 1100 850" role="img" aria-labelledby="title desc">
+<title id="title">形状键怎样接入面部绑定</title><desc id="desc">用户或动画给控制量，Driver映射到形状键数值及骨骼姿态，形状键形成网格后由骨骼蒙皮求值，修正再按需要加入。</desc>
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="none" stroke="#5a738a" stroke-width="1.6"/></marker></defs>
+<rect width="1100" height="850" rx="20" fill="#f3f7fb"/>
+<g font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" fill="#1b344c">
+<text x="35" y="57" font-size="31" fill="#1b344c" font-weight="700">控制界面、变形数据与骨骼，可以配合工作</text>
+<text x="35" y="97" font-size="22" fill="#526b81" font-weight="400">下图是一种常见组织方式；每条驱动关系都需要制作和检查。</text>
+<rect x="30" y="130" width="320" height="140" rx="15" fill="#e9f0fb" stroke="#cfdeeb"/>
+<text x="53" y="172" font-size="27" fill="#1b344c" font-weight="700">控制输入</text>
+<text x="53" y="213" font-size="20" fill="#1b344c" font-weight="400">关键帧／自定义属性／控制骨</text>
+<text x="53" y="247" font-size="21" fill="#526b81" font-weight="400">规定“这帧要做多大幅度”</text>
+<path d="M351,200 L402,200" fill="none" stroke="#5a738a" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="410" y="130" width="280" height="140" rx="15" fill="#e8f5f0" stroke="#cfdeeb"/>
+<text x="432" y="172" font-size="27" fill="#1b344c" font-weight="700">Driver／映射</text>
+<text x="432" y="213" font-size="23" fill="#1b344c" font-weight="400">读取属性与变换</text>
+<text x="432" y="247" font-size="21" fill="#526b81" font-weight="400">计算各个输出通道</text>
+<path d="M691,200 L741,200" fill="none" stroke="#5a738a" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="750" y="130" width="320" height="140" rx="15" fill="#fff4df" stroke="#cfdeeb"/>
+<text x="772" y="172" font-size="27" fill="#1b344c" font-weight="700">通道数值</text>
+<text x="772" y="213" font-size="23" fill="#1b344c" font-weight="400">Smile = 0.7</text>
+<text x="772" y="247" font-size="21" fill="#526b81" font-weight="400">下颌旋转、视线方向等</text>
+<path d="M910,271 L910,305" fill="none" stroke="#5a738a" stroke-width="2"/>
+<path d="M190,305 L910,305" fill="none" stroke="#5a738a" stroke-width="2"/>
+<path d="M190,305 L190,348" fill="none" stroke="#5a738a" stroke-width="2" marker-end="url(#arr)"/>
+<path d="M910,305 L910,348" fill="none" stroke="#5a738a" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="30" y="355" width="320" height="180" rx="15" fill="#fff" stroke="#cfdeeb"/>
+<text x="53" y="398" font-size="27" fill="#1b344c" font-weight="700">形状键数据</text>
+<text x="53" y="438" font-size="23" fill="#1b344c" font-weight="400">Basis ＋ 表情目标</text>
+<text x="53" y="476" font-size="23" fill="#1b344c" font-weight="400">按各键 Value 混合</text>
+<text x="53" y="510" font-size="21" fill="#526b81" font-weight="400">细调嘴唇、面颊、眼睑</text>
+<rect x="750" y="355" width="320" height="180" rx="15" fill="#fff" stroke="#cfdeeb"/>
+<text x="773" y="398" font-size="27" fill="#1b344c" font-weight="700">骨骼与蒙皮数据</text>
+<text x="773" y="438" font-size="22" fill="#1b344c" font-weight="400">骨骼姿态 ＋ 蒙皮权重</text>
+<text x="773" y="476" font-size="22" fill="#1b344c" font-weight="400">下颌、眼球、整体运动</text>
+<text x="773" y="510" font-size="21" fill="#526b81" font-weight="400">按既定绑定关系求值</text>
+<path d="M351,447 L414,447" fill="none" stroke="#5a738a" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="422" y="355" width="275" height="180" rx="15" fill="#f0ecf9" stroke="#cfdeeb"/>
+<text x="444" y="398" font-size="26" fill="#1b344c" font-weight="700">形变后的 Mesh</text>
+<text x="444" y="438" font-size="21" fill="#1b344c" font-weight="400">形状键先形成形状</text>
+<text x="444" y="476" font-size="21" fill="#1b344c" font-weight="400">再经 Armature 等</text>
+<text x="444" y="510" font-size="21" fill="#526b81" font-weight="400">修改器处理</text>
+<path d="M749,447 L703,447" fill="none" stroke="#5a738a" stroke-width="2" marker-end="url(#arr)"/>
+<path d="M560,536 L560,591" fill="none" stroke="#5a738a" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="260" y="598" width="600" height="125" rx="15" fill="#edf5fc" stroke="#cfdeeb"/>
+<text x="284" y="641" font-size="27" fill="#1b344c" font-weight="700">这一帧最终顶点位置</text>
+<text x="284" y="681" font-size="22" fill="#1b344c" font-weight="400">检查表情、体积、眼睑和嘴唇接触，再渲染</text>
+<text x="35" y="777" font-size="23" fill="#1b344c" font-weight="700">修正形状也属于几何目标；Driver 决定它在什么姿态或组合下启用。</text>
+<text x="35" y="817" font-size="21" fill="#526b81" font-weight="400">看到圆框控制器，只能判断控制界面的外观；实际变形要看它连接了什么。</text>
+</g></svg>
