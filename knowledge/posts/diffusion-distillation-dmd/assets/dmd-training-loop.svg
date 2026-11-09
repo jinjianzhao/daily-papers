@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1050" viewBox="0 0 1100 1050" role="img" aria-labelledby="title desc">
+<title id="title">DMD 分布匹配的两个更新分支</title><desc id="desc">学生生成图像后加噪，同一个带噪输入进入教师和fake去噪器。score差经学生反向传播；fake网络则单独在停止梯度的学生样本上学习去噪。</desc>
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="none" stroke="#62778c" stroke-width="1.7"/></marker></defs>
+<rect width="1100" height="1050" rx="20" fill="#f3f7fb"/>
+<g font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" fill="#1e354b">
+<text x="35" y="55" font-size="29" fill="#1e354b" font-weight="700">DMD：学生与 fake 去噪器，交替完成两种学习任务</text>
+<text x="35" y="99" font-size="24" fill="#7e4c3e" font-weight="700">A．更新学生 G：教师固定，fake 网络在此分支也固定参数</text>
+<rect x="30" y="135" width="200" height="130" rx="14" fill="#fff" stroke="#cddbe7"/>
+<rect x="290" y="135" width="220" height="130" rx="14" fill="#fff0e8" stroke="#cddbe7"/>
+<rect x="570" y="135" width="200" height="130" rx="14" fill="#fff" stroke="#cddbe7"/>
+<rect x="830" y="135" width="240" height="130" rx="14" fill="#edf4fc" stroke="#cddbe7"/>
+<text x="50" y="179" font-size="24" fill="#1e354b" font-weight="700">随机噪声 z</text>
+<text x="50" y="219" font-size="23" fill="#1e354b" font-weight="400">条件 c</text>
+<text x="311" y="179" font-size="26" fill="#1e354b" font-weight="700">学生 Gθ</text>
+<text x="311" y="219" font-size="23" fill="#1e354b" font-weight="400">一步生成</text>
+<text x="590" y="179" font-size="24" fill="#1e354b" font-weight="700">候选样本 x</text>
+<text x="590" y="219" font-size="20" fill="#1e354b" font-weight="400">保留学生计算图</text>
+<text x="850" y="179" font-size="24" fill="#1e354b" font-weight="700">加噪得到 xₜ</text>
+<text x="850" y="219" font-size="22" fill="#1e354b" font-weight="400">同一个 t、ε、c</text>
+<path d="M231,200 L282,200" fill="none" stroke="#62778c" stroke-width="2" marker-end="url(#arr)"/>
+<path d="M511,200 L562,200" fill="none" stroke="#62778c" stroke-width="2" marker-end="url(#arr)"/>
+<path d="M771,200 L822,200" fill="none" stroke="#62778c" stroke-width="2" marker-end="url(#arr)"/>
+<path d="M950,266 L950,308" fill="none" stroke="#62778c" stroke-width="2"/>
+<path d="M265,308 L950,308" fill="none" stroke="#62778c" stroke-width="2"/>
+<path d="M265,308 L265,349" fill="none" stroke="#62778c" stroke-width="2" marker-end="url(#arr)"/>
+<path d="M835,308 L835,349" fill="none" stroke="#62778c" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="30" y="356" width="470" height="174" rx="14" fill="#e7f1fb" stroke="#cddbe7"/>
+<rect x="600" y="356" width="470" height="174" rx="14" fill="#e8f5ef" stroke="#cddbe7"/>
+<text x="54" y="399" font-size="27" fill="#1e354b" font-weight="700">教师去噪器</text>
+<text x="54" y="441" font-size="23" fill="#1e354b" font-weight="400">预测去噪结果 → 目标 score</text>
+<text x="54" y="488" font-size="21" fill="#536b80" font-weight="400">s_real：由教师近似目标分布</text>
+<text x="624" y="399" font-size="27" fill="#1e354b" font-weight="700">辅助 fake 去噪器 Fφ</text>
+<text x="624" y="441" font-size="23" fill="#1e354b" font-weight="400">预测去噪结果 → 学生 score</text>
+<text x="624" y="488" font-size="21" fill="#536b80" font-weight="400">s_fake：近似当前学生分布</text>
+<path d="M265,531 L265,564" fill="none" stroke="#62778c" stroke-width="2"/>
+<path d="M835,531 L835,564" fill="none" stroke="#62778c" stroke-width="2"/>
+<path d="M265,564 L835,564" fill="none" stroke="#62778c" stroke-width="2"/>
+<path d="M550,564 L550,598" fill="none" stroke="#62778c" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="235" y="605" width="630" height="138" rx="14" fill="#f0eafa" stroke="#cddbe7"/>
+<text x="261" y="651" font-size="27" fill="#1e354b" font-weight="700">给 x 构造梯度：gₓ ∝ s_fake − s_real</text>
+<text x="261" y="692" font-size="22" fill="#1e354b" font-weight="400">固定这个方向值，经学生计算图反传并更新 θ</text>
+<text x="35" y="789" font-size="22" fill="#536b80" font-weight="400">此处分数是与图像／latent 同维的方向；不是一个标量“质量评分”。</text>
+<rect x="30" y="820" width="1040" height="193" rx="14" fill="#e8f5ef" stroke="#cddbe7"/>
+<text x="53" y="864" font-size="26" fill="#1e354b" font-weight="700">B．更新辅助网络 F：学习当前学生样本的去噪任务</text>
+<text x="53" y="908" font-size="24" fill="#1e354b" font-weight="400">stopgrad(x) → 加已知噪声 ε → Fφ 预测 → 与 ε 比较 → 更新 φ</text>
+<text x="53" y="950" font-size="22" fill="#1e354b" font-weight="400">这一分支不更新 G；学生改变后，fake 网络还要继续追踪。</text>
+<text x="53" y="990" font-size="21" fill="#536b80" font-weight="400">图仅展示分布匹配核心；原始 DMD 的学生训练还包含配对回归。</text>
+</g></svg>

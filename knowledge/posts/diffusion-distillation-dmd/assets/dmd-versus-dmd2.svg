@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="900" viewBox="0 0 1100 900" role="img" aria-labelledby="title desc">
+<title id="title">DMD、DMD2 与推理阶段的区别</title><desc id="desc">原始DMD用分布匹配和配对回归，DMD2移除回归并用两时间尺度更新、真实数据GAN和少步模拟。推理只保留学生与常规编码解码组件。</desc>
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="none" stroke="#62778c" stroke-width="1.7"/></marker></defs>
+<rect width="1100" height="900" rx="20" fill="#f3f7fb"/>
+<g font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" fill="#1e354b">
+<text x="35" y="56" font-size="31" fill="#1e354b" font-weight="700">训练阶段做得更多，推理阶段仍可很短</text>
+<text x="35" y="96" font-size="22" fill="#536b80" font-weight="400">原始 DMD 与 DMD2：保留共同核心，改变训练约束。</text>
+<rect x="30" y="126" width="505" height="390" rx="14" fill="#fff" stroke="#cddbe7"/>
+<rect x="565" y="126" width="505" height="390" rx="14" fill="#fff" stroke="#cddbe7"/>
+<text x="55" y="174" font-size="29" fill="#1e354b" font-weight="700">原始 DMD</text>
+<text x="590" y="174" font-size="29" fill="#1e354b" font-weight="700">DMD2</text>
+<text x="55" y="227" font-size="22" fill="#1e354b" font-weight="400">分布匹配：两种 score 的差</text>
+<text x="55" y="283" font-size="22" fill="#1e354b" font-weight="400">配对回归：噪声 → 教师采样目标</text>
+<text x="55" y="339" font-size="22" fill="#1e354b" font-weight="400">需预先生成教师噪声—图像对</text>
+<text x="55" y="395" font-size="22" fill="#1e354b" font-weight="400">重点：一步生成器</text>
+<text x="55" y="470" font-size="22" fill="#1e354b" font-weight="400">教师与 fake 去噪器参与训练</text>
+<text x="590" y="227" font-size="22" fill="#1e354b" font-weight="400">保留分布匹配核心</text>
+<text x="590" y="283" font-size="22" fill="#1e354b" font-weight="400">移除原始配对回归</text>
+<text x="590" y="339" font-size="22" fill="#1e354b" font-weight="400">更充分更新 fake 网络，追踪学生</text>
+<text x="590" y="395" font-size="22" fill="#1e354b" font-weight="400">真实图像 GAN 监督＋少步模拟</text>
+<text x="590" y="470" font-size="22" fill="#1e354b" font-weight="400">GAN 分支可与 fake 网络共享特征</text>
+<path d="M283,517 L283,554" fill="none" stroke="#62778c" stroke-width="2"/>
+<path d="M818,517 L818,554" fill="none" stroke="#62778c" stroke-width="2"/>
+<path d="M283,554 L818,554" fill="none" stroke="#62778c" stroke-width="2"/>
+<path d="M550,554 L550,597" fill="none" stroke="#62778c" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="30" y="605" width="1040" height="240" rx="14" fill="#eaf2fb" stroke="#cddbe7"/>
+<text x="55" y="652" font-size="29" fill="#1e354b" font-weight="700">部署推理：保留训练好的学生</text>
+<rect x="55" y="684" width="240" height="90" rx="14" fill="#fff" stroke="#cddbe7"/>
+<rect x="360" y="684" width="335" height="90" rx="14" fill="#fff" stroke="#cddbe7"/>
+<rect x="760" y="684" width="275" height="90" rx="14" fill="#fff" stroke="#cddbe7"/>
+<text x="73" y="737" font-size="24" fill="#1e354b" font-weight="400">随机噪声＋条件</text>
+<text x="378" y="737" font-size="24" fill="#1e354b" font-weight="400">学生 G：一步／指定少步</text>
+<text x="779" y="737" font-size="23" fill="#1e354b" font-weight="400">图像或干净 latent</text>
+<path d="M296,729 L352,729" fill="none" stroke="#62778c" stroke-width="2" marker-end="url(#arr)"/>
+<path d="M696,729 L752,729" fill="none" stroke="#62778c" stroke-width="2" marker-end="url(#arr)"/>
+<text x="55" y="815" font-size="22" fill="#536b80" font-weight="400">教师、fake 去噪器与 GAN 判别分支通常不参与；文本编码／VAE 解码按需保留。</text>
+<text x="35" y="883" font-size="21" fill="#536b80" font-weight="400">一步指生成网络的求值过程；不能直接等同于整套应用的总调用次数或总延迟。</text>
+</g></svg>
