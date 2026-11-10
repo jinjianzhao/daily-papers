@@ -520,7 +520,8 @@ div.pswp__img--placeholder,
     }
 
     h3 { font-size: 20px; }
-    h4 { font-size: 18px; }
+    h4 { font-size: 17px; }
+    h5 { font-size: 18px; }
 
     .inline-html-entry { margin: 18px 0; padding: 16px 18px 18px; border: 1px solid #d8e2eb; border-left: 3px solid #91abc2; border-radius: 6px; background: #fbfdff; transition: border-color .15s, background .15s; }
     .inline-html-entry.is-expanded { border-color: #b7c9d9; border-left-color: #1769aa; background: #fff; }
@@ -544,6 +545,14 @@ div.pswp__img--placeholder,
 
 
 
+    .embedded-html-viewer { position: fixed; inset: 0; z-index: 10000; display: flex; flex-direction: column; background: #fff; }
+    .embedded-html-viewer[hidden] { display: none; }
+    .embedded-html-toolbar { padding: 8px 16px; border-bottom: 1px solid #dfe4e8; background: #f5f7f8; }
+    .embedded-html-toolbar button { padding: 7px 12px; border: 1px solid #b9c9d8; border-radius: 6px; background: #fff; color: #37516a; font: inherit; cursor: pointer; }
+    .embedded-html-viewer iframe { flex: 1; width: 100%; min-height: 0; border: 0; }
+    body.embedded-html-open { overflow: hidden; }
+    body.embedded-html-open > :not(.embedded-html-viewer):not(script) { display: none !important; }
+
     /* A focused entry is emitted as title, classification, then one-line summary. */
     .academic-main h4 + p,
     .academic-main h4 + p + p,
@@ -560,16 +569,22 @@ div.pswp__img--placeholder,
     <aside class="academic-sidebar" id="academic-sidebar" aria-label="文档目录">
       <div class="toc-panel">
         <p class="toc-heading">目录</p>
-        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#2026-10-30-论文日报">2026-10-30 · 论文日报</a><a class="toc-link toc-level-2" href="#重点解析">重点解析</a><a class="toc-link toc-level-2" href="#全量论文简报">全量论文简报</a></nav>
+        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#2026-10-30-论文日报">2026-10-30 · 论文日报</a><a class="toc-link toc-level-2" href="#重点解析">重点解析</a><a class="toc-link toc-level-3" href="#3d">3D</a><a class="toc-link toc-level-4" href="#hairdeck-animation-ready-stylized-hair-cards-from-a-single-image">HairDeck: Animation-Ready Stylized Hair Cards from a Single Image</a><a class="toc-link toc-level-2" href="#全量论文简报">全量论文简报</a></nav>
       </div>
     </aside>
     <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../index.html">论文阅读首页</a> <a href="../index.html">日报目录</a> <a href="../../week/index.html">周报目录</a> <a href="../../month/index.html">月报目录</a> <a href="../../surveys/index.html">Survey</a> <a href="../../knowledge/index.html">Knowledge</a></p>
 <h1 id="2026-10-30-论文日报">2026-10-30 · 论文日报</h1>
-<blockquote>收录 <strong>9 篇</strong>论文，重点解析 <strong>0 篇</strong>。正文按需展开，或可单独打开。</blockquote>
+<blockquote>收录 <strong>10 篇</strong>论文，重点解析 <strong>1 篇</strong>。正文按需展开，或可单独打开。</blockquote>
 <h2 id="重点解析">重点解析</h2>
-<p>本期暂无重点论文解析。</p>
+<h3 id="3d">3D</h3>
+<h4 id="hairdeck-animation-ready-stylized-hair-cards-from-a-single-image">HairDeck: Animation-Ready Stylized Hair Cards from a Single Image</h4>
+<p><strong>分类：</strong> 3D；3d generation</p>
+<p>提出HairDeck，从单图生成动画就绪的风格化头发卡片，用集合扩散Transformer同时生成所有卡片和弹簧骨骼。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2610.40599v1/pipeline.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2610.40599v1/pipeline.png" alt="HairDeck: Animation-Ready Stylized Hair Cards from a Single Image 论文图" loading="lazy"></a><span class="image-caption">HairDeck: Animation-Ready Stylized Hair Cards from a Single Image 论文图</span></span></p>
+<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2610.40599v1">arXiv</a> · <a href="https://huggingface.co/papers/2610.40599">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2610.40599">AlphaXiv</a></p>
+<p><a href="../../papers/arxiv_2610.40599/index.html" data-inline-html="true">展开正文</a></p>
 <h2 id="全量论文简报">全量论文简报</h2>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2610.37695">After One-Click Video</a></td><td>其他</td><td>研究一键视频导致服务型内容涌入、推荐池机制失效，并提出伯乐系统应对。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.38678">AskStream</a></td><td>其他</td><td>提出AskStream基准，研究流式视频理解中模型主动询问缺失信息的时机与内容。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.35138">Co-Design Bench</a></td><td>其他</td><td>提出多模态协同编码基准Co-Design Bench，评估智能体模型将真实用户请求转化为代码修改的能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.39664">EditAgent</a></td><td>其他</td><td>提出EditAgent，通过扩展动作与观测空间提升智能体图像编辑的可靠性与效果。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.38425">IntReal</a></td><td>其他</td><td>提出真实世界多模态交错生成数据集IntReal及评测套件，用于诊断和提升统一多模态模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.33106">VibeGame</a></td><td>其他</td><td>提出VibeGame框架，用AI原生引擎和对抗智能体团队实现从自然语言提示到完整2D游戏项目的自动开发。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.37786">WebAnything</a></td><td>其他</td><td>提出WebAnything框架，自动从真实URL重建可扩展的网页代理环境，无需人工干预。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.38352">WeVisCut</a></td><td>其他</td><td>提出WeVisCut系统，结合反演数据训练紧凑策略，从叙述高效生成连贯长视频。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.37161">WorkFactory</a></td><td>其他</td><td>提出WorkFactory框架，从职业意图构建连贯可执行任务，以扩展工作代理的监督训练并提升性能。</td></tr></tbody></table></div></div></article></main>
+<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2610.40599v1">HairDeck</a></td><td>3D</td><td>提出HairDeck，从单图生成动画就绪的风格化头发卡片，用集合扩散Transformer同时生成所有卡片和弹簧骨骼。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.37695">After One-Click Video</a></td><td>其他</td><td>研究一键视频导致服务型内容涌入、推荐池机制失效，并提出伯乐系统应对。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.38678">AskStream</a></td><td>其他</td><td>提出AskStream基准，研究流式视频理解中模型主动询问缺失信息的时机与内容。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.35138">Co-Design Bench</a></td><td>其他</td><td>提出多模态协同编码基准Co-Design Bench，评估智能体模型将真实用户请求转化为代码修改的能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.39664">EditAgent</a></td><td>其他</td><td>提出EditAgent，通过扩展动作与观测空间提升智能体图像编辑的可靠性与效果。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.38425">IntReal</a></td><td>其他</td><td>提出真实世界多模态交错生成数据集IntReal及评测套件，用于诊断和提升统一多模态模型。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.33106">VibeGame</a></td><td>其他</td><td>提出VibeGame框架，用AI原生引擎和对抗智能体团队实现从自然语言提示到完整2D游戏项目的自动开发。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.37786">WebAnything</a></td><td>其他</td><td>提出WebAnything框架，自动从真实URL重建可扩展的网页代理环境，无需人工干预。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.38352">WeVisCut</a></td><td>其他</td><td>提出WeVisCut系统，结合反演数据训练紧凑策略，从叙述高效生成连贯长视频。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.37161">WorkFactory</a></td><td>其他</td><td>提出WorkFactory框架，从职业意图构建连贯可执行任务，以扩展工作代理的监督训练并提升性能。</td></tr></tbody></table></div></div></article></main>
   </div>
   <script>/*!
   * PhotoSwipe 5.4.4 - https://photoswipe.com
@@ -923,6 +938,8 @@ div.pswp__img--placeholder,
     })();
 
 
+
   </script>
+
 </body>
 </html>

@@ -462,6 +462,10 @@ div.pswp__img--placeholder,
     pre code { padding: 0; background: none; color: #24292f; }
     blockquote { margin: 20px 0; padding: 12px 18px; border-left: 4px solid #2f6f62; background: #f1f7f5; color: #34443f; }
     .mermaid { display: flex; justify-content: center; overflow-x: auto; margin: 22px 0; padding: 22px; border: 1px solid #dfe4e8; border-radius: 6px; background: #fbfcfc; }
+    .trial-mesh-panel { margin: 28px 0; padding: 18px; border: 1px solid #dfe4e8; border-radius: 10px; background: #fbfcfc; }
+    .trial-mesh-panel h3 { margin: 0 0 14px; }
+    .trial-mesh-policy { margin: 0 0 12px; color: #64748b; font-size: 12px; line-height: 1.5; }
+    .trial-mesh-files { margin: 10px 0 0; color: #64748b; font-size: 12px; }
     .table-wrap { overflow-x: auto; margin: 18px 0; }
     table { width: 100%; border-collapse: collapse; font-size: 14px; }
     th, td { padding: 10px 12px; border: 1px solid #dfe4e8; text-align: left; vertical-align: top; }
@@ -471,7 +475,7 @@ div.pswp__img--placeholder,
 
     html { scroll-padding-top: 24px; }
     body { background: #f8fafc; }
-    .academic-shell { width: min(1440px, calc(100% - 40px)); margin: 0 auto; padding: 32px 0 80px; display: grid; grid-template-columns: 272px minmax(0, 1120px); justify-content: center; gap: 32px; align-items: start; }
+    .academic-shell { width: min(1840px, calc(100% - 40px)); margin: 0 auto; padding: 32px 0 80px; display: grid; grid-template-columns: 272px minmax(0, 1500px); justify-content: center; gap: 32px; align-items: start; }
     .academic-sidebar { position: sticky; top: 24px; max-height: calc(100vh - 48px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #cbd5e1 transparent; }
     .toc-panel { border: 1px solid #e2e8f0; border-radius: 16px; background: rgba(255, 255, 255, .96); padding: 16px 12px; box-shadow: 0 8px 24px rgba(15, 23, 42, .05); }
     .toc-heading { margin: 0 8px 10px; color: #94a3b8; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
@@ -487,7 +491,7 @@ div.pswp__img--placeholder,
     .toc-level-6 { padding-left: 52px; font-size: 11px; }
     .toc-empty { margin: 8px; color: #94a3b8; font-size: 12px; }
     .toc-collapse-button { display: inline-flex; position: fixed; z-index: 70; top: 24px; left: 12px; align-items: center; gap: 7px; padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 8px; background: rgba(255, 255, 255, .96); color: #475569; font: inherit; font-size: 12px; font-weight: 700; box-shadow: 0 6px 18px rgba(15, 23, 42, .08); cursor: pointer; }
-    body.toc-collapsed .academic-shell { grid-template-columns: minmax(0, 1120px); gap: 0; }
+    body.toc-collapsed .academic-shell { grid-template-columns: minmax(0, 1500px); gap: 0; }
     body.toc-collapsed .academic-sidebar { display: none; }
     .academic-main { width: 100%; min-width: 0; margin: 0; padding: 0; }
     .academic-main article { border-color: #e2e8f0; border-radius: 18px; padding: 48px 44px 64px; box-shadow: 0 10px 32px rgba(15, 23, 42, .06); }
@@ -516,7 +520,8 @@ div.pswp__img--placeholder,
     }
 
     h3 { font-size: 20px; }
-    h4 { font-size: 18px; }
+    h4 { font-size: 17px; }
+    h5 { font-size: 18px; }
 
     .inline-html-entry { margin: 18px 0; padding: 16px 18px 18px; border: 1px solid #d8e2eb; border-left: 3px solid #91abc2; border-radius: 6px; background: #fbfdff; transition: border-color .15s, background .15s; }
     .inline-html-entry.is-expanded { border-color: #b7c9d9; border-left-color: #1769aa; background: #fff; }
@@ -540,6 +545,14 @@ div.pswp__img--placeholder,
 
 
 
+    .embedded-html-viewer { position: fixed; inset: 0; z-index: 10000; display: flex; flex-direction: column; background: #fff; }
+    .embedded-html-viewer[hidden] { display: none; }
+    .embedded-html-toolbar { padding: 8px 16px; border-bottom: 1px solid #dfe4e8; background: #f5f7f8; }
+    .embedded-html-toolbar button { padding: 7px 12px; border: 1px solid #b9c9d8; border-radius: 6px; background: #fff; color: #37516a; font: inherit; cursor: pointer; }
+    .embedded-html-viewer iframe { flex: 1; width: 100%; min-height: 0; border: 0; }
+    body.embedded-html-open { overflow: hidden; }
+    body.embedded-html-open > :not(.embedded-html-viewer):not(script) { display: none !important; }
+
     /* A focused entry is emitted as title, classification, then one-line summary. */
     .academic-main h4 + p,
     .academic-main h4 + p + p,
@@ -556,12 +569,12 @@ div.pswp__img--placeholder,
     <aside class="academic-sidebar" id="academic-sidebar" aria-label="文档目录">
       <div class="toc-panel">
         <p class="toc-heading">目录</p>
-        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#2026-09-23-论文日报">2026-09-23 · 论文日报</a><a class="toc-link toc-level-2" href="#重点解析">重点解析</a><a class="toc-link toc-level-3" href="#3d">3D</a><a class="toc-link toc-level-4" href="#gae-learning-a-geometry-native-latent-space-for-3d-consistent-world-generation">GAE: Learning a Geometry-Native Latent Space for 3D-Consistent World Generation</a><a class="toc-link toc-level-4" href="#geometric-and-semantic-coupling-for-interaction-understanding-in-3d-scenes">Geometric and Semantic Coupling for Interaction Understanding in 3D Scenes</a><a class="toc-link toc-level-3" href="#视频">视频</a><a class="toc-link toc-level-4" href="#gae-learning-a-geometry-native-latent-space-for-3d-consistent-world-generation-2">GAE: Learning a Geometry-Native Latent Space for 3D-Consistent World Generation</a><a class="toc-link toc-level-2" href="#全量论文简报">全量论文简报</a></nav>
+        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#2026-09-23-论文日报">2026-09-23 · 论文日报</a><a class="toc-link toc-level-2" href="#重点解析">重点解析</a><a class="toc-link toc-level-3" href="#3d">3D</a><a class="toc-link toc-level-4" href="#gae-learning-a-geometry-native-latent-space-for-3d-consistent-world-generation">GAE: Learning a Geometry-Native Latent Space for 3D-Consistent World Generation</a><a class="toc-link toc-level-4" href="#geometric-and-semantic-coupling-for-interaction-understanding-in-3d-scenes">Geometric and Semantic Coupling for Interaction Understanding in 3D Scenes</a><a class="toc-link toc-level-4" href="#harmony-hierarchical-agentic-reasoning-for-monocular-image-to-scene-synthesis">HARMONY: Hierarchical Agentic Reasoning for MONocular Image-to-Scene Synthesis</a><a class="toc-link toc-level-3" href="#视频">视频</a><a class="toc-link toc-level-4" href="#gae-learning-a-geometry-native-latent-space-for-3d-consistent-world-generation-2">GAE: Learning a Geometry-Native Latent Space for 3D-Consistent World Generation</a><a class="toc-link toc-level-2" href="#全量论文简报">全量论文简报</a></nav>
       </div>
     </aside>
-    <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../index.html">论文阅读首页</a> <a href="../index.html">日报目录</a> <a href="../../week/index.html">周报目录</a> <a href="../../month/index.html">月报目录</a></p>
+    <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../index.html">论文阅读首页</a> <a href="../index.html">日报目录</a> <a href="../../week/index.html">周报目录</a> <a href="../../month/index.html">月报目录</a> <a href="../../surveys/index.html">Survey</a> <a href="../../knowledge/index.html">Knowledge</a></p>
 <h1 id="2026-09-23-论文日报">2026-09-23 · 论文日报</h1>
-<blockquote>收录 <strong>23 篇</strong>论文，重点解析 <strong>2 篇</strong>。正文按需展开，或可单独打开。</blockquote>
+<blockquote>收录 <strong>24 篇</strong>论文，重点解析 <strong>3 篇</strong>。正文按需展开，或可单独打开。</blockquote>
 <h2 id="重点解析">重点解析</h2>
 <h3 id="3d">3D</h3>
 <h4 id="gae-learning-a-geometry-native-latent-space-for-3d-consistent-world-generation">GAE: Learning a Geometry-Native Latent Space for 3D-Consistent World Generation</h4>
@@ -576,6 +589,12 @@ div.pswp__img--placeholder,
 <p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.25247v1/pipeline_rgb.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.25247v1/pipeline_rgb.png" alt="Geometric and Semantic Coupling for Interaction Understanding in 3D Scenes 论文图" loading="lazy"></a><span class="image-caption">Geometric and Semantic Coupling for Interaction Understanding in 3D Scenes 论文图</span></span></p>
 <p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.25247">arXiv</a> · <a href="https://huggingface.co/papers/2609.25247">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.25247">AlphaXiv</a></p>
 <p><a href="../../papers/arxiv_2609.25247/index.html" data-inline-html="true">展开正文</a></p>
+<h4 id="harmony-hierarchical-agentic-reasoning-for-monocular-image-to-scene-synthesis">HARMONY: Hierarchical Agentic Reasoning for MONocular Image-to-Scene Synthesis</h4>
+<p><strong>分类：</strong> 3D；3D reconstruction</p>
+<p>提出HARMONY分层推理框架，结合智能体与视觉几何，从单目图像重建语义对齐的三维场景。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2609.26793v2/HARMONY_pipeline_new_cropped_compressed.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2609.26793v2/HARMONY_pipeline_new_cropped_compressed.png" alt="HARMONY: Hierarchical Agentic Reasoning for MONocular Image-to-Scene Synthesis 论文图" loading="lazy"></a><span class="image-caption">HARMONY: Hierarchical Agentic Reasoning for MONocular Image-to-Scene Synthesis 论文图</span></span></p>
+<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.26793v2">arXiv</a> · <a href="https://huggingface.co/papers/2609.26793">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.26793">AlphaXiv</a></p>
+<p><a href="../../papers/arxiv_2609.26793/index.html" data-inline-html="true">展开正文</a></p>
 <h3 id="视频">视频</h3>
 <h4 id="gae-learning-a-geometry-native-latent-space-for-3d-consistent-world-generation-2">GAE: Learning a Geometry-Native Latent Space for 3D-Consistent World Generation</h4>
 <p><strong>分类：</strong> 视频 / 3D；video world model、3D world model</p>
@@ -584,7 +603,7 @@ div.pswp__img--placeholder,
 <p><strong>来源：</strong> <a href="https://arxiv.org/abs/2609.24981">arXiv</a> · <a href="https://huggingface.co/papers/2609.24981">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2609.24981">AlphaXiv</a></p>
 <p><a href="../../papers/arxiv_2609.24981/index.html" data-inline-html="true">展开正文</a></p>
 <h2 id="全量论文简报">全量论文简报</h2>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.24981">GAE</a></td><td>视频 / 3D</td><td>提出几何原生隐空间GAE，统一感知与生成，提升3D一致世界生成质量。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25247">Geometric and Semantic Coupling for Interaction Understanding in 3D Scenes</a></td><td>3D</td><td>提出Segment-Snap，通过几何与语义耦合实现3D场景中部件、运动和操作区域的联合理解。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.26781">Agensh</a></td><td>其他</td><td>提出无中心协调器的多智能体框架Agensh，将智能体规模扩展至1024个，提升复杂任务性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24058">All-in-One Multilingual Scene Text Recognition with Script-aware Mixture-of-Experts</a></td><td>其他</td><td>提出脚本感知混合专家模型，构建多语种场景文本数据集，实现轻量高精度的统一识别器。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22323">ALPINE</a></td><td>其他</td><td>提出一种超轻量级自适应定位的少样本图像分类架构，在极低参数和训练样本下提升精度与鲁棒性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15987">Bellman Policy Optimization</a></td><td>其他</td><td>提出贝尔曼策略优化BPO，用贝尔曼方程重写策略镜像下降，免评论家训练大模型推理。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.26346">Blaming Across the Aisle</a></td><td>其他</td><td>研究丹麦议会1997-2026年指责归因，构建BlameBERT分类器，揭示意识形态不对称的政治话语硬化。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24657">Circuit Hypernetworks for Quantum-Augmented Diffusion Language Models</a></td><td>其他</td><td>提出HyperQ，用量子残差分支增强冻结扩散语言模型，实现量子增强语言建模。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22319">Embedding Physics Priors in Robot Learning</a></td><td>其他</td><td>综述物理先验嵌入机器人学习的方法，提出统一分类法并分析挑战与方向。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24967">Emergent Collusion in Long-Horizon LLM Agent Interaction</a></td><td>其他</td><td>研究LLM智能体在长期多智能体交互中合谋行为的涌现及其影响因素。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.26796">Flash-dLLM</a></td><td>其他</td><td>提出Flash-dLLM，用IO感知KV缓存与并行解码加速扩散LLM推理。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25186">From Pattern Recognizers to Personalized Companions</a></td><td>其他</td><td>综述大语言模型在心理健康中的三个阶段演进，从信息工具到个性化陪伴。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25267">ImIR</a></td><td>其他</td><td>提出ImIR，用图像自身生成指令微调模型，实现多退化类型的全合一图像恢复。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.26550">JEV-as-a-Judge</a></td><td>其他</td><td>研究决策型裁判JEV作为经济初筛，不确定时升级强裁判，保精度降成本。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25053">LatentPort</a></td><td>其他</td><td>提出混合状态迁移方法，实现4B到9B混合语言模型间直接传递记忆状态，无需重读上下文。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25199">Lean Pool</a></td><td>其他</td><td>介绍AI维护的形式化数学仓库Lean Pool，其由AI代理增长、维护和优化。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25165">Ovis-Embedding</a></td><td>其他</td><td>本文提出Ovis-Embedding，一种基于共享多模态主干的全模态嵌入模型，在多项基准上达到最优。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.26457">Recursive self-improvement of AI research agents</a></td><td>其他</td><td>提出AIDE^2系统，让AI研究代理通过递归自我改进提升自身研究效率，并在多个基准上验证泛化。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25636">RoboFollow</a></td><td>其他</td><td>提出RoboFollow诊断基准，揭示具身智能体指令跟随能力被低场景熵掩盖的真相。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25270">RULER</a></td><td>其他</td><td>提出RULER，用实例感知的rubric奖励优化SVG生成，提升文本到SVG质量。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.26774">StableVQ</a></td><td>其他</td><td>针对VQ tokenizer训练不稳定的问题，提出StableVQ，通过解耦编码器-解码器与码本优化目标提升稳定性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25804">The Tasteful Agent</a></td><td>其他</td><td>提出Taste-Bench基准与蒸馏训练法，衡量并改善长程任务中智能体的决策品味。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.06011">Tri-PvP</a></td><td>其他</td><td>提出Tri-PvP基准，揭示全模态大语言模型在跨模态冲突中的模态偏好与证据形式偏好。</td></tr></tbody></table></div></div></article></main>
+<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2609.24981">GAE</a></td><td>视频 / 3D</td><td>提出几何原生隐空间GAE，统一感知与生成，提升3D一致世界生成质量。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25247">Geometric and Semantic Coupling for Interaction Understanding in 3D Scenes</a></td><td>3D</td><td>提出Segment-Snap，通过几何与语义耦合实现3D场景中部件、运动和操作区域的联合理解。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.26793v2">HARMONY</a></td><td>3D</td><td>提出HARMONY分层推理框架，结合智能体与视觉几何，从单目图像重建语义对齐的三维场景。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.26781">Agensh</a></td><td>其他</td><td>提出无中心协调器的多智能体框架Agensh，将智能体规模扩展至1024个，提升复杂任务性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24058">All-in-One Multilingual Scene Text Recognition with Script-aware Mixture-of-Experts</a></td><td>其他</td><td>提出脚本感知混合专家模型，构建多语种场景文本数据集，实现轻量高精度的统一识别器。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22323">ALPINE</a></td><td>其他</td><td>提出一种超轻量级自适应定位的少样本图像分类架构，在极低参数和训练样本下提升精度与鲁棒性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.15987">Bellman Policy Optimization</a></td><td>其他</td><td>提出贝尔曼策略优化BPO，用贝尔曼方程重写策略镜像下降，免评论家训练大模型推理。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.26346">Blaming Across the Aisle</a></td><td>其他</td><td>研究丹麦议会1997-2026年指责归因，构建BlameBERT分类器，揭示意识形态不对称的政治话语硬化。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24657">Circuit Hypernetworks for Quantum-Augmented Diffusion Language Models</a></td><td>其他</td><td>提出HyperQ，用量子残差分支增强冻结扩散语言模型，实现量子增强语言建模。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.22319">Embedding Physics Priors in Robot Learning</a></td><td>其他</td><td>综述物理先验嵌入机器人学习的方法，提出统一分类法并分析挑战与方向。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.24967">Emergent Collusion in Long-Horizon LLM Agent Interaction</a></td><td>其他</td><td>研究LLM智能体在长期多智能体交互中合谋行为的涌现及其影响因素。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.26796">Flash-dLLM</a></td><td>其他</td><td>提出Flash-dLLM，用IO感知KV缓存与并行解码加速扩散LLM推理。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25186">From Pattern Recognizers to Personalized Companions</a></td><td>其他</td><td>综述大语言模型在心理健康中的三个阶段演进，从信息工具到个性化陪伴。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25267">ImIR</a></td><td>其他</td><td>提出ImIR，用图像自身生成指令微调模型，实现多退化类型的全合一图像恢复。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.26550">JEV-as-a-Judge</a></td><td>其他</td><td>研究决策型裁判JEV作为经济初筛，不确定时升级强裁判，保精度降成本。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25053">LatentPort</a></td><td>其他</td><td>提出混合状态迁移方法，实现4B到9B混合语言模型间直接传递记忆状态，无需重读上下文。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25199">Lean Pool</a></td><td>其他</td><td>介绍AI维护的形式化数学仓库Lean Pool，其由AI代理增长、维护和优化。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25165">Ovis-Embedding</a></td><td>其他</td><td>本文提出Ovis-Embedding，一种基于共享多模态主干的全模态嵌入模型，在多项基准上达到最优。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.26457">Recursive self-improvement of AI research agents</a></td><td>其他</td><td>提出AIDE^2系统，让AI研究代理通过递归自我改进提升自身研究效率，并在多个基准上验证泛化。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25636">RoboFollow</a></td><td>其他</td><td>提出RoboFollow诊断基准，揭示具身智能体指令跟随能力被低场景熵掩盖的真相。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25270">RULER</a></td><td>其他</td><td>提出RULER，用实例感知的rubric奖励优化SVG生成，提升文本到SVG质量。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.26774">StableVQ</a></td><td>其他</td><td>针对VQ tokenizer训练不稳定的问题，提出StableVQ，通过解耦编码器-解码器与码本优化目标提升稳定性。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.25804">The Tasteful Agent</a></td><td>其他</td><td>提出Taste-Bench基准与蒸馏训练法，衡量并改善长程任务中智能体的决策品味。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.06011">Tri-PvP</a></td><td>其他</td><td>提出Tri-PvP基准，揭示全模态大语言模型在跨模态冲突中的模态偏好与证据形式偏好。</td></tr></tbody></table></div></div></article></main>
   </div>
   <script>/*!
   * PhotoSwipe 5.4.4 - https://photoswipe.com
@@ -938,6 +957,8 @@ div.pswp__img--placeholder,
     })();
 
 
+
   </script>
+
 </body>
 </html>

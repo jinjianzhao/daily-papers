@@ -520,7 +520,8 @@ div.pswp__img--placeholder,
     }
 
     h3 { font-size: 20px; }
-    h4 { font-size: 18px; }
+    h4 { font-size: 17px; }
+    h5 { font-size: 18px; }
 
     .inline-html-entry { margin: 18px 0; padding: 16px 18px 18px; border: 1px solid #d8e2eb; border-left: 3px solid #91abc2; border-radius: 6px; background: #fbfdff; transition: border-color .15s, background .15s; }
     .inline-html-entry.is-expanded { border-color: #b7c9d9; border-left-color: #1769aa; background: #fff; }
@@ -544,6 +545,14 @@ div.pswp__img--placeholder,
 
 
 
+    .embedded-html-viewer { position: fixed; inset: 0; z-index: 10000; display: flex; flex-direction: column; background: #fff; }
+    .embedded-html-viewer[hidden] { display: none; }
+    .embedded-html-toolbar { padding: 8px 16px; border-bottom: 1px solid #dfe4e8; background: #f5f7f8; }
+    .embedded-html-toolbar button { padding: 7px 12px; border: 1px solid #b9c9d8; border-radius: 6px; background: #fff; color: #37516a; font: inherit; cursor: pointer; }
+    .embedded-html-viewer iframe { flex: 1; width: 100%; min-height: 0; border: 0; }
+    body.embedded-html-open { overflow: hidden; }
+    body.embedded-html-open > :not(.embedded-html-viewer):not(script) { display: none !important; }
+
     /* A focused entry is emitted as title, classification, then one-line summary. */
     .academic-main h4 + p,
     .academic-main h4 + p + p,
@@ -560,12 +569,12 @@ div.pswp__img--placeholder,
     <aside class="academic-sidebar" id="academic-sidebar" aria-label="文档目录">
       <div class="toc-panel">
         <p class="toc-heading">目录</p>
-        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#2026-10-13-论文日报">2026-10-13 · 论文日报</a><a class="toc-link toc-level-2" href="#重点解析">重点解析</a><a class="toc-link toc-level-3" href="#3d">3D</a><a class="toc-link toc-level-4" href="#t3lescope-arbitrary-resolution-high-fidelity-generative-surface-reconstruction-from-images">T3lescope: Arbitrary-Resolution High-Fidelity Generative Surface Reconstruction from Images</a><a class="toc-link toc-level-2" href="#全量论文简报">全量论文简报</a></nav>
+        <nav class="toc-nav" id="toc-nav"><a class="toc-link toc-level-1" href="#2026-10-13-论文日报">2026-10-13 · 论文日报</a><a class="toc-link toc-level-2" href="#重点解析">重点解析</a><a class="toc-link toc-level-3" href="#3d">3D</a><a class="toc-link toc-level-4" href="#t3lescope-arbitrary-resolution-high-fidelity-generative-surface-reconstruction-from-images">T3lescope: Arbitrary-Resolution High-Fidelity Generative Surface Reconstruction from Images</a><a class="toc-link toc-level-4" href="#unitas-a-3d-native-world-action-model-for-embodied-manipulation">UNITAS: A 3D-Native World Action Model for Embodied Manipulation</a><a class="toc-link toc-level-2" href="#全量论文简报">全量论文简报</a></nav>
       </div>
     </aside>
     <main class="academic-main"><article><div class="markdown-image-gallery"><p><a href="../../index.html">论文阅读首页</a> <a href="../index.html">日报目录</a> <a href="../../week/index.html">周报目录</a> <a href="../../month/index.html">月报目录</a> <a href="../../surveys/index.html">Survey</a> <a href="../../knowledge/index.html">Knowledge</a></p>
 <h1 id="2026-10-13-论文日报">2026-10-13 · 论文日报</h1>
-<blockquote>收录 <strong>15 篇</strong>论文，重点解析 <strong>1 篇</strong>。正文按需展开，或可单独打开。</blockquote>
+<blockquote>收录 <strong>16 篇</strong>论文，重点解析 <strong>2 篇</strong>。正文按需展开，或可单独打开。</blockquote>
 <h2 id="重点解析">重点解析</h2>
 <h3 id="3d">3D</h3>
 <h4 id="t3lescope-arbitrary-resolution-high-fidelity-generative-surface-reconstruction-from-images">T3lescope: Arbitrary-Resolution High-Fidelity Generative Surface Reconstruction from Images</h4>
@@ -574,8 +583,14 @@ div.pswp__img--placeholder,
 <p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2610.03308v1/imgs/teaser/c1_l1_2x.jpg" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2610.03308v1/imgs/teaser/c1_l1_2x.jpg" alt="T3lescope: Arbitrary-Resolution High-Fidelity Generative Surface Reconstruction from Images 论文图" loading="lazy"></a><span class="image-caption">T3lescope: Arbitrary-Resolution High-Fidelity Generative Surface Reconstruction from Images 论文图</span></span></p>
 <p><strong>来源：</strong> <a href="https://arxiv.org/abs/2610.03308">arXiv</a> · <a href="https://huggingface.co/papers/2610.03308">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2610.03308">AlphaXiv</a></p>
 <p><a href="../../papers/arxiv_2610.03308/index.html" data-inline-html="true">展开正文</a></p>
+<h4 id="unitas-a-3d-native-world-action-model-for-embodied-manipulation">UNITAS: A 3D-Native World Action Model for Embodied Manipulation</h4>
+<p><strong>分类：</strong> 3D；3D world model</p>
+<p>提出首个3D原生世界动作模型UNITAS，统一机器人操作中的动作与场景动态预测。</p>
+<p><span class="embedded-image"><a class="pswp-image" href="https://arxiv.org/html/2610.12099v1/unitas_overview.png" data-pswp-width="1" data-pswp-height="1" data-reference-image="true"><img src="https://arxiv.org/html/2610.12099v1/unitas_overview.png" alt="UNITAS: A 3D-Native World Action Model for Embodied Manipulation 论文图" loading="lazy"></a><span class="image-caption">UNITAS: A 3D-Native World Action Model for Embodied Manipulation 论文图</span></span></p>
+<p><strong>来源：</strong> <a href="https://arxiv.org/abs/2610.12099v1">arXiv</a> · <a href="https://huggingface.co/papers/2610.12099">HF Paper</a> · <a href="https://www.alphaxiv.org/zh/overview/2610.12099">AlphaXiv</a></p>
+<p><a href="../../papers/arxiv_2610.12099/index.html" data-inline-html="true">展开正文</a></p>
 <h2 id="全量论文简报">全量论文简报</h2>
-<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2610.03308">T3lescope</a></td><td>3D</td><td>提出T3lescope，通过推理时粗到细级联，实现从图像任意分辨率生成高保真三维表面网格。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.13361">AgentSWE</a></td><td>其他</td><td>提出代理软件工程基准AgentSWE，评估编码智能体构建代理能力，发现均无法真正满足需求。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.09396">ARCS</a></td><td>其他</td><td>提出结构化消歧范式并构建ARCS基准，提升文本到SQL在真实歧义下的精度。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.36616">CrossTimeEdit</a></td><td>其他</td><td>构建跨十年跨视角数据集VIGOR-his，提出CrossTimeEdit模型以编辑方式实现历史街景生成。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.39600">GroundAnything</a></td><td>其他</td><td>提出GroundAnything双向扩散视觉定位模型，融合并行解码与精准定位。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.39601">GroundingPI</a></td><td>其他</td><td>提出GroundingPI，一种4B接地基础模型，以点框坐标统一表示，在多项感知与机器人下游任务中刷新最优。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.12933">Learning More by Training Less</a></td><td>其他</td><td>提出不确定性引导的渐进收缩框架，压缩推理监督数据，大幅降低训练成本并保持或提升性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.13630">Multi-Stream Attention Residuals</a></td><td>其他</td><td>提出多流注意力残差MSAR，将注意力残差扩展为多头深度注意力，以提升大规模预训练效率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.33304">Relevance Does Not Imply Applicability</a></td><td>其他</td><td>提出ExpActivator框架，按当前情境激活适用经验，提升个人GUI代理的个性化执行性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.13166">Scaling Agentic Data for Long-Horizon Terminal Intelligence</a></td><td>其他</td><td>提出TerminalHorizon引擎，自动生成长时程终端智能体数据，微调模型并在12个基准上显著提升。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.13832">SpatialASM</a></td><td>其他</td><td>提出SpatialASM框架，通过训练时空间模拟将主动空间心智化内化到LVLMs，提升其空间推理能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.09116">SPLATIFY</a></td><td>其他</td><td>提出SPLATIFY多智能体框架，将3DGS论文自动转化为可训练代码，并实现方法发现与改进。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.35965">Systematic Multi-Agent Vision-and-Language Navigation</a></td><td>其他</td><td>提出多智能体视觉语言导航的系统化形式化、基准和方法，并给出TRISS基线。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.11765">Thinking Inertia</a></td><td>其他</td><td>研究LLM的“不思考”行为，提出三级评估指标，发现显式控制无法可靠消除推理，模型存在思考惯性。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.09326">VIS-Ground</a></td><td>其他</td><td>提出VIS-Ground，通过上下文接地实现视频交互式叙事，提升生成一致性。</td></tr></tbody></table></div></div></article></main>
+<div class="table-wrap"><table><thead><tr><th>论文</th><th>领域</th><th>一句话介绍</th></tr></thead><tbody><tr><td><a href="https://arxiv.org/abs/2610.03308">T3lescope</a></td><td>3D</td><td>提出T3lescope，通过推理时粗到细级联，实现从图像任意分辨率生成高保真三维表面网格。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.12099v1">UNITAS</a></td><td>3D</td><td>提出首个3D原生世界动作模型UNITAS，统一机器人操作中的动作与场景动态预测。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.13361">AgentSWE</a></td><td>其他</td><td>提出代理软件工程基准AgentSWE，评估编码智能体构建代理能力，发现均无法真正满足需求。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.09396">ARCS</a></td><td>其他</td><td>提出结构化消歧范式并构建ARCS基准，提升文本到SQL在真实歧义下的精度。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.36616">CrossTimeEdit</a></td><td>其他</td><td>构建跨十年跨视角数据集VIGOR-his，提出CrossTimeEdit模型以编辑方式实现历史街景生成。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.39600">GroundAnything</a></td><td>其他</td><td>提出GroundAnything双向扩散视觉定位模型，融合并行解码与精准定位。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.39601">GroundingPI</a></td><td>其他</td><td>提出GroundingPI，一种4B接地基础模型，以点框坐标统一表示，在多项感知与机器人下游任务中刷新最优。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.12933">Learning More by Training Less</a></td><td>其他</td><td>提出不确定性引导的渐进收缩框架，压缩推理监督数据，大幅降低训练成本并保持或提升性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.13630">Multi-Stream Attention Residuals</a></td><td>其他</td><td>提出多流注意力残差MSAR，将注意力残差扩展为多头深度注意力，以提升大规模预训练效率。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.33304">Relevance Does Not Imply Applicability</a></td><td>其他</td><td>提出ExpActivator框架，按当前情境激活适用经验，提升个人GUI代理的个性化执行性能。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.13166">Scaling Agentic Data for Long-Horizon Terminal Intelligence</a></td><td>其他</td><td>提出TerminalHorizon引擎，自动生成长时程终端智能体数据，微调模型并在12个基准上显著提升。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.13832">SpatialASM</a></td><td>其他</td><td>提出SpatialASM框架，通过训练时空间模拟将主动空间心智化内化到LVLMs，提升其空间推理能力。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.09116">SPLATIFY</a></td><td>其他</td><td>提出SPLATIFY多智能体框架，将3DGS论文自动转化为可训练代码，并实现方法发现与改进。</td></tr><tr><td><a href="https://arxiv.org/abs/2609.35965">Systematic Multi-Agent Vision-and-Language Navigation</a></td><td>其他</td><td>提出多智能体视觉语言导航的系统化形式化、基准和方法，并给出TRISS基线。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.11765">Thinking Inertia</a></td><td>其他</td><td>研究LLM的“不思考”行为，提出三级评估指标，发现显式控制无法可靠消除推理，模型存在思考惯性。</td></tr><tr><td><a href="https://arxiv.org/abs/2610.09326">VIS-Ground</a></td><td>其他</td><td>提出VIS-Ground，通过上下文接地实现视频交互式叙事，提升生成一致性。</td></tr></tbody></table></div></div></article></main>
   </div>
   <script>/*!
   * PhotoSwipe 5.4.4 - https://photoswipe.com
@@ -929,6 +944,8 @@ div.pswp__img--placeholder,
     })();
 
 
+
   </script>
+
 </body>
 </html>
